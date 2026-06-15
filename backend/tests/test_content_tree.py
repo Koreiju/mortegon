@@ -151,6 +151,31 @@ def test_cyrillic_duplicate_collapses():
     assert fields_to_content_tree(f) == "Война и мир"
 
 
+# --- Embedded-HTML defence (real-site breadth: tracking pixels / noscript /
+# style blobs appear as text leaves on many sites; the slate is pure text §T). -
+
+def test_pure_markup_value_dropped():
+    # a tracking <iframe>/<img> captured as a text leaf must NOT leak markup;
+    # pure markup reduces to empty and is dropped (surfaced by the 61-site
+    # real-pipeline breadth run: 266 violations across 21 sites before the fix).
+    f = {
+        "/n/text()": ['<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-X"></iframe>'],
+        "/h3/text()": ["Real Title"],
+    }
+    assert fields_to_content_tree(f) == "Real Title"
+
+
+def test_inline_tags_become_plain_text():
+    f = {"/p/text()": ["use <b>bold</b> and <i>italic</i> words"]}
+    assert fields_to_content_tree(f) == "use bold and italic words"
+
+
+def test_stray_angle_brackets_preserved():
+    # NOT html — comparison/math/price text must survive verbatim
+    f = {"/p/text()": ["if a < b and x > y then price <$5"]}
+    assert fields_to_content_tree(f) == "if a < b and x > y then price <$5"
+
+
 if __name__ == "__main__":
     print("=== content tree for the §U fields ===")
     print(fields_to_content_tree(GOLDEN_FIELDS))

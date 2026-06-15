@@ -68,9 +68,23 @@ _WS_RE = re.compile(r"\s+")
 _TOKEN_RE = re.compile(r"[^\W_]+", re.UNICODE)
 
 
+# An HTML tag: '<' followed by a letter / '!' / '/' then up to the next '>'.
+# Requiring that first char keeps stray '<'/'>' in real text ("a < b", "x > y",
+# "price <$5") intact while matching real markup (<iframe…>, <img…>, <style>,
+# </p>, <!--…-->).
+_HTML_TAG_RE = re.compile(r"<[a-zA-Z!/][^>]*>")
+
+
 def _norm(value: Any) -> str:
-    """Whitespace-collapse + trim a scalar value to a single clean string."""
-    return _WS_RE.sub(" ", str(value)).strip()
+    """Whitespace-collapse + trim a scalar value to a single clean string.
+
+    Also STRIP embedded HTML tags: across a large spectrum of real sites some
+    ``fields`` text leaves carry serialized markup (tracking ``<iframe>``/
+    ``<img>`` pixels, ``<noscript>`` / ``<style>`` blobs) that the slate must
+    never render verbatim (§T pure-text). Stripping reduces inline-tagged text
+    to plain text and pure-markup elements to empty (then dropped by callers)."""
+    s = _HTML_TAG_RE.sub(" ", str(value))
+    return _WS_RE.sub(" ", s).strip()
 
 
 def _first_value(vals: Any) -> str:
