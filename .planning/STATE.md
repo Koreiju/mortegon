@@ -1,12 +1,12 @@
 ---
 gsd_state_version: '1.0'
-status: planning
+status: executing
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 0
   completed_plans: 0
-  percent: 0
+  percent: 20
 ---
 
 # Project State
@@ -16,24 +16,31 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 1 — Honest Baseline
+**Current focus:** Phase 2 — Black-Slate Field Editing (Phase 1 stub-verified complete)
 
 ## Current Position
 
-Phase: 1 of 5 (Honest Baseline)
+Phase: 2 of 5 (Black-Slate Field Editing) — Phase 1 done (stub-verified)
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
-Status: In progress — 3 of 6 requirements DONE + verified; FIX-01 partial
-Last activity: 2026-06-14 — Phase 1 execution. Commits: no-mocks SLM 503 fix (REL-01/02), dep hygiene + MDXEditor removal (HYG-01/02), canonical-launch README (HYG-01), dead-tree deletion (FIX-01 partial). Full pytest suite: 336 passed / 2 skipped / 0 failed (stub mode).
+Status: Phase 1 COMPLETE in stub mode (real-stack verify deferred to the GPU box); Phase 2 backend-side verified, EDIT-03 decided
+Last activity: 2026-06-15 — Phase 1 finished + Phase 2 backend verification. 7 commits. Full pytest 336/2-skip/0-fail; full-smoke 92/92 (stub); Phase 2 scenarios green.
 
-Progress: [█░░░░░░░░░] ~12% overall (Phase 1 ~60%)
+Progress: [██░░░░░░░░] ~22% overall (Phase 1 done; Phase 2 backend verified)
 
-### Phase 1 requirement status (2026-06-14)
-- REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; `SLMUnavailableError`→503 handler in main. Both paths verified; 4/4 SLM tests green.
+### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
+- REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
 - HYG-01 (deps pinned, kuzu 0.3.2→0.11.3, langgraph/selenium/webdriver-manager added, launch/port documented): **DONE**.
 - HYG-02 (`@mdxeditor/editor` removed, lock pruned): **DONE**.
-- FIX-01 (forbidden/legacy code): **PARTIAL** — `_legacy_frontend/`, `backend_slow/`, `cluster_distillation.py` deleted (import-clean). REMAINING: `backend/analytics/` is LOAD-BEARING (routes/dom/mapper/chat/retrieval import it) → scoped surgery to split forbidden graph-analytics *retrieval* from used utilities (pq_tree/segment_embedder/loop_closure) + matching test removal; live Fibonacci/concentric layout-path audit.
-- FIX-02 (`three-fixtures-present` scenario): **NOT RUN** — needs a backend (stub/real) up.
-- Phase-1 gate (`full-smoke` green both modes): pending a backend run; pytest suite already green.
+- FIX-01 (forbidden/legacy code): **DONE** — `_legacy_frontend/`/`backend_slow/`/`cluster_distillation.py` deleted; the forbidden graph-analytics *retrieval* tree (`analytics/algorithms/*` big set) + hyperbolic *layout* (`hyperbolic_layout.py`/`gyrovector.py`) were ALREADY removed (CODEBASE_AUDIT G8). `backend/analytics/` now holds only legitimate utilities (pq_tree/loop_closure/segment_embedder) — KEPT. Stale Fibonacci docstring fixed. Remaining grep hits are legitimate llama.cpp library refs + the no-Llama guard; the `chunk_builder` hyperbolic *clustering* metric is flagged for design review (task_e6b4743c), not a layout.
+- FIX-02 (`three-fixtures-present`): **DONE + verified** — exactly 3 fixtures, no Editor.
+- Phase-1 gate (`full-smoke`): **GREEN in stub (92/92)**. Real-mode `full-smoke` + `probe_no_mocks` need CUDA/GGUF/Selenium (GPU box) — deferred, not runnable in the agent env.
+
+### Phase 2 status (backend-side verified 2026-06-15)
+- EDIT-01 (click-to-edit field): backend `edit-field-roundtrip` **green** (editing_field lifecycle). Frontend caret-at-click already browser-verified (BLACK_SLATE_GOAL §15.7).
+- EDIT-02 (field growth + `{`-autocomplete + lifecycle): `editor-primitives-roundtrip` + `autocomplete-state-roundtrip` **green**; mutations route through `concept_lifecycle`.
+- EDIT-03 (editor-layer decision): **DECIDED — Option B (stay custom now; CM6 as tracked enhancement)**, see Decisions below.
+- `unified-node-view-states` + `compile-expand-collapse-roundtrip` (§8D.2.2) **green**.
+- REMAINING: live-browser re-verification of caret/IME/multiline in the served `/` editor; `full-smoke` stays green (it does, stub).
 
 ## Performance Metrics
 
@@ -63,7 +70,9 @@ Recent decisions affecting current work:
 
 - [Bootstrap]: Standard granularity (no config.json) → 5 phases derived gap-first; backend baseline preserved, frontend §T/§U/§V are finish-and-verify not rebuild.
 - [Bootstrap]: Editor edit-layer is a SCOPED sub-task in Phase 2 (custom vs CodeMirror 6 per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); WYSIWYG/ProseMirror/Lexical options rejected.
-- [Phase 1 scope]: No-mocks SLM remediation (REL-01) is the highest-priority gap — the SLM path must 503 on real-load failure like the embedder already does.
+- [Phase 1 scope]: No-mocks SLM remediation (REL-01) is the highest-priority gap — the SLM path must 503 on real-load failure like the embedder already does. **(Shipped 2026-06-15.)**
+- [EDIT-03, 2026-06-15]: **Editor edit-layer = Option B — stay on the custom `magic_markdown` model/vdom for now; do NOT adopt CodeMirror 6 yet.** Rationale: the custom black-slate editor is already built, tested (57 tests), and browser-verified as the served `/` frontend; "finish-and-verify, not rebuild." CM6 (Option A, behind `mount` only) remains the RECOMMENDED enhancement — adopt it when the hand-rolled caret/IME/undo/borderless-edit layer starts costing more than the integration (per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`). Milkdown/BlockNote/MDXEditor stay rejected.
+- [FIX-01 resolution, 2026-06-15]: `backend/analytics/` is KEPT (utilities only; the forbidden retrieval framework + hyperbolic layout were already removed in G8). The `chunk_builder` hyperbolic-distance *clustering* metric is a scan-time algorithm, NOT the forbidden 3D layout — kept, flagged for design review (task_e6b4743c).
 
 ### Pending Todos
 

@@ -10,8 +10,8 @@ This is a brownfield roadmap. The backend is mature and the §T black-slate fron
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Honest Baseline** - Eliminate the no-mocks SLM stub-fallback, verify exactly three fixtures, hard-delete forbidden/legacy code, pin dependencies and resolve entry-point drift.
-- [ ] **Phase 2: Black-Slate Field Editing** - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; resolve and (if chosen) integrate the CodeMirror 6 edit layer; remove the MDXEditor dependency.
+- [x] **Phase 1: Honest Baseline** *(stub-verified 2026-06-15; real-stack `full-smoke`/`probe_no_mocks` deferred to the GPU box)* - Eliminate the no-mocks SLM stub-fallback, verify exactly three fixtures, hard-delete forbidden/legacy code, pin dependencies and resolve entry-point drift.
+- [~] **Phase 2: Black-Slate Field Editing** *(backend-side verified; EDIT-03 decided = stay custom; live-browser caret re-verify pending)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; resolve and (if chosen) integrate the CodeMirror 6 edit layer; remove the MDXEditor dependency.
 - [ ] **Phase 3: HTML Dedup + Halo Retrieval Render** - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
 - [ ] **Phase 4: Live Layout, Signal & Pattern** - Finish-and-verify the 6D UMAP/HSV projection, one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
 - [ ] **Phase 5: Three-Register Synthesis & Live Acceptance** - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
@@ -83,8 +83,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Honest Baseline | 0/TBD | Not started | - |
-| 2. Black-Slate Field Editing | 0/TBD | Not started | - |
+| 1. Honest Baseline | direct | Done (stub-verified) | 2026-06-15 |
+| 2. Black-Slate Field Editing | direct | In progress (backend verified) | - |
 | 3. HTML Dedup + Halo Retrieval Render | 0/TBD | Not started | - |
 | 4. Live Layout, Signal & Pattern | 0/TBD | Not started | - |
 | 5. Three-Register Synthesis & Live Acceptance | 0/TBD | Not started | - |
