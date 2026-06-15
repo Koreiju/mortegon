@@ -60,7 +60,12 @@ KIND_LABEL = "label"
 KIND_TEXT = "text"
 
 _WS_RE = re.compile(r"\s+")
-_TOKEN_RE = re.compile(r"[a-z0-9]+")
+# Unicode-aware word runs (letters + digits across ALL scripts, minus '_'), so
+# the §U subsumption dedup works on non-ASCII content too — CJK / accented /
+# Cyrillic titles over the URL spectrum. The old `[a-z0-9]+` produced an EMPTY
+# token-set for non-Latin text (so duplicate CJK titles never collapsed) and
+# split accented words on the accent ("Amélie" → am, lie).
+_TOKEN_RE = re.compile(r"[^\W_]+", re.UNICODE)
 
 
 def _norm(value: Any) -> str:
@@ -81,7 +86,8 @@ def _first_value(vals: Any) -> str:
 
 
 def _tokens(text: str) -> frozenset:
-    """Normalised token-set for subsumption dedup (lowercase, alnum runs)."""
+    """Normalised token-set for subsumption dedup (lowercase, Unicode word
+    runs — letters+digits across scripts, so non-ASCII titles dedupe too)."""
     return frozenset(_TOKEN_RE.findall(text.lower()))
 
 

@@ -122,6 +122,35 @@ def test_data_uri_compacted_to_mediatype_marker():
     assert "Title" in out
 
 
+# --- International breadth (§U dedup over a LARGE SPECTRUM of URLs) ----------
+# The corpus spans CJK (YouTube/Japanese titles), accented Latin, Cyrillic, …
+# The old ASCII-only tokenizer (`[a-z0-9]+`) produced an EMPTY token-set for
+# non-Latin text, so duplicate non-English titles never collapsed; and it split
+# accented words on the accent ("Amélie" → am+lie). These guard the fix.
+
+def test_cjk_duplicate_title_collapses():
+    title = "日本語のタイトル ドキュメンタリー"
+    f = {"/a/@aria-label": [title], "/a/h3/text()": [title]}
+    assert fields_to_content_tree(f) == title
+
+
+def test_cjk_subset_subsumption():
+    # shorter CJK label whose token-set ⊂ a longer text is subsumed (ASCII rule)
+    f = {"/a/@title": ["東京 タワー"], "/a/text()": ["東京 タワー 夜景"]}
+    assert fields_to_content_tree(f) == "東京 タワー 夜景"
+
+
+def test_accented_exact_duplicate_collapses():
+    # "Amélie" must tokenize as one word (not am+lie) so the duplicate collapses
+    f = {"/a/@title": ["Amélie Poulain"], "/a/h3/text()": ["Amélie Poulain"]}
+    assert fields_to_content_tree(f) == "Amélie Poulain"
+
+
+def test_cyrillic_duplicate_collapses():
+    f = {"/a/@aria-label": ["Война и мир"], "/a/text()": ["Война и мир"]}
+    assert fields_to_content_tree(f) == "Война и мир"
+
+
 if __name__ == "__main__":
     print("=== content tree for the §U fields ===")
     print(fields_to_content_tree(GOLDEN_FIELDS))
