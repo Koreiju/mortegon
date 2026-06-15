@@ -1,0 +1,49 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wfh-prod",
+      "runtimeExecutable": "C:\\Users\\isaac\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8080", "--log-level", "info"],
+      "port": 8080,
+      "env": {}
+    },
+    {
+      "name": "chunk-projector",
+      "runtimeExecutable": "C:\\Users\\isaac\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8080", "--log-level", "info", "--reload"],
+      "port": 8080,
+      "env": {
+        "NO_WEBDRIVER":       "1",
+        "WFH_FAKE_EMBEDDER":  "1",
+        "WFH_FAKE_SLM":       "1"
+      }
+    },
+    {
+      "name": "wfh-preview",
+      "runtimeExecutable": "C:\\Users\\isaac\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8100", "--log-level", "info"],
+      "port": 8100,
+      "env": {
+        "NO_WEBDRIVER":       "1",
+        "WFH_FAKE_EMBEDDER":  "1",
+        "WFH_FAKE_SLM":       "1",
+        "WFH_DB_PATH":        "_preview_db"
+      }
+    },
+    {
+      "name": "mm-demo",
+      "runtimeExecutable": "C:\\Users\\isaac\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeArgs": ["backend/static/js/fe/serve_demo.py"],
+      "port": 8099,
+      "env": {}
+    },
+    {
+      "name": "mm-editor",
+      "runtimeExecutable": "C:\\Users\\isaac\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8080", "--log-level", "warning"],
+      "port": 8080,
+      "env": { "WFH_DB_PATH": ".wfh_editor_db", "WFH_SLM_DEVICE": "cuda", "WFH_EMBEDDER_DEVICE": "cuda" }
+    }
+  ]
+}

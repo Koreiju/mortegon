@@ -1,0 +1,1881 @@
+=== QUALITY REPORT: tastedive_commovieslikeTheCockpit.html ===
+Chunks: 188 (structural=4, functional=4, text=180)
+Categories: {'card': 3, 'button': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 180, 'menu_item': 2}
+Content: 230 tagged, 230 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: a.details.entity ---
+  type=card freq=57 excl=0.00
+  pattern_xpath: ///a
+  tree_sig: div(meta,meta,meta,div(div(a(div(div(img)),div(div(div),div,h3,div,div)))))
+  content: [ATTR=5 HREF=1 IMG=3 TEXT=4]
+  sample[0] (31L) [TRUNCATED]: movies Barefoot Gen 2 1986 Three years after the Hiroshima bombing, Gen and his 
+    |   <a tabindex="-1" aria-label="entity details" href="/movies/like?qid=02c1d2fb-db80-49b6-94a0-579b7208b207">
+    |     <div class="sc-f10e8383-6 fYSlrv">
+    |       <div class="sc-f10e8383-7 ifAlEK" style="--aspect-ratio: (0.675);">
+    |         <img class="sc-5f0557d7-0 YwbNX" width="100%" height="100%" alt="Picture of a movie: Barefoot Gen 2" loading="lazy" decoding="async" fetchpriority="auto" srcset="https://images.qloo.com/i/02c1d2fb-db80-49b6-94a0-579b7208b207-180x252-outside.webp 180w, https://images.qloo.com/i/02c1d2fb-db80-49b6-94a0-579b7208b207-360x504-outside.webp 2x" src="https://images.qloo.com/i/02c1d2fb-db80-49b6-94a0-579b7208b207-172x254-outside.w..."></img>
+    |       </div>
+    |     </div>
+    |     <div class="sc-f10e8383-2 bWUNhp">
+    |       <div>
+    |         <div class="sc-6dfd50d9-0 AZHpF sc-bb390e3c-0 kmWSKU">
+    |           <button type="button" class="sc-5577901-0 eJQWne opine-button like-button" aria-label="Like">
+    | ... [21 more lines]
+
+--- Chunk 1: button.button.jq ---
+  type=button freq=930 excl=1.00
+  pattern_xpath: ///button[contains(@class,'button')][contains(@class,'jq')][contains(@class,'opine')][contains(@class,'wne')][contains(@type,'button')]
+  tree_sig: button(div(svg(path)),span,span)
+  content: [ATTR=1]
+  sample[0] (9L): 
+    |   <button type="button" class="sc-5577901-0 eJQWne opine-button like-button" aria-label="Like">
+    |     <div class="sc-5577901-1 kVKswo opine-icon-wrapper">
+    |       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-name="Layer 1" viewbox="0 0 26 24">
+    |         <path d="m13 24-.76-.44C11.74 23.27 0 16.31 0 8.19A8.1 8.1 0 0 1 8 0a7.87 7.87 0 0 1 5 1...."></path>
+    |       </svg>
+    |     </div>
+    |     <span class="opine-count"></span>
+    |     <span class="opine-label"></span>
+    |   </button>
+  sample[1] (9L): 
+    |   <button type="button" class="sc-5577901-0 eJQWne opine-button dislike-button" aria-label="Dislike">
+    |     <div class="sc-5577901-1 kVKswo opine-icon-wrapper">
+    |       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-name="Layer 1" viewbox="0 0 26 24">
+    |         <path d="m24.54 3.49 1-1a1.47 1.47 0 1 0-2-2.13l-1 1a7.86 7.86 0 0 0-9.54.43A7.87 7.87 0 ..."></path>
+    |       </svg>
+    |     </div>
+    |     <span class="opine-count"></span>
+    |     <span class="opine-label"></span>
+    |   </button>
+  sample[2] (9L): 
+    |   <button type="button" class="sc-5577901-0 eJQWne opine-button dislike-button" aria-label="Dislike">
+    |     <div class="sc-5577901-1 kVKswo opine-icon-wrapper">
+    |       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-name="Layer 1" viewbox="0 0 26 24">
+    |         <path d="m24.54 3.49 1-1a1.47 1.47 0 1 0-2-2.13l-1 1a7.86 7.86 0 0 0-9.54.43A7.87 7.87 0 ..."></path>
+    |       </svg>
+    |     </div>
+    |     <span class="opine-count"></span>
+    |     <span class="opine-label"></span>
+    |   </button>
+
+--- Chunk 2: div.sc.slrv ---
+  type=card freq=22 excl=0.25
+  pattern_xpath: ///div[contains(@class,'slrv')][contains(@class,'sc')]
+  tree_sig: div(div(img))
+  content: [ATTR=1 IMG=3]
+  sample[0] (5L): Picture of a musician: 川田まみ
+    |   <div class="sc-f10e8383-6 fYSlrv">
+    |     <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |       <img class="sc-5f0557d7-0 cwaPfO" width="100%" height="100%" alt="Picture of a musician: 川田まみ" loading="lazy" decoding="async" fetchpriority="auto" srcset="https://images.qloo.com/i/130dada7-41c1-4638-8eab-554e9574e7f5-180x252-outside.webp 180w, https://images.qloo.com/i/130dada7-41c1-4638-8eab-554e9574e7f5-360x504-outside.webp 2x" src="https://images.qloo.com/i/130dada7-41c1-4638-8eab-554e9574e7f5-172x172-outside.w..."></img>
+    |     </div>
+    |   </div>
+  sample[1] (5L): Picture of a musician: 沢井美空
+    |   <div class="sc-f10e8383-6 fYSlrv">
+    |     <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |       <img class="sc-5f0557d7-0 cwaPfO" width="100%" height="100%" alt="Picture of a musician: 沢井美空" loading="lazy" decoding="async" fetchpriority="auto" srcset="https://images.qloo.com/i/1c5edbf0-5558-4454-82f8-ddd235149b51-180x252-outside.webp 180w, https://images.qloo.com/i/1c5edbf0-5558-4454-82f8-ddd235149b51-360x504-outside.webp 2x" src="https://images.qloo.com/i/1c5edbf0-5558-4454-82f8-ddd235149b51-172x172-outside.w..."></img>
+    |     </div>
+    |   </div>
+  sample[2] (5L): Picture of a podcast: Lore
+    |   <div class="sc-f10e8383-6 fYSlrv">
+    |     <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |       <img class="sc-5f0557d7-0 ibWYSU" width="100%" height="100%" alt="Picture of a podcast: Lore" loading="lazy" decoding="async" fetchpriority="auto" srcset="https://images.qloo.com/i/289af533-a998-4bce-a847-1ca47448bc56-180x252-outside.webp 180w, https://images.qloo.com/i/289af533-a998-4bce-a847-1ca47448bc56-360x504-outside.webp 2x" src="https://images.qloo.com/i/289af533-a998-4bce-a847-1ca47448bc56-172x172-outside.w..."></img>
+    |     </div>
+    |   </div>
+
+--- Chunk 3: div.sc.slrv ---
+  type=card freq=8 excl=0.25
+  pattern_xpath: ///div[contains(@class,'slrv')][contains(@class,'sc')]
+  tree_sig: div(div(div(img)))
+  content: [ATTR=1 BG=1 IMG=1]
+  sample[0] (7L): games
+    |   <div class="sc-f10e8383-6 fYSlrv">
+    |     <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |       <div class="image-wrapper games" style="width: 100%; height: 100%; background-image: url("/assets/pattern-triangle.svg"), linear-gradient(rgb(240, 245, 250), rgb(235, 230, 240)); background-size: cover;">
+    |         <img alt="games" class="sc-d896c4d9-11 MLpUS" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Eastward_game_cover_art.jpg..."></img>
+    |       </div>
+    |     </div>
+    |   </div>
+  sample[1] (7L): games
+    |   <div class="sc-f10e8383-6 fYSlrv">
+    |     <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |       <div class="image-wrapper games" style="width: 100%; height: 100%; background-image: url("/assets/pattern-triangle.svg"), linear-gradient(rgb(240, 245, 250), rgb(235, 230, 240)); background-size: cover;">
+    |         <img alt="games" class="sc-d896c4d9-11 MLpUS" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/Untitled_Goose_Game_Cover_a..."></img>
+    |       </div>
+    |     </div>
+    |   </div>
+  sample[2] (7L): games
+    |   <div class="sc-f10e8383-6 fYSlrv">
+    |     <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |       <div class="image-wrapper games" style="width: 100%; height: 100%; background-image: url("/assets/pattern-triangle.svg"), linear-gradient(rgb(240, 245, 250), rgb(235, 230, 240)); background-size: cover;">
+    |         <img alt="games" class="sc-d896c4d9-11 MLpUS" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Life_Is_Strange_-_True_Colo..."></img>
+    |       </div>
+    |     </div>
+    |   </div>
+
+--- Chunk 4: [search_inputs] ---
+  type=search_input freq=4 excl=1.00
+  pattern_xpath: ///input[contains(@id,'search')][contains(@name,'search')][contains(@type,'text')][contains(@autocomplete,'off')][contains(@class,'bw')]
+  content: [ATTR=2]
+  sample[0] (1L): Cookie list search
+    |   <input id="vendor-search-handler" type="text" name="vendor-search-handler" placeholder="Search…" aria-label="Cookie list search"></input>
+  sample[1] (1L): Cookie list search
+    |   <input id="vendor-search-handler" type="text" name="vendor-search-handler" placeholder="Search…" aria-label="Cookie list search"></input>
+  sample[2] (1L): Find something great
+    |   <input autocomplete="off" id="search-input" placeholder="Find something great" tabindex="0" type="text" class="sc-6f9f34b5-2 bwRtkH" name="searchInput" value=""></input>
+
+--- Chunk 5: [pagination_buttons] ---
+  type=pagination freq=47 excl=0.00
+  pattern_xpath: ///script
+  content: [ATTR=1 TEXT=1]
+  sample[0] (14L): Back Button
+    |   <button class="ot-link-btn back-btn-handler" aria-label="Back">
+    |     <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 444.531 444.531" xml:space="preserve">
+    |       <title>
+    |         Back Button
+    |       </title>
+    |       <g>
+    |         <path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835
+    |                     l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425
+    |                     c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564
+    |                     s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978
+    | ... [4 more lines]
+  sample[1] (12L): Back Button
+    |   <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 444.531 444.531" xml:space="preserve">
+    |     <title>
+    |       Back Button
+    |     </title>
+    |     <g>
+    |       <path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835
+    |                     l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425
+    |                     c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564
+    |                     s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978
+    |                     L213.13,222.409z"></path>
+    | ... [2 more lines]
+  sample[2] (1L): 
+    |   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png" data-next-head=""></link>
+
+--- Chunk 6: [text_content:p×2] ---
+  type=text_singleton freq=1 excl=0.83
+  pattern_xpath: ///div[contains(@class,'acc')][contains(@class,'grpcntr')][contains(@class,'txt')][contains(@class,'ot')]
+  content: [TEXT=3]
+  sample[0] (15L): These cookies are necessary for the website to function and cannot be switched o
+    |   <div class="ot-acc-grpcntr ot-acc-txt">
+    |     <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0001">
+    |       These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.
+    |     </p>
+    |     <div class="ot-plus-minus">
+    |       <span></span>
+    |       <span></span>
+    |     </div>
+    |     <h4 class="ot-cat-header" id="ot-header-id-C0001">
+    |       Strictly Necessary Cookies
+    | ... [5 more lines]
+
+--- Chunk 7: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Eir Aoi (Japanese: 藍井 エイル, Hepburn: Aoi Eiru, born November 30) is a Japanese si
+    |   <p>
+    |     Eir Aoi (Japanese: 藍井 エイル, Hepburn: Aoi Eiru, born November 30) is a Japanese singer from Sapporo, Hokkaido, signed to Sacra Music. After being discovered through the Japanese video sharing website Niconico, Aoi made her major debut in 2011 with the release of her first single "Memoria", whose title track was used as the first ending theme to the 2011 anime television series Fate/Zero.
+    |   </p>
+  sample[1] (3L): Aoi's music has been featured in various anime television series such as Sword A
+    |   <p>
+    |     Aoi's music has been featured in various anime television series such as Sword Art Online, Kill la Kill, and The Heroic Legend of Arslan, as well as other television programs such as Rank Okoku. She has performed at various anime conventions in Asia, Europe, North and South America. She has cited her interest in anime, as well as artists such as Evanescence, Slipknot, and Do As Infinity, as influences in her career. In October 2016, following prolonged bouts of poor health, she announced an indefinite hiatus from musical activities following a two-day concert at the Nippon Budokan in November 2016. In February 2018, it was announced that she would resume her activities later that year.
+    |   </p>
+
+--- Chunk 8: [text_content:p×6] ---
+  type=text_singleton freq=6 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): 戸松 遥（とまつ はるか、1990年2月4日 - ）は、日本の声優、女優、歌手。愛知県一宮市出身。ミュージックレイン所属。
+    |   <p>
+    |     戸松 遥（とまつ はるか、1990年2月4日 - ）は、日本の声優、女優、歌手。愛知県一宮市出身。ミュージックレイン所属。
+    |   </p>
+  sample[1] (3L): 代表作に『あの日見た花の名前を僕達はまだ知らない。』（安城鳴子）、『ソードアート・オンライン』（アスナ / 結城明日奈）、『ハピネスチャージプリキュア!』（氷川
+    |   <p>
+    |     代表作に『あの日見た花の名前を僕達はまだ知らない。』（安城鳴子）、『ソードアート・オンライン』（アスナ / 結城明日奈）、『ハピネスチャージプリキュア!』（氷川いおな / キュアフォーチュン）、『妖怪ウォッチ』（ケータ / 天野景太）、『かんなぎ』（ナギ） がある。
+    |   </p>
+  sample[2] (3L): 2007年『がくえんゆーとぴあ まなびストレート!』のスイーツ生徒役でアニメデビュー。同年4月に放送された『神曲奏界ポリフォニカ』のヒロイン・コーティカルテ役に
+    |   <p>
+    |     2007年『がくえんゆーとぴあ まなびストレート!』のスイーツ生徒役でアニメデビュー。同年4月に放送された『神曲奏界ポリフォニカ』のヒロイン・コーティカルテ役に抜擢された。
+    |   </p>
+
+--- Chunk 9: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Nano Ripe (styled as nano.RIPE) is a Japanese pop rock duo that formed in 1998 a
+    |   <p>
+    |     Nano Ripe (styled as nano.RIPE) is a Japanese pop rock duo that formed in 1998 as an indie band. They released three singles and four mini-albums before being signed to Lantis in 2010. Although the core of the band is made up of Kimiko (composition, lyrics, vocals, guitar) and Jun Sasaki (composition, guitar), when they debuted on Lantis in 2010, the band also consisted of bassist Nobuyuki Abe and drummer Shinn. Shinn left the band in 2011, but Yūki Aoyama joined the band as the drummer in 2013. Abe and Aoyama left the band in 2016.
+    |   </p>
+  sample[1] (3L): Following the release of their major debut single "Patricia" (2010), they releas
+    |   <p>
+    |     Following the release of their major debut single "Patricia" (2010), they released four more singles from 2010 to 2011; all five were featured on their major debut album Hoshi no Yoru no Myaku no Oto no (2011). Their next three studio albums were Plus to Minus no Shikumi (2012), Namida no Ochiru Sokudo (2013), and Nanairo Megane no Himitsu (2014). After the release of their compilation album Shiawase no Kutsu (2015), they released their fifth studio album Space Echo (2016) and their sixth studio album Pippala no Ki no Shita de (2018).
+    |   </p>
+
+--- Chunk 10: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Nagi Yanagi (やなぎ なぎ, Yanagi Nagi, born May 31, 1987), stylized as yanaginagi (やな
+    |   <p>
+    |     Nagi Yanagi (やなぎ なぎ, Yanagi Nagi, born May 31, 1987), stylized as yanaginagi (やなぎなぎ), is a Japanese singer and songwriter from Osaka Prefecture who is signed to NBCUniversal Entertainment Japan. After becoming interested with music in her childhood, she began singing and writing original songs. In 2006, she began uploading her music to Niconico and other websites, gaining the attention of the J-pop band Supercell, who featured Yanagi as the guest vocalist from 2009 to 2011.
+    |   </p>
+  sample[1] (3L): Yanagi made her solo debut in February 2012 with the release of the single "Vidr
+    |   <p>
+    |     Yanagi made her solo debut in February 2012 with the release of the single "Vidro Moyō", which is used as the ending theme to the anime Waiting in the Summer. Her music has been featured in anime series such as My Youth Romantic Comedy Is Wrong, As I Expected, Jormungand, Seraph of the End, and Nagi-Asu: A Lull in the Sea. She has also performed at overseas events in Southeast Asia, China, and Europe. In 2012, Yanagi collaborated with composer Jun Maeda of Key to produce the original concept album Owari no Hoshi no Love Song, which finished 6th on the Oricon charts, marking her first album to chart.
+    |   </p>
+
+--- Chunk 11: [text_content:p×8] ---
+  type=text_singleton freq=8 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): 原田 ひとみ（はらだ ひとみ、11月18日 - ）は、日本の女性声優、歌手。
+    |   <p>
+    |     原田 ひとみ（はらだ ひとみ、11月18日 - ）は、日本の女性声優、歌手。
+    |   </p>
+  sample[1] (3L): 歌手としてスカウトされ、音響制作会社ツーファイブで歌手活動を始める。その後、声優として活動するためにぷろだくしょんバオバブへ移籍。
+    |   <p>
+    |     歌手としてスカウトされ、音響制作会社ツーファイブで歌手活動を始める。その後、声優として活動するためにぷろだくしょんバオバブへ移籍。
+    |   </p>
+  sample[2] (3L): 2年半以上続いたインターネットテレビ番組『ECO放送局』（のち『ECO☆スタジオ』）では、ゆっくりとした調子からギャップのあるエキセントリックなコメントを吐くキ
+    |   <p>
+    |     2年半以上続いたインターネットテレビ番組『ECO放送局』（のち『ECO☆スタジオ』）では、ゆっくりとした調子からギャップのあるエキセントリックなコメントを吐くキャラクターとして知られた。
+    |   </p>
+
+--- Chunk 12: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Lia is an Austrian software artist. Born in Graz, she is now based in Vienna. He
+    |   <p>
+    |     Lia is an Austrian software artist. Born in Graz, she is now based in Vienna. Her work includes the early Net Art sites re-move.org and turux.at. In 2003 she co-curated the Abstraction Now exhibition (Internet Projects and Medialounge) at the Künstlerhaus Wien in Vienna, Austria. In 2003 Lia received an Award of Distinction in the Net Vision/Net Excellence Category for re-move.org.
+    |   </p>
+  sample[1] (3L): In the 1990s and early 2000s, she and her collaborator at Turux employed softwar
+    |   <p>
+    |     In the 1990s and early 2000s, she and her collaborator at Turux employed software normally used for multimedia CD-ROMs and Web page enhancements, notably Macromedia Director, to create animated abstract images, which "demonstrates the raw visual horsepower of these tools when they’re not yoked to some mundane purpose." Her early work has been highlighted in histories of computer and digital art, particularly for its use of novel forms of interactivity.
+    |   </p>
+
+--- Chunk 13: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Maon Kurosaki (黒崎 真音, Kurosaki Maon, born January 13, 1988) is a Japanese singer
+    |   <p>
+    |     Maon Kurosaki (黒崎 真音, Kurosaki Maon, born January 13, 1988) is a Japanese singer and songwriter signed to NBCUniversal Entertainment Japan. After being discovered while working as a performer in Akihabara, Tokyo, she made her major debut in 2010, performing ending themes to the anime television series Highschool of the Dead. She released her debut album H.O.T.D. in September 2010, which features the ending themes from Highschool of the Dead. Her first two singles were used as ending themes to the anime television series A Certain Magical Index II.
+    |   </p>
+  sample[1] (3L): Kurosaki's music is influenced by her love of anime and lolita fashion. Her song
+    |   <p>
+    |     Kurosaki's music is influenced by her love of anime and lolita fashion. Her songs have been featured in various anime series such as Jormungand, Tokyo Ravens, and The Fruit of Grisaia. She has collaborated with artists such as Mami Kawada, Kotoko, and Trustrick for her music releases. She performed twice at Anime Expo 2011 in Los Angeles, California, and is a regular performer at Japanese anime events such as LisAni, Animelo Summer Live, and Animax Musix. She has also appeared at Anime Festival Asia, Bangkok Comic Con, and CharaExpo. From 2011 to 2016, she was singer of the synthpop band Altima, together with Motsu of the band Move.
+    |   </p>
+
+--- Chunk 14: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): 99% Invisible is a radio show and podcast produced and created by Roman Mars tha
+    |   <p>
+    |     99% Invisible is a radio show and podcast produced and created by Roman Mars that focuses on design. It began as a collaborative project between San Francisco public radio station KALW and the American Institute of Architects in San Francisco. The show has been distributed by PRX for broadcasting on a number of radio stations and as a podcast on the Radiotopia network. On April 28, 2021, Roman Mars announced in an introduction of a re-released episode that 99% Invisible had been purchased by Sirius XM and marketed as part of its Stitcher Radio brand.
+    |   </p>
+  sample[1] (3L): The name of the show was derived from a quote by Buckminster Fuller that, "Ninet
+    |   <p>
+    |     The name of the show was derived from a quote by Buckminster Fuller that, "Ninety-nine percent of who you are is invisible and untouchable." The goal of the show is to expose the unseen and overlooked aspects of design, architecture, and activity in the world. Each episode generally focuses on a single topic or specific example of design, often including interviews with architects, experts, or people who have influenced or been influenced by a given urban, industrial, graphic or other design.
+    |   </p>
+
+--- Chunk 15: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Feel free to add a podcast if it's trending on iTunes or you think it qualifies 
+    |   <p>
+    |     Feel free to add a podcast if it's trending on iTunes or you think it qualifies as a well-known classic TipsyElephant (talk) 01:17, 9 September 2020 (UTC)__DTREPLYBUTTONSCONTENT__
+    |   </p>
+  sample[1] (3L): I'm nominating Within the Wires for the month of October. TipsyElephant (talk) 1
+    |   <p>
+    |     I'm nominating Within the Wires for the month of October. TipsyElephant (talk) 16:45, 7 September 2022 (UTC)__DTREPLYBUTTONSCONTENT__
+    |   </p>
+  sample[2] (3L): @Mukilteoedits, Starsandwhales, Broccoli and Coffee, Leftist Commentary, Auric, 
+    |   <p>
+    |     @Mukilteoedits, Starsandwhales, Broccoli and Coffee, Leftist Commentary, Auric, Timdwilliamson, 2pou, EverythingisntCaaDath, FalconMillenium, Richard Nevell, Sdkb,  and Tcr25: I'm pinging you all because you've shown some level of involvement with the project or this topic specifically. I think Wikipedia_talk:WikiProject_Podcasting/Archive_6 is particularly relevant to what I'm saying here if you want a point of reference.
+    |   </p>
+
+--- Chunk 16: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Sleep with Me is a twice-weekly podcast that began on October 18, 2013. It is ho
+    |   <p>
+    |     Sleep with Me is a twice-weekly podcast that began on October 18, 2013. It is hosted by "Dearest Scooter" as performed by Drew Ackerman. Sleep with Me joined the Feral Audio podcast network in February 2017 and moved to Night Vale Presents on March 28, 2018. The podcast's tagline is "The podcast that puts you to sleep".
+    |   </p>
+  sample[1] (3L): Sleep with Me is meant to distract listeners, keeping their minds occupied when 
+    |   <p>
+    |     Sleep with Me is meant to distract listeners, keeping their minds occupied when they experience insomnia, while gently lulling them to sleep.
+    |   </p>
+  sample[2] (3L): Ackerman is open about his own struggles with insomnia; he has said that his ram
+    |   <p>
+    |     Ackerman is open about his own struggles with insomnia; he has said that his rambling storytelling style began in childhood, when he told his brothers boring bedtime stories when they could not sleep. He names The Dr. Demento Show, Kurt Vonnegut and the Beastie Boys as some of his influences. Ackerman describes his storytelling style as "the good type of weird but not creepy". He does not claim to have expertise in psychology or sleep science, and he relies on feedback from listeners to shape the podcast.
+    |   </p>
+
+--- Chunk 17: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Fantasy literature is literature set in an imaginary universe, often but not alw
+    |   <p>
+    |     Fantasy literature is literature set in an imaginary universe, often but not always without any locations, events, or people from the real world. Magic, the supernatural and magical creatures are common in many of these imaginary worlds. Fantasy literature may be directed at both children and adults.
+    |   </p>
+  sample[1] (3L): Fantasy is a subgenre of speculative fiction and is distinguished from the genre
+    |   <p>
+    |     Fantasy is a subgenre of speculative fiction and is distinguished from the genres of science fiction and horror by the absence of scientific or macabre themes, respectively, though these genres overlap. Historically, most works of fantasy were written, however, since the 1960s, a growing segment of the fantasy genre has taken the form of films, television programs, graphic novels, video games, music and art.
+    |   </p>
+
+--- Chunk 18: [nav_content:a×10] ---
+  type=menu_item freq=10 excl=0.75
+  pattern_xpath: ///a[contains(@class,'aj')][contains(@class,'eed')][contains(@class,'gm')][contains(@class,'sc')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Terms of Service
+    |   <li>
+    |     <a href="/read/terms" class="sc-308eed75-4 iVGmAJ">
+    |       Terms of Service
+    |     </a>
+    |   </li>
+  sample[1] (5L): API Terms of Service
+    |   <li>
+    |     <a href="/read/api-terms" class="sc-308eed75-4 iVGmAJ">
+    |       API Terms of Service
+    |     </a>
+    |   </li>
+  sample[2] (3L): Contact
+    |   <a href="/do/contact" class="sc-308eed75-4 iVGmAJ">
+    |     Contact
+    |   </a>
+
+--- Chunk 19: [nav_content:a×155] ---
+  type=menu_item freq=155 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=9 HREF=1 IMG=6 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: music 原田ひとみ Picture of a musician: 原田ひとみ 原田 ひとみ（はらだ ひとみ、11月18日 - ）は、日本の女性声優、歌手。歌
+    |   <a tabindex="-1" aria-label="entity details" href="/music/like?qid=e033ce95-3e8f-4e1b-8055-e60de666ec72">
+    |     <div class="sc-f10e8383-6 fYSlrv">
+    |       <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |         <img class="sc-5f0557d7-0 cwaPfO" width="100%" height="100%" alt="Picture of a musician: 原田ひとみ" loading="lazy" decoding="async" fetchpriority="auto" srcset="https://images.qloo.com/i/e033ce95-3e8f-4e1b-8055-e60de666ec72-180x252-outside.webp 180w, https://images.qloo.com/i/e033ce95-3e8f-4e1b-8055-e60de666ec72-360x504-outside.webp 2x" src="https://images.qloo.com/i/e033ce95-3e8f-4e1b-8055-e60de666ec72-172x172-outside.w..."></img>
+    |       </div>
+    |     </div>
+    |     <div class="sc-f10e8383-2 bWUNhp">
+    |       <div>
+    |         <div class="sc-6dfd50d9-0 AZHpF sc-bb390e3c-0 kmWSKU">
+    |           <button type="button" class="sc-5577901-0 eJQWne opine-button like-button" aria-label="Like">
+    | ... [21 more lines]
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.58
+  pattern_xpath: ///h2[contains(@id,'pc')][contains(@id,'title')][contains(@id,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Privacy Preference Center
+    |   <h2 id="ot-pc-title">
+    |     Privacy Preference Center
+    |   </h2>
+
+--- Chunk 21: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.58
+  pattern_xpath: ///h3[contains(@id,'category')][contains(@id,'title')][contains(@id,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Manage Consent Preferences
+    |   <h3 id="ot-category-title">
+    |     Manage Consent Preferences
+    |   </h3>
+
+--- Chunk 22: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Cookie List
+    |   <h3>
+    |     Cookie List
+    |   </h3>
+
+--- Chunk 23: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.62
+  pattern_xpath: ///h2[contains(@class,'ij')][contains(@class,'ur')][contains(@class,'xd')][contains(@class,'ab')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Cross-category suggestions
+    |   <h2 class="sc-696ab699-6 ijURXd">
+    |     Cross-category suggestions
+    |   </h2>
+
+--- Chunk 24: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.87
+  pattern_xpath: ///div[contains(@class,'acc')][contains(@class,'hdr')][contains(@class,'always')]/h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Strictly Necessary Cookies
+    |   <h4 class="ot-cat-header" id="ot-header-id-C0001">
+    |     Strictly Necessary Cookies
+    |   </h4>
+
+--- Chunk 25: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'au')][contains(@class,'ir')][contains(@class,'syk')][contains(@class,'tf')][contains(@color,'black')]
+  content: [TEXT=1]
+  sample[0] (3L): Similar movies
+    |   <h2 color="black" class="sc-73430820-1 eAUTfI sc-696ab699-4 fSYKIr">
+    |     Similar movies
+    |   </h2>
+
+--- Chunk 26: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///div[contains(@class,'kru')][contains(@class,'al')]/h2[contains(@class,'difxl')][contains(@class,'hy')][contains(@class,'io')][contains(@class,'nz')][contains(@color,'music')]
+  content: [TEXT=1]
+  sample[0] (3L): Music
+    |   <h2 color="music" class="sc-73430820-1 ioNzHy sc-696ab699-4 difxlN">
+    |     Music
+    |   </h2>
+
+--- Chunk 27: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'eh')][contains(@class,'jy')][contains(@class,'jyq')][contains(@class,'uch')][contains(@color,'shows')]
+  content: [TEXT=1]
+  sample[0] (3L): Shows
+    |   <h2 color="shows" class="sc-73430820-1 jJyUch sc-696ab699-4 cEHJyq">
+    |     Shows
+    |   </h2>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'gicd')][contains(@class,'ii')][contains(@class,'im')][contains(@class,'qvxr')][contains(@color,'books')]
+  content: [TEXT=1]
+  sample[0] (3L): Books
+    |   <h2 color="books" class="sc-73430820-1 imQVXR sc-696ab699-4 gicdIi">
+    |     Books
+    |   </h2>
+
+--- Chunk 29: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'ci')][contains(@class,'gixw')][contains(@class,'sd')][contains(@class,'zp')][contains(@color,'games')]
+  content: [TEXT=1]
+  sample[0] (3L): Games
+    |   <h2 color="games" class="sc-73430820-1 ciRZpM sc-696ab699-4 gixwSD">
+    |     Games
+    |   </h2>
+
+--- Chunk 30: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'bf')][contains(@class,'gk')][contains(@class,'hat')][contains(@class,'rdp')][contains(@color,'podcasts')]
+  content: [TEXT=1]
+  sample[0] (3L): Podcasts
+    |   <h2 color="podcasts" class="sc-73430820-1 hHatGK sc-696ab699-4 bfORdp">
+    |     Podcasts
+    |   </h2>
+
+--- Chunk 31: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.82
+  pattern_xpath: ///h2[contains(@class,'lr')][contains(@class,'ote')][contains(@class,'pq')][contains(@color,'people')][contains(@class,'ab')]
+  content: [TEXT=1]
+  sample[0] (3L): People
+    |   <h2 color="people" class="sc-73430820-1 iSOte sc-696ab699-4 hOPqLR">
+    |     People
+    |   </h2>
+
+--- Chunk 32: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'bm')][contains(@class,'jc')][contains(@class,'jzwn')][contains(@class,'km')][contains(@class,'sx')]
+  content: [TEXT=1]
+  sample[0] (3L): Places
+    |   <h2 color="places" class="sc-73430820-1 jzwnJC sc-696ab699-4 bmKmSx">
+    |     Places
+    |   </h2>
+
+--- Chunk 33: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'btt')][contains(@class,'iq')][contains(@class,'up')][contains(@class,'vn')][contains(@color,'brands')]
+  content: [TEXT=1]
+  sample[0] (3L): Brands
+    |   <h2 color="brands" class="sc-73430820-1 dVnTIq sc-696ab699-4 bttIUp">
+    |     Brands
+    |   </h2>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///div[contains(@class,'de')][contains(@class,'jhg')][contains(@class,'ji')]/h2[contains(@class,'difxl')][contains(@class,'hy')][contains(@class,'io')][contains(@class,'nz')][contains(@color,'music')]
+  content: [TEXT=1]
+  sample[0] (3L): MusicShowsBooksGamesPodcastsPeoplePlacesBrandsSimilar movies
+    |   <h2 color="music" class="sc-73430820-1 ioNzHy sc-696ab699-4 difxlN">
+    |     MusicShowsBooksGamesPodcastsPeoplePlacesBrandsSimilar movies
+    |   </h2>
+
+--- Chunk 35: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Gundam Wing: The Movie - Endless Waltz
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Gundam Wing: The Movie - Endless Waltz
+    |   </h3>
+
+--- Chunk 36: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Blade of the Phantom Master
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blade of the Phantom Master
+    |   </h3>
+
+--- Chunk 37: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Kindan no mokushiroku Crystal Triangle
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kindan no mokushiroku Crystal Triangle
+    |   </h3>
+
+--- Chunk 38: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Blue Sonnet
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blue Sonnet
+    |   </h3>
+
+--- Chunk 39: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Blue Comet SPT Layzner OVA
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blue Comet SPT Layzner OVA
+    |   </h3>
+
+--- Chunk 40: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Sen-nen joô
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sen-nen joô
+    |   </h3>
+
+--- Chunk 41: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Terra e...
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Terra e...
+    |   </h3>
+
+--- Chunk 42: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 川田まみ
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     川田まみ
+    |   </h3>
+
+--- Chunk 43: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 沢井美空
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     沢井美空
+    |   </h3>
+
+--- Chunk 44: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 佐咲紗花
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     佐咲紗花
+    |   </h3>
+
+--- Chunk 45: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 栗林みな実
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     栗林みな実
+    |   </h3>
+
+--- Chunk 46: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 藍井エイル
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     藍井エイル
+    |   </h3>
+
+--- Chunk 47: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): いとうかなこ
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     いとうかなこ
+    |   </h3>
+
+--- Chunk 48: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 戸松遥
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     戸松遥
+    |   </h3>
+
+--- Chunk 49: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): GARNiDELiA
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     GARNiDELiA
+    |   </h3>
+
+--- Chunk 50: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): ClariS
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     ClariS
+    |   </h3>
+
+--- Chunk 51: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 鈴木このみ
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     鈴木このみ
+    |   </h3>
+
+--- Chunk 52: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 花澤香菜
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     花澤香菜
+    |   </h3>
+
+--- Chunk 53: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): nano.RIPE
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     nano.RIPE
+    |   </h3>
+
+--- Chunk 54: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): やなぎなぎ
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     やなぎなぎ
+    |   </h3>
+
+--- Chunk 55: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 彩音
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     彩音
+    |   </h3>
+
+--- Chunk 56: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 原田ひとみ
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     原田ひとみ
+    |   </h3>
+
+--- Chunk 57: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): fripSide
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     fripSide
+    |   </h3>
+
+--- Chunk 58: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Lia
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Lia
+    |   </h3>
+
+--- Chunk 59: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 黒崎真音
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     黒崎真音
+    |   </h3>
+
+--- Chunk 60: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Eastward
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Eastward
+    |   </h3>
+
+--- Chunk 61: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Untitled Goose Game
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Untitled Goose Game
+    |   </h3>
+
+--- Chunk 62: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Undertale
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Undertale
+    |   </h3>
+
+--- Chunk 63: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Omori
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Omori
+    |   </h3>
+
+--- Chunk 64: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Life is Strange
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Life is Strange
+    |   </h3>
+
+--- Chunk 65: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Spiritfarer
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Spiritfarer
+    |   </h3>
+
+--- Chunk 66: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Little Nightmares
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Little Nightmares
+    |   </h3>
+
+--- Chunk 67: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Life is Strange: True Colors
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Life is Strange: True Colors
+    |   </h3>
+
+--- Chunk 68: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Oxenfree
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Oxenfree
+    |   </h3>
+
+--- Chunk 69: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): What Remains of Edith Finch
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     What Remains of Edith Finch
+    |   </h3>
+
+--- Chunk 70: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Hades
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hades
+    |   </h3>
+
+--- Chunk 71: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): INSIDE
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     INSIDE
+    |   </h3>
+
+--- Chunk 72: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): OneShot
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     OneShot
+    |   </h3>
+
+--- Chunk 73: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Genshin Impact
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Genshin Impact
+    |   </h3>
+
+--- Chunk 74: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Night in the Woods
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Night in the Woods
+    |   </h3>
+
+--- Chunk 75: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): RiME
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     RiME
+    |   </h3>
+
+--- Chunk 76: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Outer Wilds
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Outer Wilds
+    |   </h3>
+
+--- Chunk 77: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): The Last Guardian
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Last Guardian
+    |   </h3>
+
+--- Chunk 78: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Alice Isn't Dead
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Alice Isn't Dead
+    |   </h3>
+
+--- Chunk 79: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): The Magnus Archives
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Magnus Archives
+    |   </h3>
+
+--- Chunk 80: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): The Orbiting Human Circus
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Orbiting Human Circus
+    |   </h3>
+
+--- Chunk 81: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 99% Invisible
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     99% Invisible
+    |   </h3>
+
+--- Chunk 82: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Lore
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Lore
+    |   </h3>
+
+--- Chunk 83: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Limetown
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Limetown
+    |   </h3>
+
+--- Chunk 84: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Invisibilia
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Invisibilia
+    |   </h3>
+
+--- Chunk 85: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Hello From The Magic Tavern
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hello From The Magic Tavern
+    |   </h3>
+
+--- Chunk 86: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Welcome to Night Vale
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Welcome to Night Vale
+    |   </h3>
+
+--- Chunk 87: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Philosophize This!
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Philosophize This!
+    |   </h3>
+
+--- Chunk 88: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Myths and Legends
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Myths and Legends
+    |   </h3>
+
+--- Chunk 89: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Dan Carlin's Hardcore History
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Dan Carlin's Hardcore History
+    |   </h3>
+
+--- Chunk 90: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Radiolab
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Radiolab
+    |   </h3>
+
+--- Chunk 91: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): No Such Thing As A Fish
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     No Such Thing As A Fish
+    |   </h3>
+
+--- Chunk 92: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Within the Wires
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Within the Wires
+    |   </h3>
+
+--- Chunk 93: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Sleep With Me
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sleep With Me
+    |   </h3>
+
+--- Chunk 94: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Imaginary Worlds
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Imaginary Worlds
+    |   </h3>
+
+--- Chunk 95: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Conversations with People Who Hate Me
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Conversations with People Who Hate Me
+    |   </h3>
+
+--- Chunk 96: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Saori Hayami
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Saori Hayami
+    |   </h3>
+
+--- Chunk 97: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Masayoshi Ōishi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Masayoshi Ōishi
+    |   </h3>
+
+--- Chunk 98: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Aoi Yūki
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Aoi Yūki
+    |   </h3>
+
+--- Chunk 99: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Kana Hanazawa
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kana Hanazawa
+    |   </h3>
+
+--- Chunk 100: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Mutsumi Tamura
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mutsumi Tamura
+    |   </h3>
+
+--- Chunk 101: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Shin-ichiro Miki
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Shin-ichiro Miki
+    |   </h3>
+
+--- Chunk 102: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Nobunaga Shimazaki
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Nobunaga Shimazaki
+    |   </h3>
+
+--- Chunk 103: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Tomokazu Sugita
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Tomokazu Sugita
+    |   </h3>
+
+--- Chunk 104: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Mikako Komatsu
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mikako Komatsu
+    |   </h3>
+
+--- Chunk 105: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Rie Takahashi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Rie Takahashi
+    |   </h3>
+
+--- Chunk 106: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Daiki Yamashita
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Daiki Yamashita
+    |   </h3>
+
+--- Chunk 107: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Yūichi Nakamura
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Yūichi Nakamura
+    |   </h3>
+
+--- Chunk 108: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Tomokazu Seki
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Tomokazu Seki
+    |   </h3>
+
+--- Chunk 109: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Junya Enoki
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Junya Enoki
+    |   </h3>
+
+--- Chunk 110: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Sayuri Yahagi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sayuri Yahagi
+    |   </h3>
+
+--- Chunk 111: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Kana Asumi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kana Asumi
+    |   </h3>
+
+--- Chunk 112: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Yū Kobayashi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Yū Kobayashi
+    |   </h3>
+
+--- Chunk 113: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Yūsuke Kobayashi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Yūsuke Kobayashi
+    |   </h3>
+
+--- Chunk 114: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Cafe Morey’s
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Cafe Morey’s
+    |   </h3>
+
+--- Chunk 115: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Aston Martin
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Aston Martin
+    |   </h3>
+
+--- Chunk 116: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Jaguar
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Jaguar
+    |   </h3>
+
+--- Chunk 117: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Samsung
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Samsung
+    |   </h3>
+
+--- Chunk 118: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Playstation
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Playstation
+    |   </h3>
+
+--- Chunk 119: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Bugatti
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Bugatti
+    |   </h3>
+
+--- Chunk 120: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Tesla
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Tesla
+    |   </h3>
+
+--- Chunk 121: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Hp
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hp
+    |   </h3>
+
+--- Chunk 122: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Nissan
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Nissan
+    |   </h3>
+
+--- Chunk 123: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Unbox Therapy
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Unbox Therapy
+    |   </h3>
+
+--- Chunk 124: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Porsche
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Porsche
+    |   </h3>
+
+--- Chunk 125: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Audi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Audi
+    |   </h3>
+
+--- Chunk 126: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): BMW
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     BMW
+    |   </h3>
+
+--- Chunk 127: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Sony
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sony
+    |   </h3>
+
+--- Chunk 128: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Bentley Motors
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Bentley Motors
+    |   </h3>
+
+--- Chunk 129: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Mercedes-benz
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mercedes-benz
+    |   </h3>
+
+--- Chunk 130: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Lamborghini
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Lamborghini
+    |   </h3>
+
+--- Chunk 131: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Apple Inc
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Apple Inc
+    |   </h3>
+
+--- Chunk 132: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Puma
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Puma
+    |   </h3>
+
+--- Chunk 133: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Barefoot Gen 2
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Barefoot Gen 2
+    |   </h3>
+
+--- Chunk 134: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Legend of Crystania: The Motion Picture
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Legend of Crystania: The Motion Picture
+    |   </h3>
+
+--- Chunk 135: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Arion
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Arion
+    |   </h3>
+
+--- Chunk 136: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Bayonetta: Bloody Fate - Beyonetta buraddi feito
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Bayonetta: Bloody Fate - Beyonetta buraddi feito
+    |   </h3>
+
+--- Chunk 137: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Darkside Blues
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Darkside Blues
+    |   </h3>
+
+--- Chunk 138: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): The Weathering Continent
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Weathering Continent
+    |   </h3>
+
+--- Chunk 139: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Neo Tokyo
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Neo Tokyo
+    |   </h3>
+
+--- Chunk 140: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): They Were Eleven
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     They Were Eleven
+    |   </h3>
+
+--- Chunk 141: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Venus Wars
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Venus Wars
+    |   </h3>
+
+--- Chunk 142: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Five Star Stories
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Five Star Stories
+    |   </h3>
+
+--- Chunk 143: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Vampire Knight
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Vampire Knight
+    |   </h3>
+
+--- Chunk 144: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Kyoukai no kanata
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kyoukai no kanata
+    |   </h3>
+
+--- Chunk 145: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Akame ga Kill!
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Akame ga Kill!
+    |   </h3>
+
+--- Chunk 146: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Kiznaiver
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kiznaiver
+    |   </h3>
+
+--- Chunk 147: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): God Eater
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     God Eater
+    |   </h3>
+
+--- Chunk 148: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): From the New World
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     From the New World
+    |   </h3>
+
+--- Chunk 149: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Sword Art Online
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sword Art Online
+    |   </h3>
+
+--- Chunk 150: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Owari no serafu
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Owari no serafu
+    |   </h3>
+
+--- Chunk 151: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Durarara!!x2
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Durarara!!x2
+    |   </h3>
+
+--- Chunk 152: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Grimgar, Ashes and Illusions
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Grimgar, Ashes and Illusions
+    |   </h3>
+
+--- Chunk 153: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Assassination Classroom
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Assassination Classroom
+    |   </h3>
+
+--- Chunk 154: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Needless
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Needless
+    |   </h3>
+
+--- Chunk 155: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Tokyo Ghoul
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Tokyo Ghoul
+    |   </h3>
+
+--- Chunk 156: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Zankyou No Terror
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Zankyou No Terror
+    |   </h3>
+
+--- Chunk 157: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Blast of Tempest
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blast of Tempest
+    |   </h3>
+
+--- Chunk 158: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Black Bullet
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Black Bullet
+    |   </h3>
+
+--- Chunk 159: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Gantz
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Gantz
+    |   </h3>
+
+--- Chunk 160: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): B: The Beginning
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     B: The Beginning
+    |   </h3>
+
+--- Chunk 161: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Brief Lives
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Brief Lives
+    |   </h3>
+
+--- Chunk 162: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Fables, Vol. 1: Legends in Exile
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Fables, Vol. 1: Legends in Exile
+    |   </h3>
+
+--- Chunk 163: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Neverwhere
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Neverwhere
+    |   </h3>
+
+--- Chunk 164: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Saga, Vol. 2
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Saga, Vol. 2
+    |   </h3>
+
+--- Chunk 165: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): We3
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     We3
+    |   </h3>
+
+--- Chunk 166: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): American Vampire, Vol. 1
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     American Vampire, Vol. 1
+    |   </h3>
+
+--- Chunk 167: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): John Dies at the End
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     John Dies at the End
+    |   </h3>
+
+--- Chunk 168: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Wytches, Volume 1
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Wytches, Volume 1
+    |   </h3>
+
+--- Chunk 169: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): The Umbrella Academy, Vol. 2: Dallas
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Umbrella Academy, Vol. 2: Dallas
+    |   </h3>
+
+--- Chunk 170: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): This Book Is Full of Spiders
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     This Book Is Full of Spiders
+    |   </h3>
+
+--- Chunk 171: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Preludes & Nocturnes
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Preludes & Nocturnes
+    |   </h3>
+
+--- Chunk 172: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch
+    |   </h3>
+
+--- Chunk 173: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Seconds
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Seconds
+    |   </h3>
+
+--- Chunk 174: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Anansi Boys
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Anansi Boys
+    |   </h3>
+
+--- Chunk 175: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Hotel Gajoen Tokyo
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hotel Gajoen Tokyo
+    |   </h3>
+
+--- Chunk 176: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): hotel tou nishinotoin kyoto
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     hotel tou nishinotoin kyoto
+    |   </h3>
+
+--- Chunk 177: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Whole Foods Market
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Whole Foods Market
+    |   </h3>
+
+--- Chunk 178: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Ace Hotel Kyoto
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Ace Hotel Kyoto
+    |   </h3>
+
+--- Chunk 179: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): The Kahala Hotel & Resort
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Kahala Hotel & Resort
+    |   </h3>
+
+--- Chunk 180: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Tokyo Disneyland Hotel
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Tokyo Disneyland Hotel
+    |   </h3>
+
+--- Chunk 181: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): TRUNK HOTEL
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     TRUNK HOTEL
+    |   </h3>
+
+--- Chunk 182: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Hotel Okura Tokyo Bay
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hotel Okura Tokyo Bay
+    |   </h3>
+
+--- Chunk 183: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Fauchon Hotel Kyoto
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Fauchon Hotel Kyoto
+    |   </h3>
+
+--- Chunk 184: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Hilton Osaka
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hilton Osaka
+    |   </h3>
+
+--- Chunk 185: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): Aston Waikiki Beach Tower
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Aston Waikiki Beach Tower
+    |   </h3>
+
+--- Chunk 186: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): 上七軒 億
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     上七軒 億
+    |   </h3>
+
+--- Chunk 187: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]
+  content: [TEXT=1]
+  sample[0] (3L): SOKI ATAMI
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     SOKI ATAMI
+    |   </h3>

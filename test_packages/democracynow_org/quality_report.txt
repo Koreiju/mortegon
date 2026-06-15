@@ -1,0 +1,992 @@
+=== QUALITY REPORT: democracynow_org.html ===
+Chunks: 54 (structural=13, functional=11, text=30)
+Categories: {'card': 8, 'structural': 4, 'button': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 30, 'menu_item': 9}
+Content: 1699 tagged, 1125 preserved (66%)
+Leaks: 574 total, 227 high-importance
+
+--- Chunk 0: li ---
+  type=card freq=5 excl=0.00
+  pattern_xpath: ///li
+  tree_sig: li(div(div(img,span,span),div(a)),a(picture(source,img)))
+  content: [HREF=2 IMG=4 TEXT=3]
+  sample[0] (24L): Story Feb 11, 2026 Impeach the President: Rep. Al Green Denounces Trump’s Racist
+    |   <li>
+    |     <div class="content">
+    |       <div class="news_label">
+    |         <img class="play" src="https://assets.democracynow.org/assets/icons/video_square-b2d9809b2d8e28a669aec9..."></img>
+    |         <span class="label">
+    |           Story
+    |         </span>
+    |         <span class="date">
+    |           Feb 11, 2026
+    |         </span>
+    | ... [14 more lines]
+
+--- Chunk 1: a.autostart.headlines ---
+  type=structural freq=2 excl=0.87
+  pattern_xpath: ///a[contains(@class,'read')][contains(@class,'watch')][contains(@data-ga-action,'read')][contains(@data-ga-action,'watch')][contains(@data-ga-action,'headlines')]
+  tree_sig: a
+  content: [HREF=1 TEXT=1]
+  sample[0] (3L): Watch
+    |   <a class="watch" data-ga-action="Home Headlines: Watch" href="/shows/2026/2/11?autostart=112.0">
+    |     Watch
+    |   </a>
+  sample[1] (3L): Read Our Daily Digest brings Democracy Now! to your inbox each morning.
+    |   <a class="read" data-ga-action="Home Headlines: Read" href="/2026/2/11/headlines">
+    |     Read
+    |   </a>
+
+--- Chunk 2: div.image.large ---
+  type=card freq=3 excl=0.44
+  pattern_xpath: ///div[contains(@class,'large')][contains(@class,'promotion')][contains(@class,'widget')][contains(@class,'image')]
+  tree_sig: div(h5,a(img),h3(a),p)
+  content: [HREF=2 IMG=1 TEXT=3]
+  sample[0] (16L): 30th Anniversary Event Join Amy Goodman, Juan González, Nermeen Shaikh, special 
+    |   <div class="widget promotion large_image">
+    |     <h5>
+    |       30th Anniversary Event
+    |     </h5>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/30">
+    |       <img src="https://www.democracynow.org/resources/thumbnails/13/813/DN-30-LOGO-Banner-1400x..."></img>
+    |     </a>
+    |     <h3>
+    |       <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/30">
+    |         Celebrate 30 years of Democracy Now! in NYC
+    | ... [6 more lines]
+
+--- Chunk 3: li.col.lg ---
+  type=card freq=2 excl=0.36 LEAKS=2
+  pattern_xpath: ///li[contains(@class,'lg')][contains(@class,'sm')][contains(@class,'md')][contains(@class,'col')]
+  tree_sig: li(div,div(a(span)),div(a(img),a(img)))
+  content: [HREF=3 IMG=4 TEXT=3]
+  sample[0] (22L): 1 JD Vance Is Booed at Olympics While Thousands Protest U.S. Sending ICE Agents 
+    |   <li class="col-lg-3 col-sm-6 col-md-6">
+    |     <div class="number">
+    |       1
+    |     </div>
+    |     <div class="title">
+    |       <a data-ga-action="Home Popular: Item" href="/2026/2/9/olympics_corrupt">
+    |         JD Vance Is Booed at Olympics While Thousands Protest U.S. Sending
+    |         <span class="caps">
+    |           ICE
+    |         </span>
+    | ... [12 more lines]
+  LEAKS (high):
+    [IMG] https://assets.democracynow.org/assets/icons/twitter_icon-7ada1bbfdd3f271ee243db9b8bab0a7d (img URL not in rendered)
+    [IMG] https://assets.democracynow.org/assets/icons/twitter_icon-7ada1bbfdd3f271ee243db9b8bab0a7d (img URL not in rendered)
+
+--- Chunk 4: li.col.lg ---
+  type=card freq=2 excl=0.36 LEAKS=2
+  pattern_xpath: ///li[contains(@class,'lg')][contains(@class,'sm')][contains(@class,'md')][contains(@class,'col')]
+  tree_sig: li(div,div(a),div(a(img),a(img)))
+  content: [HREF=3 IMG=4 TEXT=1]
+  sample[0] (18L): 3 Protecting Pedophile Predators: Carole Cadwalladr on Jeffrey Epstein & the Eli
+    |   <li class="col-lg-3 col-sm-6 col-md-6">
+    |     <div class="number">
+    |       3
+    |     </div>
+    |     <div class="title">
+    |       <a data-ga-action="Home Popular: Item" href="/2026/2/10/carole_cadwalladr_epstein_jeffrey_justice_department">
+    |         Protecting Pedophile Predators: Carole Cadwalladr on Jeffrey Epstein & the Elite’s Veil of Silence
+    |       </a>
+    |     </div>
+    |     <div class="share visible-lg-block">
+    | ... [8 more lines]
+  LEAKS (high):
+    [IMG] https://assets.democracynow.org/assets/icons/twitter_icon-7ada1bbfdd3f271ee243db9b8bab0a7d (img URL not in rendered)
+    [IMG] https://assets.democracynow.org/assets/icons/twitter_icon-7ada1bbfdd3f271ee243db9b8bab0a7d (img URL not in rendered)
+
+--- Chunk 5: ul.col.md ---
+  type=structural freq=2 excl=0.18
+  pattern_xpath: ///ul[contains(@class,'md')][contains(@class,'col')][contains(@class,'xs')]
+  tree_sig: ul(li(a),li(a),li(a),li(a))
+  content: [HREF=4 TEXT=4]
+  sample[0] (22L): Get Involved Education Jobs For Broadcasters
+    |   <ul class="col-md-6 col-xs-6">
+    |     <li>
+    |       <a data-ga-action="Mobile Header: Get Involved" href="/get_involved">
+    |         Get Involved
+    |       </a>
+    |     </li>
+    |     <li>
+    |       <a data-ga-action="Mobile Header: Education" href="/education">
+    |         Education
+    |       </a>
+    | ... [12 more lines]
+
+--- Chunk 6: ul.col.md ---
+  type=structural freq=2 excl=0.18
+  pattern_xpath: ///ul[contains(@class,'md')][contains(@class,'col')][contains(@class,'xs')]
+  tree_sig: ul(li(a),li(a))
+  content: [HREF=2 TEXT=2]
+  sample[0] (12L): Daily Digest RSS & Podcasts
+    |   <ul class="col-md-6 col-xs-6">
+    |     <li>
+    |       <a data-ga-action="Mobile Header: Daily Digest" href="/subscribe">
+    |         Daily Digest
+    |       </a>
+    |     </li>
+    |     <li>
+    |       <a data-ga-action="Mobile Header: RSS & Podcasts" href="/podcasting">
+    |         RSS & Podcasts
+    |       </a>
+    | ... [2 more lines]
+  sample[1] (12L): Android App iPhone App
+    |   <ul class="col-md-6 col-xs-6">
+    |     <li>
+    |       <a data-ga-action="Mobile Header: Android App" href="https://play.google.com/store/apps/details?id=org.democracynow.mobile">
+    |         Android App
+    |       </a>
+    |     </li>
+    |     <li>
+    |       <a data-ga-action="Mobile Header: iOS App" href="http://apple.co/1fyu6Hl">
+    |         iPhone App
+    |       </a>
+    | ... [2 more lines]
+
+--- Chunk 7: div.content ---
+  type=structural freq=2 excl=0.25
+  pattern_xpath: ///div[contains(@class,'content')]
+  tree_sig: div(div(a),div(div,div(a),div,a))
+  content: [HREF=1 TEXT=4]
+  sample[0] (21L): Headlines Now Playing Transcript Watch
+    |   <div class="content">
+    |     <div class="description">
+    |       <a data-player-seek="112.0" data-ga-action="Video Header: Watch Headlines" class="title" href="#">
+    |         Headlines
+    |       </a>
+    |     </div>
+    |     <div class="video_links">
+    |       <div class="now_playing">
+    |         Now Playing
+    |       </div>
+    | ... [11 more lines]
+
+--- Chunk 8: div.button.color ---
+  type=button freq=8 excl=0.47
+  pattern_xpath: ///div[contains(@class,'color')][contains(@class,'icon')][contains(@class,'inline')][contains(@role,'button')][contains(@class,'button')]
+  tree_sig: div(div(div),svg(path))
+  content: [ATTR=1]
+  sample[0] (8L): 
+    |   <div class="jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-rewind" role="button" tabindex="0" aria-label="Rewind 10 Seconds" style="">
+    |     <svg class="jw-svg-icon jw-svg-icon-rewind" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 240 240" focusable="false">
+    |       <path d="M113.2,131.078a21.589,21.589,0,0,0-17.7-10.6,21.589,21.589,0,0,0-17.7,10.6,44.76..."></path>
+    |     </svg>
+    |     <div class="jw-reset-text jw-tooltip jw-tooltip-rewind" dir="auto">
+    |       <div class="jw-text"></div>
+    |     </div>
+    |   </div>
+  sample[1] (8L): 
+    |   <div class="jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-next" role="button" tabindex="0" aria-label="Next" style="" dir="auto">
+    |     <svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-next" viewbox="0 0 240 240" focusable="false">
+    |       <path d="M165,60v53.3L59.2,42.8C56.9,41.3,55,42.3,55,45v150c0,2.7,1.9,3.8,4.2,2.2L165,126..."></path>
+    |     </svg>
+    |     <div class="jw-reset-text jw-tooltip jw-tooltip-next" dir="auto">
+    |       <div class="jw-text"></div>
+    |     </div>
+    |   </div>
+  sample[2] (8L): 
+    |   <div class="jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-settings jw-settings-submenu-button" role="button" tabindex="0" aria-label="Settings" style="" aria-haspopup="true" aria-controls="jw-settings-menu">
+    |     <svg class="jw-svg-icon jw-svg-icon-settings" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 240 240" focusable="false">
+    |       <path d="M204,145l-25-14c0.8-3.6,1.2-7.3,1-11c0.2-3.7-0.2-7.4-1-11l25-14c2.2-1.6,3.1-4.5,..."></path>
+    |     </svg>
+    |     <div class="jw-reset-text jw-tooltip jw-tooltip-settings" dir="auto">
+    |       <div class="jw-text"></div>
+    |     </div>
+    |   </div>
+
+--- Chunk 9: a.congress.header ---
+  type=card freq=37 excl=0.50
+  pattern_xpath: ///a[contains(@data-ga-action,'story')]
+  tree_sig: a(picture(img,source))
+  content: [HREF=1 IMG=3]
+  sample[0] (6L): 
+    |   <a data-ga-action="Header: Top Story" href="/2026/2/11/ice_congress">
+    |     <picture>
+    |       <source media="(max-width: 1199px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></source>
+    |       <img class="modern" loading="lazy" data-src="https://www.democracynow.org/images/story/03/80903/w320/SEG1-ICE-Hearing-2.jpg" src="https://www.democracynow.org/images/story/03/80903/w320/SEG1-ICE-Hearing-2.jpg"></img>
+    |     </picture>
+    |   </a>
+  sample[1] (6L): 
+    |   <a data-ga-action="Header: Top Story" href="/2026/2/11/al_green">
+    |     <picture>
+    |       <source media="(max-width: 1199px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></source>
+    |       <img class="modern" loading="lazy" data-src="https://www.democracynow.org/images/story/04/80904/w320/SEG2-Green-Trump.jpg" src="https://www.democracynow.org/images/story/04/80904/w320/SEG2-Green-Trump.jpg"></img>
+    |     </picture>
+    |   </a>
+  sample[2] (6L): 
+    |   <a class="media image horizontal_image" data-ga-action="Home: Story Image" href="/2026/2/5/ro_khanna_epstein_congress_investigation_survivors">
+    |     <picture>
+    |       <source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></source>
+    |       <img class="modern" loading="lazy" data-src="https://www.democracynow.org/images/story/40/80840/w320/SEG1_Epstein.jpg" src="https://www.democracynow.org/images/story/40/80840/w320/SEG1_Epstein.jpg"></img>
+    |     </picture>
+    |   </a>
+
+--- Chunk 10: li ---
+  type=card freq=17 excl=0.00
+  pattern_xpath: ///li
+  tree_sig: li(a(img))
+  content: [HREF=1 IMG=2]
+  sample[0] (5L): 
+    |   <li>
+    |     <a data-ga-action="Footer: Facebook" href="http://www.facebook.com/democracynow">
+    |       <img loading="lazy" data-src="https://assets.democracynow.org/assets/sharing_icons/facebook-icon-3c8d143780d67..." class="" src="https://assets.democracynow.org/assets/sharing_icons/facebook-icon-3c8d143780d67..."></img>
+    |     </a>
+    |   </li>
+  sample[1] (5L): 
+    |   <li>
+    |     <a data-ga-action="Footer: Twitter" href="http://www.twitter.com/democracynow">
+    |       <img loading="lazy" data-src="https://assets.democracynow.org/assets/sharing_icons/x-logo-0dd81789c3d3520bb921..." class="" src="https://assets.democracynow.org/assets/sharing_icons/x-logo-0dd81789c3d3520bb921..."></img>
+    |     </a>
+    |   </li>
+  sample[2] (5L): 
+    |   <li>
+    |     <a data-ga-action="Footer: Instagram" href="http://www.instagram.com/democracynow">
+    |       <img loading="lazy" data-src="https://assets.democracynow.org/assets/sharing_icons/instagram-icon-4f42133a5316..." class="" src="https://assets.democracynow.org/assets/sharing_icons/instagram-icon-4f42133a5316..."></img>
+    |     </a>
+    |   </li>
+
+--- Chunk 11: li.hidden.xs ---
+  type=card freq=16 excl=0.11
+  pattern_xpath: ///li[contains(@class,'hidden')][contains(@class,'xs')]
+  tree_sig: li(a(span))
+  content: [HREF=1 TEXT=3]
+  sample[0] (9L): Immigrant Family Files a Lawsuit Claiming Their Toddler Was Returned to an ICE J
+    |   <li>
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/immigrant_family_files_a_lawsuit_claiming_their_toddler_was_returned_to_an_ice_jail_amid_a_measles_outbreak">
+    |       Immigrant Family Files a Lawsuit Claiming Their Toddler Was Returned to an
+    |       <span class="caps">
+    |         ICE
+    |       </span>
+    |       Jail Amid a Measles Outbreak
+    |     </a>
+    |   </li>
+  sample[1] (9L): Democratic Congressmember Khanna Accuses the DOJ of Improperly Redacting Names o
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/democratic_congressmember_khanna_accuses_the_doj_of_improperly_redacting_names_of_wealthy_men_in_the_epstein_files">
+    |       Democratic Congressmember Khanna Accuses the
+    |       <span class="caps">
+    |         DOJ
+    |       </span>
+    |       of Improperly Redacting Names of Wealthy Men in the Epstein Files
+    |     </a>
+    |   </li>
+  sample[2] (8L): FAA Reopens El Paso Airport After Abruptly Halting Flights
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/faa_reopens_el_paso_airport_after_abruptly_halting_flights">
+    |       <span class="caps">
+    |         FAA
+    |       </span>
+    |       Reopens El Paso Airport After Abruptly Halting Flights
+    |     </a>
+    |   </li>
+
+--- Chunk 12: a.congress.home ---
+  type=card freq=8 excl=0.55
+  pattern_xpath: ///a[contains(@class,'vertical')][contains(@class,'media')][contains(@data-ga-action,'image')][contains(@data-ga-action,'story')][contains(@class,'image')]
+  tree_sig: a(picture(img))
+  content: [HREF=1 IMG=2]
+  sample[0] (5L): 
+    |   <a class="media image vertical_image" data-ga-action="Home: Story Image" href="/2026/2/11/ice_congress">
+    |     <picture>
+    |       <img class="modern" loading="lazy" data-src="https://www.democracynow.org/images/story/03/80903/splash/SEG1-ICE-Hearing-2.jpg..." src="https://www.democracynow.org/images/story/03/80903/splash/SEG1-ICE-Hearing-2.jpg..."></img>
+    |     </picture>
+    |   </a>
+  sample[1] (5L): 
+    |   <a class="media image vertical_image" data-ga-action="Home: Story Image" href="/2026/2/11/al_green">
+    |     <picture>
+    |       <img class="modern" loading="lazy" data-src="https://www.democracynow.org/images/story/04/80904/splash/SEG2-Green-Trump.jpg" src="https://www.democracynow.org/images/story/04/80904/splash/SEG2-Green-Trump.jpg"></img>
+    |     </picture>
+    |   </a>
+  sample[2] (5L): 
+    |   <a class="media image vertical_image" data-ga-action="Home: Story Image" href="/2026/2/11/ice_congress">
+    |     <picture>
+    |       <img class="modern" loading="lazy" data-src="https://www.democracynow.org/images/story/03/80903/splash/SEG1-ICE-Hearing-2.jpg..." src="https://www.democracynow.org/images/story/03/80903/splash/SEG1-ICE-Hearing-2.jpg..."></img>
+    |     </picture>
+    |   </a>
+
+--- Chunk 13: [search_inputs] ---
+  type=search_input freq=22 excl=0.00
+  pattern_xpath: ///input
+  content: [ATTR=1]
+  sample[0] (3L): https://www.democracynow.org/shows/2026/2/11?jwsource=cl
+    |   <textarea readonly="true" class="jw-reset jw-sharing-textarea">
+    |     https://www.democracynow.org/shows/2026/2/11?jwsource=cl
+    |   </textarea>
+  sample[1] (3L): <iframe width="640" height="360" src="https://www.democracynow.org/embed/show/20
+    |   <textarea readonly="true" class="jw-reset jw-sharing-textarea">
+    |     <iframe width="640" height="360" src="https://www.democracynow.org/embed/show/2026/2/11" frameborder="0" allowfullscreen="true"></iframe>
+    |   </textarea>
+  sample[2] (1L): 
+    |   <input type="number" name="donation_amount" id="donate_amount" value="15" min="1" step="any"></input>
+
+--- Chunk 14: [pagination_buttons] ---
+  type=pagination freq=47 excl=0.33
+  pattern_xpath: ///div[contains(@class,'jw')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: <iframe width="640" height="360" src="https://www.democracynow.org/embed/show/20
+    |   <div class="jw-reset jw-settings-content-item jw-sharing-copy" aria-label="embed" role="button" tabindex="0">
+    |     <button class="jw-reset jw-sharing-link" aria-checked="false" type="button" role="button">
+    |       <svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-embed" viewbox="0 0 160 160" focusable="false">
+    |         <path d="M153.224,81.594,126.971,54.685,117.6,64.061l21.846,21.846L117.6,107.752l8.719,8...."></path>
+    |       </svg>
+    |   ... [6 lines truncated] ...
+    |       <div class="jw-text">
+    |         Copied
+    |       </div>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (8L): 
+    |   <div class="jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-next" role="button" tabindex="0" aria-label="Next" style="" dir="auto">
+    |     <svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-next" viewbox="0 0 240 240" focusable="false">
+    |       <path d="M165,60v53.3L59.2,42.8C56.9,41.3,55,42.3,55,45v150c0,2.7,1.9,3.8,4.2,2.2L165,126..."></path>
+    |     </svg>
+    |     <div class="jw-reset-text jw-tooltip jw-tooltip-next" dir="auto">
+    |       <div class="jw-text"></div>
+    |     </div>
+    |   </div>
+  sample[2] (5L): 
+    |   <div class="jw-reset jw-icon jw-icon-inline jw-related-page jw-related-page-left jw-button-color" role="button" tabindex="0" aria-label="Previous">
+    |     <svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-arrow-left" viewbox="0 0 240 240" focusable="false">
+    |       <path d="M55.4,104.4c-1.1,1.1-2.2,2.3-3.1,3.6c-6.9,9.9-4.4,23.5,5.5,30.4L159.7,240l33.9-3..."></path>
+    |     </svg>
+    |   </div>
+
+--- Chunk 15: [text_content:h1×2] ---
+  type=text_singleton freq=1 excl=0.62
+  pattern_xpath: ///div[contains(@class,'variant')][contains(@class,'content')]
+  content: [TEXT=3]
+  sample[0] (13L): Non-commercial news needs your support.We rely on contributions from you, our vi
+    |   <div class="variant_content">
+    |     <h1>
+    |       Non-commercial news needs your support.
+    |     </h1>
+    |     <p>
+    |       We rely on contributions from you, our viewers and listeners to do our work. If you visit us daily or weekly or even just once a month, now is a great time to make your monthly contribution.
+    |     </p>
+    |     <p>
+    |       <strong>
+    |         Please do your part today.
+    | ... [3 more lines]
+
+--- Chunk 16: [text_content:h5×2] ---
+  type=text_singleton freq=1 excl=0.44 LEAKS=81
+  pattern_xpath: ///div[contains(@class,'large')][contains(@class,'promotion')][contains(@class,'widget')][contains(@class,'image')]
+  content: [ATTR=252 BG=2 HREF=122 IMG=43 TEXT=452]
+  sample[0] (31L) [TRUNCATED]: Gift Catalog30th Anniversary Event2026 Oscar-NomineesFeatured Coverage Support D
+    |   <div class="widget promotion large_image">
+    |     <h5>
+    |       Gift Catalog30th Anniversary Event2026 Oscar-NomineesFeatured Coverage
+    |     </h5>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/gifts?campaign=web-gft">
+    |       <img src="https://www.democracynow.org/resources/thumbnails/82/782/democracy_now_hat_rr_pr..."></img>
+    |     </a>
+    |     <h3>
+    |       <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/gifts?campaign=web-gft">
+    |         Official Democracy Now! Gift Catalog
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /headlines (href not in rendered output)
+    [HREF] /donate?campaign=web-sho (href not in rendered output)
+    [IMG] https://assets.democracynow.org/assets/icons/newsletter-812b993764242f0a9244411e27fb6ed657 (img URL not in rendered)
+    [IMG] https://assets.democracynow.org/assets/icons/newsletter-812b993764242f0a9244411e27fb6ed657 (img URL not in rendered)
+    [IMG] https://www.democracynow.org/resources/thumbnails/13/813/DN-30-LOGO-Banner-1400x889-r2-230 (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] This is viewer supported news
+    [TEXT] 30th Anniversary Event2026 Oscar-NomineesFeatured CoverageGift Catalog
+    [TEXT] Wednesday, February 11, 2026HeadlinesSpeaking EventsThe Daily News Dig
+
+--- Chunk 17: [text_content:p×3] ---
+  type=text_singleton freq=1 excl=0.11
+  pattern_xpath: ///div[contains(@class,'configurable')]/div[contains(@class,'hidden')][contains(@class,'xs')]
+  content: [HREF=1 TEXT=11]
+  sample[0] (31L) [TRUNCATED]: Hi there,You can still get tickets for our 30th Anniversary Celebration on Monda
+    |   <div class="hidden-xs">
+    |     <h1>
+    |       Hi there,
+    |     </h1>
+    |     <p>
+    |       You can still get tickets for our 30th Anniversary Celebration on Monday, February 23rd at the Riverside Church in NYC. We will be joined by
+    |       <strong>
+    |         legendary activist and scholar Angela Davis, singer, songwriter, artist, activist Michael Stipe, jazz icon Wynton Marsalis, award winning journalist Naomi Klein, Nobel Peace Laureate Maria Ressa
+    |       </strong>
+    |       and more very special guests.
+    | ... [21 more lines]
+
+--- Chunk 18: [text_content:h5×2] ---
+  type=text_singleton freq=1 excl=0.57 LEAKS=72
+  pattern_xpath: ///div[contains(@class,'widget')][contains(@class,'promotion')][contains(@class,'large')]/div[contains(@class,'row')][contains(@class,'share')][contains(@class,'col')][contains(@class,'xs')]
+  content: [ATTR=41 HREF=113 IMG=37 TEXT=214]
+  sample[0] (31L) [TRUNCATED]: This is viewer supported news Please donate View All 30th Anniversary Event2026 
+    |   <div class="share_row col-xs-12">
+    |     <ul>
+    |       <li>
+    |         <a data-ga-action="Mobile Header: Facebook" href="http://www.facebook.com/democracynow">
+    |           <img loading="lazy" data-src="https://assets.democracynow.org/assets/sharing_icons/facebook-icon-3c8d143780d67..." class="" src="https://assets.democracynow.org/assets/sharing_icons/facebook-icon-3c8d143780d67..."></img>
+    |         </a>
+    |       </li>
+    |       <li>
+    |         <a data-ga-action="Mobile Header: Twitter" href="http://www.twitter.com/democracynow">
+    |           <img loading="lazy" data-src="https://assets.democracynow.org/assets/sharing_icons/x-logo-0dd81789c3d3520bb921..." class="" src="https://assets.democracynow.org/assets/sharing_icons/x-logo-0dd81789c3d3520bb921..."></img>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /donate?campaign=web-sho (href not in rendered output)
+    [HREF] /headlines (href not in rendered output)
+    [HREF] https://www.democracynow.org/30 (href not in rendered output)
+    [HREF] https://www.democracynow.org/2026/1/22/2026_oscar_nominated_films_on_democracy (href not in rendered output)
+    [HREF] https://www.democracynow.org/topics/jeffrey_epstein (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] This is viewer supported news
+    [TEXT] 30th Anniversary Event2026 Oscar-NomineesFeatured CoverageGift Catalog
+    [TEXT] Join Amy Goodman, Juan González, Nermeen Shaikh, special guests and th
+
+--- Chunk 19: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Home
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Home" href="/">
+    |       Home
+    |     </a>
+    |   </li>
+  sample[1] (5L): Daily Shows
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Daily Shows" href="/shows">
+    |       Daily Shows
+    |     </a>
+    |   </li>
+  sample[2] (5L): Topics
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Topics" href="/topics">
+    |       Topics
+    |     </a>
+    |   </li>
+
+--- Chunk 20: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Columns Home Daily Shows Web Exclusives Topics
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Columns" href="/categories/weekly_column">
+    |       Columns
+    |     </a>
+    |     <a data-ga-action="Mobile Header: Home" href="/">
+    |   ... [7 lines truncated] ...
+    |     </a>
+    |     <a data-ga-action="Mobile Header: Topics" href="/topics">
+    |       Topics
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (5L): Home
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Home" href="/">
+    |       Home
+    |     </a>
+    |   </li>
+  sample[2] (5L): Web Exclusives
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Web Exclusives" href="/categories/web_exclusive">
+    |       Web Exclusives
+    |     </a>
+    |   </li>
+
+--- Chunk 21: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.00 OUTLIER=2.8x
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (14L): Columns Daily Shows Web Exclusives Topics
+    |   <li>
+    |     <a data-ga-action="Header: Columns" href="/categories/weekly_column">
+    |       Columns
+    |     </a>
+    |     <a data-ga-action="Header: Daily Shows" href="/shows">
+    |       Daily Shows
+    |     </a>
+    |     <a data-ga-action="Header: Web Exclusives" href="/categories/web_exclusive">
+    |       Web Exclusives
+    |     </a>
+    | ... [4 more lines]
+  sample[1] (5L): Daily Shows
+    |   <li>
+    |     <a data-ga-action="Header: Daily Shows" href="/shows">
+    |       Daily Shows
+    |     </a>
+    |   </li>
+  sample[2] (5L): Web Exclusives
+    |   <li>
+    |     <a data-ga-action="Header: Web Exclusives" href="/categories/web_exclusive">
+    |       Web Exclusives
+    |     </a>
+    |   </li>
+
+--- Chunk 23: [nav_content:a×19] ---
+  type=menu_item freq=19 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): Minnesota
+    |   <li>
+    |     <div class="bullet"></div>
+    |     <a data-ga-action="Header: Hot Topic" href="/topics/minnesota">
+    |       Minnesota
+    |     </a>
+    |   </li>
+  sample[1] (6L): Immigration
+    |   <li>
+    |     <div class="bullet"></div>
+    |     <a data-ga-action="Header: Hot Topic" href="/topics/immigration">
+    |       Immigration
+    |     </a>
+    |   </li>
+  sample[2] (3L): Minnesota
+    |   <a data-ga-action="Header: Hot Topic" href="/topics/minnesota">
+    |     Minnesota
+    |   </a>
+
+--- Chunk 23: [nav_content:a×19] ---
+  type=menu_item freq=19 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): Minnesota
+    |   <li>
+    |     <div class="bullet"></div>
+    |     <a data-ga-action="Header: Hot Topic" href="/topics/minnesota">
+    |       Minnesota
+    |     </a>
+    |   </li>
+  sample[1] (6L): Immigration
+    |   <li>
+    |     <div class="bullet"></div>
+    |     <a data-ga-action="Header: Hot Topic" href="/topics/immigration">
+    |       Immigration
+    |     </a>
+    |   </li>
+  sample[2] (3L): Minnesota
+    |   <a data-ga-action="Header: Hot Topic" href="/topics/minnesota">
+    |     Minnesota
+    |   </a>
+
+--- Chunk 24: [nav_content:img×10] ---
+  type=menu_item freq=10 excl=0.00
+  pattern_xpath: ///img
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Story Feb 11, 2026“De Facto Dictatorship”: Democrats Confront Story Feb 11, 2026
+    |   <div class="dropdown_content stories" id="top_stories_content">
+    |     <div class="padding"></div>
+    |     <div class="arrow"></div>
+    |     <ul>
+    |       <li>
+    |   ... [104 lines truncated] ...
+    |           </picture>
+    |         </a>
+    |       </li>
+    |     </ul>
+    | ... [1 more lines]
+  sample[1] (5L): Topics
+    |   <li>
+    |     <a data-ga-action="Header: Topics" href="/topics">
+    |       Topics
+    |     </a>
+    |   </li>
+  sample[2] (3L): Web Exclusives
+    |   <a data-ga-action="Header: Web Exclusives" href="/categories/web_exclusive">
+    |     Web Exclusives
+    |   </a>
+
+--- Chunk 25: [nav_content:li×8] ---
+  type=menu_item freq=8 excl=0.11
+  pattern_xpath: ///li[contains(@class,'hidden')][contains(@class,'xs')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (11L) [TRUNCATED]: Democratic Lawmakers Grill the Heads of ICE,CBP and USCIS on Trump’s Mass Deport
+    |   <li>
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/democratic_lawmakers_grill_the_heads_of_ice_cbp_and_uscis_on_trumps_mass_deportation_campaign">
+    |       Democratic Lawmakers Grill the Heads of
+    |       <span class="caps">
+    |         ICE
+    |   ... [7 lines truncated] ...
+    |         USCIS
+    |       </span>
+    |       on Trump’s Mass Deportation Campaign
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (5L): Former Palm Beach Police Chief Says Trump Told Him in 2006 That “Everyone” Knew 
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/former_palm_beach_police_chief_says_trump_told_him_in_2006_that_everyone_knew_of_epsteins_behavior">
+    |       Former Palm Beach Police Chief Says Trump Told Him in 2006 That “Everyone” Knew of Epstein’s Behavior
+    |     </a>
+    |   </li>
+  sample[2] (5L): Trump Admin Plans to Cut $600 Million in Public Health Funds
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/trump_admin_plans_to_cut_600_million_in_public_health_funds">
+    |       Trump Admin Plans to Cut $600 Million in Public Health Funds
+    |     </a>
+    |   </li>
+
+--- Chunk 26: [nav_content:li×21] ---
+  type=menu_item freq=21 excl=0.11
+  pattern_xpath: ///li[contains(@class,'hidden')][contains(@class,'xs')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (11L) [TRUNCATED]: Democratic Lawmakers Grill the Heads of ICE,CBP and USCIS on Trump’s Mass Deport
+    |   <li>
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/democratic_lawmakers_grill_the_heads_of_ice_cbp_and_uscis_on_trumps_mass_deportation_campaign">
+    |       Democratic Lawmakers Grill the Heads of
+    |       <span class="caps">
+    |         ICE
+    |   ... [7 lines truncated] ...
+    |         USCIS
+    |       </span>
+    |       on Trump’s Mass Deportation Campaign
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (5L): Former Palm Beach Police Chief Says Trump Told Him in 2006 That “Everyone” Knew 
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/former_palm_beach_police_chief_says_trump_told_him_in_2006_that_everyone_knew_of_epsteins_behavior">
+    |       Former Palm Beach Police Chief Says Trump Told Him in 2006 That “Everyone” Knew of Epstein’s Behavior
+    |     </a>
+    |   </li>
+  sample[2] (5L): Israel’s Security Cabinet Expands Control Over Illegal West Bank Settlements
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/10/headlines/israels_security_cabinet_expands_control_over_illegal_west_bank_settlements">
+    |       Israel’s Security Cabinet Expands Control Over Illegal West Bank Settlements
+    |     </a>
+    |   </li>
+
+--- Chunk 27: [nav_content:a×60] ---
+  type=menu_item freq=60 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=6]
+  sample[0] (11L) [TRUNCATED]: Democratic Lawmakers Grill the Heads of ICE,CBP and USCIS on Trump’s Mass Deport
+    |   <li>
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/democratic_lawmakers_grill_the_heads_of_ice_cbp_and_uscis_on_trumps_mass_deportation_campaign">
+    |       Democratic Lawmakers Grill the Heads of
+    |       <span class="caps">
+    |         ICE
+    |   ... [7 lines truncated] ...
+    |         USCIS
+    |       </span>
+    |       on Trump’s Mass Deportation Campaign
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (9L): Immigrant Family Files a Lawsuit Claiming Their Toddler Was Returned to an ICE J
+    |   <li>
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/immigrant_family_files_a_lawsuit_claiming_their_toddler_was_returned_to_an_ice_jail_amid_a_measles_outbreak">
+    |       Immigrant Family Files a Lawsuit Claiming Their Toddler Was Returned to an
+    |       <span class="caps">
+    |         ICE
+    |       </span>
+    |       Jail Amid a Measles Outbreak
+    |     </a>
+    |   </li>
+  sample[2] (5L): At Least Nine People Killed in a Mass Shooting in British Columbia, Canada
+    |   <li class="hidden-xs">
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/at_least_nine_people_killed_in_a_mass_shooting_in_british_columbia_canada">
+    |       At Least Nine People Killed in a Mass Shooting in British Columbia, Canada
+    |     </a>
+    |   </li>
+
+--- Chunk 28: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Menu
+    |   <h5>
+    |     Menu
+    |   </h5>
+
+--- Chunk 29: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.11
+  pattern_xpath: ///h5[contains(@class,'hidden')][contains(@class,'xs')]
+  content: [TEXT=1]
+  sample[0] (3L): More news
+    |   <h5 class="hidden-xs">
+    |     More news
+    |   </h5>
+
+--- Chunk 30: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h2
+  content: [TEXT=1]
+  sample[0] (3L): Non-commercial news needs your support
+    |   <h2>
+    |     Non-commercial news needs your support
+    |   </h2>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.43
+  pattern_xpath: ///h4[contains(@id,'news')][contains(@id,'top')][contains(@class,'hidden')][contains(@class,'xs')]
+  content: [TEXT=1]
+  sample[0] (3L): Top News
+    |   <h4 class="hidden-xs" id="top_news">
+    |     Top News
+    |   </h4>
+
+--- Chunk 32: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): EditionsFollowDemocracy Now!
+    |   <h5>
+    |     EditionsFollowDemocracy Now!
+    |   </h5>
+
+--- Chunk 33: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Most popular
+    |   <h5>
+    |     Most popular
+    |   </h5>
+
+--- Chunk 34: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Media Options
+    |   <h5>
+    |     Media Options
+    |   </h5>
+
+--- Chunk 35: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=4 TEXT=4]
+  sample[0] (14L): Official Democracy Now! Gift Catalog Celebrate 30 years of Democracy Now! in NYC
+    |   <h3>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/gifts?campaign=web-gft">
+    |       Official Democracy Now! Gift Catalog
+    |     </a>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/30">
+    |       Celebrate 30 years of Democracy Now! in NYC
+    |     </a>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/2026/1/22/2026_oscar_nominated_films_on_democracy">
+    |       2026 Oscar-Nominated Films on Democracy Now!
+    |     </a>
+    | ... [4 more lines]
+
+--- Chunk 36: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): independent global news
+    |   <h5>
+    |     independent global news
+    |   </h5>
+
+--- Chunk 37: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Official Democracy Now! Gift Catalog
+    |   <h3>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/gifts?campaign=web-gft">
+    |       Official Democracy Now! Gift Catalog
+    |     </a>
+    |   </h3>
+
+--- Chunk 38: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): “The War Hasn’t Ended”: Palestinians in Gaza Still Face Israeli Attacks, Disease
+    |   <h3>
+    |     <a data-ga-action="Home: Story Headline" href="/2026/2/9/gaza_update">
+    |       “The War Hasn’t Ended”: Palestinians in Gaza Still Face Israeli Attacks, Disease, Medical Neglect
+    |     </a>
+    |   </h3>
+
+--- Chunk 39: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=1 TEXT=3]
+  sample[0] (9L): Juan González on Lasting Impact of 9/11 Toxic Exposure as NYC Faces Calls to Rel
+    |   <h3>
+    |     <a data-ga-action="Home: Story Headline" href="/2026/2/6/juan_gonzalez_world_trade_center_september">
+    |       Juan González on Lasting Impact of 9/11 Toxic Exposure as
+    |       <span class="caps">
+    |         NYC
+    |       </span>
+    |       Faces Calls to Release Suppressed Files
+    |     </a>
+    |   </h3>
+
+--- Chunk 40: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): “Journalism Deserves Better”: Ex-Washington Post Staffers Slam Billionaire Bezos
+    |   <h3>
+    |     <a data-ga-action="Home: Story Headline" href="/2026/2/6/karen_altiah_washington_post_layoffs_journalists">
+    |       “Journalism Deserves Better”: Ex-Washington Post Staffers Slam Billionaire Bezos for Gutting Paper
+    |     </a>
+    |   </h3>
+
+--- Chunk 41: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=9 TEXT=19]
+  sample[0] (31L) [TRUNCATED]: Can U.S. & Iran Lower Tensions? Officials Begin New Talks Amid Trump Threats of 
+    |   <h3>
+    |     <a data-ga-action="Home: Story Headline" href="/2026/2/6/nilo_tabrizy_iran_nuclear_program_arang">
+    |       Can U.S. & Iran Lower Tensions? Officials Begin New Talks Amid Trump Threats of Military Strikes
+    |     </a>
+    |     <a data-ga-action="Home: Story Headline" href="/2026/2/10/joaquin_castro_senate_democrats_homeland_security">
+    |       Rep. Joaquin Castro Slams
+    |       <span class="caps">
+    |         ICE
+    |       </span>
+    |       “Prison” Where Children as Young as 2 Months Old Are Held
+    | ... [21 more lines]
+
+--- Chunk 42: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Headlines
+    |   <h5>
+    |     Headlines
+    |   </h5>
+
+--- Chunk 43: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Speaking Events
+    |   <h5>
+    |     Speaking Events
+    |   </h5>
+
+--- Chunk 44: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): The Daily News Digest
+    |   <h5>
+    |     The Daily News Digest
+    |   </h5>
+
+--- Chunk 45: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [HREF=4 TEXT=4]
+  sample[0] (14L): Celebrate 30 years of Democracy Now! in NYC 2026 Oscar-Nominated Films on Democr
+    |   <h3>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/30">
+    |       Celebrate 30 years of Democracy Now! in NYC
+    |     </a>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/2026/1/22/2026_oscar_nominated_films_on_democracy">
+    |       2026 Oscar-Nominated Films on Democracy Now!
+    |     </a>
+    |     <a data-ga-action="Widget: Large Image" href="https://www.democracynow.org/topics/jeffrey_epstein">
+    |       Watch Democracy Now's Coverage of Jeffrey Epstein & Ghislaine Maxwell
+    |     </a>
+    | ... [4 more lines]
+
+--- Chunk 46: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): News
+    |   <h5>
+    |     News
+    |   </h5>
+
+--- Chunk 47: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Democracy Now!
+    |   <h5>
+    |     Democracy Now!
+    |   </h5>
+
+--- Chunk 48: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Editions
+    |   <h5>
+    |     Editions
+    |   </h5>
+
+--- Chunk 49: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Follow
+    |   <h5>
+    |     Follow
+    |   </h5>
+
+--- Chunk 50: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): Get Email Updates
+    |   <h5>
+    |     Get Email Updates
+    |   </h5>
+
+--- Chunk 51: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h5
+  content: [TEXT=1]
+  sample[0] (3L): NewsDemocracy Now!EditionsFollowGet Email Updates
+    |   <h5>
+    |     NewsDemocracy Now!EditionsFollowGet Email Updates
+    |   </h5>
+
+--- Chunk 52: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.00 LEAKS=42
+  pattern_xpath: ///li
+  content: [HREF=38 IMG=54 TEXT=57]
+  sample[0] (31L) [TRUNCATED]: Daily Shows Top Stories Web Exclusives Topics Columns Show Archive Browse Web Ex
+    |   <li>
+    |     <button id="hamburger_button">
+    |       <img src="https://assets.democracynow.org/assets/icons/hamburger-b990b48358f0d0d6ad29b0a5f..."></img>
+    |     </button>
+    |     <a data-ga-action="Header: Daily Shows" href="/shows">
+    |       Daily Shows
+    |     </a>
+    |     <div class="expand_menu">
+    |       <img loading="lazy" data-src="https://assets.democracynow.org/assets/icons/chevron-down-cc42e0e5aef921b2e30a8c..." class="dropdown_arrow" src="https://assets.democracynow.org/assets/icons/chevron-down-cc42e0e5aef921b2e30a8c..."></img>
+    |       <div class="dropdown_content" id="daily_shows_content">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /categories/web_exclusive (href not in rendered output)
+    [HREF] /topics (href not in rendered output)
+    [HREF] /categories/weekly_column (href not in rendered output)
+    [IMG] https://assets.democracynow.org/assets/icons/chevron-down-cc42e0e5aef921b2e30a8c6a05bcc7eb (img URL not in rendered)
+    [IMG] https://assets.democracynow.org/assets/icons/chevron-down-cc42e0e5aef921b2e30a8c6a05bcc7eb (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Browse Web Exclusives
+    [TEXT] Protecting Pedophile Predators: Carole Cadwalladr on Jeffrey Epstein &
+    [TEXT] StoryFeb 11, 2026Feb 10, 2026
+
+--- Chunk 53: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.00 LEAKS=28
+  pattern_xpath: ///li
+  content: [HREF=28 IMG=16 TEXT=41]
+  sample[0] (31L) [TRUNCATED]: Democratic Lawmakers Grill the Heads of Immigrant Family Files a Lawsuit Claimin
+    |   <li>
+    |     <a data-ga-action="Mobile Header: Bluesky" href="https://bsky.app/profile/democracynow.org">
+    |       <img loading="lazy" data-src="https://assets.democracynow.org/assets/sharing_icons/bluesky-icon-9dd8f445957cc5..." class="" src="https://assets.democracynow.org/assets/sharing_icons/bluesky-icon-9dd8f445957cc5..."></img>
+    |     </a>
+    |     <a data-ga-action="Home Headlines: Headline" href="/2026/2/11/headlines/democratic_lawmakers_grill_the_heads_of_ice_cbp_and_uscis_on_trumps_mass_deportation_campaign">
+    |       Democratic Lawmakers Grill the Heads of
+    |       <span class="caps">
+    |         ICE
+    |       </span>
+    |       ,
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /2026/2/11/headlines/fbi_raid_of_fulton_county_election_office_based_on_debunked_claims_fr (href not in rendered output)
+    [HREF] /2026/2/11/headlines/federal_grand_jury_declines_to_indict_six_democratic_lawmakers_for_ur (href not in rendered output)
+    [HREF] /events/2026/2/celebrate_30_years_of_independent_global_news_with_democracy_now_1605 (href not in rendered output)
+    [HREF] http://www.facebook.com/democracynow (href not in rendered output)
+    [HREF] http://www.twitter.com/democracynow (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] At Least Nine People Killed in a Mass Shooting in British Columbia, Ca
+    [TEXT] Federal Grand Jury Declines to Indict Six Democratic Lawmakers for Urg
+    [TEXT] Raid of Fulton County Election Office Based on Debunked Claims from El

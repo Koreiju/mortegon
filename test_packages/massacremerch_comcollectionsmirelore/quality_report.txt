@@ -1,0 +1,334 @@
+=== QUALITY REPORT: massacremerch_comcollectionsmirelore.html ===
+Chunks: 16 (structural=7, functional=3, text=6)
+Categories: {'card': 5, 'menu_item': 3, 'search_input': 1, 'pagination': 1, 'text_singleton': 6}
+Content: 82 tagged, 82 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div.card.col ---
+  type=card freq=9 excl=0.60
+  pattern_xpath: ///div[contains(@data-product-available,'true')][contains(@class,'col')][contains(@class,'items')][contains(@class,'space')][contains(@class,'stretch')]
+  tree_sig: div(a(div(div),img),div(div,div(div(div(s,span),div(s,span,span(span,span,span,s
+  content: [ATTR=1 HREF=1 IMG=8 TEXT=8]
+  sample[0] (31L) [TRUNCATED]: Buy – Mire Lore "Tree Logo" Ladies Raglan – Metal Band & Music Merch – Massacre 
+    |   <div id="ProductCard-template--22860251496747__collection-3609539281001" class="product-card relative flex flex-col flex-wrap items-stretch space-y-3 h-full " data-product-url="/products/mire-lore-lord-of-ladies-raglan" data-product-available="true" data-product-on-sale="false" data-product-card="3609539281001">
+    |     <a href="/collections/mire-lore/products/mire-lore-lord-of-ladies-raglan" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |       <img src="//massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-M..." alt="Buy – Mire Lore "Tree Logo" Ladies Raglan – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=160 160w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=220 220w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=300 300w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=420 420w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=640 640w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=960 960w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |       <div class="product-card__labels-container inset-0 absolute">
+    |         <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight"></div>
+    |       </div>
+    |     </a>
+    |     <div class="product-card__content leading-tight">
+    |       <div class="product-card__title group-hover:text-primary-accent">
+    |         Mire Lore "Tree Logo" Ladies Raglan
+    | ... [21 more lines]
+
+--- Chunk 1: div.card.cd ---
+  type=card freq=3 excl=0.60
+  pattern_xpath: ///div[contains(@data-product-available,'false')][contains(@class,'col')][contains(@class,'items')][contains(@class,'space')][contains(@class,'stretch')]
+  tree_sig: div(a(div(div(span)),img),div(div,div(div(div(s,span),div(s,span,span(span,span,
+  content: [ATTR=1 HREF=1 IMG=8 TEXT=9]
+  sample[0] (31L) [TRUNCATED]: Buy – Mire Lore "Marrow Leach" CD – Metal Band & Music Merch – Massacre Merch Mi
+    |   <div id="ProductCard-template--22860251496747__collection-2343429242985" class="product-card relative flex flex-col flex-wrap items-stretch space-y-3 h-full " data-product-url="/products/mire-lore-marrow-leach-cd" data-product-available="false" data-product-on-sale="false" data-product-card="2343429242985">
+    |     <a href="/collections/mire-lore/products/mire-lore-marrow-leach-cd" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |       <img src="//massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&wi..." alt="Buy – Mire Lore "Marrow Leach" CD – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=160 160w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=220 220w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=300 300w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=420 420w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=640 640w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=960 960w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |       <div class="product-card__labels-container inset-0 absolute">
+    |         <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight">
+    |           <span class="label label--basic rounded-sm py-0.5 px-2 bg-primary-background text-primary-accent">
+    |             Sold out
+    |           </span>
+    |         </div>
+    |       </div>
+    | ... [21 more lines]
+
+--- Chunk 2: li.drawer.grandchild ---
+  type=menu_item freq=593 excl=0.52
+  pattern_xpath: ///li[contains(@class,'list')][contains(@class,'grandchild')][contains(@class,'drawer')][contains(@class,'item')][contains(@class,'menu')]
+  tree_sig: li(a(span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): T-Shirts
+    |   <li class="drawer-menu-grandchild__list-item">
+    |     <a href="/collections/all-shirts" class="drawer-menu-grandchild__link-item">
+    |       <span>
+    |         T-Shirts
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[1] (7L): Long Sleeves
+    |   <li class="drawer-menu-grandchild__list-item">
+    |     <a href="/collections/long-sleeves" class="drawer-menu-grandchild__link-item">
+    |       <span>
+    |         Long Sleeves
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (7L): Pins
+    |   <li class="drawer-menu-grandchild__list-item">
+    |     <a href="/collections/pins" class="drawer-menu-grandchild__link-item">
+    |       <span>
+    |         Pins
+    |       </span>
+    |     </a>
+    |   </li>
+
+--- Chunk 3: summary.child.header ---
+  type=card freq=12 excl=0.35
+  pattern_xpath: ///summary[contains(@class,'child')][contains(@class,'header')][contains(@class,'item')][contains(@class,'link')][contains(@class,'menu')]
+  tree_sig: summary(div(a,svg(path)))
+  content: [HREF=1 TEXT=1]
+  sample[0] (10L): Shirts
+    |   <summary class="header-menu-child__link-item" tabindex="-1">
+    |     <div class="header-menu__summary-container">
+    |       <a href="/collections/all-shirts">
+    |         Shirts
+    |       </a>
+    |       <svg aria-hidden="true" focusable="false" role="presentation" class="icon fill-current icon-ui-chevron-down" viewbox="0 0 320 512">
+    |         <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L..."></path>
+    |       </svg>
+    |     </div>
+    |   </summary>
+  sample[1] (10L): Headwear
+    |   <summary class="header-menu-child__link-item" tabindex="-1">
+    |     <div class="header-menu__summary-container">
+    |       <a href="/collections/headwear">
+    |         Headwear
+    |       </a>
+    |       <svg aria-hidden="true" focusable="false" role="presentation" class="icon fill-current icon-ui-chevron-down" viewbox="0 0 320 512">
+    |         <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L..."></path>
+    |       </svg>
+    |     </div>
+    |   </summary>
+  sample[2] (10L): Music
+    |   <summary class="header-menu-child__link-item" tabindex="-1">
+    |     <div class="header-menu__summary-container">
+    |       <a href="/collections/music">
+    |         Music
+    |       </a>
+    |       <svg aria-hidden="true" focusable="false" role="presentation" class="icon fill-current icon-ui-chevron-down" viewbox="0 0 320 512">
+    |         <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L..."></path>
+    |       </svg>
+    |     </div>
+    |   </summary>
+
+--- Chunk 4: a.aspect.card ---
+  type=card freq=9 excl=0.45
+  pattern_xpath: ///a[contains(@class,'aspect')][contains(@class,'center')][contains(@class,'justify')][contains(@class,'media')][contains(@class,'card')]
+  tree_sig: a(div(div),img)
+  content: [ATTR=1 HREF=1 IMG=8]
+  sample[0] (6L): Buy – Mire Lore "Tree Logo" Ladies Raglan – Metal Band & Music Merch – Massacre 
+    |   <a href="/collections/mire-lore/products/mire-lore-lord-of-ladies-raglan" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |     <img src="//massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-M..." alt="Buy – Mire Lore "Tree Logo" Ladies Raglan – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=160 160w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=220 220w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=300 300w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=420 420w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=640 640w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=960 960w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL003-TREE-LOGO-LADIES-RAGLAN-MOCK.png?v=1733841095&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |     <div class="product-card__labels-container inset-0 absolute">
+    |       <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight"></div>
+    |     </div>
+    |   </a>
+  sample[1] (6L): Buy – Mire Lore "The End" Shirt – Metal Band & Music Merch – Massacre Merch
+    |   <a href="/collections/mire-lore/products/mire-lore-the-end-shirt" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |     <img src="//massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=..." alt="Buy – Mire Lore "The End" Shirt – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=160 160w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=220 220w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=300 300w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=420 420w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=640 640w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=960 960w, //massacremerch.com/cdn/shop/products/MIRE-LORE-MIL002-THE-END-SHIRT-MOCK.png?v=1733841098&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |     <div class="product-card__labels-container inset-0 absolute">
+    |       <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight"></div>
+    |     </div>
+    |   </a>
+  sample[2] (6L): Buy – Mire Lore "Carcass" Shirt – Metal Band & Music Merch – Massacre Merch
+    |   <a href="/collections/mire-lore/products/mire-lore-carcass-shirt" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |     <img src="//massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841..." alt="Buy – Mire Lore "Carcass" Shirt – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=160 160w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=220 220w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=300 300w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=420 420w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=640 640w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=960 960w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-SHIRT-MOCK.png?v=1733841171&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |     <div class="product-card__labels-container inset-0 absolute">
+    |       <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight"></div>
+    |     </div>
+    |   </a>
+
+--- Chunk 5: a.accent.block ---
+  type=menu_item freq=8 excl=1.00
+  pattern_xpath: ///a[contains(@class,'accent')][contains(@class,'block')][contains(@class,'hover')][contains(@class,'icon')][contains(@class,'social')]
+  tree_sig: a(svg(path))
+  content: [ATTR=1 HREF=1]
+  sample[0] (5L): 
+    |   <a href="https://open.spotify.com/playlist/2QvqkNi1iyoLKvPd0h7qAB" class="social-icon__link w-6 h-6 block text-section-text hover:text-section-accent" title="Spotify - Massacre Merch">
+    |     <svg aria-hidden="true" focusable="false" role="presentation" class="icon fill-current icon-social-spotify" viewbox="0 0 496 512">
+    |       <path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm..."></path>
+    |     </svg>
+    |   </a>
+  sample[1] (5L): 
+    |   <a href="https://twitter.com/massacremerch" class="social-icon__link w-6 h-6 block text-section-text hover:text-section-accent" title="Twitter - Massacre Merch">
+    |     <svg aria-hidden="true" focusable="false" role="presentation" class="icon fill-current icon-social-twitter" viewbox="0 0 512 512">
+    |       <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26..."></path>
+    |     </svg>
+    |   </a>
+  sample[2] (5L): 
+    |   <a href="https://open.spotify.com/playlist/2QvqkNi1iyoLKvPd0h7qAB" class="social-icon__link w-6 h-6 block text-section-text hover:text-section-accent" title="Spotify - Massacre Merch">
+    |     <svg aria-hidden="true" focusable="false" role="presentation" class="icon fill-current icon-social-spotify" viewbox="0 0 496 512">
+    |       <path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm..."></path>
+    |     </svg>
+    |   </a>
+
+--- Chunk 6: a.aspect.card ---
+  type=card freq=3 excl=0.45
+  pattern_xpath: ///a[contains(@class,'aspect')][contains(@class,'center')][contains(@class,'justify')][contains(@class,'media')][contains(@class,'card')]
+  tree_sig: a(div(div(span)),img)
+  content: [ATTR=1 HREF=1 IMG=8 TEXT=1]
+  sample[0] (10L): Buy – Mire Lore "Marrow Leach" CD – Metal Band & Music Merch – Massacre Merch So
+    |   <a href="/collections/mire-lore/products/mire-lore-marrow-leach-cd" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |     <img src="//massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&wi..." alt="Buy – Mire Lore "Marrow Leach" CD – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=160 160w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=220 220w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=300 300w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=420 420w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=640 640w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=960 960w, //massacremerch.com/cdn/shop/products/Mire_Lore_Marrow_Leach.jpg?v=1632410035&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |     <div class="product-card__labels-container inset-0 absolute">
+    |       <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight">
+    |         <span class="label label--basic rounded-sm py-0.5 px-2 bg-primary-background text-primary-accent">
+    |           Sold out
+    |         </span>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[1] (10L): Buy – Mire Lore "Creature" Hoodie – Metal Band & Music Merch – Massacre Merch So
+    |   <a href="/collections/mire-lore/products/mire-lore-creature-shirt" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |     <img src="//massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=17338..." alt="Buy – Mire Lore "Creature" Hoodie – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=160 160w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=220 220w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=300 300w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=420 420w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=640 640w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=960 960w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CREATURE-HOODIE-MOCK.png?v=1733841172&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |     <div class="product-card__labels-container inset-0 absolute">
+    |       <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight">
+    |         <span class="label label--basic rounded-sm py-0.5 px-2 bg-primary-background text-primary-accent">
+    |           Sold out
+    |         </span>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[2] (10L): Buy – Mire Lore "Carcass" Long Sleeve – Metal Band & Music Merch – Massacre Merc
+    |   <a href="/collections/mire-lore/products/mire-lore-carcass-long-sleeve" class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1" tabindex="-1">
+    |     <img src="//massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=17..." alt="Buy – Mire Lore "Carcass" Long Sleeve – Metal Band & Music Merch – Massacre Merch" srcset="//massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=160 160w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=220 220w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=300 300w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=420 420w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=640 640w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=960 960w, //massacremerch.com/cdn/shop/products/MIRE-LORE-CARCASS-LONGSLEEVE-MOCK.png?v=1733840880&width=1280 1280w" width="1280" height="1280" loading="lazy" class="product-card__featured-image object-contain" sizes="(min-width: 1280px) calc((1280px - 5.25rem) / 4), (min-width: 768px) calc((100vw - 7.75rem) / 4), calc((100vw - 3.5rem) / 2)"></img>
+    |     <div class="product-card__labels-container inset-0 absolute">
+    |       <div class="product-card__labels absolute bottom-1 left-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight">
+    |         <span class="label label--basic rounded-sm py-0.5 px-2 bg-primary-background text-primary-accent">
+    |           Sold out
+    |         </span>
+    |       </div>
+    |     </div>
+    |   </a>
+
+--- Chunk 7: [search_inputs] ---
+  type=search_input freq=3 excl=1.00 OUTLIER=11.0x
+  pattern_xpath: ///input[contains(@class,'bg')][contains(@class,'border')][contains(@class,'focus')][contains(@class,'input')][contains(@class,'primary')]
+  content: [ATTR=1]
+  sample[0] (11L) [TRUNCATED]: Featured Best selling Alphabetically, A-Z Alphabetically, Z-A Price, low to high
+    |   <select id="SortBy-template--22860251496747__collection" name="sort_by" class="collection-sort__select sm:text-sm" aria-describedby="a11y-refresh-page-message">
+    |     <option value="manual" selected="selected">
+    |       Featured
+    |     </option>
+    |     <option value="best-selling">
+    |   ... [16 lines truncated] ...
+    |     </option>
+    |     <option value="created-descending">
+    |       Date, new to oldFeaturedBest sellingAlphabetically, A-ZAlphabetically, Z-APrice, low to highPrice, high to lowDate, old to new
+    |     </option>
+    | ... [1 more lines]
+  sample[1] (1L): Search
+    |   <input class="search__input search-bar__input focus:appearance-none appearance-none w-full bg-primary-background border-primary-text focus:ring-0 placeholder-section-text-75" id="SearchBarInput-sections--22860254478635__header-top" type="search" name="q" value="" placeholder="Search"></input>
+  sample[2] (1L): 
+    |   <input id="PredictiveSearch" class="predictive__input text-primary-text h-12 w-full border-0 bg-transparent pl-10 pr-4 focus:ring-0" type="search" name="q" value="" role="combobox" aria-expanded="false" aria-owns="predictive-search-results" aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list"></input>
+
+--- Chunk 8: [pagination_buttons] ---
+  type=pagination freq=13 excl=0.48
+  pattern_xpath: ///a[contains(@aria-current,'page')][contains(@class,'grandchild')][contains(@class,'item')][contains(@class,'link')][contains(@class,'menu')]
+  sample[0] (5L): Mire Lore
+    |   <a href="/collections/mire-lore" class="drawer-menu-grandchild__link-item" aria-current="page">
+    |     <span class="drawer-menu__link-item-current">
+    |       Mire Lore
+    |     </span>
+    |   </a>
+  sample[1] (5L): Mire Lore
+    |   <a href="/collections/mire-lore" class="drawer-menu-grandchild__link-item" aria-current="page">
+    |     <span class="drawer-menu__link-item-current">
+    |       Mire Lore
+    |     </span>
+    |   </a>
+  sample[2] (5L): Mire Lore
+    |   <a href="/collections/mire-lore" class="header-menu-grandchild__link-item" aria-current="page">
+    |     <span class="header-menu__link-item-current">
+    |       Mire Lore
+    |     </span>
+    |   </a>
+
+--- Chunk 9: [text_content:h2×2] ---
+  type=text_singleton freq=1 excl=0.62
+  pattern_xpath: ///div[contains(@class,'body')][contains(@class,'banner')][contains(@class,'pc')][contains(@class,'shopify')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (11L): We value your privacy We use cookies and other technologies to personalize your 
+    |   <div class="shopify-pc__banner__body">
+    |     <h2 id="shopify-pc__banner__body-title">
+    |       We value your privacy
+    |     </h2>
+    |     <p>
+    |       We use cookies and other technologies to personalize your experience, perform marketing, and collect analytics. Learn more in our
+    |       <a id="shopify-pc__banner__body-policy-link" href="https://massacremerch.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer">
+    |         Privacy Policy.
+    |       </a>
+    |     </p>
+    | ... [1 more lines]
+
+--- Chunk 10: [text_content:h2×2] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///div[contains(@class,'btns')][contains(@class,'granular')][contains(@class,'banner')][contains(@class,'pc')][contains(@class,'shopify')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (22L): Accept Decline We value your privacy We use cookies and other technologies to pe
+    |   <div class="shopify-pc__banner__btns shopify-pc__banner__btns-granular">
+    |     <button id="shopify-pc__banner__btn-manage-prefs" class="shopify-pc__banner__btn-manage-prefs" aria-haspopup="dialog" type="button">
+    |       <span>
+    |         Manage preferences
+    |       </span>
+    |     </button>
+    |     <button id="shopify-pc__banner__btn-accept" class="shopify-pc__banner__btn-accept" type="button">
+    |       Accept
+    |     </button>
+    |     <button id="shopify-pc__banner__btn-decline" class="shopify-pc__banner__btn-decline" type="button">
+    | ... [12 more lines]
+
+--- Chunk 11: [nav_content:a×14] ---
+  type=menu_item freq=14 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Powered By Sidewalk
+    |   <li class="px-2">
+    |     <a target="_blank" rel="nofollow" href="https://www.shopify.com?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore">
+    |       Powered By Sidewalk
+    |     </a>
+    |   </li>
+  sample[1] (5L): Refund policy
+    |   <li class="px-2">
+    |     <a href="/policies/refund-policy">
+    |       Refund policy
+    |     </a>
+    |   </li>
+  sample[2] (3L): Massacre Merch
+    |   <a href="/" title="">
+    |     Massacre Merch
+    |   </a>
+
+--- Chunk 12: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.57
+  pattern_xpath: ///div[contains(@class,'newsletter')][contains(@class,'lg')]//h4[contains(@class,'newsletter')][contains(@id,'newsletter')][contains(@id,'nav')][contains(@class,'footer')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Newsletter
+    |   <h4 id="nav-newsletter" class="footer-newsletter__title text-xl text-section-title">
+    |     Newsletter
+    |   </h4>
+
+--- Chunk 13: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.42
+  pattern_xpath: ///div[contains(@class,'md')][contains(@class,'lg')][contains(@role,'navigation')]//h4[contains(@id,'information')][contains(@id,'nav')][contains(@class,'footer')][contains(@class,'menu')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): INFORMATION
+    |   <h4 id="nav-information" class="footer-menu__title text-xl text-section-title">
+    |     INFORMATION
+    |   </h4>
+
+--- Chunk 14: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.87
+  pattern_xpath: ///div[contains(@class,'contact')][contains(@class,'lg')]//h4[contains(@class,'contact')][contains(@id,'get')][contains(@id,'in')][contains(@id,'touch')][contains(@id,'nav')]
+  content: [TEXT=1]
+  sample[0] (3L): Get in touch
+    |   <h4 id="nav-get-in-touch" class="footer-contact__title text-xl text-section-title">
+    |     Get in touch
+    |   </h4>
+
+--- Chunk 15: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.29
+  pattern_xpath: ///div[contains(@class,'space')][contains(@class,'pb')][contains(@class,'border')]/h1[contains(@class,'collection')][contains(@class,'title')][contains(@class,'xl')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Mire Lore
+    |   <h1 class="collection__title text-3xl">
+    |     Mire Lore
+    |   </h1>

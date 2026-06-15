@@ -1,0 +1,339 @@
+{
+  "//tr": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 2,
+    "pattern_xpath": "///tr",
+    "content_types": [],
+    "children": {
+      "//td": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//img": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "search_input",
+    "frequency": 1,
+    "pattern_xpath": "///input[contains(@name,'query')][contains(@type,'search')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//img": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "pagination",
+    "frequency": 3,
+    "pattern_xpath": "///a",
+    "content_types": [],
+    "children": {}
+  },
+  "//p": {
+    "chunk_ids": [
+      3,
+      4
+    ],
+    "classification": "text_singleton",
+    "frequency": 2,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2": {
+    "chunk_ids": [
+      5,
+      19,
+      20,
+      21
+    ],
+    "classification": "text_singleton",
+    "frequency": 99,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//div": {
+    "chunk_ids": [
+      6
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@id,'bibliography')]",
+    "content_types": [],
+    "children": {
+      "//h2": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//h3": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//ul[contains(@class,'hanging')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {
+              "//em": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//p": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//em": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li": {
+    "chunk_ids": [
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "classification": "text_singleton",
+    "frequency": 6,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//ul": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//blockquote": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//em": {
+        "chunk_ids": [
+          9
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@role,'menuitem')]": {
+    "chunk_ids": [
+      12,
+      13,
+      14
+    ],
+    "classification": "menu_item",
+    "frequency": 5,
+    "pattern_xpath": "///li[contains(@role,'menuitem')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          12
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h4": {
+    "chunk_ids": [
+      15,
+      16,
+      17
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4",
+    "content_types": [],
+    "children": {
+      "//i[contains(@class,'icon-book')]": {
+        "chunk_ids": [
+          15
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//i[contains(@class,'icon-info-sign')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//i[contains(@class,'icon-leaf')]": {
+        "chunk_ids": [
+          17
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h1": {
+    "chunk_ids": [
+      18
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h1",
+    "content_types": [],
+    "children": {}
+  },
+  "//blockquote": {
+    "chunk_ids": [
+      22
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///blockquote",
+    "content_types": [],
+    "children": {
+      "//table[contains(@class,'vert-top')]": {
+        "chunk_ids": [
+          22
+        ],
+        "content_types": [],
+        "children": {
+          "//tbody": {
+            "chunk_ids": [
+              22
+            ],
+            "content_types": [],
+            "children": {
+              "//tr": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//td": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

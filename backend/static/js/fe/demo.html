@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>magic markdown — live panel</title>
+  <style>
+    :root { --slate-border: #c0c0c0; }
+    html, body { margin: 0; height: 100%; background: #000; }
+    body { display: flex; align-items: flex-start; justify-content: center; padding: 48px 0; }
+    /* the slate's own styling comes from panelVDom inline; the page is pure black */
+    .mm-slate { min-width: 520px; max-width: 720px; }
+    .mm-line { line-height: 1.7; font-size: 15px; }
+    .mm-drop { cursor: pointer; color: var(--slate-border); margin-right: 4px; user-select: none; }
+    .mm-text[data-editable="1"] { cursor: text; }
+    .mm-readthrough { opacity: 0.82; }
+    #status { position: fixed; bottom: 8px; left: 8px; color: #6b7280; font: 11px monospace; }
+  </style>
+</head>
+<body>
+  <div id="host"></div>
+  <div id="status">loading…</div>
+
+  <script type="module">
+    import { parse, buildRegistry, toggle } from "./magic_markdown.mjs";
+    import { mount } from "./magic_markdown_panel.mjs";
+    import { resolveGesture, Action } from "./magic_markdown_gestures.mjs";
+
+    // A panel (a scanned card) that links OUT to another node by its root field.
+    const CARD = parse([
+      "Princeton University Library Chronicle 1950 - 1951: Vol 12",
+      "\t/details/sim_princeton-university-library-chronicle_1950-1951_12_contents",
+      "\tlink {details page}",
+      "\tvolume : 12",
+    ].join("\n"));
+
+    const DETAILS = parse([
+      "details page",
+      "\turl : /details/sim_princeton-university-library-chronicle_1950-1951_12_contents",
+      "\tmediatype : Text",
+      "\treviews : 0",
+    ].join("\n"));
+
+    const registry = buildRegistry([DETAILS]);
+    let expanded = new Set();
+    let mode = "panel";                          // 'panel' | 'graph' — the two halves of the dialect
+    const host = document.getElementById("host");
+    const status = document.getElementById("status");
+
+    function render() {
+      mount(host, CARD, { registry, expanded, mode }, {
+        onToggle(path) {                       // click a dropdown char → expand/collapse inline
+          expanded = toggle(expanded, path);
+          render();
+          status.textContent = "toggled " + path + "  (open paths: " + [...expanded].join(",") + ")";
+        },
+        onEdit(path) {                          // single-left a token → (demo: report the edit intent)
+          status.textContent = "edit token " + path;
+        },
+        onTogglePanelGraph() {                  // double-left body → GO BETWEEN panel ⇄ graph
+          mode = mode === "panel" ? "graph" : "panel";
+          render();
+          status.textContent = "mode = " + mode;
+        },
+      });
+      // right-click → resolveGesture (fold on a {ref}); wire on whichever
+      // container rendered (panel slate OR graph)
+      const rootEl = host.querySelector(".mm-slate, .mm-graph");
+      if (rootEl) rootEl.addEventListener("contextmenu", (ev) => {
+        ev.preventDefault();
+        const drop = ev.target.closest(".mm-drop");
+        const refTok = ev.target.closest('.mm-text');
+        const target = drop ? "dropdown" : (refTok && /\{[^}]+\}/.test(refTok.textContent) ? "ref" : "token");
+        const { action } = resolveGesture({ button: "right", clicks: 1, target });
+        const pathEl = drop || refTok;
+        if (action === Action.TOGGLE_FOLD && pathEl) {
+          expanded = toggle(expanded, pathEl.getAttribute("data-path"));
+          render();
+          status.textContent = "right-click fold → " + pathEl.getAttribute("data-path");
+        }
+      });
+    }
+
+    render();
+    status.textContent = "ready";
+    window.__mm_ready = true;            // probe flag for browser verification
+    window.__mm_toggleMode = () => { mode = mode === "panel" ? "graph" : "panel"; render(); };
+    window.__mm_state = () => ({
+      mode,
+      lines: [...host.querySelectorAll(".mm-line")].map((l) => l.textContent),
+      drops: [...host.querySelectorAll(".mm-drop")].map((d) => d.textContent),
+      gnodes: [...host.querySelectorAll(".mm-gnode")].map((n) => n.textContent),
+      gnodeRound: (() => { const n = host.querySelector(".mm-gnode"); return n ? getComputedStyle(n).borderRadius : null; })(),
+      edges: host.querySelectorAll(".mm-edges line").length,
+      open: [...expanded],
+    });
+  </script>
+</body>
+</html>

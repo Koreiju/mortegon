@@ -1,0 +1,300 @@
+{
+  "//div[contains(@class,'pencraft')][contains(@class,'pc-display-flex')]": {
+    "chunk_ids": [
+      0,
+      1,
+      2,
+      9
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///div[contains(@class,'start')][contains(@class,'column')][contains(@class,'direction')][contains(@class,'gap')][contains(@class,'items')]",
+    "content_types": [],
+    "children": {
+      "//h4[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'pencraft')][contains(@class,'pc-display-flex')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//button[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//picture": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//source": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//img[contains(@class,'img-OACg1c')][contains(@class,'object-fit-cover-u4ReeV')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//picture": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//source": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'img-OACg1c')][contains(@class,'pencraft')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//hr[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+        "chunk_ids": [
+          9
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//a[contains(@class,'pencraft')][contains(@class,'pc-display-flex')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "card",
+    "frequency": 18,
+    "pattern_xpath": "///a[contains(@class,'animate')][contains(@class,'em')][contains(@class,'focus')][contains(@class,'jx')][contains(@class,'show')]",
+    "content_types": [],
+    "children": {
+      "//span": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'pencraft')][contains(@class,'pc-display-flex')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'pencraft')][contains(@class,'pc-display-flex')]": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {
+                  "//picture": {
+                    "chunk_ids": [
+                      3
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//button[contains(@class,'pencraft')][contains(@class,'pc-display-flex')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "button",
+    "frequency": 20,
+    "pattern_xpath": "///button[contains(@class,'ge')][contains(@class,'ik')][contains(@class,'ld')][contains(@class,'left')][contains(@class,'min')]",
+    "content_types": [],
+    "children": {
+      "//svg[contains(@role,'img')]": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//g": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {
+              "//title": {
+                "chunk_ids": [
+                  4
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//path": {
+                "chunk_ids": [
+                  4
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//span[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "card",
+    "frequency": 6,
+    "pattern_xpath": "///span[contains(@class,'cl')][contains(@class,'decoration')][contains(@class,'dvrm')][contains(@class,'hover')][contains(@class,'ls')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//span": {
+    "chunk_ids": [
+      6
+    ],
+    "classification": "card",
+    "frequency": 5,
+    "pattern_xpath": "///span[contains(@data-state,'closed')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'input-rPcWNv')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "search_input",
+    "frequency": 3,
+    "pattern_xpath": "///input[contains(@autocomplete,'off')][contains(@class,'input')][contains(@class,'nv')][contains(@name,'search')][contains(@type,'search')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//img[contains(@class,'img-OACg1c')][contains(@class,'pencraft')]": {
+    "chunk_ids": [
+      8
+    ],
+    "classification": "pagination",
+    "frequency": 64,
+    "pattern_xpath": "///button[contains(@class,'base')][contains(@class,'button')][contains(@class,'gck')][contains(@class,'gk')][contains(@class,'priority')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//p": {
+    "chunk_ids": [
+      10,
+      11
+    ],
+    "classification": "text_singleton",
+    "frequency": 2,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {}
+  },
+  "//a[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+    "chunk_ids": [
+      12
+    ],
+    "classification": "menu_item",
+    "frequency": 15,
+    "pattern_xpath": "///a[contains(@class,'bpto')][contains(@class,'li')][contains(@class,'link')][contains(@class,'pencraft')][contains(@class,'reset')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+        "chunk_ids": [
+          12
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h4[contains(@class,'pencraft')][contains(@class,'pc-reset')]": {
+    "chunk_ids": [
+      13
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4[contains(@class,'zd')][contains(@class,'bci')][contains(@class,'font')][contains(@class,'gwiv')][contains(@class,'heavy')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h4[contains(@class,'pencraft')][contains(@class,'pc-padding-16')]": {
+    "chunk_ids": [
+      14
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4[contains(@class,'index')][contains(@class,'bci')][contains(@class,'font')][contains(@class,'ggp')][contains(@class,'gwiv')]",
+    "content_types": [],
+    "children": {}
+  }
+}

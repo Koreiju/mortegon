@@ -1,0 +1,251 @@
+=== QUALITY REPORT: unicornriot_ninja.html ===
+Chunks: 12 (structural=6, functional=4, text=2)
+Categories: {'card': 5, 'menu_item': 3, 'search_input': 1, 'pagination': 1, 'text_singleton': 2}
+Content: 90 tagged, 90 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div.block.centered ---
+  type=card freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@class,'block')][contains(@class,'columns')][contains(@class,'general')][contains(@class,'inner')][contains(@class,'markup')]
+  tree_sig: div(div(a(img)),div(a(img)),div(a(img)),div(a(img)),div(a(img)),div(a(img)))
+  content: [ATTR=12 HREF=6 IMG=12]
+  sample[0] (31L) [TRUNCATED]: George Floyd Uprising Coverage Unicorn Riot Palestine Coverage Land, Housing & G
+    |   <div class="columns is-multiline is-centered general-markup-block-inner">
+    |     <div class="column has-text-centered">
+    |       <a href="/georgefloyd" title="George Floyd Uprising">
+    |         <img data-src="/wp-content/uploads/2022/01/george-floyd-uprising-widget-image.jpg" width="200" height="200" alt="George Floyd Uprising Coverage" src="/wp-content/uploads/2022/01/george-floyd-uprising-widget-image.jpg" class=" lazyloaded" style="--smush-placeholder-width: 200px; --smush-placeholder-aspect-ratio: 200/200;"></img>
+    |       </a>
+    |     </div>
+    |     <div class="column has-text-centered">
+    |       <a href="/palestine-coverage" title="Palestine Coverage – Latest Unicorn Riot Stories from Palestine and Pro-Palestine Protests">
+    |         <img data-src="/wp-content/uploads/2024/03/Palestine-Landing-Page-widget-1.png" width="200" height="200" alt="Unicorn Riot Palestine Coverage" src="/wp-content/uploads/2024/03/Palestine-Landing-Page-widget-1.png" class=" lazyloaded" style="--smush-placeholder-width: 200px; --smush-placeholder-aspect-ratio: 200/200;"></img>
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 1: header.content.meta ---
+  type=card freq=40 excl=1.00
+  pattern_xpath: ///header[contains(@class,'content')][contains(@class,'meta')]
+  tree_sig: header(div(span(i,time,time)),h3(a))
+  content: [HREF=1 TEXT=3]
+  sample[0] (18L): ICE in Minnesota – Days 65-66: Feds Make Arrests in Government Center as Local P
+    |   <header class="meta-content">
+    |     <h3 class="title entry-title is-3">
+    |       <a href="https://unicornriot.ninja/2026/ice-in-minnesota-days-65-66-feds-make-arrests-in-government-center-as-local-police-advance-collaboration/" rel="bookmark">
+    |         ICE in Minnesota – Days 65-66: Feds Make Arrests in Government Center as Local Police Advance Collaboration
+    |       </a>
+    |     </h3>
+    |     <div class="subtitle is-5">
+    |       <span class="posted-on">
+    |         <i class="fas fa-caret-right"></i>
+    |         <time class="entry-date published" datetime="2026-02-05T21:36:15-06:00">
+    | ... [8 more lines]
+
+--- Chunk 2: div.archive.divider ---
+  type=card freq=15 excl=0.46
+  pattern_xpath: ///div[contains(@class,'archive')][contains(@class,'divider')][contains(@class,'story')][contains(@class,'home')]
+  tree_sig: div(span(a,a,i,img))
+  content: [ATTR=2 HREF=2 IMG=1 TEXT=2]
+  sample[0] (13L): Borders & Migration,Prison
+    |   <div class="divider story-divider-archive-home">
+    |     <span class="cat-links">
+    |       <img draggable="false" role="img" class="emoji" alt="🦄" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f984.svg"></img>
+    |       <a href="https://unicornriot.ninja/category/borders-migration/" title="More from Unicorn Riot on Borders & Migration" rel="category tag">
+    |         Borders & Migration
+    |       </a>
+    |       ,
+    |       <a href="https://unicornriot.ninja/category/prison/" title="More from Unicorn Riot on Prison" rel="category tag">
+    |         Prison
+    |       </a>
+    | ... [3 more lines]
+  sample[1] (13L): Borders & Migration,Protest & Direct Action
+    |   <div class="divider story-divider-archive-home">
+    |     <span class="cat-links">
+    |       <img draggable="false" role="img" class="emoji" alt="🦄" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f984.svg"></img>
+    |       <a href="https://unicornriot.ninja/category/borders-migration/" title="More from Unicorn Riot on Borders & Migration" rel="category tag">
+    |         Borders & Migration
+    |       </a>
+    |       ,
+    |       <a href="https://unicornriot.ninja/category/protest-direct-action/" title="More from Unicorn Riot on Protest & Direct Action" rel="category tag">
+    |         Protest & Direct Action
+    |       </a>
+    | ... [3 more lines]
+
+--- Chunk 3: div.archive.divider ---
+  type=card freq=5 excl=0.46
+  pattern_xpath: ///div[contains(@class,'archive')][contains(@class,'divider')][contains(@class,'story')][contains(@class,'home')]
+  tree_sig: div(span(a,i,img))
+  content: [ATTR=1 HREF=1 IMG=1 TEXT=1]
+  sample[0] (9L): Borders & Migration
+    |   <div class="divider story-divider-archive-home">
+    |     <span class="cat-links">
+    |       <img draggable="false" role="img" class="emoji" alt="🦄" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f984.svg"></img>
+    |       <a href="https://unicornriot.ninja/category/borders-migration/" title="More from Unicorn Riot on Borders & Migration" rel="category tag">
+    |         Borders & Migration
+    |       </a>
+    |       <i class="fas fa-arrow-circle-right"></i>
+    |     </span>
+    |   </div>
+  sample[1] (9L): Investigative
+    |   <div class="divider story-divider-archive-home">
+    |     <span class="cat-links">
+    |       <img draggable="false" role="img" class="emoji" alt="🦄" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f984.svg"></img>
+    |       <a href="https://unicornriot.ninja/category/investigative/" title="More from Unicorn Riot on Investigative" rel="category tag">
+    |         Investigative
+    |       </a>
+    |       <i class="fas fa-arrow-circle-right"></i>
+    |     </span>
+    |   </div>
+  sample[2] (9L): Protest & Direct Action
+    |   <div class="divider story-divider-archive-home">
+    |     <span class="cat-links">
+    |       <img draggable="false" role="img" class="emoji" alt="🦄" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f984.svg"></img>
+    |       <a href="https://unicornriot.ninja/category/protest-direct-action/" title="More from Unicorn Riot on Protest & Direct Action" rel="category tag">
+    |         Protest & Direct Action
+    |       </a>
+    |       <i class="fas fa-arrow-circle-right"></i>
+    |     </span>
+    |   </div>
+
+--- Chunk 4: div.centered.column ---
+  type=card freq=12 excl=0.88
+  pattern_xpath: ///div[contains(@class,'column')][contains(@class,'has')][contains(@class,'text')][contains(@class,'centered')]
+  tree_sig: div(a(img))
+  content: [ATTR=2 HREF=1 IMG=2]
+  sample[0] (5L): George Floyd Uprising Coverage
+    |   <div class="column has-text-centered">
+    |     <a href="/georgefloyd" title="George Floyd Uprising">
+    |       <img data-src="/wp-content/uploads/2022/01/george-floyd-uprising-widget-image.jpg" width="200" height="200" alt="George Floyd Uprising Coverage" src="/wp-content/uploads/2022/01/george-floyd-uprising-widget-image.jpg" class=" lazyloaded" style="--smush-placeholder-width: 200px; --smush-placeholder-aspect-ratio: 200/200;"></img>
+    |     </a>
+    |   </div>
+  sample[1] (5L): Unicorn Riot Palestine Coverage
+    |   <div class="column has-text-centered">
+    |     <a href="/palestine-coverage" title="Palestine Coverage – Latest Unicorn Riot Stories from Palestine and Pro-Palestine Protests">
+    |       <img data-src="/wp-content/uploads/2024/03/Palestine-Landing-Page-widget-1.png" width="200" height="200" alt="Unicorn Riot Palestine Coverage" src="/wp-content/uploads/2024/03/Palestine-Landing-Page-widget-1.png" class=" lazyloaded" style="--smush-placeholder-width: 200px; --smush-placeholder-aspect-ratio: 200/200;"></img>
+    |     </a>
+    |   </div>
+  sample[2] (5L): The Murder of AJ Stewart
+    |   <div class="column has-text-centered">
+    |     <a href="/aj-stewart/" title="The Murder of AJ Stewart">
+    |       <img data-src="https://ur-web1.unicornriot.ninja/wp-content/uploads/2024/09/Stewart-540.jpg" width="200" height="200" alt="The Murder of AJ Stewart" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3..." class="lazyload" style="--smush-placeholder-width: 200px; --smush-placeholder-aspect-ratio: 200/200;"></img>
+    |     </a>
+    |   </div>
+
+--- Chunk 5: li ---
+  type=menu_item freq=7 excl=0.00
+  pattern_xpath: ///li
+  tree_sig: li(a(i))
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): SEARCH
+    |   <li id="menu-item-84752" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84752">
+    |     <a href="/search">
+    |       <i class="fa fa-search" aria-hidden="true"></i>
+    |       SEARCH
+    |     </a>
+    |   </li>
+  sample[1] (5L): 
+    |   <li>
+    |     <a href="https://facebook.com/unicornriot.ninja" title="Unicorn Riot on Facebook" rel="me">
+    |       <i class="fab fa-facebook-f"></i>
+    |     </a>
+    |   </li>
+  sample[2] (5L): 
+    |   <li>
+    |     <a href="https://www.youtube.com/channel/UCeHbMlHDec5NmJfiQXMYGXQ" rel="me" title="Unicorn Riot on YouTube">
+    |       <i class="fab fa-youtube"></i>
+    |     </a>
+    |   </li>
+
+--- Chunk 6: [search_inputs] ---
+  type=search_input freq=4 excl=1.00
+  pattern_xpath: ///input[contains(@name,'cf')][contains(@name,'eb')][contains(@name,'ec')][contains(@name,'ef')][contains(@name,'efbfb')]
+  sample[0] (1L): 
+    |   <input tabindex="-1" name="b_8ef5c30036310b715efbfb1ef_cf1ec3eb4f" type="text" value=""></input>
+  sample[1] (1L): 
+    |   <input tabindex="-1" name="b_8ef5c30036310b715efbfb1ef_cf1ec3eb4f" type="text" value=""></input>
+  sample[2] (1L): 
+    |   <input tabindex="-1" name="b_8ef5c30036310b715efbfb1ef_cf1ec3eb4f" type="text" value=""></input>
+
+--- Chunk 7: [pagination_buttons] ---
+  type=pagination freq=118 excl=1.00 OUTLIER=2.8x
+  pattern_xpath: ///a[contains(@rel,'category')][contains(@rel,'tag')]
+  content: [ATTR=11 HREF=12 TEXT=9]
+  sample[0] (11L) [TRUNCATED]: Page 1 of 101 Next Last 1 2 3 4...25 50...1 2 3 4 25 50
+    |   <div class="section pagination">
+    |     <div class="container">
+    |       <div class="pagination-wrapper">
+    |         <nav class="pagination is-medium" role="navigation" aria-label="pagination">
+    |           <div class="ur2020-wp-pagenavi" role="navigation">
+    |   ... [71 lines truncated] ...
+    |           </div>
+    |         </nav>
+    |       </div>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (4L): Next
+    |   <a class="pagination-next" rel="next" href="https://unicornriot.ninja/page/2/">
+    |     Next
+    |     <i class="fas fa-arrow-circle-right"></i>
+    |   </a>
+  sample[2] (3L): 1
+    |   <a aria-current="page" class="pagination-link is-current">
+    |     1
+    |   </a>
+
+--- Chunk 8: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.70
+  pattern_xpath: ///li[contains(@class,'page')][contains(@class,'post')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): SEARCH
+    |   <li id="menu-item-84752" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84752">
+    |     <a href="/search">
+    |       <i class="fa fa-search" aria-hidden="true"></i>
+    |       SEARCH
+    |     </a>
+    |   </li>
+  sample[1] (5L): HOME
+    |   <li id="menu-item-84747" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-84747">
+    |     <a href="https://unicornriot.ninja" aria-current="page">
+    |       HOME
+    |     </a>
+    |   </li>
+  sample[2] (5L): MERCH STORE
+    |   <li id="menu-item-84749" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84749">
+    |     <a href="https://unicornriot.ninja/store/">
+    |       MERCH STORE
+    |     </a>
+    |   </li>
+
+--- Chunk 9: [nav_content:a×6] ---
+  type=menu_item freq=6 excl=1.00
+  pattern_xpath: ///a[contains(@rel,'me')]
+  content: [ATTR=1 HREF=1]
+  sample[0] (3L): 
+    |   <a href="/feed/rss/" title="Unicorn Riot RSS Feed">
+    |     <i class="fas fa-rss"></i>
+    |   </a>
+  sample[1] (3L): 
+    |   <a href="https://facebook.com/unicornriot.ninja" title="Unicorn Riot on Facebook" rel="me">
+    |     <i class="fab fa-facebook-f"></i>
+    |   </a>
+  sample[2] (3L): 
+    |   <a href="https://www.youtube.com/unicornriot" rel="me" title="Unicorn Riot on YouTube">
+    |     <i class="fab fa-youtube"></i>
+    |   </a>
+
+--- Chunk 10: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.67
+  pattern_xpath: ///div[contains(@class,'columns')][contains(@class,'footer')][contains(@class,'title')]//h2[contains(@class,'title')][contains(@class,'is')]
+  content: [TEXT=1]
+  sample[0] (3L): Non-profit independent media
+    |   <h2 class="title is-2">
+    |     Non-profit independent media
+    |   </h2>
+
+--- Chunk 11: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h2
+  content: [TEXT=1]
+  sample[0] (3L): Sign Up for Our Newsletter!
+    |   <h2>
+    |     Sign Up for Our Newsletter!
+    |   </h2>

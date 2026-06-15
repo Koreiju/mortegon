@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>magic markdown — editor</title>
+  <style>
+    :root { --slate-border: #c0c0c0; }
+    html, body { margin: 0; min-height: 100%; background: #000; color: #fff; font-family: Georgia, serif; }
+    #bar { position: fixed; top: 0; left: 0; right: 0; height: 30px; display: flex; gap: 12px; align-items: center;
+           padding: 0 12px; font: 11px monospace; color: #6b7280; border-bottom: 1px solid rgba(192,192,192,0.15); z-index: 5; }
+    /* the 3D Real register sits behind the floating panels (the only filled colour in the app) */
+    #projector { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; display: block; }
+    #grid { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 18px; padding: 46px 18px 18px; align-items: flex-start; }
+    .mm-slate, .mm-graph { font-size: 13px; }
+    .mm-line { line-height: 1.55; }
+    .mm-drop { cursor: pointer; color: var(--slate-border); margin-right: 4px; user-select: none; }
+    .ws-on { color: #9ae6b4; } .ws-off { color: #c0414a; }
+  </style>
+</head>
+<body>
+  <canvas id="projector"></canvas>
+  <div id="bar"><span id="count">…</span><span id="ws" class="ws-off">ws ○</span><span id="proj">3d ○</span><span id="hint">double-click a panel → graph ⇄ panel · click ▸ → expand link</span></div>
+  <div id="grid"></div>
+  <!-- THREE r128 (same as the legacy projector) for the 3D Real register -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script type="module">
+    import { createStore } from "/static/js/fe/store.mjs";
+    import { GestureGateway } from "/static/js/fe/gateway.mjs";
+    import { mount } from "/static/js/fe/magic_markdown_panel.mjs";
+    import { haloVDom } from "/static/js/fe/magic_markdown_halo.mjs";
+    import { createProjector } from "/static/js/fe/projector.mjs";
+
+    const WSID = "_default";
+    const store = createStore();
+    const gateway = new (function(){ return GestureGateway(store, { base: "" }); })();
+    const grid = document.getElementById("grid");
+    const ui = { expanded: {}, mode: {} };       // per-card render state (cardId → Set / 'panel'|'graph')
+
+    // ── apparition halo (§V.4) ───────────────────────────────────────────────
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const SVG_TAGS = new Set(["svg", "line", "circle", "g", "path"]);
+    function realiseHalo(spec) {
+      const n = SVG_TAGS.has(spec.tag) ? document.createElementNS(SVG_NS, spec.tag) : document.createElement(spec.tag);
+      for (const [k, v] of Object.entries(spec.attrs || {})) n.setAttribute(k, v);
+      if (spec.text != null) n.textContent = spec.text;
+      for (const c of spec.children || []) n.appendChild(realiseHalo(c));
+      return n;
+    }
+    const haloHost = document.createElement("div"); document.body.appendChild(haloHost);
+    let halo = null;  // { lineEl, candidates, camAngle }
+    function focalCentre() {
+      const r = halo.lineEl.getBoundingClientRect();
+      return { cx: r.left + r.width / 2, cy: r.top + r.height / 2 };
+    }
+    function renderHalo() {
+      haloHost.innerHTML = "";
+      if (!halo || !halo.candidates.length) return;
+      haloHost.appendChild(realiseHalo(haloVDom(focalCentre(), halo.candidates, { camAngle: halo.camAngle })));
+    }
+    function storeCandidates(excludeLine) {
+      // instant candidates from the loaded workspace (no fetch) so the halo
+      // appears immediately; refined by real retrieval async below.
+      const ids = Object.keys(store.getState().concepts).slice(0, 8);
+      return ids.map((id, i) => {
+        const n = store.node(id);
+        const label = ((n.children[0] && n.children[0].text) || n.text || id);
+        return { id, label: String(label).slice(0, 24), similarity: 1 - i / Math.max(1, ids.length) };
+      });
+    }
+    async function openHalo(lineEl) {
+      // 1) render instantly from the store (responsive — never blocks on retrieval)
+      halo = { lineEl, candidates: storeCandidates(lineEl), camAngle: 0 };
+      renderHalo();
+      // 2) refine with real triple-product retrieval (radiation) async
+      try {
+        const q = (lineEl.textContent || "").replace(/[▸▾]\s*/, "").trim();
+        const res = await (await fetch(`/api/radiation`, { method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: q, workspace_id: WSID, k: 8 }) })).json();
+        const cs = res.candidates || [];
+        if (cs.length && halo && halo.lineEl === lineEl) {
+          const smax = Math.max(1e-9, ...cs.map(c => c.score || 0));
+          halo.candidates = cs.map(c => ({
+            id: c.card_id || c.id || c.concept_id,
+            label: String(c.name || c.card_id || "?").slice(0, 28),
+            similarity: (c.transport && typeof c.transport.similarity === "number") ? c.transport.similarity : (c.score || 0) / smax,
+          }));
+          renderHalo();
+        }
+      } catch (e) { /* retrieval optional — instant halo already shown */ }
+    }
+    window.addEventListener("scroll", () => { if (halo) renderHalo(); }, true);   // T.4 fix #2: re-anchor on scroll
+    window.__mm_open_halo = () => { const l = grid.querySelector(".mm-line"); if (l) openHalo(l); };
+    window.__mm_halo_rotate = (d) => { if (halo) { halo.camAngle += (d || 0.6); renderHalo(); } };
+    window.__mm_halo_state = () => {
+      const ph = [...haloHost.querySelectorAll(".mm-phantom")];
+      const slate = grid.querySelector(".mm-slate, .mm-graph");
+      return { phantoms: ph.length, rays: haloHost.querySelectorAll(".mm-halo-rays line").length,
+        haloZ: haloHost.querySelector(".mm-halo") && getComputedStyle(haloHost.querySelector(".mm-halo")).zIndex,
+        slateZ: slate ? getComputedStyle(slate).zIndex : null,
+        circular: ph[0] ? /50%/.test(ph[0].getAttribute("style")) : null,
+        positions: ph.slice(0, 3).map(p => ({ left: p.style.left, top: p.style.top, label: p.textContent })) };
+    };
+
+    function render() {
+      grid.innerHTML = "";
+      const reg = store.registry();
+      const ids = Object.keys(store.getState().concepts);
+      for (const id of ids) {
+        const cell = document.createElement("div");
+        grid.appendChild(cell);
+        const expanded = ui.expanded[id] || (ui.expanded[id] = new Set());
+        const mode = ui.mode[id] || "panel";
+        mount(cell, store.node(id), { registry: reg, expanded, mode }, {
+          onToggle(path) { expanded.has(path) ? expanded.delete(path) : expanded.add(path); render();
+                           gateway.send({ kind: "ui-node-fold", cardId: id, path, expanded: expanded.has(path), workspaceId: WSID }); },
+          onTogglePanelGraph() { ui.mode[id] = mode === "panel" ? "graph" : "panel"; render(); },
+          onEdit() {},
+        });
+      }
+      document.getElementById("count").textContent = ids.length + " panels";
+    }
+
+    async function loadChunks() {
+      try {
+        const nodes = (await (await fetch(`/api/chunk_nodes?workspace_id=${WSID}`)).json()).nodes || [];
+        const ids = nodes.filter(n => String(n.id).startsWith("c_") && n.id.slice(2).includes("_")).map(n => n.id);
+        let n = 0;
+        for (const id of ids) {
+          if (n >= 24) break;
+          let d; try { d = await (await fetch(`/api/chunk_details/${id}?workspace_id=${WSID}`)).json(); } catch { continue; }
+          const ct = (d.content_tree || "").trim();
+          if (ct.split("\n").length < 2) continue;
+          store.applyFrame({ type: "concept_changed", concept: { id, content_tree: ct } });
+          n++;
+        }
+      } catch (e) { console.warn("loadChunks", e); }
+    }
+
+    async function loadConcepts() {
+      try {
+        const cs = await (await fetch(`/api/concepts?workspace_id=${WSID}`)).json();
+        for (const c of (cs.concepts || cs || [])) if (c && c.id) store.applyFrame({ type: "concept_changed", concept: c });
+      } catch (e) { /* concepts endpoint optional */ }
+    }
+
+    function connectWS() {
+      try {
+        const ws = new WebSocket(`ws://${location.host}/api/ws/workspace/${WSID}`);
+        ws.onopen = () => { const e = document.getElementById("ws"); e.textContent = "ws ●"; e.className = "ws-on"; };
+        ws.onclose = () => { const e = document.getElementById("ws"); e.textContent = "ws ○"; e.className = "ws-off"; };
+        ws.onmessage = (ev) => {
+          let f; try { f = JSON.parse(ev.data); } catch { return; }
+          const before = JSON.stringify(store.getState().concepts);
+          store.applyFrame(f);
+          if (JSON.stringify(store.getState().concepts) !== before) render();   // fluid live update
+        };
+        window.__mm_ws = ws;
+      } catch (e) { console.warn("ws", e); }
+    }
+
+    // auto-halo: clicking a panel field (a text line, not a dropdown) radiates
+    // retrieval candidates from that focal (O.3 — halo fires from a text field)
+    grid.addEventListener("click", (ev) => {
+      if (ev.target.closest(".mm-drop")) return;
+      const line = ev.target.closest(".mm-line");
+      if (line) openHalo(line);
+    });
+
+    // ── 3D Real register (the projector behind the panels) ──────────────────
+    let projector = null;
+    async function bootProjector() {
+      const canvas = document.getElementById("projector");
+      try {
+        for (let i = 0; i < 40 && !window.THREE; i++) await new Promise(r => setTimeout(r, 50));
+        if (!window.THREE) { console.warn("THREE not loaded"); return; }
+        projector = createProjector(canvas);
+        const res = await (await fetch(`/api/recompute_umap?min_docs=8`, { method: "POST" })).json();
+        const coords = res.coords || {};
+        const n = projector.setNodes(coords);
+        const p = document.getElementById("proj"); p.textContent = `3d ● ${n}`; p.className = "ws-on";
+        // couple the halo ray angle to the 3D camera azimuth (§V.4): orbiting
+        // the scene rotates the halo rays "as traced between the sticked panel
+        // and the retrieved nodes in 3D GUI". Throttled to camera change.
+        let lastAz = null;
+        projector.onFrame((az) => {
+          if (!halo) return;
+          if (lastAz === null || Math.abs(az - lastAz) > 0.01) { lastAz = az; halo.camAngle = az; renderHalo(); }
+        });
+        window.__mm_proj = projector;
+      } catch (e) { console.warn("projector", e); }
+    }
+
+    (async () => {
+      await loadConcepts();
+      await loadChunks();
+      render();
+      connectWS();
+      bootProjector();
+      window.__mm_ready = true;
+      window.__mm_state = () => ({
+        panels: grid.querySelectorAll(".mm-slate, .mm-graph").length,
+        drops: grid.querySelectorAll(".mm-drop").length,
+        gnodes: grid.querySelectorAll(".mm-gnode").length,
+        wsState: document.getElementById("ws").textContent,
+        proj3d: document.getElementById("proj").textContent,
+        projNodes: projector ? projector.nodeCount() : 0,
+        canvasWebGL: (() => { try { return !!document.getElementById("projector").getContext("webgl"); } catch { return false; } })(),
+        first: (() => { const s = grid.querySelector(".mm-slate"); return s ? [...s.querySelectorAll(".mm-line")].slice(0,4).map(l=>l.textContent) : null; })(),
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+=== QUALITY REPORT: neurofunkradio_comhowneurofunkistakingoverdrumandbassfestivalsworldwideallrecipes_commusthavecookierecipes11807527.html ===
+Chunks: 5 (structural=1, functional=2, text=2)
+Categories: {'card': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 2}
+Content: 5 tagged, 5 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: span.elementor.grid ---
+  type=card freq=9 excl=0.80
+  pattern_xpath: ///span[contains(@class,'grid')][contains(@class,'item')][contains(@role,'listitem')][contains(@class,'elementor')]
+  tree_sig: span(a(span,svg(path)))
+  content: [TEXT=1]
+  sample[0] (10L): Youtube
+    |   <span class="elementor-grid-item" role="listitem">
+    |     <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-90b4e82" target="_blank">
+    |       <span class="elementor-screen-only">
+    |         Youtube
+    |       </span>
+    |       <svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+    |         <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 ..."></path>
+    |       </svg>
+    |     </a>
+    |   </span>
+  sample[1] (10L): Instagram
+    |   <span class="elementor-grid-item" role="listitem">
+    |     <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-f90d36f" target="_blank">
+    |       <span class="elementor-screen-only">
+    |         Instagram
+    |       </span>
+    |       <svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+    |         <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 2..."></path>
+    |       </svg>
+    |     </a>
+    |   </span>
+  sample[2] (10L): Youtube
+    |   <span class="elementor-grid-item" role="listitem">
+    |     <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-90b4e82" target="_blank">
+    |       <span class="elementor-screen-only">
+    |         Youtube
+    |       </span>
+    |       <svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+    |         <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 ..."></path>
+    |       </svg>
+    |     </a>
+    |   </span>
+
+--- Chunk 1: [search_inputs] ---
+  type=search_input freq=2 excl=1.00
+  pattern_xpath: ///input[contains(@class,'field')][contains(@class,'md')][contains(@class,'textual')][contains(@id,'field')][contains(@id,'form')]
+  sample[0] (1L): 
+    |   <input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual"></input>
+  sample[1] (1L): 
+    |   <input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual"></input>
+
+--- Chunk 2: [pagination_buttons] ---
+  type=pagination freq=6 excl=0.00
+  pattern_xpath: ///link
+  content: [ATTR=1 HREF=1]
+  sample[0] (7L): Home Page
+    |   <a class="elementor-button elementor-button-link elementor-size-sm" href="https://neurofunkradio.com">
+    |     <span class="elementor-button-content-wrapper">
+    |       <span class="elementor-button-text">
+    |         Home Page
+    |       </span>
+    |     </span>
+    |   </a>
+  sample[1] (7L): Home Page
+    |   <a class="elementor-button elementor-button-link elementor-size-sm" href="https://neurofunkradio.com">
+    |     <span class="elementor-button-content-wrapper">
+    |       <span class="elementor-button-text">
+    |         Home Page
+    |       </span>
+    |     </span>
+    |   </a>
+  sample[2] (1L): Neurofunk Radio » Comments Feed
+    |   <link rel="alternate" type="application/rss+xml" title="Neurofunk Radio » Comments Feed" href="https://neurofunkradio.com/comments/feed/"></link>
+
+--- Chunk 3: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.39
+  pattern_xpath: ///h1[contains(@class,'default')][contains(@class,'heading')][contains(@class,'title')][contains(@class,'size')][contains(@class,'elementor')]
+  content: [TEXT=1]
+  sample[0] (3L): OOPS!
+    |   <h1 class="elementor-heading-title elementor-size-default">
+    |     OOPS!
+    |   </h1>
+
+--- Chunk 4: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.39
+  pattern_xpath: ///h2[contains(@class,'default')][contains(@class,'heading')][contains(@class,'title')][contains(@class,'size')][contains(@class,'elementor')]
+  content: [TEXT=1]
+  sample[0] (3L): join the community
+    |   <h2 class="elementor-heading-title elementor-size-default">
+    |     join the community
+    |   </h2>

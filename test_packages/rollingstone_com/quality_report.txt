@@ -1,0 +1,943 @@
+=== QUALITY REPORT: rollingstone_com.html ===
+Chunks: 61 (structural=12, functional=12, text=37)
+Categories: {'card': 8, 'menu_item': 11, 'structural': 3, 'search_input': 1, 'pagination': 1, 'text_singleton': 37}
+Content: 175 tagged, 172 preserved (98%)
+Leaks: 3 total, 0 high-importance
+
+--- Chunk 0: div ---
+  type=card freq=6 excl=0.00
+  pattern_xpath: ///div
+  tree_sig: li(div(div(div(div(div)),div(h3(a),p,ul,ul(li(div))))))
+  content: [HREF=2 TEXT=4]
+  sample[0] (31L) [TRUNCATED]: "The costs of James’s medical care has left the family out of funds," reads the 
+    |   <div class="">
+    |     <div class="lrv-u-margin-r-2@desktop-xl lrv-u-margin-r-00 lrv-u-margin-r-1@desktop // lrv-a-glue-parent lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-start">
+    |       <div class="lrv-a-glue-parent">
+    |         <div class=""></div>
+    |       </div>
+    |     </div>
+    |     <div class="lrv-a-span2 lrv-u-margin-lr-025@mobile-max lrv-a-glue-parent@mobile-max // lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-center">
+    |       <h3 id="c-title-james-van-der-beek-family-gofundme-1235514875" class="c-title  lrv-a-font-primary-xs lrv-u-display-block lrv-u-margin-b-025@mobile-max">
+    |         <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/james-van-der-beek-family-gofundme-1235514875/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover lrv-a-truncate-ellipsis-6line">
+    |           James Van Der Beek's GoFundMe Raises Over $1 Million Less Than 24 Hours After His Death
+    | ... [21 more lines]
+
+--- Chunk 1: a.amazon.block ---
+  type=card freq=4 excl=0.15
+  pattern_xpath: ///a[contains(@rel,'nofollow')][contains(@class,'link')][contains(@class,'unstyle')][contains(@class,'block')][contains(@class,'display')]
+  tree_sig: li(div(a(div(div(img)),div(div(svg(g)),h3,time))))
+  content: [ATTR=1 HREF=1 IMG=2 TEXT=2]
+  sample[0] (26L): Amazon MGM Studios Developing First U.S. Adaptation of Best-Selling Spanish Auth
+    |   <a tabindex="0" href="https://variety.com/2026/tv/global/amazon-mgm-studios-mercedes-ron-30-sunsets-1236660126/" class="lrv-a-unstyle-link lrv-u-display-block" rel="nofollow">
+    |     <div class="c-lazy-image   lrv-a-hover-effect lrv-a-hover-effect--fade lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2">
+    |       <div class="lrv-a-crop-16x9" style="">
+    |         <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://variety.com/wp-content/uploads/2026/02/Culpa-Nuestra-Prime-Video.jpg?res..." alt="Amazon MGM Studios Developing First U.S. Adaptation of Best-Selling Spanish Author Mercedes Ron’s Novels (EXCLUSIVE)" data-lazy-srcset="https://variety.com/wp-content/uploads/2026/02/Culpa-Nuestra-Prime-Video.jpg?resize=225%2C169&quality=100&w=180 180w, https://variety.com/wp-content/uploads/2026/02/Culpa-Nuestra-Prime-Video.jpg?resize=225%2C169&quality=100&w=300 300w" data-lazy-sizes="(max-width: 959px) 46%, (max-width: 1259px) 22%, 300px" height="" width="" decoding="async"></img>
+    |       </div>
+    |     </div>
+    |     <div class="o-card__content ">
+    |       <div class="c-svg lrv-u-height-16 lrv-u-color-black lrv-u-display-inline-flex lrv-u-margin-b-075 lrv-u-margin-t-1">
+    |         <svg xmlns="http://www.w3.org/2000/svg" style="height:100%" viewbox="0 0 150 42">
+    |           <g data-name="logo Variety">
+    | ... [16 more lines]
+
+--- Chunk 2: a.black.blank ---
+  type=menu_item freq=5 excl=0.84
+  pattern_xpath: ///div[contains(@class,'social')][contains(@class,'vertical')][contains(@class,'middle')]//a[contains(@class,'radius')][contains(@rel,'noopener')][contains(@rel,'noreferrer')][contains(@target,'blank')][contains(@class,'black')]
+  tree_sig: a(span,svg(use))
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (8L): Facebook
+    |   <a class="lrv-u-padding-a-025 lrv-u-display-block lrv-u-border-radius-50p lrv-u-color-black lrv-u-color-grey:hover" href="https://www.facebook.com/RollingStone/" rel="noopener noreferrer" target="_blank" title="Facebook">
+    |     <span class="lrv-a-screen-reader-only" data-label="c_icon_link_screen_reader_text">
+    |       Facebook
+    |     </span>
+    |     <svg class="c-icon  u-width-20 lrv-u-height-20 lrv-u-display-block">
+    |       <use xlink:href="#facebook-circle"></use>
+    |     </svg>
+    |   </a>
+  sample[1] (8L): Instagram
+    |   <a class="lrv-u-padding-a-025 lrv-u-display-block lrv-u-border-radius-50p lrv-u-color-black lrv-u-color-grey:hover" href="https://www.instagram.com/rollingstone/" rel="noopener noreferrer" target="_blank" title="Instagram">
+    |     <span class="lrv-a-screen-reader-only" data-label="c_icon_link_screen_reader_text">
+    |       Instagram
+    |     </span>
+    |     <svg class="c-icon  u-width-20 lrv-u-height-20 lrv-u-display-block">
+    |       <use xlink:href="#instagram"></use>
+    |     </svg>
+    |   </a>
+  sample[2] (8L): X
+    |   <a class="lrv-u-padding-a-025 lrv-u-display-block lrv-u-border-radius-50p lrv-u-color-black lrv-u-color-grey:hover" href="https://twitter.com/RollingStone" rel="noopener noreferrer" target="_blank" title="X">
+    |     <span class="lrv-a-screen-reader-only" data-label="c_icon_link_screen_reader_text">
+    |       X
+    |     </span>
+    |     <svg class="c-icon  u-width-20 lrv-u-height-20 lrv-u-display-block">
+    |       <use xlink:href="#twitter"></use>
+    |     </svg>
+    |   </a>
+
+--- Chunk 3: a.awards.college ---
+  type=card freq=7 excl=0.26
+  pattern_xpath: ///a[contains(@class,'flex')][contains(@class,'lrv')]
+  tree_sig: div(a(div(div(div(img))),div(div(div),h3)))
+  content: [ATTR=1 HREF=1 IMG=2 TEXT=2]
+  sample[0] (19L): Enter the Rolling Stone College Journalism Awards Call for Submissions Blake Liv
+    |   <a tabindex="0" href="https://www.rollingstone.com/culture/culture-news/rolling-stone-college-journalism-awards-1235463848/" class="lrv-u-flex">
+    |     <div class="o-card__image-wrap lrv-u-flex-basis-40p@desktop lrv-u-flex-basis-40p@desktop-xl lrv-u-flex-basis-25p@mobile-max">
+    |       <div class="c-lazy-image  u-width-132 u-width-103@mobile-max">
+    |         <div class="lrv-a-crop-3x2 lrv-a-crop-1x1@mobile-max lrv-u-border-a-2 lrv-u-color-black" style="">
+    |           <img class="c-lazy-image__img u-width-132 u-width-103@mobile-max" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.rollingstone.com/wp-content/uploads/2025/11/College-Journo-Awards-2...." alt="Blake Lively and Justin Baldoni Fail to Reach Settlement Agreement" data-lazy-srcset="" data-lazy-sizes="(max-width: 318px) 85vw, 318px" height="" width="" decoding="async"></img>
+    |         </div>
+    |       </div>
+    |     </div>
+    |     <div class="o-card__content lrv-u-margin-l-1 lrv-u-margin-l-050@mobile-max lrv-u-flex-basis-100p lrv-u-color-black">
+    |       <div class="article_kicker_outer // u-line-height-00">
+    | ... [9 more lines]
+
+--- Chunk 4: div ---
+  type=card freq=5 excl=0.00
+  pattern_xpath: ///div
+  tree_sig: li(div(div(div(div(div(a),div)),div(h3(a),ul(li(span)),ul))))
+  content: [ATTR=1 HREF=2 IMG=2 TEXT=2]
+  sample[0] (29L): Rolling Stone Essentials 2026: Our Favorite Gear, Brands and Services of the Yea
+    |   <div class="">
+    |     <div class=" lrv-u-padding-lr-050 // lrv-a-glue-parent lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-start">
+    |       <div class="lrv-a-glue-parent">
+    |         <div class="c-lazy-image  ">
+    |           <a href="https://www.rollingstone.com/product-recommendations/lifestyle/rolling-stone-essentials-2026-best-cool-new-products-to-buy-1235463147/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |             <div class="lrv-a-crop-1x1" style="">
+    |               <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto lrv-u-border-radius-50p lrv-u-border-a-2" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.rollingstone.com/wp-content/uploads/2025/11/background.png?w=225&h=2..." alt="rolling stone essentials" data-lazy-srcset="" data-lazy-sizes="(max-width: 225px) 85vw, 225px" height="" width="" decoding="async"></img>
+    |             </div>
+    |           </a>
+    |         </div>
+    | ... [19 more lines]
+
+--- Chunk 5: li.//.collapsed ---
+  type=structural freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'parent')][contains(@data-collapsible,'collapsed')][contains(@class,'mega')][contains(@class,'menu')][contains(@class,'//')]
+  tree_sig: li(div(a),ul(li(a),li(a),li(a),li(a),li(a)))
+  content: [HREF=6 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: TV & Movies News Features Lists Recaps Reviews
+    |   <li class="mega-menu-item // mega-menu__parent-list-item lrv-a-unstyle-list " data-collapsible="collapsed">
+    |     <div class="mega-menu__item-link // lrv-u-border-b-2 lrv-u-padding-b-025 lrv-u-color-black lrv-u-display-inline-block lrv-u-flex lrv-u-width-100p ">
+    |       <a class="c-link  c-link lrv-a-font-basic-s u-letter-spacing-003 lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-display-block lrv-u-text-transform-uppercase " href="/tv-movies/">
+    |         TV & Movies
+    |       </a>
+    |     </div>
+    |     <ul class="mega-menu__child-list // lrv-a-unstyle-list lrv-u-padding-t-025 lrv-u-margin-b-125 " data-collapsible-panel="" data-collapsible-breakpoint="mobile-only">
+    |       <li class="mega-menu__child-list-item ">
+    |         <a class="c-link  lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-padding-tb-025 lrv-u-display-block lrv-a-font-body-s u-letter-spacing-0 " href="/tv-movies/tv-movie-news/">
+    |           News
+    | ... [21 more lines]
+
+--- Chunk 6: li.//.collapsed ---
+  type=structural freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'parent')][contains(@data-collapsible,'collapsed')][contains(@class,'mega')][contains(@class,'menu')][contains(@class,'//')]
+  tree_sig: li(div(a),ul(li(a),li(a),li(a),li(a)))
+  content: [HREF=4 TEXT=5]
+  sample[0] (29L): Video & Photos Photos Videos The Cover Musicians on Musicians
+    |   <li class="mega-menu-item // mega-menu__parent-list-item lrv-a-unstyle-list " data-collapsible="collapsed">
+    |     <div class="mega-menu__item-link // lrv-u-border-b-2 lrv-u-padding-b-025 lrv-u-color-black lrv-u-display-inline-block lrv-u-flex lrv-u-width-100p ">
+    |       <a class="c-link  c-link lrv-a-font-basic-s u-letter-spacing-003 lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-display-block lrv-u-text-transform-uppercase " href="#">
+    |         Video & Photos
+    |       </a>
+    |     </div>
+    |     <ul class="mega-menu__child-list // lrv-a-unstyle-list lrv-u-padding-t-025 lrv-u-margin-b-125 " data-collapsible-panel="" data-collapsible-breakpoint="mobile-only">
+    |       <li class="mega-menu__child-list-item ">
+    |         <a class="c-link  lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-padding-tb-025 lrv-u-display-block lrv-a-font-body-s u-letter-spacing-0 " href="/t/photo-gallery/">
+    |           Photos
+    | ... [19 more lines]
+
+--- Chunk 7: li.//.collapsed ---
+  type=structural freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'parent')][contains(@data-collapsible,'collapsed')][contains(@class,'mega')][contains(@class,'menu')][contains(@class,'//')]
+  tree_sig: li(div(a),ul)
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): RS LIVE
+    |   <li class="mega-menu-item // mega-menu__parent-list-item lrv-a-unstyle-list " data-collapsible="collapsed">
+    |     <div class="mega-menu__item-link // lrv-u-border-b-2 lrv-u-padding-b-025 lrv-u-color-black lrv-u-display-inline-block lrv-u-flex lrv-u-width-100p ">
+    |       <a class="c-link  c-link lrv-a-font-basic-s u-letter-spacing-003 lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-display-block lrv-u-text-transform-uppercase " href="https://www.rollingstone.com/p/rs-live/">
+    |         RS LIVE
+    |       </a>
+    |     </div>
+    |     <ul class="mega-menu__child-list // lrv-a-unstyle-list lrv-u-padding-t-025 lrv-u-margin-b-125 " data-collapsible-panel="" data-collapsible-breakpoint="mobile-only"></ul>
+    |   </li>
+  sample[1] (8L): RS Films
+    |   <li class="mega-menu-item // mega-menu__parent-list-item lrv-a-unstyle-list " data-collapsible="collapsed">
+    |     <div class="mega-menu__item-link // lrv-u-border-b-2 lrv-u-padding-b-025 lrv-u-color-black lrv-u-display-inline-block lrv-u-flex lrv-u-width-100p ">
+    |       <a class="c-link  c-link lrv-a-font-basic-s u-letter-spacing-003 lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-display-block lrv-u-text-transform-uppercase " href="https://www.rollingstone.com/h/rs-films/">
+    |         RS Films
+    |       </a>
+    |     </div>
+    |     <ul class="mega-menu__child-list // lrv-a-unstyle-list lrv-u-padding-t-025 lrv-u-margin-b-125 " data-collapsible-panel="" data-collapsible-breakpoint="mobile-only"></ul>
+    |   </li>
+
+--- Chunk 8: div.border.effect ---
+  type=card freq=10 excl=0.52
+  pattern_xpath: ///div[contains(@class,'effect')][contains(@class,'fade')][contains(@class,'image')][contains(@class,'lazy')][contains(@class,'border')]
+  tree_sig: div(div(img))
+  content: [ATTR=1 IMG=2]
+  sample[0] (5L): Amazon MGM Studios Developing First U.S. Adaptation of Best-Selling Spanish Auth
+    |   <div class="c-lazy-image   lrv-a-hover-effect lrv-a-hover-effect--fade lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2">
+    |     <div class="lrv-a-crop-16x9" style="">
+    |       <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://variety.com/wp-content/uploads/2026/02/Culpa-Nuestra-Prime-Video.jpg?res..." alt="Amazon MGM Studios Developing First U.S. Adaptation of Best-Selling Spanish Author Mercedes Ron’s Novels (EXCLUSIVE)" data-lazy-srcset="https://variety.com/wp-content/uploads/2026/02/Culpa-Nuestra-Prime-Video.jpg?resize=225%2C169&quality=100&w=180 180w, https://variety.com/wp-content/uploads/2026/02/Culpa-Nuestra-Prime-Video.jpg?resize=225%2C169&quality=100&w=300 300w" data-lazy-sizes="(max-width: 959px) 46%, (max-width: 1259px) 22%, 300px" height="" width="" decoding="async"></img>
+    |     </div>
+    |   </div>
+  sample[1] (5L): Bath & Body Works’ Disney Princess Drop 2 Has 90+ New Items With Rapunzel, Mulan
+    |   <div class="c-lazy-image   lrv-a-hover-effect lrv-a-hover-effect--fade lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2">
+    |     <div class="lrv-a-crop-16x9" style="">
+    |       <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.sheknows.com/wp-content/uploads/2026/02/bath-and-body-works-disney-p..." alt="Bath & Body Works’ Disney Princess Drop 2 Has 90+ New Items With Rapunzel, Mulan & More — How to Get Early Access" data-lazy-srcset="https://www.sheknows.com/wp-content/uploads/2026/02/bath-and-body-works-disney-princess-collection-2026-SK-FI.jpg?resize=225%2C169&quality=100&w=180 180w, https://www.sheknows.com/wp-content/uploads/2026/02/bath-and-body-works-disney-princess-collection-2026-SK-FI.jpg?resize=225%2C169&quality=100&w=300 300w" data-lazy-sizes="(max-width: 959px) 46%, (max-width: 1259px) 22%, 300px" height="" width="" decoding="async"></img>
+    |     </div>
+    |   </div>
+  sample[2] (5L): Ice Dance Gold Medal Goes to Controversial French Pair
+    |   <div class="c-lazy-image   lrv-a-hover-effect lrv-a-hover-effect--fade lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2 lrv-u-border-a-2">
+    |     <div class="lrv-a-crop-16x9" style="">
+    |       <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.sportico.com/wp-content/uploads/2026/02/Ice-Dance-Gold-Medalists.jpg..." alt="Ice Dance Gold Medal Goes to Controversial French Pair" data-lazy-srcset="https://www.sportico.com/wp-content/uploads/2026/02/Ice-Dance-Gold-Medalists.jpg?resize=225%2C169&quality=100&w=180 180w, https://www.sportico.com/wp-content/uploads/2026/02/Ice-Dance-Gold-Medalists.jpg?resize=225%2C169&quality=100&w=300 300w" data-lazy-sizes="(max-width: 959px) 46%, (max-width: 1259px) 22%, 300px" height="" width="" decoding="async"></img>
+    |     </div>
+    |   </div>
+
+--- Chunk 9: div.image.lazy ---
+  type=card freq=25 excl=0.16
+  pattern_xpath: ///div[contains(@class,'image')][contains(@class,'lazy')][contains(@class,'border')][contains(@class,'lrv')]
+  tree_sig: div(a(div(img)))
+  content: [ATTR=1 HREF=1 IMG=2]
+  sample[0] (7L): rolling stone essentials
+    |   <div class="c-lazy-image  ">
+    |     <a href="https://www.rollingstone.com/product-recommendations/lifestyle/rolling-stone-essentials-2026-best-cool-new-products-to-buy-1235463147/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |       <div class="lrv-a-crop-1x1" style="">
+    |         <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto lrv-u-border-radius-50p lrv-u-border-a-2" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.rollingstone.com/wp-content/uploads/2025/11/background.png?w=225&h=2..." alt="rolling stone essentials" data-lazy-srcset="" data-lazy-sizes="(max-width: 225px) 85vw, 225px" height="" width="" decoding="async"></img>
+    |       </div>
+    |     </a>
+    |   </div>
+  sample[1] (7L): bad bunny super bowl merch
+    |   <div class="c-lazy-image  ">
+    |     <a href="https://www.rollingstone.com/product-recommendations/style/bad-bunny-nfl-super-bowl-merch-where-to-buy-online-2026-1235505477/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |       <div class="lrv-a-crop-1x1" style="">
+    |         <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto lrv-u-border-radius-50p lrv-u-border-a-2" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.rollingstone.com/wp-content/uploads/2026/01/bad-bunny-merch.png?w=22..." alt="bad bunny super bowl merch" data-lazy-srcset="" data-lazy-sizes="(max-width: 225px) 85vw, 225px" height="" width="" decoding="async"></img>
+    |       </div>
+    |     </a>
+    |   </div>
+  sample[2] (7L): Stock Adobe
+    |   <div class="c-lazy-image  lrv-u-border-a-2">
+    |     <a href="https://www.rollingstone.com/culture-council/articles/most-expensive-strategy-in-commerce-waiting-1235514018/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |       <div class="lrv-a-crop-3x2" style="">
+    |         <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto lrv-u-filter-grayscale-100" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.rollingstone.com/wp-content/uploads/2026/02/the-most-expensive-strat..." alt="Stock Adobe" data-lazy-srcset="https://www.rollingstone.com/wp-content/uploads/2026/02/the-most-expensive-strategy-in-commerce-waiting.jpg 3600w, https://www.rollingstone.com/wp-content/uploads/2026/02/the-most-expensive-strategy-in-commerce-waiting.jpg?resize=300,200 300w" data-lazy-sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" height="" width="" decoding="async"></img>
+    |       </div>
+    |     </a>
+    |   </div>
+
+--- Chunk 10: a.bob.com ---
+  type=card freq=7 excl=0.16
+  pattern_xpath: ///a[contains(@class,'image')][contains(@class,'lazy')][contains(@class,'link')][contains(@class,'unstyle')][contains(@class,'lrv')]
+  tree_sig: a(div(img))
+  content: [ATTR=1 HREF=1 IMG=3]
+  sample[0] (5L): PASADENA, CA - JANUARY 7:   Actor James Van Der Beek attends the WB Winter TCA P
+    |   <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/james-van-der-beek-dawsons-creek-dead-1235202590/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |     <div class="lrv-a-crop-3x2 lrv-a-crop-1x1@mobile-max" style="">
+    |       <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/uploads/2026/02/James-Van-Der-Beek.jpg?w..." alt="PASADENA, CA - JANUARY 7:   Actor James Van Der Beek attends the WB Winter TCA Press Tour on January 7, 1999 at the Ritz-Carlton Hotel in Pasadena, California. (Photo by Ron Galella, Ltd./Ron Galella Collection via Getty Images)" srcset="https://www.rollingstone.com/wp-content/uploads/2026/02/James-Van-Der-Beek.jpg?w=831&h=554&crop=1 1800w, https://www.rollingstone.com/wp-content/uploads/2026/02/James-Van-Der-Beek.jpg?w=831&h=554&crop=1&resize=300%2C200 300w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" height="" width="" decoding="async"></img>
+    |     </div>
+    |   </a>
+  sample[1] (5L): Bush people performers as part of Bad Bunny Super Bowl performance
+    |   <a href="https://www.rollingstone.com/music/music-features/bad-bunny-super-bowl-bush-performer-details-performance-1235514357/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |     <div class="lrv-a-crop-3x2" style="">
+    |       <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/uploads/2026/02/bad-bunny-bush.jpg?w=680..." alt="Bush people performers as part of Bad Bunny Super Bowl performance" srcset="https://www.rollingstone.com/wp-content/uploads/2026/02/bad-bunny-bush.jpg?w=680&h=453&crop=1 1800w, https://www.rollingstone.com/wp-content/uploads/2026/02/bad-bunny-bush.jpg?w=680&h=453&crop=1&resize=300%2C200 300w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" height="" width="" decoding="async"></img>
+    |     </div>
+    |   </a>
+  sample[2] (5L): BERKELEY, CA - MAY 15:  Bob Weir performs with the Grateful Dead at the Greek Th
+    |   <a href="https://www.rollingstone.com/music/music-lists/bob-weir-grateful-dead-best-songs-1235497246/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |     <div class="lrv-a-crop-3x2" style="">
+    |       <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/uploads/2026/01/bob-weir-essential-songs..." alt="BERKELEY, CA - MAY 15:  Bob Weir performs with the Grateful Dead at the Greek Theater on May 15, 1983 in Berkeley, California.  (Photo by Ed Perlstein/Redferns/Getty Images)" height="" width="" decoding="async" data-lazy-loaded="1" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" srcset="https://www.rollingstone.com/wp-content/uploads/2026/01/bob-weir-essential-songs.jpg?w=680&h=453&crop=1 1800w, https://www.rollingstone.com/wp-content/uploads/2026/01/bob-weir-essential-songs.jpg?w=680&h=453&crop=1&resize=300%2C200 300w"></img>
+    |     </div>
+    |   </a>
+
+--- Chunk 11: div.//.author ---
+  type=card freq=6 excl=0.32
+  pattern_xpath: ///div[contains(@class,'author')][contains(@class,'basic')][contains(@class,'//')][contains(@class,'xs')][contains(@class,'color')]
+  tree_sig: div(div(a),span)
+  content: [HREF=1 TEXT=2]
+  sample[0] (10L): By Rolling Stone
+    |   <div class="o-author // lrv-a-font-basic-xs lrv-u-color-black">
+    |     <span class="">
+    |       By
+    |     </span>
+    |     <div class="c-tagline  lrv-a-unstyle-inner-links lrv-u-display-inline lrv-u-text-decoration-underline:hover lrv-u-color-grey:hover lrv-u-text-transform-uppercase">
+    |       <a href="https://www.rollingstone.com/author/rolling-stone/">
+    |         Rolling Stone
+    |       </a>
+    |     </div>
+    |   </div>
+  sample[1] (10L): By Jeff Ihaza
+    |   <div class="o-author // lrv-a-font-basic-xs">
+    |     <span class="">
+    |       By
+    |     </span>
+    |     <div class="c-tagline  lrv-a-unstyle-inner-links lrv-u-display-inline lrv-u-text-decoration-underline:hover  lrv-u-text-transform-uppercase">
+    |       <a href="https://www.rollingstone.com/author/jeff-ihaza/">
+    |         Jeff Ihaza
+    |       </a>
+    |     </div>
+    |   </div>
+  sample[2] (10L): By Rene Ebersole
+    |   <div class="o-author //  lrv-u-display-inline lrv-a-font-secondary-xl u-font-size-26@mobile-max lrv-u-color-grey lrv-u-display-block@mobile-max">
+    |     <span class="">
+    |       By
+    |     </span>
+    |     <div class="c-tagline  lrv-a-unstyle-inner-links lrv-u-display-inline lrv-u-text-decoration-underline:hover lrv-u-color-grey:hover ">
+    |       <a href="https://www.rollingstone.com/author/rene-ebersole/">
+    |         Rene Ebersole
+    |       </a>
+    |     </div>
+    |   </div>
+
+--- Chunk 12: [search_inputs] ---
+  type=search_input freq=8 excl=0.75
+  pattern_xpath: ///input[contains(@id,'search')][contains(@type,'text')]
+  content: [ATTR=2]
+  sample[0] (1L): Cookie list search
+    |   <input id="vendor-search-handler" type="text" name="vendor-search-handler" placeholder="Search…" aria-label="Cookie list search"></input>
+  sample[1] (1L): Cookie list search
+    |   <input id="vendor-search-handler" type="text" name="vendor-search-handler" placeholder="Search…" aria-label="Cookie list search"></input>
+  sample[2] (1L): Search
+    |   <input type="text" name="q" placeholder="Search" id="small_search_form"></input>
+
+--- Chunk 13: [pagination_buttons] ---
+  type=pagination freq=43 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1]
+  sample[0] (11L) [TRUNCATED]: “I’ve seen a lot of young artists of color coming out and playing this music, or
+    |   <div class=" // lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-center">
+    |     <a href="https://www.rollingstone.com/music/music-features/buddy-guy-sinners-aint-done-with-the-blues-grammys-1235468084/" class="c-dek__link ">
+    |       <p class="story-quote-markup lrv-u-color-black a-font-theme-secondary-xl u-letter-spacing-0015 u-font-weight-900 lrv-u-color-grey:hover lrv-u-margin-tb-00 u-padding-lr-325@desktop lrv-u-padding-lr-1">
+    |         “I’ve seen a lot of young artists of color coming out and playing this music, or music based on this genre”
+    |       </p>
+    |   ... [12 lines truncated] ...
+    |           </a>
+    |         </div>
+    |       </li>
+    |     </ul>
+    | ... [1 more lines]
+  sample[1] (14L): Back Button
+    |   <button class="ot-link-btn back-btn-handler" aria-label="Back">
+    |     <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 444.531 444.531" xml:space="preserve">
+    |       <title>
+    |         Back Button
+    |       </title>
+    |       <g>
+    |         <path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835
+    |                     l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425
+    |                     c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564
+    |                     s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978
+    | ... [4 more lines]
+  sample[2] (3L): Travis Scott Helped Build the Sound of the 2010s. His Next Era Is Already in Mot
+    |   <a href="https://www.rollingstone.com/music/music-features/travis-scott-utopia-fatherhood-next-album-1235500436/" class="c-title__link lrv-a-unstyle-link">
+    |     Travis Scott Helped Build the Sound of the 2010s. His Next Era Is Already in Motion
+    |   </a>
+
+--- Chunk 14: [text_content:li×7] ---
+  type=text_singleton freq=7 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=2 TEXT=4]
+  sample[0] (31L) [TRUNCATED]: Along with the macabre romantic comedy, Cort appeared in Robert Altman's Bud Cor
+    |   <li class=" ">
+    |     <div class="story // lrv-u-padding-t-125">
+    |       <div class="">
+    |         <div class="lrv-u-display-none // lrv-a-glue-parent lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-start">
+    |           <div class="lrv-a-glue-parent">
+    |             <div class=""></div>
+    |           </div>
+    |         </div>
+    |         <div class="lrv-a-span2 // lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-center">
+    |           <h3 id="c-title-bud-cort-harold-and-maude-star-dead-obituary-1235514876" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    | ... [21 more lines]
+
+--- Chunk 15: [text_content:p×8] ---
+  type=text_singleton freq=1 excl=0.79
+  pattern_xpath: ///div[contains(@class,'acc')][contains(@class,'grpcntr')][contains(@class,'txt')][contains(@class,'ot')]
+  content: [TEXT=10]
+  sample[0] (31L) [TRUNCATED]: These cookies enable the website to provide enhanced functionality and personali
+    |   <div class="ot-acc-grpcntr ot-acc-txt">
+    |     <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0003">
+    |       These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages. If you do not allow these cookies then some or all of these services may not function properly.
+    |     </p>
+    |     <div class="ot-plus-minus">
+    |       <span></span>
+    |       <span></span>
+    |       <input type="checkbox" name="ot-group-id-C0002" id="ot-group-id-C0002" class="category-switch-handler" data-optanongroupid="C0002" checked="" aria-labelledby="ot-header-id-C0002"></input>
+    |       <label class="ot-switch" for="ot-group-id-C0002">
+    |         <span class="ot-switch-nob"></span>
+    | ... [21 more lines]
+
+--- Chunk 16: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=3 IMG=2 TEXT=5]
+  sample[0] (11L) [TRUNCATED]: The San Francisco 49ers defensive lineman was shot in the ankle at a San Francis
+    |   <li class=" ">
+    |     <div class="story //  lrv-u-padding-tb-150">
+    |       <div class="lrv-u-flex lrv-u-flex-direction-column@mobile-max">
+    |         <div class="u-flex-basis-18.25@tablet lrv-u-flex-shrink-0 // lrv-a-glue-parent lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-start">
+    |           <div class="lrv-a-glue-parent">
+    |   ... [133 lines truncated] ...
+    |           </h3>
+    |         </div>
+    |       </div>
+    |     </div>
+    | ... [1 more lines]
+
+--- Chunk 17: [nav_content:a×41] ---
+  type=menu_item freq=41 excl=0.05
+  pattern_xpath: ///a[contains(@class,'color')][contains(@class,'lrv')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Art in America
+    |   <li class="o-nav__list-item lrv-u-color-grey-medium-dark">
+    |     <a class="c-link  u-font-weight-800 lrv-a-unstyle-link lrv-u-display-block lrv-u-background-color-brand-primary:hover lrv-u-color-white:hover lrv-u-font-weight-bold lrv-u-padding-lr-1 lrv-u-padding-tb-050" href="https://www.artnews.com/c/art-in-america/" rel="nofollow">
+    |       Art in America
+    |     </a>
+    |   </li>
+  sample[1] (5L): Artforum
+    |   <li class="o-nav__list-item lrv-u-color-grey-medium-dark">
+    |     <a class="c-link  u-font-weight-800 lrv-a-unstyle-link lrv-u-display-block lrv-u-background-color-brand-primary:hover lrv-u-color-white:hover lrv-u-font-weight-bold lrv-u-padding-lr-1 lrv-u-padding-tb-050" href="https://www.artforum.com/" rel="nofollow">
+    |       Artforum
+    |     </a>
+    |   </li>
+  sample[2] (5L): Sportico
+    |   <li class="o-nav__list-item lrv-u-color-grey-medium-dark">
+    |     <a class="c-link  u-font-weight-800 lrv-a-unstyle-link lrv-u-display-block lrv-u-background-color-brand-primary:hover lrv-u-color-white:hover lrv-u-font-weight-bold lrv-u-padding-lr-1 lrv-u-padding-tb-050" href="https://www.sportico.com/" rel="nofollow">
+    |       Sportico
+    |     </a>
+    |   </li>
+
+--- Chunk 18: [nav_content:li×9] ---
+  type=menu_item freq=9 excl=0.34
+  pattern_xpath: ///li[contains(@class,'child')][contains(@class,'mega')][contains(@class,'menu')][contains(@class,'item')][contains(@class,'list')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): News
+    |   <li class="mega-menu__child-list-item ">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-padding-tb-025 lrv-u-display-block lrv-a-font-body-s u-letter-spacing-0 " href="https://www.rollingstone.com/music/music-news/">
+    |       News
+    |     </a>
+    |   </li>
+  sample[1] (5L): Features
+    |   <li class="mega-menu__child-list-item ">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-padding-tb-025 lrv-u-display-block lrv-a-font-body-s u-letter-spacing-0 " href="/music/music-features/">
+    |       Features
+    |     </a>
+    |   </li>
+  sample[2] (5L): Artists You Need To Know
+    |   <li class="mega-menu__child-list-item ">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-color-grey:hover lrv-u-padding-tb-025 lrv-u-display-block lrv-a-font-body-s u-letter-spacing-0 " href="/t/artist-you-need-to-know/">
+    |       Artists You Need To Know
+    |     </a>
+    |   </li>
+
+--- Chunk 19: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.12
+  pattern_xpath: ///li[contains(@class,'nav')][contains(@class,'item')][contains(@class,'list')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Music
+    |   <li class="o-nav__list-item ">
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/music/">
+    |       Music
+    |     </a>
+    |   </li>
+  sample[1] (5L): Politics
+    |   <li class="o-nav__list-item ">
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/politics/">
+    |       Politics
+    |     </a>
+    |   </li>
+  sample[2] (5L): Culture
+    |   <li class="o-nav__list-item ">
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/culture/">
+    |       Culture
+    |     </a>
+    |   </li>
+
+--- Chunk 20: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.12
+  pattern_xpath: ///div[contains(@class,'account')][contains(@class,'hidden')][contains(@class,'tooltip')]//li[contains(@class,'nav')][contains(@class,'item')][contains(@class,'list')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: RS Recommends Music Politics TV & Movies Culture
+    |   <li class="o-nav__list-item ">
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/product-recommendations/">
+    |       RS Recommends
+    |     </a>
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/music/">
+    |   ... [7 lines truncated] ...
+    |     </a>
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/culture/">
+    |       Culture
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (5L): Music
+    |   <li class="o-nav__list-item ">
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/music/">
+    |       Music
+    |     </a>
+    |   </li>
+  sample[2] (5L): TV & Movies
+    |   <li class="o-nav__list-item ">
+    |     <a class="c-link  lrv-a-font-basic-s u-font-weight-800 u-letter-spacing-003 lrv-u-padding-tb-075 lrv-a-unstyle-link lrv-u-color-brand-primary:hover lrv-a-hover-effect lrv-u-whitespace-nowrap lrv-u-display-inline-block" href="/tv-movies/">
+    |       TV & Movies
+    |     </a>
+    |   </li>
+
+--- Chunk 21: [nav_content:h3×7] ---
+  type=menu_item freq=7 excl=0.09
+  pattern_xpath: ///h3[contains(@class,'xs')][contains(@class,'primary')][contains(@class,'block')][contains(@class,'display')][contains(@id,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bijou Phillips Is Urgently Seeking Kidney Donor While Hospitalized: ‘Time Is of 
+    |   <h3 id="c-title-bijou-phillips-hospitalized-kidney-donor-1235514727" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    |     <a href="https://www.rollingstone.com/culture/culture-news/bijou-phillips-hospitalized-kidney-donor-1235514727/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover ">
+    |       Bijou Phillips Is Urgently Seeking Kidney Donor While Hospitalized: ‘Time Is of the Essence’
+    |     </a>
+    |   </h3>
+  sample[1] (5L): Blake Lively and Justin Baldoni Fail to Reach Settlement in ‘It Ends With Us’ Le
+    |   <h3 id="c-title-blake-lively-justin-baldoni-lawsuit-settlement-not-reached-1235514346" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    |     <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/blake-lively-justin-baldoni-lawsuit-settlement-not-reached-1235514346/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover ">
+    |       Blake Lively and Justin Baldoni Fail to Reach Settlement in ‘It Ends With Us’ Legal War
+    |     </a>
+    |   </h3>
+  sample[2] (5L): Hollywood Mourns 'Beyond Devastating' Loss of James Van Der Beek: 'One of the Go
+    |   <h3 id="c-title-james-van-der-beek-hollywood-tributes-1235514858" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    |     <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/james-van-der-beek-hollywood-tributes-1235514858/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover ">
+    |       Hollywood Mourns 'Beyond Devastating' Loss of James Van Der Beek: 'One of the Good Guys'
+    |     </a>
+    |   </h3>
+
+--- Chunk 24: [nav_content:a×13] ---
+  type=menu_item freq=13 excl=0.09
+  pattern_xpath: ///a[contains(@class,'letter')][contains(@class,'spacing')][contains(@class,'color')][contains(@class,'lrv')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Music
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="/music/">
+    |       Music
+    |     </a>
+    |   </li>
+  sample[1] (5L): Politics
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="/politics/">
+    |       Politics
+    |     </a>
+    |   </li>
+  sample[2] (3L): Music
+    |   <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="/music/">
+    |     Music
+    |   </a>
+
+--- Chunk 25: [nav_content:a×15] ---
+  type=menu_item freq=15 excl=0.09
+  pattern_xpath: ///a[contains(@class,'letter')][contains(@class,'spacing')][contains(@class,'color')][contains(@class,'lrv')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Privacy Policy
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="https://pmc.com/privacy-policy/">
+    |       Privacy Policy
+    |     </a>
+    |   </li>
+  sample[1] (5L): Terms of Use
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="https://pmc.com/terms-of-use/">
+    |       Terms of Use
+    |     </a>
+    |   </li>
+  sample[2] (3L): Privacy Policy
+    |   <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="https://pmc.com/privacy-policy/">
+    |     Privacy Policy
+    |   </a>
+
+--- Chunk 24: [nav_content:a×13] ---
+  type=menu_item freq=13 excl=0.09
+  pattern_xpath: ///a[contains(@class,'letter')][contains(@class,'spacing')][contains(@class,'color')][contains(@class,'lrv')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Music
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="/music/">
+    |       Music
+    |     </a>
+    |   </li>
+  sample[1] (5L): Politics
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="/politics/">
+    |       Politics
+    |     </a>
+    |   </li>
+  sample[2] (3L): Music
+    |   <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="/music/">
+    |     Music
+    |   </a>
+
+--- Chunk 25: [nav_content:a×15] ---
+  type=menu_item freq=15 excl=0.09
+  pattern_xpath: ///a[contains(@class,'letter')][contains(@class,'spacing')][contains(@class,'color')][contains(@class,'lrv')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Privacy Policy
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="https://pmc.com/privacy-policy/">
+    |       Privacy Policy
+    |     </a>
+    |   </li>
+  sample[1] (5L): Terms of Use
+    |   <li class="o-nav__list-item u-padding-tb-040 lrv-a-font-body-s lrv-u-color-black lrv-u-width-100p lrv-u-display-inline-block u-letter-spacing-003">
+    |     <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="https://pmc.com/terms-of-use/">
+    |       Terms of Use
+    |     </a>
+    |   </li>
+  sample[2] (3L): Privacy Policy
+    |   <a class="c-link  lrv-a-unstyle-link lrv-u-border-color-currentColor lrv-u-color-grey:hover u-letter-spacing-0 " href="https://pmc.com/privacy-policy/">
+    |     Privacy Policy
+    |   </a>
+
+--- Chunk 26: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.24
+  pattern_xpath: ///h2[contains(@id,'heading')][contains(@id,'section')][contains(@class,'heading')][contains(@class,'larva')][contains(@class,'secondary')]
+  content: [TEXT=1]
+  sample[0] (3L): Most Popular
+    |   <h2 id="section-heading" class="c-heading larva  a-font-theme-secondary-m lrv-u-padding-b-075 lrv-u-text-transform-uppercase">
+    |     Most Popular
+    |   </h2>
+
+--- Chunk 27: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'center')][contains(@class,'align')][contains(@class,'heading')][contains(@class,'larva')][contains(@class,'//')]
+  content: [TEXT=1]
+  sample[0] (5L): More News
+    |   <h3 class="heading larva // lrv-u-border-b-2 lrv-u-border-t-2 lrv-u-padding-t-025 lrv-u-padding-b-050 lrv-u-text-align-center lrv-u-text-transform-uppercase  a-font-theme-secondary-l   ">
+    |     <span class="lrv-u-border-t-2 lrv-u-display-block lrv-u-padding-b-075 lrv-u-padding-t-125 lrv-u-padding-lr-050">
+    |       More News
+    |     </span>
+    |   </h3>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.24
+  pattern_xpath: ///div[contains(@class,'span')]//h2[contains(@id,'heading')][contains(@id,'section')][contains(@class,'heading')][contains(@class,'larva')][contains(@class,'secondary')]
+  content: [TEXT=1]
+  sample[0] (3L): You might also like
+    |   <h2 id="section-heading" class="c-heading larva  a-font-theme-secondary-m lrv-u-margin-b-050 lrv-u-text-transform-uppercase">
+    |     You might also like
+    |   </h2>
+
+--- Chunk 29: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.40
+  pattern_xpath: ///h2[contains(@id,'pc')][contains(@id,'ot')][contains(@id,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Privacy Preference Center
+    |   <h2 id="ot-pc-title">
+    |     Privacy Preference Center
+    |   </h2>
+
+--- Chunk 30: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.40
+  pattern_xpath: ///h3[contains(@id,'category')][contains(@id,'ot')][contains(@id,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Manage Consent Preferences
+    |   <h3 id="ot-category-title">
+    |     Manage Consent Preferences
+    |   </h3>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.47
+  pattern_xpath: ///h4[contains(@id,'pmc')][contains(@class,'after')][contains(@class,'arrow')][contains(@class,'cursor')][contains(@class,'down')]
+  content: [TEXT=1]
+  sample[0] (3L): Our Sites
+    |   <h4 id="pmc-footer" class="o-nav__title u-font-size-13 a-icon-after-height-9 u-line-height-1.05 u-font-weight-800 u-letter-spacing-0016 lrv-u-padding-lr-1 lrv-u-margin-tb-00 lrv-u-width-100p lrv-a-icon-after lrv-a-icon-arrow-down lrv-a-icon-after:margin-l-auto lrv-u-cursor-pointer lrv-js-MobileHeightToggle-trigger lrv-a-hover-dropup-trigger@tablet u-padding-t-056 u-padding-b-043">
+    |     Our Sites
+    |   </h4>
+
+--- Chunk 32: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Cookie List
+    |   <h3>
+    |     Cookie List
+    |   </h3>
+
+--- Chunk 33: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.63
+  pattern_xpath: ///div[contains(@class,'inner')][contains(@class,'background')]//h1[contains(@data-testid,'header')][contains(@data-testid,'logo')][contains(@class,'flex')][contains(@class,'lrv')]
+  content: [HREF=2 TEXT=4]
+  sample[0] (31L) [TRUNCATED]: Rollingstone Logo Rollingstone Logo.rs-logo-grey-shadow-st0{fill:#bcbec0}.rs-log
+    |   <h1 class="lrv-u-flex" data-testid="header-logo">
+    |     <a class="c-logo  a-hidden@mobile-max u-color-black-nero lrv-u-display-block lrv-u-height-100p lrv-u-width-100p" href="https://www.rollingstone.com">
+    |       <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewbox="0 0 674.66 130.35">
+    |         <defs>
+    |           <style>
+    |             .RS-logo-filigree-cls-1{fill:#e60019}.RS-logo-filigree-cls-2{fill:#fff}.RS-logo-filigree-cls-3{fill:#929497}.RS-logo-filigree-cls-4{fill:#d71921}.RS-logo-filigree-cls-5{fill:#231f20}
+    |           </style>
+    |         </defs>
+    |         <g id="Layer_1-2" data-name="Layer 1">
+    |           <path d="m668.37 41.28-6-6c-4.26-4.26-10.11-6.42-17.41-6.42-12.93 0-23.92 6.66-30.53 17.2..."></path>
+    | ... [21 more lines]
+  LEAKS (medium):
+    [TEXT] .rs-logo-grey-shadow-st0{fill:#bcbec0}.rs-logo-grey-shadow-st1{fill:#d
+
+--- Chunk 34: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.24
+  pattern_xpath: ///div[contains(@class,'flex')][contains(@class,'items')][contains(@class,'baseline')]/h3[contains(@class,'xxs')][contains(@class,'heading')][contains(@class,'larva')][contains(@class,'//')][contains(@class,'theme')]
+  content: [TEXT=1]
+  sample[0] (5L): Content by RS culture council
+    |   <h3 class="heading larva // a-font-theme-primary-xxs lrv-u-text-transform-uppercase  lrv-a-font-primary-m   ">
+    |     <span class="u-font-size-30 u-font-size-19@mobile-max u-line-height-1.2@mobile-max u-font-family-roboto-condensed u-font-weight-500 lrv-u-display-block lrv-u-border-b-1@mobile-max">
+    |       Content by RS culture council
+    |     </span>
+    |   </h3>
+
+--- Chunk 35: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.27
+  pattern_xpath: ///h3[contains(@class,'gr')][contains(@class,'xxxs')][contains(@id,'bb')][contains(@class,'desktop')][contains(@class,'body')]
+  content: [TEXT=1]
+  sample[0] (3L): I Watched Turning Point USA's Kid Rock Halftime Show So You Don't Have To
+    |   <h3 id="c-title-698d96001bb596.57672933" class="c-title   lrv-u-margin-b-075 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025">
+    |     I Watched Turning Point USA's Kid Rock Halftime Show So You Don't Have To
+    |   </h3>
+
+--- Chunk 36: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.27
+  pattern_xpath: ///h3[contains(@class,'gr')][contains(@class,'xxxs')][contains(@id,'bb')][contains(@class,'desktop')][contains(@class,'body')]
+  content: [TEXT=1]
+  sample[0] (3L): Jeff Bezos' Ex Makes Major Financial Change After Reports He & Lauren Sanchez Ar
+    |   <h3 id="c-title-698d96001bb5d1.42166255" class="c-title   lrv-u-margin-b-075 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025">
+    |     Jeff Bezos' Ex Makes Major Financial Change After Reports He & Lauren Sanchez Are Going to Court For Money
+    |   </h3>
+
+--- Chunk 37: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.27
+  pattern_xpath: ///h3[contains(@class,'gr')][contains(@class,'xxxs')][contains(@id,'bb')][contains(@class,'desktop')][contains(@class,'body')]
+  content: [TEXT=1]
+  sample[0] (3L): Ice Dance Gold Medal Goes to Controversial French Pair
+    |   <h3 id="c-title-698d96001bb614.11703787" class="c-title   lrv-u-margin-b-075 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025 lrv-a-font-body-xxxs lrv-u-color-grey:hover lrv-u-margin-b-00@desktop lrv-u-margin-b-00@mobile-max lrv-u-margin-t-025">
+    |     Ice Dance Gold Medal Goes to Controversial French Pair
+    |   </h3>
+
+--- Chunk 38: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.23
+  pattern_xpath: ///h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Performance Cookies
+    |   <h4 class="ot-cat-header" id="ot-header-id-C0002">
+    |     Performance Cookies
+    |   </h4>
+
+--- Chunk 39: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.23
+  pattern_xpath: ///h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Targeting Cookies
+    |   <h4 class="ot-cat-header" id="ot-header-id-C0004">
+    |     Targeting Cookies
+    |   </h4>
+
+--- Chunk 40: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.23
+  pattern_xpath: ///div[contains(@class,'acc')][contains(@class,'hdr')][contains(@class,'always')]/h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Strictly Necessary Cookies
+    |   <h4 class="ot-cat-header" id="ot-header-id-C0001">
+    |     Strictly Necessary Cookies
+    |   </h4>
+
+--- Chunk 41: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.23
+  pattern_xpath: ///h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Functional Cookies
+    |   <h4 class="ot-cat-header" id="ot-header-id-C0003">
+    |     Functional Cookies
+    |   </h4>
+
+--- Chunk 42: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.29
+  pattern_xpath: ///div[contains(@class,'special')][contains(@class,'coverage')][contains(@class,'logo')]/h2[contains(@class,'brand')][contains(@id,'heading')][contains(@id,'section')][contains(@class,'xl')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (8L): Rolling Stone 	 	  	 		Reports
+    |   <h2 id="section-heading" class="c-heading larva   a-font-theme-secondary-xl lrv-u-text-transform-uppercase u-letter-spacing-004 lrv-u-color-brand-primary">
+    |     Rolling Stone
+    | 	
+    | 	
+    | 
+    | 	
+    | 		Reports
+    |   </h2>
+
+--- Chunk 43: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///h3[contains(@id,'all')][contains(@id,'time')][contains(@id,'best')][contains(@id,'of')][contains(@id,'songs')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): The 500 Greatest Songs of All Time
+    |   <h3 id="c-title-best-songs-of-all-time-1224767" class="c-title  lrv-u-margin-b-050 a-font-theme-primary-xs a-truncate-ellipsis-4line lrv-u-text-transform-uppercase">
+    |     <a href="https://www.rollingstone.com/music/music-lists/best-songs-of-all-time-1224767/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover">
+    |       The 500 Greatest Songs of All Time
+    |     </a>
+    |   </h3>
+
+--- Chunk 44: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.38
+  pattern_xpath: ///h3[contains(@id,'ffe')][contains(@class,'family')][contains(@class,'ellipsis')][contains(@class,'truncate')][contains(@class,'tb')]
+  content: [TEXT=1]
+  sample[0] (3L): Blake Lively and Justin Baldoni Fail to Reach Settlement in ‘It Ends With Us’ Le
+    |   <h3 id="c-title-698d95ffe1b1c0.28606834" class="c-title  lrv-u-margin-tb-00 lrv-u-font-family-body lrv-a-font-body-m lrv-u-color-grey:hover a-truncate-ellipsis-4line">
+    |     Blake Lively and Justin Baldoni Fail to Reach Settlement in ‘It Ends With Us’ Legal War
+    |   </h3>
+
+--- Chunk 45: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.38
+  pattern_xpath: ///h3[contains(@id,'ffdf')][contains(@class,'family')][contains(@class,'ellipsis')][contains(@class,'truncate')][contains(@class,'tb')]
+  content: [TEXT=1]
+  sample[0] (3L): Enter the Rolling Stone College Journalism Awards
+    |   <h3 id="c-title-698d95ffdf80d4.46246404" class="c-title  lrv-u-margin-tb-00 lrv-u-font-family-body lrv-a-font-body-m lrv-u-color-grey:hover a-truncate-ellipsis-4line">
+    |     Enter the Rolling Stone College Journalism Awards
+    |   </h3>
+
+--- Chunk 46: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///h3[contains(@class,'stories')][contains(@class,'stroke')][contains(@id,'century')][contains(@id,'st')][contains(@id,'best')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): The 250 Greatest Songs of the 21st Century So Far
+    |   <h3 id="c-title-best-songs-of-the-21st-century-1235410452" class="c-title  secondary-stories__stroke-title lrv-u-padding-t-1 lrv-u-padding-b-025 a-font-theme-primary-xl lrv-u-text-transform-uppercase u-font-size-64@mobile-max u-line-height-56@mobile-max lrv-u-padding-b-00@mobile-max lrv-u-padding-t-075@mobile-max">
+    |     <a href="https://www.rollingstone.com/music/music-lists/best-songs-of-the-21st-century-1235410452/" class="c-title__link lrv-a-unstyle-link">
+    |       The 250 Greatest Songs of the 21st Century So Far
+    |     </a>
+    |   </h3>
+
+--- Chunk 47: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h3[contains(@id,'african')][contains(@id,'black')][contains(@id,'grey')][contains(@id,'market')][contains(@id,'parrot')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): TikTok Is Obsessed With Talking Parrots. It’s Fueling a Global Black Market
+    |   <h3 id="c-title-african-grey-parrot-tiktok-black-market-1235460022" class="c-title  lrv-a-font-secondary-xl u-font-size-26@mobile-max lrv-u-display-inline">
+    |     <a href="https://www.rollingstone.com/culture/culture-features/african-grey-parrot-tiktok-black-market-1235460022/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover">
+    |       TikTok Is Obsessed With Talking Parrots. It’s Fueling a Global Black Market
+    |     </a>
+    |   </h3>
+
+--- Chunk 48: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///h3[contains(@id,'band')][contains(@id,'disappeared')][contains(@id,'nashville')][contains(@id,'perry')][contains(@id,'the')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): The Band Perry on Their Relationship With Nashville During Bro-Country: ‘We Felt
+    |   <h3 id="c-title-the-band-perry-disappeared-nashville-1235514348" class="c-title  a-font-theme-primary-l c-title lrv-u-display-block lrv-u-text-align-center lrv-u-margin-b-050 lrv-u-margin-b-025@mobile-max lrv-u-margin-t-050 a-truncate-ellipsis-4line a-truncate-ellipsis-5line@mobile-max">
+    |     <a href="https://www.rollingstone.com/music/music-features/the-band-perry-disappeared-nashville-1235514348/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover">
+    |       The Band Perry on Their Relationship With Nashville During Bro-Country: ‘We Felt Very Not Supported’
+    |     </a>
+    |   </h3>
+
+--- Chunk 49: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///h3[contains(@id,'busy')][contains(@id,'creek')][contains(@id,'dawsons')][contains(@id,'philipps')][contains(@id,'tribute')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Busy Philipps Remembers James Van Der Beek as 'One in a Billion': 'My Heart Is D
+    |   <h3 id="c-title-james-van-der-beek-dawsons-creek-busy-philipps-tribute-1235514991" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    |     <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/james-van-der-beek-dawsons-creek-busy-philipps-tribute-1235514991/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover ">
+    |       Busy Philipps Remembers James Van Der Beek as 'One in a Billion': 'My Heart Is Deeply Hurting for All of Us'
+    |     </a>
+    |   </h3>
+
+--- Chunk 50: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.40
+  pattern_xpath: ///h3[contains(@id,'hollywood')][contains(@id,'tributes')][contains(@id,'beek')][contains(@id,'der')][contains(@id,'james')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hollywood Mourns 'Beyond Devastating' Loss of James Van Der Beek: 'One of the Go
+    |   <h3 id="c-title-james-van-der-beek-hollywood-tributes-1235514858" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    |     <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/james-van-der-beek-hollywood-tributes-1235514858/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover ">
+    |       Hollywood Mourns 'Beyond Devastating' Loss of James Van Der Beek: 'One of the Good Guys'
+    |     </a>
+    |   </h3>
+
+--- Chunk 51: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///h3[contains(@id,'and')][contains(@id,'bud')][contains(@id,'cort')][contains(@id,'dead')][contains(@id,'harold')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bud Cort, Star of Seventies Cult Classic 'Harold and Maude,' Dead at 77
+    |   <h3 id="c-title-bud-cort-harold-and-maude-star-dead-obituary-1235514876" class="c-title  lrv-a-font-primary-xs lrv-u-display-block">
+    |     <a href="https://www.rollingstone.com/tv-movies/tv-movie-news/bud-cort-harold-and-maude-star-dead-obituary-1235514876/" class="c-title__link lrv-a-unstyle-link lrv-u-color-grey:hover ">
+    |       Bud Cort, Star of Seventies Cult Classic 'Harold and Maude,' Dead at 77
+    |     </a>
+    |   </h3>
+
+--- Chunk 52: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.67
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'menus')][contains(@class,'flex')]//h4[contains(@id,'rolling')][contains(@id,'stone')][contains(@class,'remove')][contains(@id,'menu')][contains(@class,'after')]
+  content: [TEXT=1]
+  sample[0] (3L): Rolling Stone
+    |   <h4 id="footer-menu-Rolling Stone" class="o-nav__title u-letter-spacing-003 lrv-a-font-basic-s lrv-a-icon-after lrv-a-icon-after-remove@tablet lrv-a-icon-after:margin-l-auto lrv-a-icon-arrow-down lrv-js-MobileHeightToggle-trigger lrv-u-border-b-2 u-border-b-0@mobile-max lrv-u-cursor-pointer lrv-u-letter-spacing-012@mobile-max lrv-u-margin-tb-00 lrv-u-padding-tb-075@mobile-max lrv-u-text-align-center@mobile-max lrv-u-text-transform-uppercase lrv-u-width-100p lrv-u-width-100p@mobile-max o-nav__title u-padding-b-0375@tablet">
+    |     Rolling Stone
+    |   </h4>
+
+--- Chunk 53: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.53
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'menus')][contains(@class,'flex')]//h4[contains(@id,'legal')][contains(@class,'remove')][contains(@id,'menu')][contains(@class,'after')][contains(@class,'arrow')]
+  content: [TEXT=1]
+  sample[0] (3L): Legal
+    |   <h4 id="footer-menu-Legal" class="o-nav__title u-letter-spacing-003 lrv-a-font-basic-s lrv-a-icon-after lrv-a-icon-after-remove@tablet lrv-a-icon-after:margin-l-auto lrv-a-icon-arrow-down lrv-js-MobileHeightToggle-trigger lrv-u-border-b-2 u-border-b-0@mobile-max lrv-u-cursor-pointer lrv-u-letter-spacing-012@mobile-max lrv-u-margin-tb-00 lrv-u-padding-tb-075@mobile-max lrv-u-text-align-center@mobile-max lrv-u-text-transform-uppercase lrv-u-width-100p lrv-u-width-100p@mobile-max o-nav__title u-padding-b-0375@tablet">
+    |     Legal
+    |   </h4>
+
+--- Chunk 54: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.22
+  pattern_xpath: ///div[contains(@class,'none')]//h3[contains(@class,'tablet')][contains(@class,'center')][contains(@class,'align')][contains(@class,'basic')][contains(@class,'letter')]
+  content: [TEXT=1]
+  sample[0] (3L): Follow Us
+    |   <h3 id="c-title-698d96001e25e0.20644048" class="c-title  lrv-a-font-basic-s u-letter-spacing-003 lrv-u-letter-spacing-012@mobile-max lrv-u-text-align-center@mobile-max lrv-u-text-transform-uppercase u-border-b-2@tablet u-padding-b-0375@tablet">
+    |     Follow Us
+    |   </h3>
+
+--- Chunk 55: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.42
+  pattern_xpath: ///section[contains(@class,'footer')][contains(@class,'newsletter')][contains(@class,'flex')]/h3[contains(@class,'left')][contains(@class,'bold')][contains(@class,'weight')][contains(@class,'align')][contains(@class,'height')]
+  content: [TEXT=1]
+  sample[0] (3L): Newsletter Signup
+    |   <h3 id="c-title-698d96001e5b42.51729247" class="c-title  u-font-size-15 u-line-height-1.05 u-letter-spacing-003 u-font-weight-800 lrv-u-text-transform-uppercase lrv-u-text-align-left lrv-u-margin-t-00 lrv-u-margin-b-050 lrv-u-font-weight-bold">
+    |     Newsletter Signup
+    |   </h3>
+
+--- Chunk 56: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.33
+  pattern_xpath: ///h3[contains(@id,'cf')][contains(@class,'decoration')][contains(@class,'underline')][contains(@class,'body')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Amazon MGM Studios Developing First U.S. Adaptation of Best-Selling Spanish Auth
+    |   <h3 id="c-title-698d96001cf742.63182787" class="c-title  lrv-a-font-body-m lrv-u-margin-b-025 lrv-u-text-decoration-underline:hover">
+    |     Amazon MGM Studios Developing First U.S. Adaptation of Best-Selling Spanish Author Mercedes Ron’s Novels (EXCLUSIVE)
+    |   </h3>
+
+--- Chunk 57: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.33
+  pattern_xpath: ///h3[contains(@id,'cff')][contains(@class,'decoration')][contains(@class,'underline')][contains(@class,'body')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Bath & Body Works’ Disney Princess Drop 2 Has 90+ New Items With Rapunzel, Mulan
+    |   <h3 id="c-title-698d96001cff21.80536994" class="c-title  lrv-a-font-body-m lrv-u-margin-b-025 lrv-u-text-decoration-underline:hover">
+    |     Bath & Body Works’ Disney Princess Drop 2 Has 90+ New Items With Rapunzel, Mulan & More — How to Get Early Access
+    |   </h3>
+
+--- Chunk 58: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h3[contains(@class,'decoration')][contains(@class,'underline')][contains(@class,'body')][contains(@class,'text')][contains(@class,'hover')]
+  content: [TEXT=1]
+  sample[0] (3L): Hermès Stays Ahead of the Pack as Q4 Sales Rise 9.8%
+    |   <h3 id="c-title-698d96001d0157.83456698" class="c-title  lrv-a-font-body-m lrv-u-margin-b-025 lrv-u-text-decoration-underline:hover">
+    |     Hermès Stays Ahead of the Pack as Q4 Sales Rise 9.8%
+    |   </h3>
+
+--- Chunk 59: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h3[contains(@class,'decoration')][contains(@class,'underline')][contains(@class,'body')][contains(@class,'text')][contains(@class,'hover')]
+  content: [TEXT=1]
+  sample[0] (3L): Go to the Cannes Film Festival with IndieWire
+    |   <h3 id="c-title-698d96001d0338.33000799" class="c-title  lrv-a-font-body-m lrv-u-margin-b-025 lrv-u-text-decoration-underline:hover">
+    |     Go to the Cannes Film Festival with IndieWire
+    |   </h3>
+
+--- Chunk 60: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=3 IMG=2 TEXT=9]
+  sample[0] (31L) [TRUNCATED]: In an open-book interview on The Band Perry on Their Relationship With Nashville
+    |   <li class=" ">
+    |     <div class="story // u-margin-lr-n12@mobile-max">
+    |       <div class="lrv-u-flex lrv-u-flex-direction-column@mobile-max u-align-items-center@tablet">
+    |         <div class="u-flex-basis-29.125@tablet lrv-u-flex-shrink-0 // lrv-a-glue-parent lrv-u-flex lrv-u-flex-direction-column lrv-u-height-100p lrv-u-justify-content-start">
+    |           <div class="lrv-a-glue-parent">
+    |             <div class="c-lazy-image  lrv-u-border-a-2">
+    |               <a href="https://www.rollingstone.com/music/music-features/the-band-perry-disappeared-nashville-1235514348/" class="c-lazy-image__link lrv-a-unstyle-link" tabindex="-1">
+    |                 <div class="lrv-a-crop-3x2 lrv-a-crop-1x1@mobile-max " style="">
+    |                   <img class="c-lazy-image__img lrv-u-background-color-grey-lightest lrv-u-width-100p lrv-u-display-block lrv-u-height-auto" src="https://www.rollingstone.com/wp-content/themes/vip/pmc-rollingstone-2022/assets/..." data-lazy-src="https://www.rollingstone.com/wp-content/uploads/2026/02/TheBandPerry_P_20251204_..." alt="The Band Perry are Kimberly Perry and Johnny Costello." data-lazy-srcset="https://www.rollingstone.com/wp-content/uploads/2026/02/TheBandPerry_P_20251204_AGafkjen_NHREowns_0545_RetNFv1_FNL-1-2.jpg?w=680&h=453&crop=1 1800w, https://www.rollingstone.com/wp-content/uploads/2026/02/TheBandPerry_P_20251204_AGafkjen_NHREowns_0545_RetNFv1_FNL-1-2.jpg?w=680&h=453&crop=1&resize=300%2C200 300w" data-lazy-sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" height="" width="" decoding="async"></img>
+    |                 </div>
+    | ... [21 more lines]

@@ -1,0 +1,39 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/features/click_to_edit.md",
+  "type": "PRD",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Feature: Click-To-Edit (Hidden-Overlay Buttons + Shift-Enter)",
+  "summary": "Specifies the click-to-edit field interaction: pure-print panels with hidden hover overlays that swap to textareas on click, Shift-Enter multiline, plus-sign row growth, and commit-on-Enter through the lifecycle.",
+  "scope": [
+    "KnowledgePanel",
+    "FieldTree",
+    "UIStateService",
+    "ConceptLifecycle",
+    "ConceptNode",
+    "click-to-edit overlay",
+    "Shift-Enter multiline editing",
+    "plus-sign field-tree growth",
+    "edit-cycle state machine"
+  ],
+  "cross_refs": [
+    "../DOMAIN_MODEL.md",
+    "../object_model/KnowledgePanel.md",
+    "../object_model/FieldTree.md",
+    "../object_model/UIStateService.md",
+    "../object_model/ConceptLifecycle.md",
+    "../object_model/Editor.md",
+    "../object_model/ConceptNode.md",
+    "../code_constraints/frontend_rendering.md",
+    "../code_constraints/api_routes.md",
+    "../code_constraints/lifecycle_invariants.md",
+    "../code_constraints/repl_actions.md",
+    "plus_sign_field_tree.md",
+    "autocomplete.md",
+    "signal_stream.md",
+    "three_register_model.md"
+  ],
+  "locked": false,
+  "precedence": 6,
+  "notes": ""
+}

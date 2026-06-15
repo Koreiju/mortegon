@@ -1,0 +1,600 @@
+{
+  "//a": {
+    "chunk_ids": [
+      0,
+      1,
+      22
+    ],
+    "classification": "card",
+    "frequency": 52,
+    "pattern_xpath": "///a",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'fYSlrv')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'ifAlEK')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//img[contains(@class,'YwbNX')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'bWUNhp')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'AZHpF')][contains(@class,'kmWSKU')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//button[contains(@class,'eJQWne')][contains(@class,'opine-button')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'jBWqVF')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//h3[contains(@class,'gpfsqs')][contains(@class,'doyHLT')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'gpfsqr')][contains(@class,'cLszKt')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'gpfsqt')][contains(@class,'kCRDHH')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//img[contains(@class,'YwbNX')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'AZHpF')][contains(@class,'kmWSKU')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//button[contains(@class,'eJQWne')][contains(@class,'opine-button')]": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//button[contains(@class,'eJQWne')][contains(@class,'opine-button')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "button",
+    "frequency": 912,
+    "pattern_xpath": "///button[contains(@class,'button')][contains(@class,'jq')][contains(@class,'opine')][contains(@class,'wne')][contains(@type,'button')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'kVKswo')][contains(@class,'opine-icon-wrapper')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//svg": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//path": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//span[contains(@class,'opine-count')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//span[contains(@class,'opine-label')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//input": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "search_input",
+    "frequency": 4,
+    "pattern_xpath": "///input[contains(@id,'search')][contains(@name,'search')][contains(@type,'text')][contains(@autocomplete,'off')][contains(@class,'bw')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//button[contains(@class,'ot-link-btn')][contains(@class,'back-btn-handler')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "pagination",
+    "frequency": 45,
+    "pattern_xpath": "///script",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//title": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//g": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {
+              "//path": {
+                "chunk_ids": [
+                  4
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'ot-acc-grpcntr')][contains(@class,'ot-acc-txt')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'acc')][contains(@class,'grpcntr')][contains(@class,'txt')][contains(@class,'ot')]",
+    "content_types": [],
+    "children": {
+      "//p[contains(@class,'ot-acc-grpdesc')][contains(@class,'ot-category-desc')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'ot-plus-minus')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//span": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//h4[contains(@class,'ot-cat-header')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'ot-always-active')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//p": {
+    "chunk_ids": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "classification": "text_singleton",
+    "frequency": 2,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {}
+  },
+  "//li": {
+    "chunk_ids": [
+      21
+    ],
+    "classification": "menu_item",
+    "frequency": 10,
+    "pattern_xpath": "///a[contains(@class,'aj')][contains(@class,'eed')][contains(@class,'gm')][contains(@class,'sc')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'iVGmAJ')]": {
+        "chunk_ids": [
+          21
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2": {
+    "chunk_ids": [
+      23
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@id,'pc')][contains(@id,'title')][contains(@id,'ot')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3": {
+    "chunk_ids": [
+      24,
+      25
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@id,'category')][contains(@id,'title')][contains(@id,'ot')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'ijURXd')]": {
+    "chunk_ids": [
+      26
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'ij')][contains(@class,'ur')][contains(@class,'xd')][contains(@class,'ab')][contains(@class,'sc')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h4[contains(@class,'ot-cat-header')]": {
+    "chunk_ids": [
+      27
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'acc')][contains(@class,'hdr')][contains(@class,'always')]/h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'eAUTfI')][contains(@class,'fSYKIr')]": {
+    "chunk_ids": [
+      28
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'au')][contains(@class,'ir')][contains(@class,'syk')][contains(@class,'tf')][contains(@color,'black')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'ioNzHy')][contains(@class,'difxlN')]": {
+    "chunk_ids": [
+      29,
+      37
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'kru')][contains(@class,'al')]/h2[contains(@class,'difxl')][contains(@class,'hy')][contains(@class,'io')][contains(@class,'nz')][contains(@color,'music')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'jJyUch')][contains(@class,'cEHJyq')]": {
+    "chunk_ids": [
+      30
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'eh')][contains(@class,'jy')][contains(@class,'jyq')][contains(@class,'uch')][contains(@color,'shows')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'imQVXR')][contains(@class,'gicdIi')]": {
+    "chunk_ids": [
+      31
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'gicd')][contains(@class,'ii')][contains(@class,'im')][contains(@class,'qvxr')][contains(@color,'books')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'ciRZpM')][contains(@class,'gixwSD')]": {
+    "chunk_ids": [
+      32
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'ci')][contains(@class,'gixw')][contains(@class,'sd')][contains(@class,'zp')][contains(@color,'games')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'hHatGK')][contains(@class,'bfORdp')]": {
+    "chunk_ids": [
+      33
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'bf')][contains(@class,'gk')][contains(@class,'hat')][contains(@class,'rdp')][contains(@color,'podcasts')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'iSOte')][contains(@class,'hOPqLR')]": {
+    "chunk_ids": [
+      34
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'lr')][contains(@class,'ote')][contains(@class,'pq')][contains(@color,'people')][contains(@class,'ab')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'jzwnJC')][contains(@class,'bmKmSx')]": {
+    "chunk_ids": [
+      35
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'bm')][contains(@class,'jc')][contains(@class,'jzwn')][contains(@class,'km')][contains(@class,'sx')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'dVnTIq')][contains(@class,'bttIUp')]": {
+    "chunk_ids": [
+      36
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'btt')][contains(@class,'iq')][contains(@class,'up')][contains(@class,'vn')][contains(@color,'brands')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3[contains(@class,'gpfsqs')][contains(@class,'doyHLT')]": {
+    "chunk_ids": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'card')][contains(@class,'dd')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'gpfsqs')]",
+    "content_types": [],
+    "children": {}
+  }
+}

@@ -1,0 +1,438 @@
+=== QUALITY REPORT: plato_stanford_eduentriespeircesemiotics.html ===
+Chunks: 23 (structural=1, functional=5, text=17)
+Categories: {'card': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 17, 'menu_item': 3}
+Content: 220 tagged, 156 preserved (71%)
+Leaks: 64 total, 0 high-importance
+
+--- Chunk 0: tr ---
+  type=card freq=2 excl=0.00
+  pattern_xpath: ///tr
+  tree_sig: tr(td(img),td(a))
+  content: [ATTR=1 HREF=1 IMG=1 TEXT=1]
+  sample[0] (11L): sep man icon How to cite this entry.
+    |   <tr>
+    |     <td>
+    |       <img src="../../symbols/sepman-icon.jpg" alt="sep man icon"></img>
+    |     </td>
+    |     <td>
+    |       <a href="https://plato.stanford.edu/cgi-bin/encyclopedia/archinfo.cgi?entry=peirce-semiotics" target="other">
+    |         How to cite this entry
+    |       </a>
+    |       .
+    |     </td>
+    | ... [1 more lines]
+  sample[1] (11L): inpho icon Look up topics and thinkers related to this entry at the Internet Phi
+    |   <tr>
+    |     <td>
+    |       <img src="../../symbols/inpho.png" alt="inpho icon"></img>
+    |     </td>
+    |     <td>
+    |       <a href="https://www.inphoproject.org/entity?sep=peirce-semiotics&redirect=True" target="other">
+    |         Look up topics and thinkers related to this entry
+    |       </a>
+    |       at the Internet Philosophy Ontology Project (InPhO).
+    |     </td>
+    | ... [1 more lines]
+
+--- Chunk 1: [search_inputs] ---
+  type=search_input freq=1 excl=1.00
+  pattern_xpath: ///input[contains(@name,'query')][contains(@type,'search')]
+  content: [ATTR=1]
+  sample[0] (1L): Search SEP
+    |   <input type="search" name="query" placeholder="Search SEP"></input>
+
+--- Chunk 2: [pagination_buttons] ---
+  type=pagination freq=3 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1 IMG=1]
+  sample[0] (3L): SEP home page
+    |   <a href="../../index.html">
+    |     <img src="../../symbols/sep-man-red.png" alt="SEP home page"></img>
+    |   </a>
+  sample[1] (3L): Albert Atkin<
+    |   <a href="https://researchers.mq.edu.au/en/persons/albert-atkin" target="other">
+    |     Albert Atkin
+    |   </a>
+  sample[2] (1L): SEP home page
+    |   <img src="../../symbols/sep-man-red.png" alt="SEP home page"></img>
+
+--- Chunk 3: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=2 TEXT=5]
+  sample[0] (11L): The Stanford Encyclopedia of Philosophy is copyright © 2023 by The Metaphysics R
+    |   <p>
+    |     The Stanford Encyclopedia of Philosophy is
+    |     <a href="../../info.html#c">
+    |       copyright © 2023
+    |     </a>
+    |     by
+    |     <a href="https://mally.stanford.edu/">
+    |       The Metaphysics Research Lab
+    |     </a>
+    |     , Department of Philosophy, Stanford University
+    | ... [1 more lines]
+  sample[1] (11L): Library of Congress Catalog Data: ISSN 1095-5054The Stanford Encyclopedia of Phi
+    |   <p>
+    |     Library of Congress Catalog Data: ISSN 1095-5054The Stanford Encyclopedia of Philosophy is
+    |     <a href="../../info.html#c">
+    |       copyright © 2023
+    |     </a>
+    |     by
+    |     <a href="https://mally.stanford.edu/">
+    |       The Metaphysics Research Lab
+    |     </a>
+    |     , Department of Philosophy, Stanford University
+    | ... [1 more lines]
+
+--- Chunk 4: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Across the course of his intellectual life, Peirce continually returned to and d
+    |   <p>
+    |     Across the course of his intellectual life, Peirce continually
+    | returned to and developed his ideas about signs and semiotic and there
+    | are three broadly delineable accounts: a concise Early Account from
+    | the 1860s; a complete and relatively neat Interim Account developed
+    | through the 1880s and 1890s and presented in 1903; and his
+    | speculative, rambling, and incomplete Final Account developed between
+    | 1906 and 1910. The following entry examines these three accounts, and
+    | traces the changes that led Peirce to develop earlier accounts and
+    | generate new, more complex, sign theories. However, despite these
+    | ... [21 more lines]
+
+--- Chunk 5: [text_content:p×99] ---
+  type=text_singleton freq=99 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Peirce thought that “representations” generate further interpretants in one of t
+    |   <p>
+    |     Peirce thought that “representations” generate further
+    | interpretants in one of three possible ways. First, via “a mere
+    | community in some quality” (W2 .56). These he calls likenesses,
+    | but they are more familiarly known as
+    |   ... [23 lines truncated] ...
+    | finally, if we generate an interpretant in virtue of some observed
+    | general or conventional connection between sign and object, then the
+    | sign is a symbol. Early examples include the words “homme”
+    | and “man” sharing a reference. (W2. 53–4).
+    | ... [1 more lines]
+
+--- Chunk 6: [text_content:h3×4] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///div[contains(@id,'bibliography')]
+  content: [TEXT=138]
+  sample[0] (31L) [TRUNCATED]: (A note on references to Peirce’s work: All references to Bibliography Primary L
+    |   <div id="bibliography">
+    |     <h2>
+    |       <a name="Bib">
+    |         Bibliography
+    |       </a>
+    |     </h2>
+    |     <h3>
+    |       <a name="PriLit">
+    |         Primary Literature
+    |       </a>
+    | ... [21 more lines]
+  LEAKS (medium):
+    [TEXT] Hardwick, C., 1977. “Peirce’s Influence on Some
+British Philosophers: 
+    [TEXT] Hilpinen, R., 2015. “Conception, sense, and reference in
+Peircean semi
+    [TEXT] ––– 2019. “On the immediate and
+dynamical interpretants and objects of
+
+--- Chunk 7: [text_content:li×6] ---
+  type=text_singleton freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=4]
+  sample[0] (11L) [TRUNCATED]: Related Entries 1. Basic Sign Structure 2. Peirce’s Early Account: 1867–8.3. The
+    |   <li>
+    |     <a href="#Rel">
+    |       Related Entries
+    |     </a>
+    |     <a href="#BasSigStr">
+    |   ... [72 lines truncated] ...
+    |     </a>
+    |     <a href="#Oth">
+    |       Other Internet Resources
+    |     </a>
+    | ... [1 more lines]
+
+--- Chunk 8: [text_content:li×10] ---
+  type=text_singleton freq=10 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (11L) [TRUNCATED]: In respect of the relation between the Sign, Dynamic Object and Final Interpreta
+    |   <li>
+    |     In respect of the relation between the Sign, Dynamic Object and
+    | Final Interpretant, a sign may be either (i) an Assurance of Instinct
+    | (ii) an Assurance of Experience or (iii) an Assurance of Form.In respect of the Sign itself (what we have been calling the
+    | Sign-Vehicle), a sign may be either a (i) Potisign (ii) Actisign or
+    |   ... [11 lines truncated] ...
+    | Sympathetic (ii) Shocking or (iii) Usual.In respect of the relationship between the Sign and Dynamic
+    | Interpretant, a sign may be either (i) Suggestive (ii) Imperative or
+    | (iii) Indicative.In respect of the Final Interpretant, a sign may be either, (i)
+    | Gratiffic (ii) Action Producing or iii) Self-Control Producing.
+    | ... [1 more lines]
+  sample[1] (10L): In respect of the Sign itself (what we have been calling the Sign-Vehicle), a si
+    |   <li>
+    |     In respect of the Sign itself (what we have been calling the
+    | Sign-Vehicle), a sign may be either a (i) Potisign (ii) Actisign or
+    | (iii) a Famisign.
+    |     <blockquote>
+    |       (By the time of the final accounts, Peirce was experimenting with
+    | terminology so these types are perhaps more familiar as Qualisigns,
+    | Sinsigns and Legisigns).
+    |     </blockquote>
+    |   </li>
+  sample[2] (4L): In respect of the Dynamic Object, a sign may be either (i) Abstractive (ii) Conc
+    |   <li>
+    |     In respect of the Dynamic Object, a sign may be either (i)
+    | Abstractive (ii) Concretive or (iii) Collective.
+    |   </li>
+
+--- Chunk 9: [text_content:li×6] ---
+  type=text_singleton freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=3]
+  sample[0] (9L): Peirce, C.S., 1883.Studies in Logic, by Members of The Johns Hopkins University.
+    |   <li>
+    |     Peirce, C.S., 1883.
+    |     <em>
+    |       Studies in Logic, by Members of The Johns
+    | Hopkins University
+    |     </em>
+    |     . Ed. Charles S. Peirce. Boston: Little
+    | Brown.
+    |   </li>
+  sample[1] (9L): ––– 1931–36.The Collected Papers. Volumes 1–6. Eds. Charles Hartshorne and Paul 
+    |   <li>
+    |     ––– 1931–36.
+    |     <em>
+    |       The Collected
+    | Papers
+    |     </em>
+    |     . Volumes 1–6. Eds. Charles Hartshorne and Paul
+    | Weiss. Cambridge M.A.: Harvard University Press.
+    |   </li>
+  sample[2] (9L): ––– 1982-The Writings of Charles S. Peirce: A Chronological Edition. Volumes 1–6
+    |   <li>
+    |     ––– 1982-
+    |     <em>
+    |       The Writings of Charles S. Peirce:
+    | A Chronological Edition
+    |     </em>
+    |     . Volumes 1–6. And 8. Eds. Peirce
+    | Edition Project. Bloomington I.N: Indiana University Press.
+    |   </li>
+
+--- Chunk 10: [text_content:li×36] ---
+  type=text_singleton freq=36 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=3]
+  sample[0] (11L): Queiroz, J., 2012. “Peirce’s ten classes of signs: Modeling biosemiotic processe
+    |   <li>
+    |     Queiroz, J., 2012. “Peirce’s ten classes of signs:
+    | Modeling biosemiotic processes and systems”, in
+    |     <em>
+    |       Semiotics in
+    | the wild: Essays in honor of Kalevi Kull on the occasion of his
+    | sixtieth birthday
+    |     </em>
+    |     , Timo Maran, Kati Lindstrom, Riin Magnus
+    | and Morten Tonnessen (eds.), 55–62. Tartu: Tartu University Press
+    | ... [1 more lines]
+  sample[1] (10L): Hardwick, C., 1977. “Peirce’s Influence on Some British Philosophers: A Guess at
+    |   <li>
+    |     Hardwick, C., 1977. “Peirce’s Influence on Some
+    | British Philosophers: A Guess at the Riddle”, in
+    |     <em>
+    |       Peirce
+    | Studies
+    |     </em>
+    |     1: 25–29. Lubbock TX: Institute for Studies in
+    | Pragmaticism.
+    |   </li>
+  sample[2] (9L): Müller, R., 1994. “On the principles of construction and the order of Peirce’s t
+    |   <li>
+    |     Müller, R., 1994. “On the principles of construction
+    | and the order of Peirce’s trichotomies of signs”.
+    |     <em>
+    |       Transactions of Charles S. Peirce Society
+    |     </em>
+    |     . 30:1,
+    | 135–153.
+    |   </li>
+
+--- Chunk 11: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (31L) [TRUNCATED]: 1.3 The Interpretant 2.1 Thought-Signs 2.2 Infinite Semiosis 3.1 Sign-Vehicles 3
+    |   <li>
+    |     <a href="#Int">
+    |       1.3 The Interpretant
+    |     </a>
+    |     <a href="#ThoSig">
+    |       2.1 Thought-Signs
+    |     </a>
+    |     <a href="#InfSem">
+    |       2.2 Infinite Semiosis
+    |     </a>
+    | ... [21 more lines]
+
+--- Chunk 12: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.33
+  pattern_xpath: ///li[contains(@role,'menuitem')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Table of Contents
+    |   <li role="menuitem">
+    |     <a href="../../contents.html">
+    |       Table of Contents
+    |     </a>
+    |   </li>
+  sample[1] (5L): What's New
+    |   <li role="menuitem">
+    |     <a href="../../new.html">
+    |       What's New
+    |     </a>
+    |   </li>
+  sample[2] (5L): Chronological
+    |   <li role="menuitem">
+    |     <a href="../../published.html">
+    |       Chronological
+    |     </a>
+    |   </li>
+
+--- Chunk 13: [nav_content:li×8] ---
+  type=menu_item freq=8 excl=0.33
+  pattern_xpath: ///li[contains(@role,'menuitem')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Editorial Information
+    |   <li role="menuitem">
+    |     <a href="../../info.html">
+    |       Editorial Information
+    |     </a>
+    |   </li>
+  sample[1] (5L): About the SEP
+    |   <li role="menuitem">
+    |     <a href="../../about.html">
+    |       About the SEP
+    |     </a>
+    |   </li>
+  sample[2] (5L): Special Characters
+    |   <li role="menuitem">
+    |     <a href="../../special-characters.html">
+    |       Special Characters
+    |     </a>
+    |   </li>
+
+--- Chunk 14: [nav_content:a×20] ---
+  type=menu_item freq=20 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Support the SEP
+    |   <li role="menuitem">
+    |     <a href="../../support/">
+    |       Support the SEP
+    |     </a>
+    |   </li>
+  sample[1] (5L): PDFs for SEP Friends
+    |   <li role="menuitem">
+    |     <a href="../../support/friends.html">
+    |       PDFs for SEP Friends
+    |     </a>
+    |   </li>
+  sample[2] (3L): About the SEP
+    |   <a href="../../about.html">
+    |     About the SEP
+    |   </a>
+
+--- Chunk 15: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (4L): Browse
+    |   <h4>
+    |     <i class="icon-book"></i>
+    |     Browse
+    |   </h4>
+
+--- Chunk 16: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (4L): About
+    |   <h4>
+    |     <i class="icon-info-sign"></i>
+    |     About
+    |   </h4>
+
+--- Chunk 17: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (4L): Support SEP Browse About
+    |   <h4>
+    |     <i class="icon-leaf"></i>
+    |     Support SEP Browse About
+    |   </h4>
+
+--- Chunk 18: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [TEXT=1]
+  sample[0] (3L): Peirce’s Theory of Signs
+    |   <h1>
+    |     Peirce’s Theory of Signs
+    |   </h1>
+
+--- Chunk 19: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@id,'aca')]
+  content: [TEXT=1]
+  sample[0] (3L): Academic Tools
+    |   <h2 id="Aca">
+    |     Academic Tools
+    |   </h2>
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h2
+  content: [TEXT=1]
+  sample[0] (5L): Other Internet Resources
+    |   <h2>
+    |     <a name="Oth">
+    |       Other Internet Resources
+    |     </a>
+    |   </h2>
+
+--- Chunk 21: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h2
+  content: [TEXT=1]
+  sample[0] (5L): Related Entries
+    |   <h2>
+    |     <a name="Rel">
+    |       Related Entries
+    |     </a>
+    |   </h2>
+
+--- Chunk 22: [text_content:blockquote×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///blockquote
+  content: [ATTR=7 HREF=10 IMG=7 TEXT=16]
+  sample[0] (31L) [TRUNCATED]: sep man icon How to cite this entry.sep man icon Preview the PDF version of this
+    |   <blockquote>
+    |     <table class="vert-top">
+    |       <tbody>
+    |         <tr>
+    |           <td>
+    |             <img src="../../symbols/sepman-icon.jpg" alt="sep man icon"></img>
+    |           </td>
+    |           <td>
+    |             <a href="https://plato.stanford.edu/cgi-bin/encyclopedia/archinfo.cgi?entry=peirce-semiotics" target="other">
+    |               How to cite this entry
+    | ... [21 more lines]

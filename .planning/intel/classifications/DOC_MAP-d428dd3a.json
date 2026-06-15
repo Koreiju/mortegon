@@ -1,0 +1,13 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/DOC_MAP.md",
+  "type": "DOC",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Documentation Map — Web Fiber Haptics",
+  "summary": "Navigation index for the layered documentation chain: design ideation through object/feature elaboration into code constraints, architecture, and specs.",
+  "scope": ["documentation chain", "source-of-truth precedence order", "DOMAIN_MODEL", "object_model", "features", "code_constraints", "code_architecture", "code_specs"],
+  "cross_refs": ["DOMAIN_MODEL.md", "USER_REQUIREMENTS_VERBATIM.md", "object_model/", "features/", "code_constraints/", "code_architecture/", "code_specs/", "code_specs/repl.md", "code_specs/backend/scanner.md", "object_model/Database.md"],
+  "locked": false,
+  "precedence": 4,
+  "notes": ""
+}

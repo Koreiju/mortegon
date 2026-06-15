@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chunk Projector -- UMAP 3D Browser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css?v={{ asset_version }}">
+
+    <!-- Error trap overlay: helpful when debugging WebGL/JS fall-downs -->
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            const errorBox = document.getElementById('error-overlay') || document.createElement('div');
+            errorBox.id = 'error-overlay';
+            errorBox.style.cssText = 'position:fixed; top:0; left:0; width:100%; background:rgba(200,0,0,0.9); color:white; padding:20px; z-index:9999; font-family:monospace; pointer-events:none;';
+            errorBox.innerHTML += `<div><strong>Error:</strong> ${msg}<br><small>${url}:${lineNo}</small></div>`;
+            document.body.appendChild(errorBox);
+            console.error(error);
+            return false;
+        };
+    </script>
+
+    <!-- ── Concept Graph Editor styles ──
+         The 2D concept-graph editor lives on the SAME viewport surface
+         as the pinned chunk panels (#billboard, .pinned-panel) and the
+         logs panel (#wfh-log-box). Cards float over the 3D scene, the
+         edges layer is a fixed full-viewport SVG above the canvas, and
+         the only chrome we add to the global toolbar is the inline
+         "+ New Concept" button next to the existing snapshot button.
+         No toggling — there is never a "concept-graph mode" that hides
+         the 3D view.
+
+         Visual language: white cards lifted from the standalone
+         backend/concept_builder/concept_graph_builder.html so the
+         editor still reads as the same tool. The solidarrow stroke
+         is tinted `var(--silver-300)` so it harmonises with the existing
+         pinned-panel accent colour. Scoped via `.concept-` class
+         prefix so nothing here leaks into the projector chrome. -->
+    <style>
+        /* Edges layer: a single full-viewport SVG above the 3D canvas
+           but below the cards and the pinned chunk panels. pointer-
+           events:none so it never blocks 3D selection or drag. */
+        #concept-edges {
+            position: fixed; inset: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            /* Sits between the side-panel latches (z 9500) and the
+               concept cards themselves (z 9990) so edges paint above
+               the latch buttons but below the cards they connect,
+               keeping the line ending at the card border rather than
+               cutting through the card's content. */
+            z-index: 9700;
+        }
+
+        /* Concept cards inherit the pinned-chunk-panel chrome (dark
+           backdrop, light text, coloured stripe + matching coloured
+           header). The bulk of the cosmetics is set inline in JS so
+           each card can be tinted by its own per-id hash colour; the
+           rules here cover *structural* styling (layout, focus
+           indicator, minimized state, suggestion chips) that doesn't
+           vary per card. */
+        .concept-card {
+            font-family: system-ui, sans-serif;
+        }
+        .concept-card-header {
+            padding: 6px 10px;
+            border-radius: 4px 4px 0 0;
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: move; user-select: none;
+            gap: 6px;
+        }
+        .concept-name-input {
+            border: none; background: transparent;
+            font-weight: 600; font-size: 13px;
+            flex: 1; min-width: 0;
+            outline: none; padding: 2px;
+            font-family: monospace;
+        }
+        .concept-name-input::placeholder { opacity: 0.55; }
+        .concept-card-buttons {
+            display: flex; gap: 4px; flex-shrink: 0;
+        }
+        .concept-min-btn,
+        .concept-delete-btn {
+            background: none; border: none;
+            cursor: pointer; font-size: 12px;
+            padding: 2px 6px; border-radius: 3px;
+            line-height: 1;
+        }
+        .concept-min-btn:hover,
+        .concept-delete-btn:hover { background: rgba(0,0,0,0.18); }
+        .concept-delete-btn { font-weight: bold; }
+        /* When minimized, the body is display:none (set inline). The
+           card's overflow:hidden + auto height collapse to a header bar.
+           We also remove any resize affordance so the user doesn't
+           accidentally drag it open while it's "tucked away". */
+        .concept-card[data-minimized="1"] { resize: none; }
+
+        .concept-card-body {
+            padding: 8px 10px 10px;
+            display: flex; flex-direction: column; gap: 6px;
+            background: rgba(17,24,39,0.95);
+            color: var(--text-primary);
+            border-radius: 0 0 4px 4px;
+        }
+        .concept-card-body label {
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim); margin-bottom: 2px;
+        }
+        .concept-card-body label small {
+            color: var(--text-faint); font-weight: 400;
+            text-transform: none; letter-spacing: 0;
+        }
+        .concept-desc-input,
+        .concept-value-input {
+            width: 100%; box-sizing: border-box;
+            resize: vertical;
+            font-family: 'Fira Code', Consolas, monospace;
+            padding: 6px 8px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-primary);
+            background: rgba(0,0,0,0.35);
+            outline: none;
+            line-height: 1.4;
+        }
+        .concept-desc-input::placeholder,
+        .concept-value-input::placeholder { color: var(--text-faint); }
+        .concept-desc-input:focus,
+        .concept-value-input:focus {
+            border-color: var(--silver-300);
+            box-shadow: 0 0 0 1px rgba(184,192,200,0.35);
+        }
+        .concept-compiled-preview {
+            display: none;
+            padding: 8px;
+            background: rgba(184,192,200,0.08);
+            border: 1px solidrgba(184,192,200,0.45);
+            border-radius: 4px;
+            font-size: 12px; white-space: pre-wrap; word-break: break-word;
+            color: var(--silver-100);
+            font-family: 'Fira Code', Consolas, monospace;
+        }
+        .concept-compile-btn {
+            font-size: 11px; padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(184,192,200,0.35);
+            background: rgba(184,192,200,0.12);
+            color: var(--silver-100); cursor: pointer; align-self: flex-start;
+            font-family: inherit;
+        }
+        .concept-compile-btn:hover {
+            background: rgba(184,192,200,0.22);
+            border-color: rgba(184,192,200,0.55);
+        }
+
+        /* Retrieval suggestion chips below the description field. */
+        .concept-suggestions {
+            display: flex; flex-wrap: wrap; gap: 4px;
+            margin-top: -2px;
+        }
+        .concept-suggestion-chip {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(184,192,200,0.35);
+            background: rgba(184,192,200,0.12);
+            color: var(--silver-100); cursor: pointer;
+            display: inline-flex; align-items: center; gap: 4px;
+            font-family: inherit;
+        }
+        .concept-suggestion-chip:hover {
+            background: rgba(184,192,200,0.22);
+        }
+        .concept-suggestion-score {
+            font-size: 9px; opacity: 0.7;
+            background: rgba(0,0,0,0.3);
+            padding: 0 4px; border-radius: 6px;
+        }
+
+        /* ── Click-and-stick knowledge panel sections ──
+           The OLD hover billboard's section layout, re-themed for
+           the multi-pin draggable panel.  Each section gets a
+           subtitle + a scrollable contenteditable <pre> so the user
+           can type {var} references into any field and hit Compile
+           to resolve them through the concept-graph. */
+        .pinned-panel { z-index: 10010; }
+        .pinned-panel .ks-panel-section { margin-bottom: 8px; }
+        .pinned-panel .ks-section-label {
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--silver-300);  /* same accent the original billboard used */
+            margin: 0 0 4px 0;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .pinned-panel .ks-section-label i { opacity: 0.85; }
+        .pinned-panel .ks-xpath {
+            font-family: 'Fira Code', Consolas, monospace;
+            font-size: 10px;
+            color: #9ca3af;
+            word-break: break-all;
+            padding: 4px 6px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 4px;
+        }
+        .pinned-panel .ks-pre {
+            white-space: pre-wrap; word-break: break-word;
+            background: rgba(0,0,0,0.30);
+            padding: 6px 8px;
+            border-radius: 4px;
+            max-height: 180px;
+            overflow: auto;
+            font-family: 'Fira Code', Consolas, monospace;
+            font-size: 10px;
+            line-height: 1.45;
+            color: var(--text-primary);
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .pinned-panel .ks-pre:focus {
+            border-color: rgba(184,192,200,0.5);
+            box-shadow: 0 0 0 1px rgba(184,192,200,0.25);
+        }
+        .pinned-panel .ks-pre-html      { color: var(--silver-300); }  /* code blue */
+        .pinned-panel .ks-pre-text      { color: #d1d5db; }
+        .pinned-panel .ks-pre-fields    { color: var(--silver-400); }  /* fields amber */
+        .pinned-panel .ks-pre-compiled  {
+            color: var(--silver-100);
+            background: rgba(184,192,200,0.10);
+            border: 1px solidrgba(184,192,200,0.45);
+        }
+        .pinned-panel .ks-panel-actions {
+            display: flex; align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+        .pinned-panel .ks-compile-btn {
+            font-size: 11px; padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(184,192,200,0.35);
+            background: rgba(184,192,200,0.15);
+            color: var(--silver-100); cursor: pointer;
+            font-family: inherit;
+        }
+        .pinned-panel .ks-compile-btn:hover {
+            background: rgba(184,192,200,0.28);
+            border-color: rgba(184,192,200,0.55);
+        }
+        .pinned-panel .ks-source-link {
+            font-size: 10px;
+            color: var(--silver-300);
+            text-decoration: none;
+        }
+        .pinned-panel .ks-source-link:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <!-- Snapshot button: scans whatever the live Firefox is currently on. -->
+        <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; display: flex; gap: 10px; align-items: center;">
+            <button id="snapshot-btn" title="Scan the page currently open in the live browser" style="padding: 10px 20px; background: #000; color: var(--text-primary); border: 1px solid var(--silver-700); border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <i class="fas fa-camera"></i> Snapshot Live Browser
+            </button>
+            <button id="concept-add-btn" title="Spawn a new empty concept card on the 2D layer" style="padding: 10px 16px; background: #000; color: var(--text-primary); border: 1px solid var(--silver-700); border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <i class="fas fa-project-diagram"></i> + New Concept
+            </button>
+            <button id="empty-primitive-btn" title="Spawn the empty primitive: a universal entry-point card that radiates apparitions as you type (§8D.22)" style="padding: 10px 16px; background: #000; color: var(--text-primary); border: 1px solid var(--silver-700); border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <i class="fas fa-circle-notch"></i> ∅ Empty
+            </button>
+            <button id="umap-recompute-btn" title="Recompute the 3D layout using a TF-IDF UMAP projection over all chunks in the workspace" style="padding: 10px 16px; background: #000; color: var(--text-primary); border: 1px solid var(--silver-700); border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <i class="fas fa-wave-square"></i> Recompute UMAP
+            </button>
+            <span id="scan-status" style="display:none; font-size:11px; color:var(--silver-300);"></span>
+        </div>
+
+        <!-- 3D Viewport -->
+        <div id="projector-panel">
+            <canvas id="projector-canvas"></canvas>
+
+            <!-- Arrow pointing from billboard to the 3D node it describes -->
+            <svg id="billboard-arrow-svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; display: none;">
+                <!-- arrowhead marker removed: the 2D↔3D connector is a HEADLESS solid
+                     yellow line (the only hue outside 3D nodes) — §6.6.2 / no arrowheads -->
+                <line id="billboard-arrow-line" x1="0" y1="0" x2="0" y2="0"
+                      stroke="var(--accent-arrow)" stroke-width="2"
+                      opacity="0.9"/>
+            </svg>
+
+            <!-- Legend in bottom-left -->
+            <div id="viewport-controls">
+                <div class="legend-item"><strong>3D Chunk Projector</strong></div>
+                <div class="legend-item" style="font-size:10px;opacity:0.7;">
+                    Each sphere = one embedded chunk (UMAP 6D)
+                </div>
+                <div class="legend-item" style="font-size:10px;opacity:0.7;">
+                    XYZ = structure, RGB = semantics
+                </div>
+            </div>
+
+            <!-- 2D Billboard -- shows content-distilled html_raw as read-only text -->
+            <div id="billboard">
+                <div class="billboard-header" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px;">
+                    <h3 id="billboard-title" style="margin: 0; font-size: 13px; font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 250px;">Chunk</h3>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <span id="billboard-score" style="display:none; font-size:11px; padding:2px 6px; border-radius:10px; background:rgba(0,0,0,0.3); color:#fff;">--%</span>
+                        <button id="billboard-pin" title="Pin this panel" style="background: none; border: none; cursor: pointer; font-size: 14px; color:#fff;"><i class="fas fa-thumbtack"></i></button>
+                        <button id="billboard-close" style="background: none; border: none; cursor: pointer; font-size: 14px; color:#fff;"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="billboard-body" style="padding: 10px 12px;">
+
+                    <!-- xpath (collapsed) -->
+                    <div id="billboard-xpath-section">
+                        <div id="billboard-xpath"></div>
+                    </div>
+
+                    <!-- Media strip (images / video) extracted from html_raw -->
+                    <div id="billboard-media-section" style="display:none;">
+                        <div class="billboard-section-label">
+                            <i class="fas fa-image"></i> Media in chunk
+                        </div>
+                        <div id="billboard-media" class="billboard-media-row"></div>
+                    </div>
+
+                    <!-- Raw content-distilled HTML (the embedding control space) -->
+                    <div class="billboard-section-label">
+                        <i class="fas fa-code"></i> Content-distilled HTML
+                    </div>
+                    <pre id="billboard-html" class="billboard-pre billboard-pre-html" readonly></pre>
+
+                    <!-- Rendered markdown-lite text (what the embedder saw) -->
+                    <div class="billboard-section-label">
+                        <i class="fas fa-align-left"></i> Rendered text
+                    </div>
+                    <pre id="billboard-rendered-text" class="billboard-pre billboard-pre-text" readonly></pre>
+
+                    <!-- Content-structure summary: {extended_xpath: [values]}
+                         The top-down chunker's authoritative view of what
+                         this chunk contains. Rendered as the SLM will see it. -->
+                    <div class="billboard-section-label">
+                        <i class="fas fa-sitemap"></i> Content-structure summary
+                    </div>
+                    <pre id="billboard-fields" class="billboard-pre billboard-pre-fields" readonly></pre>
+
+                    <!-- Visit full source URL -->
+                    <div class="action-row" style="margin-top:10px;">
+                        <a id="billboard-link" href="#" target="_blank" class="website-link" style="font-size: 11px;">
+                            Visit source <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar: retrieval results -->
+        <div id="sidebar">
+            <div class="sidebar-bg-container">
+                <video class="sidebar-video" autoplay muted loop playsinline>
+                    <source src="/static/sidefall.mp4" type="video/mp4">
+                </video>
+                <div class="sidebar-glass"></div>
+            </div>
+
+            <div id="sidebar-header">
+                <h3>Chunk Retrieval</h3>
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="nl-search" placeholder="Search chunk contents...">
+                </div>
+                <div class="search-hint">
+                    Press <kbd>Enter</kbd> &mdash; coarse-to-fine via nomic-v1 GPU.
+                </div>
+            </div>
+
+            <div id="results-container">
+                <div class="empty-state">Loading chunks...</div>
+            </div>
+        </div>
+
+        <!-- Left Sidebar (Timeline) -- same shell as before -->
+        <div id="history-sidebar" style="position: absolute; left: 0; top: 0; bottom: 0; width: 280px; background: rgba(5, 7, 10, 0.7); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-right: 1px solid rgba(255,255,255,0.05); z-index: 100; display: flex; flex-direction: column; overflow: hidden; box-shadow: 5px 0 25px rgba(0,0,0,0.5);">
+            <div id="history-header" style="padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.3); display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #fff;">Timeline History</h3>
+                <button id="history-clear" title="Clear all snapshots" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:12px;display:none;"><i class="fas fa-trash"></i></button>
+            </div>
+            <div id="history-container" style="flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="empty-state" style="color: #6b7280; font-size: 13px; text-align: center; padding: 20px 0;">No snapshots yet.<br><small style="opacity:0.7;">Navigate the live browser to a URL and click <strong>Snapshot Live Browser</strong>.</small></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────────
+         Concept Graph edge layer.
+
+         A single full-viewport SVG that lives on top of the 3D canvas
+         but below the concept cards / pinned chunk panels. The 2D
+         concept-graph editor is otherwise woven directly into the main
+         app: cards are draggable elements positioned in viewport
+         coordinates (same surface as #billboard, .pinned-panel,
+         #wfh-log-box), so there is no toggle, no overlay window, and
+         no "concept mode". The "+ New Concept" button in the top bar
+         spawns a fresh empty primitive; typing `{other}` into a value
+         field auto-creates the linked card and draws a solidedge in
+         this SVG. See cp/concept_graph.js for the full wiring.
+
+         Concept nodes are a separate namespace from 3D env nodes;
+         the two graphs share no state today (a future explicit bridge
+         will wire env chunks ↔ concept cards).
+         ───────────────────────────────────────────────────────────── -->
+    <svg id="concept-edges"></svg>
+
+    <!-- Scripts: THREE r128 + OrbitControls + chunk projector -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module" src="/static/js/chunk_projector.js?v={{ asset_version }}"></script>
+</body>
+
+</html>

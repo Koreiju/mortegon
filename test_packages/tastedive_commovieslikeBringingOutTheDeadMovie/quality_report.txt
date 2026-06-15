@@ -1,0 +1,2074 @@
+=== QUALITY REPORT: tastedive_commovieslikeBringingOutTheDeadMovie.html ===
+Chunks: 209 (structural=3, functional=5, text=201)
+Categories: {'card': 2, 'button': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 201, 'menu_item': 3}
+Content: 244 tagged, 244 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div.icon.kswo ---
+  type=card freq=1032 excl=0.80
+  pattern_xpath: ///div[contains(@class,'icon')][contains(@class,'kswo')][contains(@class,'opine')][contains(@class,'wrapper')][contains(@class,'sc')]
+  tree_sig: div(svg(path))
+  sample[0] (5L): 
+    |   <div class="sc-5577901-1 kVKswo opine-icon-wrapper">
+    |     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-name="Layer 1" viewbox="0 0 26 24">
+    |       <path d="m13 24-.76-.44C11.74 23.27 0 16.31 0 8.19A8.1 8.1 0 0 1 8 0a7.87 7.87 0 0 1 5 1...."></path>
+    |     </svg>
+    |   </div>
+  sample[1] (5L): 
+    |   <div class="sc-5577901-1 kVKswo opine-icon-wrapper">
+    |     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-name="Layer 1" viewbox="0 0 26 24">
+    |       <path d="m24.54 3.49 1-1a1.47 1.47 0 1 0-2-2.13l-1 1a7.86 7.86 0 0 0-9.54.43A7.87 7.87 0 ..."></path>
+    |     </svg>
+    |   </div>
+  sample[2] (5L): 
+    |   <div class="sc-5577901-1 kVKswo opine-icon-wrapper">
+    |     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" data-name="Layer 1" viewbox="0 0 26 24">
+    |       <path d="m24.54 3.49 1-1a1.47 1.47 0 1 0-2-2.13l-1 1a7.86 7.86 0 0 0-9.54.43A7.87 7.87 0 ..."></path>
+    |     </svg>
+    |   </div>
+
+--- Chunk 1: div.ff.hiz ---
+  type=button freq=24 excl=0.58
+  pattern_xpath: ///div[contains(@class,'hiz')][contains(@class,'pc')][contains(@class,'ff')][contains(@class,'sc')]
+  tree_sig: div(button(img))
+  content: [ATTR=1 IMG=1]
+  sample[0] (5L): Legend info icon
+    |   <div class="sc-d05e47ff-2 hizPcA">
+    |     <button data-tooltip-id="ratio-info-tooltip" class="sc-cd0f508c-0 bKhvWi">
+    |       <img alt="Legend info icon" loading="lazy" decoding="async" data-nimg="fill" style="position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: contain; ..." src="/assets/icons/info-icon.svg"></img>
+    |     </button>
+    |   </div>
+  sample[1] (5L): Legend info icon
+    |   <div class="sc-d05e47ff-2 hizPcA">
+    |     <button data-tooltip-id="ratio-info-tooltip" class="sc-cd0f508c-0 bKhvWi">
+    |       <img alt="Legend info icon" loading="lazy" decoding="async" data-nimg="fill" style="position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: contain; ..." src="/assets/icons/info-icon.svg"></img>
+    |     </button>
+    |   </div>
+  sample[2] (5L): Legend info icon
+    |   <div class="sc-d05e47ff-2 hizPcA">
+    |     <button data-tooltip-id="ratio-info-tooltip" class="sc-cd0f508c-0 bKhvWi">
+    |       <img alt="Legend info icon" loading="lazy" decoding="async" data-nimg="fill" style="position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: contain; ..." src="/assets/icons/info-icon.svg"></img>
+    |     </button>
+    |   </div>
+
+--- Chunk 2: div.ds.ff ---
+  type=card freq=91 excl=0.17
+  pattern_xpath: ///div[contains(@class,'ff')][contains(@class,'sc')]
+  tree_sig: div(div(img))
+  content: [ATTR=1 IMG=1]
+  sample[0] (5L): User Image: snax-headroom
+    |   <div class="sc-d05e47ff-0 dsKEBT">
+    |     <div size="64" class="sc-95b2470f-1 cKVQgu">
+    |       <img alt="User Image: snax-headroom" class="sc-95b2470f-2 eIVedX" height="64" width="64" referrerpolicy="no-referrer" size="64" sizes="(max-width: 320px) 64px, 64px" loading="lazy" src="https://lh3.googleusercontent.com/a/ACg8ocLhQ9wpH5ORYWLFiyMNuoFuXzG3rTNLTfBM9coP..."></img>
+    |     </div>
+    |   </div>
+  sample[1] (5L): User Image: snax-headroom
+    |   <div class="sc-d05e47ff-1 fIocqK">
+    |     <div size="48" class="sc-95b2470f-1 BSdeI">
+    |       <img alt="User Image: snax-headroom" class="sc-95b2470f-2 eIVedX" height="48" width="48" referrerpolicy="no-referrer" size="48" sizes="(max-width: 320px) 48px, 48px" loading="lazy" src="https://lh3.googleusercontent.com/a/ACg8ocLhQ9wpH5ORYWLFiyMNuoFuXzG3rTNLTfBM9coP..."></img>
+    |     </div>
+    |   </div>
+  sample[2] (5L): User Image: brandonwood922977dc
+    |   <div class="sc-d05e47ff-1 fIocqK">
+    |     <div size="48" class="sc-95b2470f-1 BSdeI">
+    |       <img alt="User Image: brandonwood922977dc" class="sc-95b2470f-2 eIVedX" height="48" width="48" referrerpolicy="no-referrer" size="48" sizes="(max-width: 320px) 48px, 48px" loading="lazy" src="https://graph.facebook.com/10160077284902090/picture?type=large"></img>
+    |     </div>
+    |   </div>
+
+--- Chunk 3: [search_inputs] ---
+  type=search_input freq=4 excl=1.00
+  pattern_xpath: ///input[contains(@id,'search')][contains(@name,'search')][contains(@type,'text')][contains(@autocomplete,'off')][contains(@class,'bw')]
+  content: [ATTR=2]
+  sample[0] (1L): Cookie list search
+    |   <input id="vendor-search-handler" type="text" name="vendor-search-handler" placeholder="Search…" aria-label="Cookie list search"></input>
+  sample[1] (1L): Cookie list search
+    |   <input id="vendor-search-handler" type="text" name="vendor-search-handler" placeholder="Search…" aria-label="Cookie list search"></input>
+  sample[2] (1L): Find something great
+    |   <input autocomplete="off" id="search-input" placeholder="Find something great" tabindex="0" type="text" class="sc-6f9f34b5-2 bwRtkH" name="searchInput" value=""></input>
+
+--- Chunk 4: [pagination_buttons] ---
+  type=pagination freq=55 excl=0.00
+  pattern_xpath: ///script
+  content: [ATTR=1 TEXT=1]
+  sample[0] (14L): Back Button
+    |   <button class="ot-link-btn back-btn-handler" aria-label="Back">
+    |     <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 444.531 444.531" xml:space="preserve">
+    |       <title>
+    |         Back Button
+    |       </title>
+    |       <g>
+    |         <path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835
+    |                     l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425
+    |                     c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564
+    |                     s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978
+    | ... [4 more lines]
+  sample[1] (12L): Back Button
+    |   <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 444.531 444.531" xml:space="preserve">
+    |     <title>
+    |       Back Button
+    |     </title>
+    |     <g>
+    |       <path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835
+    |                     l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425
+    |                     c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564
+    |                     s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978
+    |                     L213.13,222.409z"></path>
+    | ... [2 more lines]
+  sample[2] (1L): 
+    |   <link rel="webmention" href="https://webmention.io/tastedive.com/webmention" data-next-head=""></link>
+
+--- Chunk 5: [text_content:p×2] ---
+  type=text_singleton freq=1 excl=0.83
+  pattern_xpath: ///div[contains(@class,'acc')][contains(@class,'grpcntr')][contains(@class,'txt')][contains(@class,'ot')]
+  content: [TEXT=3]
+  sample[0] (15L): These cookies are necessary for the website to function and cannot be switched o
+    |   <div class="ot-acc-grpcntr ot-acc-txt">
+    |     <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0001">
+    |       These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.
+    |     </p>
+    |     <div class="ot-plus-minus">
+    |       <span></span>
+    |       <span></span>
+    |     </div>
+    |     <h4 class="ot-cat-header" id="ot-header-id-C0001">
+    |       Strictly Necessary Cookies
+    | ... [5 more lines]
+
+--- Chunk 6: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Sebadoh () is an American indie rock band formed in 1986 in Northampton, Massach
+    |   <p>
+    |     Sebadoh () is an American indie rock band formed in 1986 in Northampton, Massachusetts, by Eric Gaffney and Lou Barlow, with multi-instrumentalist Jason Loewenstein completing the line-up in 1989. Barlow co-created Sebadoh as an outlet for his songwriting when J. Mascis gradually took over creative control of Dinosaur Jr., in which Barlow plays bass guitar.
+    |   </p>
+  sample[1] (3L): Along with such bands as Pavement, Beat Happening and Guided by Voices, Sebadoh 
+    |   <p>
+    |     Along with such bands as Pavement, Beat Happening and Guided by Voices, Sebadoh helped pioneer a lo-fi style of indie rock characterized by low-fidelity recording techniques that employed four-track cassette tape machines. The band's early output, such as The Freed Man and Weed Forestin' (both released 1990), as well as Sebadoh III (1991), was typical of this style.  Following the release of Bubble & Scrape in 1993, Gaffney left the band. His replacement and erstwhile stand-in, Bob Fay, appeared on Bakesale (1994) and Harmacy (1996), but was fired before the sessions for the band's major label release The Sebadoh  (1999), featuring drummer Russ Pollard.
+    |   </p>
+
+--- Chunk 7: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Gang of Four are an English post-punk band, formed in 1976 in Leeds. The origina
+    |   <p>
+    |     Gang of Four are an English post-punk band, formed in 1976 in Leeds. The original members were singer Jon King, guitarist Andy Gill, bass guitarist Dave Allen and drummer Hugo Burnham. There have been many different line-ups including, among other notable musicians, Sara Lee, Gail Ann Dorsey, and Mark Heaney. After a brief lull in the 1980s, different constellations of the band recorded two studio albums in the 1990s. Between 2004 and 2006 the original line-up was reunited; Gill toured using the name between 2012 and his death in 2020. In 2021, the band announced that King, Burnham, and Lee would be reuniting for a tour in 2022 with David Pajo on guitar.
+    |   </p>
+  sample[1] (3L): The band played a stripped-down mix of punk rock, funk and dub, with a lyrical e
+    |   <p>
+    |     The band played a stripped-down mix of punk rock, funk and dub, with a lyrical emphasis on the social and political ills of society. Gang of Four are widely considered one of the leading bands of the late 1970s/early 1980s post-punk movement. Their debut album, Entertainment!, was ranked by Rolling Stone as the fifth greatest punk album of all time and at number 483 in their list of the 500 Greatest Albums of All Time. In 2004, the album was listed by Pitchfork Media as the 8th best album of the 1970s and, in 2020, by Pop Matters as "Best Post Punk album ever". Their early 80s albums (Songs of the Free and Hard) found them softening some of their more jarring qualities, and drifting towards dance-punk and disco. David Fricke of Rolling Stone described Gang of Four as  "probably the best politically motivated band in rock & roll.".
+    |   </p>
+
+--- Chunk 8: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Television is an American rock band from New York City, most notably active in t
+    |   <p>
+    |     Television is an American rock band from New York City, most notably active in the 1970s. The group was founded by Tom Verlaine, Richard Lloyd, Billy Ficca, and Richard Hell. An early fixture of CBGB and the 1970s New York rock scene, the band is considered influential in the development of punk and alternative music.
+    |   </p>
+  sample[1] (3L): Although they recorded in a stripped-down, guitar-based manner similar to their 
+    |   <p>
+    |     Although they recorded in a stripped-down, guitar-based manner similar to their punk contemporaries, Television's music was by comparison clean, improvisational, and technically proficient, drawing influence from avant-garde jazz and 1960s rock. The group's debut album, Marquee Moon, is considered one of the defining releases of the punk era.
+    |   </p>
+  sample[2] (3L): Television's roots can be traced to the teenage friendship between Tom Verlaine 
+    |   <p>
+    |     Television's roots can be traced to the teenage friendship between Tom Verlaine and Richard Hell. The duo met at Sanford School in Hockessin, Delaware, from which they ran away. Both moved to New York, separately, in the early 1970s, aspiring to be poets.
+    |   </p>
+
+--- Chunk 9: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Dinosaur Jr. is an American rock band formed in Amherst, Massachusetts, in 1984,
+    |   <p>
+    |     Dinosaur Jr. is an American rock band formed in Amherst, Massachusetts, in 1984, originally simply called Dinosaur until legal issues forced a change in name.
+    |   </p>
+  sample[1] (3L): The band was founded by J Mascis (guitar, vocals, primary songwriter), Lou Barlo
+    |   <p>
+    |     The band was founded by J Mascis (guitar, vocals, primary songwriter), Lou Barlow (bass, vocals), and Murph (drums). After three albums on independent labels, the band earned a reputation as one of the formative influences on American alternative rock. Creative tension led to Mascis firing Barlow, who later formed Sebadoh and Folk Implosion. His replacement, Mike Johnson, came aboard for three major-label albums. Murph eventually quit, with Mascis taking over drum duties on the band's albums before the group disbanded in 1997. The original lineup reformed in 2005, releasing five albums thereafter.
+    |   </p>
+
+--- Chunk 10: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Dan Carlin (born November 14, 1965) is an American podcaster and political comme
+    |   <p>
+    |     Dan Carlin (born November 14, 1965) is an American podcaster and political commentator. Once a professional radio host, Carlin eventually took his show to the Internet, and he now hosts three popular independent podcasts: Hardcore History, Hardcore History: Addendum, and Common Sense.
+    |   </p>
+  sample[1] (3L): Carlin obtained a Bachelor of Arts degree in history from the University of Colo
+    |   <p>
+    |     Carlin obtained a Bachelor of Arts degree in history from the University of Colorado Boulder. He broke into the television news business in Los Angeles in the late 1980s and covered the 1992 Los Angeles riots. He has worked as a television news reporter, an author, a columnist, and a radio talk show host. No longer broadcasting on terrestrial radio, Carlin has achieved recognition in internet radio, podcasting, and the blogosphere.
+    |   </p>
+
+--- Chunk 11: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Street Fight Radio, or Street Fight is an American politics and humor radio show
+    |   <p>
+    |     Street Fight Radio, or Street Fight is an American politics and humor radio show and podcast founded in June 2011 and hosted by Brett Payne and Bryan Quinby. The show produces three distinct episodes per week. In addition to producing the radio show and podcasts, through its Patreon, Street Fight Radio also publishes a monthly zine and additional video content.
+    |   </p>
+  sample[1] (3L): Along with other podcasts such as Chapo Trap House, and publications like The Ba
+    |   <p>
+    |     Along with other podcasts such as Chapo Trap House, and publications like The Baffler and Current Affairs, Street Fight Radio has been cited as an example of the dirtbag left, a group of left-wing media figures described as mixing humor with "a take-no-prisoners style of American socialism."
+    |   </p>
+  sample[2] (3L): Street Fight bills itself as an "anarcho-comedy" radio show, where the hosts and
+    |   <p>
+    |     Street Fight bills itself as an "anarcho-comedy" radio show, where the hosts and fans of the show have sympathies to left-wing politics. Common topics and discussions on the show include the shape of the earth, labor unions, the merits of footwear, getting your hair cut at the post office, socialism, failures of capitalism and the gig economy, Nu metal, and anarchism.
+    |   </p>
+
+--- Chunk 12: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Feel free to add a podcast if it's trending on iTunes or you think it qualifies 
+    |   <p>
+    |     Feel free to add a podcast if it's trending on iTunes or you think it qualifies as a well-known classic TipsyElephant (talk) 01:17, 9 September 2020 (UTC)__DTREPLYBUTTONSCONTENT__
+    |   </p>
+  sample[1] (3L): I'm nominating Within the Wires for the month of October. TipsyElephant (talk) 1
+    |   <p>
+    |     I'm nominating Within the Wires for the month of October. TipsyElephant (talk) 16:45, 7 September 2022 (UTC)__DTREPLYBUTTONSCONTENT__
+    |   </p>
+  sample[2] (3L): @Mukilteoedits, Starsandwhales, Broccoli and Coffee, Leftist Commentary, Auric, 
+    |   <p>
+    |     @Mukilteoedits, Starsandwhales, Broccoli and Coffee, Leftist Commentary, Auric, Timdwilliamson, 2pou, EverythingisntCaaDath, FalconMillenium, Richard Nevell, Sdkb,  and Tcr25: I'm pinging you all because you've shown some level of involvement with the project or this topic specifically. I think Wikipedia_talk:WikiProject_Podcasting/Archive_6 is particularly relevant to what I'm saying here if you want a point of reference.
+    |   </p>
+
+--- Chunk 13: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Jaime Erica Murray (born 21 July 1976) is an English actress. She is known for p
+    |   <p>
+    |     Jaime Erica Murray (born 21 July 1976) is an English actress. She is known for playing Stacie Monroe in the BBC series Hustle (2004–2012), Lila West in the Showtime series Dexter (2007), Gaia in the Starz miniseries Spartacus: Gods of the Arena (2011), Olivia Charles in The CW series Ringer (2011–2012), Helena G. Wells in the Syfy series Warehouse 13 (2010–2014), Stahma Tarr in the Syfy series Defiance (2013–2015), Fiona/the Black Fairy in the ABC series Once Upon a Time (2016–2017), Antoinette in The CW series The Originals (2018), and Nyssa al Ghul in Gotham.
+    |   </p>
+  sample[1] (3L): Murray was born on 21 July 1976 in Hammersmith, London, England, to Elaine and B
+    |   <p>
+    |     Murray was born on 21 July 1976 in Hammersmith, London, England, to Elaine and Billy Murray. Just before taking her A Levels, Murray was diagnosed with dyslexia. She briefly studied philosophy and psychology at the London School of Economics, but dropped out to train at the Drama Centre London, where she graduated in 2000.
+    |   </p>
+
+--- Chunk 14: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): To ensure that all Wikipedia content is verifiable, Wikipedia provides a means f
+    |   <p>
+    |     To ensure that all Wikipedia content is verifiable, Wikipedia provides a means for anyone to question an uncited claim. If your work has been tagged, please provide a reliable source for the statement, and discuss if needed.
+    |   </p>
+  sample[1] (3L): You can add a citation by selecting from the drop-down  menu at the top of the e
+    |   <p>
+    |     You can add a citation by selecting from the drop-down  menu at the top of the editing box. In markup, you can add a citation manually using ref tags. There are also more elaborate ways to cite sources.
+    |   </p>
+  sample[2] (3L): In wiki markup, you can question an uncited claim by inserting a simple {{Citati
+    |   <p>
+    |     In wiki markup, you can question an uncited claim by inserting a simple {{Citation needed}} tag, or a more comprehensive {{Citation needed|reason=Your explanation here|date=September 2022}}. Alternatively, {{fact}} and {{cn}} will produce the same result. These all display as:
+    |   </p>
+
+--- Chunk 15: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): The Intercept is an American non-profit news organization founded by Glenn Green
+    |   <p>
+    |     The Intercept is an American non-profit news organization founded by Glenn Greenwald, Jeremy Scahill, and Laura Poitras, and funded by eBay co-founder Pierre Omidyar. Its editor is Betsy Reed. It also publishes four podcasts: Intercepted (hosted by Jeremy Scahill), Deconstructed, Murderville GA, and Somebody.
+    |   </p>
+  sample[1] (3L): The Intercept has published in English since its founding, and in Portuguese sin
+    |   <p>
+    |     The Intercept has published in English since its founding, and in Portuguese since the 2016 launch of the Brazilian edition staffed by a local team of Brazilian journalists.
+    |   </p>
+  sample[2] (3L): The Intercept was founded by journalists Glenn Greenwald and Jeremy Scahill and 
+    |   <p>
+    |     The Intercept was founded by journalists Glenn Greenwald and Jeremy Scahill and filmmaker Laura Poitras. It was launched in February 2014 by First Look Media, which is funded by billionaire eBay founder Pierre Omidyar. The publication initially reported on documents released by Edward Snowden. Co-founders Greenwald and Poitras subsequently left amid public disagreements about the leadership and direction of the organization.
+    |   </p>
+
+--- Chunk 16: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Blowback is a podcast about American history and foreign policy hosted by Noah K
+    |   <p>
+    |     Blowback is a podcast about American history and foreign policy hosted by Noah Kulwin and Brendan James.
+    |   </p>
+  sample[1] (3L): The first season of the show was a ten part series dedicated to the Iraq War. Th
+    |   <p>
+    |     The first season of the show was a ten part series dedicated to the Iraq War. Throughout the show audio clips from MSNBC and CNN and readings of news reports are provided as well as satirical skits performed by H. Jon Benjamin. The second season of the show focuses on U.S. intervention before and after the Cuban revolution, and includes more interviews with those who experienced the events discussed first hand. The third season of the show released in July 2022 and covers the events surrounding the Korean War.
+    |   </p>
+  sample[2] (3L): According to Vince Mancini of UPROXX and Derek Robertson of Politico, Blowback w
+    |   <p>
+    |     According to Vince Mancini of UPROXX and Derek Robertson of Politico, Blowback was "painstakingly researched" and didactic in its approach, "bombarding the listener with the host's sturm-und-drang argument about the Iraq War as a portal to hell that directly caused our modern-day political ills". In a comparison of Blowback and Slow Burn, Slate's podcast about the Iraq War, Derek Robertson of Politico described Blowback as "an unapologetically left-wing re-examination of the war’s many causes and ongoing effects". Jake Greenberg of Podcast Review wrote that "Blowback is an excellent piece of history, one that documents the misadventures, deceits, and war crimes" of the Iraq War. Podcast Review called the topic of the second season "a tremendous fit for James and Kulwin's style".
+    |   </p>
+
+--- Chunk 17: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): TrueAnon is an American politics podcast hosted by Brace Belden and Liz Franczak
+    |   <p>
+    |     TrueAnon is an American politics podcast hosted by Brace Belden and Liz Franczak. The podcast focuses on left-wing analysis of political issues and events, particularly those concerning deceased financier and sex offender Jeffrey Epstein. The title of the podcast is a parodic reference to the QAnon conspiracy theory.
+    |   </p>
+  sample[1] (3L): TrueAnon is hosted by Brace Belden, a left-wing internet personality notable for
+    |   <p>
+    |     TrueAnon is hosted by Brace Belden, a left-wing internet personality notable for fighting with the People's Protection Units in the Syrian Civil War, and Liz Franczak, a writer for The Baffler and Deadspin. Belden and Franczak met in the early 2000s, through San Francisco's punk music scene. The hosts, who identify as Marxists, developed an interest in the Epstein case after Gawker published the contents of Epstein's personal address book in 2015, which established Epstein's connections to multiple influential figures in politics, finance, intelligence, academia, and entertainment.
+    |   </p>
+
+--- Chunk 18: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): The West Wing Thing is a podcast series created by the screenwriters Dave Anthon
+    |   <p>
+    |     The West Wing Thing is a podcast series created by the screenwriters Dave Anthony and Josh Olson. First uploaded in 2019–22, the series discusses the TV drama The West Wing (1999–2006) on an episode-by-episode basis, from a left-wing political perspective.
+    |   </p>
+  sample[1] (3L): Early episodes were recorded in All Things Comedy in Burbank, California prior t
+    |   <p>
+    |     Early episodes were recorded in All Things Comedy in Burbank, California prior to the COVID-19 pandemic; later episodes were recorded from the hosts' homes. Heavy metal musician Collyn McCoy ("Diesel Boots") provides the theme tunes, which vary each season, as well as theme tunes for regular sections such as "West Wing Brain," "Misogyny Rundown" and "Psaki Bomb." Guests on the show included David Sirota, John Rogers, Wyatt Cenac, Matt Taibbi, Blaire Erskine, Thomas Frank, Jared Yates Sexton, Abby Martin, Eddie Pepitone, Bilge Ebiri, Lee Camp, Katie Halper, several members of Chapo Trap House, Briahna Joy Gray, Gareth Reynolds, Marianne Williamson, Nathan J. Robinson, Adam McKay, Adolph L. Reed Jr., Wil Anderson and Susan Saxe.
+    |   </p>
+
+--- Chunk 19: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): "At least $350,000 in grant money has been accepted by Democracy Now! since 2001
+    |   <p>
+    |     "At least $350,000 in grant money has been accepted by Democracy Now! since 2001 from the Lannan Foundation that was set up by the family of former ITT board member J. Peter Lannan. Over $100,000 in grants have also been given to Democracy Now! It's done by former Microsoft VP and Real Networks CEO Rob Glaser's Glaser Progress Foundation in recent years."
+    |   </p>
+  sample[1] (3L): "Glaser was also a major investor in the financially ailing Air America radio ne
+    |   <p>
+    |     "Glaser was also a major investor in the financially ailing Air America radio network."
+    |   </p>
+  sample[2] (3L): Dissident Voice,  Black Agenda Report and Resumen are not reliable sources, They
+    |   <p>
+    |     Dissident Voice,  Black Agenda Report and Resumen are not reliable sources, They are Assadists, Who believe that the chemical attacks in Syria are false flags, Editor of Black Agenda Report Ajamu Baraka was revealed to have been paid $120,000 dollars by the Syrian government. [1] Jaydoggmarco (talk) 22:43, 29 July 2021 (UTC)[reply]
+    |   </p>
+
+--- Chunk 20: [nav_content:a×10] ---
+  type=menu_item freq=10 excl=0.75
+  pattern_xpath: ///a[contains(@class,'aj')][contains(@class,'eed')][contains(@class,'gm')][contains(@class,'sc')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Terms of Service
+    |   <li>
+    |     <a href="/read/terms" class="sc-308eed75-4 iVGmAJ">
+    |       Terms of Service
+    |     </a>
+    |   </li>
+  sample[1] (5L): API Terms of Service
+    |   <li>
+    |     <a href="/read/api-terms" class="sc-308eed75-4 iVGmAJ">
+    |       API Terms of Service
+    |     </a>
+    |   </li>
+  sample[2] (3L): Contact
+    |   <a href="/do/contact" class="sc-308eed75-4 iVGmAJ">
+    |     Contact
+    |   </a>
+
+--- Chunk 21: [nav_content:a×24] ---
+  type=menu_item freq=24 excl=1.00
+  pattern_xpath: ///a[contains(@class,'cn')][contains(@class,'de')][contains(@class,'ed')][contains(@class,'gn')][contains(@class,'ka')]
+  content: [ATTR=3 HREF=1 IMG=1 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: Follow bud wiza@bud-wiza bud wiza B B Legend info icon B@bud-wiza
+    |   <a href="/bud-wiza" tabindex="-1" aria-label="bud-wiza's profile" class="sc-ed5de4a0-1 sc-d05e47ff-9 wCnMq kaGnOE">
+    |     <div class="sc-ed5de4a0-2 gsfgcx">
+    |       <div class="sc-ed5de4a0-4 jmOwfL">
+    |         <div class="sc-d05e47ff-0 dsKEBT">
+    |           <div size="64" class="sc-95b2470f-1 cKVQgu">
+    |             <div size="64" class="sc-95b2470f-3 cAJeQJ">
+    |               B
+    |             </div>
+    |           </div>
+    |         </div>
+    | ... [21 more lines]
+
+--- Chunk 22: [nav_content:a×156] ---
+  type=menu_item freq=156 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=9 HREF=1 IMG=6 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: music Television Picture of a musician: Television Television is an American roc
+    |   <a tabindex="-1" aria-label="entity details" href="/music/like?qid=c82327a0-304c-4e89-a38c-99a39d2cff5a">
+    |     <div class="sc-f10e8383-6 fYSlrv">
+    |       <div class="sc-f10e8383-7 ifAmqR" style="--aspect-ratio: (1);">
+    |         <img class="sc-5f0557d7-0 cwaPfO" width="100%" height="100%" alt="Picture of a musician: Television" loading="lazy" decoding="async" fetchpriority="auto" srcset="https://images.qloo.com/i/c82327a0-304c-4e89-a38c-99a39d2cff5a-180x252-outside.webp 180w, https://images.qloo.com/i/c82327a0-304c-4e89-a38c-99a39d2cff5a-360x504-outside.webp 2x" src="https://images.qloo.com/i/c82327a0-304c-4e89-a38c-99a39d2cff5a-172x172-outside.w..."></img>
+    |       </div>
+    |     </div>
+    |     <div class="sc-f10e8383-2 bWUNhp">
+    |       <div>
+    |         <div class="sc-6dfd50d9-0 AZHpF sc-bb390e3c-0 kmWSKU">
+    |           <button type="button" class="sc-5577901-0 eJQWne opine-button like-button" aria-label="Like">
+    | ... [21 more lines]
+
+--- Chunk 23: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.58
+  pattern_xpath: ///h2[contains(@id,'pc')][contains(@id,'title')][contains(@id,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Privacy Preference Center
+    |   <h2 id="ot-pc-title">
+    |     Privacy Preference Center
+    |   </h2>
+
+--- Chunk 24: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.58
+  pattern_xpath: ///h3[contains(@id,'category')][contains(@id,'title')][contains(@id,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Manage Consent Preferences
+    |   <h3 id="ot-category-title">
+    |     Manage Consent Preferences
+    |   </h3>
+
+--- Chunk 25: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Cookie List
+    |   <h3>
+    |     Cookie List
+    |   </h3>
+
+--- Chunk 26: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.62
+  pattern_xpath: ///h2[contains(@class,'ij')][contains(@class,'ur')][contains(@class,'xd')][contains(@class,'ab')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Cross-category suggestions
+    |   <h2 class="sc-696ab699-6 ijURXd">
+    |     Cross-category suggestions
+    |   </h2>
+
+--- Chunk 27: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.15
+  pattern_xpath: ///h2[contains(@class,'au')][contains(@class,'tf')][contains(@color,'black')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Lists with Bringing Out the Dead
+    |   <h2 color="black" class="sc-73430820-1 eAUTfI">
+    |     Lists with Bringing Out the Dead
+    |   </h2>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.15
+  pattern_xpath: ///h2[contains(@class,'au')][contains(@class,'tf')][contains(@color,'black')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Liked by
+    |   <h2 color="black" class="sc-73430820-1 eAUTfI">
+    |     Liked by
+    |   </h2>
+
+--- Chunk 29: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.15
+  pattern_xpath: ///h2[contains(@class,'au')][contains(@class,'tf')][contains(@color,'black')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Disliked by
+    |   <h2 color="black" class="sc-73430820-1 eAUTfI">
+    |     Disliked by
+    |   </h2>
+
+--- Chunk 30: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.15
+  pattern_xpath: ///div[contains(@class,'ji')][contains(@class,'ku')]/h2[contains(@class,'au')][contains(@class,'tf')][contains(@color,'black')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Lists with Bringing Out the DeadLiked byDisliked by
+    |   <h2 color="black" class="sc-73430820-1 eAUTfI">
+    |     Lists with Bringing Out the DeadLiked byDisliked by
+    |   </h2>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.87
+  pattern_xpath: ///div[contains(@class,'acc')][contains(@class,'hdr')][contains(@class,'always')]/h4[contains(@class,'cat')][contains(@class,'header')][contains(@id,'header')][contains(@id,'id')][contains(@class,'ot')]
+  content: [TEXT=1]
+  sample[0] (3L): Strictly Necessary Cookies
+    |   <h4 class="ot-cat-header" id="ot-header-id-C0001">
+    |     Strictly Necessary Cookies
+    |   </h4>
+
+--- Chunk 32: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.52
+  pattern_xpath: ///h2[contains(@class,'ir')][contains(@class,'syk')][contains(@class,'au')][contains(@class,'tf')][contains(@color,'black')]
+  content: [TEXT=1]
+  sample[0] (3L): Similar movies
+    |   <h2 color="black" class="sc-73430820-1 eAUTfI sc-696ab699-4 fSYKIr">
+    |     Similar movies
+    |   </h2>
+
+--- Chunk 33: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///div[contains(@class,'kru')][contains(@class,'al')]/h2[contains(@class,'difxl')][contains(@class,'hy')][contains(@class,'io')][contains(@class,'nz')][contains(@color,'music')]
+  content: [TEXT=1]
+  sample[0] (3L): Music
+    |   <h2 color="music" class="sc-73430820-1 ioNzHy sc-696ab699-4 difxlN">
+    |     Music
+    |   </h2>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'eh')][contains(@class,'jy')][contains(@class,'jyq')][contains(@class,'uch')][contains(@color,'shows')]
+  content: [TEXT=1]
+  sample[0] (3L): Shows
+    |   <h2 color="shows" class="sc-73430820-1 jJyUch sc-696ab699-4 cEHJyq">
+    |     Shows
+    |   </h2>
+
+--- Chunk 35: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'gicd')][contains(@class,'ii')][contains(@class,'im')][contains(@class,'qvxr')][contains(@color,'books')]
+  content: [TEXT=1]
+  sample[0] (3L): Books
+    |   <h2 color="books" class="sc-73430820-1 imQVXR sc-696ab699-4 gicdIi">
+    |     Books
+    |   </h2>
+
+--- Chunk 36: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'ci')][contains(@class,'gixw')][contains(@class,'sd')][contains(@class,'zp')][contains(@color,'games')]
+  content: [TEXT=1]
+  sample[0] (3L): Games
+    |   <h2 color="games" class="sc-73430820-1 ciRZpM sc-696ab699-4 gixwSD">
+    |     Games
+    |   </h2>
+
+--- Chunk 37: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'bf')][contains(@class,'gk')][contains(@class,'hat')][contains(@class,'rdp')][contains(@color,'podcasts')]
+  content: [TEXT=1]
+  sample[0] (3L): Podcasts
+    |   <h2 color="podcasts" class="sc-73430820-1 hHatGK sc-696ab699-4 bfORdp">
+    |     Podcasts
+    |   </h2>
+
+--- Chunk 38: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.82
+  pattern_xpath: ///h2[contains(@class,'lr')][contains(@class,'ote')][contains(@class,'pq')][contains(@color,'people')][contains(@class,'ab')]
+  content: [TEXT=1]
+  sample[0] (3L): People
+    |   <h2 color="people" class="sc-73430820-1 iSOte sc-696ab699-4 hOPqLR">
+    |     People
+    |   </h2>
+
+--- Chunk 39: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'bm')][contains(@class,'jc')][contains(@class,'jzwn')][contains(@class,'km')][contains(@class,'sx')]
+  content: [TEXT=1]
+  sample[0] (3L): Places
+    |   <h2 color="places" class="sc-73430820-1 jzwnJC sc-696ab699-4 bmKmSx">
+    |     Places
+    |   </h2>
+
+--- Chunk 40: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'btt')][contains(@class,'iq')][contains(@class,'up')][contains(@class,'vn')][contains(@color,'brands')]
+  content: [TEXT=1]
+  sample[0] (3L): Brands
+    |   <h2 color="brands" class="sc-73430820-1 dVnTIq sc-696ab699-4 bttIUp">
+    |     Brands
+    |   </h2>
+
+--- Chunk 41: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///div[contains(@class,'de')][contains(@class,'jhg')][contains(@class,'ji')]/h2[contains(@class,'difxl')][contains(@class,'hy')][contains(@class,'io')][contains(@class,'nz')][contains(@color,'music')]
+  content: [TEXT=1]
+  sample[0] (3L): MusicShowsBooksGamesPodcastsPeoplePlacesBrandsSimilar movies
+    |   <h2 color="music" class="sc-73430820-1 ioNzHy sc-696ab699-4 difxlN">
+    |     MusicShowsBooksGamesPodcastsPeoplePlacesBrandsSimilar movies
+    |   </h2>
+
+--- Chunk 42: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Movies
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Movies
+    |   </h3>
+
+--- Chunk 43: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): musik
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     musik
+    |   </h3>
+
+--- Chunk 44: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): izlemelik
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     izlemelik
+    |   </h3>
+
+--- Chunk 45: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): watch
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     watch
+    |   </h3>
+
+--- Chunk 46: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Unscene Seens
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Unscene Seens
+    |   </h3>
+
+--- Chunk 47: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Want to watch
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Want to watch
+    |   </h3>
+
+--- Chunk 48: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Movie Roulette
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Movie Roulette
+    |   </h3>
+
+--- Chunk 49: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): My Movies
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     My Movies
+    |   </h3>
+
+--- Chunk 50: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Movies to watch with Jarrod (potentially)
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Movies to watch with Jarrod (potentially)
+    |   </h3>
+
+--- Chunk 51: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Collected
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Collected
+    |   </h3>
+
+--- Chunk 52: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h3[contains(@class,'uk')][contains(@class,'yv')][contains(@class,'dd')][contains(@class,'gpfsqs')][contains(@class,'sc')]
+  content: [TEXT=1]
+  sample[0] (3L): Movies - psychological thrillers
+    |   <h3 class="sc-5c7dd751-0 sc-3c7e2e41-4 gpfsqs eUKYvI">
+    |     Movies - psychological thrillers
+    |   </h3>
+
+--- Chunk 53: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Limey
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Limey
+    |   </h3>
+
+--- Chunk 54: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Parallax View
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Parallax View
+    |   </h3>
+
+--- Chunk 55: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Mean Streets
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mean Streets
+    |   </h3>
+
+--- Chunk 56: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Straw Dogs
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Straw Dogs
+    |   </h3>
+
+--- Chunk 57: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Cruising
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Cruising
+    |   </h3>
+
+--- Chunk 58: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Raising Cain
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Raising Cain
+    |   </h3>
+
+--- Chunk 59: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Wild at Heart
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Wild at Heart
+    |   </h3>
+
+--- Chunk 60: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Blow Out
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blow Out
+    |   </h3>
+
+--- Chunk 61: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Conversation
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Conversation
+    |   </h3>
+
+--- Chunk 62: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Manhunter
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Manhunter
+    |   </h3>
+
+--- Chunk 63: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Dead Ringers
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Dead Ringers
+    |   </h3>
+
+--- Chunk 64: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Lost Highway
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Lost Highway
+    |   </h3>
+
+--- Chunk 65: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): After Hours
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     After Hours
+    |   </h3>
+
+--- Chunk 66: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Marathon Man
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Marathon Man
+    |   </h3>
+
+--- Chunk 67: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Barton Fink
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Barton Fink
+    |   </h3>
+
+--- Chunk 68: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Blood Simple
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blood Simple
+    |   </h3>
+
+--- Chunk 69: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): A Simple Plan
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     A Simple Plan
+    |   </h3>
+
+--- Chunk 70: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Red Rock West
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Red Rock West
+    |   </h3>
+
+--- Chunk 71: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Grandaddy
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Grandaddy
+    |   </h3>
+
+--- Chunk 72: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Built to Spill
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Built to Spill
+    |   </h3>
+
+--- Chunk 73: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Flaming Lips
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Flaming Lips
+    |   </h3>
+
+--- Chunk 74: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Feelies
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Feelies
+    |   </h3>
+
+--- Chunk 75: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Pavement
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Pavement
+    |   </h3>
+
+--- Chunk 76: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Sebadoh
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sebadoh
+    |   </h3>
+
+--- Chunk 77: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Fall
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Fall
+    |   </h3>
+
+--- Chunk 78: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Velvet Underground
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Velvet Underground
+    |   </h3>
+
+--- Chunk 79: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Stephen Malkmus
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Stephen Malkmus
+    |   </h3>
+
+--- Chunk 80: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Gang of Four
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Gang of Four
+    |   </h3>
+
+--- Chunk 81: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Mission of Burma
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mission of Burma
+    |   </h3>
+
+--- Chunk 82: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Camper Van Beethoven
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Camper Van Beethoven
+    |   </h3>
+
+--- Chunk 83: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Yo La Tengo
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Yo La Tengo
+    |   </h3>
+
+--- Chunk 84: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Television
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Television
+    |   </h3>
+
+--- Chunk 85: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Pixies
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Pixies
+    |   </h3>
+
+--- Chunk 86: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Guided by Voices
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Guided by Voices
+    |   </h3>
+
+--- Chunk 87: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Sonic Youth
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sonic Youth
+    |   </h3>
+
+--- Chunk 88: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Dinosaur Jr.
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Dinosaur Jr.
+    |   </h3>
+
+--- Chunk 89: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Mr. Mercedes
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mr. Mercedes
+    |   </h3>
+
+--- Chunk 90: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Bored to Death
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Bored to Death
+    |   </h3>
+
+--- Chunk 91: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Rescue Me
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Rescue Me
+    |   </h3>
+
+--- Chunk 92: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): City on a Hill
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     City on a Hill
+    |   </h3>
+
+--- Chunk 93: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Patient
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Patient
+    |   </h3>
+
+--- Chunk 94: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Raines
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Raines
+    |   </h3>
+
+--- Chunk 95: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Calling
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Calling
+    |   </h3>
+
+--- Chunk 96: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Perpetual Grace, LTD
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Perpetual Grace, LTD
+    |   </h3>
+
+--- Chunk 97: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Ed
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Ed
+    |   </h3>
+
+--- Chunk 98: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Unusuals
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Unusuals
+    |   </h3>
+
+--- Chunk 99: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Fugitive
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Fugitive
+    |   </h3>
+
+--- Chunk 100: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Sneaky Pete
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sneaky Pete
+    |   </h3>
+
+--- Chunk 101: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Huff
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Huff
+    |   </h3>
+
+--- Chunk 102: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Terriers
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Terriers
+    |   </h3>
+
+--- Chunk 103: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Kidnapped
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kidnapped
+    |   </h3>
+
+--- Chunk 104: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): American Rust
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     American Rust
+    |   </h3>
+
+--- Chunk 105: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Hap and Leonard
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hap and Leonard
+    |   </h3>
+
+--- Chunk 106: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Slaughterhouse-Five
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Slaughterhouse-Five
+    |   </h3>
+
+--- Chunk 107: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Breakfast of Champions
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Breakfast of Champions
+    |   </h3>
+
+--- Chunk 108: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Cat's Cradle
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Cat's Cradle
+    |   </h3>
+
+--- Chunk 109: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Naked Lunch
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Naked Lunch
+    |   </h3>
+
+--- Chunk 110: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Lord of the Flies
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Lord of the Flies
+    |   </h3>
+
+--- Chunk 111: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): 300
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     300
+    |   </h3>
+
+--- Chunk 112: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Electric Kool-Aid Acid Test
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Electric Kool-Aid Acid Test
+    |   </h3>
+
+--- Chunk 113: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Watchmen
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Watchmen
+    |   </h3>
+
+--- Chunk 114: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): From Hell
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     From Hell
+    |   </h3>
+
+--- Chunk 115: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Black Hole
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Black Hole
+    |   </h3>
+
+--- Chunk 116: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Gravity's Rainbow
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Gravity's Rainbow
+    |   </h3>
+
+--- Chunk 117: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): V for Vendetta
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     V for Vendetta
+    |   </h3>
+
+--- Chunk 118: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Fear and Loathing in Las Vegas
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Fear and Loathing in Las Vegas
+    |   </h3>
+
+--- Chunk 119: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Brave New World
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Brave New World
+    |   </h3>
+
+--- Chunk 120: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Heart of Darkness and Selected Short Fiction
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Heart of Darkness and Selected Short Fiction
+    |   </h3>
+
+--- Chunk 121: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Firewatch
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Firewatch
+    |   </h3>
+
+--- Chunk 122: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Life is Strange
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Life is Strange
+    |   </h3>
+
+--- Chunk 123: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Kentucky Route Zero
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kentucky Route Zero
+    |   </h3>
+
+--- Chunk 124: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Deadly Premonition
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Deadly Premonition
+    |   </h3>
+
+--- Chunk 125: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Max Payne
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Max Payne
+    |   </h3>
+
+--- Chunk 126: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Killer7
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Killer7
+    |   </h3>
+
+--- Chunk 127: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Gone Home
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Gone Home
+    |   </h3>
+
+--- Chunk 128: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Heavy Rain
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Heavy Rain
+    |   </h3>
+
+--- Chunk 129: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Stanley Parable
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Stanley Parable
+    |   </h3>
+
+--- Chunk 130: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Vanishing of Ethan Carter
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Vanishing of Ethan Carter
+    |   </h3>
+
+--- Chunk 131: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Indigo Prophecy
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Indigo Prophecy
+    |   </h3>
+
+--- Chunk 132: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Pathologic 2
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Pathologic 2
+    |   </h3>
+
+--- Chunk 133: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Dear Esther
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Dear Esther
+    |   </h3>
+
+--- Chunk 134: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Call of Cthulhu: Dark Corners of the Earth
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Call of Cthulhu: Dark Corners of the Earth
+    |   </h3>
+
+--- Chunk 135: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Layers of Fear
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Layers of Fear
+    |   </h3>
+
+--- Chunk 136: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Alan Wake
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Alan Wake
+    |   </h3>
+
+--- Chunk 137: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Pathologic
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Pathologic
+    |   </h3>
+
+--- Chunk 138: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Max Payne 2: The Fall of Max Payne
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Max Payne 2: The Fall of Max Payne
+    |   </h3>
+
+--- Chunk 139: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Common Sense with Dan Carlin
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Common Sense with Dan Carlin
+    |   </h3>
+
+--- Chunk 140: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): QAnon Anonymous
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     QAnon Anonymous
+    |   </h3>
+
+--- Chunk 141: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Street Fight Radio
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Street Fight Radio
+    |   </h3>
+
+--- Chunk 142: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Grill Stream
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Grill Stream
+    |   </h3>
+
+--- Chunk 143: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Philosophize This!
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Philosophize This!
+    |   </h3>
+
+--- Chunk 144: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Partially Examined Life Philosophy Podcast
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Partially Examined Life Philosophy Podcast
+    |   </h3>
+
+--- Chunk 145: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Michael and Us
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Michael and Us
+    |   </h3>
+
+--- Chunk 146: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Bugle
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     The Bugle
+    |   </h3>
+
+--- Chunk 147: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Well There‘s Your Problem
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Well There‘s Your Problem
+    |   </h3>
+
+--- Chunk 148: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Citations Needed
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Citations Needed
+    |   </h3>
+
+--- Chunk 149: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Intercepted
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Intercepted
+    |   </h3>
+
+--- Chunk 150: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Chapo Trap House
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Chapo Trap House
+    |   </h3>
+
+--- Chunk 151: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Blowback
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Blowback
+    |   </h3>
+
+--- Chunk 152: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Dan Carlin's Hardcore History
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Dan Carlin's Hardcore History
+    |   </h3>
+
+--- Chunk 153: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): TrueAnon
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     TrueAnon
+    |   </h3>
+
+--- Chunk 154: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Trillbilly Worker's Party
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Trillbilly Worker's Party
+    |   </h3>
+
+--- Chunk 155: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Democracy Now! Audio
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Democracy Now! Audio
+    |   </h3>
+
+--- Chunk 156: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Philosophy Bites
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Philosophy Bites
+    |   </h3>
+
+--- Chunk 157: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Kevin Bacon
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Kevin Bacon
+    |   </h3>
+
+--- Chunk 158: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Javier Bardem
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Javier Bardem
+    |   </h3>
+
+--- Chunk 159: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Guy Ritchie
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Guy Ritchie
+    |   </h3>
+
+--- Chunk 160: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Alec Baldwin
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Alec Baldwin
+    |   </h3>
+
+--- Chunk 161: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Mickey Rourke
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mickey Rourke
+    |   </h3>
+
+--- Chunk 162: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Laura Dern
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Laura Dern
+    |   </h3>
+
+--- Chunk 163: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Robin Wright
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Robin Wright
+    |   </h3>
+
+--- Chunk 164: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Emile Hirsch
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Emile Hirsch
+    |   </h3>
+
+--- Chunk 165: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Martin Scorsese
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Martin Scorsese
+    |   </h3>
+
+--- Chunk 166: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): John Lithgow
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     John Lithgow
+    |   </h3>
+
+--- Chunk 167: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Jessica Chastain
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Jessica Chastain
+    |   </h3>
+
+--- Chunk 168: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Nicolas Winding Refn
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Nicolas Winding Refn
+    |   </h3>
+
+--- Chunk 169: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Edward Norton
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Edward Norton
+    |   </h3>
+
+--- Chunk 170: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Uma Thurman
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Uma Thurman
+    |   </h3>
+
+--- Chunk 171: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Zoë Bell
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Zoë Bell
+    |   </h3>
+
+--- Chunk 172: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Julianne Moore
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Julianne Moore
+    |   </h3>
+
+--- Chunk 173: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Woody Harrelson
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Woody Harrelson
+    |   </h3>
+
+--- Chunk 174: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Jeff Bridges
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Jeff Bridges
+    |   </h3>
+
+--- Chunk 175: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Dancing House - Tančící dům hotel
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Dancing House - Tančící dům hotel
+    |   </h3>
+
+--- Chunk 176: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Hotel Val Girard
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hotel Val Girard
+    |   </h3>
+
+--- Chunk 177: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Hotel du Cap-Eden-Roc
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hotel du Cap-Eden-Roc
+    |   </h3>
+
+--- Chunk 178: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): COSMOPOLITAN Hotel Prague
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     COSMOPOLITAN Hotel Prague
+    |   </h3>
+
+--- Chunk 179: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Sofitel Paris Baltimore Tour Eiffel
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Sofitel Paris Baltimore Tour Eiffel
+    |   </h3>
+
+--- Chunk 180: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Résidence Charles Floquet
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Résidence Charles Floquet
+    |   </h3>
+
+--- Chunk 181: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Hôtel La Comtesse Tour Eiffel
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hôtel La Comtesse Tour Eiffel
+    |   </h3>
+
+--- Chunk 182: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Château Eza
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Château Eza
+    |   </h3>
+
+--- Chunk 183: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Plaza Mayor Deluxe
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Plaza Mayor Deluxe
+    |   </h3>
+
+--- Chunk 184: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Monte-Carlo Beach
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Monte-Carlo Beach
+    |   </h3>
+
+--- Chunk 185: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Hôtel Les Matins de Paris & Spa
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hôtel Les Matins de Paris & Spa
+    |   </h3>
+
+--- Chunk 186: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Stories Boutique Hotel Budapest
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Stories Boutique Hotel Budapest
+    |   </h3>
+
+--- Chunk 187: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Midtown Luxury Apartments
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Midtown Luxury Apartments
+    |   </h3>
+
+--- Chunk 188: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Hôtel La Bourdonnais Paris
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Hôtel La Bourdonnais Paris
+    |   </h3>
+
+--- Chunk 189: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Buda Castle Fashion Hotel
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Buda Castle Fashion Hotel
+    |   </h3>
+
+--- Chunk 190: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Aston Martin
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Aston Martin
+    |   </h3>
+
+--- Chunk 191: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Jaguar
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Jaguar
+    |   </h3>
+
+--- Chunk 192: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Rolls-Royce Motor Cars
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Rolls-Royce Motor Cars
+    |   </h3>
+
+--- Chunk 193: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Tesla
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Tesla
+    |   </h3>
+
+--- Chunk 194: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Maserati
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Maserati
+    |   </h3>
+
+--- Chunk 195: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Land Rover
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Land Rover
+    |   </h3>
+
+--- Chunk 196: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): General Motors
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     General Motors
+    |   </h3>
+
+--- Chunk 197: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Volkswagen
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Volkswagen
+    |   </h3>
+
+--- Chunk 198: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Jeep
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Jeep
+    |   </h3>
+
+--- Chunk 199: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Porsche
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Porsche
+    |   </h3>
+
+--- Chunk 200: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Audi
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Audi
+    |   </h3>
+
+--- Chunk 201: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): BMW
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     BMW
+    |   </h3>
+
+--- Chunk 202: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Cadillac
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Cadillac
+    |   </h3>
+
+--- Chunk 203: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Bentley Motors
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Bentley Motors
+    |   </h3>
+
+--- Chunk 204: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Chevrolet
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Chevrolet
+    |   </h3>
+
+--- Chunk 205: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Mercedes-benz
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Mercedes-benz
+    |   </h3>
+
+--- Chunk 206: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Lamborghini
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Lamborghini
+    |   </h3>
+
+--- Chunk 207: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Ford Motor Company
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Ford Motor Company
+    |   </h3>
+
+--- Chunk 208: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h3[contains(@class,'card')][contains(@class,'doy')][contains(@class,'entity')][contains(@class,'hlt')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Accused
+    |   <h3 itemprop="name" class="sc-5c7dd751-0 sc-f10e8383-3 gpfsqs doyHLT entity-card-title">
+    |     Accused
+    |   </h3>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Concept Graph Builder</title>
+  <style>
+    body { margin:0; overflow:hidden; font-family:system-ui, sans-serif; }
+    #toolbar {
+      position:fixed; top:10px; left:10px; z-index:10;
+      background:rgba(255,255,255,0.9); padding:8px; border-radius:6px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+    #canvas {
+      position:relative; width:100vw; height:100vh;
+      background:#f0f2f5; background-image:radial-gradient(#d0d0d0 1px, transparent 1px);
+      background-size:30px 30px;
+    }
+    .card {
+      position:absolute; width:280px; background:white; border:1px solid #ddd;
+      border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.12);
+      transition:box-shadow 0.15s;
+    }
+    .card:hover { box-shadow:0 6px 24px rgba(0,0,0,0.18); }
+    .card-header {
+      background:#f7f7f7; padding:8px 10px; border-radius:8px 8px 0 0;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid #eee;
+    }
+    .card-header input.name-input {
+      border:none; background:transparent; font-weight:600; font-size:14px;
+      width:100%; outline:none; padding:2px;
+    }
+    .card-body {
+      padding:10px; display:flex; flex-direction:column; gap:6px;
+    }
+    .card-body label { font-size:11px; color:#666; margin-bottom:2px; }
+    .card-body textarea {
+      width:100%; box-sizing:border-box; resize:vertical; font-family:monospace;
+      padding:6px; border:1px solid #e0e0e0; border-radius:4px; font-size:12px;
+    }
+    .compiled-preview {
+      display:none; padding:8px; background:#f8f9ff; border:1px dashed #a0b4ff;
+      border-radius:4px; font-size:12px; white-space:pre-wrap; word-break:break-word;
+    }
+    .card button {
+      font-size:0.8em; padding:4px 10px; border-radius:4px; border:1px solid #ccc;
+      background:white; cursor:pointer;
+    }
+    .card button.delete-btn { background:none; border:none; color:#c00; font-weight:bold; }
+    .card button.compile-btn { background:#e8f0fe; border-color:#b8c8e0; }
+    #edge-svg {
+      position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;
+      z-index:0;
+    }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <button id="add-node-btn" style="padding:6px 14px; font-weight:bold;">＋ New Concept</button>
+  </div>
+  <div id="canvas">
+    <svg id="edge-svg"></svg>
+  </div>
+
+  <script>
+    const nodes = new Map();
+    const edges = [];
+
+    const slugify = s => s.trim().toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+    const escapeHtml = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+
+    function addNode(name = '', x = 150 + Math.random()*300, y = 100 + Math.random()*300) {
+      const id = name ? slugify(name) : `node_${Date.now()}`;
+      console.log(`[addNode] name="${name}" → id="${id}", exists? ${nodes.has(id)}`);
+      if (nodes.has(id)) return null;
+      const node = { id, name: name || id, description: '', value: '', x, y };
+      nodes.set(id, node);
+      createCard(node);
+      console.log(`[addNode] node added, total nodes: ${nodes.size}`);
+      return node;
+    }
+
+    function createCard(node) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.nodeId = node.id;
+      card.style.left = node.x + 'px';
+      card.style.top = node.y + 'px';
+
+      card.innerHTML = `
+        <div class="card-header">
+          <input class="name-input" value="${escapeHtml(node.name)}" placeholder="Name">
+          <button class="delete-btn">✕</button>
+        </div>
+        <div class="card-body">
+          <label>Description</label>
+          <textarea class="desc-input" rows="2">${escapeHtml(node.description)}</textarea>
+          <label>Value <small>(use {var} to reference)</small></label>
+          <textarea class="value-input" rows="3">${escapeHtml(node.value)}</textarea>
+          <div class="compiled-preview"></div>
+          <button class="compile-btn">Compile</button>
+        </div>
+      `;
+
+      const nameInput  = card.querySelector('.name-input');
+      const descInput  = card.querySelector('.desc-input');
+      const valueInput = card.querySelector('.value-input');
+      const compileBtn = card.querySelector('.compile-btn');
+      const preview    = card.querySelector('.compiled-preview');
+      const deleteBtn  = card.querySelector('.delete-btn');
+
+      nameInput.addEventListener('input', () => {
+        const oldId = node.id;
+        const newName = nameInput.value.trim() || oldId;
+        const newId = slugify(newName);
+        if (newId !== oldId && !nodes.has(newId)) {
+          nodes.delete(oldId);
+          node.id = newId;
+          node.name = newId;
+          nodes.set(newId, node);
+          edges.forEach(e => { if (e.source === oldId) e.source = newId; if (e.target === oldId) e.target = newId; });
+          nodes.forEach(n => {
+            if (n.id !== newId) {
+              const regex = new RegExp(`\\{${escapeRegex(oldId)}\\}`, 'gi');
+              if (regex.test(n.value)) {
+                n.value = n.value.replace(regex, `{${newId}}`);
+                const c = document.querySelector(`.card[data-node-id="${n.id}"]`);
+                if (c) c.querySelector('.value-input').value = n.value;
+              }
+            }
+          });
+        }
+        node.name = newId;
+        drawEdges();
+      });
+
+      descInput.addEventListener('input', () => { node.description = descInput.value; });
+
+      // ** CRITICAL: value input handler **
+      valueInput.addEventListener('input', () => {
+        node.value = valueInput.value;
+        console.log(`[value input] node "${node.id}" value changed to: "${node.value}"`);
+        parseReferences(node);
+        drawEdges();
+      });
+
+      compileBtn.addEventListener('click', () => {
+        preview.style.display = 'block';
+        preview.textContent = compileNode(node.id);
+      });
+
+      deleteBtn.addEventListener('click', () => {
+        nodes.delete(node.id);
+        edges = edges.filter(e => e.source !== node.id && e.target !== node.id);
+        card.remove();
+        drawEdges();
+      });
+
+      // --- dragging (exclude inputs) ---
+      let isDragging = false, startX, startY, origLeft, origTop;
+      card.addEventListener('mousedown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' ||
+            e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT') return;
+        e.preventDefault();
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        origLeft = card.offsetLeft;
+        origTop  = card.offsetTop;
+        card.style.cursor = 'grabbing';
+        card.style.zIndex = 1000;
+      });
+      document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        card.style.left = (origLeft + dx) + 'px';
+        card.style.top  = (origTop  + dy) + 'px';
+        node.x = origLeft + dx;
+        node.y = origTop  + dy;
+        drawEdges();
+      });
+      document.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          card.style.cursor = '';
+          card.style.zIndex = '';
+        }
+      });
+
+      document.getElementById('canvas').appendChild(card);
+    }
+
+    function parseReferences(node) {
+      console.log(`[parseReferences] node "${node.id}", value="${node.value}"`);
+      const value = node.value;
+      const matches = [...value.matchAll(/\{([^}]+)\}/g)];
+      console.log(`  matches:`, matches.length, matches);
+      const refs = matches.map(m => m[1]);
+      
+      // remove stale edges
+      edges = edges.filter(e => !(e.source === node.id && !refs.includes(e.target)));
+      
+      refs.forEach(refName => {
+        const targetId = slugify(refName);
+        console.log(`  processing ref "${refName}" → targetId "${targetId}"`);
+        if (!targetId) return;
+        if (!nodes.has(targetId)) {
+          console.log(`  -> NOT FOUND, auto-creating...`);
+          // place right beside the source node (offset to the right)
+          const nx = node.x + 290;
+          const ny = node.y + 50 + Math.random()*60;
+          const newNode = addNode(refName, nx, ny);
+          if (newNode) {
+            newNode.description = `Auto‑created from {${refName}}`;
+            // update the DOM of the freshly created card
+            setTimeout(() => {
+              const newCard = document.querySelector(`.card[data-node-id="${newNode.id}"]`);
+              if (newCard) {
+                newCard.querySelector('.desc-input').value = newNode.description;
+                console.log(`  -> New card updated in DOM`);
+              }
+            }, 0);
+          }
+        }
+        if (!edges.some(e => e.source === node.id && e.target === targetId)) {
+          edges.push({ source: node.id, target: targetId });
+          console.log(`  added edge ${node.id} -> ${targetId}`);
+        }
+      });
+      console.log(`  final edges:`, edges);
+    }
+
+    function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    function drawEdges() {
+      const svg = document.getElementById('edge-svg');
+      svg.innerHTML = '';
+      if (!document.getElementById('arrow')) {
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+        marker.id = 'arrow';
+        marker.setAttribute('viewBox', '0 0 10 10');
+        marker.setAttribute('refX', '9');
+        marker.setAttribute('refY', '5');
+        marker.setAttribute('markerWidth', '6');
+        marker.setAttribute('markerHeight', '6');
+        marker.setAttribute('orient', 'auto');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M 0 0 L 10 5 L 0 10 z');
+        path.setAttribute('fill', '#555');
+        marker.appendChild(path);
+        defs.appendChild(marker);
+        svg.appendChild(defs);
+      }
+      const canvasRect = document.getElementById('canvas').getBoundingClientRect();
+      edges.forEach(edge => {
+        const sourceCard = document.querySelector(`.card[data-node-id="${edge.source}"]`);
+        const targetCard = document.querySelector(`.card[data-node-id="${edge.target}"]`);
+        if (!sourceCard || !targetCard) return;
+        const srcRect = sourceCard.getBoundingClientRect();
+        const tgtRect = targetCard.getBoundingClientRect();
+        const x1 = srcRect.left + srcRect.width/2  - canvasRect.left;
+        const y1 = srcRect.top  + srcRect.height/2 - canvasRect.top;
+        const x2 = tgtRect.left + tgtRect.width/2  - canvasRect.left;
+        const y2 = tgtRect.top  + tgtRect.height/2 - canvasRect.top;
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y2);
+        line.setAttribute('stroke', '#555');
+        line.setAttribute('stroke-width', '1.5');
+        line.setAttribute('stroke-dasharray', '4,2');
+        line.setAttribute('marker-end', 'url(#arrow)');
+        svg.appendChild(line);
+      });
+    }
+
+    function compileNode(nodeId, visited = new Set()) {
+      if (visited.has(nodeId)) return `{${nodeId}}`;
+      visited.add(nodeId);
+      const node = nodes.get(nodeId);
+      if (!node) return `{${nodeId}}`;
+      let result = node.value;
+      const regex = /\{([^}]+)\}/g;
+      result = result.replace(regex, (match, varName) => {
+        const targetId = slugify(varName);
+        if (nodes.has(targetId)) {
+          return compileNode(targetId, new Set(visited));
+        }
+        return `{${varName}}`;
+      });
+      return result;
+    }
+
+    // --- startup ---
+    document.getElementById('add-node-btn').addEventListener('click', () => addNode());
+    addNode('', 250, 180);  // initial empty node
+    window.addEventListener('resize', drawEdges);
+    setInterval(drawEdges, 120);
+  </script>
+</body>
+</html>

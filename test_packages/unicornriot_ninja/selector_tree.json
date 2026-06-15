@@ -1,0 +1,341 @@
+{
+  "//div[contains(@class,'columns')][contains(@class,'is-multiline')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 2,
+    "pattern_xpath": "///div[contains(@class,'block')][contains(@class,'columns')][contains(@class,'general')][contains(@class,'inner')][contains(@class,'markup')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'column')][contains(@class,'has-text-centered')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//img[contains(@class,'lazyloaded')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//header[contains(@class,'meta-content')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "card",
+    "frequency": 40,
+    "pattern_xpath": "///header[contains(@class,'content')][contains(@class,'meta')]",
+    "content_types": [],
+    "children": {
+      "//h3[contains(@class,'title')][contains(@class,'entry-title')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@class,'subtitle')][contains(@class,'is-5')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'posted-on')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {
+              "//i[contains(@class,'fas')][contains(@class,'fa-caret-right')]": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//time[contains(@class,'entry-date')][contains(@class,'published')]": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//time[contains(@class,'updated')]": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'divider')][contains(@class,'story-divider-archive-home')]": {
+    "chunk_ids": [
+      2,
+      3
+    ],
+    "classification": "card",
+    "frequency": 15,
+    "pattern_xpath": "///div[contains(@class,'archive')][contains(@class,'divider')][contains(@class,'story')][contains(@class,'home')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'cat-links')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'emoji')][contains(@role,'img')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//i[contains(@class,'fas')][contains(@class,'fa-arrow-circle-right')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'column')][contains(@class,'has-text-centered')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "card",
+    "frequency": 12,
+    "pattern_xpath": "///div[contains(@class,'column')][contains(@class,'has')][contains(@class,'text')][contains(@class,'centered')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'lazyloaded')]": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'menu-item')][contains(@class,'menu-item-type-custom')]": {
+    "chunk_ids": [
+      5,
+      8
+    ],
+    "classification": "menu_item",
+    "frequency": 7,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//i[contains(@class,'fa-search')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input": {
+    "chunk_ids": [
+      6
+    ],
+    "classification": "search_input",
+    "frequency": 4,
+    "pattern_xpath": "///input[contains(@name,'cf')][contains(@name,'eb')][contains(@name,'ec')][contains(@name,'ef')][contains(@name,'efbfb')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//nav[contains(@class,'pagination')][contains(@class,'is-medium')][contains(@role,'navigation')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "pagination",
+    "frequency": 118,
+    "pattern_xpath": "///a[contains(@rel,'category')][contains(@rel,'tag')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'ur2020-wp-pagenavi')][contains(@role,'navigation')]": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'total-pages-info')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a[contains(@class,'pagination-next')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//i[contains(@class,'fas')][contains(@class,'fa-arrow-circle-right')]": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a[contains(@class,'pagination-last')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//i[contains(@class,'fas')][contains(@class,'fa-arrow-circle-right')]": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//ul[contains(@class,'pagination-list')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//li": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'pagination-link')][contains(@class,'is-current')]": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'pagination-link')][contains(@class,'larger')]": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'pagination-ellipsis')]": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'larger')][contains(@class,'pagination-link')]": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a": {
+    "chunk_ids": [
+      9
+    ],
+    "classification": "menu_item",
+    "frequency": 6,
+    "pattern_xpath": "///a[contains(@rel,'me')]",
+    "content_types": [],
+    "children": {
+      "//i[contains(@class,'fas')][contains(@class,'fa-rss')]": {
+        "chunk_ids": [
+          9
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2[contains(@class,'title')][contains(@class,'is-2')]": {
+    "chunk_ids": [
+      10
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'columns')][contains(@class,'footer')][contains(@class,'title')]//h2[contains(@class,'title')][contains(@class,'is')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2": {
+    "chunk_ids": [
+      11
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2",
+    "content_types": [],
+    "children": {}
+  }
+}

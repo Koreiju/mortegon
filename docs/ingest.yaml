@@ -1,0 +1,99 @@
+# GSD ingest manifest — web_fiber_haptics
+# Consumed by: /gsd-ingest-docs --mode new --manifest docs/ingest.yaml
+#
+# SCOPE: CORE-ONLY bootstrap (user-selected). The top source-of-truth design docs
+#   + the cross-cutting feature requirements. The object_model/ suite, frontend/
+#   suite, and all implementation layers are EXCLUDED here and folded in later via
+#   `/gsd-ingest-docs --mode merge` once the roadmap is established.
+#
+# SCHEMA (authoritative, from gsd-core/workflows/ingest-docs.md):
+#   docs:
+#     - path: <relative-to-repo-root>   # required
+#       type: ADR | PRD | SPEC | DOC    # required (ONLY these four)
+#       precedence: <int>               # optional; LOWER = HIGHER authority
+#
+# PRECEDENCE encodes CLAUDE.md's source-of-truth order:
+#   0  USER_REQUIREMENTS_VERBATIM.md  (binding; "when two docs disagree this wins")
+#   1  DOMAIN_MODEL.md                (full design elaboration)
+#   2  FRONTEND_REDESIGN.md           (canonical frontend object model)
+#   3  active GOAL specs              (in-flight, not-yet-executed targets)
+#   4  DOC_MAP.md                     (structural navigation map)
+#   6  features/*                     (cross-cutting user-visible feature reqs)
+#
+# WHY ONLY ONE ADR:
+#   The synthesizer HARD-BLOCKS the entire ingest on any ADR-vs-ADR (LOCKED-vs-LOCKED)
+#   contradiction. These design docs carry many superseding revisions (§R → §S → §T →
+#   §U → §V), so tagging several as ADR would dead-lock the run. We lock ONLY the
+#   verbatim requirements as ADR (the genuine supreme authority) and rank everything
+#   else with precedence integers. SPEC-vs-SPEC clashes surface as WARNINGS (resolvable),
+#   never blockers.
+
+docs:
+  # ── precedence 0 — SUPREME / BINDING (locked) ─────────────────────────────
+  - path: docs/USER_REQUIREMENTS_VERBATIM.md
+    type: ADR
+    precedence: 0
+
+  # ── precedence 1 — full design model ──────────────────────────────────────
+  - path: docs/DOMAIN_MODEL.md
+    type: SPEC
+    precedence: 1
+
+  # ── precedence 2 — canonical frontend object model ────────────────────────
+  - path: docs/FRONTEND_REDESIGN.md
+    type: SPEC
+    precedence: 2
+
+  # ── precedence 3 — active GOAL specs (not yet executed) ───────────────────
+  - path: docs/BLACK_SLATE_GOAL.md
+    type: SPEC
+    precedence: 3
+  - path: docs/HTML_DEDUP_CONTENT_TREE_GOAL.md
+    type: SPEC
+    precedence: 3
+
+  # ── precedence 4 — structural navigation map ──────────────────────────────
+  - path: docs/DOC_MAP.md
+    type: DOC
+    precedence: 4
+
+  # ── precedence 6 — cross-cutting user-visible features (requirements) ──────
+  - path: docs/features/three_register_model.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/halo_retrieval.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/click_to_edit.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/signal_stream.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/pattern_map.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/live_scan_cleanup.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/6d_umap.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/four_fixture_api.md
+    type: PRD
+    precedence: 6
+  - path: docs/features/README.md
+    type: DOC
+    precedence: 6
+
+# ── EXCLUDED from this core pass — fold in later via `--mode merge` ──────────
+#   docs/object_model/*  (16)             per-object design elaboration (NEXT merge pass)
+#   docs/frontend/*  (21)                 per-surface elaboration; rooted by FRONTEND_REDESIGN.md
+#   docs/code_constraints/*  (10)         design/code boundary; constraints also in VERBATIM
+#   docs/code_architecture/*  (23)        implementation blueprint (code layer)
+#   docs/code_specs/*  (20)               line-level specs immediately above CODE
+#   docs/MORTEGON_INTEGRATION_SCHEME.md   historical / superseded (§O.17)
+#   docs/CODEBASE_AUDIT_2026-06-08.md     code-derived audit (design > code; map-codebase covers code)
+#   docs/ontological_warp.md              early ideation, superseded by DOMAIN_MODEL
+#   docs/REAL_TIME_SCAN_UPDATE.md         covered by features/live_scan_cleanup + signal_stream
+#   docs/object_model/Editor.md           deprecated 4th fixture (§S)

@@ -1,0 +1,200 @@
+{
+  "//a[contains(@class,'rounded')][contains(@class,'poster')]": {
+    "chunk_ids": [
+      0,
+      1
+    ],
+    "classification": "card",
+    "frequency": 6,
+    "pattern_xpath": "///a[contains(@class,'poster')][contains(@class,'rounded')]",
+    "content_types": [],
+    "children": {
+      "//picture": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//source": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'lazy')][contains(@class,'card-img-top')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@class,'card-body')][contains(@class,'item-title')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//h2[contains(@class,'card-title')][contains(@class,'text-light')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//span[contains(@class,'mlbe')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//i": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//span[contains(@class,'mlbq')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//div[contains(@class,'col')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///div[contains(@class,'col')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'footer-link-head')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//ul[contains(@class,'list-unstyled')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'form-control')][contains(@class,'border-0')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "search_input",
+    "frequency": 1,
+    "pattern_xpath": "///input[contains(@class,'border')][contains(@class,'control')][contains(@class,'form')][contains(@id,'search')][contains(@name,'search')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//li[contains(@class,'nav-item')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "menu_item",
+    "frequency": 104,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'nav-link')]": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li": {
+    "chunk_ids": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "classification": "menu_item",
+    "frequency": 4,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//a[contains(@class,'dropdown-item')]": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h1[contains(@class,'card-title')][contains(@class,'fs-4')]": {
+    "chunk_ids": [
+      9
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'col')][contains(@class,'lg')][contains(@class,'border')]/h1[contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'card-title')][contains(@class,'text-light')]": {
+    "chunk_ids": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]",
+    "content_types": [],
+    "children": {}
+  }
+}

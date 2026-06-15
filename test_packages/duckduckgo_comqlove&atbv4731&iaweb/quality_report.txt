@@ -1,0 +1,1055 @@
+=== QUALITY REPORT: duckduckgo_comqlove&atbv4731&iaweb.html ===
+Chunks: 56 (structural=9, functional=11, text=36)
+Categories: {'structural': 1, 'card': 7, 'button': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 36, 'menu_item': 9}
+Content: 783 tagged, 610 preserved (78%)
+Leaks: 173 total, 68 high-importance
+
+--- Chunk 0: span.clamp.cm ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///span[contains(@class,'cm')][contains(@class,'erah')][contains(@class,'gjhar')][contains(@class,'igmn')][contains(@style,'clamp')]
+  tree_sig: div(div(div(span(span,span(b)))))
+  content: [TEXT=4]
+  sample[0] (12L): May 2, 2024 Check out this ultimate guide on what is love. Learn what it is, how
+    |   <span class="kY2IgmnCmOGjharHErah" style="-webkit-line-clamp: 3;">
+    |     <span class="MILR5XIVy9h75WrLvKiq">
+    |       May 2, 2024
+    |     </span>
+    |     <span>
+    |       Check out this ultimate guide on what is
+    |       <b>
+    |         love
+    |       </b>
+    |       . Learn what it is, how to think about it, and how to cultivate more of it in your life.
+    | ... [2 more lines]
+  sample[1] (12L): Jul 29, 2024 What makes a relationship last when feelings fade or circumstances 
+    |   <span class="kY2IgmnCmOGjharHErah" style="-webkit-line-clamp: 3;">
+    |     <span class="MILR5XIVy9h75WrLvKiq">
+    |       Jul 29, 2024
+    |     </span>
+    |     <span>
+    |       What makes a relationship last when feelings fade or circumstances change? Can you force yourself to
+    |       <b>
+    |         love
+    |       </b>
+    |       someone you hate or don't care about?
+    | ... [2 more lines]
+
+--- Chunk 1: span ---
+  type=card freq=3 excl=0.00
+  pattern_xpath: ///span
+  tree_sig: div(div(div(span(span(b,b)))))
+  content: [TEXT=4]
+  sample[0] (11L): The meaning of LOVE is strong affection for another arising out of kinship or pe
+    |   <span>
+    |     The meaning of
+    |     <b>
+    |       LOVE
+    |     </b>
+    |     is strong affection for another arising out of kinship or personal ties. How to use
+    |     <b>
+    |       love
+    |     </b>
+    |     in a sentence.
+    | ... [1 more lines]
+  sample[1] (11L): Enjoy our love quotes collection by famous authors, poets and actors. Best love 
+    |   <span>
+    |     Enjoy our
+    |     <b>
+    |       love
+    |     </b>
+    |     quotes collection by famous authors, poets and actors. Best
+    |     <b>
+    |       love
+    |     </b>
+    |     quotes selected by thousands of our users!
+    | ... [1 more lines]
+
+--- Chunk 2: div.ke.ogdw ---
+  type=card freq=3 excl=0.50
+  pattern_xpath: ///div[contains(@class,'ke')][contains(@class,'ogdw')][contains(@class,'qthn')][contains(@class,'xqwfc')][contains(@class,'yg')]
+  tree_sig: div(div(span(span(b,b)),p,a(div(p(span,span)))),span(a(div(img))))
+  content: [ATTR=1 HREF=2 IMG=1 TEXT=7]
+  sample[0] (31L) [TRUNCATED]: Merriam Webster The meaning of LOVE is strong affection for another arising out 
+    |   <div class="OgdwYG6KE2qthn9XQWFC" data-result="snippet">
+    |     <div>
+    |       <span class="kY2IgmnCmOGjharHErah" style="-webkit-line-clamp: 3;">
+    |         <span>
+    |           The meaning of
+    |           <b>
+    |             LOVE
+    |           </b>
+    |           is strong affection for another arising out of kinship or personal ties. How to use
+    |           <b>
+    | ... [21 more lines]
+
+--- Chunk 3: div.ke.ogdw ---
+  type=card freq=2 excl=0.50
+  pattern_xpath: ///div[contains(@class,'ke')][contains(@class,'ogdw')][contains(@class,'qthn')][contains(@class,'xqwfc')][contains(@class,'yg')]
+  tree_sig: div(div(span(span,span(b)),p,a(div(p(span,span)))),span(a(div(img))))
+  content: [ATTR=1 HREF=2 IMG=1 TEXT=7]
+  sample[0] (31L) [TRUNCATED]: Science of People May 2, 2024 Check out this ultimate guide on what is love. Lea
+    |   <div class="OgdwYG6KE2qthn9XQWFC" data-result="snippet">
+    |     <div>
+    |       <span class="kY2IgmnCmOGjharHErah" style="-webkit-line-clamp: 3;">
+    |         <span class="MILR5XIVy9h75WrLvKiq">
+    |           May 2, 2024
+    |         </span>
+    |         <span>
+    |           Check out this ultimate guide on what is
+    |           <b>
+    |             love
+    | ... [21 more lines]
+
+--- Chunk 4: a.ah.atb ---
+  type=card freq=3 excl=0.72
+  pattern_xpath: ///a[contains(@class,'hb')][contains(@class,'opq')][contains(@class,'wu')][contains(@class,'ff')][contains(@class,'co')]
+  tree_sig: a
+  content: [HREF=1 TEXT=1]
+  sample[0] (3L): Images
+    |   <a class="kFFXe30DOpq5j1hbWU1q wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2" href="/?q=love&atb=v473-1&ia=images&iax=images">
+    |     Images
+    |   </a>
+  sample[1] (3L): Videos
+    |   <a class="kFFXe30DOpq5j1hbWU1q wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2" href="/?q=love&atb=v473-1&ia=videos&iax=videos">
+    |     Videos
+    |   </a>
+  sample[2] (3L): Stock
+    |   <a class="kFFXe30DOpq5j1hbWU1q wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2" href="/?q=love&atb=v473-1&ia=stock">
+    |     Stock
+    |   </a>
+
+--- Chunk 5: div.axz.bn ---
+  type=card freq=20 excl=1.00
+  pattern_xpath: ///div[contains(@class,'axz')][contains(@class,'bn')][contains(@class,'ky')][contains(@class,'sf')][contains(@class,'twl')]
+  tree_sig: div(div(p,span(i)),img)
+  content: [IMG=1 TEXT=1]
+  sample[0] (11L): 4:50
+    |   <div class="SfPBnUs0AxzI2ky1twl4">
+    |     <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid..." alt="" loading="lazy"></img>
+    |     <div class="KbjPZIgnxwx9h1rUDQmB">
+    |       <span class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |         <i class="ddgsi ddgsi-play"></i>
+    |       </span>
+    |       <p class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |         4:50
+    |       </p>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (11L): 23:51
+    |   <div class="SfPBnUs0AxzI2ky1twl4">
+    |     <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid..." alt="" loading="lazy"></img>
+    |     <div class="KbjPZIgnxwx9h1rUDQmB">
+    |       <span class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |         <i class="ddgsi ddgsi-play"></i>
+    |       </span>
+    |       <p class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |         23:51
+    |       </p>
+    |     </div>
+    | ... [1 more lines]
+
+--- Chunk 6: div.ad.cd ---
+  type=card freq=20 excl=0.90
+  pattern_xpath: ///div[contains(@class,'ad')][contains(@class,'ikg')][contains(@class,'xi')][contains(@class,'zo')][contains(@class,'cd')]
+  tree_sig: div(h2(a(span)))
+  content: [HREF=1 TEXT=1]
+  sample[0] (9L): What Love Is and How to Cultivate It - Verywell Mind
+    |   <div class="ikg2IXiCD14iVX7AdZo1">
+    |     <h2 class="LnpumSThxEWMIsDdAT17 CXMyPcQ6nDv47DKFeywM">
+    |       <a href="https://www.verywellmind.com/what-is-love-2795343" rel="noopener" target="_self" class="eVNpHGjtxRBq_gLOfGDr LQNqh2U1kzYxREs65IJu" data-testid="result-title-a" data-handled-by-react="true">
+    |         <span class="EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk">
+    |           What Love Is and How to Cultivate It - Verywell Mind
+    |         </span>
+    |       </a>
+    |     </h2>
+    |   </div>
+  sample[1] (9L): Love Definition | What Is Love | Greater Good
+    |   <div class="ikg2IXiCD14iVX7AdZo1">
+    |     <h2 class="LnpumSThxEWMIsDdAT17 CXMyPcQ6nDv47DKFeywM">
+    |       <a href="https://greatergood.berkeley.edu/topic/love/definition" rel="noopener" target="_self" class="eVNpHGjtxRBq_gLOfGDr LQNqh2U1kzYxREs65IJu" data-testid="result-title-a" data-handled-by-react="true">
+    |         <span class="EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk">
+    |           Love Definition | What Is Love | Greater Good
+    |         </span>
+    |       </a>
+    |     </h2>
+    |   </div>
+  sample[2] (9L): What Love Is and How to Cultivate It - Verywell Mind
+    |   <div class="ikg2IXiCD14iVX7AdZo1">
+    |     <h2 class="LnpumSThxEWMIsDdAT17 CXMyPcQ6nDv47DKFeywM">
+    |       <a href="https://www.verywellmind.com/what-is-love-2795343" rel="noopener" target="_self" class="eVNpHGjtxRBq_gLOfGDr LQNqh2U1kzYxREs65IJu" data-testid="result-title-a" data-handled-by-react="true">
+    |         <span class="EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk">
+    |           What Love Is and How to Cultivate It - Verywell Mind
+    |         </span>
+    |       </a>
+    |     </h2>
+    |   </div>
+
+--- Chunk 7: span.dkz.dp ---
+  type=card freq=10 excl=1.00
+  pattern_xpath: ///span[contains(@class,'dkz')][contains(@class,'dp')][contains(@class,'pk')][contains(@class,'vr')][contains(@class,'zae')]
+  tree_sig: span(a(div(img)))
+  content: [ATTR=1 HREF=1 IMG=1]
+  sample[0] (7L): 
+    |   <span class="DpVR46dTZaePK29PDkz8">
+    |     <a href="/?q=love+site:www.verywellmind.com&atb=v473-1" rel="noopener" title="Search domain verywellmind.com" data-testid="result-extras-site-search-link" data-handled-by-react="true">
+    |       <div class="c_ZIRTZwvW2k4q8TtKU0">
+    |         <img src="//external-content.duckduckgo.com/ip3/www.verywellmind.com.ico" height="16" width="16" loading="lazy"></img>
+    |       </div>
+    |     </a>
+    |   </span>
+  sample[1] (7L): 
+    |   <span class="DpVR46dTZaePK29PDkz8">
+    |     <a href="/?q=love+site:en.wikipedia.org&atb=v473-1" rel="noopener" title="Search domain en.wikipedia.org" data-testid="result-extras-site-search-link" data-handled-by-react="true">
+    |       <div class="c_ZIRTZwvW2k4q8TtKU0">
+    |         <img src="/assets/icons/favicons/wikipedia.white.2x.png" height="16" width="16" loading="lazy"></img>
+    |       </div>
+    |     </a>
+    |   </span>
+  sample[2] (7L): 
+    |   <span class="DpVR46dTZaePK29PDkz8">
+    |     <a href="/?q=love+site:www.scienceofpeople.com&atb=v473-1" rel="noopener" title="Search domain scienceofpeople.com" data-testid="result-extras-site-search-link" data-handled-by-react="true">
+    |       <div class="c_ZIRTZwvW2k4q8TtKU0">
+    |         <img src="//external-content.duckduckgo.com/ip3/www.scienceofpeople.com.ico" height="16" width="16" loading="lazy"></img>
+    |       </div>
+    |     </a>
+    |   </span>
+
+--- Chunk 8: button.acqyoh.aur ---
+  type=button freq=18 excl=1.00
+  pattern_xpath: ///button[contains(@class,'aur')][contains(@class,'byk')][contains(@class,'cy')][contains(@class,'esp')][contains(@class,'fidpg')]
+  tree_sig: button(svg(path))
+  content: [ATTR=1]
+  sample[0] (5L): 
+    |   <button type="button" class="KgNxxkTBFukWwMHj69e9 uuIDnYC4qmyFk5dsXOhr Uz2BykKBXbObF11W1_5T ffON2NH02oMAcqyoh2UU vcOFkrrvuSYp7xsAur2Y kKUjqjujCyEsp4bFIDPG kYheVVecSlvJdWHcWzJs" aria-label="menu">
+    |     <svg fill="none" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    |       <path fill="currentColor" d="M11.933 3.183a.625.625 0 1 1 .884.884L8.884 8l3.933 3.933a.625.625 0 1 1-.884.88..."></path>
+    |     </svg>
+    |   </button>
+  sample[1] (5L): 
+    |   <button type="button" class="KgNxxkTBFukWwMHj69e9 uuIDnYC4qmyFk5dsXOhr Uz2BykKBXbObF11W1_5T ffON2NH02oMAcqyoh2UU vcOFkrrvuSYp7xsAur2Y kKUjqjujCyEsp4bFIDPG kYheVVecSlvJdWHcWzJs" aria-label="menu">
+    |     <svg fill="none" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    |       <path fill="currentColor" d="M11.933 3.183a.625.625 0 1 1 .884.884L8.884 8l3.933 3.933a.625.625 0 1 1-.884.88..."></path>
+    |     </svg>
+    |   </button>
+  sample[2] (5L): 
+    |   <button type="button" class="KgNxxkTBFukWwMHj69e9 uuIDnYC4qmyFk5dsXOhr Uz2BykKBXbObF11W1_5T ffON2NH02oMAcqyoh2UU vcOFkrrvuSYp7xsAur2Y kKUjqjujCyEsp4bFIDPG kYheVVecSlvJdWHcWzJs" aria-label="menu">
+    |     <svg fill="none" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    |       <path fill="currentColor" d="M11.933 3.183a.625.625 0 1 1 .884.884L8.884 8l3.933 3.933a.625.625 0 1 1-.884.88..."></path>
+    |     </svg>
+    |   </button>
+
+--- Chunk 9: [search_inputs] ---
+  type=search_input freq=12 excl=0.00
+  pattern_xpath: ///input
+  content: [ATTR=2]
+  sample[0] (3L): 
+    |   <ul role="listbox" class="ON5NOQ_PX0KA_kL3mHXC" data-reach-combobox-list="" id="listbox--:r1:">
+    |     <div class="AWSqLfS_7jko4SXvJusl cU3oNwsqmC1KUbus3lMo"></div>
+    |   </ul>
+  sample[1] (3L): 
+    |   <ul role="listbox" class="ON5NOQ_PX0KA_kL3mHXC" data-reach-combobox-list="" id="listbox--:r1:">
+    |     <div class="AWSqLfS_7jko4SXvJusl cU3oNwsqmC1KUbus3lMo"></div>
+    |   </ul>
+  sample[2] (1L): search
+    |   <input aria-autocomplete="both" aria-controls="listbox--:r1:" aria-expanded="false" aria-haspopup="listbox" aria-label="search" role="combobox" id="search_form_input" name="q" class="Ocw5o1A9hYKqAfet3KZP" autocapitalize="none" autocorrect="off" autocomplete="off" placeholder="Search privately" data-reach-combobox-input="" data-state="idle" value="love"></input>
+
+--- Chunk 10: [pagination_buttons] ---
+  type=pagination freq=95 excl=0.00
+  pattern_xpath: ///div
+  content: [TEXT=1]
+  sample[0] (11L) [TRUNCATED]: verywellmind.com Only include results for this site Redo search without this sit
+    |   <div role="menu" id="contextMenu-www.verywellmind.com/what-is-love-2795343" class="BdZVYXbdg6Rx9Lrm5wzC" aria-hidden="true">
+    |     <div>
+    |       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 16 16" width="16" height="16" color="currentColor" class="QmBU788gp3Cjs7Fwyz1G">
+    |         <path fill="currentColor" d="M13.817 3.067a.625.625 0 1 0-.884-.884L8 7.116 3.067 2.183a.625.625 0 1 0-.884.8..."></path>
+    |       </svg>
+    |   ... [39 lines truncated] ...
+    |           </span>
+    |         </div>
+    |       </div>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (8L): 
+    |   <div tabindex="0" class="E3gC3VJ7uVuHrl6v17us" aria-label="Learn More About Assist" title="Learn More About Assist" role="button">
+    |     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 16 16" width="16" height="16" color="currentColor" aria-hidden="true">
+    |       <g fill="currentColor">
+    |         <path d="M8.483 3.645c-.743 0-1.196.597-1.196 1.152 0 .67.51.889.963.889.831 0 1.181-.627..."></path>
+    |         <path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1.25 8a6.75 6.75 0 1 1 13.5 0 6.75 6.75 0 0 1-..." clip-rule="evenodd"></path>
+    |       </g>
+    |     </svg>
+    |   </div>
+  sample[2] (3L): More results
+    |   <button type="button" class="wE5p3MOcL8UVdJhgH3V1 ffON2NH02oMAcqyoh2UU hUUdRtuaOUx7mcSwc56s q7VhSk71XgyB1xYfeChb VVwKmb7llplcxyVXzHz9" id="more-results">
+    |     More results
+    |   </button>
+
+--- Chunk 11: [text_content:li×12] ---
+  type=text_singleton freq=12 excl=1.00
+  pattern_xpath: ///li[contains(@class,'ll')][contains(@class,'xnd')][contains(@class,'zpzpf')][contains(@data-layout,'organic')]
+  content: [ATTR=3 HREF=1 TEXT=21]
+  sample[0] (31L) [TRUNCATED]: Auto-generated based on listed sources. May contain inaccuracies.Was this helpfu
+    |   <li data-layout="wikinlp" class="L6fj2A3X2mfJl5kE8caF">
+    |     <div class="m94aMCA3hTXDNQYZ_qAz" style="height: auto;">
+    |       <div class="react-module" data-hide-untill-css-vars-polyfilled="true" data-react-module-id="wikinlp">
+    |         <div class="kKiMGBI82U6yU_AJL8bL l9zzCS1YxeRxFHNsi9IQ">
+    |           <div class="Yf9bk3ILYs4b7K_9B8tY Rb4E5rkUBlkwgIcwjYDJ j65mReB0hdJgGJ8dGmd6">
+    |             <div class="nKc6YUBojXXvgstPGALT"></div>
+    |             <div class="d1KvUBkGOywTiqUIZcou">
+    |               <div class="g8mClvN4LqWxcREUbed7">
+    |                 <button class="pxX3f3ReeZnfMp13QBvc" aria-hidden="true" tabindex="-1" aria-label="Assist Settings">
+    |                   <span class="jN5GdFSL1nj0PRRAOw7x FYzW6BKWnkpE8Qa3qBmL wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2">
+    | ... [21 more lines]
+
+--- Chunk 12: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.70
+  pattern_xpath: ///li[contains(@data-layout,'about')][contains(@data-layout,'related')][contains(@data-layout,'searches')][contains(@class,'ca')][contains(@class,'fj')]
+  content: [ATTR=2 HREF=3 TEXT=10]
+  sample[0] (31L) [TRUNCATED]: Searches related to Related SearchesSearches related to love love love/lŭv//lŭv/
+    |   <li class="L6fj2A3X2mfJl5kE8caF" data-layout="related_searches">
+    |     <div>
+    |       <div class="related-searches t-m">
+    |         <p class="related-searches__title-long">
+    |           Searches related to
+    |           <b>
+    |             love
+    |           </b>
+    |         </p>
+    |         <p class="related-searches__title-short">
+    | ... [21 more lines]
+
+--- Chunk 13: [text_content:li×3] ---
+  type=text_singleton freq=3 excl=0.28
+  pattern_xpath: ///li[contains(@class,'definition')][contains(@class,'definitions')][contains(@class,'module')]
+  content: [TEXT=1]
+  sample[0] (3L): A strong feeling of affection and concern toward another person, as that arising
+    |   <li class="module--definitions__definition">
+    |     A strong feeling of affection and concern toward another person, as that arising from kinship or close friendship.
+    |   </li>
+  sample[1] (3L): A strong feeling of affection and concern for another person accompanied by sexu
+    |   <li class="module--definitions__definition">
+    |     A strong feeling of affection and concern for another person accompanied by sexual attraction.
+    |   </li>
+  sample[2] (3L): A feeling of devotion or adoration toward God or a god.
+    |   <li class="module--definitions__definition">
+    |     A feeling of devotion or adoration toward God or a god.
+    |   </li>
+
+--- Chunk 14: [text_content:li×6] ---
+  type=text_singleton freq=6 excl=0.28
+  pattern_xpath: ///li[contains(@class,'definition')][contains(@class,'definitions')][contains(@class,'module')]
+  content: [TEXT=1]
+  sample[0] (6L): Sexual desire or activity."the pleasures of love; a night of love."
+    |   <li class="module--definitions__definition">
+    |     Sexual desire or activity.
+    |     <div class="module--definitions__usage">
+    |       "the pleasures of love; a night of love."
+    |     </div>
+    |   </li>
+  sample[1] (6L): An instance of being in love."Teenage loves can be as fleeting as they are inten
+    |   <li class="module--definitions__definition">
+    |     An instance of being in love.
+    |     <div class="module--definitions__usage">
+    |       "Teenage loves can be as fleeting as they are intense."
+    |     </div>
+    |   </li>
+  sample[2] (3L): A strong feeling of affection and concern for another person accompanied by sexu
+    |   <li class="module--definitions__definition">
+    |     A strong feeling of affection and concern for another person accompanied by sexual attraction.
+    |   </li>
+
+--- Chunk 15: [text_content:li×3] ---
+  type=text_singleton freq=3 excl=0.28
+  pattern_xpath: ///div[contains(@class,'title')]//li[contains(@class,'definition')][contains(@class,'definitions')][contains(@class,'module')]
+  content: [TEXT=1]
+  sample[0] (7L): A feeling of devotion or adoration toward God or a god.  A strong feeling of aff
+    |   <li class="module--definitions__definition">
+    |     A feeling of devotion or adoration toward God or a god.  A strong feeling of affection and concern toward another person, as that arising from kinship or close friendship.  A feeling of kindness or concern by God or a god toward humans.  Charity.  Sexual desire or activity.
+    |     <div class="module--definitions__usage">
+    |       "the pleasures of love; a night of love.""Teenage loves can be as fleeting as they are intense."
+    |     </div>
+    |     An instance of being in love.
+    |   </li>
+  sample[1] (3L): A strong feeling of affection and concern toward another person, as that arising
+    |   <li class="module--definitions__definition">
+    |     A strong feeling of affection and concern toward another person, as that arising from kinship or close friendship.
+    |   </li>
+  sample[2] (3L): A strong feeling of affection and concern for another person accompanied by sexu
+    |   <li class="module--definitions__definition">
+    |     A strong feeling of affection and concern for another person accompanied by sexual attraction.
+    |   </li>
+
+--- Chunk 16: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.20
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'nav')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): iOS Browser
+    |   <li class="nav-menu__item">
+    |     <a href="https://apps.apple.com/app/duckduckgo-private-browser/id663592361?platform=iphone&pt=866401&mt=8&ct=serp-atb-serp">
+    |       iOS Browser
+    |     </a>
+    |   </li>
+  sample[1] (5L): Android Browser
+    |   <li class="nav-menu__item">
+    |     <a href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android&referrer=utm_campaign%3Dserp-atb-serp%26origin%3Dfunnel_playstore_searchresults">
+    |       Android Browser
+    |     </a>
+    |   </li>
+  sample[2] (5L): Windows Browser
+    |   <li class="nav-menu__item">
+    |     <a href="/windows?origin=funnel_browser_searchresults">
+    |       Windows Browser
+    |     </a>
+    |   </li>
+
+--- Chunk 17: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.20
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'nav')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (12L): Podcast NEW
+    |   <li class="nav-menu__item">
+    |     <a href="https://insideduckduckgo.substack.com/?showWelcome=true">
+    |       Podcast
+    |       <div class="nav-menu__item-badge">
+    |         <div>
+    |           <div class="gADc1vgzmPc4cvxu7yBr nav-menu__item--badge">
+    |             NEW
+    |           </div>
+    |         </div>
+    |       </div>
+    | ... [2 more lines]
+  sample[1] (5L): DuckDuckGo Subscription
+    |   <li class="nav-menu__item has-badge">
+    |     <a href="/pro?origin=funnel_pro_searchresults">
+    |       DuckDuckGo Subscription
+    |     </a>
+    |   </li>
+  sample[2] (5L): Email Protection
+    |   <li class="nav-menu__item">
+    |     <a href="/email">
+    |       Email Protection
+    |     </a>
+    |   </li>
+
+--- Chunk 18: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.20
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'nav')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): What’s New
+    |   <li class="nav-menu__item">
+    |     <a href="/updates">
+    |       What’s New
+    |     </a>
+    |   </li>
+  sample[1] (5L): Compare Privacy
+    |   <li class="nav-menu__item">
+    |     <a href="/compare-privacy">
+    |       Compare Privacy
+    |     </a>
+    |   </li>
+  sample[2] (5L): About Our Browser
+    |   <li class="nav-menu__item">
+    |     <a href="/app">
+    |       About Our Browser
+    |     </a>
+    |   </li>
+
+--- Chunk 19: [nav_content:li×7] ---
+  type=menu_item freq=7 excl=0.20
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'nav')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Help
+    |   <li class="nav-menu__item">
+    |     <a href="/duckduckgo-help-pages">
+    |       Help
+    |     </a>
+    |   </li>
+  sample[1] (5L): Community
+    |   <li class="nav-menu__item">
+    |     <a href="https://www.reddit.com/r/duckduckgo/" rel="noreferrer noopener">
+    |       Community
+    |     </a>
+    |   </li>
+  sample[2] (5L): Terms of Service
+    |   <li class="nav-menu__item">
+    |     <a href="/terms">
+    |       Terms of Service
+    |     </a>
+    |   </li>
+
+--- Chunk 20: [nav_content:a×31] ---
+  type=menu_item freq=31 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (10L): Podcast NEW
+    |   <a href="https://insideduckduckgo.substack.com/?showWelcome=true">
+    |     Podcast
+    |     <div class="nav-menu__item-badge">
+    |       <div>
+    |         <div class="gADc1vgzmPc4cvxu7yBr nav-menu__item--badge">
+    |           NEW
+    |         </div>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[1] (5L): Help
+    |   <li class="nav-menu__item">
+    |     <a href="/duckduckgo-help-pages">
+    |       Help
+    |     </a>
+    |   </li>
+  sample[2] (3L): Browser Extensions
+    |   <a href="/duckduckgo-help-pages/desktop/adding-duckduckgo-to-your-browser/">
+    |     Browser Extensions
+    |   </a>
+
+--- Chunk 21: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (10L): All
+    |   <li>
+    |     <a class="kFFXe30DOpq5j1hbWU1q SnptgjT2zdOhGYfNng6g wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2" href="/?q=love&atb=v473-1&ia=web">
+    |       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 16 16" width="16" height="16" color="currentColor">
+    |         <g>
+    |           <path fill="currentColor" fill-rule="evenodd" d="M7 0a7 7 0 1 0 4.488 12.372l3.445 3.445a.625.625 0 1 0 .884-.884l-3.445-3.445A7 ..." clip-rule="evenodd"></path>
+    |         </g>
+    |       </svg>
+    |       All
+    |     </a>
+    |   </li>
+  sample[1] (5L): Images
+    |   <li>
+    |     <a class="kFFXe30DOpq5j1hbWU1q wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2" href="/?q=love&atb=v473-1&ia=images&iax=images">
+    |       Images
+    |     </a>
+    |   </li>
+  sample[2] (5L): Videos
+    |   <li>
+    |     <a class="kFFXe30DOpq5j1hbWU1q wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2" href="/?q=love&atb=v473-1&ia=videos&iax=videos">
+    |       Videos
+    |     </a>
+    |   </li>
+
+--- Chunk 22: [nav_content:li×10] ---
+  type=menu_item freq=10 excl=0.50
+  pattern_xpath: ///li[contains(@class,'ar')][contains(@class,'be')][contains(@class,'bnt')][contains(@class,'gi')][contains(@class,'hrx')]
+  content: [ATTR=2 HREF=1 IMG=2 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: 4:50 What Love Really Is and Why It Matters 455K views 4yr YouTube
+    |   <li class="O9Ipab51rBntYb0pwOQn VArA7TrVx3HrxBUjI2BE h61xbQcYhAGiXHx3pS9y" style="flex: 0 0 auto; width: 190.667px;">
+    |     <a href="https://www.youtube.com/watch?v=WMeKvO71wD0" rel="noopener" class="YtVpvnV0wiS5JxqdNhjW" data-handled-by-react="true">
+    |       <article>
+    |         <div class="SfPBnUs0AxzI2ky1twl4">
+    |           <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid..." alt="" loading="lazy"></img>
+    |           <div class="KbjPZIgnxwx9h1rUDQmB">
+    |             <span class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |               <i class="ddgsi ddgsi-play"></i>
+    |             </span>
+    |             <p class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    | ... [21 more lines]
+
+--- Chunk 23: [nav_content:li×20] ---
+  type=menu_item freq=20 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=2 HREF=1 IMG=2 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: 4:50 4:50 What Love Really Is and Why It Matters 455K views What Love Really Is 
+    |   <a href="https://www.youtube.com/watch?v=WMeKvO71wD0" rel="noopener" class="YtVpvnV0wiS5JxqdNhjW" data-handled-by-react="true">
+    |     <article>
+    |       <div class="SfPBnUs0AxzI2ky1twl4">
+    |         <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid..." alt="" loading="lazy"></img>
+    |         <div class="KbjPZIgnxwx9h1rUDQmB">
+    |           <span class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |             <i class="ddgsi ddgsi-play"></i>
+    |           </span>
+    |           <p class="q2xMuJ4LmpEPVNWeqxku wZ4JdaHxSAhGy1HoNVja CdAvdvSwJfR2X8jc56Bg">
+    |             4:50
+    | ... [21 more lines]
+
+--- Chunk 24: [nav_content:a×10] ---
+  type=menu_item freq=10 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=6 HREF=1 IMG=2 TEXT=9]
+  sample[0] (31L) [TRUNCATED]: The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...ilovere
+    |   <a href="https://iloverelationship.com/8-love-types-definitions/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |     <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |       The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...
+    |     </h3>
+    |     <div class="AslhWnAFZ5lUdU7yLCCa">
+    |       <div class="cuV1YO5OpXpi1oBDAZUX">
+    |         <img src="//external-content.duckduckgo.com/ip3/iloverelationship.com.ico" height="16" width="16" alt="" loading="lazy"></img>
+    |         <p class="SdDhImKi0Wx51uB1gMgj ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja _dJ357tkKXSh_Sup5xdW" title="iloverelationship.com">
+    |           iloverelationship.com
+    |         </p>
+    | ... [21 more lines]
+
+--- Chunk 25: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h3[contains(@class,'co')][contains(@class,'geqs')][contains(@class,'ra')][contains(@class,'us')][contains(@class,'ah')]
+  content: [TEXT=1]
+  sample[0] (3L): Learn More
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2">
+    |     Learn More
+    |   </h3>
+
+--- Chunk 26: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h3[contains(@class,'co')][contains(@class,'geqs')][contains(@class,'ra')][contains(@class,'us')][contains(@class,'ah')]
+  content: [TEXT=1]
+  sample[0] (3L): Get More
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja d26Geqs1C__RaCO7MUs2">
+    |     Get More
+    |   </h3>
+
+--- Chunk 27: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///h3[contains(@class,'of')][contains(@class,'part')][contains(@class,'speech')][contains(@class,'definitions')][contains(@class,'module')]
+  content: [TEXT=1]
+  sample[0] (3L): noun
+    |   <h3 class="module--definitions__part-of-speech">
+    |     noun
+    |   </h3>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'ee')][contains(@class,'ez')][contains(@class,'gdy')][contains(@class,'ws')][contains(@class,'xq')]
+  content: [TEXT=1]
+  sample[0] (3L): Love
+    |   <h2 class="Ee2e63EzQ9F3xq9wsGDY">
+    |     Love
+    |   </h2>
+
+--- Chunk 29: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'al')][contains(@class,'bnu')][contains(@class,'cl')][contains(@class,'de')][contains(@class,'ei')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...
+    |   <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |     The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...
+    |   </h3>
+
+--- Chunk 30: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'al')][contains(@class,'bnu')][contains(@class,'cl')][contains(@class,'de')][contains(@class,'ei')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): 8 Different Types of Love According to Greek | Perfect Combination for You
+    |   <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="8 Different Types of Love According to Greek | Perfect Combination for You">
+    |     8 Different Types of Love According to Greek | Perfect Combination for You
+    |   </h3>
+
+--- Chunk 31: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'al')][contains(@class,'bnu')][contains(@class,'cl')][contains(@class,'de')][contains(@class,'ei')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Key Differences, Signs & Psychology Explained - Self Help Resources
+    |   <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Key Differences, Signs & Psychology Explained - Self Help Resources">
+    |     Key Differences, Signs & Psychology Explained - Self Help Resources
+    |   </h3>
+
+--- Chunk 32: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'al')][contains(@class,'bnu')][contains(@class,'cl')][contains(@class,'de')][contains(@class,'ei')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...
+    |   <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...">
+    |     Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...
+    |   </h3>
+
+--- Chunk 33: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'al')][contains(@class,'bnu')][contains(@class,'cl')][contains(@class,'de')][contains(@class,'ei')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Psychologists have identified ten factors that explain why and how we ...
+    |   <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Psychologists have identified ten factors that explain why and how we ...">
+    |     Psychologists have identified ten factors that explain why and how we ...
+    |   </h3>
+
+--- Chunk 34: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): What Love Really Is and Why It Matters
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="What Love Really Is and Why It Matters">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       What Love Really Is and Why It Matters
+    |     </span>
+    |   </h3>
+
+--- Chunk 35: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): What is Love? The Science Behind Lust, Attraction, and Attachment
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="What is Love? The Science Behind Lust, Attraction, and Attachment">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       What is Love? The Science Behind Lust, Attraction, and Attachment
+    |     </span>
+    |   </h3>
+
+--- Chunk 36: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): What Is Love? | The Science, Emotion, and Meaning Behind It All
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="What Is Love? | The Science, Emotion, and Meaning Behind It All">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       What Is Love? | The Science, Emotion, and Meaning Behind It All
+    |     </span>
+    |   </h3>
+
+--- Chunk 37: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): What is LOVE?
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="What is LOVE?">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       What is LOVE?
+    |     </span>
+    |   </h3>
+
+--- Chunk 38: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): The Science of Love
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="The Science of Love">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       The Science of Love
+    |     </span>
+    |   </h3>
+
+--- Chunk 39: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): Céline Dion - The Power Of Love (Lyrics)
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="Céline Dion - The Power Of Love (Lyrics)">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       Céline Dion - The Power Of Love (Lyrics)
+    |     </span>
+    |   </h3>
+
+--- Chunk 40: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): Elvis Presley - And I Love You So (Official Audio)
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="Elvis Presley - And I Love You So (Official Audio)">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       Elvis Presley - And I Love You So (Official Audio)
+    |     </span>
+    |   </h3>
+
+--- Chunk 41: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): Love Is Indivisible by Twins Episode 1 | Let's End It Tonight
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="Love Is Indivisible by Twins Episode 1 | Let's End It Tonight">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       Love Is Indivisible by Twins Episode 1 | Let's End It Tonight
+    |     </span>
+    |   </h3>
+
+--- Chunk 42: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): A SWITCH ON LOVE - CHIKE DANIELS/SANDRA IFUDU/NIGERIAN MOVIES 2025 LATEST MOVIES
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="A SWITCH ON LOVE - CHIKE DANIELS/SANDRA IFUDU/NIGERIAN MOVIES 2025 LATEST MOVIES">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       A SWITCH ON LOVE - CHIKE DANIELS/SANDRA IFUDU/NIGERIAN MOVIES 2025 LATEST MOVIES
+    |     </span>
+    |   </h3>
+
+--- Chunk 43: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): What Is Love? | A Philosophical Exploration
+    |   <h3 class="wZ4JdaHxSAhGy1HoNVja yGEuosa_aZeFroGMfpgu RDtM9fAcGGHRulQKs39C" title="What Is Love? | A Philosophical Exploration">
+    |     <span class="iG_4ddXAebCuV5uXoJbL kY2IgmnCmOGjharHErah N56cWZpP8cNJu1dqgCxB" style="height: 3lh; -webkit-line-clamp: 3;">
+    |       What Is Love? | A Philosophical Exploration
+    |     </span>
+    |   </h3>
+
+--- Chunk 44: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.40 LEAKS=9
+  pattern_xpath: ///li[contains(@data-layout,'videos')][contains(@class,'ca')][contains(@class,'fj')][contains(@class,'jl')][contains(@class,'mf')]
+  content: [ATTR=23 HREF=12 IMG=20 TEXT=55]
+  sample[0] (31L) [TRUNCATED]: More Videos Videos for Was this helpful?love More Videos 4:50 23:51 4:46 2:35 2:
+    |   <li data-layout="videos" class="L6fj2A3X2mfJl5kE8caF">
+    |     <div class="react-module" data-hide-untill-css-vars-polyfilled="true" data-react-module-id="videos">
+    |       <div>
+    |         <div class="_eP8PCEWF4vxN8szf1UD">
+    |           <h2 class="oYI9G526iG1UEym9s8sH">
+    |             <a class="yzCNkXUDJZvVZaIAEY7E ROtXeyhmIwo0_ETResB_ P1wafPzJCd9xIdaialuh wZ4JdaHxSAhGy1HoNVja wN0KrcRQzChXFKiMHpCZ HJbat_kWNvZlTI7RgTUo" href="/?q=love&atb=v473-1&ia=videos&iax=videos">
+    |               <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" class="uTLmZazbq2zwDU7tyxcH">
+    |                 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.489 5.55c1.891 1.086 1.891 3.814 0 4.9L6.23 14.616C4.348 15.698 2 14.338 2 1..." fill="currentColor"></path>
+    |               </svg>
+    |               <span class="LQVY1Jpkk8nyJ6HBWKAk">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.youtube.com/watch?v=9kaZ79MQWrM (href not in rendered output)
+    [HREF] https://www.youtube.com/watch?v=THPU7RDt-rc (href not in rendered output)
+    [HREF] https://www.youtube.com/watch?v=PU2HANE4iPE (href not in rendered output)
+    [HREF] https://www.youtube.com/watch?v=eDMwpVUhxAo (href not in rendered output)
+    [HREF] https://www.youtube.com/watch?v=wHlloPiWwHE (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] What is Love? The Science Behind Lust, Attraction, and Attachment
+    [TEXT] What Is Love? | The Science, Emotion, and Meaning Behind It All
+    [TEXT] Céline Dion - The Power Of Love (Lyrics)
+
+--- Chunk 45: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.40 LEAKS=13
+  pattern_xpath: ///li[contains(@data-layout,'images')][contains(@class,'ca')][contains(@class,'fj')][contains(@class,'jl')][contains(@class,'mf')]
+  content: [ATTR=33 HREF=13 IMG=10 TEXT=39]
+  sample[0] (31L) [TRUNCATED]: More Images AI images: show Was this helpful?Images for love 8 Different Types o
+    |   <li data-layout="images" class="L6fj2A3X2mfJl5kE8caF">
+    |     <div class="react-module" data-hide-untill-css-vars-polyfilled="true" data-react-module-id="images">
+    |       <div>
+    |         <div class="_eP8PCEWF4vxN8szf1UD">
+    |           <div class="f95otOmnNwmTAEV73EtX">
+    |             <h2 class="oYI9G526iG1UEym9s8sH b6flltEIsDoXVl4l3Lg4">
+    |               <a class="yzCNkXUDJZvVZaIAEY7E ROtXeyhmIwo0_ETResB_ P1wafPzJCd9xIdaialuh wZ4JdaHxSAhGy1HoNVja wN0KrcRQzChXFKiMHpCZ HJbat_kWNvZlTI7RgTUo" href="/?q=love&atb=v473-1&ia=images&iax=images" title="Images for love">
+    |                 <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" class="sXtH55aPBX0rS_YbJP_k">
+    |                   <path d="M4.5 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"></path>
+    |                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 1A3.25 3.25 0 0 0 0 4.25v7.5A3.25 3.25 0 0 0 3.25 15h9.5A3.25 3.25 0 0 0 1..." fill="currentColor"></path>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fstorage.googleapis.com%2Fmv-pro (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fpsychology.tips%2Fwp-content%2F (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe1%2 (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi1.wp.com%2Filoverelationship.c (href not in rendered output)
+    [HREF] http://parmaks.com/Resources/key-differences-signs-psychology-explained/ (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Key Differences, Signs & Psychology Explained - Self Help Resources
+    [TEXT] Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | 
+    [TEXT] Psychologists have identified ten factors that explain why and how we 
+
+--- Chunk 46: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.33 LEAKS=5
+  pattern_xpath: ///li[contains(@class,'bu')][contains(@class,'bui')][contains(@class,'ju')][contains(@class,'mj')][contains(@class,'oz')]
+  content: [ATTR=18 HREF=6 IMG=6 TEXT=18]
+  sample[0] (31L) [TRUNCATED]: 8 Different Types of Love According to Greek | Perfect Combination for You Key D
+    |   <li class="JsSUJuBuiMOz1I2mjVBu">
+    |     <ul class="skVtxaEGsSf3Qitumkwd">
+    |       <li class="pmq91M1H9uYaJG_lxmPg" style="width: 151px;">
+    |         <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fwww.calmsage.com%2Fwp-content%2Fuploads%2F2020%2F05%2F8-Types-of-Love-1-770x2792.png" aria-label="8 Different Types of Love According to Greek | Perfect Combination for You">
+    |           <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="8 Different Types of Love According to Greek | Perfect Combination for You" loading="lazy"></img>
+    |           <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |         </a>
+    |         <figcaption>
+    |           <a href="https://www.calmsage.com/8-types-of-love-learn-their-impact-on-your-relationships/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |             <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="8 Different Types of Love According to Greek | Perfect Combination for You">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fpsychology.tips%2Fwp-content%2F (href not in rendered output)
+    [HREF] https://psychology.tips/signs-a-man-loves-you-but-is-afraid/ (href not in rendered output)
+    [IMG] //external-content.duckduckgo.com/ip3/www.calmsage.com.ico (img URL not in rendered)
+    [IMG] //external-content.duckduckgo.com/ip3/parmaks.com.ico (img URL not in rendered)
+    [IMG] //external-content.duckduckgo.com/ip3/psychology.tips.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | 
+    [TEXT] Block this site from all results
+    [TEXT] Block this site from all results
+
+--- Chunk 47: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.33 LEAKS=2
+  pattern_xpath: ///li[contains(@class,'bu')][contains(@class,'bui')][contains(@class,'ju')][contains(@class,'mj')][contains(@class,'oz')]
+  content: [ATTR=12 HREF=4 IMG=4 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: Psychologists have identified ten factors that explain why and how we ...The 8 T
+    |   <li class="JsSUJuBuiMOz1I2mjVBu">
+    |     <ul class="skVtxaEGsSf3Qitumkwd">
+    |       <li class="pmq91M1H9uYaJG_lxmPg" style="width: 238px;">
+    |         <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe1%2F4a%2F25%2Fe14a2548a8c5e6af80cebe2bc10b34c1.png" aria-label="Psychologists have identified ten factors that explain why and how we ...">
+    |           <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="Psychologists have identified ten factors that explain why and how we ..." loading="lazy"></img>
+    |           <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |         </a>
+    |         <figcaption>
+    |           <a href="https://www.pinterest.com/pin/21462535701837330/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |             <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Psychologists have identified ten factors that explain why and how we ...">
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] //external-content.duckduckgo.com/ip3/www.pinterest.com.ico (img URL not in rendered)
+    [IMG] //external-content.duckduckgo.com/ip3/iloverelationship.com.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Block this site from all results
+    [TEXT] Block this site from all results
+
+--- Chunk 48: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.33 LEAKS=17
+  pattern_xpath: ///li[contains(@class,'bu')][contains(@class,'bui')][contains(@class,'ju')][contains(@class,'mj')][contains(@class,'oz')]
+  content: [ATTR=46 HREF=12 IMG=17 TEXT=51]
+  sample[0] (31L) [TRUNCATED]: Psychologists have identified ten factors that explain why and how we ...The 8 T
+    |   <li class="JsSUJuBuiMOz1I2mjVBu">
+    |     <ul class="skVtxaEGsSf3Qitumkwd">
+    |       <li class="pmq91M1H9uYaJG_lxmPg" style="width: 238px;">
+    |         <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe1%2F4a%2F25%2Fe14a2548a8c5e6af80cebe2bc10b34c1.png" aria-label="Psychologists have identified ten factors that explain why and how we ...">
+    |           <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="Psychologists have identified ten factors that explain why and how we ..." loading="lazy"></img>
+    |           <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |         </a>
+    |         <figcaption>
+    |           <a href="https://www.pinterest.com/pin/21462535701837330/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |             <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Psychologists have identified ten factors that explain why and how we ...">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fwww.calmsage.com%2Fwp-content%2 (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fstorage.googleapis.com%2Fmv-pro (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fpsychology.tips%2Fwp-content%2F (href not in rendered output)
+    [HREF] https://www.calmsage.com/8-types-of-love-learn-their-impact-on-your-relationships/ (href not in rendered output)
+    [HREF] http://parmaks.com/Resources/key-differences-signs-psychology-explained/ (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] 8 Different Types of Love According to Greek | Perfect Combination for
+    [TEXT] Key Differences, Signs & Psychology Explained - Self Help Resources
+    [TEXT] Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | 
+
+--- Chunk 49: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=1
+  pattern_xpath: ///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]
+  content: [ATTR=6 HREF=2 IMG=2 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: 8 Different Types of Love According to Greek | Perfect Combination for You 8 Dif
+    |   <li class="pmq91M1H9uYaJG_lxmPg" style="width: 151px;">
+    |     <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fwww.calmsage.com%2Fwp-content%2Fuploads%2F2020%2F05%2F8-Types-of-Love-1-770x2792.png" aria-label="8 Different Types of Love According to Greek | Perfect Combination for You">
+    |       <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="8 Different Types of Love According to Greek | Perfect Combination for You" loading="lazy"></img>
+    |       <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |     </a>
+    |     <figcaption>
+    |       <a href="https://www.calmsage.com/8-types-of-love-learn-their-impact-on-your-relationships/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |         <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="8 Different Types of Love According to Greek | Perfect Combination for You">
+    |           8 Different Types of Love According to Greek | Perfect Combination for You
+    |         </h3>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] //external-content.duckduckgo.com/ip3/www.calmsage.com.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Block this site from all results
+
+--- Chunk 50: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=1
+  pattern_xpath: ///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]
+  content: [ATTR=6 HREF=2 IMG=2 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: Key Differences, Signs & Psychology Explained - Self Help Resources Key Differen
+    |   <li class="pmq91M1H9uYaJG_lxmPg" style="width: 160px;">
+    |     <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fstorage.googleapis.com%2Fmv-prod-blog-en-assets%2F2023%2F05%2F652cf562-lustvslove_table_infographic_1200x1364-copy.webp" aria-label="Key Differences, Signs & Psychology Explained - Self Help Resources">
+    |       <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="Key Differences, Signs & Psychology Explained - Self Help Resources" loading="lazy"></img>
+    |       <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |     </a>
+    |     <figcaption>
+    |       <a href="http://parmaks.com/Resources/key-differences-signs-psychology-explained/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |         <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Key Differences, Signs & Psychology Explained - Self Help Resources">
+    |           Key Differences, Signs & Psychology Explained - Self Help Resources
+    |         </h3>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] //external-content.duckduckgo.com/ip3/parmaks.com.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Block this site from all results
+
+--- Chunk 51: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=1
+  pattern_xpath: ///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]
+  content: [ATTR=6 HREF=2 IMG=2 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...Signs
+    |   <li class="pmq91M1H9uYaJG_lxmPg" style="width: 315px;">
+    |     <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fpsychology.tips%2Fwp-content%2Fuploads%2F2023%2F07%2FMale_Mind_in_Love.jpg" aria-label="Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...">
+    |       <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ..." loading="lazy"></img>
+    |       <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |     </a>
+    |     <figcaption>
+    |       <a href="https://psychology.tips/signs-a-man-loves-you-but-is-afraid/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |         <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...">
+    |           Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | A ...
+    |         </h3>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] //external-content.duckduckgo.com/ip3/psychology.tips.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Block this site from all results
+
+--- Chunk 52: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=1
+  pattern_xpath: ///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]
+  content: [ATTR=6 HREF=2 IMG=2 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: Psychologists have identified ten factors that explain why and how we ...Psychol
+    |   <li class="pmq91M1H9uYaJG_lxmPg" style="width: 238px;">
+    |     <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe1%2F4a%2F25%2Fe14a2548a8c5e6af80cebe2bc10b34c1.png" aria-label="Psychologists have identified ten factors that explain why and how we ...">
+    |       <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="Psychologists have identified ten factors that explain why and how we ..." loading="lazy"></img>
+    |       <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |     </a>
+    |     <figcaption>
+    |       <a href="https://www.pinterest.com/pin/21462535701837330/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |         <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="Psychologists have identified ten factors that explain why and how we ...">
+    |           Psychologists have identified ten factors that explain why and how we ...
+    |         </h3>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] //external-content.duckduckgo.com/ip3/www.pinterest.com.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Block this site from all results
+
+--- Chunk 53: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=1
+  pattern_xpath: ///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]
+  content: [ATTR=6 HREF=2 IMG=2 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...The 8 T
+    |   <li class="pmq91M1H9uYaJG_lxmPg" style="width: 402px;">
+    |     <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi1.wp.com%2Filoverelationship.com%2Fwp-content%2Fuploads%2F2018%2F01%2F6-ways-love-1-e1516953670544.jpg%3Fresize%3D500%252C281" aria-label="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |       <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ..." loading="lazy"></img>
+    |       <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |     </a>
+    |     <figcaption>
+    |       <a href="https://iloverelationship.com/8-love-types-definitions/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |         <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |           The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...
+    |         </h3>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] //external-content.duckduckgo.com/ip3/iloverelationship.com.ico (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Block this site from all results
+
+--- Chunk 54: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=17
+  pattern_xpath: ///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]
+  content: [ATTR=40 HREF=10 IMG=15 TEXT=45]
+  sample[0] (31L) [TRUNCATED]: The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...8 Diffe
+    |   <li class="pmq91M1H9uYaJG_lxmPg" style="width: 402px;">
+    |     <a class="oUvVIL0qU5bFEyQQS4Xg" href="/?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi1.wp.com%2Filoverelationship.com%2Fwp-content%2Fuploads%2F2018%2F01%2F6-ways-love-1-e1516953670544.jpg%3Fresize%3D500%252C281" aria-label="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |       <img src="//external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid..." class="PKoePAd27Rvkn8lN5Kqt" alt="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ..." loading="lazy"></img>
+    |       <div class="GUbK9PUYz4NGqHOfl4JY"></div>
+    |     </a>
+    |     <figcaption>
+    |       <a href="https://iloverelationship.com/8-love-types-definitions/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |         <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |           The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...
+    |         </h3>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fwww.calmsage.com%2Fwp-content%2 (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fstorage.googleapis.com%2Fmv-pro (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fpsychology.tips%2Fwp-content%2F (href not in rendered output)
+    [HREF] /?q=love&atb=v473-1&ia=images&iax=images&iai=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe1%2 (href not in rendered output)
+    [HREF] http://parmaks.com/Resources/key-differences-signs-psychology-explained/ (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Key Differences, Signs & Psychology Explained - Self Help Resources
+    [TEXT] Signs a Man Loves You but Is Afraid: Unraveling His Hidden Emotions | 
+    [TEXT] Psychologists have identified ten factors that explain why and how we 
+
+--- Chunk 55: [text_content:figcaption×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///figcaption
+  content: [ATTR=4 HREF=1 IMG=1 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...ilovere
+    |   <figcaption>
+    |     <a href="https://iloverelationship.com/8-love-types-definitions/" rel="noopener" target="_self" class="LoKp3Fw5tsPJr5z6FWa0" data-handled-by-react="true">
+    |       <h3 class="WfyrfHbpzfS5EiGZDeLv ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja AlPVsxUsFt3bnuOvg6hI" title="The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...">
+    |         The 8 Types of Love And Their Definitions: Can You Recognize Yourself ...
+    |       </h3>
+    |       <div class="AslhWnAFZ5lUdU7yLCCa">
+    |         <div class="cuV1YO5OpXpi1oBDAZUX">
+    |           <img src="//external-content.duckduckgo.com/ip3/iloverelationship.com.ico" height="16" width="16" alt="" loading="lazy"></img>
+    |           <p class="SdDhImKi0Wx51uB1gMgj ClGqLRoENdI55Xe4Xybd wZ4JdaHxSAhGy1HoNVja _dJ357tkKXSh_Sup5xdW" title="iloverelationship.com">
+    |             iloverelationship.com
+    | ... [21 more lines]
+  LEAKS (medium):
+    [TEXT] Block this site from all results

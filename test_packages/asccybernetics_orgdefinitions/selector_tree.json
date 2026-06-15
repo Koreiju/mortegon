@@ -1,0 +1,196 @@
+{
+  "//input": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "search_input",
+    "frequency": 3,
+    "pattern_xpath": "///input",
+    "content_types": [],
+    "children": {}
+  },
+  "//link": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "pagination",
+    "frequency": 3,
+    "pattern_xpath": "///link[contains(@rel,'alternate')][contains(@type,'application')][contains(@type,'rss')][contains(@type,'xml')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "text_singleton",
+    "frequency": 110,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {}
+  },
+  "//li": {
+    "chunk_ids": [
+      3,
+      4,
+      5
+    ],
+    "classification": "text_singleton",
+    "frequency": 2,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {}
+  },
+  "//li[contains(@class,'widget-container')][contains(@class,'widget_block')]": {
+    "chunk_ids": [
+      6,
+      13
+    ],
+    "classification": "text_singleton",
+    "frequency": 2,
+    "pattern_xpath": "///li[contains(@class,'container')][contains(@class,'widget')][contains(@id,'block')][contains(@class,'block')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'wp-block-group')][contains(@class,'is-layout-flow')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'wp-block-group__inner-container')]": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {
+              "//h2[contains(@class,'wp-block-heading')]": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//br": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//p": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//br": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//center": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//form": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//br": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'wp-block-group')][contains(@class,'is-layout-flow')]": {
+                "chunk_ids": [
+                  13
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-group__inner-container')]": {
+                    "chunk_ids": [
+                      13
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//h3": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "menu_item",
+    "frequency": 17,
+    "pattern_xpath": "///a[contains(@rel,'noopener')][contains(@target,'new')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'menu-item')][contains(@class,'menu-item-type-post_type')]": {
+    "chunk_ids": [
+      8,
+      9,
+      10
+    ],
+    "classification": "menu_item",
+    "frequency": 18,
+    "pattern_xpath": "///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')][contains(@id,'item')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2[contains(@class,'wp-block-heading')]": {
+    "chunk_ids": [
+      11,
+      12
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'heading')][contains(@class,'wp')][contains(@class,'block')]",
+    "content_types": [],
+    "children": {
+      "//br": {
+        "chunk_ids": [
+          11
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  }
+}

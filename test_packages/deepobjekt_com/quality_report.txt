@@ -1,0 +1,224 @@
+=== QUALITY REPORT: deepobjekt_com.html ===
+Chunks: 10 (structural=1, functional=2, text=7)
+Categories: {'structural': 1, 'pagination': 1, 'text_singleton': 7, 'menu_item': 1}
+Content: 15 tagged, 13 preserved (87%)
+Leaks: 2 total, 0 high-importance
+
+--- Chunk 0: p.font.px ---
+  type=structural freq=2 excl=0.19
+  pattern_xpath: ///p[contains(@class,'font')][contains(@style,'font')][contains(@style,'px')][contains(@style,'size')][contains(@class,'rich')]
+  tree_sig: p(span(span(a)))
+  content: [HREF=1 TEXT=2]
+  sample[0] (10L): - Philosophy and art research laboratories and residency Foreign Objekt
+    |   <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |     <span class="color_36 wixui-rich-text__text">
+    |       <span style="text-decoration:underline;" class="wixui-rich-text__text">
+    |         <a href="https://www.foreignobjekt.com/" target="_blank" rel="noreferrer noopener" class="wixui-rich-text__text">
+    |           Foreign Objekt
+    |         </a>
+    |       </span>
+    |       - Philosophy and art research laboratories and residency
+    |     </span>
+    |   </p>
+  sample[1] (10L): - Posthuman philosophy studies Posthuman School
+    |   <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |     <span class="color_36 wixui-rich-text__text">
+    |       <span style="text-decoration:underline;" class="wixui-rich-text__text">
+    |         <a href="https://www.posthumanschool.com/" target="_blank" rel="noreferrer noopener" class="wixui-rich-text__text">
+    |           Posthuman School
+    |         </a>
+    |       </span>
+    |       - Posthuman philosophy studies
+    |     </span>
+    |   </p>
+  LEAKS (medium):
+    [TEXT] - Philosophy and art research laboratories and residency
+
+--- Chunk 1: [pagination_buttons] ---
+  type=pagination freq=4 excl=1.00
+  pattern_xpath: ///link[contains(@aria-current,'page')][contains(@as,'fetch')][contains(@class,'label')][contains(@class,'lv')][contains(@class,'qu')]
+  content: [HREF=1]
+  sample[0] (3L): Home
+    |   <a data-testid="linkElement-0" href="https://www.deepobjekt.com" target="_self" class="dQuLV9 Ur5Vmd wixui-vertical-menu__item-label" aria-current="page" tabindex="0">
+    |     Home
+    |   </a>
+  sample[1] (3L): Home
+    |   <a data-testid="linkElement-0" href="https://www.deepobjekt.com" target="_self" class="dQuLV9 Ur5Vmd wixui-vertical-menu__item-label" aria-current="page" tabindex="0">
+    |     Home
+    |   </a>
+  sample[2] (1L): 
+    |   <link href="https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%2214bcded7-0066-7c35-14d7-466cb3f09103%22%3A%221335%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&beckyExperiments=.DatePickerPortal%2C.DisableDocumentScrollWhenLightBoxOpen%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNewLoginSocialBarCustomMenuPositioning%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.VerticalMenu_uiType_NativeMapper%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.disableBuilderWixComponents%2C.dom_store%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.imageEncodingAVIF%2C.isClassNameToRootEnabled%2C.motionTimeAnimationsCSS%2C.propsCarmiMappersMigration1%2C.propsCarmiMappersMigration4%2C.propsCarmiMappersMigration5%2C.shouldUseResponsiveImages%2C.svgResolver_2%2C.takeAppDependenciesFromCSM%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery%2C.useResponsiveImgClassicFixed%2C.useSvgLoaderFeature%2C.useSvgLoaderFeatureOnBuilderComps&blocksBuilderManifestGeneratorVersion=1.129.0&contentType=application%2Fjson&deviceType=Desktop&dfCk=6&dfVersion=1.5263.0&disableStaticPagesUrlHierarchy=false&editorName=Unknown&experiments=dm_bgScrubToMotionFixer%2Cdm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.deepobjekt.com&fileId=62b974ff.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isMultilingualEnabled=false&isPremiumDomain=true&isTrackClicksAnalyticsEnabled=false&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=false&language=en&languageResolutionMethod=QueryParam&metaSiteId=f2296a23-942c-4e0e-a9f1-9517df4f171f&module=thunderbolt-features&oneDocEnabled=true&originalLanguage=en&pageId=f0a2e7_309f2f6f8be43c93f8cf110057ac9050_130.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14878.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14878.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=d2a25244-63b7-4635-a5aa-8cd271a50efc&siteRevision=130&staticHTMLComponentUrl=https%3A%2F%2Fwww-deepobjekt-com.filesusr.com%2F&useSandboxInHTMLComp=false&viewMode=desktop" id="features_masterPage" as="fetch" position="post-scripts" rel="preload" crossorigin="anonymous"></link>
+
+--- Chunk 2: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.48
+  pattern_xpath: ///p[contains(@style,'right')][contains(@style,'align')][contains(@style,'text')][contains(@class,'font')][contains(@style,'font')]
+  content: [HREF=1 TEXT=2]
+  sample[0] (18L): - Posthuman Art Laboratory​- Technology, Philosophy, and Art Research Laboratori
+    |   <p class="font_8 wixui-rich-text__text" style="text-align:right; font-size:10px;">
+    |     <span style="font-size:10px;" class="wixui-rich-text__text">
+    |       <span style="color:#000000;" class="wixui-rich-text__text">
+    |         <span style="text-decoration:underline;" class="wixui-rich-text__text">
+    |           <a href="https://www.posthumanart.com/" target="_blank" rel="noreferrer noopener" class="wixui-rich-text__text">
+    |             Posthuman Art Network
+    |           </a>
+    |           <a href="http://foreignobjekt.com" target="_blank" rel="noreferrer noopener" class="wixui-rich-text__text">
+    |             Foreign Objekt
+    |           </a>
+    | ... [8 more lines]
+  sample[1] (12L): - Technology, Philosophy, and Art Research Laboratories & Residency Foreign Obje
+    |   <p class="font_8 wixui-rich-text__text" style="text-align:right; font-size:10px;">
+    |     <span style="font-size:10px;" class="wixui-rich-text__text">
+    |       <span style="color:#000000;" class="wixui-rich-text__text">
+    |         <span style="text-decoration:underline;" class="wixui-rich-text__text">
+    |           <a href="http://foreignobjekt.com" target="_blank" rel="noreferrer noopener" class="wixui-rich-text__text">
+    |             Foreign Objekt
+    |           </a>
+    |         </span>
+    |         - Technology, Philosophy, and Art Research Laboratories & Residency
+    |       </span>
+    | ... [2 more lines]
+  LEAKS (medium):
+    [TEXT] - Technology, Philosophy, and Art Research Laboratories & Residency
+
+--- Chunk 3: [text_content:h3×18] ---
+  type=text_singleton freq=18 excl=0.19
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'maypxmpg')][contains(@class,'ku')]/h3[contains(@class,'font')][contains(@style,'font')][contains(@style,'px')][contains(@style,'size')][contains(@class,'rich')]
+  content: [TEXT=1]
+  sample[0] (9L): Join the Intelligence ModelA Core Infrastructure for AGI: Systemic Modeling, Evo
+    |   <h3 class="font_3 wixui-rich-text__text" style="font-size:56px;">
+    |     <span style="font-size:56px;" class="wixui-rich-text__text">
+    |       Join the Intelligence ModelA Core Infrastructure for AGI: Systemic Modeling, Evolution, and Paradigm Integration
+    |       <span class="wixui-rich-text__text">
+    |         ​
+    |       </span>
+    |       OverviewWhat DeepObjekt DoesCore Intelligence ModelsWhy NowAlignment and AGI DiscoveryThe Platform of PlatformsResearch and Institutional Model
+    |     </span>
+    |   </h3>
+  sample[1] (7L): ​
+    |   <h3 class="font_3 wixui-rich-text__text" style="font-size:66px;">
+    |     <span style="font-size:66px;" class="wixui-rich-text__text">
+    |       <span class="wixui-rich-text__text">
+    |         ​
+    |       </span>
+    |     </span>
+    |   </h3>
+  sample[2] (5L): The Platform of Platforms
+    |   <h3 class="font_3 wixui-rich-text__text" style="font-size:56px;">
+    |     <span style="font-size:56px;" class="wixui-rich-text__text">
+    |       The Platform of Platforms
+    |     </span>
+    |   </h3>
+
+--- Chunk 4: [text_content:li×5] ---
+  type=text_singleton freq=5 excl=0.13
+  pattern_xpath: ///li[contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')]
+  content: [TEXT=1]
+  sample[0] (5L): Develops system-wide AGI models rooted in cognition, recursion, and transformati
+    |   <li class="wixui-rich-text__text">
+    |     <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |       Develops system-wide AGI models rooted in cognition, recursion, and transformation
+    |     </p>
+    |   </li>
+  sample[1] (5L): Connects AI outputs with broader general intelligence dynamics
+    |   <li class="wixui-rich-text__text">
+    |     <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |       Connects AI outputs with broader general intelligence dynamics
+    |     </p>
+    |   </li>
+  sample[2] (5L): Provides tools for long-term model viability, intelligence ethics, and future-pr
+    |   <li class="wixui-rich-text__text">
+    |     <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |       Provides tools for long-term model viability, intelligence ethics, and future-proofed integration
+    |     </p>
+    |   </li>
+
+--- Chunk 5: [text_content:li×6] ---
+  type=text_singleton freq=6 excl=0.13
+  pattern_xpath: ///li[contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')]
+  content: [TEXT=1]
+  sample[0] (5L): Red Intellect — Recursive cognition and high-force modeling at the edge of intel
+    |   <li class="wixui-rich-text__text">
+    |     <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |       Red Intellect — Recursive cognition and high-force modeling at the edge of intelligibility
+    |     </p>
+    |   </li>
+  sample[1] (5L): Bad AI — Generative misalignment architecture; the emergence site of real AGI
+    |   <li class="wixui-rich-text__text">
+    |     <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |       Bad AI — Generative misalignment architecture; the emergence site of real AGI
+    |     </p>
+    |   </li>
+  sample[2] (5L): Computational Noumena — Intelligence modeling beyond perception and prediction
+    |   <li class="wixui-rich-text__text">
+    |     <p class="font_8 wixui-rich-text__text" style="font-size:18px;">
+    |       Computational Noumena — Intelligence modeling beyond perception and prediction
+    |     </p>
+    |   </li>
+
+--- Chunk 6: [nav_content:li×8] ---
+  type=menu_item freq=8 excl=0.70
+  pattern_xpath: ///li[contains(@class,'dxs')][contains(@class,'wv')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'vertical')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Sepideh Majidi Home About Deep Objekt Bad-AI G.O.D-Model Red Intellect Model -RI
+    |   <li class="dDxsWv wixui-vertical-menu__item">
+    |     <div data-testid="itemContentWrapper-7" class="OZE83x">
+    |       <span class="ZmrAIF fIxawB">
+    |         <a data-testid="linkElement-7" href="https://www.deepobjekt.com/sepideh-majidi" target="_self" class="dQuLV9 Ur5Vmd wixui-vertical-menu__item-label" tabindex="0">
+    |           Sepideh Majidi
+    |   ... [20 lines truncated] ...
+    |           Blog
+    |         </a>
+    |       </span>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (9L): Home
+    |   <li class="dDxsWv wixui-vertical-menu__item">
+    |     <div data-testid="itemContentWrapper-0" class="OZE83x k2PVrY">
+    |       <span class="ZmrAIF fIxawB">
+    |         <a data-testid="linkElement-0" href="https://www.deepobjekt.com" target="_self" class="dQuLV9 Ur5Vmd wixui-vertical-menu__item-label" aria-current="page" tabindex="0">
+    |           Home
+    |         </a>
+    |       </span>
+    |     </div>
+    |   </li>
+  sample[2] (9L): G.O.D-Model
+    |   <li class="dDxsWv wixui-vertical-menu__item">
+    |     <div data-testid="itemContentWrapper-3" class="OZE83x">
+    |       <span class="ZmrAIF fIxawB">
+    |         <a data-testid="linkElement-3" href="https://www.deepobjekt.com/god-model" target="_self" class="dQuLV9 Ur5Vmd wixui-vertical-menu__item-label" tabindex="0">
+    |           G.O.D-Model
+    |         </a>
+    |       </span>
+    |     </div>
+    |   </li>
+
+--- Chunk 7: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.19
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'bgmynq')][contains(@class,'ku')]/h3[contains(@class,'font')][contains(@style,'font')][contains(@style,'px')][contains(@style,'size')][contains(@class,'rich')]
+  content: [TEXT=1]
+  sample[0] (5L): GENERAL INTELLIGENCE MODELING UNIT
+    |   <h3 class="font_3 wixui-rich-text__text" style="font-size:42px;">
+    |     <span style="font-size:42px;" class="wixui-rich-text__text">
+    |       GENERAL INTELLIGENCE MODELING UNIT
+    |     </span>
+    |   </h3>
+
+--- Chunk 8: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.80
+  pattern_xpath: ///h3[contains(@style,'em')][contains(@style,'height')][contains(@style,'left')][contains(@style,'align')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (5L): Indoor Veggie Garden
+    |   <h3 class="font_0 wixui-rich-text__text" style="text-align:left; line-height:1.41em; font-size:22px;">
+    |     <span class="color_45 wixui-rich-text__text">
+    |       Indoor Veggie Garden
+    |     </span>
+    |   </h3>
+
+--- Chunk 9: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Exhibition and Residency Open Call
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Exhibition and Residency Open Call
+    |   </h2>

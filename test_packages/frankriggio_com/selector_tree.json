@@ -1,0 +1,88 @@
+{
+  "//li[contains(@class,'menu-item')][contains(@class,'menu-item-type-post_type')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "menu_item",
+    "frequency": 8,
+    "pattern_xpath": "///li[contains(@class,'level')][contains(@class,'menu')][contains(@class,'nav')][contains(@class,'object')][contains(@class,'type')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'w-nav-anchor')][contains(@class,'level_1')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'w-nav-title')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span[contains(@class,'w-nav-arrow')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'w-socials-item')][contains(@class,'instagram')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "card",
+    "frequency": 5,
+    "pattern_xpath": "///div[contains(@class,'socials')][contains(@class,'item')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'w-socials-item-link')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'w-socials-item-link-hover')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//i[contains(@class,'fab')][contains(@class,'fa-instagram')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "search_input",
+    "frequency": 4,
+    "pattern_xpath": "///input[contains(@id,'form')][contains(@id,'search')][contains(@id,'us')][contains(@type,'text')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//img[contains(@class,'wp-image-5587')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "pagination",
+    "frequency": 40,
+    "pattern_xpath": "///img[contains(@class,'image')][contains(@class,'wp')][contains(@decoding,'async')][contains(@loading,'lazy')][contains(@sizes,'auto')]",
+    "content_types": [],
+    "children": {}
+  }
+}

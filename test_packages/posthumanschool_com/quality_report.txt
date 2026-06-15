@@ -1,0 +1,470 @@
+=== QUALITY REPORT: posthumanschool_com.html ===
+Chunks: 28 (structural=19, functional=2, text=7)
+Categories: {'structural': 9, 'card': 8, 'menu_item': 2, 'button': 1, 'pagination': 1, 'text_singleton': 7}
+Content: 567 tagged, 567 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div.aa.absolute ---
+  type=structural freq=2 excl=0.80
+  pattern_xpath: ///div[contains(@data-hash,'afe')][contains(@data-id,'afe')][contains(@id,'pgiafe')][contains(@id,'aa')][contains(@data-hash,'eb')]
+  tree_sig: div(div(div,div(div(div(div(div),div(picture)))),div(div(div(div(div))),div(div(
+  content: [ATTR=5 HREF=1 IMG=10 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Francesca Ferrando: The Art of Posthuman Existence -  Interactive Workshop Franc
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgiafe63170e1aa4a149255f7e253eb2841_32" data-hash="afe63170-e1aa-4a14-9255-f7e253eb2841" data-id="afe63170-e1aa-4a14-9255-f7e253eb2841" data-idx="32" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 2621px auto auto 0px; margin: 0px; ...">
+    |     <div data-idx="32" id="item-action-afe63170-e1aa-4a14-9255-f7e253eb2841" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Francesca Ferrando: The Art of Posthuman Existence -  Interactive Workshop "></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-afe63170-e1aa-4a14-9255-f7e253eb2841" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div>
+    |           <div class="gallery-item-content gallery-item-visible gallery-item-preloaded gallery-item-video gallery-item video-item item-content-regular" data-hook="video_container-video-player-element" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |             <div style="cursor: pointer;" class="play-button" pg-clickable="true">
+    |               <i data-hook="play-triangle" class="gallery-item-video-play-triangle play-triangle ">
+    |                 <svg viewbox="0 0 60 60" fill="currentColor" width="60" height="60">
+    |                   <path d="M41.5,30l-17,10V20L41.5,30z"></path>
+    | ... [21 more lines]
+
+--- Chunk 1: div.ab.absolute ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@data-hash,'bfd')][contains(@data-id,'bfd')][contains(@id,'ab')][contains(@id,'bfd')][contains(@id,'caa')]
+  tree_sig: div(div(div,div(div(div(div(div),div(picture)))),div(div(div(div(div))),div(div(
+  content: [ATTR=3 HREF=1 IMG=10 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Borna Radnik: Who’s Afraid of Subjectivity?Borna Radnik: Who’s Afraid of Subject
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi9c08b345bfd4484ab0e32f132877f4eb_37" data-hash="9c08b345-bfd4-484a-b0e3-2f132877f4eb" data-id="9c08b345-bfd4-484a-b0e3-2f132877f4eb" data-idx="37" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 2948.63px auto auto 322px; margin: ...">
+    |     <div data-idx="37" id="item-action-9c08b345-bfd4-484a-b0e3-2f132877f4eb" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Borna Radnik: Who’s Afraid of Subjectivity?"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-9c08b345-bfd4-484a-b0e3-2f132877f4eb" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div>
+    |           <div class="gallery-item-content gallery-item-visible gallery-item-preloaded gallery-item-video gallery-item video-item item-content-regular" data-hook="video_container-video-player-element" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |             <div style="cursor: pointer;" class="play-button" pg-clickable="true">
+    |               <i data-hook="play-triangle" class="gallery-item-video-play-triangle play-triangle ">
+    |                 <svg viewbox="0 0 60 60" fill="currentColor" width="60" height="60">
+    |                   <path d="M41.5,30l-17,10V20L41.5,30z"></path>
+    | ... [21 more lines]
+
+--- Chunk 2: div.aa.absolute ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@data-hash,'bfa')][contains(@data-hash,'ddd')][contains(@data-id,'bfa')][contains(@data-id,'ddd')][contains(@id,'bfa')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img)))),div(div(div(div(div))),div
+  content: [ATTR=3 HREF=1 IMG=54 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: (ILR Research Resident) Byrke Lou: Crying AI: The Role of Emotion in Human-AI Ex
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi311d6b90e976456eaa80629d16a4c2f7_17" data-hash="311d6b90-e976-456e-aa80-629d16a4c2f7" data-id="311d6b90-e976-456e-aa80-629d16a4c2f7" data-idx="17" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 1310.5px auto auto 322px; margin: 0...">
+    |     <div data-idx="17" id="item-action-311d6b90-e976-456e-aa80-629d16a4c2f7" class="item-action" tabindex="-1" data-hook="item-action" aria-label="(ILR Research Resident) Byrke Lou: Crying AI: The Role of Emotion in Human-AI Exchanges"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-311d6b90-e976-456e-aa80-629d16a4c2f7" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp/v1/fill/w_314,h_177,al_c,q_90,enc_avif,quality_auto/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp 1x, https://static.wixstatic.com/media/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp/v1/fill/w_545,h_307,al_c,lg_1,q_90,enc_avif,quality_auto/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp 2x" type="image/webp"></source>
+    |             <source srcset="https://static.wixstatic.com/media/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp/v1/fill/w_314,h_177,al_c,q_90,enc_avif,quality_auto/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp 1x, https://static.wixstatic.com/media/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp/v1/fill/w_545,h_307,al_c,lg_1,q_90,enc_avif,quality_auto/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="(ILR Research Resident) Byrke Lou: Crying AI: The Role of Emotion in Human-AI Exchanges" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="17" src="https://static.wixstatic.com/media/032012_0819dcdc5d0f4c4cbd6928272ac3425b~mv2.w..." loading="eager" style="width: 314px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 3: div.absolute.auto ---
+  type=card freq=3 excl=0.25
+  pattern_xpath: ///div[contains(@data-hash,'fe')][contains(@data-id,'fe')][contains(@class,'container')][contains(@class,'custom')][contains(@class,'focus')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img)))),div(div(div(div(div))),div
+  content: [ATTR=3 HREF=1 IMG=50 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Maure Coise: Cataloging Instruments Maure Coise: Cataloging Instruments Maure Co
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgife15caf02113449d8a22ed2264516dc3_12" data-hash="fe15caf0-2113-449d-8a22-ed2264516dc3" data-id="fe15caf0-2113-449d-8a22-ed2264516dc3" data-idx="12" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 982.875px auto auto 0px; margin: 0p...">
+    |     <div data-idx="12" id="item-action-fe15caf0-2113-449d-8a22-ed2264516dc3" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Maure Coise: Cataloging Instruments"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-fe15caf0-2113-449d-8a22-ed2264516dc3" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.jpg/v1/fill/w_314,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.jpg 1x, https://static.wixstatic.com/media/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.jpg/v1/fill/w_960,h_541,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.jpg/v1/fill/w_314,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.webp 1x, https://static.wixstatic.com/media/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.jpg/v1/fill/w_960,h_541,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="Maure Coise: Cataloging Instruments" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="12" src="https://static.wixstatic.com/media/032012_2ed1ee2379d448949e659b9caabf52ca~mv2.j..." loading="eager" style="width: 314px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 4: div.absolute.ac ---
+  type=structural freq=2 excl=0.90
+  pattern_xpath: ///div[contains(@data-hash,'bb')][contains(@data-id,'bb')][contains(@id,'bb')][contains(@id,'dd')][contains(@data-hash,'fe')]
+  tree_sig: div(div(div,div(div(div(div(div),div(picture)))),div(div(div(div(div))),div(div(
+  content: [ATTR=3 HREF=1 IMG=10 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: "Snuff Memories": A Reading and Panel Discussion on David Roden's New Book"Snuff
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi6ac18fe1f503409db3547c657ff3bb95_35" data-hash="6ac18fe1-f503-409d-b354-7c657ff3bb95" data-id="6ac18fe1-f503-409d-b354-7c657ff3bb95" data-idx="35" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 2621px auto auto 967px; margin: 0px...">
+    |     <div data-idx="35" id="item-action-6ac18fe1-f503-409d-b354-7c657ff3bb95" class="item-action" tabindex="-1" data-hook="item-action" aria-label=""Snuff Memories": A Reading and Panel Discussion on David Roden's New Book"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-6ac18fe1-f503-409d-b354-7c657ff3bb95" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div>
+    |           <div class="gallery-item-content gallery-item-visible gallery-item-preloaded gallery-item-video gallery-item video-item item-content-regular" data-hook="video_container-video-player-element" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |             <div style="cursor: pointer;" class="play-button" pg-clickable="true">
+    |               <i data-hook="play-triangle" class="gallery-item-video-play-triangle play-triangle ">
+    |                 <svg viewbox="0 0 60 60" fill="currentColor" width="60" height="60">
+    |                   <path d="M41.5,30l-17,10V20L41.5,30z"></path>
+    | ... [21 more lines]
+
+--- Chunk 5: div.absolute.auto ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@data-hash,'bdf')][contains(@data-hash,'ebe')][contains(@data-hash,'fb')][contains(@data-id,'bdf')][contains(@data-id,'ebe')]
+  tree_sig: div(div(div,div(div(div(div(div),div(picture)))),div(div(div(div(div))),div(div(
+  content: [ATTR=3 HREF=1 IMG=10 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Frankenstein and Philosophy: Sabeen Chaudhry, Borna Radnik, Corey McCall Franken
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi26c9363429fb401ba63f1a4861bdf6f0_38" data-hash="26c93634-29fb-401b-a63f-1a4861bdf6f0" data-id="26c93634-29fb-401b-a63f-1a4861bdf6f0" data-idx="38" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 2948.63px auto auto 644px; margin: ...">
+    |     <div data-idx="38" id="item-action-26c93634-29fb-401b-a63f-1a4861bdf6f0" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Frankenstein and Philosophy: Sabeen Chaudhry, Borna Radnik, Corey McCall"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-26c93634-29fb-401b-a63f-1a4861bdf6f0" style="height: 176.625px; width: 315px; margin: 0px;">
+    |         <div>
+    |           <div class="gallery-item-content gallery-item-visible gallery-item-preloaded gallery-item-video gallery-item video-item item-content-regular" data-hook="video_container-video-player-element" style="width: 315px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |             <div style="cursor: pointer;" class="play-button" pg-clickable="true">
+    |               <i data-hook="play-triangle" class="gallery-item-video-play-triangle play-triangle ">
+    |                 <svg viewbox="0 0 60 60" fill="currentColor" width="60" height="60">
+    |                   <path d="M41.5,30l-17,10V20L41.5,30z"></path>
+    | ... [21 more lines]
+
+--- Chunk 6: div.absolute.auto ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@data-hash,'bc')][contains(@data-id,'bc')][contains(@id,'bc')][contains(@data-hash,'bfc')][contains(@data-id,'bfc')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img)))),div(div(div(div(div))),div
+  content: [ATTR=3 HREF=1 IMG=54 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: (ILR) Maure Coise: Belief in Diagramming(ILR) Maure Coise: Belief in Diagramming
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi575bfc9ea8914099bc27781527d0b98d_15" data-hash="575bfc9e-a891-4099-bc27-781527d0b98d" data-id="575bfc9e-a891-4099-bc27-781527d0b98d" data-idx="15" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 982.875px auto auto 967px; margin: ...">
+    |     <div data-idx="15" id="item-action-575bfc9e-a891-4099-bc27-781527d0b98d" class="item-action" tabindex="-1" data-hook="item-action" aria-label="(ILR) Maure Coise: Belief in Diagramming"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-575bfc9e-a891-4099-bc27-781527d0b98d" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.jpg/v1/fill/w_314,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.jpg 1x, https://static.wixstatic.com/media/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.jpg/v1/fill/w_510,h_287,fp_0.50_0.50,lg_1,q_90,enc_avif,quality_auto/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.jpg/v1/fill/w_314,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.webp 1x, https://static.wixstatic.com/media/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.jpg/v1/fill/w_510,h_287,fp_0.50_0.50,lg_1,q_90,enc_avif,quality_auto/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="(ILR) Maure Coise: Belief in Diagramming" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="15" src="https://static.wixstatic.com/media/f0a2e7_936a7819c077449f8a00eba313d0c761~mv2.j..." loading="eager" style="width: 314px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 7: div.absolute.auto ---
+  type=structural freq=2 excl=0.80
+  pattern_xpath: ///div[contains(@data-hash,'dabeb')][contains(@data-id,'dabeb')][contains(@id,'dabeb')][contains(@data-hash,'dc')][contains(@data-id,'dc')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img)))),div(div(div(div(div))),div
+  content: [ATTR=3 HREF=1 IMG=50 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: (ILR Research Resident) Ritaban Ghosh: Towards Invisible Palpabilities – Unknott
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi1019f9a6c0844055a7b7dc1b5c548a00_10" data-hash="1019f9a6-c084-4055-a7b7-dc1b5c548a00" data-id="1019f9a6-c084-4055-a7b7-dc1b5c548a00" data-idx="10" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 655.25px auto auto 644px; margin: 0...">
+    |     <div data-idx="10" id="item-action-1019f9a6-c084-4055-a7b7-dc1b5c548a00" class="item-action" tabindex="-1" data-hook="item-action" aria-label="(ILR Research Resident) Ritaban Ghosh: Towards Invisible Palpabilities – Unknotting Vacillations in Violence"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-1019f9a6-c084-4055-a7b7-dc1b5c548a00" style="height: 176.625px; width: 315px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 315px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.jpg/v1/fill/w_315,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.jpg 1x, https://static.wixstatic.com/media/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.jpg/v1/fill/w_1260,h_708,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.jpg/v1/fill/w_315,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.webp 1x, https://static.wixstatic.com/media/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.jpg/v1/fill/w_1260,h_708,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="(ILR Research Resident) Ritaban Ghosh: Towards Invisible Palpabilities – Unknotting Vacillations in Violence" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="10" src="https://static.wixstatic.com/media/032012_6025cc02ad094a5499a85abdc1b15e8a~mv2.j..." loading="eager" style="width: 315px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 8: div.absolute.ac ---
+  type=card freq=3 excl=0.63
+  pattern_xpath: ///div[contains(@data-hash,'cb')][contains(@data-id,'cb')][contains(@id,'cb')][contains(@data-hash,'ac')][contains(@data-id,'ac')]
+  tree_sig: div(div,div(div(div(div(div(div)))),div(div(picture(img,source,source)))),div(di
+  content: [ATTR=3 HREF=1 IMG=54 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: (ILR) Isabel Millar: Three Body Problem: Can the San-Ti Speak?(ILR) Isabel Milla
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi3543c8f4ac26435ca79b2f8f1c3f1384_3" data-hash="3543c8f4-ac26-435c-a79b-2f8f1c3f1384" data-id="3543c8f4-ac26-435c-a79b-2f8f1c3f1384" data-idx="3" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 0px auto auto 967px; margin: 0px; w...">
+    |     <div data-idx="3" id="item-action-3543c8f4-ac26-435c-a79b-2f8f1c3f1384" class="item-action" tabindex="-1" data-hook="item-action" aria-label="(ILR) Isabel Millar: Three Body Problem: Can the San-Ti Speak?"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-3543c8f4-ac26-435c-a79b-2f8f1c3f1384" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.jpg/v1/fill/w_314,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.jpg 1x, https://static.wixstatic.com/media/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.jpg/v1/fill/w_524,h_295,fp_0.50_0.50,lg_1,q_90,enc_avif,quality_auto/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.jpg/v1/fill/w_314,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.webp 1x, https://static.wixstatic.com/media/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.jpg/v1/fill/w_524,h_295,fp_0.50_0.50,lg_1,q_90,enc_avif,quality_auto/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="(ILR) Isabel Millar: Three Body Problem: Can the San-Ti Speak?" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="3" src="https://static.wixstatic.com/media/032012_ac8a4abfcfca4ade8ecf5f34051af1aa~mv2.j..." loading="eager" style="width: 314px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 9: div.absolute.auto ---
+  type=card freq=3 excl=0.63
+  pattern_xpath: ///div[contains(@data-hash,'fa')][contains(@data-id,'fa')][contains(@id,'fa')][contains(@class,'container')][contains(@class,'custom')]
+  tree_sig: div(div,div(div(div(div(div(div)))),div(div(picture(img,source,source)))),div(di
+  content: [ATTR=3 HREF=1 IMG=54 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Amanda Beech: Althusser and the Image of Art: The role of consciousness for a pr
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgic8fa9da21a9e4adfaa5b1bd158b1db65_2" data-hash="c8fa9da2-1a9e-4adf-aa5b-1bd158b1db65" data-id="c8fa9da2-1a9e-4adf-aa5b-1bd158b1db65" data-idx="2" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 0px auto auto 644px; margin: 0px; w...">
+    |     <div data-idx="2" id="item-action-c8fa9da2-1a9e-4adf-aa5b-1bd158b1db65" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Amanda Beech: Althusser and the Image of Art: The role of consciousness for a propositional Art"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-c8fa9da2-1a9e-4adf-aa5b-1bd158b1db65" style="height: 176.625px; width: 315px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 315px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/032012_322b9eff110045cb9bc60ca06d394596~mv2.jpg/v1/fill/w_315,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_322b9eff110045cb9bc60ca06d394596~mv2.jpg 1x, https://static.wixstatic.com/media/032012_322b9eff110045cb9bc60ca06d394596~mv2.jpg/v1/fill/w_506,h_285,fp_0.50_0.50,lg_1,q_90,enc_avif,quality_auto/032012_322b9eff110045cb9bc60ca06d394596~mv2.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/032012_322b9eff110045cb9bc60ca06d394596~mv2.jpg/v1/fill/w_315,h_177,fp_0.50_0.50,q_90,enc_avif,quality_auto/032012_322b9eff110045cb9bc60ca06d394596~mv2.webp 1x, https://static.wixstatic.com/media/032012_322b9eff110045cb9bc60ca06d394596~mv2.jpg/v1/fill/w_506,h_285,fp_0.50_0.50,lg_1,q_90,enc_avif,quality_auto/032012_322b9eff110045cb9bc60ca06d394596~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="Amanda Beech: Althusser and the Image of Art: The role of consciousness for a propositional Art" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="2" src="https://static.wixstatic.com/media/032012_322b9eff110045cb9bc60ca06d394596~mv2.j..." loading="eager" style="width: 315px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 10: div.absolute.ad ---
+  type=card freq=3 excl=0.70
+  pattern_xpath: ///div[contains(@data-hash,'ad')][contains(@data-id,'ad')][contains(@data-hash,'df')][contains(@data-id,'df')][contains(@id,'df')]
+  tree_sig: div(div,div(div(div(div(div(div)))),div(div(div(div(i,i)),div(div(i,i),picture(i
+  content: [ATTR=3 HREF=1 IMG=10 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Workshop: The Perspectivism of Platforms | Zé Antonio Magalhães, J.P. Caron, and
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi00718df53b8e430ba01826cdc196269b_31" data-hash="00718df5-3b8e-430b-a018-26cdc196269b" data-id="00718df5-3b8e-430b-a018-26cdc196269b" data-idx="31" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 2293.38px auto auto 967px; margin: ...">
+    |     <div data-idx="31" id="item-action-00718df5-3b8e-430b-a018-26cdc196269b" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Workshop: The Perspectivism of Platforms | Zé Antonio Magalhães, J.P. Caron, and Lukáš Likavčan"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-00718df5-3b8e-430b-a018-26cdc196269b" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div>
+    |           <div class="gallery-item-content gallery-item-visible gallery-item-preloaded gallery-item-video gallery-item video-item item-content-regular" data-hook="video_container-video-player-element" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |             <div style="cursor: pointer;" class="play-button" pg-clickable="true">
+    |               <i data-hook="play-triangle" class="gallery-item-video-play-triangle play-triangle ">
+    |                 <svg viewbox="0 0 60 60" fill="currentColor" width="60" height="60">
+    |                   <path d="M41.5,30l-17,10V20L41.5,30z"></path>
+    | ... [21 more lines]
+
+--- Chunk 11: div.absolute.auto ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@id,'pgif')][contains(@data-hash,'cbc')][contains(@data-hash,'eee')][contains(@data-id,'cbc')][contains(@data-id,'eee')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img)))),div(div(div(div(div))),div
+  content: [ATTR=3 HREF=1 IMG=50 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Carl Olsson and Agata Szymanek: Extending the diagonal line / The lure of space 
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgif8c01ff2438342c8b3eda8f0519734e7_18" data-hash="f8c01ff2-4383-42c8-b3ed-a8f0519734e7" data-id="f8c01ff2-4383-42c8-b3ed-a8f0519734e7" data-idx="18" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 1310.5px auto auto 644px; margin: 0...">
+    |     <div data-idx="18" id="item-action-f8c01ff2-4383-42c8-b3ed-a8f0519734e7" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Carl Olsson and Agata Szymanek: Extending the diagonal line / The lure of space after Caillois "></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-f8c01ff2-4383-42c8-b3ed-a8f0519734e7" style="height: 176.625px; width: 315px; margin: 0px;">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width: 315px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/f0a2e7_4377a0bba148430192c47347706613f1~mv2.png/v1/fill/w_315,h_177,fp_0.50_0.50,q_95,enc_avif,quality_auto/f0a2e7_4377a0bba148430192c47347706613f1~mv2.png 1x, https://static.wixstatic.com/media/f0a2e7_4377a0bba148430192c47347706613f1~mv2.png/v1/fill/w_813,h_457,fp_0.50_0.50,q_95,enc_avif,quality_auto/f0a2e7_4377a0bba148430192c47347706613f1~mv2.png 2x" type="image/png"></source>
+    |             <source srcset="https://static.wixstatic.com/media/f0a2e7_4377a0bba148430192c47347706613f1~mv2.png/v1/fill/w_315,h_177,fp_0.50_0.50,q_95,enc_avif,quality_auto/f0a2e7_4377a0bba148430192c47347706613f1~mv2.webp 1x, https://static.wixstatic.com/media/f0a2e7_4377a0bba148430192c47347706613f1~mv2.png/v1/fill/w_813,h_457,fp_0.50_0.50,q_95,enc_avif,quality_auto/f0a2e7_4377a0bba148430192c47347706613f1~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="Carl Olsson and Agata Szymanek: Extending the diagonal line / The lure of space after Caillois " class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="18" src="https://static.wixstatic.com/media/f0a2e7_4377a0bba148430192c47347706613f1~mv2.p..." loading="eager" style="width: 315px; height: 176.625px;"></img>
+    |           </picture>
+    | ... [21 more lines]
+
+--- Chunk 12: div.absolute.ae ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@data-hash,'ae')][contains(@data-hash,'ecc')][contains(@data-id,'ae')][contains(@data-id,'ecc')][contains(@id,'ae')]
+  tree_sig: div(div(div,div(div(div(div(div),div(picture)))),div(div(div(div(div))),div(div(
+  content: [ATTR=3 HREF=1 IMG=10 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Ray Brassier | Posthuman Pragmatism: Selecting Power / The Human: From Subversio
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgiecc5e0df01314ae0a9d86c739a4e8424_24" data-hash="ecc5e0df-0131-4ae0-a9d8-6c739a4e8424" data-id="ecc5e0df-0131-4ae0-a9d8-6c739a4e8424" data-idx="24" data-hook="item-container" style="overflow: hidden; position: absolute; inset: 1965.75px auto auto 0px; margin: 0p...">
+    |     <div data-idx="24" id="item-action-ecc5e0df-0131-4ae0-a9d8-6c739a4e8424" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Ray Brassier | Posthuman Pragmatism: Selecting Power / The Human: From Subversion to Compulsion "></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-ecc5e0df-0131-4ae0-a9d8-6c739a4e8424" style="height: 176.625px; width: 314px; margin: 0px;">
+    |         <div>
+    |           <div class="gallery-item-content gallery-item-visible gallery-item-preloaded gallery-item-video gallery-item video-item item-content-regular" data-hook="video_container-video-player-element" style="width: 314px; height: 176.625px; margin-top: 0px; margin-left: 0px;">
+    |             <div style="cursor: pointer;" class="play-button" pg-clickable="true">
+    |               <i data-hook="play-triangle" class="gallery-item-video-play-triangle play-triangle ">
+    |                 <svg viewbox="0 0 60 60" fill="currentColor" width="60" height="60">
+    |                   <path d="M41.5,30l-17,10V20L41.5,30z"></path>
+    | ... [21 more lines]
+
+--- Chunk 13: div.border.bottom ---
+  type=card freq=48 excl=0.60
+  pattern_xpath: ///div[contains(@class,'bottom')][contains(@style,'border')][contains(@class,'common')][contains(@class,'info')][contains(@style,'box')]
+  tree_sig: div(div(div(div(div(a(div))))))
+  content: [HREF=1 TEXT=1]
+  sample[0] (19L): Francesca Ferrando: The Art of Posthuman Existence -  Interactive Workshop
+    |   <div style="overflow: hidden; box-sizing: border-box; width: 100%; height: 143px;" class="gallery-item-common-info gallery-item-bottom-info">
+    |     <div class="RiOfiW pu51Xe lyd6fK p8Uk20 blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-post-post-list-border-color blog-post-post-list-post-container blog-post-post-list-background-color _UH27m" style="border-width: 0px; --wix-blog-inline-padding: 16px;" data-hook="post-list-item">
+    |       <div style="padding-left: 16px; padding-right: 16px;" class="iSTCpN lyd6fK p8Uk20 post-list-item-wrapper blog-post-post-list-description-font blog-post-post-list-description-color blog-post-post-list-description-fill">
+    |         <div class="uYL9xS">
+    |           <div class="JMCi2v blog-post-post-list-link-hashtag-hover-color so9KdE lyd6fK">
+    |             <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanschool.com/post/francesca-ferrando-the-art-of-posthuman-existence-interactive-workshop">
+    |               <div style="font-size: 16px;" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 ySFpqx AkO1lZ xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |                 <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size: 16px;" data-hook="post-title">
+    |                   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 3;">
+    |                     Francesca Ferrando: The Art of Posthuman Existence -  Interactive Workshop
+    | ... [9 more lines]
+
+--- Chunk 14: a.com.depth ---
+  type=menu_item freq=16 excl=1.00
+  pattern_xpath: ///a[contains(@class,'menu')][contains(@class,'root')][contains(@data-item-label,'true')][contains(@data-testid,'element')][contains(@data-testid,'link')]
+  tree_sig: a(div(span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): 2023/2024 Schedule
+    |   <a data-item-label="true" data-testid="linkElement" href="https://docs.google.com/spreadsheets/d/128hsryYcZKRs8afuoZTgbE6nXqGlAdmTQrpMsWZm1ac/edit?usp=sharing" target="_blank" rel="noreferrer noopener" class="itemDepth02233374943__root StylableHorizontalMenu3372578893__menuItem itemShared2352141355__menuItem" aria-expanded="false" aria-haspopup="true" tabindex="0">
+    |     <div class="itemDepth02233374943__container">
+    |       <span class="itemDepth02233374943__label wixui-horizontal-menu__item-label">
+    |         2023/2024 Schedule
+    |       </span>
+    |     </div>
+    |   </a>
+  sample[1] (7L): Panels
+    |   <a data-item-label="true" data-testid="linkElement" href="https://www.posthumanschool.com/panels" target="_self" class="itemDepth02233374943__root StylableHorizontalMenu3372578893__menuItem itemShared2352141355__menuItem" aria-expanded="false" aria-haspopup="true" tabindex="0">
+    |     <div class="itemDepth02233374943__container">
+    |       <span class="itemDepth02233374943__label wixui-horizontal-menu__item-label">
+    |         Panels
+    |       </span>
+    |     </div>
+    |   </a>
+  sample[2] (7L): Intelligence - Love - Revolution
+    |   <a data-item-label="true" data-testid="linkElement" href="https://www.posthumanschool.com/about-3" target="_self" class="itemDepth02233374943__root StylableHorizontalMenu3372578893__menuItem itemShared2352141355__menuItem" tabindex="0">
+    |     <div class="itemDepth02233374943__container">
+    |       <span class="itemDepth02233374943__label wixui-horizontal-menu__item-label">
+    |         Intelligence - Love - Revolution
+    |       </span>
+    |     </div>
+    |   </a>
+
+--- Chunk 15: div.box.column ---
+  type=card freq=3 excl=1.00
+  pattern_xpath: ///div[contains(@class,'box')][contains(@class,'column')][contains(@class,'position')][contains(@data-testid,'box')][contains(@data-testid,'position')]
+  tree_sig: div(div(div(ul(li(div(a))))))
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (19L): SnuffMemories
+    |   <div class="itemDepth02233374943__positionBox itemDepth02233374943--isColumn" role="group" aria-label="Panels" data-testid="positionBox">
+    |     <div class="submenu815198092__root StylableHorizontalMenu3372578893__columnsLayout itemDepth02233374943__animationBox">
+    |       <div class="itemDepth02233374943__alignBox submenu815198092__pageWrapper submenu815198092__overrideWidth">
+    |         <ul class="itemDepth02233374943__list submenu815198092__listWrapper" style="--horizontalSpacing: var(--style-m6mu0d3j-horizontalSpacing);">
+    |           <li class="itemDepth12472627565__itemWrapper" data-testid="menuItemDepth1" data-item-depth="1" data-is-current="false" aria-current="false">
+    |             <div class="itemShared2352141355__rootContainer">
+    |               <a data-item-label="true" data-testid="linkElement" href="https://www.posthumanschool.com" target="_self" class="itemDepth12472627565__root submenu815198092__menuItem itemShared2352141355__menuItem" tabindex="0">
+    |                 <div class="itemDepth12472627565__container">
+    |                   <span class="itemDepth12472627565__label">
+    |                     SnuffMemories
+    | ... [9 more lines]
+
+--- Chunk 16: button.accessibility.icon ---
+  type=button freq=3 excl=0.64
+  pattern_xpath: ///button[contains(@class,'accessibility')][contains(@class,'icon')][contains(@class,'shared')][contains(@class,'item')]
+  tree_sig: button(svg(path))
+  content: [ATTR=1]
+  sample[0] (5L): 
+    |   <button tabindex="0" class="itemShared2352141355__accessibilityIcon" aria-label="Toggle SOUND LAB">
+    |     <svg width="0" height="0" viewbox="0 0 0 0" fill="black" xmlns="http://www.w3.org/2000/svg">
+    |       <path d="M8 10.5L16 1.86193L14.7387 0.5L8 7.77613L1.26133 0.499999L-5.95321e-08 1.86193L8..."></path>
+    |     </svg>
+    |   </button>
+  sample[1] (5L): 
+    |   <button tabindex="0" class="itemShared2352141355__accessibilityIcon" aria-label="Toggle 2023/2024 Schedule">
+    |     <svg width="0" height="0" viewbox="0 0 0 0" fill="black" xmlns="http://www.w3.org/2000/svg">
+    |       <path d="M8 10.5L16 1.86193L14.7387 0.5L8 7.77613L1.26133 0.499999L-5.95321e-08 1.86193L8..."></path>
+    |     </svg>
+    |   </button>
+  sample[2] (5L): 
+    |   <button tabindex="0" class="itemShared2352141355__accessibilityIcon" aria-label="Toggle Panels">
+    |     <svg width="0" height="0" viewbox="0 0 0 0" fill="black" xmlns="http://www.w3.org/2000/svg">
+    |       <path d="M8 10.5L16 1.86193L14.7387 0.5L8 7.77613L1.26133 0.499999L-5.95321e-08 1.86193L8..."></path>
+    |     </svg>
+    |   </button>
+
+--- Chunk 17: div.box.common ---
+  type=card freq=17 excl=0.43
+  pattern_xpath: ///div[contains(@class,'object')][contains(@class,'outer')][contains(@style,'content')][contains(@class,'common')][contains(@class,'info')]
+  tree_sig: div(div(div(div(div(div(a))))),div(div(picture(img,source,source))))
+  content: [ATTR=1 HREF=1 IMG=27 TEXT=1]
+  sample[0] (30L): (ILR) Isabel Millar: Three Body Problem: Can the San-Ti Speak?(ILR) Isabel Milla
+    |   <div class="gallery-item-common-info-outer [object Object]" style="height: 143px; box-sizing: content-box;">
+    |     <div style="overflow: hidden; box-sizing: border-box; width: 100%; height: 143px;" class="gallery-item-common-info gallery-item-bottom-info">
+    |       <div class="RiOfiW pu51Xe lyd6fK p8Uk20 blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-post-post-list-border-color blog-post-post-list-post-container blog-post-post-list-background-color _UH27m" style="border-width: 0px; --wix-blog-inline-padding: 16px;" data-hook="post-list-item">
+    |         <div style="padding-left: 16px; padding-right: 16px;" class="iSTCpN lyd6fK p8Uk20 post-list-item-wrapper blog-post-post-list-description-font blog-post-post-list-description-color blog-post-post-list-description-fill">
+    |           <div class="uYL9xS">
+    |             <div class="JMCi2v blog-post-post-list-link-hashtag-hover-color so9KdE lyd6fK">
+    |               <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanschool.com/post/irl-isabel-millar-three-body-problem-can-the-san-ti-speak">
+    |                 <div style="font-size: 16px;" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 ySFpqx AkO1lZ xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |                   <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size: 16px;" data-hook="post-title">
+    |                     <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 3;">
+    | ... [20 more lines]
+
+--- Chunk 18: div.box.common ---
+  type=card freq=3 excl=0.43
+  pattern_xpath: ///div[contains(@class,'object')][contains(@class,'outer')][contains(@style,'content')][contains(@class,'common')][contains(@class,'info')]
+  tree_sig: div(div(div(div(div(div(a))))),div(div(div(div(i(svg),i(svg))),div(div(i(svg),i(
+  content: [ATTR=1 HREF=1 IMG=5 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: Workshop: The Perspectivism of Platforms | Zé Antonio Magalhães, J.P. Caron, and
+    |   <div class="gallery-item-common-info-outer [object Object]" style="height: 143px; box-sizing: content-box;">
+    |     <div style="overflow: hidden; box-sizing: border-box; width: 100%; height: 143px;" class="gallery-item-common-info gallery-item-bottom-info">
+    |       <div class="RiOfiW pu51Xe lyd6fK p8Uk20 blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-post-post-list-border-color blog-post-post-list-post-container blog-post-post-list-background-color _UH27m" style="border-width: 0px; --wix-blog-inline-padding: 16px;" data-hook="post-list-item">
+    |         <div style="padding-left: 16px; padding-right: 16px;" class="iSTCpN lyd6fK p8Uk20 post-list-item-wrapper blog-post-post-list-description-font blog-post-post-list-description-color blog-post-post-list-description-fill">
+    |           <div class="uYL9xS">
+    |             <div class="JMCi2v blog-post-post-list-link-hashtag-hover-color so9KdE lyd6fK">
+    |               <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanschool.com/post/workshop-the-perspectivism-of-platforms-zé-antonio-magalhães-j-p-caron-and-lukáš-likavčan">
+    |                 <div style="font-size: 16px;" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 ySFpqx AkO1lZ xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |                   <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size: 16px;" data-hook="post-title">
+    |                     <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 3;">
+    | ... [21 more lines]
+
+--- Chunk 19: [pagination_buttons] ---
+  type=pagination freq=4 excl=1.00
+  pattern_xpath: ///img[contains(@as,'fetch')][contains(@class,'preloaded')][contains(@crossorigin,'anonymous')][contains(@data-hook,'gallery')][contains(@data-hook,'image')]
+  content: [ATTR=1 IMG=1]
+  sample[0] (1L): Study Group with Natasha Vita-More: Transhumanist Aesthetics: Exponential System
+    |   <img alt="Study Group with Natasha Vita-More: Transhumanist Aesthetics: Exponential Systems for Life" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="27" src="https://static.wixstatic.com/media/f0a2e7_372936cb60df441c895591053abb1abb~mv2.j..." loading="eager" style="width: 314px; height: 176.625px;"></img>
+  sample[1] (1L): Study Group with Natasha Vita-More: Transhumanist Aesthetics: Exponential System
+    |   <img alt="Study Group with Natasha Vita-More: Transhumanist Aesthetics: Exponential Systems for Life" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="27" src="https://static.wixstatic.com/media/f0a2e7_372936cb60df441c895591053abb1abb~mv2.j..." loading="eager" style="width: 314px; height: 176.625px;"></img>
+  sample[2] (1L): 
+    |   <link href="https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%2213d21c63-b5ec-5912-8397-c3a5ddb27a97%22%3A%22440%22%2C%2214bcded7-0066-7c35-14d7-466cb3f09103%22%3A%221335%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&beckyExperiments=.DatePickerPortal%2C.DisableDocumentScrollWhenLightBoxOpen%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNewLoginSocialBarCustomMenuPositioning%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.VerticalMenu_uiType_NativeMapper%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.addIdAsClassName%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.disableBuilderWixComponents%2C.dom_store%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.imageEncodingAVIF%2C.isClassNameToRootEnabled%2C.motionTimeAnimationsCSS%2C.propsCarmiMappersMigration1%2C.propsCarmiMappersMigration4%2C.propsCarmiMappersMigration5%2C.removeDynamicModelTopologyFromSiteAssets%2C.shouldUseResponsiveImages%2C.svgResolver_2%2C.takeAppDependenciesFromCSM%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery%2C.useResponsiveImgClassicFixed%2C.useSvgLoaderFeature%2C.useSvgLoaderFeatureOnBuilderComps&blocksBuilderManifestGeneratorVersion=1.129.0&contentType=application%2Fjson&deviceType=Desktop&dfCk=6&dfVersion=1.5263.0&disableStaticPagesUrlHierarchy=false&editorName=Unknown&experiments=dm_bgScrubToMotionFixer%2Cdm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.posthumanschool.com&fileId=df2ea64c.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isMultilingualEnabled=false&isPremiumDomain=true&isTrackClicksAnalyticsEnabled=false&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=false&language=en&languageResolutionMethod=QueryParam&metaSiteId=3b4d0944-436b-47fd-b319-77a18d06b7d2&module=thunderbolt-features&oneDocEnabled=true&originalLanguage=en&pageId=f0a2e7_c831692fd9fd3cac63c563625a5aaf1a_140.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14889.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14889.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=670bb054-4c52-404a-ad75-45d145ca184d&siteRevision=140&staticHTMLComponentUrl=https%3A%2F%2Fwww-posthumanschool-com.filesusr.com%2F&useSandboxInHTMLComp=false&viewMode=desktop" id="features_masterPage" as="fetch" position="post-scripts" rel="preload" crossorigin="anonymous"></link>
+
+--- Chunk 20: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=1.00
+  pattern_xpath: ///li[contains(@class,'kw')][contains(@class,'rn')][contains(@id,'comp')][contains(@id,'data')][contains(@id,'item')]
+  content: [ATTR=2 HREF=1 IMG=15]
+  sample[0] (5L): YouTube
+    |   <li id="dataItem-khnxhrtg-comp-khnxgaf5" class="O6KwRn">
+    |     <a data-testid="linkElement" href="https://www.youtube.com/channel/UCNOhbFuw7zZnXZeNJyUemRQ?view_as=subscriber" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="YouTube">
+    |       <img sizes="undefinedpx" srcset="https://static.wixstatic.com/media/44eb1e29ffa34198aee01e8d4f305903.png/v1/fill/w_22,h_22,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/44eb1e29ffa34198aee01e8d4f305903.png 1x, https://static.wixstatic.com/media/44eb1e29ffa34198aee01e8d4f305903.png/v1/fill/w_44,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/44eb1e29ffa34198aee01e8d4f305903.png 2x" id="img_0_comp-khnxgaf5" src="https://static.wixstatic.com/media/44eb1e29ffa34198aee01e8d4f305903.png/v1/fill/..." alt="YouTube" style="object-fit: cover;" class="YaS0jR Tj01hh"></img>
+    |     </a>
+    |   </li>
+  sample[1] (5L): Twitter
+    |   <li id="dataItem-khnxhrti-comp-khnxgaf5" class="O6KwRn">
+    |     <a data-testid="linkElement" href="https://twitter.com/foreign_objekt" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Twitter">
+    |       <img sizes="undefinedpx" srcset="https://static.wixstatic.com/media/59687ffffc2042f885062ce2b0744381.png/v1/fill/w_22,h_22,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/59687ffffc2042f885062ce2b0744381.png 1x, https://static.wixstatic.com/media/59687ffffc2042f885062ce2b0744381.png/v1/fill/w_44,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/59687ffffc2042f885062ce2b0744381.png 2x" id="img_1_comp-khnxgaf5" src="https://static.wixstatic.com/media/59687ffffc2042f885062ce2b0744381.png/v1/fill/..." alt="Twitter" style="object-fit: cover;" class="YaS0jR Tj01hh"></img>
+    |     </a>
+    |   </li>
+  sample[2] (5L): Facebook
+    |   <li id="dataItem-khnxgapd1-comp-khnxgaf5" class="O6KwRn">
+    |     <a data-testid="linkElement" href="https://www.facebook.com/Foreign-Objekt-100774358119248/?modal=admin_todo_tour" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Facebook    ">
+    |       <img sizes="undefinedpx" srcset="https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png/v1/fill/w_22,h_22,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png 1x, https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png/v1/fill/w_44,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png 2x" id="img_2_comp-khnxgaf5" src="https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.p..." alt="Facebook    " style="object-fit: cover;" class="YaS0jR Tj01hh"></img>
+    |     </a>
+    |   </li>
+
+--- Chunk 21: [text_content:h5×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h5[contains(@class,'font')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@style,'font')]
+  content: [TEXT=2]
+  sample[0] (11L): Posthuman Philosophy Studies
+    |   <h5 class="font_5 wixui-rich-text__text" style="font-size:18px;">
+    |     <span style="color:#C400EC;" class="wixui-rich-text__text">
+    |       <span style="font-size:18px;" class="wixui-rich-text__text">
+    |         <span style="font-family:lulo-clean-w01-one-bold,lulo-clean-w05-one-bold,sans-serif;" class="wixui-rich-text__text">
+    |           Posthuman
+    |           <br class="wixui-rich-text__text"></br>
+    |           Philosophy Studies
+    |         </span>
+    |       </span>
+    |     </span>
+    | ... [1 more lines]
+
+--- Chunk 22: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (3L): Shirine Saad: Freestyling Arab Apocalypse (Now): Decolonial Feminist and Queer P
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 4;">
+    |     Shirine Saad: Freestyling Arab Apocalypse (Now): Decolonial Feminist and Queer Poethics After the End of the World
+    |   </h2>
+
+--- Chunk 23: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (3L): Francesca Ferrando: The Art of Being Posthuman
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 4;">
+    |     Francesca Ferrando: The Art of Being Posthuman
+    |   </h2>
+
+--- Chunk 24: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (3L): Amanda Beech: Althusser and the Image of Art: The role of consciousness for a pr
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 4;">
+    |     Amanda Beech: Althusser and the Image of Art: The role of consciousness for a propositional Art
+    |   </h2>
+
+--- Chunk 25: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (3L): Yidi Wang
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 4;">
+    |     Yidi Wang
+    |   </h2>
+
+--- Chunk 26: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (3L): Yukang Tao
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 4;">
+    |     Yukang Tao
+    |   </h2>
+
+--- Chunk 27: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]
+  content: [TEXT=1]
+  sample[0] (3L): Alix Emery
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 4;">
+    |     Alix Emery
+    |   </h2>

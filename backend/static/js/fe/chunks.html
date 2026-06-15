@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>magic markdown — real scanned chunks</title>
+  <style>
+    :root { --slate-border: #c0c0c0; }
+    html, body { margin: 0; background: #000; color: #fff; font-family: Georgia, serif; }
+    #grid { display: flex; flex-wrap: wrap; gap: 18px; padding: 24px; align-items: flex-start; }
+    .mm-slate { font-size: 13px; }
+    .mm-line { line-height: 1.55; }
+    #status { position: fixed; top: 6px; left: 8px; font: 11px monospace; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div id="status">loading…</div>
+  <div id="grid"></div>
+  <script type="module">
+    import { parse } from "./magic_markdown.mjs";
+    import { panelVDom } from "./magic_markdown_panel.mjs";
+
+    const BACKEND = "http://127.0.0.1:8080/api";
+    const grid = document.getElementById("grid");
+    const status = document.getElementById("status");
+
+    function realise(spec) {
+      const node = document.createElement(spec.tag);
+      for (const [k, v] of Object.entries(spec.attrs || {})) node.setAttribute(k, v);
+      if (spec.text != null) node.textContent = spec.text;
+      for (const c of spec.children || []) node.appendChild(realise(c));
+      return node;
+    }
+
+    async function main() {
+      const rendered = [];
+      try {
+        const nodes = (await (await fetch(`${BACKEND}/chunk_nodes?workspace_id=_default`)).json()).nodes || [];
+        const ids = nodes.filter(n => String(n.id).startsWith("c_") && n.id.slice(2).includes("_")).map(n => n.id);
+        for (const id of ids) {
+          if (rendered.length >= 8) break;
+          let d; try { d = await (await fetch(`${BACKEND}/chunk_details/${id}?workspace_id=_default`)).json(); }
+          catch { continue; }
+          const ct = (d.content_tree || "").trim();
+          if (ct.split("\n").length < 3) continue;          // skip trivial chunks
+          // REAL scanned chunk → §U dedup content_tree → magic-markdown panel
+          grid.appendChild(realise(panelVDom(parse(ct), {})));
+          rendered.push({ id, lines: ct.split("\n").length, first: ct.split("\n")[0] });
+        }
+      } catch (e) { status.textContent = "error: " + e.message; }
+      window.__mm_chunks = rendered;
+      window.__mm_ready = true;
+      status.textContent = `rendered ${rendered.length} real chunk panels`;
+    }
+    main();
+  </script>
+</body>
+</html>

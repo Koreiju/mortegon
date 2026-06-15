@@ -1,0 +1,1819 @@
+{
+  "//li[contains(@class,'wp-block-post')][contains(@class,'post-408')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 7,
+    "pattern_xpath": "///li[contains(@class,'book')][contains(@class,'format')][contains(@class,'occult')][contains(@class,'standard')][contains(@class,'hentry')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'wp-block-group')][contains(@class,'is-content-justification-space-between')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'wp-block-group')][contains(@class,'is-vertical')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//h4[contains(@class,'wp-block-post-title')][contains(@class,'has-base-font-size')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//p[contains(@class,'field-difficulty')][contains(@class,'wp-elements-03093c6961325e4c6fcd7237f5d9f8c0')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'value')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'wp-block-group')][contains(@class,'is-nowrap')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//figure[contains(@class,'wp-block-post-featured-image')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//hr[contains(@class,'wp-block-separator')][contains(@class,'has-alpha-channel-opacity')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//figure[contains(@class,'wp-block-image')][contains(@class,'aligncenter')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///figure[contains(@class,'aligncenter')][contains(@class,'blue')][contains(@class,'duotone')][contains(@class,'full')][contains(@class,'image')]",
+    "content_types": [],
+    "children": {
+      "//img[contains(@class,'wp-image-49')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//figcaption[contains(@class,'wp-element-caption')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//div[contains(@class,'wp-block-group')][contains(@class,'is-vertical')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "card",
+    "frequency": 8,
+    "pattern_xpath": "///div[contains(@class,'core')][contains(@class,'flex')][contains(@class,'vertical')][contains(@class,'container')][contains(@class,'group')]",
+    "content_types": [],
+    "children": {
+      "//h4[contains(@class,'wp-block-post-title')][contains(@class,'has-base-font-size')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//p[contains(@class,'field-difficulty')][contains(@class,'wp-elements-03093c6961325e4c6fcd7237f5d9f8c0')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'value')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//figure[contains(@class,'wp-block-post-featured-image')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "card",
+    "frequency": 8,
+    "pattern_xpath": "///figure[contains(@class,'featured')][contains(@class,'image')][contains(@class,'post')][contains(@class,'block')][contains(@class,'wp')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'attachment-post-thumbnail')][contains(@class,'size-post-thumbnail')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//span[contains(@class,'wp-block-navigation__submenu-icon')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///span[contains(@class,'icon')][contains(@class,'submenu')][contains(@class,'navigation')][contains(@class,'block')][contains(@class,'wp')]",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//ul[contains(@class,'wp-block-navigation__submenu-container')][contains(@class,'wp-block-navigation-submenu')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///ul[contains(@data-wp-on-async--focus,'actions')][contains(@data-wp-on-async--focus,'focus')][contains(@data-wp-on-async--focus,'menu')][contains(@data-wp-on-async--focus,'on')][contains(@data-wp-on-async--focus,'open')]",
+    "content_types": [],
+    "children": {
+      "//li[contains(@class,'has-base-font-size')][contains(@class,'wp-block-navigation-item')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@class,'wp-block-navigation-item__content')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'wp-block-navigation-item__label')]": {
+                "chunk_ids": [
+                  5
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a": {
+    "chunk_ids": [
+      6
+    ],
+    "classification": "pagination",
+    "frequency": 6,
+    "pattern_xpath": "///a",
+    "content_types": [],
+    "children": {
+      "//img[contains(@class,'attachment-post-thumbnail')][contains(@class,'size-post-thumbnail')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//p": {
+    "chunk_ids": [
+      7,
+      23,
+      24,
+      25
+    ],
+    "classification": "text_singleton",
+    "frequency": 124,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {
+      "//strong": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              24
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//a": {
+        "chunk_ids": [
+          23
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              23
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'wp-block-group')][contains(@class,'alignwide')]": {
+    "chunk_ids": [
+      8,
+      18
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'ollie')][contains(@class,'position')][contains(@class,'sticky')][contains(@class,'top')][contains(@class,'alignwide')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'wp-block-group')][contains(@class,'has-global-padding')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'wp-block-group')][contains(@class,'is-vertical')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//h3[contains(@class,'wp-block-heading')][contains(@class,'has-narrow-font-family')]": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//strong": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'wp-block-query')][contains(@class,'is-layout-flow')]": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//ul[contains(@class,'wp-block-post-template')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//hr[contains(@class,'wp-block-separator')][contains(@class,'has-text-color')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'wp-block-group')][contains(@class,'has-global-padding')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//p": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//strong": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//ul[contains(@class,'wp-block-social-links')][contains(@class,'has-icon-background-color')]": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//li[contains(@class,'wp-social-link')][contains(@class,'wp-social-link-x')]": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-social-link')][contains(@class,'wp-social-link-facebook')]": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-social-link')][contains(@class,'wp-social-link-instagram')]": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//h3[contains(@class,'wp-block-heading')][contains(@class,'has-narrow-font-family')]": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//strong": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'wp-block-query')][contains(@class,'is-layout-flow')]": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//ul[contains(@class,'wp-block-post-template')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//h3[contains(@class,'wp-block-heading')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//ul[contains(@class,'wp-block-list')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//li": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//strong": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//h2[contains(@class,'wp-block-heading')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//p": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//p": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//em": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//em": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//hr[contains(@class,'wp-block-separator')][contains(@class,'has-alpha-channel-opacity')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//h2[contains(@class,'wp-block-heading')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//figure[contains(@class,'wp-block-image')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//img": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//figcaption[contains(@class,'wp-element-caption')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//em": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//br": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//img[contains(@class,'wp-image-46')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'wp-image-49')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'wp-image-50')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'wp-image-51')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'wp-image-45')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//table[contains(@class,'has-fixed-layout')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//thead": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//tr": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//tbody": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//tr": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//img[contains(@class,'wp-image-44')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'wp-image-52')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//ul[contains(@class,'wp-block-list')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//em": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//strong": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//h3[contains(@class,'wp-block-heading')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//ol[contains(@class,'wp-block-list')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//em": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//li": {
+    "chunk_ids": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      17,
+      20,
+      21
+    ],
+    "classification": "text_singleton",
+    "frequency": 3,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//em": {
+        "chunk_ids": [
+          10
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//strong": {
+        "chunk_ids": [
+          11
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2[contains(@class,'wp-block-heading')]": {
+    "chunk_ids": [
+      15
+    ],
+    "classification": "text_singleton",
+    "frequency": 9,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {}
+  },
+  "//div[contains(@class,'wp-block-group')][contains(@class,'has-global-padding')]": {
+    "chunk_ids": [
+      16
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'alignwide')][contains(@class,'ollie')][contains(@class,'sticky')]/div[contains(@class,'constrained')][contains(@class,'global')][contains(@class,'padding')][contains(@style,'border')][contains(@style,'px')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'wp-block-group')][contains(@class,'is-vertical')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//h3[contains(@class,'wp-block-heading')][contains(@class,'has-narrow-font-family')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'wp-block-query')][contains(@class,'is-layout-flow')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//ul[contains(@class,'wp-block-post-template')][contains(@class,'is-layout-flow')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-689')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-671')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-641')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-628')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-408')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-320')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-318')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-316')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-314')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-312')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//hr[contains(@class,'wp-block-separator')][contains(@class,'has-text-color')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'wp-block-group')][contains(@class,'has-global-padding')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//p": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//ul[contains(@class,'wp-block-social-links')][contains(@class,'has-icon-background-color')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//li[contains(@class,'wp-social-link')][contains(@class,'wp-social-link-x')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'wp-block-social-link-anchor')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//li[contains(@class,'wp-social-link')][contains(@class,'wp-social-link-facebook')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'wp-block-social-link-anchor')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//li[contains(@class,'wp-social-link')][contains(@class,'wp-social-link-instagram')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'wp-block-social-link-anchor')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//h3[contains(@class,'wp-block-heading')][contains(@class,'has-narrow-font-family')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'wp-block-query')][contains(@class,'is-layout-flow')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//ul[contains(@class,'wp-block-post-template')][contains(@class,'is-layout-flow')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-689')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-671')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-641')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-628')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-408')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-320')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-318')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-316')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-314')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'wp-block-post')][contains(@class,'post-312')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//h3[contains(@class,'wp-block-heading')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//ul[contains(@class,'wp-block-list')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//h2[contains(@class,'wp-block-heading')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'wp-block-query')][contains(@class,'alignfull')]": {
+    "chunk_ids": [
+      19
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'alignfull')][contains(@class,'flow')][contains(@class,'query')][contains(@class,'is')][contains(@class,'layout')]",
+    "content_types": [],
+    "children": {
+      "//ul[contains(@class,'wp-block-post-template')][contains(@class,'is-layout-flow')]": {
+        "chunk_ids": [
+          19
+        ],
+        "content_types": [],
+        "children": {
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-819')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-703')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-694')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-675')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-617')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-601')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-593')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//li[contains(@class,'wp-block-post')][contains(@class,'post-561')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//p[contains(@class,'wp-block-post-excerpt__excerpt')]": {
+        "chunk_ids": [
+          19
+        ],
+        "content_types": [],
+        "children": {
+          "//em": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'wp-block-group')][contains(@class,'has-main-color')]": {
+        "chunk_ids": [
+          19
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'has-link-color')][contains(@class,'wp-elements-f7100cc71b213dc813066cfc61deee48')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wp-block-post-author__avatar')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//img[contains(@class,'avatar')][contains(@class,'avatar-48')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'wp-block-post-author__content')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//p[contains(@class,'wp-block-post-author__name')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//p[contains(@class,'has-secondary-color')][contains(@class,'has-text-color')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'wp-block-post-date')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//time": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'wp-block-post-author__avatar')]": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {
+                  "//img[contains(@class,'avatar')][contains(@class,'avatar-48')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//p[contains(@class,'wp-block-post-author__name')]": {
+                    "chunk_ids": [
+                      19
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//a[contains(@class,'wp-block-button__link')][contains(@class,'has-main-color')]": {
+            "chunk_ids": [
+              19
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  19
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//h2[contains(@class,'wp-block-heading')]": {
+        "chunk_ids": [
+          19
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'wp-block-post')][contains(@class,'post-819')]": {
+    "chunk_ids": [
+      22
+    ],
+    "classification": "text_singleton",
+    "frequency": 8,
+    "pattern_xpath": "///div[contains(@class,'query')][contains(@class,'alignfull')][contains(@class,'flow')]//li[contains(@class,'hentry')][contains(@class,'hermeticism')][contains(@class,'publish')][contains(@class,'status')][contains(@class,'topics')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'wp-block-columns')][contains(@class,'alignwide')]": {
+        "chunk_ids": [
+          22
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'wp-block-column')][contains(@class,'is-layout-flow')]": {
+            "chunk_ids": [
+              22
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'taxonomy-topics')][contains(@class,'has-link-color')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//figure[contains(@class,'wp-block-post-featured-image')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'wp-block-group')][contains(@class,'is-vertical')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//h3[contains(@class,'has-link-color')][contains(@class,'wp-elements-1b858052407c4e41bbd7ec4a564cb631')]": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'wp-block-post-excerpt')]": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//hr[contains(@class,'wp-block-separator')][contains(@class,'has-text-color')]": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//hr[contains(@class,'wp-block-separator')][contains(@class,'alignwide')]": {
+        "chunk_ids": [
+          22
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'wp-block-post')][contains(@class,'post-689')]": {
+    "chunk_ids": [
+      26
+    ],
+    "classification": "menu_item",
+    "frequency": 11,
+    "pattern_xpath": "///li[contains(@class,'book')][contains(@class,'format')][contains(@class,'occult')][contains(@class,'standard')][contains(@class,'hentry')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'wp-block-group')][contains(@class,'is-content-justification-space-between')]": {
+        "chunk_ids": [
+          26
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'wp-block-group')][contains(@class,'is-vertical')]": {
+            "chunk_ids": [
+              26
+            ],
+            "content_types": [],
+            "children": {
+              "//h4[contains(@class,'wp-block-post-title')][contains(@class,'has-base-font-size')]": {
+                "chunk_ids": [
+                  26
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      26
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//p[contains(@class,'field-difficulty')][contains(@class,'wp-elements-03093c6961325e4c6fcd7237f5d9f8c0')]": {
+                "chunk_ids": [
+                  26
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'value')]": {
+                    "chunk_ids": [
+                      26
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'wp-block-group')][contains(@class,'is-nowrap')]": {
+            "chunk_ids": [
+              26
+            ],
+            "content_types": [],
+            "children": {
+              "//figure[contains(@class,'wp-block-post-featured-image')]": {
+                "chunk_ids": [
+                  26
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      26
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//hr[contains(@class,'wp-block-separator')][contains(@class,'has-alpha-channel-opacity')]": {
+        "chunk_ids": [
+          26
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'has-base-font-size')][contains(@class,'wp-block-navigation-item')]": {
+    "chunk_ids": [
+      27
+    ],
+    "classification": "menu_item",
+    "frequency": 7,
+    "pattern_xpath": "///a[contains(@class,'item')][contains(@class,'content')][contains(@class,'navigation')][contains(@class,'block')][contains(@class,'wp')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'wp-block-navigation-item__content')]": {
+        "chunk_ids": [
+          27
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'wp-block-navigation-item__label')]": {
+            "chunk_ids": [
+              27
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//h1[contains(@class,'has-link-color')][contains(@class,'wp-elements-d856945a4c20b585ef3ea6c7f8e0d8f2')]": {
+    "chunk_ids": [
+      28
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h1[contains(@class,'color')][contains(@class,'ea')][contains(@class,'ef')][contains(@class,'elements')][contains(@class,'main')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3[contains(@class,'wp-block-heading')]": {
+    "chunk_ids": [
+      29
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'heading')][contains(@class,'block')][contains(@class,'wp')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3[contains(@class,'wp-block-heading')][contains(@class,'has-narrow-font-family')]": {
+    "chunk_ids": [
+      30
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'family')][contains(@class,'medium')][contains(@class,'narrow')][contains(@style,'font')][contains(@style,'normal')]",
+    "content_types": [],
+    "children": {
+      "//strong": {
+        "chunk_ids": [
+          30
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h4[contains(@class,'wp-block-post-title')][contains(@class,'has-base-font-size')]": {
+    "chunk_ids": [
+      31,
+      32,
+      33,
+      34
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4[contains(@class,'base')][contains(@class,'title')][contains(@class,'font')][contains(@class,'size')][contains(@class,'post')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          31
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  }
+}

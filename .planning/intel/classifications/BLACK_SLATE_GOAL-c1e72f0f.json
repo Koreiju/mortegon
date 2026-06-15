@@ -1,0 +1,22 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/BLACK_SLATE_GOAL.md",
+  "type": "SPEC",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "GOAL — The Black Markdown Slate (2026-06-13)",
+  "summary": "Binding spec for rebuilding the 2D editor card as one black markdown text-tree slate (no chrome) with internalize/externalize gestures and halo fixes, backend preserved.",
+  "scope": ["black slate card", "2D editor", "concept node text-tree rendering", "internalize/externalize gestures", "apparition halo", "frontend strip/rebuild", "cp/concept_graph.js", "cp/billboard.js"],
+  "cross_refs": [
+    "USER_REQUIREMENTS_VERBATIM.md",
+    "DOMAIN_MODEL.md",
+    "docs/frontend/",
+    "backend/templates/index.html",
+    "backend/static/css/styles.css",
+    "backend/static/js/chunk_projector.js",
+    "backend/static/js/cp/concept_graph.js",
+    "backend/static/js/cp/billboard.js"
+  ],
+  "locked": false,
+  "precedence": 3,
+  "notes": "Type and precedence honored from manifest (SPEC, 3). Doc self-labels Status: GOAL / binding design but content is implementation contract (grammar, gesture set, anchoring/signal model, strip/rebuild order), consistent with SPEC."
+}

@@ -1,0 +1,234 @@
+{
+  "//span[contains(@class,'svg-wrapper')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 184,
+    "pattern_xpath": "///span",
+    "content_types": [],
+    "children": {
+      "//svg[contains(@class,'icon')][contains(@class,'icon-search')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "menu_item",
+    "frequency": 6,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'header__menu-item')][contains(@class,'list-menu__item')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//span": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'list-social__item')]": {
+    "chunk_ids": [
+      2,
+      5,
+      6
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///li[contains(@class,'item')][contains(@class,'list')][contains(@class,'social')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'list-social__link')][contains(@class,'link')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'svg-wrapper')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//svg[contains(@class,'icon')][contains(@class,'icon-facebook')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//path": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//span[contains(@class,'visually-hidden')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//a[contains(@class,'link')][contains(@class,'list-social__link')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'svg-wrapper')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {
+              "//svg[contains(@class,'icon')][contains(@class,'icon-facebook')]": {
+                "chunk_ids": [
+                  5
+                ],
+                "content_types": [],
+                "children": {
+                  "//path": {
+                    "chunk_ids": [
+                      5
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//span[contains(@class,'visually-hidden')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'search__input')][contains(@class,'field__input')][contains(@role,'combobox')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "search_input",
+    "frequency": 11,
+    "pattern_xpath": "///input[contains(@aria-autocomplete,'list')][contains(@aria-haspopup,'listbox')][contains(@aria-owns,'results')][contains(@autocapitalize,'none')][contains(@autocomplete,'off')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//script": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "pagination",
+    "frequency": 8,
+    "pattern_xpath": "///button",
+    "content_types": [],
+    "children": {}
+  },
+  "//h1[contains(@class,'main-page-title')][contains(@class,'page-title')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h1[contains(@class,'main')][contains(@class,'page')][contains(@class,'title')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'drawer__heading')]": {
+    "chunk_ids": [
+      8
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'drawer')][contains(@class,'header')]/h2[contains(@class,'drawer')][contains(@class,'heading')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'footer-block__heading')][contains(@class,'inline-richtext')]": {
+    "chunk_ids": [
+      9
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'footer')][contains(@class,'block')][contains(@class,'newsletter')]/h2[contains(@class,'block')][contains(@class,'footer')][contains(@class,'inline')][contains(@class,'richtext')][contains(@class,'heading')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'cart__empty-text')]": {
+    "chunk_ids": [
+      10,
+      12
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'cart')][contains(@class,'drawer')][contains(@class,'warnings')]//h2[contains(@class,'cart')][contains(@class,'empty')][contains(@class,'text')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'totals__total')]": {
+    "chunk_ids": [
+      11
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'total')][contains(@class,'totals')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'visually-hidden')]": {
+    "chunk_ids": [
+      13
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///localization-form[contains(@class,'small')][contains(@class,'hide')][contains(@class,'medium')]//h2[contains(@id,'header')][contains(@id,'label')][contains(@class,'hidden')][contains(@class,'visually')][contains(@id,'country')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'image-with-text__heading')][contains(@class,'inline-richtext')]": {
+    "chunk_ids": [
+      14
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'image')][contains(@class,'with')][contains(@class,'inline')][contains(@class,'richtext')][contains(@class,'heading')]",
+    "content_types": [],
+    "children": {}
+  }
+}

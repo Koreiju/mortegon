@@ -1,0 +1,756 @@
+=== QUALITY REPORT: ioccult_comocculttraditionhermeticismexplained.html ===
+Chunks: 34 (structural=5, functional=6, text=23)
+Categories: {'card': 3, 'structural': 2, 'pagination': 1, 'text_singleton': 23, 'menu_item': 5}
+Content: 944 tagged, 426 preserved (45%)
+Leaks: 518 total, 325 high-importance
+
+--- Chunk 0: li.block.book ---
+  type=card freq=7 excl=0.47
+  pattern_xpath: ///li[contains(@class,'book')][contains(@class,'format')][contains(@class,'occult')][contains(@class,'standard')][contains(@class,'hentry')]
+  tree_sig: li(div(div(h4(a),p(span)),div(figure(a(img)))),hr)
+  content: [ATTR=1 HREF=2 IMG=3 TEXT=2]
+  sample[0] (24L): The Gnostic Gospels Beginner The Gnostic Gospels
+    |   <li class="wp-block-post post-408 occult-book type-occult-book status-publish format-standard has-post-thumbnail hentry topics-hermeticism">
+    |     <div class="wp-block-group is-content-justification-space-between is-nowrap is-layout-flex wp-container-core-group-is-layout-fe4d7f27 wp-block-group-is-layout-flex">
+    |       <div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-30a70405 wp-block-group-is-layout-flex">
+    |         <h4 class="wp-block-post-title has-base-font-size">
+    |           <a href="https://ioccult.com/occult-book/the-gnostic-gospels/" target="_self">
+    |             The Gnostic Gospels
+    |           </a>
+    |         </h4>
+    |         <p style="font-style:normal;font-weight:500;" class="field-difficulty wp-elements-03093c6961325e4c6fcd7237f5d9f8c0 wp-block-acf-field-blocks-acf-text has-text-color has-main-color has-x-small-font-size has-narrow-font-family">
+    |           <span class="value">
+    | ... [14 more lines]
+
+--- Chunk 1: div.block.container ---
+  type=card freq=8 excl=0.28
+  pattern_xpath: ///div[contains(@class,'core')][contains(@class,'flex')][contains(@class,'vertical')][contains(@class,'container')][contains(@class,'group')]
+  tree_sig: div(h4(a),p(span))
+  content: [HREF=1 TEXT=2]
+  sample[0] (12L): The Gnostic Gospels Beginner
+    |   <div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-30a70405 wp-block-group-is-layout-flex">
+    |     <h4 class="wp-block-post-title has-base-font-size">
+    |       <a href="https://ioccult.com/occult-book/the-gnostic-gospels/" target="_self">
+    |         The Gnostic Gospels
+    |       </a>
+    |     </h4>
+    |     <p style="font-style:normal;font-weight:500;" class="field-difficulty wp-elements-03093c6961325e4c6fcd7237f5d9f8c0 wp-block-acf-field-blocks-acf-text has-text-color has-main-color has-x-small-font-size has-narrow-font-family">
+    |       <span class="value">
+    |         Beginner
+    |       </span>
+    | ... [2 more lines]
+  sample[1] (12L): Meditations on the Tarot: A Journey into Christian Hermeticism Beginner
+    |   <div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-30a70405 wp-block-group-is-layout-flex">
+    |     <h4 class="wp-block-post-title has-base-font-size">
+    |       <a href="https://ioccult.com/occult-book/meditations-on-the-tarot-a-journey-into-christian-hermeticism/" target="_self">
+    |         Meditations on the Tarot: A Journey into Christian Hermeticism
+    |       </a>
+    |     </h4>
+    |     <p style="font-style:normal;font-weight:500;" class="field-difficulty wp-elements-03093c6961325e4c6fcd7237f5d9f8c0 wp-block-acf-field-blocks-acf-text has-text-color has-main-color has-x-small-font-size has-narrow-font-family">
+    |       <span class="value">
+    |         Beginner
+    |       </span>
+    | ... [2 more lines]
+
+--- Chunk 2: figure.block.featured ---
+  type=card freq=8 excl=0.34
+  pattern_xpath: ///figure[contains(@class,'featured')][contains(@class,'image')][contains(@class,'post')][contains(@class,'block')][contains(@class,'wp')]
+  tree_sig: figure(a(img))
+  content: [ATTR=1 HREF=1 IMG=5]
+  sample[0] (5L): How to Die Properly: A Hermetic Guide to Conscious Dying
+    |   <figure class="wp-block-post-featured-image">
+    |     <a href="https://ioccult.com/hermeticism/how-to-die-properly-conscious-dying/" target="_self">
+    |       <img width="1200" height="800" src="https://ioccult.com/wp-content/uploads/2025/08/how-to-die-properly-the-Hermetic-..." class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="How to Die Properly: A Hermetic Guide to Conscious Dying" style="border-radius:20px;object-fit:cover;" decoding="async" loading="lazy" srcset="https://ioccult.com/wp-content/uploads/2025/08/how-to-die-properly-the-Hermetic-way.jpg 1200w, https://ioccult.com/wp-content/uploads/2025/08/how-to-die-properly-the-Hermetic-way-300x200.jpg 300w, https://ioccult.com/wp-content/uploads/2025/08/how-to-die-properly-the-Hermetic-way-1024x683.jpg 1024w, https://ioccult.com/wp-content/uploads/2025/08/how-to-die-properly-the-Hermetic-way-768x512.jpg 768w" sizes="auto, (max-width: 1200px) 100vw, 1200px"></img>
+    |     </a>
+    |   </figure>
+  sample[1] (5L): Is Hermeticism Compatible With Christianity? What You Need To Know
+    |   <figure class="wp-block-post-featured-image">
+    |     <a href="https://ioccult.com/hermeticism/is-hermeticism-compatible-with-christianity-what-you-need-to-know/" target="_self">
+    |       <img width="1200" height="675" src="https://ioccult.com/wp-content/uploads/2025/08/Gnostic-Jesus.webp" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Is Hermeticism Compatible With Christianity? What You Need To Know" style="border-radius:20px;object-fit:cover;" decoding="async" loading="lazy" srcset="https://ioccult.com/wp-content/uploads/2025/08/Gnostic-Jesus.webp 1200w, https://ioccult.com/wp-content/uploads/2025/08/Gnostic-Jesus-300x169.webp 300w, https://ioccult.com/wp-content/uploads/2025/08/Gnostic-Jesus-1024x576.webp 1024w, https://ioccult.com/wp-content/uploads/2025/08/Gnostic-Jesus-768x432.webp 768w" sizes="auto, (max-width: 1200px) 100vw, 1200px"></img>
+    |     </a>
+    |   </figure>
+  sample[2] (5L): Aleister Crowley’s 7 Unique Contributions to Qabalah
+    |   <figure class="wp-block-post-featured-image">
+    |     <a href="https://ioccult.com/hermeticism/aleister-crowleys-7-unique-contributions-to-qabalah/" target="_self">
+    |       <img width="1200" height="800" src="https://ioccult.com/wp-content/uploads/2025/08/Who-Was-Aleister-Crowley-The-Man-..." class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Aleister Crowley’s 7 Unique Contributions to Qabalah" style="border-radius:20px;object-fit:cover;" decoding="async" loading="lazy" srcset="https://ioccult.com/wp-content/uploads/2025/08/Who-Was-Aleister-Crowley-The-Man-The-Myth-The-Reality.jpg 1200w, https://ioccult.com/wp-content/uploads/2025/08/Who-Was-Aleister-Crowley-The-Man-The-Myth-The-Reality-300x200.jpg 300w, https://ioccult.com/wp-content/uploads/2025/08/Who-Was-Aleister-Crowley-The-Man-The-Myth-The-Reality-1024x683.jpg 1024w, https://ioccult.com/wp-content/uploads/2025/08/Who-Was-Aleister-Crowley-The-Man-The-Myth-The-Reality-768x512.jpg 768w" sizes="auto, (max-width: 1200px) 100vw, 1200px"></img>
+    |     </a>
+    |   </figure>
+
+--- Chunk 3: span.block.icon ---
+  type=structural freq=2 excl=0.39
+  pattern_xpath: ///span[contains(@class,'icon')][contains(@class,'submenu')][contains(@class,'navigation')][contains(@class,'block')][contains(@class,'wp')]
+  tree_sig: span(svg(path))
+  sample[0] (5L): 
+    |   <span class="wp-block-navigation__submenu-icon">
+    |     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewbox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+    |       <path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path>
+    |     </svg>
+    |   </span>
+  sample[1] (5L): 
+    |   <span class="wp-block-navigation__submenu-icon">
+    |     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewbox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+    |       <path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path>
+    |     </svg>
+    |   </span>
+
+--- Chunk 4: ul.actions.block ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///ul[contains(@data-wp-on-async--focus,'actions')][contains(@data-wp-on-async--focus,'focus')][contains(@data-wp-on-async--focus,'menu')][contains(@data-wp-on-async--focus,'on')][contains(@data-wp-on-async--focus,'open')]
+  tree_sig: ul(li(a(span)))
+  content: [HREF=1 TEXT=1]
+  sample[0] (9L): Hermeticism
+    |   <ul data-wp-on-async--focus="actions.openMenuOnFocus" class="wp-block-navigation__submenu-container wp-block-navigation-submenu">
+    |     <li class="has-base-font-size wp-block-navigation-item wp-block-navigation-link">
+    |       <a class="wp-block-navigation-item__content" href="https://ioccult.com/hermeticism/">
+    |         <span class="wp-block-navigation-item__label">
+    |           Hermeticism
+    |         </span>
+    |       </a>
+    |     </li>
+    |   </ul>
+  sample[1] (9L): Hermeticism
+    |   <ul data-wp-on-async--focus="actions.openMenuOnFocus" class="wp-block-navigation__submenu-container wp-block-navigation-submenu">
+    |     <li class="has-base-font-size wp-block-navigation-item wp-block-navigation-link">
+    |       <a class="wp-block-navigation-item__content" href="https://ioccult.com/hermeticism/">
+    |         <span class="wp-block-navigation-item__label">
+    |           Hermeticism
+    |         </span>
+    |       </a>
+    |     </li>
+    |   </ul>
+
+--- Chunk 5: [pagination_buttons] ---
+  type=pagination freq=6 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1 HREF=1 IMG=5]
+  sample[0] (3L): First Steps Into Hermeticism: Train Your Mind, Tame Your Reality
+    |   <a href="https://ioccult.com/hermeticism/first-step-into-hermeticism/" target="_self">
+    |     <img width="1200" height="800" src="https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-..." class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="First Steps Into Hermeticism: Train Your Mind, Tame Your Reality" style="border-radius:20px;object-fit:cover;" decoding="async" loading="lazy" srcset="https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn.jpg 1200w, https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn-300x200.jpg 300w, https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn-1024x683.jpg 1024w, https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn-768x512.jpg 768w" sizes="auto, (max-width: 1200px) 100vw, 1200px"></img>
+    |   </a>
+  sample[1] (3L): First Steps Into Hermeticism: Train Your Mind, Tame Your Reality
+    |   <a href="https://ioccult.com/hermeticism/first-step-into-hermeticism/" target="_self">
+    |     First Steps Into Hermeticism: Train Your Mind, Tame Your Reality
+    |   </a>
+  sample[2] (1L): First Steps Into Hermeticism: Train Your Mind, Tame Your Reality
+    |   <img width="1200" height="800" src="https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-..." class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="First Steps Into Hermeticism: Train Your Mind, Tame Your Reality" style="border-radius:20px;object-fit:cover;" decoding="async" loading="lazy" srcset="https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn.jpg 1200w, https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn-300x200.jpg 300w, https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn-1024x683.jpg 1024w, https://ioccult.com/wp-content/uploads/2025/04/The-Hermetic-Order-of-the-Golden-Dawn-768x512.jpg 768w" sizes="auto, (max-width: 1200px) 100vw, 1200px"></img>
+
+--- Chunk 6: [text_content:p×124] ---
+  type=text_singleton freq=124 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Influencing fields like alchemy,astrology,magic, and modern psychology, Hermetic
+    |   <p>
+    |     Influencing fields like
+    |     <strong>
+    |       alchemy
+    |     </strong>
+    |   ... [9 lines truncated] ...
+    |     <strong>
+    |       modern psychology
+    |     </strong>
+    |     , Hermeticism offers a roadmap for inner transformation and understanding the cosmos.
+    | ... [1 more lines]
+  sample[1] (11L): The foundational texts of Hermeticism—the Corpus Hermeticum and Asclepius—were w
+    |   <p>
+    |     The foundational texts of Hermeticism—the
+    |     <em>
+    |       Corpus Hermeticum
+    |     </em>
+    |     and
+    |     <em>
+    |       Asclepius
+    |     </em>
+    |     —were written in Greek during the Roman occupation of Egypt.
+    | ... [1 more lines]
+  sample[2] (3L): It’s monotheistic, yes—but unlike religions built for mass adherence, Hermeticis
+    |   <p>
+    |     It’s monotheistic, yes—but unlike religions built for mass adherence, Hermeticism is inward-facing. It frames the divine not as a distant being accessible only through scripture or clergy, but as something present in everything—including you.
+    |   </p>
+
+--- Chunk 7: [text_content:p×3] ---
+  type=text_singleton freq=1 excl=0.90 LEAKS=130
+  pattern_xpath: ///div[contains(@class,'ollie')][contains(@class,'position')][contains(@class,'sticky')][contains(@class,'top')][contains(@class,'alignwide')]
+  content: [ATTR=35 HREF=59 IMG=137 TEXT=129]
+  sample[0] (31L) [TRUNCATED]: Core Concepts:Is Hermeticism a religion?Can you be a Christian and a Hermeticist
+    |   <div class="wp-block-group alignwide ollie-sticky-top has-global-padding is-layout-constrained wp-block-group-is-layout-constrained wp-container-3 is-position-sticky">
+    |     <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="border-radius:20px">
+    |       <div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-16341f39 wp-block-group-is-layout-flex" style="border-left-color:var(--wp--preset--color--main);border-left-width:1px;padding-r...">
+    |         <h3 class="wp-block-heading has-narrow-font-family has-medium-font-size" style="font-style:normal;font-weight:800">
+    |           <strong>
+    |             Best Occult Books
+    |           </strong>
+    |         </h3>
+    |         <div class="wp-block-query is-layout-flow wp-block-query-is-layout-flow">
+    |           <ul style="font-style:normal;font-weight:200;" class="wp-block-post-template is-layout-flow wp-container-core-post-template-is-layout-7ee76c0b wp-block-post-template-is-layout-flow">
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://images.squarespace-cdn.com/content/v1/58c46117d2b8573ccaeaafca/1671068630359-9N78D (img URL not in rendered)
+    [IMG] https://ioccult.com/wp-content/uploads/2025/04/Art-Loop-GIF-by-xponentialdesign.gif (img URL not in rendered)
+    [IMG] https://ioccult.com/wp-content/uploads/2025/04/giordano-bruno.jpg (img URL not in rendered)
+    [IMG] https://ioccult.com/wp-content/uploads/2025/04/giordano-bruno.jpg (img URL not in rendered)
+    [IMG] https://ioccult.com/wp-content/uploads/2025/04/giordano-bruno-300x150.jpg (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Core Concepts:Is Hermeticism a religion?Can you be a Christian and a H
+    [TEXT] What is Hermeticism? Is it a religion? Is it compatible with Christian
+    [TEXT] Since the fall of the Roman Empire, Christianity—specifically Roman Ca
+
+--- Chunk 8: [text_content:li×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (3L): The universe is a living mind.
+    |   <li>
+    |     The universe is a living mind.
+    |   </li>
+  sample[1] (3L): Human beings are divine sparks capable of awakening.
+    |   <li>
+    |     Human beings are divine sparks capable of awakening.
+    |   </li>
+  sample[2] (3L): Through spiritual knowledge (gnosis), one can align with higher realities.
+    |   <li>
+    |     Through spiritual knowledge (gnosis), one can align with higher realities.
+    |   </li>
+
+--- Chunk 9: [text_content:li×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (10L): The Kabbalah Unveiled(a partial translation of the Zohar, a key Kabbalistic text
+    |   <li>
+    |     <em>
+    |       The Kabbalah Unveiled
+    |     </em>
+    |     (a partial translation of the
+    |     <em>
+    |       Zohar
+    |     </em>
+    |     , a key Kabbalistic text)
+    |   </li>
+  sample[1] (6L): The Key of Solomon(a foundational grimoire)
+    |   <li>
+    |     <em>
+    |       The Key of Solomon
+    |     </em>
+    |     (a foundational grimoire)
+    |   </li>
+  sample[2] (5L): The Book of the Sacred Magic of Abramelin the Mage
+    |   <li>
+    |     <em>
+    |       The Book of the Sacred Magic of Abramelin the Mage
+    |     </em>
+    |   </li>
+
+--- Chunk 10: [text_content:li×4] ---
+  type=text_singleton freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (6L): Early 1880s: Mathers begins serious occult study, spending long periods at the B
+    |   <li>
+    |     <strong>
+    |       Early 1880s
+    |     </strong>
+    |     : Mathers begins serious occult study, spending long periods at the British Museum. He starts with military translations but quickly shifts to esoteric material.
+    |   </li>
+  sample[1] (6L): 1888: The Hermetic Order of the Golden Dawn is founded by Mathers, Westcott, and
+    |   <li>
+    |     <strong>
+    |       1888
+    |     </strong>
+    |     : The Hermetic Order of the Golden Dawn is founded by Mathers, Westcott, and Woodman. Mathers has already translated several key texts and is deep into Hermetic and Kabbalistic research.
+    |   </li>
+  sample[2] (6L): Late 1880s to mid-1890s: Mathers systematizes the Golden Dawn’s rituals, teachin
+    |   <li>
+    |     <strong>
+    |       Late 1880s to mid-1890s
+    |     </strong>
+    |     : Mathers systematizes the Golden Dawn’s rituals, teachings, and initiatory grade structure. This is the core period where the Golden Dawn’s system is built.
+    |   </li>
+
+--- Chunk 11: [text_content:li×7] ---
+  type=text_singleton freq=7 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (10L): Rhythm shows you that life comes in waves—ups and downs, seasons and cycles. Whe
+    |   <li>
+    |     <strong>
+    |       Rhythm
+    |     </strong>
+    |     shows you that life comes in waves—ups and downs, seasons and cycles. When things get tough, remember:
+    |     <strong>
+    |       this too will pass
+    |     </strong>
+    |     . Ride the wave, don’t fight it. You can even plan around it. If you know your energy dips midweek, build in rest time.
+    |   </li>
+  sample[1] (10L): Cause & Effect means that nothing “just happens.” Everything has a cause—even yo
+    |   <li>
+    |     <strong>
+    |       Cause & Effect
+    |     </strong>
+    |     means that nothing “just happens.” Everything has a cause—even your current situation. That’s not blame; it’s power. When you realize you can
+    |     <em>
+    |       cause
+    |     </em>
+    |     new outcomes, you stop feeling like a victim of chance.
+    |   </li>
+  sample[2] (6L): Vibration reminds you that everything moves. Emotions are energy. So if you’re f
+    |   <li>
+    |     <strong>
+    |       Vibration
+    |     </strong>
+    |     reminds you that everything moves. Emotions are energy. So if you’re feeling stuck or low, get your body moving—go for a walk, breathe deeply, listen to music that lifts you. Changing your state can change your frequency.
+    |   </li>
+
+--- Chunk 12: [text_content:li×6] ---
+  type=text_singleton freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (9L): Emerald Tablet– A cryptic alchemical text; famous for“As above, so below.”
+    |   <li>
+    |     <strong>
+    |       Emerald Tablet
+    |     </strong>
+    |     – A cryptic alchemical text; famous for
+    |     <em>
+    |       “As above, so below.”
+    |     </em>
+    |   </li>
+  sample[1] (6L): Corpus Hermeticum– Foundational dialogues on cosmology and divinity.
+    |   <li>
+    |     <strong>
+    |       Corpus Hermeticum
+    |     </strong>
+    |     – Foundational dialogues on cosmology and divinity.
+    |   </li>
+  sample[2] (6L): Asclepius– Explores the role of gods and human potential.
+    |   <li>
+    |     <strong>
+    |       Asclepius
+    |     </strong>
+    |     – Explores the role of gods and human potential.
+    |   </li>
+
+--- Chunk 13: [text_content:li×5] ---
+  type=text_singleton freq=5 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (6L): Caduceus– Often mistaken for a medical symbol, this is the staff of Hermes, topp
+    |   <li>
+    |     <strong>
+    |       Caduceus
+    |     </strong>
+    |     – Often mistaken for a medical symbol, this is the staff of Hermes, topped with wings and entwined by two serpents. It represents balance, duality, and the merging of opposites—masculine and feminine, spiritual and material, above and below. It’s also a symbol of healing and energetic alignment.
+    |   </li>
+  sample[1] (6L): Hermetic Seal (or Seal of Hermes)– A lesser-known but powerful symbol, often rep
+    |   <li>
+    |     <strong>
+    |       Hermetic Seal (or Seal of Hermes)
+    |     </strong>
+    |     – A lesser-known but powerful symbol, often representing the integration of body, soul, and spirit—the three parts of the human being working in harmony.
+    |   </li>
+  sample[2] (6L): Ouroboros– The snake eating its own tail. This ancient image represents cyclical
+    |   <li>
+    |     <strong>
+    |       Ouroboros
+    |     </strong>
+    |     – The snake eating its own tail. This ancient image represents cyclical time, rebirth, and the eternal return—the idea that endings and beginnings are one and the same. It’s also a nod to the self-reflective nature of the universe: consciousness feeding itself.
+    |   </li>
+
+--- Chunk 14: [text_content:p×9] ---
+  type=text_singleton freq=9 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (7L): No—it’s more of a spiritual philosophy. There’s no centralized church or dogma.
+    |   <p>
+    |     No—it’s more of a
+    |     <strong>
+    |       spiritual philosophy
+    |     </strong>
+    |     . There’s no centralized church or dogma.
+    |   </p>
+  sample[1] (3L): FAQs
+    |   <h2 class="wp-block-heading">
+    |     FAQs
+    |   </h2>
+  sample[2] (3L): Does Hermeticism involve magic?
+    |   <h3 class="wp-block-heading">
+    |     Does Hermeticism involve magic?
+    |   </h3>
+
+--- Chunk 15: [text_content:h3×3] ---
+  type=text_singleton freq=1 excl=0.50 LEAKS=104
+  pattern_xpath: ///div[contains(@class,'alignwide')][contains(@class,'ollie')][contains(@class,'sticky')]/div[contains(@class,'constrained')][contains(@class,'global')][contains(@class,'padding')][contains(@style,'border')][contains(@style,'px')]
+  content: [ATTR=29 HREF=59 IMG=111 TEXT=69]
+  sample[0] (31L) [TRUNCATED]: Core Concepts:Is Hermeticism a religion?Can you be a Christian and a Hermeticist
+    |   <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="border-radius:20px">
+    |     <div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-16341f39 wp-block-group-is-layout-flex" style="border-left-color:var(--wp--preset--color--main);border-left-width:1px;padding-r...">
+    |       <h3 class="wp-block-heading has-narrow-font-family has-medium-font-size" style="font-style:normal;font-weight:800">
+    |         <strong>
+    |           Best Occult Books
+    |         </strong>
+    |       </h3>
+    |       <div class="wp-block-query is-layout-flow wp-block-query-is-layout-flow">
+    |         <ul style="font-style:normal;font-weight:200;" class="wp-block-post-template is-layout-flow wp-container-core-post-template-is-layout-7ee76c0b wp-block-post-template-is-layout-flow">
+    |           <li class="wp-block-post post-689 occult-book type-occult-book status-publish format-standard has-post-thumbnail hentry topics-magick topics-qabalah-kabbalah topics-tarot">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://ioccult.com/occult-book/the-mystical-qabalah/ (href not in rendered output)
+    [HREF] https://ioccult.com/occult-book/between-the-gates-mark-stavish/ (href not in rendered output)
+    [HREF] https://ioccult.com/occult-book/the-gnostic-gospels/ (href not in rendered output)
+    [HREF] https://ioccult.com/occult-book/meditations-on-the-tarot-a-journey-into-christian-hermetic (href not in rendered output)
+    [HREF] https://ioccult.com/occult-book/hermetica-the-greek-corpus-hermeticum-and-the-latin-asclep (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Core Concepts:Is Hermeticism a religion?Can you be a Christian and a H
+    [TEXT] . There’s no centralized church or dogma.Yes. Christian Hermeticism se
+    [TEXT] – The unknowable, divine source of all reality.
+
+--- Chunk 16: [text_content:li×3] ---
+  type=text_singleton freq=3 excl=0.00 OUTLIER=3.7x
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (11L): Through spiritual knowledge (gnosis), one can align with higher realities.The Ke
+    |   <li>
+    |     Through spiritual knowledge (gnosis), one can align with higher realities.
+    |     <em>
+    |       The Key of SolomonThe Book of the Sacred Magic of Abramelin the MageThe Kabbalah UnveiledZohar“As above, so below.”
+    |     </em>
+    |     (a foundational grimoire) (a partial translation of the , a key Kabbalistic text)
+    |     <strong>
+    |       Early 1880s1888Late 1880s to mid-1890sBy 1900Corpus HermeticumThe Kybalion (1908)AsclepiusEmerald TabletInitiation Into Hermetics (Franz Bardon)Meditations on the TarotCaduceusHermetic Seal (or Seal of Hermes)AnkhOuroborosPhilosopher’s Stone
+    |     </strong>
+    |     : Mathers begins serious occult study, spending long periods at the British Museum. He starts with military translations but quickly shifts to esoteric material.: The Hermetic Order of the Golden Dawn is founded by Mathers, Westcott, and Woodman. Mathers has already translated several key texts and is deep into Hermetic and Kabbalistic research.: Mathers systematizes the Golden Dawn’s rituals, teachings, and initiatory grade structure. This is the core period where the Golden Dawn’s system is built.: The Golden Dawn becomes the most influential magical order in modern history. – Foundational dialogues on cosmology and divinity. – A modern summary of Hermetic laws, attributed to the “Three Initiates.” – Explores the role of gods and human potential. – A cryptic alchemical text; famous for  – A step-by-step guide to magical training. – A Christian-Hermetic mystical text exploring archetypes and spiritual evolution. – Often mistaken for a medical symbol, this is the staff of Hermes, topped with wings and entwined by two serpents. It represents balance, duality, and the merging of opposites—masculine and feminine, spiritual and material, above and below. It’s also a symbol of healing and energetic alignment. – A lesser-known but powerful symbol, often representing the integration of body, soul, and spirit—the three parts of the human being working in harmony. – Borrowed from Egyptian tradition, the ankh symbolizes life, eternal consciousness, and the divine force that animates all things. In Hermeticism, it serves as a reminder that life and spirit are inseparable. – The snake eating its own tail. This ancient image represents cyclical time, rebirth, and the eternal return—the idea that endings and beginnings are one and the same. It’s also a nod to the self-reflective nature of the universe: consciousness feeding itself. – Not a literal object, but a symbol of spiritual transformation. It represents the alchemical goal of turning base matter (or a base life) into gold—awakening to your true, divine self.The universe is a living mind.Human beings are divine sparks capable of awakening.
+    | ... [1 more lines]
+  sample[1] (3L): The universe is a living mind.
+    |   <li>
+    |     The universe is a living mind.
+    |   </li>
+  sample[2] (3L): Human beings are divine sparks capable of awakening.
+    |   <li>
+    |     Human beings are divine sparks capable of awakening.
+    |   </li>
+
+--- Chunk 17: [text_content:h2×2] ---
+  type=text_singleton freq=1 excl=0.80
+  pattern_xpath: ///div[contains(@class,'cb')][contains(@class,'justification')][contains(@class,'left')][contains(@class,'alignwide')][contains(@class,'content')]
+  content: [TEXT=3]
+  sample[0] (13L): Learn More About Hermeticism, Its Practices & Core Tenets…“True magic therefore 
+    |   <div class="wp-block-group alignwide wp-container-content-9e2f13cb is-vertical is-content-justification-left is-layout-flex wp-container-core-group-is-layout-32091062 wp-block-group-is-layout-flex">
+    |     <h2 class="wp-block-heading">
+    |       Learn More About Hermeticism, Its Practices & Core Tenets…
+    |     </h2>
+    |     <p>
+    |       <em>
+    |         “True magic therefore is the high knowledge of the more subtle powers that have not yet been acknowledged by science up to this date because the methods of scrutiny that have been applied so far do not suffice for their grasping, understanding and utilization, although the laws of magic are analogous to all official sciences of the world.”
+    |         <strong>
+    |           Franz Bardon
+    |         </strong>
+    | ... [3 more lines]
+
+--- Chunk 18: [text_content:p×2] ---
+  type=text_singleton freq=1 excl=0.67 LEAKS=91
+  pattern_xpath: ///div[contains(@class,'alignfull')][contains(@class,'flow')][contains(@class,'query')][contains(@class,'is')][contains(@class,'layout')]
+  content: [ATTR=16 HREF=55 IMG=86 TEXT=52]
+  sample[0] (31L) [TRUNCATED]: What is Hermeticism? Is it a religion? Is it compatible with Christianity? Here’
+    |   <div class="wp-block-query alignfull is-layout-flow wp-block-query-is-layout-flow">
+    |     <ul class="wp-block-post-template is-layout-flow wp-block-post-template-is-layout-flow">
+    |       <li class="wp-block-post post-819 hermeticism type-hermeticism status-publish has-post-thumbnail hentry topics-qabalah-kabbalah">
+    |         <div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
+    |           <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:15%">
+    |             <div style="font-style:normal;font-weight:700" class="taxonomy-topics has-link-color wp-elements-152aaa369c68f9a67265792fdceeabd4 wp-block-post-terms has-text-color has-primary-alt-color has-x-small-font-size">
+    |               <a href="https://ioccult.com/topics/qabalah-kabbalah/" rel="tag">
+    |                 Qabalah / Kabbalah
+    |               </a>
+    |             </div>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.electrikjam.com/buying-guides/ (href not in rendered output)
+    [IMG] https://secure.gravatar.com/avatar/7b7e7bbd81ce1b1b5110f1faaa5b443310114c8760968976d3f522f (img URL not in rendered)
+    [IMG] https://secure.gravatar.com/avatar/7b7e7bbd81ce1b1b5110f1faaa5b443310114c8760968976d3f522f (img URL not in rendered)
+    [IMG] https://secure.gravatar.com/avatar/7b7e7bbd81ce1b1b5110f1faaa5b443310114c8760968976d3f522f (img URL not in rendered)
+    [IMG] https://secure.gravatar.com/avatar/7b7e7bbd81ce1b1b5110f1faaa5b443310114c8760968976d3f522f (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] What is Hermeticism? Is it a religion? Is it compatible with Christian
+    [TEXT] Learn More About Hermeticism, Its Practices & Core Tenets…
+    [TEXT] “True magic therefore is the high knowledge of the more subtle powers 
+
+--- Chunk 19: [text_content:li×4] ---
+  type=text_singleton freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (6L): The All– The unknowable, divine source of all reality.
+    |   <li>
+    |     <strong>
+    |       The All
+    |     </strong>
+    |     – The unknowable, divine source of all reality.
+    |   </li>
+  sample[1] (6L): Mental Universe– Reality is a projection of a universal consciousness.
+    |   <li>
+    |     <strong>
+    |       Mental Universe
+    |     </strong>
+    |     – Reality is a projection of a universal consciousness.
+    |   </li>
+  sample[2] (6L): Divine Spark– Every person contains a fragment of the divine.
+    |   <li>
+    |     <strong>
+    |       Divine Spark
+    |     </strong>
+    |     – Every person contains a fragment of the divine.
+    |   </li>
+
+--- Chunk 20: [text_content:li×4] ---
+  type=text_singleton freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (6L): The All– The unknowable, divine source of all reality.
+    |   <li>
+    |     <strong>
+    |       The All
+    |     </strong>
+    |     – The unknowable, divine source of all reality.
+    |   </li>
+  sample[1] (6L): Mental Universe– Reality is a projection of a universal consciousness.
+    |   <li>
+    |     <strong>
+    |       Mental Universe
+    |     </strong>
+    |     – Reality is a projection of a universal consciousness.
+    |   </li>
+  sample[2] (6L): Divine Spark– Every person contains a fragment of the divine.
+    |   <li>
+    |     <strong>
+    |       Divine Spark
+    |     </strong>
+    |     – Every person contains a fragment of the divine.
+    |   </li>
+
+--- Chunk 21: [text_content:li×8] ---
+  type=text_singleton freq=8 excl=0.33
+  pattern_xpath: ///div[contains(@class,'query')][contains(@class,'alignfull')][contains(@class,'flow')]//li[contains(@class,'hentry')][contains(@class,'hermeticism')][contains(@class,'publish')][contains(@class,'status')][contains(@class,'topics')]
+  content: [ATTR=1 HREF=3 IMG=5 TEXT=3]
+  sample[0] (11L) [TRUNCATED]: Hermeticism,Philosophy Qabalah / Kabbalah Magick,Tarot Astral Projection Hermeti
+    |   <li class="wp-block-post post-561 hermeticism type-hermeticism status-publish has-post-thumbnail hentry topics-hermeticism topics-philosophy">
+    |     <div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
+    |       <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:15%">
+    |         <div style="font-style:normal;font-weight:700" class="taxonomy-topics has-link-color wp-elements-152aaa369c68f9a67265792fdceeabd4 wp-block-post-terms has-text-color has-primary-alt-color has-x-small-font-size">
+    |           <a href="https://ioccult.com/topics/hermeticism/" rel="tag">
+    |   ... [102 lines truncated] ...
+    |         </figure>
+    |       </div>
+    |     </div>
+    |     <hr class="wp-block-separator alignwide has-text-color has-border-dark-color has-alpha-channel-opacity has-border-dark-background-color has-background is-style-separator-thin" style="margin-top:var(--wp--preset--spacing--large);margin-bottom:var(--wp--preset--spa..."></hr>
+    | ... [1 more lines]
+
+--- Chunk 22: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Natal Chart Reading
+    |   <p>
+    |     <a href="https://ioccult.com/natal-chart-reading/">
+    |       <strong>
+    |         Natal Chart Reading
+    |       </strong>
+    |     </a>
+    |   </p>
+  sample[1] (7L): Best Occult Books
+    |   <p>
+    |     <a href="https://ioccult.com/occult-book/">
+    |       <strong>
+    |         Best Occult Books
+    |       </strong>
+    |     </a>
+    |   </p>
+  sample[2] (7L): Best Occult Writers
+    |   <p>
+    |     <strong>
+    |       <a href="https://ioccult.com/occultist-database/">
+    |         Best Occult Writers
+    |       </a>
+    |     </strong>
+    |   </p>
+
+--- Chunk 23: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Hermeticism
+    |   <p>
+    |     <strong>
+    |       <a href="https://ioccult.com/occult-tradition/hermeticism-explained/">
+    |         Hermeticism
+    |       </a>
+    |     </strong>
+    |   </p>
+  sample[1] (7L): Magick
+    |   <p>
+    |     <a href="https://ioccult.com/occult-tradition/">
+    |       <strong>
+    |         Magick
+    |       </strong>
+    |     </a>
+    |   </p>
+  sample[2] (7L): Astral Projection
+    |   <p>
+    |     <strong>
+    |       <a href="https://ioccult.com/occult-tradition/">
+    |         Astral Projection
+    |       </a>
+    |     </strong>
+    |   </p>
+
+--- Chunk 24: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Tree of Life & SephirothBest Occult Writers Hermeticism Astral ProjectionChaos M
+    |   <p>
+    |     <strong>
+    |       <a href="https://ioccult.com/occultist-database/">
+    |         Tree of Life & SephirothBest Occult Writers
+    |       </a>
+    |   ... [18 lines truncated] ...
+    |       <strong>
+    |         Best Occult Books
+    |       </strong>
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (7L): Natal Chart Reading
+    |   <p>
+    |     <a href="https://ioccult.com/natal-chart-reading/">
+    |       <strong>
+    |         Natal Chart Reading
+    |       </strong>
+    |     </a>
+    |   </p>
+  sample[2] (7L): Best Occult Books
+    |   <p>
+    |     <a href="https://ioccult.com/occult-book/">
+    |       <strong>
+    |         Best Occult Books
+    |       </strong>
+    |     </a>
+    |   </p>
+
+--- Chunk 25: [nav_content:li×11] ---
+  type=menu_item freq=11 excl=0.47
+  pattern_xpath: ///li[contains(@class,'book')][contains(@class,'format')][contains(@class,'occult')][contains(@class,'standard')][contains(@class,'hentry')]
+  content: [ATTR=1 HREF=2 IMG=5 TEXT=2]
+  sample[0] (11L) [TRUNCATED]: Magick Without Tears The Complete Golden Dawn System of Magic The Mystical Qabal
+    |   <div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-6c531013 wp-block-group-is-layout-flex">
+    |     <figure style="width:150px;height:150px;" class="wp-block-post-featured-image">
+    |       <a href="https://ioccult.com/occult-book/kybalion-a-study-of-the-hermetic-philosophy-of-ancient-egypt-and-greece/" target="_self" style="height:150px">
+    |         <img width="625" height="1000" src="https://ioccult.com/wp-content/uploads/2025/04/61c1NR5RPQS._AC_UF8941000_QL80_.j..." class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Kybalion: A Study of the Hermetic Philosophy of Ancient Egypt and Greece" style="height:150px;object-fit:contain;" decoding="async" loading="lazy" srcset="https://ioccult.com/wp-content/uploads/2025/04/61c1NR5RPQS._AC_UF8941000_QL80_.jpg 625w, https://ioccult.com/wp-content/uploads/2025/04/61c1NR5RPQS._AC_UF8941000_QL80_-188x300.jpg 188w" sizes="auto, (max-width: 625px) 100vw, 625px"></img>
+    |       </a>
+    |   ... [61 lines truncated] ...
+    |       <span class="value">
+    |         IntermediateAdvancedBeginner
+    |       </span>
+    |     </p>
+    | ... [1 more lines]
+
+--- Chunk 26: [nav_content:a×7] ---
+  type=menu_item freq=7 excl=0.39
+  pattern_xpath: ///a[contains(@class,'item')][contains(@class,'content')][contains(@class,'navigation')][contains(@class,'block')][contains(@class,'wp')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Best Occult Books
+    |   <li class="has-base-font-size wp-block-navigation-item wp-block-navigation-link">
+    |     <a class="wp-block-navigation-item__content" href="https://ioccult.com/occult-book/">
+    |       <span class="wp-block-navigation-item__label">
+    |         Best Occult Books
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[1] (7L): Notable Occultists
+    |   <li class="has-base-font-size wp-block-navigation-item wp-block-navigation-link">
+    |     <a class="wp-block-navigation-item__content" href="https://ioccult.com/occultist-database/">
+    |       <span class="wp-block-navigation-item__label">
+    |         Notable Occultists
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (5L): Best Occult Books
+    |   <a class="wp-block-navigation-item__content" href="https://ioccult.com/occult-book/">
+    |     <span class="wp-block-navigation-item__label">
+    |       Best Occult Books
+    |     </span>
+    |   </a>
+
+--- Chunk 27: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h1[contains(@class,'color')][contains(@class,'ea')][contains(@class,'ef')][contains(@class,'elements')][contains(@class,'main')]
+  content: [TEXT=1]
+  sample[0] (3L): Hermeticism Explained: A Beginner-Friendly Overview of The Absolute Basics
+    |   <h1 class="has-link-color wp-elements-d856945a4c20b585ef3ea6c7f8e0d8f2 wp-block-post-title has-text-color has-main-color">
+    |     Hermeticism Explained: A Beginner-Friendly Overview of The Absolute Basics
+    |   </h1>
+
+--- Chunk 28: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.11
+  pattern_xpath: ///h3[contains(@class,'heading')][contains(@class,'block')][contains(@class,'wp')]
+  content: [TEXT=1]
+  sample[0] (3L): Core Concepts:
+    |   <h3 class="wp-block-heading">
+    |     Core Concepts:
+    |   </h3>
+
+--- Chunk 29: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h3[contains(@class,'family')][contains(@class,'medium')][contains(@class,'narrow')][contains(@style,'font')][contains(@style,'normal')]
+  content: [TEXT=1]
+  sample[0] (5L): Best Occult Books
+    |   <h3 class="wp-block-heading has-narrow-font-family has-medium-font-size" style="font-style:normal;font-weight:800">
+    |     <strong>
+    |       Best Occult Books
+    |     </strong>
+    |   </h3>
+
+--- Chunk 30: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h4[contains(@class,'base')][contains(@class,'title')][contains(@class,'font')][contains(@class,'size')][contains(@class,'post')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Magick Without Tears
+    |   <h4 class="wp-block-post-title has-base-font-size">
+    |     <a href="https://ioccult.com/occult-book/magick-without-tears/" target="_self">
+    |       Magick Without Tears
+    |     </a>
+    |   </h4>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h4[contains(@class,'base')][contains(@class,'title')][contains(@class,'font')][contains(@class,'size')][contains(@class,'post')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): The Mystical Qabalah
+    |   <h4 class="wp-block-post-title has-base-font-size">
+    |     <a href="https://ioccult.com/occult-book/the-mystical-qabalah/" target="_self">
+    |       The Mystical Qabalah
+    |     </a>
+    |   </h4>
+
+--- Chunk 32: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h4[contains(@class,'base')][contains(@class,'title')][contains(@class,'font')][contains(@class,'size')][contains(@class,'post')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Between The Gates
+    |   <h4 class="wp-block-post-title has-base-font-size">
+    |     <a href="https://ioccult.com/occult-book/between-the-gates-mark-stavish/" target="_self">
+    |       Between The Gates
+    |     </a>
+    |   </h4>
+
+--- Chunk 33: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///div[contains(@class,'nowrap')]/h4[contains(@class,'base')][contains(@class,'title')][contains(@class,'font')][contains(@class,'size')][contains(@class,'post')]
+  content: [HREF=10 TEXT=10]
+  sample[0] (31L) [TRUNCATED]: Magick Without Tears The Complete Golden Dawn System of Magic The Mystical Qabal
+    |   <h4 class="wp-block-post-title has-base-font-size">
+    |     <a href="https://ioccult.com/occult-book/magick-without-tears/" target="_self">
+    |       Magick Without Tears
+    |     </a>
+    |     <a href="https://ioccult.com/occult-book/the-complete-golden-dawn-system-of-magic/" target="_self">
+    |       The Complete Golden Dawn System of Magic
+    |     </a>
+    |     <a href="https://ioccult.com/occult-book/the-mystical-qabalah/" target="_self">
+    |       The Mystical Qabalah
+    |     </a>
+    | ... [21 more lines]

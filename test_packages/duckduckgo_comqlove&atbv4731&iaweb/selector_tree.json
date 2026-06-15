@@ -1,0 +1,1145 @@
+{
+  "//span[contains(@class,'kY2IgmnCmOGjharHErah')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///span[contains(@class,'cm')][contains(@class,'erah')][contains(@class,'gjhar')][contains(@class,'igmn')][contains(@style,'clamp')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'MILR5XIVy9h75WrLvKiq')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//span": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//b": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//span": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///span",
+    "content_types": [],
+    "children": {
+      "//b": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//div[contains(@class,'OgdwYG6KE2qthn9XQWFC')]": {
+    "chunk_ids": [
+      2,
+      3
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///div[contains(@class,'ke')][contains(@class,'ogdw')][contains(@class,'qthn')][contains(@class,'xqwfc')][contains(@class,'yg')]",
+    "content_types": [],
+    "children": {
+      "//div": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'kY2IgmnCmOGjharHErah')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//span": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//b": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//span[contains(@class,'MILR5XIVy9h75WrLvKiq')]": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//p[contains(@class,'fOCEb2mA3YZTJXXjpgdS')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a[contains(@class,'Rn_JXVtoPVAFyGkcaXyK')][contains(@class,'VkOimy54PtIClAT3GMbr')][contains(@data-testid,'result-extras-url-link')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'xS2NxE06pIznLuh2xjH0')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//p[contains(@class,'veU5I0hFkgFGOPhX2RBE')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//span[contains(@class,'DpVR46dTZaePK29PDkz8')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'c_ZIRTZwvW2k4q8TtKU0')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//img": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'kFFXe30DOpq5j1hbWU1q')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///a[contains(@class,'hb')][contains(@class,'opq')][contains(@class,'wu')][contains(@class,'ff')][contains(@class,'co')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//div[contains(@class,'SfPBnUs0AxzI2ky1twl4')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "card",
+    "frequency": 20,
+    "pattern_xpath": "///div[contains(@class,'axz')][contains(@class,'bn')][contains(@class,'ky')][contains(@class,'sf')][contains(@class,'twl')]",
+    "content_types": [],
+    "children": {
+      "//img": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'KbjPZIgnxwx9h1rUDQmB')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'q2xMuJ4LmpEPVNWeqxku')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {
+              "//i[contains(@class,'ddgsi')][contains(@class,'ddgsi-play')]": {
+                "chunk_ids": [
+                  5
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//p[contains(@class,'q2xMuJ4LmpEPVNWeqxku')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'ikg2IXiCD14iVX7AdZo1')]": {
+    "chunk_ids": [
+      6
+    ],
+    "classification": "card",
+    "frequency": 20,
+    "pattern_xpath": "///div[contains(@class,'ad')][contains(@class,'ikg')][contains(@class,'xi')][contains(@class,'zo')][contains(@class,'cd')]",
+    "content_types": [],
+    "children": {
+      "//h2[contains(@class,'LnpumSThxEWMIsDdAT17')][contains(@class,'CXMyPcQ6nDv47DKFeywM')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@class,'eVNpHGjtxRBq_gLOfGDr')][contains(@class,'LQNqh2U1kzYxREs65IJu')][contains(@data-testid,'result-title-a')]": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'EKtkFWMYpwzMKOYr0GYm')][contains(@class,'LQVY1Jpkk8nyJ6HBWKAk')]": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//span[contains(@class,'DpVR46dTZaePK29PDkz8')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "card",
+    "frequency": 10,
+    "pattern_xpath": "///span[contains(@class,'dkz')][contains(@class,'dp')][contains(@class,'pk')][contains(@class,'vr')][contains(@class,'zae')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'c_ZIRTZwvW2k4q8TtKU0')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//button[contains(@class,'KgNxxkTBFukWwMHj69e9')][contains(@class,'uuIDnYC4qmyFk5dsXOhr')]": {
+    "chunk_ids": [
+      8
+    ],
+    "classification": "button",
+    "frequency": 18,
+    "pattern_xpath": "///button[contains(@class,'aur')][contains(@class,'byk')][contains(@class,'cy')][contains(@class,'esp')][contains(@class,'fidpg')]",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'Ocw5o1A9hYKqAfet3KZP')][contains(@role,'combobox')]": {
+    "chunk_ids": [
+      9
+    ],
+    "classification": "search_input",
+    "frequency": 12,
+    "pattern_xpath": "///input",
+    "content_types": [],
+    "children": {}
+  },
+  "//button[contains(@class,'wE5p3MOcL8UVdJhgH3V1')][contains(@class,'ffON2NH02oMAcqyoh2UU')]": {
+    "chunk_ids": [
+      10
+    ],
+    "classification": "pagination",
+    "frequency": 95,
+    "pattern_xpath": "///div",
+    "content_types": [],
+    "children": {}
+  },
+  "//li[contains(@class,'L6fj2A3X2mfJl5kE8caF')]": {
+    "chunk_ids": [
+      11,
+      12,
+      44,
+      45
+    ],
+    "classification": "text_singleton",
+    "frequency": 12,
+    "pattern_xpath": "///li[contains(@class,'ll')][contains(@class,'xnd')][contains(@class,'zpzpf')][contains(@data-layout,'organic')]",
+    "content_types": [],
+    "children": {
+      "//div": {
+        "chunk_ids": [
+          11
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'module')][contains(@class,'ia-module--definitions')]": {
+            "chunk_ids": [
+              11
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'module__content')]": {
+                "chunk_ids": [
+                  11
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'module__title')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'module__audio')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'module--definitions__collapsed-group')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'module--definitions__group')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'module--definitions__attribution')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'module__toggle')][contains(@class,'js-definitions-toggle')]": {
+                "chunk_ids": [
+                  11
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'module__toggle--more')][contains(@class,'js-definitions-more')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'module__toggle--less')][contains(@class,'js-definitions-less')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'react-feedback-prompt-mvc-wrapper')][contains(@class,'react-feedback-prompt-mvc-wrapper--dictionary_definition')]": {
+            "chunk_ids": [
+              11
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'ZvcE0ToM7Sfi6iwk7KiJ')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+                "chunk_ids": [
+                  11
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'QLnrpZotv4aJbXfgALkx')]": {
+                    "chunk_ids": [
+                      11
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'react-module')]": {
+        "chunk_ids": [
+          12
+        ],
+        "content_types": [],
+        "children": {
+          "//div": {
+            "chunk_ids": [
+              12
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'wbUB0U7KMDyukXtzMd8Y')][contains(@class,'hoUWqHNnn8Kv_pLhPzPQ')]": {
+                "chunk_ids": [
+                  12
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'O9Ipab51rBntYb0pwOQn')][contains(@class,'zBanFIEymeySULdnPIUg')][contains(@data-testid,'about')]": {
+                    "chunk_ids": [
+                      12
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'ZvcE0ToM7Sfi6iwk7KiJ')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+                    "chunk_ids": [
+                      12
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'_eP8PCEWF4vxN8szf1UD')]": {
+                "chunk_ids": [
+                  44
+                ],
+                "content_types": [],
+                "children": {
+                  "//h2[contains(@class,'oYI9G526iG1UEym9s8sH')]": {
+                    "chunk_ids": [
+                      44
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'f95otOmnNwmTAEV73EtX')]": {
+                    "chunk_ids": [
+                      45
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'d_eQBnf0DHTCnRSJI4rN')][contains(@class,'gA3vD4OoSQAABSmB1vIc')]": {
+                "chunk_ids": [
+                  44
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'lP3HJlJf2lcsJI8JaaaC')]": {
+                    "chunk_ids": [
+                      44
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'PfvNgVSfawyQ9b5tGYf3')]": {
+                    "chunk_ids": [
+                      44
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'ZHC6SwK8xrLIYdCfOHir')]": {
+                "chunk_ids": [
+                  44
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'HHJGgzrZRmw9obWw1QS1')][contains(@class,'CAf57cZjEDqjVgzhPVkZ')]": {
+                    "chunk_ids": [
+                      44
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div": {
+                "chunk_ids": [
+                  44
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'ZvcE0ToM7Sfi6iwk7KiJ')][contains(@class,'wZ4JdaHxSAhGy1HoNVja')]": {
+                    "chunk_ids": [
+                      44
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'d_eQBnf0DHTCnRSJI4rN')]": {
+                "chunk_ids": [
+                  45
+                ],
+                "content_types": [],
+                "children": {
+                  "//ul[contains(@class,'Ja_JuvQqj4pzJXnibmFu')]": {
+                    "chunk_ids": [
+                      45
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'module--definitions__definition')]": {
+    "chunk_ids": [
+      13,
+      14,
+      15
+    ],
+    "classification": "text_singleton",
+    "frequency": 3,
+    "pattern_xpath": "///li[contains(@class,'definition')][contains(@class,'definitions')][contains(@class,'module')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//li[contains(@class,'nav-menu__item')]": {
+    "chunk_ids": [
+      16,
+      18,
+      19,
+      20
+    ],
+    "classification": "menu_item",
+    "frequency": 5,
+    "pattern_xpath": "///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'nav')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'nav-menu__item')][contains(@class,'has-badge')]": {
+    "chunk_ids": [
+      17
+    ],
+    "classification": "menu_item",
+    "frequency": 6,
+    "pattern_xpath": "///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'nav')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          17
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li": {
+    "chunk_ids": [
+      21
+    ],
+    "classification": "menu_item",
+    "frequency": 4,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'kFFXe30DOpq5j1hbWU1q')][contains(@class,'SnptgjT2zdOhGYfNng6g')]": {
+        "chunk_ids": [
+          21
+        ],
+        "content_types": [],
+        "children": {
+          "//svg": {
+            "chunk_ids": [
+              21
+            ],
+            "content_types": [],
+            "children": {
+              "//g": {
+                "chunk_ids": [
+                  21
+                ],
+                "content_types": [],
+                "children": {
+                  "//path": {
+                    "chunk_ids": [
+                      21
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'O9Ipab51rBntYb0pwOQn')][contains(@class,'VArA7TrVx3HrxBUjI2BE')]": {
+    "chunk_ids": [
+      22,
+      23
+    ],
+    "classification": "menu_item",
+    "frequency": 10,
+    "pattern_xpath": "///li[contains(@class,'ar')][contains(@class,'be')][contains(@class,'bnt')][contains(@class,'gi')][contains(@class,'hrx')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'YtVpvnV0wiS5JxqdNhjW')]": {
+        "chunk_ids": [
+          22
+        ],
+        "content_types": [],
+        "children": {
+          "//article": {
+            "chunk_ids": [
+              22
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'SfPBnUs0AxzI2ky1twl4')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//img": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'KbjPZIgnxwx9h1rUDQmB')]": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'yVw_DLGA8V1DFnEgeayg')][contains(@class,'e5fo4U9Rcxl01obx2mmG')]": {
+                "chunk_ids": [
+                  22
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      22
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'LoKp3Fw5tsPJr5z6FWa0')]": {
+    "chunk_ids": [
+      24
+    ],
+    "classification": "menu_item",
+    "frequency": 10,
+    "pattern_xpath": "///a",
+    "content_types": [],
+    "children": {
+      "//h3[contains(@class,'WfyrfHbpzfS5EiGZDeLv')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+        "chunk_ids": [
+          24
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'AslhWnAFZ5lUdU7yLCCa')]": {
+        "chunk_ids": [
+          24
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'cuV1YO5OpXpi1oBDAZUX')]": {
+            "chunk_ids": [
+              24
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  24
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//p[contains(@class,'SdDhImKi0Wx51uB1gMgj')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+                "chunk_ids": [
+                  24
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'pEDfffNWK95B40qLiH6K')][contains(@class,'pLuSovrShNN7AOJjzr3X')]": {
+            "chunk_ids": [
+              24
+            ],
+            "content_types": [],
+            "children": {
+              "//button[contains(@class,'ZTlforvSnW3Da88m06UE')][contains(@class,'uuIDnYC4qmyFk5dsXOhr')]": {
+                "chunk_ids": [
+                  24
+                ],
+                "content_types": [],
+                "children": {
+                  "//svg": {
+                    "chunk_ids": [
+                      24
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'Z8pRo7pyGMn7l91usG5P')]": {
+                "chunk_ids": [
+                  24
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'BoCeoI0vHEVMoOihZ97k')]": {
+                    "chunk_ids": [
+                      24
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div": {
+                    "chunk_ids": [
+                      24
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//img": {
+                "chunk_ids": [
+                  24
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//p[contains(@class,'SdDhImKi0Wx51uB1gMgj')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+                "chunk_ids": [
+                  24
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//h3[contains(@class,'wZ4JdaHxSAhGy1HoNVja')][contains(@class,'d26Geqs1C__RaCO7MUs2')]": {
+    "chunk_ids": [
+      25,
+      26
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'co')][contains(@class,'geqs')][contains(@class,'ra')][contains(@class,'us')][contains(@class,'ah')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3[contains(@class,'module--definitions__part-of-speech')]": {
+    "chunk_ids": [
+      27
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'of')][contains(@class,'part')][contains(@class,'speech')][contains(@class,'definitions')][contains(@class,'module')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'Ee2e63EzQ9F3xq9wsGDY')]": {
+    "chunk_ids": [
+      28
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'ee')][contains(@class,'ez')][contains(@class,'gdy')][contains(@class,'ws')][contains(@class,'xq')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3[contains(@class,'WfyrfHbpzfS5EiGZDeLv')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+    "chunk_ids": [
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'al')][contains(@class,'bnu')][contains(@class,'cl')][contains(@class,'de')][contains(@class,'ei')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3[contains(@class,'wZ4JdaHxSAhGy1HoNVja')][contains(@class,'yGEuosa_aZeFroGMfpgu')]": {
+    "chunk_ids": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'ac')][contains(@class,'dt')][contains(@class,'euosa')][contains(@class,'fro')][contains(@class,'ggh')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'iG_4ddXAebCuV5uXoJbL')][contains(@class,'kY2IgmnCmOGjharHErah')]": {
+        "chunk_ids": [
+          34
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'JsSUJuBuiMOz1I2mjVBu')]": {
+    "chunk_ids": [
+      46,
+      47,
+      48
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///li[contains(@class,'bu')][contains(@class,'bui')][contains(@class,'ju')][contains(@class,'mj')][contains(@class,'oz')]",
+    "content_types": [],
+    "children": {
+      "//ul[contains(@class,'skVtxaEGsSf3Qitumkwd')]": {
+        "chunk_ids": [
+          46
+        ],
+        "content_types": [],
+        "children": {
+          "//li[contains(@class,'pmq91M1H9uYaJG_lxmPg')]": {
+            "chunk_ids": [
+              46
+            ],
+            "content_types": [],
+            "children": {
+              "//a[contains(@class,'oUvVIL0qU5bFEyQQS4Xg')]": {
+                "chunk_ids": [
+                  46
+                ],
+                "content_types": [],
+                "children": {
+                  "//img[contains(@class,'PKoePAd27Rvkn8lN5Kqt')]": {
+                    "chunk_ids": [
+                      46
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'GUbK9PUYz4NGqHOfl4JY')]": {
+                    "chunk_ids": [
+                      46
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//figcaption": {
+                "chunk_ids": [
+                  46
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'LoKp3Fw5tsPJr5z6FWa0')]": {
+                    "chunk_ids": [
+                      46
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'pmq91M1H9uYaJG_lxmPg')]": {
+    "chunk_ids": [
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///li[contains(@class,'jg')][contains(@class,'lxm')][contains(@class,'pg')][contains(@class,'pmq')][contains(@class,'ya')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'oUvVIL0qU5bFEyQQS4Xg')]": {
+        "chunk_ids": [
+          49
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'PKoePAd27Rvkn8lN5Kqt')]": {
+            "chunk_ids": [
+              49
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'GUbK9PUYz4NGqHOfl4JY')]": {
+            "chunk_ids": [
+              49
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//figcaption": {
+        "chunk_ids": [
+          49
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@class,'LoKp3Fw5tsPJr5z6FWa0')]": {
+            "chunk_ids": [
+              49
+            ],
+            "content_types": [],
+            "children": {
+              "//h3[contains(@class,'WfyrfHbpzfS5EiGZDeLv')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+                "chunk_ids": [
+                  49
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'AslhWnAFZ5lUdU7yLCCa')]": {
+                "chunk_ids": [
+                  49
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'cuV1YO5OpXpi1oBDAZUX')]": {
+                    "chunk_ids": [
+                      49
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'pEDfffNWK95B40qLiH6K')][contains(@class,'pLuSovrShNN7AOJjzr3X')]": {
+                    "chunk_ids": [
+                      49
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//figcaption": {
+    "chunk_ids": [
+      55
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///figcaption",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'LoKp3Fw5tsPJr5z6FWa0')]": {
+        "chunk_ids": [
+          55
+        ],
+        "content_types": [],
+        "children": {
+          "//h3[contains(@class,'WfyrfHbpzfS5EiGZDeLv')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+            "chunk_ids": [
+              55
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'AslhWnAFZ5lUdU7yLCCa')]": {
+            "chunk_ids": [
+              55
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'cuV1YO5OpXpi1oBDAZUX')]": {
+                "chunk_ids": [
+                  55
+                ],
+                "content_types": [],
+                "children": {
+                  "//img": {
+                    "chunk_ids": [
+                      55
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//p[contains(@class,'SdDhImKi0Wx51uB1gMgj')][contains(@class,'ClGqLRoENdI55Xe4Xybd')]": {
+                    "chunk_ids": [
+                      55
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'pEDfffNWK95B40qLiH6K')][contains(@class,'pLuSovrShNN7AOJjzr3X')]": {
+                "chunk_ids": [
+                  55
+                ],
+                "content_types": [],
+                "children": {
+                  "//button[contains(@class,'ZTlforvSnW3Da88m06UE')][contains(@class,'uuIDnYC4qmyFk5dsXOhr')]": {
+                    "chunk_ids": [
+                      55
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'Z8pRo7pyGMn7l91usG5P')]": {
+                    "chunk_ids": [
+                      55
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

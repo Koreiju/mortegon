@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "type": "module",
+  "comment": "Declares cp/*.js as ES modules for Node (e.g. `node hsv_color.test.mjs`). Browsers ignore this file; the backend serves cp/ as raw static assets and never requests it. It exists only so the pure, THREE/DOM-free helpers in hsv_color.js can be unit-tested under Node."
+}

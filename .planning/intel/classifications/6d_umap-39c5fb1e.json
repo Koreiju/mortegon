@@ -1,0 +1,28 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/features/6d_umap.md",
+  "type": "PRD",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Feature: 6D UMAP (3 Position + 3 HSV Slowly Rotating)",
+  "summary": "Feature spec for a 6D UMAP fit giving each chunk a manifold position plus camera-azimuth-rotated HSV colour across projector, halo, and readout nodes.",
+  "scope": ["6D UMAP fit", "LayoutService", "LayoutFrame", "HSV colour rotation", "Projector rendering", "Halo phantoms", "ApparitionService", "umap_canonical WS frame", "type-only readout nodes"],
+  "cross_refs": [
+    "../DOMAIN_MODEL.md",
+    "../object_model/LayoutService.md",
+    "../object_model/LayoutFrame.md",
+    "../object_model/GlobalTfidfStore.md",
+    "../object_model/Projector.md",
+    "../object_model/Halo.md",
+    "../object_model/ApparitionService.md",
+    "../code_constraints/backend_services.md",
+    "../code_constraints/ws_frames.md",
+    "../code_constraints/frontend_rendering.md",
+    "../code_constraints/persistence.md",
+    "halo_retrieval.md",
+    "perimeter_outputs.md",
+    "live_scan_streaming.md"
+  ],
+  "locked": false,
+  "precedence": 6,
+  "notes": ""
+}

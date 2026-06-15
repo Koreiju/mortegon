@@ -1,0 +1,13 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/features/halo_retrieval.md",
+  "type": "PRD",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Feature: Halo Retrieval (Concentric Circles + Ray-Projection + Autoregression)",
+  "summary": "User-facing feature spec for the apparition halo: concentric-ring retrieval visualisation with ray-projection coupling, HSV state, multi-frequency ranking, and autoregressive click-walk.",
+  "scope": ["apparition halo", "concentric circles", "ray-projection", "6D UMAP HSV rotation", "autoregressive walk", "multi-frequency PageRank ranking", "ApparitionService", "Halo renderer", "soft/hard link promotion"],
+  "cross_refs": ["../DOMAIN_MODEL.md", "../object_model/ApparitionService.md", "../object_model/Halo.md", "../object_model/LayoutService.md", "../object_model/ConceptIndexService.md", "../object_model/ConceptEdge.md", "../object_model/UIStateService.md", "../object_model/Editor.md", "../object_model/KnowledgePanel.md", "../code_constraints/frontend_rendering.md", "../code_constraints/backend_services.md", "../code_constraints/api_routes.md", "multi_frequency_pagerank.md", "autoregressive_halo.md", "6d_umap.md", "hard_soft_links.md", "projective_inverse.md", "three_register_model.md"],
+  "locked": false,
+  "precedence": 6,
+  "notes": ""
+}

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Concept Graph Builder</title>
+    <style>
+        /* Simple card styling, absolute positioning, SVG overlay */
+        
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+        
+        #toolbar {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+        
+        #canvas {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: #f9f9f9;
+        }
+        
+        .card {
+            position: absolute;
+            width: 260px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            background: #e0e0e0;
+            padding: 6px;
+            cursor: move;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .card-body {
+            padding: 8px;
+        }
+        
+        .card input,
+        .card textarea {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 4px;
+        }
+        
+        .compiled-preview {
+            display: none;
+            margin-top: 6px;
+            padding: 4px;
+            background: #f0f4ff;
+            border: 1px dashed #88a;
+            font-size: 0.9em;
+        }
+        
+        .card button {
+            font-size: 0.8em;
+            margin-top: 4px;
+        }
+        
+        #edge-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toolbar">
+        <button id="add-node-btn">+ New Concept</button>
+    </div>
+    <div id="canvas">
+        <svg id="edge-svg"></svg>
+    </div>
+
+    <script>
+        const nodes = new Map();
+        const edges = [];
+
+        function slugify(str) {
+            return str.trim().toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+        }
+
+        function addNode(name = '', x = 100 + Math.random() * 200, y = 100 + Math.random() * 200) {
+            const id = name ? slugify(name) : `node_${Date.now()}`;
+            if (nodes.has(id)) return null;
+            const node = {
+                id,
+                name: name || id,
+                description: '',
+                value: '',
+                x,
+                y
+            };
+            nodes.set(id, node);
+            createCardElement(node);
+            return node;
+        }
+
+        function createCardElement(node) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.nodeId = node.id;
+            card.style.left = node.x + 'px';
+            card.style.top = node.y + 'px';
+
+            card.innerHTML = `
+      <div class="card-header">
+        <input class="name-input" value="${escapeHtml(node.name)}" placeholder="Name">
+        <button class="delete-btn">×</button>
+      </div>
+      <div class="card-body">
+        <label>Description</label>
+        <textarea class="desc-input" rows="2">${escapeHtml(node.description)}</textarea>
+        <label>Value <small>(use {var} to reference)</small></label>
+        <textarea class="value-input" rows="3">${escapeHtml(node.value)}</textarea>
+        <div class="compiled-preview"></div>
+        <button class="compile-btn">Compile</button>
+      </div>
+    `;
+
+            const nameInput = card.querySelector('.name-input');
+            const descInput = card.querySelector('.desc-input');
+            const valueInput = card.querySelector('.value-input');
+            const compileBtn = card.querySelector('.compile-btn');
+            const preview = card.querySelector('.compiled-preview');
+            const deleteBtn = card.querySelector('.delete-btn');
+
+            // --- Sync name ---
+            nameInput.addEventListener('input', () => {
+                const oldId = node.id;
+                const newName = nameInput.value.trim() || oldId;
+                const newId = slugify(newName);
+                if (newId !== oldId && !nodes.has(newId)) {
+                    nodes.delete(oldId);
+                    node.id = newId;
+                    node.name = newId;
+                    nodes.set(newId, node);
+                    updateAllReferences(oldId, newId);
+                }
+                node.name = newId;
+            });
+
+            // --- Sync description ---
+            descInput.addEventListener('input', () => {
+                node.description = descInput.value;
+            });
+
+            // --- Sync value + parse references ---
+            valueInput.addEventListener('input', () => {
+                node.value = valueInput.value;
+                parseReferences(node);
+                drawEdges();
+            });
+
+            // --- Compile ---
+            compileBtn.addEventListener('click', () => {
+                preview.style.display = 'block';
+                preview.textContent = compileNode(node.id);
+            });
+
+            // --- Delete ---
+            deleteBtn.addEventListener('click', () => {
+                if (confirm(`Delete node "${node.id}"?`)) {
+                    nodes.delete(node.id);
+                    edges = edges.filter(e => e.source !== node.id && e.target !== node.id);
+                    card.remove();
+                    drawEdges();
+                }
+            });
+
+            // --- Whole‑card dragging (exclude inputs, textareas, buttons) ---
+            let isDragging = false,
+                startX, startY, origLeft, origTop;
+            card.addEventListener('mousedown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT') return;
+                e.preventDefault();
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                origLeft = card.offsetLeft;
+                origTop = card.offsetTop;
+                card.style.cursor = 'grabbing';
+            });
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                card.style.left = (origLeft + dx) + 'px';
+                card.style.top = (origTop + dy) + 'px';
+                node.x = origLeft + dx;
+                node.y = origTop + dy;
+                drawEdges();
+            });
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                card.style.cursor = '';
+            });
+
+            document.getElementById('canvas').appendChild(card);
+        }
+
+        // --- Parse {var} references from a node's value ---
+        function parseReferences(node) {
+            const value = node.value;
+            const regex = /\{([^}]+)\}/g;
+            const refs = [];
+            let match;
+            while ((match = regex.exec(value)) !== null) {
+                refs.push(match[1]);
+            }
+
+            // Remove edges no longer referenced
+            edges = edges.filter(e => {
+                if (e.source === node.id) return refs.includes(e.target);
+                return true;
+            });
+
+            // Create missing nodes and edges
+            refs.forEach(refName => {
+                const targetId = slugify(refName);
+                if (!targetId) return;
+                if (!nodes.has(targetId)) {
+                    // Auto‑create the referenced node near the source
+                    const nx = node.x + 300 + Math.random() * 50;
+                    const ny = node.y + 100 + Math.random() * 50;
+                    const newNode = addNode(refName, nx, ny);
+                    if (newNode) {
+                        newNode.value = ''; // already empty
+                        // Give it a default description so it’s not completely blank
+                        newNode.description = `Auto‑created from {${refName}}`;
+                        const newCard = document.querySelector(`.card[data-node-id="${newNode.id}"]`);
+                        if (newCard) {
+                            newCard.querySelector('.desc-input').value = newNode.description;
+                        }
+                    }
+                }
+                if (!edges.some(e => e.source === node.id && e.target === targetId)) {
+                    edges.push({
+                        source: node.id,
+                        target: targetId
+                    });
+                }
+            });
+        }
+
+        function updateAllReferences(oldId, newId) {
+            edges.forEach(e => {
+                if (e.source === oldId) e.source = newId;
+                if (e.target === oldId) e.target = newId;
+            });
+            nodes.forEach(n => {
+                if (n.id !== newId) {
+                    const regex = new RegExp(`\\{${escapeRegex(oldId)}\\}`, 'gi');
+                    if (regex.test(n.value)) {
+                        n.value = n.value.replace(regex, `{${newId}}`);
+                        const card = document.querySelector(`.card[data-node-id="${n.id}"]`);
+                        if (card) card.querySelector('.value-input').value = n.value;
+                        drawEdges();
+                    }
+                }
+            });
+        }
+
+        function drawEdges() {
+            const svg = document.getElementById('edge-svg');
+            svg.innerHTML = '';
+            // ensure arrow marker exists
+            if (!document.getElementById('arrow')) {
+                const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+                const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+                marker.id = 'arrow';
+                marker.setAttribute('viewBox', '0 0 10 10');
+                marker.setAttribute('refX', '9');
+                marker.setAttribute('refY', '5');
+                marker.setAttribute('markerWidth', '6');
+                marker.setAttribute('markerHeight', '6');
+                marker.setAttribute('orient', 'auto');
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', 'M 0 0 L 10 5 L 0 10 z');
+                path.setAttribute('fill', '#555');
+                marker.appendChild(path);
+                defs.appendChild(marker);
+                svg.appendChild(defs);
+            }
+            const canvasRect = document.getElementById('canvas').getBoundingClientRect();
+            edges.forEach(edge => {
+                const sourceCard = document.querySelector(`.card[data-node-id="${edge.source}"]`);
+                const targetCard = document.querySelector(`.card[data-node-id="${edge.target}"]`);
+                if (!sourceCard || !targetCard) return;
+                const srcRect = sourceCard.getBoundingClientRect();
+                const tgtRect = targetCard.getBoundingClientRect();
+                const x1 = srcRect.left + srcRect.width / 2 - canvasRect.left;
+                const y1 = srcRect.top + srcRect.height / 2 - canvasRect.top;
+                const x2 = tgtRect.left + tgtRect.width / 2 - canvasRect.left;
+                const y2 = tgtRect.top + tgtRect.height / 2 - canvasRect.top;
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x1);
+                line.setAttribute('y1', y1);
+                line.setAttribute('x2', x2);
+                line.setAttribute('y2', y2);
+                line.setAttribute('stroke', '#555');
+                line.setAttribute('stroke-width', '1.5');
+                line.setAttribute('stroke-dasharray', '4,2');
+                line.setAttribute('marker-end', 'url(#arrow)');
+                svg.appendChild(line);
+            });
+        }
+
+        function compileNode(nodeId, visited = new Set()) {
+            if (visited.has(nodeId)) return `{${nodeId}}`;
+            visited.add(nodeId);
+            const node = nodes.get(nodeId);
+            if (!node) return `{${nodeId}}`;
+            let result = node.value;
+            const regex = /\{([^}]+)\}/g;
+            result = result.replace(regex, (match, varName) => {
+                const targetId = slugify(varName);
+                return compileNode(targetId, new Set(visited));
+            });
+            return result;
+        }
+
+        function escapeHtml(text) {
+            return String(text).replace(/[&<>"]/g, c => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;'
+            })[c]);
+        }
+
+        function escapeRegex(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // --- Init ---
+        document.getElementById('add-node-btn').addEventListener('click', () => addNode());
+        addNode('', 200, 150); // start with one empty node in a central spot
+        window.addEventListener('resize', drawEdges);
+        setInterval(drawEdges, 120);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{
+  "//div[contains(@class,'HomepagePopularSites__PopularSite-sc-1f6z86y-2')][contains(@class,'fmReZZ')][contains(@data-testid,'popular_site_gratflix.com')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 5,
+    "pattern_xpath": "///div[contains(@class,'fm')][contains(@class,'homepage')][contains(@class,'popular')][contains(@class,'re')][contains(@class,'site')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'HomepagePopularSites__PopularSiteThumbnail-sc-1f6z86y-3')][contains(@class,'erIcBf')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//img": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//img[contains(@class,'styled-components__Favicon-sc-1ez58cv-0')][contains(@class,'ghQCMh')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'HomepagePopularSites__PopularSiteDomain-sc-1f6z86y-4')][contains(@class,'hnINFb')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//input[contains(@class,'SearchBar__Input-sc-9cykhd-2')][contains(@class,'kKVSVU')][contains(@data-testid,'search-bar')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "search_input",
+    "frequency": 2,
+    "pattern_xpath": "///input[contains(@class,'bar')][contains(@class,'cykhd')][contains(@class,'input')][contains(@class,'kvsvu')][contains(@class,'search')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//script": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "pagination",
+    "frequency": 19,
+    "pattern_xpath": "///link",
+    "content_types": [],
+    "children": {}
+  }
+}

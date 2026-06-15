@@ -1,0 +1,119 @@
+# Requirements: web_fiber_haptics
+
+**Defined:** 2026-06-14
+**Core Value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `GET /api/subsystem_status` reports `all_real: true`, `env-scenario --name full-smoke` is green in BOTH stub and real modes, and every `scripts/probe_live_*.py` passes. A screenshot is never proof.
+
+> **Brownfield note.** `docs/` is the authoritative target; the code is iterated toward it. The backend is mature (lifecycle dispatcher, dual vectorization pipelines, triple-product retrieval, Kuzu persistence, scan streaming, WS framing, agent tick, compile chain — all built; full-smoke ~92/92 both modes; live probes pass). The §T black-slate frontend and §U HTML-dedup content-tree are **largely built and the served default at `/`**. The remaining v1 work is therefore **finish-and-verify + remediation + cleanup**, NOT build-from-scratch. Requirements below describe the gap frontier only; the validated baseline is recorded in PROJECT.md "Validated".
+
+## v1 Requirements
+
+Requirements for the current milestone. Each maps to exactly one roadmap phase. Source-of-truth: `docs/USER_REQUIREMENTS_VERBATIM.md` (supreme) and the per-feature docs synthesised in `.planning/intel/requirements.md`.
+
+### Reliability (No-Mocks Contract)
+
+- [ ] **REL-01**: SLM real-load failure raises 503 (cascade halts) instead of silently setting `_fake=True` and streaming `[stub-slm]` text — fixed in `slm_client.py::_ensure_model`, `routes.py::_make_slm_for_compute`, and the agent-tick path; the `WFH_FAKE_SLM=1` stub path is reserved strictly for the harness. (REQ-NO-MOCKS-REMEDIATION; D9)
+- [ ] **REL-02**: The CPU fallback (`slm_client.py` real→real device override) is preserved as a permitted real-to-real path; only the terminal `_fake=True` is removed. Verified by `probe_no_mocks.py` (real-mode SLM output must NOT begin `[stub-slm]`). (REQ-NO-MOCKS-REMEDIATION; D9)
+
+### Foundational Fixtures
+
+- [ ] **FIX-01**: `ensure_foundation_fixtures` produces exactly THREE root `python_object` ConceptNodes with backing pointers `fixture::agent::<wsid>`, `fixture::web_browser::<wsid>`, `fixture::database::<wsid>`; no `fixture::editor::<wsid>` card materialises anywhere. (REQ-three-fixture-api; D7)
+- [ ] **FIX-02**: A stale `fixture::editor` node surviving in a legacy `_default` Kuzu DB is force-deleted by a migration sweep; concept-graph mutation gestures (create/link/overwrite/delete) route through the same `/concepts` + `/concept_edges` lifecycle the agent emitter uses — never a Function-typed Editor object. (REQ-three-fixture-api; D7)
+
+### Hygiene & Forbidden-Code Removal
+
+- [ ] **HYG-01**: Forbidden/legacy code is hard-deleted — `backend/analytics/` (graph-analytics family + `test_loop_closure.py`), `backend_slow/`, `_legacy_frontend/`, deprecated `cluster_distillation.py`, and any live Fibonacci/concentric layout path; remaining mentions reduced to deprecation banners. No Llama reference survives. (D3/D11)
+- [ ] **HYG-02**: Dependency + entry-point hygiene — pin `langgraph`, `selenium`, `webdriver_manager`; resolve the kuzu version drift (`requirements.txt` 0.3.2 vs docs ≥0.11 file-based); document the canonical launch command and the 8080-vs-8000 port alignment; remove the `@mdxeditor/editor` npm dependency (per the editor-integration decision). (Context: brief cleanup gaps)
+
+### Field-Tree Editing (Black-Slate, §T)
+
+- [ ] **EDIT-01**: Pure-print panel renders the field-tree; hidden hover overlays swap a row to a textarea on click (caret lands where the click fell); Shift-Enter inserts a soft newline (multiline); Enter commits through `ConceptLifecycle`; Esc discards. Empty rows hide. (REQ-click-to-edit; D6)
+- [ ] **EDIT-02**: Plus-sign field-tree growth works — `+→` parent→child and `+↓` sibling; the edit-cycle state machine routes every mutation through the single lifecycle dispatcher; `{`-autocomplete binds to existing concept names by inserting `{<linked_name>}`. (REQ-click-to-edit; D6)
+- [ ] **EDIT-03**: The in-slate text-edit layer decision (custom vs CodeMirror 6) per `docs/EDITOR_INTEGRATION_ASSESSMENT.md` is resolved and, if CM6 is chosen, integrated as ONLY the edit + decoration layer (rest-render / reveal-raw; caret/IME/undo) behind `mount` — `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged; the frontend holds NO authoritative state. (REQ-click-to-edit; D10)
+
+### HTML Dedup Content-Tree (§U / §E.1)
+
+- [ ] **HTML-01**: An HTML chunk slate body renders DEDUPLICATED content as a pure-text tree (collapse wrappers, token-set dedup, surface href/src) built from the existing `fields` extraction (not `html_raw`); backend `_try_parse_structured` is the single detector and `_decomposeValue` mirrors the strategy order. Byte-exact §U golden I/O (6/6) holds. (REQ-halo-retrieval supporting; CONSTRAINT-html-dedup-content-tree; D6)
+
+### Halo Retrieval & Streaming (§V)
+
+- [ ] **HALO-01**: Apparition halo phantoms show candidate NAME only (scores in slow-hover tooltips); ranking is the triple product `pagerank · tfidf_cos · nomic_cos` with no graph-analytics axes; the autoregressive walk advances via click; ApparitionService + Halo renderer wired. (REQ-halo-retrieval; D3)
+- [ ] **HALO-02**: The halo stays proximal to a CIRCULAR root-field-only collapsed node, abstracting over folded semantic complexity (§S.5); the constant-similarity ray supports along-line slide; soft/hard link promotion works; the 2D↔3D link arrow is solid (no dotted overlays). (REQ-halo-retrieval; D11)
+
+### Live Layout, Signal & Pattern (§R / §11.5)
+
+- [ ] **UMAP-01**: LayoutService emits a 6-vector `umap_canonical` WS frame on scan-end joint fit; HSV rotates with camera azimuth across Projector, Halo phantoms, and type-only readout nodes; the frontend renders only (no client-side UMAP runtime). (REQ-6d-umap; D2/D10)
+- [ ] **SIG-01**: Panels render ONLY one iterable signal at a time, advanced via play/pause/step; `signal_stream` UIStateService mirror field holds the current index; `/api/ui/signal_advance` routes through `RolloutCoordinator` and recompiles the `{ref}`-consumers per sample, across pattern_map / url_set / Database.concept iterables. (REQ-signal-stream; D6)
+- [ ] **PAT-01**: A live `pattern_map` ConceptNode materialises during a WebBrowser scan and updates in place under signal-stream; the golden-trio joint-presence gate (§15.8.1) holds; a second scan accretes into the same peer node; PageRank traverses the same Kuzu ConceptEdge graph. (REQ-pattern-map; D8)
+
+### Three-Register Synthesis & Live Acceptance
+
+- [ ] **REG-01**: The Real (3D Projector) / Imaginary (2D editor) / Symbolic (REPL) registers are bound by the compose-compile-perimeter loop runnable BOTH ways — a REPL action enters at any node and the GUI sees the identical result; 2D/3D separation maintained; WS frame telemetry mirrors register state. (REQ-three-register-model; D1)
+- [ ] **ACC-01**: The `live-scan-real-with-cleanup` probe passes (all_real-gated): real Selenium archive.org scan → TF-IDF + nomic indices alive → real-UMAP 6D fit → purge cleanup contract (`layout_dropped` + `tfidf_rows_dropped`) returns the Kuzu ConceptNode count to the three-fixture baseline → re-scan rebuilds a comparable pool. (REQ-live-scan-cleanup; REQ-three-register-model purge; D9)
+- [ ] **ACC-02**: All four lodestar live probes pass against real subsystems (`probe_live_archive_scan.py`, `probe_live_concept_graph.py`, `probe_live_agent.py`, `probe_live_iterated_compile.py`), and `env-scenario --name full-smoke` is green in BOTH stub and real modes with the new §T/§U/§V scenarios included. (REQ-three-register-model; ACCEPTANCE bar; D1/D9)
+
+## v2 Requirements
+
+Deferred. Tracked but not in this milestone's roadmap.
+
+### Maintainability
+
+- **MAINT-01**: Split the monolithic `backend/api/routes.py` (~5,400 lines) by register (scan / retrieval / concept / agent / maintenance) into `backend/api/` submodules.
+- **MAINT-02**: Decompose the oversized `scripts/sim_frontend.py` (~9,430 lines) so a change to one action category does not risk the whole harness.
+
+### Performance
+
+- **PERF-01**: Incremental joint UMAP refit during streaming chunk arrival (currently scan-end-only).
+- **PERF-02**: Harden the non-thread-safe GPT4All `Embed4All` handle beyond the current per-model RLock + evict-and-reload mitigation.
+
+## Out of Scope
+
+Explicit exclusions, documented to prevent scope creep. Anti-features are the forbidden-concepts list (D11).
+
+| Feature | Reason |
+|---------|--------|
+| Concentric Fibonacci spheres as 3D layout | FORBIDDEN (D2/D11); the layout is the UMAP-linear-radial force-directed hybrid only |
+| Graph-analytics retrieval (depth, subtree_size, wl_hash, `backend/analytics/`) | FORBIDDEN (D3/D11); retrieval is the triple product only |
+| Llama as an SLM target | FORBIDDEN (D9); production and harness both run Nous-Hermes-2-DPO |
+| Two-panel hover/click split | FORBIDDEN (D4); one unified knowledge-panel anatomy, one code path |
+| The `Editor` fourth foundational fixture | REMOVED (D7/§S.1); gestures are panel-scheme intrinsics |
+| The standalone retrieval sidebar (`#sidebar`/`#rs-latch`) | REMOVED (§S.3); in-editor halos subsume it |
+| Panel/node chrome (coloured header, hash hue, ×, minimiser, top bar) | REMOVED (§S.4); black-slate design only |
+| Stray dotted UI lines / dotted debug overlays | REMOVED (D11); the 2D↔3D arrow is solid |
+| Real-backend → stub fallback in production | FORBIDDEN (D9); failures are loud (503 + halted cascade) |
+| Multi-user / auth / team / sprint artifacts | Single-operator on-device app by design |
+| Rebuilding the working backend (lifecycle, dual pipelines, retrieval index, Kuzu persistence, scan streaming, WS framing) | Brownfield baseline is preserved, not rebuilt |
+| Adopting a WYSIWYG/ProseMirror/Lexical editor (Milkdown/BlockNote/MDXEditor) | Rejected in `docs/EDITOR_INTEGRATION_ASSESSMENT.md` — the slate is not markdown and holds no authoritative state |
+
+## Traceability
+
+Which phase covers which requirement. Each requirement maps to exactly one phase.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| REL-01 | Phase 1 | Pending |
+| REL-02 | Phase 1 | Pending |
+| FIX-01 | Phase 1 | Pending |
+| FIX-02 | Phase 1 | Pending |
+| HYG-01 | Phase 1 | Pending |
+| HYG-02 | Phase 1 | Pending |
+| EDIT-01 | Phase 2 | Pending |
+| EDIT-02 | Phase 2 | Pending |
+| EDIT-03 | Phase 2 | Pending |
+| HTML-01 | Phase 3 | Pending |
+| HALO-01 | Phase 3 | Pending |
+| HALO-02 | Phase 3 | Pending |
+| UMAP-01 | Phase 4 | Pending |
+| SIG-01 | Phase 4 | Pending |
+| PAT-01 | Phase 4 | Pending |
+| REG-01 | Phase 5 | Pending |
+| ACC-01 | Phase 5 | Pending |
+| ACC-02 | Phase 5 | Pending |
+
+**Coverage:**
+- v1 requirements: 18 total
+- Mapped to phases: 18
+- Unmapped: 0 ✓
+
+---
+*Requirements defined: 2026-06-14*
+*Last updated: 2026-06-14 after brownfield bootstrap (new-project-from-ingest)*

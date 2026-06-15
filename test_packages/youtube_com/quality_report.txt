@@ -1,0 +1,137 @@
+=== QUALITY REPORT: youtube_com.html ===
+Chunks: 7 (structural=1, functional=3, text=3)
+Categories: {'card': 1, 'search_input': 1, 'pagination': 1, 'menu_item': 1, 'text_singleton': 3}
+Content: 9 tagged, 9 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: yt-icon.entry.guide ---
+  type=card freq=34 excl=0.20
+  pattern_xpath: ///yt-icon[contains(@class,'entry')][contains(@class,'guide')][contains(@class,'renderer')][contains(@class,'scope')][contains(@class,'style')]
+  tree_sig: yt-icon(span(div(svg(path))))
+  sample[0] (9L): 
+    |   <yt-icon class="guide-icon style-scope ytd-guide-entry-renderer">
+    |     <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |       <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |           <path d="m11.485 2.143-8 4.8-2 1.2a1 1 0 001.03 1.714L3 9.567V20a2 2 0 002 2h5v-8h4v8h5a2..."></path>
+    |         </svg>
+    |       </div>
+    |     </span>
+    |   </yt-icon>
+  sample[1] (9L): 
+    |   <yt-icon class="guide-entry-badge style-scope ytd-guide-entry-renderer" size="16" disable-upgrade="">
+    |     <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |       <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |           <path d="m11.485 2.143-8 4.8-2 1.2a1 1 0 001.03 1.714L3 9.567V20a2 2 0 002 2h5v-8h4v8h5a2..."></path>
+    |         </svg>
+    |       </div>
+    |     </span>
+    |   </yt-icon>
+  sample[2] (9L): 
+    |   <yt-icon class="guide-entry-badge style-scope ytd-guide-entry-renderer" size="16" disable-upgrade="">
+    |     <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |       <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |           <path d="M12.844 1h-1.687a2 2 0 00-1.962 1.616 3 3 0 01-3.92 2.263 2 2 0 00-2.38.891l-.84..."></path>
+    |         </svg>
+    |       </div>
+    |     </span>
+    |   </yt-icon>
+
+--- Chunk 1: [search_inputs] ---
+  type=search_input freq=3 excl=0.44 OUTLIER=3.0x
+  pattern_xpath: ///input[contains(@class,'searchbox')][contains(@class,'component')][contains(@class,'yt')]
+  content: [ATTR=1]
+  sample[0] (3L): #search-input.ytd-searchbox-spt input{-webkit-appearance:none;-webkit-font-smoot
+    |   <style class="searchbox" nonce="">
+    |     #search-input.ytd-searchbox-spt input{-webkit-appearance:none;-webkit-font-smoothing:antialiased;background-color:transparent;border:none;box-shadow:none;color:inherit;font-family:Roboto,Noto,sans-serif;font-size:16px;font-weight:400;line-height:24px;margin-left:4px;max-width:100%;outline:none;text-align:inherit;width:100%;-ms-flex:1 1 0.000000001px;-webkit-flex:1;-webkit-box-flex:1;-moz-box-flex:1;flex:1;-webkit-flex-basis:0.000000001px;-ms-flex-preferred-size:0.000000001px;flex-basis:0.000000001px}#search-container.ytd-searchbox-spt{pointer-events:none;position:absolute;top:0;right:0;bottom:0;left:0}#search-input.ytd-searchbox-spt #search::-webkit-input-placeholder{color:#888}#search-input.ytd-searchbox-spt #search::-moz-input-placeholder{color:#888}#search-input.ytd-searchbox-spt #search:-ms-input-placeholder{color:#888}
+    |   </style>
+  sample[1] (1L): Search
+    |   <input class="ytSearchboxComponentInput yt-searchbox-input title" name="search_query" aria-controls="i0" aria-expanded="true" type="text" autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" placeholder="Search"></input>
+  sample[2] (1L): 
+    |   <div id="i0" role="listbox" hidden="true" class="ytSearchboxComponentSuggestionsContainer ytSearchboxComponentSuggestionsContainerDark ytSearchboxComponentSuggestionsContainerScrollable" style="min-width: 536px;"></div>
+
+--- Chunk 2: [pagination_buttons] ---
+  type=pagination freq=17 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=2]
+  sample[0] (11L) [TRUNCATED]: Show more
+    |   <ytd-guide-entry-renderer id="expander-item" role="button" class="style-scope ytd-guide-collapsible-entry-renderer" line-end-style="none">
+    |     <a id="endpoint" class="yt-simple-endpoint style-scope ytd-guide-entry-renderer" tabindex="-1" role="link" title="Show more">
+    |       <tp-yt-paper-item role="link" class="style-scope ytd-guide-entry-renderer" style-target="host" tabindex="0" aria-disabled="false">
+    |         <yt-icon class="guide-icon style-scope ytd-guide-entry-renderer">
+    |           <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |   ... [27 lines truncated] ...
+    |     <yt-interaction class="style-scope ytd-guide-entry-renderer">
+    |       <div class="stroke style-scope yt-interaction"></div>
+    |       <div class="fill style-scope yt-interaction"></div>
+    |     </yt-interaction>
+    | ... [1 more lines]
+  sample[1] (11L): Skip navigation
+    |   <button class="yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment" title="" aria-label="Skip navigation" aria-disabled="false">
+    |     <div class="yt-spec-button-shape-next__button-text-content">
+    |       <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-no-wrap" role="text">
+    |         Skip navigation
+    |       </span>
+    |     </div>
+    |     <yt-touch-feedback-shape aria-hidden="true" class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response">
+    |       <div class="yt-spec-touch-feedback-shape__stroke"></div>
+    |       <div class="yt-spec-touch-feedback-shape__fill"></div>
+    |     </yt-touch-feedback-shape>
+    | ... [1 more lines]
+  sample[2] (3L): 
+    |   <button id="button" class="style-scope yt-icon-button" aria-label="Back">
+    |     <yt-icon icon="yt-icons:arrow-back" class="style-scope ytd-masthead" disable-upgrade=""></yt-icon>
+    |   </button>
+
+--- Chunk 3: [nav_content:a×12] ---
+  type=menu_item freq=12 excl=0.87
+  pattern_xpath: ///a[contains(@class,'endpoint')][contains(@class,'simple')][contains(@id,'endpoint')][contains(@role,'link')][contains(@class,'entry')]
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (31L) [TRUNCATED]: YouTube Kids
+    |   <a id="endpoint" class="yt-simple-endpoint style-scope ytd-guide-entry-renderer" tabindex="-1" role="link" href="https://www.youtubekids.com/?source=youtube_web" title="YouTube Kids">
+    |     <tp-yt-paper-item role="link" class="style-scope ytd-guide-entry-renderer" style-target="host" tabindex="0" aria-disabled="false">
+    |       <yt-icon class="guide-icon style-scope ytd-guide-entry-renderer">
+    |         <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |           <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="24px" height="24px" viewbox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |               <g>
+    |                 <g>
+    |                   <path fill="#FF0033" d="M22.64,13.2c-0.01-1.04-0.62-5.98-0.9-6.74c-0.19-0.5-0.58-1.4-1.31-1.95c-0.94-0.7..."></path>
+    |                   <path fill="#212121" d="M17.47,4.04C17.47,4.04,17.48,4.04,17.47,4.04c0.94,0.02,1.67,0.14,2.56,0.81    c0..."></path>
+    | ... [21 more lines]
+
+--- Chunk 4: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'section')][contains(@class,'guide')][contains(@class,'renderer')][contains(@class,'scope')][contains(@class,'style')]
+  content: [TEXT=1]
+  sample[0] (5L): Explore
+    |   <h3 class="style-scope ytd-guide-section-renderer">
+    |     <yt-formatted-string id="guide-section-title" link-inherit-color="" class="style-scope ytd-guide-section-renderer">
+    |       Explore
+    |     </yt-formatted-string>
+    |   </h3>
+
+--- Chunk 5: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'section')][contains(@class,'guide')][contains(@class,'renderer')][contains(@class,'scope')][contains(@class,'style')]
+  content: [TEXT=1]
+  sample[0] (5L): More from YouTube
+    |   <h3 class="style-scope ytd-guide-section-renderer">
+    |     <yt-formatted-string id="guide-section-title" link-inherit-color="" class="style-scope ytd-guide-section-renderer">
+    |       More from YouTube
+    |     </yt-formatted-string>
+    |   </h3>
+
+--- Chunk 6: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h3[contains(@class,'section')][contains(@class,'guide')][contains(@class,'renderer')][contains(@class,'scope')][contains(@class,'style')]
+  content: [TEXT=1]
+  sample[0] (6L): ExploreMore from YouTube
+    |   <h3 class="style-scope ytd-guide-section-renderer" hidden="">
+    |     <yt-formatted-string id="guide-section-title" link-inherit-color="" class="style-scope ytd-guide-section-renderer" is-empty="">
+    |       <yt-attributed-string class="style-scope yt-formatted-string"></yt-attributed-string>
+    |       ExploreMore from YouTube
+    |     </yt-formatted-string>
+    |   </h3>

@@ -1,0 +1,525 @@
+=== QUALITY REPORT: crystalvaults_comcrystalencyclopediaaegirine.html ===
+Chunks: 23 (structural=4, functional=11, text=8)
+Categories: {'card': 3, 'structural': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 8, 'menu_item': 9}
+Content: 71 tagged, 69 preserved (97%)
+Leaks: 2 total, 2 high-importance
+
+--- Chunk 0: p ---
+  type=card freq=12 excl=0.00
+  pattern_xpath: ///p
+  tree_sig: p(em(a),strong)
+  content: [HREF=1 TEXT=4]
+  sample[0] (12L): [Ahsian, pp.]Robert Simmons & Naisha Ahsian,(Berkley, CA: North Atlantic Books, 
+    |   <p>
+    |     <strong>
+    |       [Ahsian, pp.]
+    |     </strong>
+    |     Robert Simmons & Naisha Ahsian,
+    |     <em>
+    |       <a href="https://www.amazon.com/gp/product/1556436688/ref=as_li_ss_tl?ie=UTF8&tag=crysvaul-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=1556436688">
+    |         The Book of Stones
+    |       </a>
+    |     </em>
+    | ... [2 more lines]
+  sample[1] (12L): [Hall 2, pp.]Judy Hall,(Cincinnati, OH: Walking Stick Press, 2009).The Crystal B
+    |   <p>
+    |     <strong>
+    |       [Hall 2, pp.]
+    |     </strong>
+    |     Judy Hall,
+    |     <em>
+    |       <a href="https://www.amazon.com/gp/product/1582977011/ref=as_li_ss_tl?ie=UTF8&tag=crysvaul-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=1582977011">
+    |         The Crystal Bible 2
+    |       </a>
+    |     </em>
+    | ... [2 more lines]
+
+--- Chunk 1: span.fl.icon ---
+  type=card freq=10 excl=0.56
+  pattern_xpath: ///div[contains(@class,'icon')][contains(@class,'group')]/span[contains(@class,'icon')][contains(@class,'fl')]
+  tree_sig: span(a(i,span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Facebook
+    |   <span class="fl-icon">
+    |     <a href="https://www.facebook.com/CrystalVaults" target="_blank" rel="noopener">
+    |       <i class="fab fa-facebook-f" aria-hidden="true"></i>
+    |       <span class="sr-only">
+    |         Facebook
+    |       </span>
+    |     </a>
+    |   </span>
+  sample[1] (8L): Instagram
+    |   <span class="fl-icon">
+    |     <a href="https://www.instagram.com/crystalvaultsinc" target="_blank" rel="noopener">
+    |       <i class="fab fa-instagram" aria-hidden="true"></i>
+    |       <span class="sr-only">
+    |         Instagram
+    |       </span>
+    |     </a>
+    |   </span>
+  sample[2] (8L): Facebook
+    |   <span class="fl-icon">
+    |     <a href="https://www.facebook.com/CrystalVaults" target="_blank" rel="noopener">
+    |       <i class="fab fa-facebook-f" aria-hidden="true"></i>
+    |       <span class="sr-only">
+    |         Facebook
+    |       </span>
+    |     </a>
+    |   </span>
+
+--- Chunk 2: li.children.custom ---
+  type=structural freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'children')][contains(@class,'has')][contains(@class,'submenu')][contains(@class,'custom')][contains(@class,'item')]
+  tree_sig: li(div(a,span),ul(li(a),li(a),li(a),li(a)))
+  content: [ATTR=1 HREF=5 TEXT=5]
+  sample[0] (30L): More More submenu toggle Crystal Guides Crystal Cards Crystal Oracle Crystal Hor
+    |   <li id="menu-item-469938" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children fl-has-submenu">
+    |     <div class="fl-has-submenu-container">
+    |       <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/accessories/">
+    |         More
+    |       </a>
+    |       <span role="button" tabindex="0" aria-label="More submenu toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="sub-menu-469938" class="fl-menu-toggle fl-content-ui-button"></span>
+    |     </div>
+    |     <ul id="sub-menu-469938" class="sub-menu" role="menu">
+    |       <li id="menu-item-492031" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |         <a role="menuitem" href="https://www.crystalvaults.com/crystal-guides/">
+    | ... [20 more lines]
+
+--- Chunk 3: p ---
+  type=card freq=3 excl=0.00
+  pattern_xpath: ///p
+  tree_sig: p(span(a))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Shipping
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/shipping/">
+    |         Shipping
+    |       </a>
+    |     </span>
+    |   </p>
+  sample[1] (7L): Returns
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/returns/">
+    |         Returns
+    |       </a>
+    |     </span>
+    |   </p>
+  sample[2] (7L): Contact Us
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/contact-us/">
+    |         Contact Us
+    |       </a>
+    |     </span>
+    |   </p>
+
+--- Chunk 4: [search_inputs] ---
+  type=search_input freq=11 excl=1.00
+  pattern_xpath: ///input[contains(@autocomplete,'off')]
+  content: [ATTR=1]
+  sample[0] (1L): Search
+    |   <input id="er_ecom_overlay_search_input" maxlength="100" class="er_ecom_overlay_search_input" autocomplete="off" placeholder="Search"></input>
+  sample[1] (1L): Search
+    |   <input id="er_ecom_overlay_search_input" maxlength="100" class="er_ecom_overlay_search_input" autocomplete="off" placeholder="Search"></input>
+  sample[2] (1L): 
+    |   <input type="text" name="b_6c7a525dc6130b7da310cf31a_7243220a01" tabindex="-1" value=""></input>
+
+--- Chunk 5: [pagination_buttons] ---
+  type=pagination freq=22 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1]
+  sample[0] (12L): 
+    |   <div class="er_ecom_top_pagination">
+    |     <div class="er-search-result-box" aria-label="Search Results">
+    |       <div class="ecom_container_fluid">
+    |         <div class="ecom_des_12">
+    |           <div class="ecom_row_container">
+    |             <div id="er_facets" class="ecom_des_3 hide_mob show_des show_lg_screen er_ecom_facets_container"></div>
+    |             <div id="er_search_results"></div>
+    |           </div>
+    |         </div>
+    |       </div>
+    | ... [2 more lines]
+  sample[1] (6L): healing crystals<img decoding="async" src="https://crystalvaults.com/wp-content/
+    |   <a href="/healing-crystals">
+    |     <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." alt="healing crystals" width="138" height="85" data-lazy-src="https://crystalvaults.com/wp-content/uploads/2013/04/healing125.jpg"></img>
+    |     <noscript>
+    |       <img decoding="async" src="https://crystalvaults.com/wp-content/uploads/2013/04/healing125.jpg" alt="healing crystals" width="138" height="85" />
+    |     </noscript>
+    |   </a>
+  sample[2] (3L): 
+    |   <button type="button" title="" tabindex="0" class="er_ecom_input_back_button" aria-label="Back">
+    |     <i style="margin-top:12px" class="fas fa fa-arrow-left"></i>
+    |   </button>
+
+--- Chunk 6: [text_content:p×57] ---
+  type=text_singleton freq=57 excl=0.00 LEAKS=1
+  pattern_xpath: ///p
+  sample[0] (9L): (Please note: Information on this web site is no substitute for consulting a hea
+    |   <p>
+    |     <em>
+    |       (Please note: Information on this web site is no substitute for consulting a health care professional. All information contained on this web site,
+    |       <br></br>
+    |       including information relating to medical and health conditions, products and treatments, is for informational purposes only.
+    |       <br></br>
+    |       Please see your doctor or health care professional before starting any alternative treatments, diets, supplements or exercise programs.)
+    |     </em>
+    |   </p>
+  sample[1] (7L): metaphysical uses<img decoding="async" src="https://crystalvaults.com/wp-content
+    |   <h2>
+    |     <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." alt="metaphysical uses " width="125" height="74" align="left" data-lazy-src="https://crystalvaults.com/wp-content/uploads/2013/04/uses.gif"></img>
+    |     <noscript>
+    |       <img decoding="async" src="https://crystalvaults.com/wp-content/uploads/2013/04/uses.gif" alt="metaphysical uses " width="125" height="74" align="left" />
+    |     </noscript>
+    |     Aegirine Uses and Purposes – Overview
+    |   </h2>
+  sample[2] (3L): Aegirine is a good crystal for overcoming self-consciousness and unnecessary sha
+    |   <p>
+    |     Aegirine is a good crystal for overcoming self-consciousness and unnecessary shame over appearance, and is an excellent companion for those with disfigurement or body image problems. [Eason, 192]
+    |   </p>
+  LEAKS (high):
+    [RENDER] empty (Instance rendered empty)
+
+--- Chunk 7: [text_content:p×68] ---
+  type=text_singleton freq=68 excl=0.00 LEAKS=1
+  pattern_xpath: ///p
+  sample[0] (9L): (Please note: Information on this web site is no substitute for consulting a hea
+    |   <p>
+    |     <em>
+    |       (Please note: Information on this web site is no substitute for consulting a health care professional. All information contained on this web site,
+    |       <br></br>
+    |       including information relating to medical and health conditions, products and treatments, is for informational purposes only.
+    |       <br></br>
+    |       Please see your doctor or health care professional before starting any alternative treatments, diets, supplements or exercise programs.)
+    |     </em>
+    |   </p>
+  sample[1] (7L): metaphysical uses<img decoding="async" src="https://crystalvaults.com/wp-content
+    |   <h2>
+    |     <img decoding="async" src="https://crystalvaults.com/wp-content/uploads/2013/04/uses.gif" alt="metaphysical uses " width="125" height="74" align="left" data-lazy-src="https://crystalvaults.com/wp-content/uploads/2013/04/uses.gif" data-ll-status="loaded" class="entered lazyloaded"></img>
+    |     <noscript>
+    |       <img decoding="async" src="https://crystalvaults.com/wp-content/uploads/2013/04/uses.gif" alt="metaphysical uses " width="125" height="74" align="left" />
+    |     </noscript>
+    |     Aegirine Uses and Purposes – Overview
+    |   </h2>
+  sample[2] (3L): Aegirine is a good crystal for overcoming self-consciousness and unnecessary sha
+    |   <p>
+    |     Aegirine is a good crystal for overcoming self-consciousness and unnecessary shame over appearance, and is an excellent companion for those with disfigurement or body image problems. [Eason, 192]
+    |   </p>
+  LEAKS (high):
+    [RENDER] empty (Instance rendered empty)
+
+--- Chunk 8: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'children')][contains(@class,'has')][contains(@class,'submenu')][contains(@class,'custom')][contains(@class,'item')]
+  content: [ATTR=2 HREF=12 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: Crystal Energy Crystal Energy submenu toggle Crystal Tea Herbs Spell Candles Cry
+    |   <li id="menu-item-469932" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children fl-has-submenu">
+    |     <div class="fl-has-submenu-container">
+    |       <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/">
+    |         Crystal Energy
+    |       </a>
+    |       <span role="button" tabindex="0" aria-label="Crystal Energy submenu toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="sub-menu-469932" class="fl-menu-toggle fl-content-ui-button"></span>
+    |     </div>
+    |     <ul id="sub-menu-469932" class="sub-menu" role="menu">
+    |       <li id="menu-item-469933" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |         <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/crystal-tea">
+    | ... [21 more lines]
+
+--- Chunk 9: [nav_content:h2×25] ---
+  type=menu_item freq=25 excl=0.00
+  pattern_xpath: ///h2
+  content: [HREF=1 TEXT=1]
+  sample[0] (10L): Aegirine is a Guardian Harmonizer crystal. The Guardian talismans do not reveal 
+    |   <p>
+    |     Aegirine is a
+    |     <a href="/guardian">
+    |       Guardian
+    |     </a>
+    |     <a href="/harmonizer">
+    |       Harmonizer
+    |     </a>
+    |     crystal. The Guardian talismans do not reveal their inner strength. These stones rarely, if ever, form transparent crystals. Rather, they hide their strength behind an opaque mask, obscuring the power they possess. In the physical world they are fantastic amulets for protecting your loved ones, your possessions, and your physical security. In the spiritual world, Guardian crystals serve to guard your beliefs against doubt, helping you keep true to your ideals and reinforcing your strength of character. The Guardian crystals can also protect your spirits during trying and difficult times.
+    |   </p>
+  sample[1] (9L): Aegirine Chakra Healing and Balancing Energy chakra balancing with crystals<img 
+    |   <h2>
+    |     <a href="/beginning-crystal-healing">
+    |       <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." alt="chakra balancing with crystals" width="125" height="74" align="left" data-lazy-src="https://crystalvaults.com/wp-content/uploads/2013/04/chakra_balance.gif"></img>
+    |       <noscript>
+    |         <img decoding="async" src="https://crystalvaults.com/wp-content/uploads/2013/04/chakra_balance.gif" alt="chakra balancing with crystals" width="125" height="74" align="left" />
+    |       </noscript>
+    |     </a>
+    |     Aegirine Chakra Healing and Balancing Energy
+    |   </h2>
+  sample[2] (7L): Aegirine activates the Base, or Root Chakra, located at the base of the spine, a
+    |   <p>
+    |     Aegirine activates the
+    |     <a href="/base-chakra-explained">
+    |       Base, or Root Chakra
+    |     </a>
+    |     , located at the base of the spine, and controls the energy for kinesthetic feeling and movement. It is the foundation of physical and spiritual energy for the body. When physically out of balance the symptoms will manifest themselves as lethargy, low levels of activity, low enthusiasm, and a need for constant stimulation. When its spiritual energies are out of balance, you will feel flighty, disconnected from reality, and distant. When the Base Chakra is in balance, the physical body regains its strength and stamina, and the spiritual energy is rekindled in the form of security and sense of one’s own power. It often leads to independence and spontaneous leadership.
+    |   </p>
+
+--- Chunk 10: [nav_content:a×63] ---
+  type=menu_item freq=63 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (10L): Aegirine is a Guardian Harmonizer crystal. The Guardian talismans do not reveal 
+    |   <p>
+    |     Aegirine is a
+    |     <a href="/guardian">
+    |       Guardian
+    |     </a>
+    |     <a href="/harmonizer">
+    |       Harmonizer
+    |     </a>
+    |     crystal. The Guardian talismans do not reveal their inner strength. These stones rarely, if ever, form transparent crystals. Rather, they hide their strength behind an opaque mask, obscuring the power they possess. In the physical world they are fantastic amulets for protecting your loved ones, your possessions, and your physical security. In the spiritual world, Guardian crystals serve to guard your beliefs against doubt, helping you keep true to your ideals and reinforcing your strength of character. The Guardian crystals can also protect your spirits during trying and difficult times.
+    |   </p>
+  sample[1] (9L): Aegirine Chakra Healing and Balancing Energy chakra balancing with crystals<img 
+    |   <h2>
+    |     <a href="/beginning-crystal-healing">
+    |       <img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." alt="chakra balancing with crystals" width="125" height="74" align="left" data-lazy-src="https://crystalvaults.com/wp-content/uploads/2013/04/chakra_balance.gif"></img>
+    |       <noscript>
+    |         <img decoding="async" src="https://crystalvaults.com/wp-content/uploads/2013/04/chakra_balance.gif" alt="chakra balancing with crystals" width="125" height="74" align="left" />
+    |       </noscript>
+    |     </a>
+    |     Aegirine Chakra Healing and Balancing Energy
+    |   </h2>
+  sample[2] (7L): Black crystals also honor Cybele,the Roman Earth Goddess and Modern Goddess of S
+    |   <p>
+    |     Black crystals also honor
+    |     <a href="/goddess-cybele">
+    |       Cybele,
+    |     </a>
+    |     the Roman Earth Goddess and Modern Goddess of Spring Break. She is the Earth Mother and embodies the fertile Earth. Her festival is the first on the Roman calendar, the Festival of Joy.
+    |   </p>
+
+--- Chunk 11: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): FAQ
+    |   <p>
+    |     <a href="https://crystalvaults.com/help/">
+    |       <span style="font-size: 14px;">
+    |         FAQ
+    |       </span>
+    |     </a>
+    |   </p>
+  sample[1] (7L): Shipping
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/shipping/">
+    |         Shipping
+    |       </a>
+    |     </span>
+    |   </p>
+  sample[2] (7L): Returns
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/returns/">
+    |         Returns
+    |       </a>
+    |     </span>
+    |   </p>
+
+--- Chunk 12: [nav_content:p×5] ---
+  type=menu_item freq=5 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): About Us
+    |   <p>
+    |     <a href="https://crystalvaults.com/about-us">
+    |       About Us
+    |     </a>
+    |   </p>
+  sample[1] (5L): Our Blog
+    |   <p>
+    |     <a href="https://crystalvaults.com/blog/">
+    |       Our Blog
+    |     </a>
+    |   </p>
+  sample[2] (5L): Linking to Us
+    |   <p>
+    |     <a href="https://crystalvaults.com/linking/">
+    |       Linking to Us
+    |     </a>
+    |   </p>
+
+--- Chunk 13: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): My Account
+    |   <p>
+    |     <a href="https://www.crystalvaults.com/my-account/">
+    |       My Account
+    |     </a>
+    |   </p>
+  sample[1] (5L): Orders
+    |   <p>
+    |     <a href="https://www.crystalvaults.com/my-account/orders/">
+    |       Orders
+    |     </a>
+    |   </p>
+  sample[2] (5L): Downloads
+    |   <p>
+    |     <a href="https://www.crystalvaults.com/my-account/downloads/">
+    |       Downloads
+    |     </a>
+    |   </p>
+
+--- Chunk 14: [nav_content:li×17] ---
+  type=menu_item freq=17 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: More More submenu toggle Crystal Guides Crystal Cards Crystal Oracle Crystal Hor
+    |   <li id="menu-item-469938" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children fl-has-submenu">
+    |     <div class="fl-has-submenu-container">
+    |       <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/accessories/">
+    |         More
+    |       </a>
+    |   ... [20 lines truncated] ...
+    |           Crystal Horoscope
+    |         </a>
+    |       </li>
+    |     </ul>
+    | ... [1 more lines]
+  sample[1] (8L): My Account
+    |   <li id="menu-item-469963" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://crystalvaults.com/my-account/">
+    |       <i class="_mi fa fa-user-circle" aria-hidden="true"></i>
+    |       <span class="visuallyhidden">
+    |         My Account
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (5L): Crystal Jewelry
+    |   <li id="menu-item-469928" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/jewelry/">
+    |       Crystal Jewelry
+    |     </a>
+    |   </li>
+
+--- Chunk 15: [nav_content:li×9] ---
+  type=menu_item freq=9 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Featured
+    |   <li id="menu-item-469922" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/featured/">
+    |       Featured
+    |     </a>
+    |   </li>
+  sample[1] (5L): Shop all Crystals
+    |   <li id="menu-item-469924" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystals/">
+    |       Shop all Crystals
+    |     </a>
+    |   </li>
+  sample[2] (5L): Crystal Jewelry
+    |   <li id="menu-item-469928" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/jewelry/">
+    |       Crystal Jewelry
+    |     </a>
+    |   </li>
+
+--- Chunk 16: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Crystal Tea
+    |   <li id="menu-item-469933" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/crystal-tea">
+    |       Crystal Tea
+    |     </a>
+    |   </li>
+  sample[1] (5L): Herbs
+    |   <li id="menu-item-492504" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/herbs/">
+    |       Herbs
+    |     </a>
+    |   </li>
+  sample[2] (5L): Crystal Essences
+    |   <li id="menu-item-469934" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/essences/">
+    |       Crystal Essences
+    |     </a>
+    |   </li>
+
+--- Chunk 17: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Reviews
+    |   <li id="menu-item-469956" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/testimonials/">
+    |       Reviews
+    |     </a>
+    |   </li>
+  sample[1] (5L): FAQ
+    |   <li id="menu-item-469957" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://crystalvaults.com/help/">
+    |       FAQ
+    |     </a>
+    |   </li>
+  sample[2] (5L): Shipping
+    |   <li id="menu-item-469959" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://crystalvaults.com/shipping/">
+    |       Shipping
+    |     </a>
+    |   </li>
+
+--- Chunk 18: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.78
+  pattern_xpath: ///h1[contains(@class,'post')][contains(@class,'title')][contains(@itemprop,'headline')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (3L): Aegirine Healing Properties, Meanings, and Uses
+    |   <h1 class="fl-post-title" itemprop="headline">
+    |     Aegirine Healing Properties, Meanings, and Uses
+    |   </h1>
+
+--- Chunk 19: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h4[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): Customer Service
+    |   <h4 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       Customer Service
+    |     </span>
+    |   </h4>
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): Our Company
+    |   <h2 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       Our Company
+    |     </span>
+    |   </h2>
+
+--- Chunk 21: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): My Crystal Vaults
+    |   <h2 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       My Crystal Vaults
+    |     </span>
+    |   </h2>
+
+--- Chunk 22: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): Crystal Vaults VIP
+    |   <h2 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       Crystal Vaults VIP
+    |     </span>
+    |   </h2>

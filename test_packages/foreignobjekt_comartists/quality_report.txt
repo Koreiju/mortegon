@@ -1,0 +1,260 @@
+=== QUALITY REPORT: foreignobjekt_comartists.html ===
+Chunks: 11 (structural=7, functional=1, text=3)
+Categories: {'card': 6, 'structural': 1, 'pagination': 1, 'text_singleton': 3}
+Content: 340 tagged, 227 preserved (67%)
+Leaks: 113 total, 88 high-importance
+
+--- Chunk 0: section.classic.comp ---
+  type=card freq=4 excl=0.70 LEAKS=8
+  pattern_xpath: ///section[contains(@class,'lwvevxtc')][contains(@id,'lwvevxtc')][contains(@class,'oqnisf')][contains(@class,'section')][contains(@data-block-level-container,'classic')]
+  tree_sig: section(div(div(div(div(div(div),div(div),div(div),div(div))))),div(div,div))
+  content: [ATTR=13 HREF=7 IMG=7 TEXT=19]
+  sample[0] (31L) [TRUNCATED]: c5.jpg TAXON_edited.jpg c5.jpg TAXON_edited.jpg Kiymet Bochra Rodrigo​​simin Kiy
+    |   <section id="comp-lwvevxtc1" tabindex="-1" class="Oqnisf comp-lwvevxtc1 wixui-section" data-block-level-container="ClassicSection">
+    |     <div id="bgLayers_comp-lwvevxtc1" data-hook="bgLayers" data-motion-part="BG_LAYER comp-lwvevxtc1" class="MW5IWV">
+    |       <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
+    |       <div id="bgMedia_comp-lwvevxtc1" data-motion-part="BG_MEDIA comp-lwvevxtc1" class="VgO9Yg"></div>
+    |     </div>
+    |     <div data-mesh-id="comp-lwvevxtc1inlineContent" data-testid="inline-content" class="">
+    |       <div data-mesh-id="comp-lwvevxtc1inlineContent-gridContainer" data-testid="mesh-container-content">
+    |         <div id="comp-k3nhk6m4" class=" comp-k3nhk6m4 wixui-repeater">
+    |           <div role="list" class="hRdzm4">
+    |             <div class="cGWabE">
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://static.wixstatic.com/media/f0a2e7_dde5acbfb2354cbca6dd806ce2fa8b9a~mv2.jpg/v1/fill (img URL not in rendered)
+    [HREF] https://www.foreignobjekt.com/eunsol-lee-kimberly-lee (href not in rendered output)
+    [IMG] https://static.wixstatic.com/media/f0a2e7_968c6c077f054945a6c04801cd08ba5c~mv2.jpg/v1/fill (img URL not in rendered)
+    [HREF] https://www.foreignobjekt.com/bassem-saad (href not in rendered output)
+    [IMG] https://static.wixstatic.com/media/f0a2e7_ca7973285b4b42c18bf5c8cb03a559c7~mv2_d_3383_3312 (img URL not in rendered)
+
+--- Chunk 1: section.classic.comp ---
+  type=structural freq=2 excl=0.70 LEAKS=6
+  pattern_xpath: ///section[contains(@class,'lwvevxtd')][contains(@id,'lwvevxtd')][contains(@class,'oqnisf')][contains(@class,'section')][contains(@data-block-level-container,'classic')]
+  tree_sig: section(div(div,div),div(div(div(div(div(div),div(div),div(div),div(div))))))
+  content: [ATTR=14 BG=2 HREF=7 IMG=3 TEXT=19]
+  sample[0] (31L) [TRUNCATED]: OS_1.png SourDirt_web_6.jpg jjj_edited.jpg jjj_edited.jpg OS_1.png OS_1.png Sour
+    |   <section id="comp-lwvevxtd1" tabindex="-1" class="Oqnisf comp-lwvevxtd1 wixui-section" data-block-level-container="ClassicSection">
+    |     <div id="bgLayers_comp-lwvevxtd1" data-hook="bgLayers" data-motion-part="BG_LAYER comp-lwvevxtd1" class="MW5IWV">
+    |       <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
+    |       <div id="bgMedia_comp-lwvevxtd1" data-motion-part="BG_MEDIA comp-lwvevxtd1" class="VgO9Yg"></div>
+    |     </div>
+    |     <div data-mesh-id="comp-lwvevxtd1inlineContent" data-testid="inline-content" class="">
+    |       <div data-mesh-id="comp-lwvevxtd1inlineContent-gridContainer" data-testid="mesh-container-content">
+    |         <div id="comp-keuvcg53" class=" comp-keuvcg53 wixui-repeater">
+    |           <div role="list" class="hRdzm4">
+    |             <div class="cGWabE">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.foreignobjekt.com (href not in rendered output)
+    [HREF] https://www.foreignobjekt.com/post/diane-edwards (href not in rendered output)
+    [IMG] https://static.wixstatic.com/media/f0a2e7_c1e8764128e14f6796cec4fdbe536d03~mv2.jpg/v1/fill (img URL not in rendered)
+    [HREF] https://www.foreignobjekt.com/beyond-woke-and-problematic (href not in rendered output)
+    [IMG] https://static.wixstatic.com/media/f0a2e7_d7f4628c4ab149188fb8d0243689949c~mv2.png/v1/fill (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Narcissus as Narcosis
+    [TEXT] The Dichotomy of Cyberspace and the FacadeNarcissus as Narcosis
+    [TEXT] 𝐁𝐞𝐲𝐨𝐧𝐝 𝐖𝐨𝐤𝐞 𝐚𝐧𝐝 𝐏𝐫𝐨𝐛𝐥𝐞𝐦𝐚𝐭𝐢𝐜
+
+--- Chunk 2: div.absolute.auto ---
+  type=card freq=3 excl=1.00 LEAKS=19
+  pattern_xpath: ///div[contains(@class,'container')][contains(@class,'custom')][contains(@class,'focus')][contains(@class,'has')][contains(@class,'regular')]
+  tree_sig: div(div,div(div(div(div(div(div,div),div(div,span)))),div(div(picture(img,source
+  content: [ATTR=14 HREF=6 IMG=109 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: Sepideh Majidi: Intelligence - Love - Revolution: Open Call -Sepideh Majidi: Int
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi4ce836b20a994575a9f8143123646e3f_0" data-hash="4ce836b2-0a99-4575-a9f8-143123646e3f" data-id="4ce836b2-0a99-4575-a9f8-143123646e3f" data-idx="0" data-hook="item-container" style="overflow-y:hidden;position:absolute;bottom:auto;margin:0;top:0;left:0;right:auto...">
+    |     <div data-idx="0" id="item-action-4ce836b2-0a99-4575-a9f8-143123646e3f" class="item-action" tabindex="0" data-hook="item-action" aria-label="Sepideh Majidi: Intelligence - Love - Revolution: Open Call - "></div>
+    |     <div style="float:left">
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-4ce836b2-0a99-4575-a9f8-143123646e3f" style="background-color:none;height:354.75px;width:473px;margin:-1px">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width:473px;height:354.75px;margin-top:0;margin-left:0">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg 1x, https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill/w_960,h_721,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.webp 1x, https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill/w_960,h_721,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="Sepideh Majidi: Intelligence - Love - Revolution: Open Call - " src="https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.j..." style="width:473px;height:354.75px" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img-preload" loading="eager"></img>
+    |           </picture>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill (img URL not in rendered)
+    [IMG] h_355 (img URL not in rendered)
+    [IMG] q_90 (img URL not in rendered)
+    [IMG] q_90 (img URL not in rendered)
+    [IMG] https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] 2,938 views2 comments
+    [TEXT] Apr 30, 20256 min read
+    [TEXT] 25 likes. Post not marked as liked
+
+--- Chunk 3: div.bg.comp ---
+  type=card freq=26 excl=1.00
+  pattern_xpath: ///div[contains(@class,'iwv')][contains(@class,'mw')][contains(@data-hook,'bg')][contains(@data-hook,'layers')][contains(@data-motion-part,'bg')]
+  tree_sig: div(div,div(wow-image(img)))
+  content: [IMG=1]
+  sample[0] (9L): Upcoming Exhibition: IMMUTATION Particip
+    |   <div id="bgLayers_comp-k3nhiimv__item-j9plerjk" data-hook="bgLayers" data-motion-part="BG_LAYER comp-k3nhiimv__item-j9plerjk" class="MW5IWV">
+    |     <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
+    |     <div id="bgMedia_comp-k3nhiimv__item-j9plerjk" data-motion-part="BG_MEDIA comp-k3nhiimv__item-j9plerjk" class="VgO9Yg">
+    |       <wow-image id="img_comp-k3nhiimv__item-j9plerjk" class="jhxvbR Kv1aVt dLPlxY mNGsUM bgImage" data-image-info="{"containerId":"comp-k3nhiimv__item-j9plerjk","alignType":"center","displayMode":"fill","targetWidth":241,"targetHeight":445,"encoding":"AVIF","imageData":{"width":640,"height":359,"uri":"f0a2e7_e0ff4291e4bf43babc9cd3a142fa6011~mv2.jpg","name":"","displayMode":"fill"}}" data-motion-part="BG_IMG comp-k3nhiimv__item-j9plerjk" data-bg-effect-name="" data-has-ssr-src="" style="--wix-img-max-width:max(640px, 100%)">
+    |         <img alt="Upcoming Exhibition: IMMUTATION
+    | Particip" style="width: 241px; height: 445px; object-fit: cover;" width="241" height="445" data-ssr-src-done="true" fetchpriority="high" src="https://static.wixstatic.com/media/f0a2e7_e0ff4291e4bf43babc9cd3a142fa6011~mv2.j..."></img>
+    |       </wow-image>
+    |     </div>
+    |   </div>
+  sample[1] (9L): Upcoming Exhibition: IMMUTATION Particip
+    |   <div id="bgLayers_comp-k3nhiimv__item-j9plerjk" data-hook="bgLayers" data-motion-part="BG_LAYER comp-k3nhiimv__item-j9plerjk" class="MW5IWV">
+    |     <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
+    |     <div id="bgMedia_comp-k3nhiimv__item-j9plerjk" data-motion-part="BG_MEDIA comp-k3nhiimv__item-j9plerjk" class="VgO9Yg">
+    |       <wow-image id="img_comp-k3nhiimv__item-j9plerjk" class="jhxvbR Kv1aVt dLPlxY mNGsUM bgImage" data-image-info="{"containerId":"comp-k3nhiimv__item-j9plerjk","alignType":"center","displayMode":"fill","targetWidth":241,"targetHeight":445,"encoding":"AVIF","imageData":{"width":640,"height":359,"uri":"f0a2e7_e0ff4291e4bf43babc9cd3a142fa6011~mv2.jpg","name":"","displayMode":"fill"}}" data-motion-part="BG_IMG comp-k3nhiimv__item-j9plerjk" data-bg-effect-name="" data-has-ssr-src="" style="--wix-img-max-width:max(640px, 100%)">
+    |         <img alt="Upcoming Exhibition: IMMUTATION
+    | Particip" style="width: 241px; height: 445px; object-fit: cover;" width="241" height="445" data-ssr-src-done="true" fetchpriority="high" src="https://static.wixstatic.com/media/f0a2e7_e0ff4291e4bf43babc9cd3a142fa6011~mv2.j..."></img>
+    |       </wow-image>
+    |     </div>
+    |   </div>
+  sample[2] (8L): TAXON_edited.jpg
+    |   <div id="bgLayers_comp-k3nhk6ob__item-j9ples3e" data-hook="bgLayers" data-motion-part="BG_LAYER comp-k3nhk6ob__item-j9ples3e" class="MW5IWV">
+    |     <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
+    |     <div id="bgMedia_comp-k3nhk6ob__item-j9ples3e" data-motion-part="BG_MEDIA comp-k3nhk6ob__item-j9ples3e" class="VgO9Yg">
+    |       <wow-image id="img_comp-k3nhk6ob__item-j9ples3e" class="jhxvbR Kv1aVt dLPlxY mNGsUM bgImage" data-image-info="{"containerId":"comp-k3nhk6ob__item-j9ples3e","alignType":"center","displayMode":"fill","targetWidth":241,"targetHeight":426,"encoding":"AVIF","imageData":{"width":1284,"height":2121,"uri":"f0a2e7_0d5a9b37805f494b9ffd260bd24e0786~mv2.jpg","name":"","displayMode":"fill"}}" data-motion-part="BG_IMG comp-k3nhk6ob__item-j9ples3e" data-bg-effect-name="" data-has-ssr-src="" style="--wix-img-max-width:max(1284px, 100%)">
+    |         <img alt="TAXON_edited.jpg" style="width: 241px; height: 426px; object-fit: cover;" width="241" height="426" data-ssr-src-done="true" fetchpriority="high" src="https://static.wixstatic.com/media/f0a2e7_0d5a9b37805f494b9ffd260bd24e0786~mv2.j..."></img>
+    |       </wow-image>
+    |     </div>
+    |   </div>
+
+--- Chunk 4: div.comp.false ---
+  type=card freq=40 excl=0.73
+  pattern_xpath: ///div[contains(@aria-disabled,'false')][contains(@class,'fub')][contains(@class,'tgk')][contains(@class,'comp')][contains(@id,'item')]
+  tree_sig: div(a(span))
+  content: [HREF=1]
+  sample[0] (7L): Will Lee
+    |   <div class="comp-k4izv3be FubTgk" id="comp-k4izv3be__item1" aria-disabled="false">
+    |     <a data-testid="linkElement" href="https://www.foreignobjekt.com/post/will-lee" target="_blank" rel="noreferrer noopener" class="uDW_Qe wixui-button PlZyDq" aria-disabled="false" aria-label=" Will Lee">
+    |       <span class="l7_2fn wixui-button__label">
+    |         Will Lee
+    |       </span>
+    |     </a>
+    |   </div>
+  sample[1] (7L): Kimberly
+    |   <div class="comp-k4izv3be FubTgk" id="comp-k4izv3be__item-j9ples3e" aria-disabled="false">
+    |     <a data-testid="linkElement" href="https://www.foreignobjekt.com/eunsol-lee-kimberly-lee" target="_self" class="uDW_Qe wixui-button PlZyDq" aria-disabled="false" aria-label="Kimberly">
+    |       <span class="l7_2fn wixui-button__label">
+    |         Kimberly
+    |       </span>
+    |     </a>
+    |   </div>
+  sample[2] (7L): Nadim
+    |   <div class="comp-k4izo2xq FubTgk" id="comp-k4izo2xq__item-j9pleqw5" aria-disabled="false">
+    |     <a data-testid="linkElement" href="https://www.foreignobjekt.com/post/nadim-choufi" target="_blank" rel="noreferrer noopener" class="uDW_Qe wixui-button PlZyDq" aria-disabled="false" aria-label="Nadim">
+    |       <span class="l7_2fn wixui-button__label">
+    |         Nadim
+    |       </span>
+    |     </a>
+    |   </div>
+
+--- Chunk 5: li.comp.data ---
+  type=card freq=4 excl=0.87
+  pattern_xpath: ///li[contains(@class,'kw')][contains(@class,'rn')][contains(@id,'data')][contains(@id,'khnxgaf')][contains(@id,'item')]
+  tree_sig: li(a(img))
+  content: [ATTR=2 HREF=1 IMG=15]
+  sample[0] (5L): YouTube
+    |   <li id="dataItem-khnxhrtg-comp-khnxgaf5" class="O6KwRn">
+    |     <a data-testid="linkElement" href="https://www.youtube.com/channel/UCNOhbFuw7zZnXZeNJyUemRQ?view_as=subscriber" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="YouTube">
+    |       <img sizes="undefinedpx" srcset="https://static.wixstatic.com/media/44eb1e29ffa34198aee01e8d4f305903.png/v1/fill/w_22,h_22,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/44eb1e29ffa34198aee01e8d4f305903.png 1x, https://static.wixstatic.com/media/44eb1e29ffa34198aee01e8d4f305903.png/v1/fill/w_44,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/44eb1e29ffa34198aee01e8d4f305903.png 2x" id="img_0_comp-khnxgaf5" src="https://static.wixstatic.com/media/44eb1e29ffa34198aee01e8d4f305903.png/v1/fill/..." alt="YouTube" style="object-fit:cover" class="YaS0jR Tj01hh"></img>
+    |     </a>
+    |   </li>
+  sample[1] (5L): Twitter
+    |   <li id="dataItem-khnxhrti-comp-khnxgaf5" class="O6KwRn">
+    |     <a data-testid="linkElement" href="https://twitter.com/foreign_objekt" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Twitter">
+    |       <img sizes="undefinedpx" srcset="https://static.wixstatic.com/media/59687ffffc2042f885062ce2b0744381.png/v1/fill/w_22,h_22,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/59687ffffc2042f885062ce2b0744381.png 1x, https://static.wixstatic.com/media/59687ffffc2042f885062ce2b0744381.png/v1/fill/w_44,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/59687ffffc2042f885062ce2b0744381.png 2x" id="img_1_comp-khnxgaf5" src="https://static.wixstatic.com/media/59687ffffc2042f885062ce2b0744381.png/v1/fill/..." alt="Twitter" style="object-fit:cover" class="YaS0jR Tj01hh"></img>
+    |     </a>
+    |   </li>
+  sample[2] (5L): Facebook
+    |   <li id="dataItem-khnxgapd1-comp-khnxgaf5" class="O6KwRn">
+    |     <a data-testid="linkElement" href="https://www.facebook.com/Foreign-Objekt-100774358119248/?modal=admin_todo_tour" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Facebook    ">
+    |       <img sizes="undefinedpx" srcset="https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png/v1/fill/w_22,h_22,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png 1x, https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png/v1/fill/w_44,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png 2x" id="img_2_comp-khnxgaf5" src="https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.p..." alt="Facebook    " style="object-fit:cover" class="YaS0jR Tj01hh"></img>
+    |     </a>
+    |   </li>
+
+--- Chunk 6: div.common.float ---
+  type=card freq=3 excl=1.00 LEAKS=55
+  pattern_xpath: ///div[contains(@class,'common')][contains(@class,'info')][contains(@class,'object')][contains(@class,'outer')][contains(@style,'float')]
+  tree_sig: div(div(div(div(div(div(a,div),div(div)),div(div(a,div),span)))),div(div(picture
+  content: [ATTR=11 HREF=6 IMG=55 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: Sepideh Majidi: Intelligence - Love - Revolution: Open Call -Sepideh Majidi: Int
+    |   <div class="gallery-item-common-info-outer [object Object]" style="height:354.75px;float:right">
+    |     <div style="overflow:hidden;box-sizing:border-box;height:100%;width:467px" class="gallery-item-common-info gallery-item-right-info">
+    |       <div class="RiOfiW pu51Xe TBrkhx blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-post-post-list-border-color blog-post-post-list-post-container blog-post-post-list-background-color _UH27m" style="border-width:0;--wix-blog-inline-padding:48px" data-hook="post-list-item">
+    |         <div style="padding-left:48px;padding-right:48px" class="iSTCpN TBrkhx post-list-item-wrapper blog-post-post-list-description-font blog-post-post-list-description-color blog-post-post-list-description-fill">
+    |           <div class="uYL9xS">
+    |             <div class="JMCi2v blog-post-post-list-link-hashtag-hover-color so9KdE TBrkhx">
+    |               <a class="O16KGI pu51Xe TBrkhx xs2MeC" href="https://www.foreignobjekt.com/post/intelligence-love-revolution-open-call-framework-by-sepideh-majidi">
+    |                 <div style="font-size:28px" class="FbwBsX blog-post-title-font TBrkhx xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |                   <div class="T5UMT5 fcPJ4D blog-hover-container-element-color WD_8WI post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size:28px" data-hook="post-title">
+    |                     <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://static.wixstatic.com/media/f0a2e7_28eccfb1cde94446b006aa0867a6dc76~mv2.jpg/v1/fill (img URL not in rendered)
+    [IMG] h_250 (img URL not in rendered)
+    [IMG] fp_0.50_0.50 (img URL not in rendered)
+    [IMG] q_30 (img URL not in rendered)
+    [IMG] blur_30 (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] 25 likes. Post not marked as liked
+
+--- Chunk 7: [pagination_buttons] ---
+  type=pagination freq=2 excl=1.00
+  pattern_xpath: ///link[contains(@as,'fetch')][contains(@crossorigin,'anonymous')][contains(@id,'master')][contains(@id,'page')][contains(@position,'post')]
+  content: [HREF=1]
+  sample[0] (1L): 
+    |   <link href="https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%2214bcded7-0066-7c35-14d7-466cb3f09103%22%3A%221335%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&beckyExperiments=.DatePickerPortal%2C.DisableDocumentScrollWhenLightBoxOpen%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNewLoginSocialBarCustomMenuPositioning%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.VerticalMenu_uiType_NativeMapper%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.disableBuilderWixComponents%2C.dom_store%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.imageEncodingAVIF%2C.isClassNameToRootEnabled%2C.motionTimeAnimationsCSS%2C.propsCarmiMappersMigration1%2C.propsCarmiMappersMigration4%2C.propsCarmiMappersMigration5%2C.removeDynamicModelTopologyFromSiteAssets%2C.shouldUseResponsiveImages%2C.svgResolver_2%2C.takeAppDependenciesFromCSM%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery%2C.useResponsiveImgClassicFixed%2C.useSvgLoaderFeature%2C.useSvgLoaderFeatureOnBuilderComps&blocksBuilderManifestGeneratorVersion=1.129.0&contentType=application%2Fjson&deviceType=Desktop&dfCk=6&dfVersion=1.5263.0&disableStaticPagesUrlHierarchy=false&editorName=Unknown&experiments=dm_bgScrubToMotionFixer%2Cdm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.foreignobjekt.com&fileId=df2ea64c.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isMultilingualEnabled=false&isPremiumDomain=true&isTrackClicksAnalyticsEnabled=false&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=true&language=en&languageResolutionMethod=QueryParam&metaSiteId=a55cab44-7e5b-4336-81b8-749baa3ab606&module=thunderbolt-features&originalLanguage=en&pageId=f0a2e7_3d5b22d137fac873491747b67b4d1449_7286.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=234d0912-fafb-44fb-9531-97b4f62e555f&siteRevision=7286&staticHTMLComponentUrl=https%3A%2F%2Fwww-foreignobjekt-com.filesusr.com%2F&useSandboxInHTMLComp=false&viewMode=desktop" id="features_masterPage" as="fetch" position="post-scripts" rel="preload" crossorigin="anonymous"></link>
+  sample[1] (1L): 
+    |   <link href="https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%2214bcded7-0066-7c35-14d7-466cb3f09103%22%3A%221335%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&beckyExperiments=.DatePickerPortal%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNewLoginSocialBarCustomMenuPositioning%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.disableBuilderWixComponents%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.isClassNameToRootEnabled%2C.propsCarmiMappersMigration1%2C.propsCarmiMappersMigration4%2C.propsCarmiMappersMigration5%2C.svgResolver_2%2C.takeAppDependenciesFromCSM%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery&blocksBuilderManifestGeneratorVersion=1.129.0&contentType=application%2Fjson&dfCk=6&dfVersion=1.5263.0&editorName=Unknown&experiments=dm_bgScrubToMotionFixer%2Cdm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.foreignobjekt.com&fileId=b814ec89.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isPremiumDomain=true&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=true&language=en&metaSiteId=a55cab44-7e5b-4336-81b8-749baa3ab606&module=thunderbolt-platform&originalLanguage=en&pageId=f0a2e7_3d5b22d137fac873491747b67b4d1449_7286.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=234d0912-fafb-44fb-9531-97b4f62e555f&siteRevision=7286&staticHTMLComponentUrl=https%3A%2F%2Fwww-foreignobjekt-com.filesusr.com%2F&viewMode=desktop" id="platform_masterPage" as="fetch" position="post-scripts" rel="preload" crossorigin="anonymous"></link>
+
+--- Chunk 8: [text_content:h6×1] ---
+  type=text_singleton freq=1 excl=0.43
+  pattern_xpath: ///h6[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')][contains(@class,'font')][contains(@class,'rich')]
+  content: [TEXT=1]
+  sample[0] (13L): Xuan Ye
+    |   <h6 class="font_6 wixui-rich-text__text" style="font-size:14px; text-align:center;">
+    |     <span style="font-size:14px;" class="wixui-rich-text__text">
+    |       <span style="font-family:lulo-clean-w01-one-bold,sans-serif;" class="wixui-rich-text__text">
+    |         <span style="text-shadow:rgba(0, 0, 0, 0.498039) -1px -1px 0px, rgba(0, 0, 0, 0.498039) -1px ..." class="wixui-rich-text__text">
+    |           <span class="color_11 wixui-rich-text__text">
+    |             <span style="font-weight:bold;" class="wixui-rich-text__text">
+    |               Xuan Ye
+    |             </span>
+    |           </span>
+    |         </span>
+    | ... [3 more lines]
+
+--- Chunk 9: [text_content:h6×1] ---
+  type=text_singleton freq=1 excl=0.43
+  pattern_xpath: ///div[contains(@id,'ni')][contains(@id,'pleqw')][contains(@class,'ml')]/h6[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')][contains(@class,'font')][contains(@class,'rich')]
+  content: [TEXT=1]
+  sample[0] (13L): Yvette Granata
+    |   <h6 class="font_6 wixui-rich-text__text" style="font-size:14px; text-align:center;">
+    |     <span style="font-size:14px;" class="wixui-rich-text__text">
+    |       <span style="font-family:lulo-clean-w01-one-bold,sans-serif;" class="wixui-rich-text__text">
+    |         <span style="text-shadow:rgba(0, 0, 0, 0.498039) -1px -1px 0px, rgba(0, 0, 0, 0.498039) -1px ..." class="wixui-rich-text__text">
+    |           <span class="color_11 wixui-rich-text__text">
+    |             <span style="font-weight:bold;" class="wixui-rich-text__text">
+    |               Yvette Granata
+    |             </span>
+    |           </span>
+    |         </span>
+    | ... [3 more lines]
+
+--- Chunk 10: [text_content:h6×1] ---
+  type=text_singleton freq=1 excl=0.33
+  pattern_xpath: ///div[contains(@id,'rspz')][contains(@id,'pleqw')][contains(@class,'ml')]/h6[contains(@class,'font')][contains(@class,'rich')][contains(@class,'text')][contains(@style,'font')][contains(@style,'size')]
+  content: [TEXT=1]
+  sample[0] (11L): Data-Slime
+    |   <h6 class="font_6 wixui-rich-text__text" style="font-size:15px;">
+    |     <span style="font-size:15px;" class="wixui-rich-text__text">
+    |       <span class="color_11 wixui-rich-text__text">
+    |         <span style="font-weight:bold;" class="wixui-rich-text__text">
+    |           <span style="font-family:futura-lt-w01-book,sans-serif;" class="wixui-rich-text__text">
+    |             Data-Slime
+    |           </span>
+    |         </span>
+    |       </span>
+    |     </span>
+    | ... [1 more lines]

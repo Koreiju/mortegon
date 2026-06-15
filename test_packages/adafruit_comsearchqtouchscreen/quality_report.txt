@@ -1,0 +1,594 @@
+=== QUALITY REPORT: adafruit_comsearchqtouchscreen.html ===
+Chunks: 31 (structural=7, functional=12, text=12)
+Categories: {'card': 6, 'structural': 1, 'search_input': 1, 'pagination': 1, 'menu_item': 10, 'text_singleton': 12}
+Content: 516 tagged, 431 preserved (84%)
+Leaks: 85 total, 41 high-importance
+
+--- Chunk 0: div.feat.product ---
+  type=card freq=8 excl=0.83
+  pattern_xpath: ///div[contains(@class,'feat')][contains(@class,'row')][contains(@class,'product')]
+  tree_sig: div(div(img),a(div(p,p,div)))
+  content: [ATTR=2 HREF=1 IMG=1 TEXT=2]
+  sample[0] (16L): Angled Shot of the Raspberry Pi Flash Drive 256GB USB 3.0 (USB Connector End)Ras
+    |   <div class="featProductRow">
+    |     <div aria-hidden="true">
+    |       <img class="img-responsive productThumb " src="https://cdn-shop.adafruit.com/100x75/6453-01.jpg" alt="Angled Shot of the Raspberry Pi Flash Drive 256GB USB 3.0 (USB Connector End)" loading="lazy"></img>
+    |     </div>
+    |     <a href="https://www.adafruit.com/product/6453">
+    |       <div>
+    |         <p>
+    |           Raspberry Pi Flash Drive 256GB USB 3.0
+    |         </p>
+    |         <p class="price">
+    | ... [6 more lines]
+
+--- Chunk 1: li.https.org ---
+  type=card freq=7 excl=0.00
+  pattern_xpath: ///li
+  tree_sig: li(div(a(div,img)),div(h2(a),div(span),div),div(div(div(meta,meta,div(div(span))
+  content: [ATTR=1 HREF=2 IMG=1 TEXT=8]
+  sample[0] (31L) [TRUNCATED]: Product ID:Touch screen breakout board (0.5mm FPC).Angle shot of Touch screen br
+    |   <li itemscope="" itemtype="https://schema.org/Product">
+    |     <div class="imgContainer">
+    |       <a href="/product/334">
+    |         <div class="sr-only">
+    |           Touch screen breakout board (0.5mm FPC).
+    |         </div>
+    |         <img class="img-responsive productThumb " src="https://cdn-shop.adafruit.com/310x233/334-03.jpg" alt="Angle shot of Touch screen breakout board (0.5mm FPC)" loading="lazy"></img>
+    |       </a>
+    |     </div>
+    |     <div class="textContainer">
+    | ... [21 more lines]
+
+--- Chunk 2: a.adafruit.com ---
+  type=card freq=16 excl=0.00
+  pattern_xpath: ///a
+  tree_sig: a(div(div,p,p))
+  content: [ATTR=1 HREF=1 TEXT=2]
+  sample[0] (11L): Raspberry Pi Flash Drive 256GB USB 3.0$63.25 Angled Shot of the Raspberry Pi Fla
+    |   <a href="https://www.adafruit.com/product/6453">
+    |     <div>
+    |       <p>
+    |         Raspberry Pi Flash Drive 256GB USB 3.0
+    |       </p>
+    |       <p class="price">
+    |         $63.25
+    |       </p>
+    |       <div class="sr-only" role="img" aria-label="Angled Shot of the Raspberry Pi Flash Drive 256GB USB 3.0 (USB Connector End)"></div>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (11L): Raspberry Pi Flash Drive 128GB USB 3.0$34.95 Angled Shot of the Raspberry Pi Fla
+    |   <a href="https://www.adafruit.com/product/6452">
+    |     <div>
+    |       <p>
+    |         Raspberry Pi Flash Drive 128GB USB 3.0
+    |       </p>
+    |       <p class="price">
+    |         $34.95
+    |       </p>
+    |       <div class="sr-only" role="img" aria-label="Angled Shot of the Raspberry Pi Flash Drive 128GB USB 3.0 (USB Connector End)"></div>
+    |     </div>
+    | ... [1 more lines]
+
+--- Chunk 3: div.container.text ---
+  type=card freq=10 excl=0.42
+  pattern_xpath: ///div[contains(@class,'text')][contains(@class,'container')]
+  tree_sig: div(div,div(span),h2(a))
+  content: [HREF=1 TEXT=3]
+  sample[0] (14L): Product ID:Touch screen breakout board (0.5mm FPC)334
+    |   <div class="textContainer">
+    |     <h2>
+    |       <a href="/product/334" data-pid="334" data-name="Touch screen breakout board (0.5mm FPC)" itemprop="name" content="Touch screen breakout board (0.5mm FPC)">
+    |         Touch screen breakout board (0.5mm FPC)
+    |       </a>
+    |     </h2>
+    |     <div class="partId">
+    |       Product ID:
+    |       <span itemprop="sku">
+    |         334
+    | ... [4 more lines]
+  sample[1] (14L): Product ID:Adafruit Touch Screen Breakout Board for 4 pin 1.0mm FPC 3575
+    |   <div class="textContainer">
+    |     <h2>
+    |       <a href="/product/3575" data-pid="3575" data-name="Adafruit Touch Screen Breakout Board for 4 pin 1.0mm FPC" itemprop="name" content="Adafruit Touch Screen Breakout Board for 4 pin 1.0mm FPC">
+    |         Adafruit Touch Screen Breakout Board for 4 pin 1.0mm FPC
+    |       </a>
+    |     </h2>
+    |     <div class="partId">
+    |       Product ID:
+    |       <span itemprop="sku">
+    |         3575
+    | ... [4 more lines]
+
+--- Chunk 4: div.container.https ---
+  type=card freq=10 excl=0.83
+  pattern_xpath: ///div[contains(@class,'price')][contains(@class,'stock')][contains(@itemprop,'offers')][contains(@class,'container')]
+  tree_sig: div(div(div(div(div(span(span))),meta,meta),div(meta,span)))
+  content: [TEXT=2]
+  sample[0] (24L): In stock$3.95
+    |   <div class="priceStockContainer" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+    |     <div>
+    |       <div class="price">
+    |         <meta itemprop="priceCurrency" content="USD"></meta>
+    |         <meta itemprop="price" content="3.9500"></meta>
+    |         <div>
+    |           <div class="price">
+    |             <span class="normal-price">
+    |               $
+    |               <span>
+    | ... [14 more lines]
+
+--- Chunk 5: a.adafruit.blank ---
+  type=card freq=4 excl=0.50
+  pattern_xpath: ///a[contains(@rel,'noopener')][contains(@target,'blank')]
+  tree_sig: a(svg(path))
+  content: [ATTR=1 HREF=1]
+  sample[0] (5L): 
+    |   <a rel="noopener" target="_blank" href="https://www.tiktok.com/@adafruit" aria-label="Adafruit on TikTok">
+    |     <svg role="presentation" style="height: 1em; margin-bottom: -0.15em;" xmlns="http://www.w3.org/2000/svg" viewbox="3 3 18 20">
+    |       <path d="M19.8059,7.50695c-1.029,0,-1.978,-0.341,-2.74,-0.916c-0.875,-0.659,-1.503,-1.626..." fill="currentColor"></path>
+    |     </svg>
+    |   </a>
+  sample[1] (5L): 
+    |   <a rel="noopener" target="_blank" href="https://www.threads.net/@adafruit" aria-label="Adafruit on Threads">
+    |     <svg role="presentation" style="height: 1em; margin-bottom: -0.15em" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+    |       <path fill="currentColor" d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.7 36.5 17.2..."></path>
+    |     </svg>
+    |   </a>
+  sample[2] (5L): 
+    |   <a rel="noopener" target="_blank" href="https://adafru.it/discord" aria-label="Adafruit on Discord">
+    |     <svg role="presentation" style="height: 1em; margin-bottom: -0.15em" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 127.14 96.36">
+    |       <path fill="currentColor" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,..."></path>
+    |     </svg>
+    |   </a>
+
+--- Chunk 6: div.content.header ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@class,'content')][contains(@class,'header')]
+  tree_sig: div(a(span),h3)
+  content: [HREF=1 TEXT=3]
+  sample[0] (11L): New Products view all New Products
+    |   <div class="content-header">
+    |     <h3 class="title">
+    |       New Products
+    |     </h3>
+    |     <a class="view-all-count" href="/new">
+    |       view all
+    |       <span class="sr-only">
+    |         New Products
+    |       </span>
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (11L): Featured Products view all Featured Products
+    |   <div class="content-header">
+    |     <h3 class="title">
+    |       Featured Products
+    |     </h3>
+    |     <a class="view-all-count" href="/featured">
+    |       view all
+    |       <span class="sr-only">
+    |         Featured Products
+    |       </span>
+    |     </a>
+    | ... [1 more lines]
+
+--- Chunk 7: [search_inputs] ---
+  type=search_input freq=2 excl=1.00
+  pattern_xpath: ///input[contains(@autocapitalize,'none')][contains(@autocomplete,'off')][contains(@autocorrect,'off')][contains(@spellcheck,'false')][contains(@type,'text')]
+  sample[0] (1L): 
+    |   <input class="search" value="touchscreen" type="text" id="MobileSearch" aria-labelledby="MobileSearchLabel" name="q" placeholder="" autocomplete="off" spellcheck="false" autocapitalize="none" aria-controls="mobile-search-results" role="combobox" aria-expanded="false" autocorrect="off"></input>
+  sample[1] (1L): 
+    |   <input value="touchscreen" id="search" aria-labelledby="searchBtn" type="text" name="q" autocapitalize="none" spellcheck="false" autocomplete="off" data-page="" autocorrect="off"></input>
+
+--- Chunk 8: [pagination_buttons] ---
+  type=pagination freq=14 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1 HREF=8 TEXT=12]
+  sample[0] (11L) [TRUNCATED]: Previous Current page:1…PreviousCurrent page: 1…Go to page 2 Go to page 3 Go to 
+    |   <div class="paginationContainer">
+    |     <nav id="searchPagination" role="navigation" aria-label="Search results pagination">
+    |       <ul>
+    |         <li aria-hidden="true" class="direction">
+    |           <span>
+    |   ... [75 lines truncated] ...
+    |           </a>
+    |         </li>
+    |       </ul>
+    |     </nav>
+    | ... [1 more lines]
+  sample[1] (8L): Go to last page 9
+    |   <li class="paginationEnd">
+    |     <a href="/search?q=touchscreen&p=9">
+    |       <span class="sr-only">
+    |         Go to last page
+    |       </span>
+    |       9
+    |     </a>
+    |   </li>
+  sample[2] (6L): Go to page 3
+    |   <a href="/search?q=touchscreen&p=3">
+    |     <span class="sr-only">
+    |       Go to page
+    |     </span>
+    |     3
+    |   </a>
+
+--- Chunk 11: [nav_content:a×15] ---
+  type=menu_item freq=15 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Contact Us
+    |   <li>
+    |     <a href="/contact_us">
+    |       Contact Us
+    |     </a>
+    |   </li>
+  sample[1] (5L): Tech Support Forums
+    |   <li>
+    |     <a href="https://forums.adafruit.com/">
+    |       Tech Support Forums
+    |     </a>
+    |   </li>
+  sample[2] (3L): Contact Us
+    |   <a href="/contact_us">
+    |     Contact Us
+    |   </a>
+
+--- Chunk 12: [nav_content:a×11] ---
+  type=menu_item freq=11 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): About Us
+    |   <li>
+    |     <a href="/about">
+    |       About Us
+    |     </a>
+    |   </li>
+  sample[1] (5L): Press
+    |   <li>
+    |     <a href="/press">
+    |       Press
+    |     </a>
+    |   </li>
+  sample[2] (3L): About Us
+    |   <a href="/about">
+    |     About Us
+    |   </a>
+
+--- Chunk 11: [nav_content:a×15] ---
+  type=menu_item freq=15 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Contact Us
+    |   <li>
+    |     <a href="/contact_us">
+    |       Contact Us
+    |     </a>
+    |   </li>
+  sample[1] (5L): Tech Support Forums
+    |   <li>
+    |     <a href="https://forums.adafruit.com/">
+    |       Tech Support Forums
+    |     </a>
+    |   </li>
+  sample[2] (3L): Contact Us
+    |   <a href="/contact_us">
+    |     Contact Us
+    |   </a>
+
+--- Chunk 12: [nav_content:a×11] ---
+  type=menu_item freq=11 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): About Us
+    |   <li>
+    |     <a href="/about">
+    |       About Us
+    |     </a>
+    |   </li>
+  sample[1] (5L): Press
+    |   <li>
+    |     <a href="/press">
+    |       Press
+    |     </a>
+    |   </li>
+  sample[2] (3L): About Us
+    |   <a href="/about">
+    |     About Us
+    |   </a>
+
+--- Chunk 13: [nav_content:a×26] ---
+  type=menu_item freq=26 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=2 TEXT=2]
+  sample[0] (9L): Sign In|Create Account
+    |   <li class="login direct-link">
+    |     <a href="/login">
+    |       Sign In
+    |     </a>
+    |     |
+    |     <a href="https://accounts.adafruit.com/users/sign_up/">
+    |       Create Account
+    |     </a>
+    |   </li>
+  sample[1] (5L): New Products
+    |   <li>
+    |     <a href="/new">
+    |       New Products
+    |     </a>
+    |   </li>
+  sample[2] (3L): Sign In|
+    |   <a href="/login">
+    |     Sign In
+    |   </a>
+
+--- Chunk 14: [nav_content:a×13] ---
+  type=menu_item freq=13 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Shop
+    |   <li>
+    |     <a aria-current="true" href="https://www.adafruit.com/">
+    |       Shop
+    |     </a>
+    |   </li>
+  sample[1] (5L): Learn
+    |   <li>
+    |     <a href="https://learn.adafruit.com/">
+    |       Learn
+    |     </a>
+    |   </li>
+  sample[2] (3L): Shop
+    |   <a aria-current="true" href="https://www.adafruit.com/">
+    |     Shop
+    |   </a>
+
+--- Chunk 15: [nav_content:a×39] ---
+  type=menu_item freq=39 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arduino (3)
+    |   <li>
+    |     <a href="/search?q=touchscreen&c=17">
+    |       Arduino (3)
+    |     </a>
+    |   </li>
+  sample[1] (5L): Bluetooth® (1)
+    |   <li>
+    |     <a href="/search?q=touchscreen&c=1010">
+    |       Bluetooth® (1)
+    |     </a>
+    |   </li>
+  sample[2] (5L): Raspberry Pi (34)
+    |   <li>
+    |     <a href="/search?q=touchscreen&c=105">
+    |       Raspberry Pi (34)
+    |     </a>
+    |   </li>
+
+--- Chunk 17: [nav_content:a×57] ---
+  type=menu_item freq=57 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arduino
+    |   <li>
+    |     <a href="/category/17">
+    |       Arduino
+    |     </a>
+    |   </li>
+  sample[1] (5L): CircuitPython
+    |   <li>
+    |     <a href="/category/956">
+    |       CircuitPython
+    |     </a>
+    |   </li>
+  sample[2] (5L): E-Ink / ThinkInk
+    |   <li>
+    |     <a href="/category/150">
+    |       E-Ink / ThinkInk
+    |     </a>
+    |   </li>
+
+--- Chunk 17: [nav_content:a×57] ---
+  type=menu_item freq=57 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arduino
+    |   <li>
+    |     <a href="/category/17">
+    |       Arduino
+    |     </a>
+    |   </li>
+  sample[1] (5L): CircuitPython
+    |   <li>
+    |     <a href="/category/956">
+    |       CircuitPython
+    |     </a>
+    |   </li>
+  sample[2] (5L): E-Ink / ThinkInk
+    |   <li>
+    |     <a href="/category/150">
+    |       E-Ink / ThinkInk
+    |     </a>
+    |   </li>
+
+--- Chunk 18: [nav_content:a×7] ---
+  type=menu_item freq=7 excl=0.50
+  pattern_xpath: ///a[contains(@rel,'noopener')][contains(@target,'blank')]
+  content: [ATTR=1 HREF=1]
+  sample[0] (6L): 
+    |   <a rel="noopener" target="_blank" href="https://mastodon.cloud/@adafruit" aria-label="Adafruit on Mastodon">
+    |     <svg role="presentation" style="height: 1em; margin-bottom: -0.15em" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 216.4144 232.00976">
+    |       <path d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 ..." fill="currentColor"></path>
+    |       <path d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18...." fill="#000"></path>
+    |     </svg>
+    |   </a>
+  sample[1] (3L): 
+    |   <a rel="noopener" target="_blank" href="https://www.instagram.com/adafruit/" aria-label="Adafruit on Instagram">
+    |     <i class="fa fa-instagram" aria-hidden="true"></i>
+    |   </a>
+  sample[2] (3L): 
+    |   <a rel="noopener" target="_blank" href="https://www.youtube.com/adafruit" aria-label="Adafruit on YouTube">
+    |     <i class="fa fa-youtube" aria-hidden="true"></i>
+    |   </a>
+
+--- Chunk 19: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.62
+  pattern_xpath: ///h1[contains(@id,'header')][contains(@id,'search')]
+  content: [TEXT=1]
+  sample[0] (4L): Search Results for     "touchscreen"
+    |   <h1 id="searchHeader">
+    |     Search Results for
+    |     "touchscreen"
+    |   </h1>
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.55
+  pattern_xpath: ///h2[contains(@id,'results')][contains(@class,'only')][contains(@class,'sr')][contains(@id,'label')][contains(@id,'search')]
+  content: [TEXT=1]
+  sample[0] (3L): Search results
+    |   <h2 id="searchResultsLabel" class="sr-only">
+    |     Search results
+    |   </h2>
+
+--- Chunk 21: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.75
+  pattern_xpath: ///div[contains(@class,'hidden')][contains(@class,'xs')][contains(@class,'sm')]/h2[contains(@id,'filtersortlabel')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): filter & sort
+    |   <h2 id="filtersortlabel" class="text">
+    |     filter & sort
+    |   </h2>
+
+--- Chunk 22: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///h2[contains(@id,'flyout')][contains(@id,'products')][contains(@class,'only')][contains(@class,'sr')][contains(@id,'label')]
+  content: [TEXT=1]
+  sample[0] (3L): Products navigation
+    |   <h2 class="sr-only" id="desktopMenuFlyoutProductsLabel">
+    |     Products navigation
+    |   </h2>
+
+--- Chunk 23: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.25
+  pattern_xpath: ///h3[contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Shop Categories
+    |   <h3 class="title">
+    |     Shop Categories
+    |   </h3>
+
+--- Chunk 24: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.25
+  pattern_xpath: ///h3[contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): New Products
+    |   <h3 class="title">
+    |     New Products
+    |   </h3>
+
+--- Chunk 25: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.25
+  pattern_xpath: ///h3[contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Featured Products
+    |   <h3 class="title">
+    |     Featured Products
+    |   </h3>
+
+--- Chunk 26: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.25
+  pattern_xpath: ///div[contains(@class,'feat')][contains(@class,'product')][contains(@class,'row')]/h3[contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Shop CategoriesNew ProductsFeatured Products
+    |   <h3 class="title">
+    |     Shop CategoriesNew ProductsFeatured Products
+    |   </h3>
+
+--- Chunk 27: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=3 IMG=1 TEXT=8]
+  sample[0] (31L) [TRUNCATED]: Product ID:Notify Me Adafruit Touch Screen Breakout Board for 4 pin 1.0mm FPC.An
+    |   <li itemscope="" itemtype="https://schema.org/Product">
+    |     <div class="imgContainer">
+    |       <a href="/product/3575">
+    |         <div class="sr-only">
+    |           Adafruit Touch Screen Breakout Board for 4 pin 1.0mm FPC.
+    |         </div>
+    |         <img class="img-responsive productThumb " src="https://cdn-shop.adafruit.com/310x233/3575-04.jpg" alt="Angled shot of a small touchscreen breakout board." loading="lazy"></img>
+    |       </a>
+    |     </div>
+    |     <div class="textContainer">
+    | ... [21 more lines]
+
+--- Chunk 28: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=2 IMG=1 TEXT=8]
+  sample[0] (31L) [TRUNCATED]: Product ID:Adafruit TSC2007 I2C Resistive Touch Screen Controller - STEMMA QT.Ad
+    |   <li itemscope="" itemtype="https://schema.org/Product">
+    |     <div class="imgContainer">
+    |       <a href="/product/5423">
+    |         <div class="sr-only">
+    |           Adafruit TSC2007 I2C Resistive Touch Screen Controller - STEMMA QT.
+    |         </div>
+    |         <video-lazy-loader data-videosrc="https://cdn-shop.adafruit.com/product-videos/320x240/5423-05.mp4">
+    |           <img class="img-responsive productThumb " src="https://cdn-shop.adafruit.com/product-videos/320x240/5423-05.jpg" alt="Video of a mushroom-manicured finger pressing a clear touchscreen display. The x-axis and y-axis dimensions are displayed on the connected monochrome OLED display breakout board." loading="lazy"></img>
+    |         </video-lazy-loader>
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 29: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.39 LEAKS=17
+  pattern_xpath: ///div[contains(@class,'left')][contains(@class,'content')]//li[contains(@id,'container')][contains(@id,'desktop')][contains(@id,'menu')]
+  content: [ATTR=16 HREF=40 IMG=8 TEXT=56]
+  sample[0] (31L) [TRUNCATED]: Products Products navigation Shop Categories view all New Products view all Feat
+    |   <li id="desktopMenuContainer">
+    |     <button aria-expanded="false" id="desktopMenuButton">
+    |       Products
+    |     </button>
+    |     <nav id="desktopMenuFlyout" aria-labelledby="desktopMenuFlyoutProductsLabel" aria-hidden="true">
+    |       <h2 class="sr-only" id="desktopMenuFlyoutProductsLabel">
+    |         Products navigation
+    |       </h2>
+    |       <div class="three-panels">
+    |         <div class="first-column">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.adafruit.com/product/6453 (href not in rendered output)
+    [HREF] https://www.adafruit.com/product/6452 (href not in rendered output)
+    [HREF] https://www.adafruit.com/product/6455 (href not in rendered output)
+    [HREF] https://www.adafruit.com/product/6445 (href not in rendered output)
+    [HREF] /featured (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Raspberry Pi Flash Drive 256GB USB 3.0
+    [TEXT] Raspberry Pi Flash Drive 128GB USB 3.0
+    [TEXT] Adafruit SGP41 Multi-Pixel Gas Sensor Breakout - VOC & NOx
+
+--- Chunk 30: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.39 LEAKS=24
+  pattern_xpath: ///div[contains(@class,'right')][contains(@class,'content')]//li[contains(@id,'container')][contains(@id,'desktop')][contains(@id,'menu')]
+  content: [ATTR=30 HREF=107 IMG=15 TEXT=134]
+  sample[0] (31L) [TRUNCATED]: Products Products navigation Shop Categories view all New Products view all Feat
+    |   <li id="desktopMenuContainer">
+    |     <button aria-expanded="false" id="desktopMenuButton">
+    |       Products
+    |     </button>
+    |     <nav id="desktopMenuFlyout" aria-labelledby="desktopMenuFlyoutProductsLabel" aria-hidden="true">
+    |       <h2 class="sr-only" id="desktopMenuFlyoutProductsLabel">
+    |         Products navigation
+    |       </h2>
+    |       <div class="three-panels">
+    |         <div class="first-column">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.adafruit.com/product/6453 (href not in rendered output)
+    [HREF] https://www.adafruit.com/product/6452 (href not in rendered output)
+    [HREF] https://www.adafruit.com/product/6455 (href not in rendered output)
+    [HREF] https://www.adafruit.com/product/6445 (href not in rendered output)
+    [HREF] /featured (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Shop CategoriesNew ProductsFeatured Products
+    [TEXT] Raspberry Pi Flash Drive 256GB USB 3.0
+    [TEXT] Raspberry Pi Flash Drive 128GB USB 3.0

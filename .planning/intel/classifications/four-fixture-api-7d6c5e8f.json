@@ -1,0 +1,33 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/features/four_fixture_api.md",
+  "type": "PRD",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Feature: The Three-Fixture API (§S re-baselined; was four)",
+  "summary": "User-facing feature spec for the three foundational fixtures (Agent, WebBrowser, Database), their primitives, gestures, and acceptance bar.",
+  "scope": ["Agent fixture", "WebBrowser fixture", "Database fixture", "concept-graph mutation gestures (create/link/overwrite/delete)", "ensure_foundation_fixtures", "pattern_map output", "fixture invocation lifecycle", "agent emitter / ActionResolver"],
+  "cross_refs": [
+    "../DOMAIN_MODEL.md",
+    "../object_model/Agent.md",
+    "../object_model/WebBrowser.md",
+    "../object_model/Database.md",
+    "../object_model/Editor.md",
+    "../object_model/FoundationFixtures.md",
+    "../object_model/PythonAPIMaterialiser.md",
+    "../object_model/BackingRegistry.md",
+    "../object_model/ConceptLifecycle.md",
+    "../object_model/AgentRuntime.md",
+    "../code_constraints/backend_services.md",
+    "../code_constraints/api_routes.md",
+    "../code_constraints/lifecycle_invariants.md",
+    "../code_constraints/repl_actions.md",
+    "library_imports_middleware.md",
+    "agent_integration_scheme.md",
+    "pattern_map.md",
+    "signal_stream.md",
+    "three_register_model.md"
+  ],
+  "locked": false,
+  "precedence": 6,
+  "notes": "Manifest declared TYPE=PRD, PRECEDENCE=6 (honored). Current authoritative scope is the THREE-fixture re-baseline (§S, 2026-06-12): Status line and §6 acceptance bar assert Agent/WebBrowser/Database only; Editor demoted to concept-graph mutation gestures routed via /concepts + /concept_edges, no fixture::editor card. Older four-fixture prose (§1-§5) retained only as banner-marked historical text and excluded from authoritative scope."
+}

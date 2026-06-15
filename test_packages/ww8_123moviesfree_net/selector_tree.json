@@ -1,0 +1,109 @@
+{
+  "//div[contains(@class,'col')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///div[contains(@class,'col')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'footer-link-head')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//ul[contains(@class,'list-unstyled')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'form-control')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "search_input",
+    "frequency": 3,
+    "pattern_xpath": "///input[contains(@class,'control')][contains(@class,'form')][contains(@id,'search')][contains(@name,'search')][contains(@type,'text')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h1[contains(@class,'fw-bold')][contains(@class,'fs-5')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "text_singleton",
+    "frequency": 23,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {}
+  },
+  "//li[contains(@class,'nav-item')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "menu_item",
+    "frequency": 104,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'nav-link')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li": {
+    "chunk_ids": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "classification": "menu_item",
+    "frequency": 4,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//a[contains(@class,'dropdown-item')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  }
+}

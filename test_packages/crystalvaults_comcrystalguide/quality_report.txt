@@ -1,0 +1,2050 @@
+=== QUALITY REPORT: crystalvaults_comcrystalguide.html ===
+Chunks: 166 (structural=4, functional=9, text=153)
+Categories: {'card': 3, 'structural': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 153, 'menu_item': 7}
+Content: 471 tagged, 382 preserved (81%)
+Leaks: 89 total, 50 high-importance
+
+--- Chunk 0: div.bg.col ---
+  type=card freq=136 excl=0.80 LEAKS=1
+  pattern_xpath: ///div[contains(@class,'bg')][contains(@class,'color')][contains(@class,'small')][contains(@class,'col')][contains(@class,'node')]
+  tree_sig: div(div(div(div(div(div(a))))))
+  content: [ATTR=2 HREF=1 IMG=1 TEXT=1]
+  sample[0] (18L): red tourmaline healing uses crystal encyclopedia<img width="150" height="150" de
+    |   <div class="fl-col fl-node-61b10b767643e fl-col-bg-color fl-col-small" data-node="61b10b767643e">
+    |     <div class="fl-col-content fl-node-content">
+    |       <div class="fl-module fl-module-photo fl-node-61b10b767643c" data-node="61b10b767643c">
+    |         <div class="fl-module-content fl-node-content">
+    |           <div role="figure" class="fl-photo fl-photo-align-center" itemscope="" itemtype="https://schema.org/ImageObject">
+    |             <div class="fl-photo-content fl-photo-img-jpg">
+    |               <a href="https://www.crystalvaults.com/crystal-encyclopedia/red-tourmaline" target="_self" itemprop="url">
+    |                 <img width="150" height="150" decoding="async" class="fl-photo-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." alt="red tourmaline healing uses crystal encyclopedia" title="red tourmaline healing uses crystal encyclopedia" itemprop="image" data-lazy-src="https://www.crystalvaults.com/wp-content/uploads/2021/12/red-tourmaline.jpg"></img>
+    |                 <noscript>
+    |                   <img width="150" height="150" decoding="async" class="fl-photo-img" src="https://www.crystalvaults.com/wp-content/uploads/2021/12/red-tourmaline.jpg" alt="red tourmaline healing uses crystal encyclopedia" title="red tourmaline healing uses crystal encyclopedia"  itemprop="image" />
+    | ... [8 more lines]
+  LEAKS (high):
+    [IMG] https://www.crystalvaults.com/wp-content/uploads/2021/12/red-tourmaline.jpg (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] <img width="150" height="150" decoding="async" class="fl-photo-img" sr
+
+--- Chunk 1: span.fl.icon ---
+  type=card freq=10 excl=0.55
+  pattern_xpath: ///div[contains(@class,'icon')][contains(@class,'group')]/span[contains(@class,'icon')][contains(@class,'fl')]
+  tree_sig: span(a(i,span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Facebook
+    |   <span class="fl-icon">
+    |     <a href="https://www.facebook.com/CrystalVaults" target="_blank" rel="noopener">
+    |       <i class="fab fa-facebook-f" aria-hidden="true"></i>
+    |       <span class="sr-only">
+    |         Facebook
+    |       </span>
+    |     </a>
+    |   </span>
+  sample[1] (8L): Instagram
+    |   <span class="fl-icon">
+    |     <a href="https://www.instagram.com/crystalvaultsinc" target="_blank" rel="noopener">
+    |       <i class="fab fa-instagram" aria-hidden="true"></i>
+    |       <span class="sr-only">
+    |         Instagram
+    |       </span>
+    |     </a>
+    |   </span>
+  sample[2] (8L): Facebook
+    |   <span class="fl-icon">
+    |     <a href="https://www.facebook.com/CrystalVaults" target="_blank" rel="noopener">
+    |       <i class="fab fa-facebook-f" aria-hidden="true"></i>
+    |       <span class="sr-only">
+    |         Facebook
+    |       </span>
+    |     </a>
+    |   </span>
+
+--- Chunk 2: li.children.custom ---
+  type=structural freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'children')][contains(@class,'has')][contains(@class,'submenu')][contains(@class,'custom')][contains(@class,'item')]
+  tree_sig: li(div(a,span),ul(li(a),li(a),li(a),li(a)))
+  content: [ATTR=1 HREF=5 TEXT=5]
+  sample[0] (30L): More More submenu toggle Crystal Guides Crystal Cards Crystal Oracle Crystal Hor
+    |   <li id="menu-item-469938" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children fl-has-submenu">
+    |     <div class="fl-has-submenu-container">
+    |       <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/accessories/">
+    |         More
+    |       </a>
+    |       <span role="button" tabindex="0" aria-label="More submenu toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="sub-menu-469938" class="fl-menu-toggle fl-content-ui-button"></span>
+    |     </div>
+    |     <ul id="sub-menu-469938" class="sub-menu" role="menu">
+    |       <li id="menu-item-492031" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |         <a role="menuitem" href="https://www.crystalvaults.com/crystal-guides/">
+    | ... [20 more lines]
+
+--- Chunk 3: p ---
+  type=card freq=3 excl=0.00
+  pattern_xpath: ///p
+  tree_sig: p(span(a))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Shipping
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/shipping/">
+    |         Shipping
+    |       </a>
+    |     </span>
+    |   </p>
+  sample[1] (7L): Returns
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/returns/">
+    |         Returns
+    |       </a>
+    |     </span>
+    |   </p>
+  sample[2] (7L): Contact Us
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/contact-us/">
+    |         Contact Us
+    |       </a>
+    |     </span>
+    |   </p>
+
+--- Chunk 4: [search_inputs] ---
+  type=search_input freq=11 excl=1.00
+  pattern_xpath: ///input[contains(@autocomplete,'off')]
+  content: [ATTR=1]
+  sample[0] (1L): Search
+    |   <input id="er_ecom_overlay_search_input" maxlength="100" class="er_ecom_overlay_search_input" autocomplete="off" placeholder="Search"></input>
+  sample[1] (1L): Search
+    |   <input id="er_ecom_overlay_search_input" maxlength="100" class="er_ecom_overlay_search_input" autocomplete="off" placeholder="Search"></input>
+  sample[2] (1L): 
+    |   <input type="text" name="b_6c7a525dc6130b7da310cf31a_7243220a01" tabindex="-1" value=""></input>
+
+--- Chunk 5: [pagination_buttons] ---
+  type=pagination freq=12 excl=0.00 OUTLIER=4.0x
+  pattern_xpath: ///button
+  content: [ATTR=1]
+  sample[0] (12L): 
+    |   <div class="er_ecom_top_pagination">
+    |     <div class="er-search-result-box" aria-label="Search Results">
+    |       <div class="ecom_container_fluid">
+    |         <div class="ecom_des_12">
+    |           <div class="ecom_row_container">
+    |             <div id="er_facets" class="ecom_des_3 hide_mob show_des show_lg_screen er_ecom_facets_container"></div>
+    |             <div id="er_search_results"></div>
+    |           </div>
+    |         </div>
+    |       </div>
+    | ... [2 more lines]
+  sample[1] (3L): 
+    |   <button type="button" title="" tabindex="0" class="er_ecom_input_back_button" aria-label="Back">
+    |     <i style="margin-top:12px" class="fas fa fa-arrow-left"></i>
+    |   </button>
+  sample[2] (3L): More
+    |   <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/accessories/">
+    |     More
+    |   </a>
+
+--- Chunk 6: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.27
+  pattern_xpath: ///li[contains(@class,'children')][contains(@class,'has')][contains(@class,'submenu')][contains(@class,'custom')][contains(@class,'item')]
+  content: [ATTR=2 HREF=12 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: Crystal Energy Crystal Energy submenu toggle Crystal Tea Herbs Spell Candles Cry
+    |   <li id="menu-item-469932" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children fl-has-submenu">
+    |     <div class="fl-has-submenu-container">
+    |       <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/">
+    |         Crystal Energy
+    |       </a>
+    |       <span role="button" tabindex="0" aria-label="Crystal Energy submenu toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="sub-menu-469932" class="fl-menu-toggle fl-content-ui-button"></span>
+    |     </div>
+    |     <ul id="sub-menu-469932" class="sub-menu" role="menu">
+    |       <li id="menu-item-469933" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |         <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/crystal-tea">
+    | ... [21 more lines]
+
+--- Chunk 7: [text_content:h2×2] ---
+  type=text_singleton freq=1 excl=0.53 LEAKS=49
+  pattern_xpath: ///div[contains(@class,'content')][contains(@class,'col')][contains(@class,'node')][contains(@class,'fl')]
+  content: [ATTR=36 HREF=41 IMG=26 TEXT=53]
+  sample[0] (31L) [TRUNCATED]: Your Complete Guide to the Healing Energies, Metaphysical Properties, and Uses o
+    |   <div class="fl-col-content fl-node-content">
+    |     <div class="fl-photo-content fl-photo-img-png">
+    |       <img fetchpriority="high" decoding="async" class="fl-photo-img wp-image-271071 size-full" src="https://www.crystalvaults.com/wp-content/uploads/2021/01/crystal-encyclopedia-ti..." alt="crystal-encyclopedia-title-2" height="90" width="625" title="crystal-encyclopedia-title-2" itemprop="image" srcset="https://www.crystalvaults.com/wp-content/uploads/2021/01/crystal-encyclopedia-title-2.png 625w, https://www.crystalvaults.com/wp-content/uploads/2021/01/crystal-encyclopedia-title-2-300x43.png 300w, https://www.crystalvaults.com/wp-content/uploads/2021/01/crystal-encyclopedia-title-2-600x86.png 600w" sizes="(max-width: 625px) 100vw, 625px"></img>
+    |       <div class="fl-module-content fl-node-content">
+    |         <div role="figure" class="fl-photo fl-photo-align-center" itemscope="" itemtype="https://schema.org/ImageObject">
+    |           <div class="fl-photo-content fl-photo-img-jpg">
+    |             <a href="https://www.crystalvaults.com/crystal-encyclopedia/adamite/" target="_self" itemprop="url">
+    |               <img decoding="async" class="fl-photo-img wp-image-505145 size-full entered lazyloaded" src="https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150.jpg" alt="adamite" height="150" width="150" title="212566a150" itemprop="image" data-lazy-srcset="https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150.jpg 150w, https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150-100x100.jpg 100w" data-lazy-sizes="(max-width: 150px) 100vw, 150px" data-lazy-src="https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150.jpg" data-ll-status="loaded" sizes="(max-width: 150px) 100vw, 150px" srcset="https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150.jpg 150w, https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150-100x100.jpg 100w"></img>
+    |               <noscript>
+    |                 <img decoding="async" class="fl-photo-img wp-image-505145 size-full" src="https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150.jpg" alt="adamite" height="150" width="150" title="212566a150"  itemprop="image" srcset="https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150.jpg 150w, https://www.crystalvaults.com/wp-content/uploads/2023/03/212566a150-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /><img width="150" height="150" decoding="async" class="fl-photo-img" src="https://www.crystalvaults.com/wp-content/uploads/2021/03/aegirine-150x150.jpg" alt="aegirine healing uses crystal encyclopedia" title="aegirine healing uses crystal encyclopedia"  itemprop="image" /><img width="200" height="200" decoding="async" class="fl-photo-img" src="https://www.crystalvaults.com/wp-content/uploads/2022/08/bronzite-type.jpg" alt="bronzite healing uses crystal encyclopedia" title="bronzite healing uses crystal encyclopedia"  itemprop="image" /><img width="300" height="300" decoding="async" class="fl-photo-img" src="https://www.crystalvaults.com/wp-content/uploads/2021/03/211338-300x300.jpg" alt="rose quartz healing uses crystal encyclopedia" title="rose quartz healing uses crystal encyclopedia"  itemprop="image" />
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.crystalvaults.com/crystal-encyclopedia/adamite/ (href not in rendered output)
+    [IMG] https://www.crystalvaults.com/wp-content/uploads/2019/06/192197b-150x150.jpg (img URL not in rendered)
+    [IMG] https://www.crystalvaults.com/wp-content/uploads/2019/06/192197b-150x150.jpg (img URL not in rendered)
+    [HREF] https://crystalvaults.com/crystal-encyclopedia/blue-fluorite (href not in rendered output)
+    [HREF] https://crystalvaults.com/crystal-encyclopedia/brandberg-amethyst (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] <img width="150" height="150" decoding="async" class="fl-photo-img" sr
+    [TEXT] AdamiteAegirineAgateAlmandineAmazoniteAmethystAmberAndraditeAquamarine
+    [TEXT] The Stone of Playful NatureThe Stone of ConvictionThe Stone of Inner S
+
+--- Chunk 8: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): FAQ
+    |   <p>
+    |     <a href="https://crystalvaults.com/help/">
+    |       <span style="font-size: 14px;">
+    |         FAQ
+    |       </span>
+    |     </a>
+    |   </p>
+  sample[1] (7L): Shipping
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/shipping/">
+    |         Shipping
+    |       </a>
+    |     </span>
+    |   </p>
+  sample[2] (7L): Returns
+    |   <p>
+    |     <span style="font-size: 14px;">
+    |       <a href="https://crystalvaults.com/returns/">
+    |         Returns
+    |       </a>
+    |     </span>
+    |   </p>
+
+--- Chunk 9: [nav_content:p×5] ---
+  type=menu_item freq=5 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): About Us
+    |   <p>
+    |     <a href="https://crystalvaults.com/about-us">
+    |       About Us
+    |     </a>
+    |   </p>
+  sample[1] (5L): Our Blog
+    |   <p>
+    |     <a href="https://crystalvaults.com/blog/">
+    |       Our Blog
+    |     </a>
+    |   </p>
+  sample[2] (5L): Linking to Us
+    |   <p>
+    |     <a href="https://crystalvaults.com/linking/">
+    |       Linking to Us
+    |     </a>
+    |   </p>
+
+--- Chunk 10: [nav_content:p×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): My Account
+    |   <p>
+    |     <a href="https://www.crystalvaults.com/my-account/">
+    |       My Account
+    |     </a>
+    |   </p>
+  sample[1] (5L): Orders
+    |   <p>
+    |     <a href="https://www.crystalvaults.com/my-account/orders/">
+    |       Orders
+    |     </a>
+    |   </p>
+  sample[2] (5L): Downloads
+    |   <p>
+    |     <a href="https://www.crystalvaults.com/my-account/downloads/">
+    |       Downloads
+    |     </a>
+    |   </p>
+
+--- Chunk 11: [nav_content:li×17] ---
+  type=menu_item freq=17 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: More More submenu toggle Crystal Guides Crystal Cards Crystal Oracle Crystal Hor
+    |   <li id="menu-item-469938" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children fl-has-submenu">
+    |     <div class="fl-has-submenu-container">
+    |       <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/accessories/">
+    |         More
+    |       </a>
+    |   ... [20 lines truncated] ...
+    |           Crystal Horoscope
+    |         </a>
+    |       </li>
+    |     </ul>
+    | ... [1 more lines]
+  sample[1] (8L): My Account
+    |   <li id="menu-item-469963" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://crystalvaults.com/my-account/">
+    |       <i class="_mi fa fa-user-circle" aria-hidden="true"></i>
+    |       <span class="visuallyhidden">
+    |         My Account
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (5L): Crystal Jewelry
+    |   <li id="menu-item-469928" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/jewelry/">
+    |       Crystal Jewelry
+    |     </a>
+    |   </li>
+
+--- Chunk 12: [nav_content:li×9] ---
+  type=menu_item freq=9 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Featured
+    |   <li id="menu-item-469922" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/featured/">
+    |       Featured
+    |     </a>
+    |   </li>
+  sample[1] (5L): Shop all Crystals
+    |   <li id="menu-item-469924" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystals/">
+    |       Shop all Crystals
+    |     </a>
+    |   </li>
+  sample[2] (5L): Crystal Jewelry
+    |   <li id="menu-item-469928" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/jewelry/">
+    |       Crystal Jewelry
+    |     </a>
+    |   </li>
+
+--- Chunk 13: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Crystal Tea
+    |   <li id="menu-item-469933" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/crystal-tea">
+    |       Crystal Tea
+    |     </a>
+    |   </li>
+  sample[1] (5L): Herbs
+    |   <li id="menu-item-492504" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/herbs/">
+    |       Herbs
+    |     </a>
+    |   </li>
+  sample[2] (5L): Crystal Essences
+    |   <li id="menu-item-469934" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/crystal-category/crystal-energy/essences/">
+    |       Crystal Essences
+    |     </a>
+    |   </li>
+
+--- Chunk 14: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.17
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Reviews
+    |   <li id="menu-item-469956" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://www.crystalvaults.com/testimonials/">
+    |       Reviews
+    |     </a>
+    |   </li>
+  sample[1] (5L): FAQ
+    |   <li id="menu-item-469957" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://crystalvaults.com/help/">
+    |       FAQ
+    |     </a>
+    |   </li>
+  sample[2] (5L): Shipping
+    |   <li id="menu-item-469959" class="menu-item menu-item-type-custom menu-item-object-custom">
+    |     <a role="menuitem" href="https://crystalvaults.com/shipping/">
+    |       Shipping
+    |     </a>
+    |   </li>
+
+--- Chunk 15: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h4[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): Customer Service
+    |   <h4 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       Customer Service
+    |     </span>
+    |   </h4>
+
+--- Chunk 16: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): Our Company
+    |   <h2 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       Our Company
+    |     </span>
+    |   </h2>
+
+--- Chunk 17: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): My Crystal Vaults
+    |   <h2 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       My Crystal Vaults
+    |     </span>
+    |   </h2>
+
+--- Chunk 18: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'fl')]
+  content: [TEXT=1]
+  sample[0] (5L): Crystal Vaults VIP
+    |   <h2 class="fl-heading">
+    |     <span class="fl-heading-text">
+    |       Crystal Vaults VIP
+    |     </span>
+    |   </h2>
+
+--- Chunk 19: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Your Complete Guide to the Healing Energies, Metaphysical Properties, and Uses o
+    |   <h2 style="text-align: center;">
+    |     Your Complete Guide to the Healing Energies, Metaphysical Properties, and Uses of Crystals, Stones, and Minerals
+    |   </h2>
+
+--- Chunk 20: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Playful Nature
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Playful Nature
+    |     </em>
+    |   </h4>
+
+--- Chunk 21: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Conviction
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Conviction
+    |     </em>
+    |   </h4>
+
+--- Chunk 22: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Inner Stability
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Inner Stability
+    |     </em>
+    |   </h4>
+
+--- Chunk 23: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Truth
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Truth
+    |     </em>
+    |   </h4>
+
+--- Chunk 24: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Courage
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Courage
+    |     </em>
+    |   </h4>
+
+--- Chunk 25: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Artist's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Artist's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 26: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gold of the Sea
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gold of the Sea
+    |     </em>
+    |   </h4>
+
+--- Chunk 27: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Strength
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Strength
+    |     </em>
+    |   </h4>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Apatite
+    |   <h2 style="text-align: center;">
+    |     Apatite
+    |   </h2>
+
+--- Chunk 29: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Sea
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Sea
+    |     </em>
+    |   </h4>
+
+--- Chunk 30: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Nurturing
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Nurturing
+    |     </em>
+    |   </h4>
+
+--- Chunk 31: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Atlantisite
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/crystal-encyclopedia/atlantisite/">
+    |       Atlantisite
+    |     </a>
+    |   </h2>
+
+--- Chunk 32: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Guardian Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Guardian Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 33: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the New Age
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the New Age
+    |     </em>
+    |   </h4>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Aventurine
+    |   <h2 style="text-align: center;">
+    |     Aventurine
+    |   </h2>
+
+--- Chunk 35: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Heaven
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Heaven
+    |     </em>
+    |   </h4>
+
+--- Chunk 36: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Power of Stillness
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Power of Stillness
+    |     </em>
+    |   </h4>
+
+--- Chunk 37: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Intuition
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Intuition
+    |     </em>
+    |   </h4>
+
+--- Chunk 38: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Grounding Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Grounding Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 39: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Long Life
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Long Life
+    |     </em>
+    |   </h4>
+
+--- Chunk 40: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Manifestation
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Manifestation
+    |     </em>
+    |   </h4>
+
+--- Chunk 41: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): Angel Raphael's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       Angel Raphael's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 42: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Speaker's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Speaker's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 43: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Healer of Souls
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Healer of Souls
+    |     </em>
+    |   </h4>
+
+--- Chunk 44: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Serenity
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Serenity
+    |     </em>
+    |   </h4>
+
+--- Chunk 45: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Spontaneity Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Spontaneity Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 46: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Diplomat's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Diplomat's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 47: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Blue Tourmaline
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/crystal-encyclopedia/tourmaline-blue">
+    |       Blue Tourmaline
+    |     </a>
+    |   </h2>
+
+--- Chunk 48: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Peace
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Peace
+    |     </em>
+    |   </h4>
+
+--- Chunk 49: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Sunset Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Sunset Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 50: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Master Healer
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Master Healer
+    |     </em>
+    |   </h4>
+
+--- Chunk 51: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Courtesy
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Courtesy
+    |     </em>
+    |   </h4>
+
+--- Chunk 52: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Sacred Stone of Protection
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Sacred Stone of Protection
+    |     </em>
+    |   </h4>
+
+--- Chunk 53: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Ascension
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Ascension
+    |     </em>
+    |   </h4>
+
+--- Chunk 54: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Singer's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Singer's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 55: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Heavenly Communication
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Heavenly Communication
+    |     </em>
+    |   </h4>
+
+--- Chunk 56: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Connection with Home
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Connection with Home
+    |     </em>
+    |   </h4>
+
+--- Chunk 57: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Magic Of Memories Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Magic Of Memories Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 58: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Honor
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Honor
+    |     </em>
+    |   </h4>
+
+--- Chunk 59: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Communication
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Communication
+    |     </em>
+    |   </h4>
+
+--- Chunk 60: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Merchant's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Merchant's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 61: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Laughter Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Laughter Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 62: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Creative Vision
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Creative Vision
+    |     </em>
+    |   </h4>
+
+--- Chunk 63: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone for Joyful Fun
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone for Joyful Fun
+    |     </em>
+    |   </h4>
+
+--- Chunk 64: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Plentitude
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Plentitude
+    |     </em>
+    |   </h4>
+
+--- Chunk 65: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Light
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Light
+    |     </em>
+    |   </h4>
+
+--- Chunk 66: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Successful Love
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Successful Love
+    |     </em>
+    |   </h4>
+
+--- Chunk 67: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Spiritual Flame of Perfection
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Spiritual Flame of Perfection
+    |     </em>
+    |   </h4>
+
+--- Chunk 68: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fluorite
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/clear-fluorite">
+    |       Fluorite
+    |     </a>
+    |   </h2>
+
+--- Chunk 69: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=4 TEXT=5]
+  sample[0] (20L): Also see:Blue-Green-Yellow-Purple
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       Also see:
+    |       <a href="https://crystalvaults.com/crystal-encyclopedia/blue-fluorite">
+    |         Blue
+    |       </a>
+    |       -
+    |       <a href="https://www.crystalvaults.com/crystal-encyclopedia/green-fluorite/">
+    |         Green
+    |       </a>
+    | ... [10 more lines]
+
+--- Chunk 70: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Health
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Health
+    |     </em>
+    |   </h4>
+
+--- Chunk 71: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of New Beginnings
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of New Beginnings
+    |     </em>
+    |   </h4>
+
+--- Chunk 72: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Femininity
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Femininity
+    |     </em>
+    |   </h4>
+
+--- Chunk 73: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Motherhood
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Motherhood
+    |     </em>
+    |   </h4>
+
+--- Chunk 74: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Earth Healer Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Earth Healer Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 75: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Opportunity
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Opportunity
+    |     </em>
+    |   </h4>
+
+--- Chunk 76: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Green Sapphire
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/crystal-encyclopedia/sapphire-green">
+    |       Green Sapphire
+    |     </a>
+    |   </h2>
+
+--- Chunk 77: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Enhanced Spiritual Vision
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Enhanced Spiritual Vision
+    |     </em>
+    |   </h4>
+
+--- Chunk 78: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Seeing with your Heart
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Seeing with your Heart
+    |     </em>
+    |   </h4>
+
+--- Chunk 79: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Abundance
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Abundance
+    |     </em>
+    |   </h4>
+
+--- Chunk 80: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Sun
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Sun
+    |     </em>
+    |   </h4>
+
+--- Chunk 81: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=2]
+  sample[0] (8L): The Stone of Attunement
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of
+    |     </em>
+    |     <i>
+    |       Attunement
+    |     </i>
+    |   </h4>
+
+--- Chunk 82: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Evolution
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Evolution
+    |     </em>
+    |   </h4>
+
+--- Chunk 83: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Vision
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Vision
+    |     </em>
+    |   </h4>
+
+--- Chunk 84: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=4 TEXT=5]
+  sample[0] (20L): Also see:Brown-Red-Green-Yellow
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       Also see:
+    |       <a href="https://crystalvaults.com/crystal-encyclopedia/brown-jasper">
+    |         Brown
+    |       </a>
+    |       -
+    |       <a href="https://crystalvaults.com/crystal-encyclopedia/red-jasper">
+    |         Red
+    |       </a>
+    | ... [10 more lines]
+
+--- Chunk 85: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Peace and Tranquility
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Peace and Tranquility
+    |     </em>
+    |   </h4>
+
+--- Chunk 86: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Woman's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Woman's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 87: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Emotions
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Emotions
+    |     </em>
+    |   </h4>
+
+--- Chunk 88: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Heaven & Earth
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Heaven & Earth
+    |     </em>
+    |   </h4>
+
+--- Chunk 89: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Northern Lights
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Northern Lights
+    |     </em>
+    |   </h4>
+
+--- Chunk 90: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Flexibility
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Flexibility
+    |     </em>
+    |   </h4>
+
+--- Chunk 91: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Universal Truth
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Universal Truth
+    |     </em>
+    |   </h4>
+
+--- Chunk 92: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Angels
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Angels
+    |     </em>
+    |   </h4>
+
+--- Chunk 93: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Protection
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Protection
+    |     </em>
+    |   </h4>
+
+--- Chunk 94: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Connection
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Connection
+    |     </em>
+    |   </h4>
+
+--- Chunk 95: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Bold Beauty
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Bold Beauty
+    |     </em>
+    |   </h4>
+
+--- Chunk 96: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Traveler's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Traveler's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 97: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Crystal of Divine Love
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Crystal of Divine Love
+    |     </em>
+    |   </h4>
+
+--- Chunk 98: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Growth
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Growth
+    |     </em>
+    |   </h4>
+
+--- Chunk 99: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Sorcerer's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Sorcerer's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 100: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Obsidian
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/obsidian/">
+    |       Obsidian
+    |     </a>
+    |   </h2>
+
+--- Chunk 101: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Mirror Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Mirror Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 102: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ocean Jasper
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/ocean-jasper">
+    |       Ocean Jasper
+    |     </a>
+    |   </h2>
+
+--- Chunk 103: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Atlantis Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Atlantis Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 104: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Opal
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/opal">
+    |       Opal
+    |     </a>
+    |   </h2>
+
+--- Chunk 105: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Eye Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Eye Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 106: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Onyx
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/onyx">
+    |       Onyx
+    |     </a>
+    |   </h2>
+
+--- Chunk 107: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Scrying Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Scrying Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 108: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Wise Judgment
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Wise Judgment
+    |     </em>
+    |   </h4>
+
+--- Chunk 109: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Peridot
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/peridot">
+    |       Peridot
+    |     </a>
+    |   </h2>
+
+--- Chunk 110: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Extreme Gem
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Extreme Gem
+    |     </em>
+    |   </h4>
+
+--- Chunk 111: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Picture Jasper
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/picture-jasper">
+    |       Picture Jasper
+    |     </a>
+    |   </h2>
+
+--- Chunk 112: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Global Awareness
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Global Awareness
+    |     </em>
+    |   </h4>
+
+--- Chunk 113: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): Stone of the Tempest
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       Stone of the Tempest
+    |     </em>
+    |   </h4>
+
+--- Chunk 114: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Pink Quartz
+    |   <h2 style="text-align: center;">
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/pink-quartz">
+    |       Pink Quartz
+    |     </a>
+    |   </h2>
+
+--- Chunk 115: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Innocence
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Innocence
+    |     </em>
+    |   </h4>
+
+--- Chunk 116: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem Of Emotional Protection
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem Of Emotional Protection
+    |     </em>
+    |   </h4>
+
+--- Chunk 117: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Heart Chakra Crystal
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Heart Chakra Crystal
+    |     </em>
+    |   </h4>
+
+--- Chunk 118: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Dream Crystal
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Dream Crystal
+    |     </em>
+    |   </h4>
+
+--- Chunk 119: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Mirth
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Mirth
+    |     </em>
+    |   </h4>
+
+--- Chunk 120: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Positive Energy
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Positive Energy
+    |     </em>
+    |   </h4>
+
+--- Chunk 121: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Vitality
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Vitality
+    |     </em>
+    |   </h4>
+
+--- Chunk 122: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Perfect Jewel
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Perfect Jewel
+    |     </em>
+    |   </h4>
+
+--- Chunk 123: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Qi Energy
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Qi Energy
+    |     </em>
+    |   </h4>
+
+--- Chunk 124: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Action
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Action
+    |     </em>
+    |   </h4>
+
+--- Chunk 125: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The "Right Time" Crystal
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The "Right Time" Crystal
+    |     </em>
+    |   </h4>
+
+--- Chunk 126: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Chi Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Chi Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 127: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Perfect Heart
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Perfect Heart
+    |     </em>
+    |   </h4>
+
+--- Chunk 128: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Rhodochrosite
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/https://crystalvaults.com/crystal-encyclopedia/rhodochrosite">
+    |       Rhodochrosite
+    |     </a>
+    |   </h2>
+
+--- Chunk 129: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Compassionate Heart
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Compassionate Heart
+    |     </em>
+    |   </h4>
+
+--- Chunk 130: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Inspiration
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Inspiration
+    |     </em>
+    |   </h4>
+
+--- Chunk 131: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Loving Communication
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Loving Communication
+    |     </em>
+    |   </h4>
+
+--- Chunk 132: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Unconditional Love
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Unconditional Love
+    |     </em>
+    |   </h4>
+
+--- Chunk 133: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Kings
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Kings
+    |     </em>
+    |   </h4>
+
+--- Chunk 134: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Wish-Fulfilling Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Wish-Fulfilling Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 135: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystals of Bliss
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystals of Bliss
+    |     </em>
+    |   </h4>
+
+--- Chunk 136: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Wisdom
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Wisdom
+    |     </em>
+    |   </h4>
+
+--- Chunk 137: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Selenite
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/crystal-encyclopedia/selenite/">
+    |       Selenite
+    |     </a>
+    |   </h2>
+
+--- Chunk 138: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of The Moon Goddess
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of The Moon Goddess
+    |     </em>
+    |   </h4>
+
+--- Chunk 139: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Harmony
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Harmony
+    |     </em>
+    |   </h4>
+
+--- Chunk 140: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Seraphinite
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/crystal-encyclopedia/seraphinite/">
+    |       Seraphinite
+    |     </a>
+    |   </h2>
+
+--- Chunk 141: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of The Seraphim Angels
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of The Seraphim Angels
+    |     </em>
+    |   </h4>
+
+--- Chunk 142: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Fertility
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Fertility
+    |     </em>
+    |   </h4>
+
+--- Chunk 143: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Stone of Power and Grounding
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Stone of Power and Grounding
+    |     </em>
+    |   </h4>
+
+--- Chunk 144: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Logic Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Logic Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 145: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Warrior's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Warrior's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 146: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): A Crystal of Radiance
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       A Crystal of Radiance
+    |     </em>
+    |   </h4>
+
+--- Chunk 147: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone for Emotional Space
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone for Emotional Space
+    |     </em>
+    |   </h4>
+
+--- Chunk 148: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Shield of Light
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Shield of Light
+    |     </em>
+    |   </h4>
+
+--- Chunk 149: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Transmutation
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Transmutation
+    |     </em>
+    |   </h4>
+
+--- Chunk 150: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Mental Sharpness
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Mental Sharpness
+    |     </em>
+    |   </h4>
+
+--- Chunk 151: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Golden Ray
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Golden Ray
+    |     </em>
+    |   </h4>
+
+--- Chunk 152: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Crystal of Potency
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Crystal of Potency
+    |     </em>
+    |   </h4>
+
+--- Chunk 153: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Tourmaline
+    |   <h2 style="text-align: center;">
+    |     Tourmaline
+    |   </h2>
+
+--- Chunk 154: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=5 TEXT=6]
+  sample[0] (24L): See:Black-Blue-Green-Pink-Red
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       See:
+    |       <a href="https://www.crystalvaults.com/crystal-encyclopedia/black-tourmaline">
+    |         Black
+    |       </a>
+    |       -
+    |       <a href="https://www.crystalvaults.com/crystal-encyclopedia/tourmaline-blue">
+    |         Blue
+    |       </a>
+    | ... [14 more lines]
+
+--- Chunk 155: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Sky
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Sky
+    |     </em>
+    |   </h4>
+
+--- Chunk 156: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Survival
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Survival
+    |     </em>
+    |   </h4>
+
+--- Chunk 157: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Conqueror's Stone
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Conqueror's Stone
+    |     </em>
+    |   </h4>
+
+--- Chunk 158: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Balanced Emotions
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Balanced Emotions
+    |     </em>
+    |   </h4>
+
+--- Chunk 159: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of Acceptance
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Acceptance
+    |     </em>
+    |   </h4>
+
+--- Chunk 160: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Spiritual Awakening
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Spiritual Awakening
+    |     </em>
+    |   </h4>
+
+--- Chunk 161: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Strength of Spirit
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Strength of Spirit
+    |     </em>
+    |   </h4>
+
+--- Chunk 162: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Stone of the Future
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of the Future
+    |     </em>
+    |   </h4>
+
+--- Chunk 163: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [TEXT=1]
+  sample[0] (5L): The Gem of Wealth and Attraction
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Gem of Wealth and Attraction
+    |     </em>
+    |   </h4>
+
+--- Chunk 164: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///div[contains(@role,'figure')][contains(@class,'photo')][contains(@class,'align')]/h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=21 TEXT=23]
+  sample[0] (31L) [TRUNCATED]: AdamiteAegirineAgateAlmandineAmazoniteAmethystAmberAndraditeAquamarineAragoniteA
+    |   <h2 style="text-align: center;">
+    |     <a href="https://www.crystalvaults.com/crystal-encyclopedia/adamite/">
+    |       AdamiteAegirineAgateAlmandineAmazoniteAmethystAmberAndraditeAquamarineAragoniteAtlantisiteAura QuartzAzuriteBlack JadeBlack SapphireBlack TourmalineBloodstoneBlue ApatiteBlue AventurineBlue ChalcedonyBlue JadeBlue John FluoriteBlue Lace AgateBlue TourmalineBotswana AgateBronziteCacoxeniteCarnelianCelestiteCharoiteChiastoliteChrysocollaCitrineCrazy Lace AgateCreediteDalmatian StoneDendritic AgateDiamondFire AgateGarnetGenesis StoneGoddess StonesGreen ApatiteGreen AventurineGreen SapphireGreen TourmalineGrossular GarnetHeliodorHerkimer DiamondHiddeniteIoliteJadeKunziteKyaniteK2LabradoriteLaguna AgateLapis LazuliLavender JadeMalachiteMoldaviteMoonstoneMoss AgateNuummiteOrange SapphirePietersitePink SapphirePink TourmalinePurple FluoritePurple JadePyritePyrope GarnetQuartzQue Sera StoneRainbow ObsidianRed AventurineRed BerylRed JadeRed TourmalineRhodoliteRosasiteRose QuartzRubySafforditeSapphireSeleniteSeranditeSeraphiniteShiva LingamSmoky QuartzSodaliteSpessartineSpirit QuartzSpodumeneSugiliteSunstoneTanzaniteTiffany StoneTiger's EyeTopazTurquoiseTurritella AgateUmbaliteUnakiteUvarovite GarnetViolet SapphireWhite SapphireYellow ApatiteYellow Sapphire
+    |     </a>
+    |     ApatiteAventurine
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/blue-fluorite">
+    |       Blue Fluorite
+    |     </a>
+    |     <a href="https://crystalvaults.com/crystal-encyclopedia/brandberg-amethyst">
+    |       Brandberg Amethyst
+    | ... [21 more lines]
+
+--- Chunk 165: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.01
+  pattern_xpath: ///div[contains(@role,'figure')][contains(@class,'photo')][contains(@class,'align')]/h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]
+  content: [HREF=7 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: The Stone of Playful NatureThe Stone of ConvictionThe Stone of Inner StabilityTh
+    |   <h4 style="text-align: center;">
+    |     <em>
+    |       The Stone of Playful NatureThe Stone of ConvictionThe Stone of Inner StabilityThe Stone of TruthThe Stone of CourageThe Artist's StoneThe Gold of the SeaThe Stone of Strength
+    |       <a href="https://www.crystalvaults.com/crystal-encyclopedia/apatite-blue">
+    |         BlueGreenYellowRedBlackLavenderPurplePink
+    |       </a>
+    |       - The Stone of the SeaThe Stone of the NurturingThe Guardian StoneThe Stone of the New AgeThe Stone of HeavenThe Power of StillnessThe Gem of IntuitionThe Grounding StoneThe Stone of Long LifeThe Stone of ManifestationAngel Raphael's StoneThe Speaker's StoneThe Healer of SoulsThe Stone of SerenityThe Spontaneity StoneThe Diplomat's StoneThe Crystal of PeaceThe Sunset StoneThe Master HealerThe Stone of CourtesyThe Sacred Stone of ProtectionThe Stone of AscensionThe Singer's StoneThe Stone of Heavenly CommunicationThe Stone of Connection with HomeThe Magic Of Memories StoneThe Stone of HonorThe Stone of CommunicationThe Merchant's StoneThe Laughter StoneThe Stone of Creative VisionA Stone for Joyful FunThe Stone of PlentitudeThe Crystal of LightThe Stone of Successful LoveThe Spiritual Flame of PerfectionAlso see:
+    |       <a href="https://crystalvaults.com/crystal-encyclopedia/blue-fluorite">
+    |         Blue
+    |       </a>
+    | ... [21 more lines]

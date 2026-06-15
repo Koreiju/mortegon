@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"class.*ConnectionManager\\\\|class.*ws_manager\\\\|ws_manager.*=\" /c/Users/isaac/Documents/web_fiber_haptics/backend --include=*.py)",
+      "Bash(python -c \"import ast; ast.parse\\(open\\(''backend/dom_deep_serializer.py''\\).read\\(\\)\\); print\\(''dom_deep_serializer.py: OK''\\)\")",
+      "Bash(python -c \"import ast; ast.parse\\(open\\(''backend/api/routes.py''\\).read\\(\\)\\); print\\(''routes.py: OK''\\)\")",
+      "Bash(where.exe node:*)",
+      "Bash(python -c ' *)",
+      "Bash(python -m pytest backend/tests/test_trie_pipeline.py -q)"
+    ]
+  }
+}

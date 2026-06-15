@@ -1,0 +1,48 @@
+=== QUALITY REPORT: criterion_comsearchqzizek.html ===
+Chunks: 4 (structural=0, functional=1, text=3)
+Categories: {'pagination': 1, 'text_singleton': 3}
+Content: 7 tagged, 6 preserved (86%)
+Leaks: 1 total, 0 high-importance
+
+--- Chunk 0: [pagination_buttons] ---
+  type=pagination freq=1 excl=0.00
+  pattern_xpath: ///script
+  sample[0] (1L): 
+    |   <script src="/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9ccaf0d1db97a261"></script>
+
+--- Chunk 1: [text_content:h2×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///div[contains(@class,'content')][contains(@class,'main')]
+  content: [TEXT=5]
+  sample[0] (31L) [TRUNCATED]: Performing security verification This website uses a security service to protect
+    |   <div class="main-content">
+    |     <div class="ch-title-zone">
+    |       <h1>
+    |         www.criterion.com
+    |       </h1>
+    |     </div>
+    |     <h2 id="XWhWh2" class="ch-title spacer-bottom">
+    |       Performing security verification
+    |     </h2>
+    |     <p id="noIlB0" class="ch-description spacer-top">
+    | ... [21 more lines]
+  LEAKS (medium):
+    [TEXT] <div class="h2"><span id="challenge-error-text">Enable JavaScript and 
+
+--- Chunk 2: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [TEXT=1]
+  sample[0] (3L): www.criterion.com
+    |   <h1>
+    |     www.criterion.com
+    |   </h1>
+
+--- Chunk 3: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'spacer')][contains(@class,'top')][contains(@id,'challenge')][contains(@id,'success')][contains(@id,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Verification successful. Waiting for www.criterion.com to respond
+    |   <h2 id="challenge-success-text" class="spacer-top">
+    |     Verification successful. Waiting for www.criterion.com to respond
+    |   </h2>

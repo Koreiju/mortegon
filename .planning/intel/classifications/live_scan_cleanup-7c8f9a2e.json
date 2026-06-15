@@ -1,0 +1,13 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/features/live_scan_cleanup.md",
+  "type": "PRD",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Feature: Live-Scan + DB-Cleanup REPL Probe (Mandatory)",
+  "summary": "Mandatory acceptance probe verifying real archive.org scan, retrieval, and workspace purge cleanup contract round-trip against the live full stack.",
+  "scope": ["live-scan-real-with-cleanup probe", "WebBrowser scan", "workspace purge/cleanup contract", "TF-IDF + nomic index reset", "Kuzu baseline shrink", "umap_canonical 6-vector frames", "pattern_map live update", "three foundation fixtures (Agent/WebBrowser/Database)", "scan-streaming severance (§18.1)", "CI acceptance gate"],
+  "cross_refs": ["../DOMAIN_MODEL.md", "../object_model/WebBrowser.md", "../object_model/LayoutService.md", "../object_model/ConceptIndexService.md", "../object_model/GlobalTfidfStore.md", "../object_model/ApparitionService.md", "../object_model/ConceptLifecycle.md", "../object_model/Database.md", "../object_model/FoundationFixtures.md", "../object_model/UIStateService.md", "../object_model/PatternMap.md", "../code_constraints/ci_acceptance.md", "../code_constraints/streaming.md", "../code_constraints/persistence.md", "../code_constraints/testing.md", "../code_constraints/error_handling.md", "live_scan_streaming.md", "pattern_map.md", "6d_umap.md", "three_register_model.md", "four_fixture_api.md"],
+  "locked": false,
+  "precedence": 6,
+  "notes": ""
+}

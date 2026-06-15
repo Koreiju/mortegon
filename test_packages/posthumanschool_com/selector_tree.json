@@ -1,0 +1,516 @@
+{
+  "//div[contains(@class,'gallery-item-container')][contains(@class,'item-container-regular')]": {
+    "chunk_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///div[contains(@data-hash,'afe')][contains(@data-id,'afe')][contains(@id,'pgiafe')][contains(@id,'aa')][contains(@data-hash,'eb')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'item-action')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'gallery-item-wrapper')][contains(@class,'visible')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'gallery-item-content')][contains(@class,'gallery-item-visible')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//picture": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'gallery-item-common-info-outer')][contains(@class,'[object')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'gallery-item-common-info')][contains(@class,'gallery-item-bottom-info')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'RiOfiW')][contains(@class,'pu51Xe')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'iSTCpN')][contains(@class,'lyd6fK')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'gallery-item-wrapper')][contains(@class,'visible')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'gallery-item-content')][contains(@class,'gallery-item-visible')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//picture": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'gallery-item-common-info')][contains(@class,'gallery-item-bottom-info')]": {
+    "chunk_ids": [
+      13
+    ],
+    "classification": "card",
+    "frequency": 48,
+    "pattern_xpath": "///div[contains(@class,'bottom')][contains(@style,'border')][contains(@class,'common')][contains(@class,'info')][contains(@style,'box')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'RiOfiW')][contains(@class,'pu51Xe')]": {
+        "chunk_ids": [
+          13
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'iSTCpN')][contains(@class,'lyd6fK')]": {
+            "chunk_ids": [
+              13
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'uYL9xS')]": {
+                "chunk_ids": [
+                  13
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'JMCi2v')][contains(@class,'blog-post-post-list-link-hashtag-hover-color')]": {
+                    "chunk_ids": [
+                      13
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'itemDepth02233374943__root')][contains(@class,'StylableHorizontalMenu3372578893__menuItem')][contains(@data-testid,'linkElement')]": {
+    "chunk_ids": [
+      14
+    ],
+    "classification": "menu_item",
+    "frequency": 16,
+    "pattern_xpath": "///a[contains(@class,'menu')][contains(@class,'root')][contains(@data-item-label,'true')][contains(@data-testid,'element')][contains(@data-testid,'link')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'itemDepth02233374943__container')]": {
+        "chunk_ids": [
+          14
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'itemDepth02233374943__label')][contains(@class,'wixui-horizontal-menu__item-label')]": {
+            "chunk_ids": [
+              14
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'itemDepth02233374943__positionBox')][contains(@class,'itemDepth02233374943--isColumn')][contains(@data-testid,'positionBox')]": {
+    "chunk_ids": [
+      15
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///div[contains(@class,'box')][contains(@class,'column')][contains(@class,'position')][contains(@data-testid,'box')][contains(@data-testid,'position')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'submenu815198092__root')][contains(@class,'StylableHorizontalMenu3372578893__columnsLayout')]": {
+        "chunk_ids": [
+          15
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'itemDepth02233374943__alignBox')][contains(@class,'submenu815198092__pageWrapper')]": {
+            "chunk_ids": [
+              15
+            ],
+            "content_types": [],
+            "children": {
+              "//ul[contains(@class,'itemDepth02233374943__list')][contains(@class,'submenu815198092__listWrapper')]": {
+                "chunk_ids": [
+                  15
+                ],
+                "content_types": [],
+                "children": {
+                  "//li[contains(@class,'itemDepth12472627565__itemWrapper')][contains(@data-testid,'menuItemDepth1')]": {
+                    "chunk_ids": [
+                      15
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//button[contains(@class,'itemShared2352141355__accessibilityIcon')]": {
+    "chunk_ids": [
+      16
+    ],
+    "classification": "button",
+    "frequency": 3,
+    "pattern_xpath": "///button[contains(@class,'accessibility')][contains(@class,'icon')][contains(@class,'shared')][contains(@class,'item')]",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'gallery-item-common-info-outer')][contains(@class,'[object')]": {
+    "chunk_ids": [
+      17,
+      18
+    ],
+    "classification": "card",
+    "frequency": 17,
+    "pattern_xpath": "///div[contains(@class,'object')][contains(@class,'outer')][contains(@style,'content')][contains(@class,'common')][contains(@class,'info')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'gallery-item-common-info')][contains(@class,'gallery-item-bottom-info')]": {
+        "chunk_ids": [
+          17
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'RiOfiW')][contains(@class,'pu51Xe')]": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'iSTCpN')][contains(@class,'lyd6fK')]": {
+                "chunk_ids": [
+                  17
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'uYL9xS')]": {
+                    "chunk_ids": [
+                      17
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'gallery-item-wrapper')][contains(@class,'visible')]": {
+        "chunk_ids": [
+          17
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {
+              "//picture": {
+                "chunk_ids": [
+                  17
+                ],
+                "content_types": [],
+                "children": {
+                  "//source": {
+                    "chunk_ids": [
+                      17
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//img[contains(@class,'gallery-item-visible')][contains(@class,'gallery-item')]": {
+                    "chunk_ids": [
+                      17
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'gallery-item-content')][contains(@class,'gallery-item-visible')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'play-button')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//picture": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'play-button')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//img[contains(@class,'gallery-item-visible')][contains(@class,'gallery-item')]": {
+    "chunk_ids": [
+      19
+    ],
+    "classification": "pagination",
+    "frequency": 4,
+    "pattern_xpath": "///img[contains(@as,'fetch')][contains(@class,'preloaded')][contains(@crossorigin,'anonymous')][contains(@data-hook,'gallery')][contains(@data-hook,'image')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//li[contains(@class,'O6KwRn')]": {
+    "chunk_ids": [
+      20
+    ],
+    "classification": "menu_item",
+    "frequency": 4,
+    "pattern_xpath": "///li[contains(@class,'kw')][contains(@class,'rn')][contains(@id,'comp')][contains(@id,'data')][contains(@id,'item')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'oRtuWN')][contains(@data-testid,'linkElement')]": {
+        "chunk_ids": [
+          20
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'YaS0jR')][contains(@class,'Tj01hh')]": {
+            "chunk_ids": [
+              20
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//h5[contains(@class,'font_5')][contains(@class,'wixui-rich-text__text')]": {
+    "chunk_ids": [
+      21
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h5[contains(@class,'font')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@style,'font')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'wixui-rich-text__text')]": {
+        "chunk_ids": [
+          21
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'wixui-rich-text__text')]": {
+            "chunk_ids": [
+              21
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'wixui-rich-text__text')]": {
+                "chunk_ids": [
+                  21
+                ],
+                "content_types": [],
+                "children": {
+                  "//br[contains(@class,'wixui-rich-text__text')]": {
+                    "chunk_ids": [
+                      21
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//h2[contains(@class,'bD0vt9')][contains(@class,'KNiaIk')]": {
+    "chunk_ids": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'line')]",
+    "content_types": [],
+    "children": {}
+  }
+}

@@ -1,0 +1,302 @@
+=== QUALITY REPORT: neocities_orgbrowse.html ===
+Chunks: 16 (structural=10, functional=3, text=3)
+Categories: {'card': 10, 'search_input': 1, 'pagination': 1, 'menu_item': 1, 'text_singleton': 3}
+Content: 242 tagged, 242 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: li.inkcaps.username ---
+  type=card freq=41 excl=0.12
+  pattern_xpath: ///li[contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i)),div(a(span(i))),div(i,a,a,a,a,a,a(i,span(i)
+  content: [ATTR=8 BG=1 HREF=11 IMG=1 TEXT=11]
+  sample[0] (31L) [TRUNCATED]: ❀ F A I R Y L A N D ❀❀ F A I R Y L A N D ❀❀ F A I R Y L A N D ❀Tags magic,person
+    |   <li id="username_inkcaps">
+    |     <a href="https://inkcaps.neocities.org" class="neo-Screen-Shot" title="❀ F A I R Y L A N D ❀">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/36/56/inkcaps/index.html.540x405.webp) no-repea...">
+    |         <img src="/img/placeholder.png" alt="❀ F A I R Y L A N D ❀"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://inkcaps.neocities.org" title="❀ F A I R Y L A N D ❀">
+    |         ❀ F A I R Y L A N D ❀
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 1: li.ranfren.username ---
+  type=card freq=34 excl=0.12
+  pattern_xpath: ///li[contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i(i))),div(a(span(i))),div(i,a,a,a,a,a,a(i(i),s
+  content: [ATTR=8 BG=1 HREF=11 IMG=1 TEXT=11]
+  sample[0] (31L) [TRUNCATED]: world of randal and his frie...world of randal and his frie...world of randal an
+    |   <li id="username_ranfren">
+    |     <a href="https://ranfren.neocities.org" class="neo-Screen-Shot" title="world of randal and his friends">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/41/69/ranfren/index.html.540x405.webp) no-repea...">
+    |         <img src="/img/placeholder.png" alt="world of randal and his friends"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://ranfren.neocities.org" title="world of randal and his friends">
+    |         world of randal and his frie...
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 2: li.foggybear.username ---
+  type=card freq=10 excl=0.12
+  pattern_xpath: ///li[contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i(i))),div(a(span(i))),div(i,a,a,a,a,a(i(i),spa
+  content: [ATTR=8 BG=1 HREF=10 IMG=1 TEXT=10]
+  sample[0] (31L) [TRUNCATED]: ☆*:.｡.o(≧▽≦)o.｡.:*☆☆*:.｡.o(≧▽≦)o.｡.:*☆☆*:.｡.o(≧▽≦)o.｡.:*☆Tags autistic,handmade,
+    |   <li id="username_foggybear42">
+    |     <a href="https://foggybear42.net" class="neo-Screen-Shot" title="☆*:.｡.o(≧▽≦)o.｡.:*☆">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/36/77/foggybear42/index.html.540x405.webp) no-r...">
+    |         <img src="/img/placeholder.png" alt="☆*:.｡.o(≧▽≦)o.｡.:*☆"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://foggybear42.net" title="☆*:.｡.o(≧▽≦)o.｡.:*☆">
+    |         ☆*:.｡.o(≧▽≦)o.｡.:*☆
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 3: li.bunny.lazer ---
+  type=card freq=6 excl=0.12
+  pattern_xpath: ///li[contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i)),div(a(span(i))),div(i,a,a,a,a,a(i,span(i)))
+  content: [ATTR=8 BG=1 HREF=10 IMG=1 TEXT=10]
+  sample[0] (31L) [TRUNCATED]: Lazer-Bunny's Website ˚ʚ♡ɞ˚Lazer-Bunny's Website ˚ʚ♡ɞ˚Lazer-Bunny's Website ˚ʚ♡ɞ
+    |   <li id="username_lazer-bunny">
+    |     <a href="https://lazer-bunny.neocities.org" class="neo-Screen-Shot" title="Lazer-Bunny's Website ˚ʚ♡ɞ˚">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/50/03/lazer-bunny/index.html.540x405.webp) no-r...">
+    |         <img src="/img/placeholder.png" alt="Lazer-Bunny's Website ˚ʚ♡ɞ˚"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://lazer-bunny.neocities.org" title="Lazer-Bunny's Website ˚ʚ♡ɞ˚">
+    |         Lazer-Bunny's Website ˚ʚ♡ɞ˚
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 4: li.fairygore.username ---
+  type=card freq=2 excl=0.71
+  pattern_xpath: ///li[contains(@id,'arkmsworld')][contains(@id,'fairygore')][contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i)),div(a(span(i))),div(a(i,span(i))),a))
+  content: [ATTR=7 BG=1 HREF=6 IMG=1 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: o sleeper o sleeper o sleeper fairygore 218,342 fairygore 218,342
+    |   <li id="username_fairygore">
+    |     <a href="https://fairygore.neocities.org" class="neo-Screen-Shot" title="o sleeper">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/31/64/fairygore/index.html.540x405.webp) no-rep...">
+    |         <img src="/img/placeholder.png" alt="o sleeper"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://fairygore.neocities.org" title="o sleeper">
+    |         o sleeper
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 5: li.unit.username ---
+  type=card freq=2 excl=0.78
+  pattern_xpath: ///li[contains(@id,'neighborhoods')][contains(@id,'neo')][contains(@id,'unit')][contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i)),div(a(span(i))),div(i,a,a,a,a(i,span(i))),a
+  content: [ATTR=8 BG=1 HREF=9 IMG=1 TEXT=9]
+  sample[0] (31L) [TRUNCATED]: unit00 - index unit00 - index unit00 - index Tags cute,art,personal unit00 87,50
+    |   <li id="username_unit00">
+    |     <a href="https://unit00.neocities.org" class="neo-Screen-Shot" title="unit00 - index">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/54/35/unit00/index.html.540x405.webp) no-repeat...">
+    |         <img src="/img/placeholder.png" alt="unit00 - index"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://unit00.neocities.org" title="unit00 - index">
+    |         unit00 - index
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 6: li.bonkiscoolsite.username ---
+  type=card freq=2 excl=0.71
+  pattern_xpath: ///li[contains(@id,'bonkiscoolsite')][contains(@id,'ruralrose')][contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i)),div(a(span(i))),div(i,a,a,a(i,span(i))),a))
+  content: [ATTR=8 BG=1 HREF=8 IMG=1 TEXT=8]
+  sample[0] (31L) [TRUNCATED]: bonki's epic site bonki's epic site bonki's epic site Tags cool,epic bonkiscools
+    |   <li id="username_bonkiscoolsite">
+    |     <a href="https://bonkiscoolsite.neocities.org" class="neo-Screen-Shot" title="bonki's epic site">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/22/20/bonkiscoolsite/index.html.540x405.webp) n...">
+    |         <img src="/img/placeholder.png" alt="bonki's epic site"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://bonkiscoolsite.neocities.org" title="bonki's epic site">
+    |         bonki's epic site
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 7: li.larvapuppy.username ---
+  type=card freq=2 excl=0.71
+  pattern_xpath: ///li[contains(@id,'feelingmachine')][contains(@id,'larvapuppy')][contains(@id,'username')]
+  tree_sig: li(a(span(img)),div(a),div(div(a(i(i))),div(a(span(i))),div(i,a,a,a,a(i(i),span(
+  content: [ATTR=8 BG=1 HREF=9 IMG=1 TEXT=9]
+  sample[0] (31L) [TRUNCATED]: Home | larvapuppy Home | larvapuppy Home | larvapuppy Tags art,personalwebsite,p
+    |   <li id="username_larvapuppy">
+    |     <a href="https://larvapuppy.neocities.org" class="neo-Screen-Shot" title="Home | larvapuppy">
+    |       <span class="img-Holder" style="background:url(/site_screenshots/90/65/larvapuppy/index.html.540x405.webp) no-re...">
+    |         <img src="/img/placeholder.png" alt="Home | larvapuppy"></img>
+    |       </span>
+    |     </a>
+    |     <div class="title">
+    |       <a href="https://larvapuppy.neocities.org" title="Home | larvapuppy">
+    |         Home | larvapuppy
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 8: a.https.neo ---
+  type=card freq=100 excl=1.00
+  pattern_xpath: ///a[contains(@class,'neo')][contains(@class,'screen')][contains(@class,'shot')]
+  tree_sig: a(span(img))
+  content: [ATTR=2 BG=1 HREF=1 IMG=1]
+  sample[0] (5L): world of randal and his friends
+    |   <a href="https://ranfren.neocities.org" class="neo-Screen-Shot" title="world of randal and his friends">
+    |     <span class="img-Holder" style="background:url(/site_screenshots/41/69/ranfren/index.html.540x405.webp) no-repea...">
+    |       <img src="/img/placeholder.png" alt="world of randal and his friends"></img>
+    |     </span>
+    |   </a>
+  sample[1] (5L): NEØNbandit Street
+    |   <a href="https://ne0nbandit.art" class="neo-Screen-Shot" title="NEØNbandit Street">
+    |     <span class="img-Holder" style="background:url(/site_screenshots/40/60/ne0nbandit/index.html.540x405.webp) no-re...">
+    |       <img src="/img/placeholder.png" alt="NEØNbandit Street"></img>
+    |     </span>
+    |   </a>
+  sample[2] (5L): ☆oudkee's corner☆
+    |   <a href="https://oudkee.neocities.org" class="neo-Screen-Shot" title="☆oudkee's corner☆">
+    |     <span class="img-Holder" style="background:url(/site_screenshots/28/98/oudkee/index.html.540x405.webp) no-repeat...">
+    |       <img src="/img/placeholder.png" alt="☆oudkee's corner☆"></img>
+    |     </span>
+    |   </a>
+
+--- Chunk 9: div.hide.mobile ---
+  type=card freq=100 excl=1.00
+  pattern_xpath: ///div[contains(@class,'hide')][contains(@class,'mobile')][contains(@class,'on')][contains(@class,'site')][contains(@class,'stats')]
+  tree_sig: div(a(span(i)))
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (8L): 143,724,669
+    |   <div class="site-stats hide-on-mobile">
+    |     <a href="/site/ranfren" title="Visitors">
+    |       <span>
+    |         <i class="fa fa-eye"></i>
+    |       </span>
+    |       143,724,669
+    |     </a>
+    |   </div>
+  sample[1] (8L): 1,021,815
+    |   <div class="site-stats hide-on-mobile">
+    |     <a href="/site/ne0nbandit" title="Visitors">
+    |       <span>
+    |         <i class="fa fa-eye"></i>
+    |       </span>
+    |       1,021,815
+    |     </a>
+    |   </div>
+  sample[2] (8L): 417,886
+    |   <div class="site-stats hide-on-mobile">
+    |     <a href="/site/oudkee" title="Visitors">
+    |       <span>
+    |         <i class="fa fa-eye"></i>
+    |       </span>
+    |       417,886
+    |     </a>
+    |   </div>
+
+--- Chunk 10: [search_inputs] ---
+  type=search_input freq=15 excl=0.00 OUTLIER=11.0x
+  pattern_xpath: ///input
+  sample[0] (11L) [TRUNCATED]: Special Sauce Random Most Followed Last Updated Views Tipping Enabled Oldest
+    |   <select name="sort_by" id="sort_by" class="input-Select">
+    |     <option value="special_sauce" selected="">
+    |       Special Sauce
+    |     </option>
+    |     <option value="random">
+    |   ... [13 lines truncated] ...
+    |     </option>
+    |     <option value="oldest">
+    |       Oldest
+    |     </option>
+    | ... [1 more lines]
+  sample[1] (1L): 
+    |   <input class="btn btn-Action" type="submit" value="Search"></input>
+  sample[2] (1L): 
+    |   <input class="btn-Action" type="submit" value="Update"></input>
+
+--- Chunk 11: [pagination_buttons] ---
+  type=pagination freq=28 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1 HREF=1]
+  sample[0] (11L) [TRUNCATED]: Sort by:Filter by Tag:pokemon Special Sauce Random Most Followed Last Updated Vi
+    |   <form id="search_criteria" action="/browse" method="GET">
+    |     <div class="col col-50 filter">
+    |       <fieldset class="grouping">
+    |         <label class="text-Label" for="sort_by">
+    |           Sort by:
+    |   ... [44 lines truncated] ...
+    |         </span>
+    |         <input style="vertical-align: -4px;margin-left: 4px;" type="submit" class="btn-Action" value="Filter"></input>
+    |       </fieldset>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (6L): Neocities.org Neocities.org
+    |   <a href="/" title="back to home">
+    |     <span class="hidden">
+    |       Neocities.org
+    |     </span>
+    |     <img src="/img/cat.png" alt="Neocities.org"></img>
+    |   </a>
+  sample[2] (3L): 54
+    |   <a aria-label="Page 54" href="/browse?page=54">
+    |     54
+    |   </a>
+
+--- Chunk 12: [nav_content:a×17] ---
+  type=menu_item freq=17 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): About
+    |   <li>
+    |     <a href="/about">
+    |       About
+    |     </a>
+    |   </li>
+  sample[1] (5L): Donate
+    |   <li>
+    |     <a href="/donate">
+    |       Donate
+    |     </a>
+    |   </li>
+  sample[2] (3L): About
+    |   <a href="/about">
+    |     About
+    |   </a>
+
+--- Chunk 13: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Site Search
+    |   <h3>
+    |     Site Search
+    |   </h3>
+
+--- Chunk 14: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///h3[contains(@class,'center')][contains(@class,'txt')]
+  content: [TEXT=1]
+  sample[0] (3L): Popular TagsSite Search
+    |   <h3 class="txt-Center">
+    |     Popular TagsSite Search
+    |   </h3>
+
+--- Chunk 15: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [TEXT=1]
+  sample[0] (3L): Sites on Neocities
+    |   <h1>
+    |     Sites on Neocities
+    |   </h1>

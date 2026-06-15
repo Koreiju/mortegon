@@ -1,0 +1,304 @@
+=== QUALITY REPORT: copykat_com.html ===
+Chunks: 17 (structural=6, functional=2, text=9)
+Categories: {'card': 4, 'menu_item': 2, 'search_input': 1, 'pagination': 1, 'text_singleton': 9}
+Content: 45 tagged, 41 preserved (91%)
+Leaks: 4 total, 0 high-importance
+
+--- Chunk 0: div.widget.wrap ---
+  type=card freq=12 excl=0.56
+  pattern_xpath: ///div[contains(@class,'area')][contains(@class,'home')][contains(@class,'middle')]//div[contains(@class,'wrap')][contains(@class,'widget')]
+  tree_sig: section(div(h3,a(img,noscript)))
+  content: [HREF=1 IMG=1 TEXT=2]
+  sample[0] (11L): Appetizers<img width="300" height="300" src="https://copykat.com/wp-content/uplo
+    |   <div class="widget-wrap">
+    |     <h3 class="widgettitle widget-title">
+    |       Appetizers
+    |     </h3>
+    |     <a href="https://copykat.com/category/appetizers/">
+    |       <img width="300" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." class="image wp-image-121569  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" data-lazy-srcset="https://copykat.com/wp-content/uploads/2025/04/appetizers-300x300.png 300w, https://copykat.com/wp-content/uploads/2025/04/appetizers-625x625.png 625w, https://copykat.com/wp-content/uploads/2025/04/appetizers-150x150.png 150w, https://copykat.com/wp-content/uploads/2025/04/appetizers-768x768.png 768w, https://copykat.com/wp-content/uploads/2025/04/appetizers-500x500.png 500w, https://copykat.com/wp-content/uploads/2025/04/appetizers-360x361.png 360w, https://copykat.com/wp-content/uploads/2025/04/appetizers-96x96.png 96w, https://copykat.com/wp-content/uploads/2025/04/appetizers.png 800w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://copykat.com/wp-content/uploads/2025/04/appetizers-300x300.png" data-pin-description="Get The Most Popular Copycat Restaurant Recipes" data-pin-title="Get The Most Popular Copycat Restaurant Recipes"></img>
+    |       <noscript>
+    |         <img width="300" height="300" src="https://copykat.com/wp-content/uploads/2025/04/appetizers-300x300.png" class="image wp-image-121569  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" srcset="https://copykat.com/wp-content/uploads/2025/04/appetizers-300x300.png 300w, https://copykat.com/wp-content/uploads/2025/04/appetizers-625x625.png 625w, https://copykat.com/wp-content/uploads/2025/04/appetizers-150x150.png 150w, https://copykat.com/wp-content/uploads/2025/04/appetizers-768x768.png 768w, https://copykat.com/wp-content/uploads/2025/04/appetizers-500x500.png 500w, https://copykat.com/wp-content/uploads/2025/04/appetizers-360x361.png 360w, https://copykat.com/wp-content/uploads/2025/04/appetizers-96x96.png 96w, https://copykat.com/wp-content/uploads/2025/04/appetizers.png 800w" sizes="(max-width: 300px) 100vw, 300px" />
+    |       </noscript>
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (11L): Breakfast<img width="300" height="300" src="https://copykat.com/wp-content/uploa
+    |   <div class="widget-wrap">
+    |     <h3 class="widgettitle widget-title">
+    |       Breakfast
+    |     </h3>
+    |     <a href="https://copykat.com/category/breakfast-and-brunch/">
+    |       <img width="300" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." class="image wp-image-121570  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" data-lazy-srcset="https://copykat.com/wp-content/uploads/2025/04/breakfast-300x300.png 300w, https://copykat.com/wp-content/uploads/2025/04/breakfast-625x625.png 625w, https://copykat.com/wp-content/uploads/2025/04/breakfast-150x150.png 150w, https://copykat.com/wp-content/uploads/2025/04/breakfast-768x768.png 768w, https://copykat.com/wp-content/uploads/2025/04/breakfast-500x500.png 500w, https://copykat.com/wp-content/uploads/2025/04/breakfast-360x361.png 360w, https://copykat.com/wp-content/uploads/2025/04/breakfast-96x96.png 96w, https://copykat.com/wp-content/uploads/2025/04/breakfast.png 800w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://copykat.com/wp-content/uploads/2025/04/breakfast-300x300.png" data-pin-description="Get The Most Popular Copycat Restaurant Recipes" data-pin-title="Get The Most Popular Copycat Restaurant Recipes"></img>
+    |       <noscript>
+    |         <img width="300" height="300" src="https://copykat.com/wp-content/uploads/2025/04/breakfast-300x300.png" class="image wp-image-121570  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" srcset="https://copykat.com/wp-content/uploads/2025/04/breakfast-300x300.png 300w, https://copykat.com/wp-content/uploads/2025/04/breakfast-625x625.png 625w, https://copykat.com/wp-content/uploads/2025/04/breakfast-150x150.png 150w, https://copykat.com/wp-content/uploads/2025/04/breakfast-768x768.png 768w, https://copykat.com/wp-content/uploads/2025/04/breakfast-500x500.png 500w, https://copykat.com/wp-content/uploads/2025/04/breakfast-360x361.png 360w, https://copykat.com/wp-content/uploads/2025/04/breakfast-96x96.png 96w, https://copykat.com/wp-content/uploads/2025/04/breakfast.png 800w" sizes="(max-width: 300px) 100vw, 300px" />
+    |       </noscript>
+    |     </a>
+    | ... [1 more lines]
+  LEAKS (medium):
+    [TEXT] <img width="300" height="300" src="https://copykat.com/wp-content/uplo
+
+--- Chunk 1: article.article.butter ---
+  type=card freq=4 excl=1.00
+  pattern_xpath: ///article[contains(@class,'recipes')][contains(@class,'cookies')][contains(@class,'copycat')][contains(@class,'diy')][contains(@class,'fast')]
+  tree_sig: article(a(img,noscript),div(p),header(h2(a)))
+  content: [ATTR=3 HREF=2 IMG=1 TEXT=3]
+  sample[0] (20L): Copycat David's cookies butter pecan meltaways on a platter.<img width="250" hei
+    |   <article class="simple-grid one-fourth post-136714 post type-post status-publish format-standard has-post-thumbnail category-cookies category-diy-recipes wl_entity_type-article entry" aria-label="David’s Cookies Butter Pecan Meltaways Copycat">
+    |     <a href="https://copykat.com/davids-cookies-butter-pecan-meltaways/" title="David’s Cookies Butter Pecan Meltaways Copycat" class="aligncenter">
+    |       <img width="250" height="310" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." class="entry-image attachment-post" alt="Copycat David's cookies butter pecan meltaways on a platter." decoding="async" data-lazy-src="https://copykat.com/wp-content/uploads/2026/01/Davids-Cookies-Butter-Pecan-Melta..." data-pin-description="Get The Most Popular Copycat Restaurant Recipes" data-pin-title="Get The Most Popular Copycat Restaurant Recipes"></img>
+    |       <noscript>
+    |         <img width="250" height="310" src="https://copykat.com/wp-content/uploads/2026/01/Davids-Cookies-Butter-Pecan-Melta..." class="entry-image attachment-post" alt="Copycat David&#039;s cookies butter pecan meltaways on a platter." decoding="async" />
+    |       </noscript>
+    |     </a>
+    |     <header class="entry-header">
+    |       <h2 class="entry-title">
+    |         <a href="https://copykat.com/davids-cookies-butter-pecan-meltaways/">
+    | ... [10 more lines]
+  LEAKS (medium):
+    [TEXT] <img width="250" height="310" src="https://copykat.com/wp-content/uplo
+
+--- Chunk 2: article.article.category ---
+  type=card freq=4 excl=1.00
+  pattern_xpath: ///article[contains(@class,'odd')][contains(@class,'appetizers')][contains(@class,'carb')][contains(@class,'day')][contains(@class,'dipssauces')]
+  tree_sig: article(a(img,noscript),div(p),header(h2(a)))
+  content: [ATTR=3 HREF=2 IMG=1 TEXT=3]
+  sample[0] (20L): Green chile queso dip, tortilla chips, and fresh cilantro on a platter.<img widt
+    |   <article class="simple-grid one-fourth odd post-137158 post type-post status-publish format-standard has-post-thumbnail category-dipssauces category-game-day-eats category-mexican-food wl_entity_type-article entry" aria-label="Mild Green Chile Queso">
+    |     <a href="https://copykat.com/mild-green-chile-queso/" title="Mild Green Chile Queso" class="aligncenter">
+    |       <img width="250" height="310" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." class="entry-image attachment-post" alt="Green chile queso dip, tortilla chips, and fresh cilantro on a platter." decoding="async" data-lazy-src="https://copykat.com/wp-content/uploads/2026/01/Green-Chile-Queso-Pin-1-250x310.j..." data-pin-description="Get The Most Popular Copycat Restaurant Recipes" data-pin-title="Get The Most Popular Copycat Restaurant Recipes"></img>
+    |       <noscript>
+    |         <img width="250" height="310" src="https://copykat.com/wp-content/uploads/2026/01/Green-Chile-Queso-Pin-1-250x310.j..." class="entry-image attachment-post" alt="Green chile queso dip, tortilla chips, and fresh cilantro on a platter." decoding="async" />
+    |       </noscript>
+    |     </a>
+    |     <header class="entry-header">
+    |       <h2 class="entry-title">
+    |         <a href="https://copykat.com/mild-green-chile-queso/">
+    | ... [10 more lines]
+  LEAKS (medium):
+    [TEXT] <img width="250" height="310" src="https://copykat.com/wp-content/uplo
+
+--- Chunk 3: header.entry.header ---
+  type=card freq=15 excl=0.67
+  pattern_xpath: ///header[contains(@class,'header')][contains(@class,'entry')]
+  tree_sig: header(h2(a))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Copycat Waffle House Waffles with Crispy Edges
+    |   <header class="entry-header">
+    |     <h2 class="entry-title">
+    |       <a href="https://copykat.com/waffle-house-waffles/">
+    |         Copycat Waffle House Waffles with Crispy Edges
+    |       </a>
+    |     </h2>
+    |   </header>
+  sample[1] (7L): Texas Roadhouse Ranch Dressing
+    |   <header class="entry-header">
+    |     <h2 class="entry-title">
+    |       <a href="https://copykat.com/texas-roadhouse-ranch-dressing/">
+    |         Texas Roadhouse Ranch Dressing
+    |       </a>
+    |     </h2>
+    |   </header>
+  sample[2] (7L): Marinated Cheese
+    |   <header class="entry-header">
+    |     <h2 class="entry-title">
+    |       <a href="https://copykat.com/marinated-cheese/">
+    |         Marinated Cheese
+    |       </a>
+    |     </h2>
+    |   </header>
+
+--- Chunk 4: li.category.item ---
+  type=menu_item freq=30 excl=1.00
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@id,'item')][contains(@id,'menu')]
+  tree_sig: li(a(span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Home
+    |   <li id="menu-item-11565" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-11565">
+    |     <a href="https://copykat.com" aria-current="page">
+    |       <span>
+    |         Home
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[1] (7L): About
+    |   <li id="menu-item-11567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11567">
+    |     <a href="https://copykat.com/about/">
+    |       <span>
+    |         About
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (7L): Home
+    |   <li id="menu-item-11565" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-11565">
+    |     <a href="https://copykat.com" aria-current="page">
+    |       <span>
+    |         Home
+    |       </span>
+    |     </a>
+    |   </li>
+
+--- Chunk 5: a.com.copykatrecipes ---
+  type=menu_item freq=8 excl=0.00
+  pattern_xpath: ///a
+  tree_sig: a(svg(title,use))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): YouTube
+    |   <a href="http://www.youtube.com/user/copykatrecipes">
+    |     <svg role="img" class="social-youtube" aria-labelledby="social-youtube-6">
+    |       <title id="social-youtube-6">
+    |         YouTube
+    |       </title>
+    |       <use xlink:href="https://copykat.com/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-youtube"></use>
+    |     </svg>
+    |   </a>
+  sample[1] (8L): Facebook
+    |   <a href="https://www.facebook.com/copyKatRecipes">
+    |     <svg role="img" class="social-facebook" aria-labelledby="social-facebook-6">
+    |       <title id="social-facebook-6">
+    |         Facebook
+    |       </title>
+    |       <use xlink:href="https://copykat.com/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-facebook"></use>
+    |     </svg>
+    |   </a>
+  sample[2] (8L): YouTube
+    |   <a href="http://www.youtube.com/user/copykatrecipes" target="_blank" rel="noopener noreferrer">
+    |     <svg role="img" class="social-youtube" aria-labelledby="social-youtube-5">
+    |       <title id="social-youtube-5">
+    |         YouTube
+    |       </title>
+    |       <use xlink:href="https://copykat.com/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-youtube"></use>
+    |     </svg>
+    |   </a>
+
+--- Chunk 6: [search_inputs] ---
+  type=search_input freq=18 excl=0.00
+  pattern_xpath: ///input
+  content: [ATTR=2]
+  sample[0] (1L): Enter search text here and the search results will be automatically updated as y
+    |   <input id="searchInput" data-stormbeam-slickstream="overlay_search_input_clicked" aria-label="Enter search text here and the search results will be automatically updated as you type" autocomplete="off" spellcheck="false" placeholder="search text"></input>
+  sample[1] (1L): Search for a recipe
+    |   <input class="search-form-input" type="search" name="s" id="searchform-2" placeholder="Search for a recipe"></input>
+  sample[2] (1L): 
+    |   <input class="search-form-submit" type="submit" value="Search"></input>
+
+--- Chunk 7: [pagination_buttons] ---
+  type=pagination freq=14 excl=0.00
+  pattern_xpath: ///form
+  content: [ATTR=1 HREF=1 IMG=1 TEXT=1]
+  sample[0] (6L): Copykat<img width="668" height="209" alt="Copykat" src="https://copykat.com/wp-c
+    |   <a href="https://copykat.com">
+    |     <img width="668" height="209" alt="Copykat" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." data-lazy-src="https://copykat.com/wp-content/uploads/2021/06/header.png" data-pin-description="Get The Most Popular Copycat Restaurant Recipes" data-pin-title="Get The Most Popular Copycat Restaurant Recipes"></img>
+    |     <noscript>
+    |       <img width="668" height="209" alt="Copykat" src="https://copykat.com/wp-content/uploads/2021/06/header.png" />
+    |     </noscript>
+    |   </a>
+  sample[1] (6L): Copykat<img width="668" height="209" alt="Copykat" src="https://copykat.com/wp-c
+    |   <a href="https://copykat.com">
+    |     <img width="668" height="209" alt="Copykat" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%..." data-lazy-src="https://copykat.com/wp-content/uploads/2021/06/header.png" data-pin-description="Get The Most Popular Copycat Restaurant Recipes" data-pin-title="Get The Most Popular Copycat Restaurant Recipes"></img>
+    |     <noscript>
+    |       <img width="668" height="209" alt="Copykat" src="https://copykat.com/wp-content/uploads/2021/06/header.png" />
+    |     </noscript>
+    |   </a>
+  sample[2] (5L): First Name E-Mail Address
+    |   <form id="subscribeenews-ext-8" class="enews-form" action="https://app.convertkit.com/forms/5093777/subscriptions" method="post" target="_blank" name="enews-ext-8">
+    |     <input type="text" id="subbox1" class="enews-subbox enews-fname" value="" aria-label="First Name" placeholder="First Name" name="first_name"></input>
+    |     <input type="email" value="" id="subbox" class="enews-email" aria-label="E-Mail Address" placeholder="E-Mail Address" name="email_address" required="required"></input>
+    |     <input type="submit" value="GO" id="subbutton" class="enews-submit"></input>
+    |   </form>
+  LEAKS (medium):
+    [TEXT] <img width="668" height="209" alt="Copykat" src="https://copykat.com/w
+
+--- Chunk 8: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=2]
+  sample[0] (7L): Unless otherwise noted, all recipes have been created by CopyKat.com.COPYRIGHT ©
+    |   <p>
+    |     Unless otherwise noted, all recipes have been created by CopyKat.com.COPYRIGHT © 2026 COPYKAT RECIPES •
+    |     <a href="https://copykat.com/about/privacy-statement/">
+    |       PRIVACY POLICY
+    |     </a>
+    |     Please note that no restaurant recipes are used; these recipes are inspired by the originals.
+    |   </p>
+  sample[1] (6L): COPYRIGHT © 2026 COPYKAT RECIPES •PRIVACY POLICY
+    |   <p>
+    |     COPYRIGHT © 2026 COPYKAT RECIPES •
+    |     <a href="https://copykat.com/about/privacy-statement/">
+    |       PRIVACY POLICY
+    |     </a>
+    |   </p>
+  sample[2] (3L): Please note that no restaurant recipes are used; these recipes are inspired by t
+    |   <p>
+    |     Please note that no restaurant recipes are used; these recipes are inspired by the originals.
+    |   </p>
+
+--- Chunk 9: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'genesis')][contains(@class,'reader')][contains(@class,'screen')][contains(@class,'sidebar')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Footer
+    |   <h2 class="genesis-sidebar-title screen-reader-text">
+    |     Footer
+    |   </h2>
+
+--- Chunk 10: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): About Copykat
+    |   <h3 class="widgettitle widget-title">
+    |     About Copykat
+    |   </h3>
+
+--- Chunk 11: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): Appetizers
+    |   <h3 class="widgettitle widget-title">
+    |     Appetizers
+    |   </h3>
+
+--- Chunk 12: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): Breakfast
+    |   <h3 class="widgettitle widget-title">
+    |     Breakfast
+    |   </h3>
+
+--- Chunk 13: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): Desserts
+    |   <h3 class="widgettitle widget-title">
+    |     Desserts
+    |   </h3>
+
+--- Chunk 14: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): Dinner
+    |   <h3 class="widgettitle widget-title">
+    |     Dinner
+    |   </h3>
+
+--- Chunk 15: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): Soups
+    |   <h3 class="widgettitle widget-title">
+    |     Soups
+    |   </h3>
+
+--- Chunk 16: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'title')][contains(@class,'widget')]
+  content: [TEXT=1]
+  sample[0] (3L): Salads
+    |   <h3 class="widgettitle widget-title">
+    |     Salads
+    |   </h3>

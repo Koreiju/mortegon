@@ -1,0 +1,129 @@
+{
+  "//div[contains(@data-testid,'inline-content')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 20,
+    "pattern_xpath": "///div[contains(@data-mesh-id,'comp')][contains(@data-mesh-id,'content')][contains(@data-testid,'content')][contains(@data-testid,'inline')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@data-testid,'mesh-container-content')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'MazNVa')][contains(@class,'comp-m12w33301')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//a[contains(@class,'j7pOnl')][contains(@data-testid,'linkElement')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//wow-image[contains(@class,'jhxvbR')][contains(@class,'BI8PVQ')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'Z_l5lU')][contains(@class,'ku3DBC')][contains(@data-testid,'richTextElement')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//p[contains(@class,'font_2')][contains(@class,'wixui-rich-text__text')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'wixui-rich-text__text')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'NavButton1074373401__root')][contains(@class,'Pagination670306077__navButton')][contains(@data-testid,'Pagination_NavButton_Next')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "button",
+    "frequency": 4,
+    "pattern_xpath": "///a[contains(@aria-disabled,'false')][contains(@data-testid,'next')][contains(@class,'arrows')][contains(@class,'button')][contains(@class,'nav')]",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'KvoMHf')][contains(@class,'has-custom-focus')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "search_input",
+    "frequency": 1,
+    "pattern_xpath": "///input[contains(@aria-invalid,'false')][contains(@aria-required,'false')][contains(@autocomplete,'off')][contains(@class,'custom')][contains(@class,'focus')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//a[contains(@class,'NavButton1074373401__root')][contains(@class,'NavButton1074373401--disabled')][contains(@data-testid,'Pagination_NavButton_Prev')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "pagination",
+    "frequency": 248,
+    "pattern_xpath": "///div[contains(@class,'strip')][contains(@class,'page')][contains(@aria-hidden,'true')][contains(@class,'current')][contains(@class,'pagination')]",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}

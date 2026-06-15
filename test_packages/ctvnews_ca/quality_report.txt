@@ -1,0 +1,1385 @@
+=== QUALITY REPORT: ctvnews_ca.html ===
+Chunks: 93 (structural=22, functional=9, text=62)
+Categories: {'card': 16, 'menu_item': 9, 'structural': 4, 'search_input': 1, 'pagination': 1, 'text_singleton': 62}
+Content: 337 tagged, 308 preserved (91%)
+Leaks: 29 total, 14 high-importance
+
+--- Chunk 0: article.custom.false ---
+  type=card freq=18 excl=0.18
+  pattern_xpath: ///article[contains(@data-style-alignment,'unset')][contains(@data-style-direction,'vertical')][contains(@class,'stack')][contains(@data-style-inline,'false')][contains(@data-style-justification,'start')]
+  tree_sig: article(div(a(img)),h3(a),div)
+  content: [HREF=2 IMG=4 TEXT=1]
+  sample[0] (13L): A list of Canadian school shootings
+    |   <article class="c-stack b-standard-list-custom__item " data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="b-standard-list-custom__item__image-wrapper">
+    |       <a class="c-link b-standard-list-custom__item__anchor" href="/canada/article/a-list-of-canadian-school-shootings/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/MONRHR7SRKFG56746OQKHGJWKY.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/MONRHR7SRKFG56746OQKHGJWKY.jpg?smart=true&auth=83df444d14aab4eae671ef7a5e84c4bab693136a40b5c01aa486b84749caa7c1&width=274 274w, https://www.ctvnews.ca/resizer/v2/MONRHR7SRKFG56746OQKHGJWKY.jpg?smart=true&auth=83df444d14aab4eae671ef7a5e84c4bab693136a40b5c01aa486b84749caa7c1&width=548 548w, https://www.ctvnews.ca/resizer/v2/MONRHR7SRKFG56746OQKHGJWKY.jpg?smart=true&auth=83df444d14aab4eae671ef7a5e84c4bab693136a40b5c01aa486b84749caa7c1&width=1096 1096w" width="274"></img>
+    |       </a>
+    |     </div>
+    |     <h3 style="--heading-truncation: 3;" class="c-heading">
+    |       <a class="c-link" href="/canada/article/a-list-of-canadian-school-shootings/">
+    |         A list of Canadian school shootings
+    |       </a>
+    | ... [3 more lines]
+  sample[1] (13L): Tumbler Ridge journalist says ‘people are looking for people to blame’ after mas
+    |   <article class="c-stack b-standard-list-custom__item " data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="b-standard-list-custom__item__image-wrapper">
+    |       <a class="c-link b-standard-list-custom__item__anchor" href="/vancouver/article/tumber-ridge-journalist-says-people-are-looking-for-people-to-blame-after-mass-shooting/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/MD3XSJ5WOIMJFXH4LLNAWACNMY.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/MD3XSJ5WOIMJFXH4LLNAWACNMY.jpg?smart=true&auth=6753c65a9777800302f8f47a8dd8bcf1275f750cad64829e539499cd5ff9ac48&width=274 274w, https://www.ctvnews.ca/resizer/v2/MD3XSJ5WOIMJFXH4LLNAWACNMY.jpg?smart=true&auth=6753c65a9777800302f8f47a8dd8bcf1275f750cad64829e539499cd5ff9ac48&width=548 548w, https://www.ctvnews.ca/resizer/v2/MD3XSJ5WOIMJFXH4LLNAWACNMY.jpg?smart=true&auth=6753c65a9777800302f8f47a8dd8bcf1275f750cad64829e539499cd5ff9ac48&width=1096 1096w" width="274"></img>
+    |       </a>
+    |     </div>
+    |     <h3 style="--heading-truncation: 3;" class="c-heading">
+    |       <a class="c-link" href="/vancouver/article/tumber-ridge-journalist-says-people-are-looking-for-people-to-blame-after-mass-shooting/">
+    |         Tumbler Ridge journalist says ‘people are looking for people to blame’ after mass shooting
+    |       </a>
+    | ... [3 more lines]
+
+--- Chunk 1: article.image.list ---
+  type=card freq=20 excl=0.21
+  pattern_xpath: ///article[contains(@class,'show')][contains(@class,'image')][contains(@class,'medium')][contains(@class,'table')][contains(@class,'top')]
+  tree_sig: article(div(figure(a(img)),h2(a)),hr)
+  content: [ATTR=1 HREF=2 IMG=5 TEXT=1]
+  sample[0] (15L): Trade agreements come with rules: Here’s what Canada can and cannot do Trade agr
+    |   <article class="b-top-table-list-medium b-top-table-list-medium--show-image">
+    |     <div>
+    |       <figure class="c-media-item">
+    |         <a class="c-link" href="/business/article/trade-agreements-come-with-rules-heres-what-canada-can-and-cannot-do/" aria-hidden="true" tabindex="-1">
+    |           <img data-chromatic="ignore" alt="Trade agreements come with rules: Here’s what Canada can and cannot do" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/6Y4WMCEC3V7ECZLBI3XXCOA5WA.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/6Y4WMCEC3V7ECZLBI3XXCOA5WA.jpg?smart=true&auth=c3b15daba05ee516bf6e810b9420776dd353072280cd87f40eb1f3c453b24331&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/6Y4WMCEC3V7ECZLBI3XXCOA5WA.jpg?smart=true&auth=c3b15daba05ee516bf6e810b9420776dd353072280cd87f40eb1f3c453b24331&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/6Y4WMCEC3V7ECZLBI3XXCOA5WA.jpg?smart=true&auth=c3b15daba05ee516bf6e810b9420776dd353072280cd87f40eb1f3c453b24331&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/6Y4WMCEC3V7ECZLBI3XXCOA5WA.jpg?smart=true&auth=c3b15daba05ee516bf6e810b9420776dd353072280cd87f40eb1f3c453b24331&width=1200&height=675 1200w" width="800" height="450"></img>
+    |         </a>
+    |       </figure>
+    |       <h2 class="c-heading">
+    |         <a class="c-link" href="/business/article/trade-agreements-come-with-rules-heres-what-canada-can-and-cannot-do/">
+    |           Trade agreements come with rules: Here’s what Canada can and cannot do
+    | ... [5 more lines]
+  sample[1] (15L): Liberals reject Poilievre’s call for tax relief on GM workers’ severance pay Lib
+    |   <article class="b-top-table-list-medium b-top-table-list-medium--show-image">
+    |     <div>
+    |       <figure class="c-media-item">
+    |         <a class="c-link" href="/business/autos/article/liberals-reject-poilievres-call-for-tax-relief-on-gm-workers-severance-pay/" aria-hidden="true" tabindex="-1">
+    |           <img data-chromatic="ignore" alt="Liberals reject Poilievre’s call for tax relief on GM workers’ severance pay" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/25UNKKCGGG6SGOTAQNE35KLD5U.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/25UNKKCGGG6SGOTAQNE35KLD5U.jpg?smart=true&auth=ddfc7fc7bce90d48515780090df1bebf39f91222dddc9a23fa248d8afb5ff276&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/25UNKKCGGG6SGOTAQNE35KLD5U.jpg?smart=true&auth=ddfc7fc7bce90d48515780090df1bebf39f91222dddc9a23fa248d8afb5ff276&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/25UNKKCGGG6SGOTAQNE35KLD5U.jpg?smart=true&auth=ddfc7fc7bce90d48515780090df1bebf39f91222dddc9a23fa248d8afb5ff276&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/25UNKKCGGG6SGOTAQNE35KLD5U.jpg?smart=true&auth=ddfc7fc7bce90d48515780090df1bebf39f91222dddc9a23fa248d8afb5ff276&width=1200&height=675 1200w" width="800" height="450"></img>
+    |         </a>
+    |       </figure>
+    |       <h2 class="c-heading">
+    |         <a class="c-link" href="/business/autos/article/liberals-reject-poilievres-call-for-tax-relief-on-gm-workers-severance-pay/">
+    |           Liberals reject Poilievre’s call for tax relief on GM workers’ severance pay
+    | ... [5 more lines]
+
+--- Chunk 2: article.image.list ---
+  type=card freq=8 excl=0.21
+  pattern_xpath: ///article[contains(@class,'show')][contains(@class,'image')][contains(@class,'medium')][contains(@class,'table')][contains(@class,'top')]
+  tree_sig: article(div(figure(a(img,div(svg(path),span))),h2(a)),hr)
+  content: [ATTR=1 HREF=2 IMG=5 TEXT=2]
+  sample[0] (23L): U.S. alcohol will remain off LCBO shelves despite latest Trump comments, Doug Fo
+    |   <article class="b-top-table-list-medium b-top-table-list-medium--show-image">
+    |     <div>
+    |       <figure class="c-media-item">
+    |         <a class="c-link" href="/toronto/politics/queens-park/article/us-alcohol-will-remain-off-lcbo-shelves-despite-latest-trump-comments-doug-ford-says/" aria-hidden="true" tabindex="-1">
+    |           <img data-chromatic="ignore" alt="U.S. alcohol will remain off LCBO shelves despite latest Trump comments, Doug Ford says" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/V2ZOFDJXJJA3XLGQOYLH3SZBIA.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/V2ZOFDJXJJA3XLGQOYLH3SZBIA.jpg?smart=true&auth=3f01787657f65519f0fa5592ab9484b18104244be1b36a7649a969cbf6081215&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/V2ZOFDJXJJA3XLGQOYLH3SZBIA.jpg?smart=true&auth=3f01787657f65519f0fa5592ab9484b18104244be1b36a7649a969cbf6081215&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/V2ZOFDJXJJA3XLGQOYLH3SZBIA.jpg?smart=true&auth=3f01787657f65519f0fa5592ab9484b18104244be1b36a7649a969cbf6081215&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/V2ZOFDJXJJA3XLGQOYLH3SZBIA.jpg?smart=true&auth=3f01787657f65519f0fa5592ab9484b18104244be1b36a7649a969cbf6081215&width=1200&height=675 1200w" width="800" height="450"></img>
+    |           <div class="b-top-table-list-medium__icon_label">
+    |             <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |               <path d="M425 215C439.3 223.8 448 239.3 448 256C448 272.7 439.3 288.2 425 296.1L137.03 47..."></path>
+    |             </svg>
+    |             <span class="b-top-table-list-medium__label">
+    | ... [13 more lines]
+
+--- Chunk 3: article.image.list ---
+  type=card freq=5 excl=0.21
+  pattern_xpath: ///article[contains(@class,'show')][contains(@class,'image')][contains(@class,'medium')][contains(@class,'table')][contains(@class,'top')]
+  tree_sig: div(div(div(article(div(figure(a),h2(a)),hr))))
+  content: [ATTR=1 HREF=2 IMG=5 TEXT=1]
+  sample[0] (23L): Cuba-U.S. blockade: Canadians returning amid fuel shortages Cuba-U.S. blockade: 
+    |   <article class="b-top-table-list-medium b-top-table-list-medium--show-image">
+    |     <div>
+    |       <figure class="c-media-item">
+    |         <a class="c-link" href="/canada/article/canadians-returning-from-cuba-amid-energy-crisis-due-to-us-oil-blockade/" aria-hidden="true" tabindex="-1">
+    |           <img data-chromatic="ignore" alt="Cuba-U.S. blockade: Canadians returning amid fuel shortages" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/MM6OU5IPESILMZNN2KPB4TZFH4.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/MM6OU5IPESILMZNN2KPB4TZFH4.jpg?smart=true&auth=3972a5949583d6055021798b7c043725663a6d92f978ce66a290c7351b14432b&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/MM6OU5IPESILMZNN2KPB4TZFH4.jpg?smart=true&auth=3972a5949583d6055021798b7c043725663a6d92f978ce66a290c7351b14432b&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/MM6OU5IPESILMZNN2KPB4TZFH4.jpg?smart=true&auth=3972a5949583d6055021798b7c043725663a6d92f978ce66a290c7351b14432b&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/MM6OU5IPESILMZNN2KPB4TZFH4.jpg?smart=true&auth=3972a5949583d6055021798b7c043725663a6d92f978ce66a290c7351b14432b&width=1200&height=675 1200w" width="800" height="450"></img>
+    |           <div class="b-top-table-list-medium__icon_label">
+    |             <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |               <path d="M425 215C439.3 223.8 448 239.3 448 256C448 272.7 439.3 288.2 425 296.1L137.03 47..."></path>
+    |             </svg>
+    |             <span class="b-top-table-list-medium__label">
+    | ... [13 more lines]
+
+--- Chunk 4: li.chain.item ---
+  type=menu_item freq=5 excl=0.27
+  pattern_xpath: ///li[contains(@class,'section')][contains(@data-testid,'section')][contains(@data-testid,'chain')][contains(@data-testid,'item')][contains(@data-testid,'nav')]
+  tree_sig: li(div(a,button(span(svg(path)))),div(ul(li(a))))
+  content: [ATTR=1 HREF=2 TEXT=2]
+  sample[0] (23L): Vancouver Vancouver Island
+    |   <li class="section-item" data-testid="nav-chain-section-item">
+    |     <div data-testid="nav-chain-section-item-subsection" class="c-stack b-header-nav-chain__subsection-anchor subsection-anchor " data-style-direction="horizontal" data-style-justification="start" data-style-alignment="center" data-style-inline="false" data-style-wrap="nowrap">
+    |       <a class="c-link" href="/vancouver" aria-hidden="true" tabindex="-1">
+    |         Vancouver
+    |       </a>
+    |       <button aria-expanded="false" aria-controls="header_sub_section_vancouver" aria-label="Show Vancouver sub sections" class="c-button c-button--medium c-button--default submenu-caret" type="button">
+    |         <span>
+    |           <svg class="c-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |             <path d="M256 416C247.812 416 239.62 412.875 233.38 406.625L41.38 214.625C28.88 202.125 2..."></path>
+    |           </svg>
+    | ... [13 more lines]
+
+--- Chunk 5: div.custom.false ---
+  type=card freq=12 excl=0.41
+  pattern_xpath: ///div[contains(@class,'simple')][contains(@class,'wrapper')][contains(@data-style-alignment,'unset')][contains(@data-style-direction,'vertical')][contains(@class,'stack')]
+  tree_sig: div(a(h3),time)
+  content: [HREF=1 TEXT=2]
+  sample[0] (10L): 3 hours ago Cuba-U.S. blockade: Canadians returning amid fuel shortages
+    |   <div class="c-stack b-simple-list-custom__wrapper" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <a class="c-link" href="/canada/article/canadians-returning-from-cuba-amid-energy-crisis-due-to-us-oil-blockade/">
+    |       <h3 style="--heading-truncation: 4;" class="c-heading">
+    |         Cuba-U.S. blockade: Canadians returning amid fuel shortages
+    |       </h3>
+    |     </a>
+    |     <time class="c-elapsed-time" datetime="2026-02-12T06:11:25.655Z">
+    |       3 hours ago
+    |     </time>
+    |   </div>
+  sample[1] (10L): 4 hours ago‘She never hurt a soul’: Grieving father speaks after daughter killed
+    |   <div class="c-stack b-simple-list-custom__wrapper" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <a class="c-link" href="/vancouver/article/she-never-hurt-a-soul-grieving-father-speaks-after-daughter-killed-in-bc-school-shooting/">
+    |       <h3 style="--heading-truncation: 4;" class="c-heading">
+    |         ‘She never hurt a soul’: Grieving father speaks after daughter killed in B.C. school shooting
+    |       </h3>
+    |     </a>
+    |     <time class="c-elapsed-time" datetime="2026-02-12T04:33:23.701Z">
+    |       4 hours ago
+    |     </time>
+    |   </div>
+  sample[2] (10L): 7 hours ago Instagram chief says he does not believe people can get clinically a
+    |   <div class="c-stack b-simple-list-custom__wrapper" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <a class="c-link" href="/sci-tech/article/instagram-chief-says-he-does-not-believe-people-can-get-clinically-addicted-to-social-media/">
+    |       <h3 style="--heading-truncation: 4;" class="c-heading">
+    |         Instagram chief says he does not believe people can get clinically addicted to social media
+    |       </h3>
+    |     </a>
+    |     <time class="c-elapsed-time" datetime="2026-02-12T01:27:25.951Z">
+    |       7 hours ago
+    |     </time>
+    |   </div>
+
+--- Chunk 6: article.custom.false ---
+  type=card freq=6 excl=0.18
+  pattern_xpath: ///article[contains(@data-style-alignment,'unset')][contains(@data-style-direction,'vertical')][contains(@class,'stack')][contains(@data-style-inline,'false')][contains(@data-style-justification,'start')]
+  tree_sig: article(div(a(img,div(div(svg(path))))),h2(a),div)
+  content: [HREF=2 IMG=4 TEXT=1]
+  sample[0] (20L): These are the best images from the Winter Olympics
+    |   <article class="c-stack b-standard-list-custom__item " data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="b-standard-list-custom__item__image-wrapper">
+    |       <a class="c-link b-standard-list-custom__item__anchor" href="/photos/2026/02/05/team-canada-olympic-athletes-training-at-milan-cortina-games/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/EH5FCUVEMVEJJLPDCGUZLNKYTE.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/EH5FCUVEMVEJJLPDCGUZLNKYTE.jpg?smart=true&auth=18df2bc53d3552f07446fd4bc7eb89cb3dde36ae023c61d21e2c59331397334b&width=274 274w, https://www.ctvnews.ca/resizer/v2/EH5FCUVEMVEJJLPDCGUZLNKYTE.jpg?smart=true&auth=18df2bc53d3552f07446fd4bc7eb89cb3dde36ae023c61d21e2c59331397334b&width=548 548w, https://www.ctvnews.ca/resizer/v2/EH5FCUVEMVEJJLPDCGUZLNKYTE.jpg?smart=true&auth=18df2bc53d3552f07446fd4bc7eb89cb3dde36ae023c61d21e2c59331397334b&width=1096 1096w" width="274"></img>
+    |         <div class="c-label-custom c-label-custom--iconStyle c-label-custom--standard">
+    |           <div class="c-label-custom__icon-label">
+    |             <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |               <path d="M255.55 210.79C276.421 210.79 294.266 218.2 309.086 233.02C323.906 247.84 331.31..."></path>
+    |             </svg>
+    |           </div>
+    | ... [10 more lines]
+
+--- Chunk 7: article.custom.false ---
+  type=card freq=4 excl=0.18
+  pattern_xpath: ///article[contains(@data-style-alignment,'unset')][contains(@data-style-direction,'vertical')][contains(@class,'stack')][contains(@data-style-inline,'false')][contains(@data-style-justification,'start')]
+  tree_sig: article(div(a(img)),h2(a),div)
+  content: [HREF=2 IMG=4 TEXT=1]
+  sample[0] (13L): ‘We are one people’: Dozens of Inuit head to Greenland for Canadian consulate op
+    |   <article class="c-stack b-standard-list-custom__item " data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="b-standard-list-custom__item__image-wrapper">
+    |       <a class="c-link b-standard-list-custom__item__anchor" href="/world/article/we-are-one-people-dozens-of-inuk-head-to-greenland-for-canadian-consulate-opening-in-trumps-shadow/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/HKGBSBZPERH5HAMYE73PUGVQFY.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/HKGBSBZPERH5HAMYE73PUGVQFY.jpg?smart=true&auth=94f4fd08b6d3b48ec4a025e1c067272ea4226761dd38731a69ab1fecca68b35d&width=274 274w, https://www.ctvnews.ca/resizer/v2/HKGBSBZPERH5HAMYE73PUGVQFY.jpg?smart=true&auth=94f4fd08b6d3b48ec4a025e1c067272ea4226761dd38731a69ab1fecca68b35d&width=548 548w, https://www.ctvnews.ca/resizer/v2/HKGBSBZPERH5HAMYE73PUGVQFY.jpg?smart=true&auth=94f4fd08b6d3b48ec4a025e1c067272ea4226761dd38731a69ab1fecca68b35d&width=1096 1096w" width="274"></img>
+    |       </a>
+    |     </div>
+    |     <h2 style="--heading-truncation: 3;" class="c-heading">
+    |       <a class="c-link" href="/world/article/we-are-one-people-dozens-of-inuk-head-to-greenland-for-canadian-consulate-opening-in-trumps-shadow/">
+    |         ‘We are one people’: Dozens of Inuit head to Greenland for Canadian consulate opening in Trump’s shadow
+    |       </a>
+    | ... [3 more lines]
+  sample[1] (13L): Minister Anand shares what conversations with U.S. Secretary of State Rubio have
+    |   <article class="c-stack b-standard-list-custom__item " data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="b-standard-list-custom__item__image-wrapper">
+    |       <a class="c-link b-standard-list-custom__item__anchor" href="/politics/article/anand-says-broader-trade-relationship-not-the-focus-of-conversations-with-us-secretary-of-state/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/A7IKBPG5TZEURF2R3T3MY2X2AU.JPG?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/A7IKBPG5TZEURF2R3T3MY2X2AU.JPG?smart=true&auth=6ec58600dc45eba512da9851a6e6bbfed6ff5962b6bb3bb22520277b96fd278e&width=274 274w, https://www.ctvnews.ca/resizer/v2/A7IKBPG5TZEURF2R3T3MY2X2AU.JPG?smart=true&auth=6ec58600dc45eba512da9851a6e6bbfed6ff5962b6bb3bb22520277b96fd278e&width=548 548w, https://www.ctvnews.ca/resizer/v2/A7IKBPG5TZEURF2R3T3MY2X2AU.JPG?smart=true&auth=6ec58600dc45eba512da9851a6e6bbfed6ff5962b6bb3bb22520277b96fd278e&width=1096 1096w" width="274"></img>
+    |       </a>
+    |     </div>
+    |     <h2 style="--heading-truncation: 3;" class="c-heading">
+    |       <a class="c-link" href="/politics/article/anand-says-broader-trade-relationship-not-the-focus-of-conversations-with-us-secretary-of-state/">
+    |         Minister Anand shares what conversations with U.S. Secretary of State Rubio have focused on
+    |       </a>
+    | ... [3 more lines]
+
+--- Chunk 8: a.canadas.challenges ---
+  type=structural freq=2 excl=0.14
+  pattern_xpath: ///a[contains(@class,'link')]
+  tree_sig: h2(a)
+  content: [HREF=1 TEXT=1]
+  sample[0] (3L): Canada’s economic challenges
+    |   <a class="c-link" href="/video/shows/taking-stock/2026/02/06/canadas-economic-challenges/">
+    |     Canada’s economic challenges
+    |   </a>
+  sample[1] (3L): How Calgary is tackling its infrastructure challenges
+    |   <a class="c-link" href="/video/shows/taking-stock/2026/02/06/how-calgary-is-tackling-its-infrastructure-challenges/">
+    |     How Calgary is tackling its infrastructure challenges
+    |   </a>
+
+--- Chunk 9: span.custom.duration ---
+  type=structural freq=2 excl=0.23
+  pattern_xpath: ///span[contains(@class,'duration')][contains(@class,'item')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')]
+  tree_sig: div(span)
+  content: [TEXT=1]
+  sample[0] (3L): 08:09
+    |   <span class="b-standard-list-custom__item__duration">
+    |     08:09
+    |   </span>
+  sample[1] (3L): 09:09
+    |   <span class="b-standard-list-custom__item__duration">
+    |     09:09
+    |   </span>
+
+--- Chunk 10: a.ca.ctvnews ---
+  type=card freq=4 excl=0.06
+  pattern_xpath: ///div[contains(@class,'grid')][contains(@class,'quad')][contains(@class,'children')]/a[contains(@class,'link')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')]
+  tree_sig: a(h2,svg(path))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Top VideosMust Watch
+    |   <a class="c-link b-standard-list-custom__link" href="https://www.ctvnews.ca/video/">
+    |     <h2 class="c-heading b-standard-list-custom__title">
+    |       Top VideosMust Watch
+    |     </h2>
+    |     <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |       <path d="M416 256C416 264.188 412.875 272.38 406.625 278.62L214.625 470.62C202.125 483.12..."></path>
+    |     </svg>
+    |   </a>
+  sample[1] (8L): Shopping Trends
+    |   <a class="c-link b-standard-list-custom__link" href="https://www.ctvnews.ca/shopping.html">
+    |     <h2 class="c-heading b-standard-list-custom__title">
+    |       Shopping Trends
+    |     </h2>
+    |     <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |       <path d="M416 256C416 264.188 412.875 272.38 406.625 278.62L214.625 470.62C202.125 483.12..."></path>
+    |     </svg>
+    |   </a>
+  sample[2] (8L): Opinion
+    |   <a class="c-link b-standard-list-custom__link" href="https://www.ctvnews.ca/opinion/">
+    |     <h2 class="c-heading b-standard-list-custom__title">
+    |       Opinion
+    |     </h2>
+    |     <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |       <path d="M416 256C416 264.188 412.875 272.38 406.625 278.62L214.625 470.62C202.125 483.12..."></path>
+    |     </svg>
+    |   </a>
+
+--- Chunk 11: article.grid.large ---
+  type=card freq=3 excl=0.24
+  pattern_xpath: ///article[contains(@class,'grid')][contains(@class,'large')][contains(@class,'table')][contains(@class,'top')][contains(@class,'list')]
+  tree_sig: div(div(div(article(figure(a(img)),div(div(h2))))))
+  content: [ATTR=1 HREF=2 IMG=5 TEXT=1]
+  sample[0] (16L): Here’s what we know about the Tumbler Ridge shooter Here’s what we know about th
+    |   <article class="c-grid b-top-table-list-large">
+    |     <figure class="c-media-item">
+    |       <a class="c-link" href="/canada/article/heres-what-we-know-about-the-tumbler-ridge-shooter/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="Here’s what we know about the Tumbler Ridge shooter" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/MWH5RT3VWJAUNEAK3CE37TNPM4.JPG?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/MWH5RT3VWJAUNEAK3CE37TNPM4.JPG?smart=true&auth=9c1148690dca79d3686d2583eeb143b4607f4fe3995c71ffed6444086bc0a6b2&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/MWH5RT3VWJAUNEAK3CE37TNPM4.JPG?smart=true&auth=9c1148690dca79d3686d2583eeb143b4607f4fe3995c71ffed6444086bc0a6b2&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/MWH5RT3VWJAUNEAK3CE37TNPM4.JPG?smart=true&auth=9c1148690dca79d3686d2583eeb143b4607f4fe3995c71ffed6444086bc0a6b2&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/MWH5RT3VWJAUNEAK3CE37TNPM4.JPG?smart=true&auth=9c1148690dca79d3686d2583eeb143b4607f4fe3995c71ffed6444086bc0a6b2&width=1200&height=675 1200w" width="800" height="450"></img>
+    |       </a>
+    |     </figure>
+    |     <div class="c-stack b-top-table-list-large__text" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |       <div class="c-stack" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |         <h2 class="c-heading">
+    |           <a class="c-link" href="/canada/article/heres-what-we-know-about-the-tumbler-ridge-shooter/">
+    | ... [6 more lines]
+
+--- Chunk 12: article.grid.large ---
+  type=card freq=3 excl=0.24
+  pattern_xpath: ///article[contains(@class,'grid')][contains(@class,'large')][contains(@class,'table')][contains(@class,'top')][contains(@class,'list')]
+  tree_sig: div(div(div(article(figure(a(img,div)),div(div(h2))))))
+  content: [ATTR=1 HREF=2 IMG=5 TEXT=2]
+  sample[0] (24L): U.S. House backs resolution to end Trump’s tariffs on Canada Video U.S. House ba
+    |   <article class="c-grid b-top-table-list-large">
+    |     <figure class="c-media-item">
+    |       <a class="c-link" href="/world/trumps-tariffs/article/us-house-backs-resolution-to-end-trumps-tariffs-on-canada/" aria-hidden="true" tabindex="-1">
+    |         <img data-chromatic="ignore" alt="U.S. House backs resolution to end Trump’s tariffs on Canada" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/UMSHP3FV6JBKJGJVBM4W55BUNQ.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/UMSHP3FV6JBKJGJVBM4W55BUNQ.jpg?smart=true&auth=46adf9c84e37b676d4272ffd42f29810eb38406b0a270e9d51a9f79122821166&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/UMSHP3FV6JBKJGJVBM4W55BUNQ.jpg?smart=true&auth=46adf9c84e37b676d4272ffd42f29810eb38406b0a270e9d51a9f79122821166&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/UMSHP3FV6JBKJGJVBM4W55BUNQ.jpg?smart=true&auth=46adf9c84e37b676d4272ffd42f29810eb38406b0a270e9d51a9f79122821166&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/UMSHP3FV6JBKJGJVBM4W55BUNQ.jpg?smart=true&auth=46adf9c84e37b676d4272ffd42f29810eb38406b0a270e9d51a9f79122821166&width=1200&height=675 1200w" width="800" height="450"></img>
+    |         <div class="b-top-table-list-large__icon_label">
+    |           <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |             <path d="M425 215C439.3 223.8 448 239.3 448 256C448 272.7 439.3 288.2 425 296.1L137.03 47..."></path>
+    |           </svg>
+    |           <span class="b-top-table-list-large__label">
+    |             Video
+    | ... [14 more lines]
+
+--- Chunk 13: div.footer.group ---
+  type=card freq=3 excl=0.50
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'group')][contains(@class,'links')]
+  tree_sig: div(h2,ul(li(a(span)),li(a(span)),li(a(span))))
+  content: [HREF=3 TEXT=7]
+  sample[0] (31L) [TRUNCATED]: About BellMedia Bell Privacy Policy Terms & Conditions Political Ad Registry Ope
+    |   <div class="b-footer__links-group">
+    |     <h2 class="c-heading">
+    |       About BellMedia
+    |     </h2>
+    |     <ul class="b-footer__links-group-list">
+    |       <li class="b-footer__links-group-list-item">
+    |         <a class="c-link" href="https://www.bell.ca/Security_and_privacy/Commitment_to_privacy" rel="noreferrer" target="_blank">
+    |           Bell Privacy Policy
+    |           <span class="visually-hidden">
+    |             Opens in new window
+    | ... [21 more lines]
+
+--- Chunk 14: ul.chain.header ---
+  type=card freq=3 excl=0.24
+  pattern_xpath: ///ul[contains(@class,'menu')][contains(@id,'header')][contains(@id,'section')][contains(@id,'sub')][contains(@class,'chain')]
+  tree_sig: ul(li(a),li(a),li(a),li(a,a,a,a))
+  content: [HREF=7 TEXT=7]
+  sample[0] (31L) [TRUNCATED]: Nova Scotia New Brunswick Prince Edward Island Newfoundland and Labrador Nova Sc
+    |   <ul class="b-header-nav-chain__subsection-menu" id="header_sub_section_atlantic">
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/atlantic/nova-scotia" aria-hidden="true" tabindex="-1">
+    |         Nova Scotia
+    |       </a>
+    |     </li>
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/atlantic/new-brunswick" aria-hidden="true" tabindex="-1">
+    |         New Brunswick
+    |       </a>
+    | ... [21 more lines]
+
+--- Chunk 15: ul.chain.header ---
+  type=structural freq=2 excl=0.35
+  pattern_xpath: ///ul[contains(@id,'canada')][contains(@id,'world')][contains(@class,'menu')][contains(@id,'header')][contains(@id,'section')]
+  tree_sig: ul(li(a),li(a,a))
+  content: [HREF=3 TEXT=3]
+  sample[0] (15L): Russia-Ukraine War Israel-Hamas War Russia-Ukraine War
+    |   <ul class="b-header-nav-chain__subsection-menu" id="header_sub_section_world">
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/world/russia-ukraine-war" aria-hidden="true" tabindex="-1">
+    |         Russia-Ukraine War
+    |       </a>
+    |     </li>
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/world/israel-hamas-war" aria-hidden="true" tabindex="-1">
+    |         Israel-Hamas War
+    |       </a>
+    | ... [5 more lines]
+  sample[1] (15L): Local Spotlight Royal Family Local Spotlight
+    |   <ul class="b-header-nav-chain__subsection-menu" id="header_sub_section_canada">
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/canada/local-spotlight" aria-hidden="true" tabindex="-1">
+    |         Local Spotlight
+    |       </a>
+    |     </li>
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/canada/royal-family" aria-hidden="true" tabindex="-1">
+    |         Royal Family
+    |       </a>
+    | ... [5 more lines]
+
+--- Chunk 16: ul.chain.header ---
+  type=structural freq=2 excl=0.35
+  pattern_xpath: ///ul[contains(@id,'business')][contains(@id,'ottawa')][contains(@class,'menu')][contains(@id,'header')][contains(@id,'section')]
+  tree_sig: ul(li(a),li(a),li(a,a,a))
+  content: [HREF=5 TEXT=5]
+  sample[0] (23L): Kingston Brockville Pembroke Kingston Brockville
+    |   <ul class="b-header-nav-chain__subsection-menu" id="header_sub_section_ottawa">
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/ottawa/kingston" aria-hidden="true" tabindex="-1">
+    |         Kingston
+    |       </a>
+    |     </li>
+    |     <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |       <a class="c-link" href="/ottawa/brockville" aria-hidden="true" tabindex="-1">
+    |         Brockville
+    |       </a>
+    | ... [13 more lines]
+
+--- Chunk 17: div.anchor.center ---
+  type=card freq=15 excl=0.62
+  pattern_xpath: ///div[contains(@data-style-alignment,'center')][contains(@data-style-direction,'horizontal')][contains(@class,'anchor')][contains(@data-testid,'section')][contains(@data-testid,'subsection')]
+  tree_sig: div(a,button(span(svg(path))))
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (12L): Canada
+    |   <div data-testid="nav-chain-section-item-subsection" class="c-stack b-header-nav-chain__subsection-anchor subsection-anchor " data-style-direction="horizontal" data-style-justification="start" data-style-alignment="center" data-style-inline="false" data-style-wrap="nowrap">
+    |     <a class="c-link" href="/canada" aria-hidden="true" tabindex="-1">
+    |       Canada
+    |     </a>
+    |     <button aria-expanded="false" aria-controls="header_sub_section_canada" aria-label="Show Canada sub sections" class="c-button c-button--medium c-button--default submenu-caret" type="button">
+    |       <span>
+    |         <svg class="c-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |           <path d="M256 416C247.812 416 239.62 412.875 233.38 406.625L41.38 214.625C28.88 202.125 2..."></path>
+    |         </svg>
+    |       </span>
+    | ... [2 more lines]
+  sample[1] (12L): Ottawa
+    |   <div data-testid="nav-chain-section-item-subsection" class="c-stack b-header-nav-chain__subsection-anchor subsection-anchor " data-style-direction="horizontal" data-style-justification="start" data-style-alignment="center" data-style-inline="false" data-style-wrap="nowrap">
+    |     <a class="c-link" href="/ottawa" aria-hidden="true" tabindex="-1">
+    |       Ottawa
+    |     </a>
+    |     <button aria-expanded="false" aria-controls="header_sub_section_ottawa" aria-label="Show Ottawa sub sections" class="c-button c-button--medium c-button--default submenu-caret" type="button">
+    |       <span>
+    |         <svg class="c-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |           <path d="M256 416C247.812 416 239.62 412.875 233.38 406.625L41.38 214.625C28.88 202.125 2..."></path>
+    |         </svg>
+    |       </span>
+    | ... [2 more lines]
+
+--- Chunk 18: div.custom.header ---
+  type=card freq=13 excl=0.06
+  pattern_xpath: ///div[contains(@class,'child')][contains(@class,'triple')]//div[contains(@class,'header')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')]
+  tree_sig: div(a(h2,svg(path)))
+  content: [HREF=1 TEXT=1]
+  sample[0] (10L): Politics
+    |   <div class="b-standard-list-custom__header">
+    |     <a class="c-link b-standard-list-custom__link" href="https://www.ctvnews.ca/politics/">
+    |       <h2 class="c-heading b-standard-list-custom__title">
+    |         Politics
+    |       </h2>
+    |       <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |         <path d="M416 256C416 264.188 412.875 272.38 406.625 278.62L214.625 470.62C202.125 483.12..."></path>
+    |       </svg>
+    |     </a>
+    |   </div>
+  sample[1] (10L): Business
+    |   <div class="b-standard-list-custom__header">
+    |     <a class="c-link b-standard-list-custom__link" href="https://www.ctvnews.ca/business/">
+    |       <h2 class="c-heading b-standard-list-custom__title">
+    |         Business
+    |       </h2>
+    |       <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |         <path d="M416 256C416 264.188 412.875 272.38 406.625 278.62L214.625 470.62C202.125 483.12..."></path>
+    |       </svg>
+    |     </a>
+    |   </div>
+  sample[2] (10L): Autos
+    |   <div class="b-standard-list-custom__header">
+    |     <a class="c-link b-standard-list-custom__link" href="https://www.ctvnews.ca/business/autos/">
+    |       <h2 class="c-heading b-standard-list-custom__title">
+    |         Autos
+    |       </h2>
+    |       <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |         <path d="M416 256C416 264.188 412.875 272.38 406.625 278.62L214.625 470.62C202.125 483.12..."></path>
+    |       </svg>
+    |     </a>
+    |   </div>
+
+--- Chunk 19: div.custom.image ---
+  type=card freq=13 excl=0.17
+  pattern_xpath: ///div[contains(@class,'wrapper')][contains(@class,'image')][contains(@class,'item')][contains(@class,'standard')][contains(@class,'custom')]
+  tree_sig: div(a(img))
+  content: [HREF=1 IMG=4]
+  sample[0] (5L): 
+    |   <div class="b-standard-list-custom__item__image-wrapper">
+    |     <a class="c-link b-standard-list-custom__item__anchor" href="/politics/article/carney-cancels-trip-to-europe-following-bc-school-shooting/" aria-hidden="true" tabindex="-1">
+    |       <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/KL4WDQRCHOXJNVNRVHBA67UBDA.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/KL4WDQRCHOXJNVNRVHBA67UBDA.jpg?smart=true&auth=39010e3ba3ae7accfe71788570b72cca05ad33c9b6fb9cf29edb0c91f346d8d6&width=274 274w, https://www.ctvnews.ca/resizer/v2/KL4WDQRCHOXJNVNRVHBA67UBDA.jpg?smart=true&auth=39010e3ba3ae7accfe71788570b72cca05ad33c9b6fb9cf29edb0c91f346d8d6&width=548 548w, https://www.ctvnews.ca/resizer/v2/KL4WDQRCHOXJNVNRVHBA67UBDA.jpg?smart=true&auth=39010e3ba3ae7accfe71788570b72cca05ad33c9b6fb9cf29edb0c91f346d8d6&width=1096 1096w" width="274"></img>
+    |     </a>
+    |   </div>
+  sample[1] (5L): 
+    |   <div class="b-standard-list-custom__item__image-wrapper">
+    |     <a class="c-link b-standard-list-custom__item__anchor" href="/business/article/sptsx-composite-down-more-than-150-points-us-stock-markets-mixed-4/" aria-hidden="true" tabindex="-1">
+    |       <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/VFQOYVXKEORDUX3FHPHU4BGZSI.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/VFQOYVXKEORDUX3FHPHU4BGZSI.jpg?smart=true&auth=5a0b08a5cf3e96b5de87a711c5311caa0e1db668b281f6f6b8d8493f48caeeaf&width=274 274w, https://www.ctvnews.ca/resizer/v2/VFQOYVXKEORDUX3FHPHU4BGZSI.jpg?smart=true&auth=5a0b08a5cf3e96b5de87a711c5311caa0e1db668b281f6f6b8d8493f48caeeaf&width=548 548w, https://www.ctvnews.ca/resizer/v2/VFQOYVXKEORDUX3FHPHU4BGZSI.jpg?smart=true&auth=5a0b08a5cf3e96b5de87a711c5311caa0e1db668b281f6f6b8d8493f48caeeaf&width=1096 1096w" width="274"></img>
+    |     </a>
+    |   </div>
+  sample[2] (5L): 
+    |   <div class="b-standard-list-custom__item__image-wrapper">
+    |     <a class="c-link b-standard-list-custom__item__anchor" href="/montreal/article/auto-thefts-down-18-year-over-year-while-recovery-remains-low-report/" aria-hidden="true" tabindex="-1">
+    |       <img data-chromatic="ignore" alt="" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/KJP4HAD34UFXUTPG743ZH2AKYY.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/KJP4HAD34UFXUTPG743ZH2AKYY.jpg?smart=true&auth=f41bb0ce49d3f2063333abf2c1b30d391eaee49c1739306fa0df43500bbe7b18&width=274 274w, https://www.ctvnews.ca/resizer/v2/KJP4HAD34UFXUTPG743ZH2AKYY.jpg?smart=true&auth=f41bb0ce49d3f2063333abf2c1b30d391eaee49c1739306fa0df43500bbe7b18&width=548 548w, https://www.ctvnews.ca/resizer/v2/KJP4HAD34UFXUTPG743ZH2AKYY.jpg?smart=true&auth=f41bb0ce49d3f2063333abf2c1b30d391eaee49c1739306fa0df43500bbe7b18&width=1096 1096w" width="274"></img>
+    |     </a>
+    |   </div>
+
+--- Chunk 20: div.false.large ---
+  type=card freq=6 excl=0.38
+  pattern_xpath: ///div[contains(@class,'grid')][contains(@class,'container')][contains(@class,'false')]//div[contains(@class,'text')][contains(@class,'large')][contains(@data-style-alignment,'unset')][contains(@data-style-direction,'vertical')][contains(@class,'stack')]
+  tree_sig: div(div(h2(a)))
+  content: [HREF=1 TEXT=1]
+  sample[0] (9L): Here’s what we know about the Tumbler Ridge shooter
+    |   <div class="c-stack b-top-table-list-large__text" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="c-stack" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |       <h2 class="c-heading">
+    |         <a class="c-link" href="/canada/article/heres-what-we-know-about-the-tumbler-ridge-shooter/">
+    |           Here’s what we know about the Tumbler Ridge shooter
+    |         </a>
+    |       </h2>
+    |     </div>
+    |   </div>
+  sample[1] (9L): What we know about the victims of the mass shooting in Tumbler Ridge, B.C.
+    |   <div class="c-stack b-top-table-list-large__text" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="c-stack" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |       <h2 class="c-heading">
+    |         <a class="c-link" href="/vancouver/article/what-we-know-about-the-victims-of-the-mass-shooting-in-tumbler-ridge-bc/">
+    |           What we know about the victims of the mass shooting in Tumbler Ridge, B.C.
+    |         </a>
+    |       </h2>
+    |     </div>
+    |   </div>
+  sample[2] (9L): U.S. House backs resolution to end Trump’s tariffs on Canada
+    |   <div class="c-stack b-top-table-list-large__text" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |     <div class="c-stack" data-style-direction="vertical" data-style-justification="start" data-style-alignment="unset" data-style-inline="false" data-style-wrap="nowrap">
+    |       <h2 class="c-heading">
+    |         <a class="c-link" href="/world/trumps-tariffs/article/us-house-backs-resolution-to-end-trumps-tariffs-on-canada/">
+    |           U.S. House backs resolution to end Trump’s tariffs on Canada
+    |         </a>
+    |       </h2>
+    |     </div>
+    |   </div>
+
+--- Chunk 21: li.footer.group ---
+  type=menu_item freq=9 excl=0.32
+  pattern_xpath: ///li[contains(@class,'footer')][contains(@class,'group')][contains(@class,'links')][contains(@class,'item')][contains(@class,'list')]
+  tree_sig: li(a(span))
+  content: [HREF=1 TEXT=2]
+  sample[0] (8L): Bell Privacy Policy Opens in new window
+    |   <li class="b-footer__links-group-list-item">
+    |     <a class="c-link" href="https://www.bell.ca/Security_and_privacy/Commitment_to_privacy" rel="noreferrer" target="_blank">
+    |       Bell Privacy Policy
+    |       <span class="visually-hidden">
+    |         Opens in new window
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[1] (8L): Terms & Conditions Opens in new window
+    |   <li class="b-footer__links-group-list-item">
+    |     <a class="c-link" href="https://www.bellmedia.ca/bell-media-website-terms-conditions/" rel="noreferrer" target="_blank">
+    |       Terms & Conditions
+    |       <span class="visually-hidden">
+    |         Opens in new window
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (8L): TSN.ca Opens in new window
+    |   <li class="b-footer__links-group-list-item">
+    |     <a class="c-link" href="https://www.tsn.ca" rel="noreferrer" target="_blank">
+    |       TSN.ca
+    |       <span class="visually-hidden">
+    |         Opens in new window
+    |       </span>
+    |     </a>
+    |   </li>
+
+--- Chunk 22: [search_inputs] ---
+  type=search_input freq=2 excl=1.00
+  pattern_xpath: ///input[contains(@autocapitalize,'none')][contains(@autocomplete,'off')][contains(@autocorrect,'off')][contains(@id,'queryly')][contains(@spellcheck,'false')]
+  content: [ATTR=2]
+  sample[0] (1L): Search
+    |   <input aria-label="Search" tabindex="0" id="queryly_query" type="search" placeholder="Search news..." autocorrect="off" autocapitalize="none" autocomplete="off" spellcheck="false"></input>
+  sample[1] (1L): 
+    |   <input tabindex="-1" aria-label="" id="queryly_suggest" type="text" autocorrect="off" autocapitalize="none" autocomplete="off" spellcheck="false"></input>
+
+--- Chunk 23: [pagination_buttons] ---
+  type=pagination freq=31 excl=0.14
+  pattern_xpath: ///a[contains(@class,'link')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L): Busy Phillipps, Chad Michael Murray and more react to the death of James Van Der
+    |   <a class="c-link" href="/entertainment/article/busy-phillipps-chad-michael-murray-and-more-react-to-the-death-of-james-van-der-beek/" aria-hidden="true" tabindex="-1">
+    |     <img data-chromatic="ignore" alt="Busy Phillipps, Chad Michael Murray and more react to the death of James Van Der Beek" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/BRAGZO6BCB64FH34M2RUGPSOLU.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/BRAGZO6BCB64FH34M2RUGPSOLU.jpg?smart=true&auth=5480aa33c4f28371aed0f711173a9f2900fe7913805087ddb7824504dd037dba&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/BRAGZO6BCB64FH34M2RUGPSOLU.jpg?smart=true&auth=5480aa33c4f28371aed0f711173a9f2900fe7913805087ddb7824504dd037dba&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/BRAGZO6BCB64FH34M2RUGPSOLU.jpg?smart=true&auth=5480aa33c4f28371aed0f711173a9f2900fe7913805087ddb7824504dd037dba&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/BRAGZO6BCB64FH34M2RUGPSOLU.jpg?smart=true&auth=5480aa33c4f28371aed0f711173a9f2900fe7913805087ddb7824504dd037dba&width=1200&height=675 1200w" width="800" height="450"></img>
+    |     <div class="b-top-table-list-medium__icon_label">
+    |       <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |         <path d="M425 215C439.3 223.8 448 239.3 448 256C448 272.7 439.3 288.2 425 296.1L137.03 47..."></path>
+    |       </svg>
+    |       <span class="b-top-table-list-medium__label">
+    |         Video
+    |       </span>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (11L): Ottawa spending $84M to install more than 8,000 new EV chargers Video
+    |   <a class="c-link" href="/business/article/ottawa-spending-84m-to-install-more-than-8000-new-ev-chargers/" aria-hidden="true" tabindex="-1">
+    |     <img data-chromatic="ignore" alt="Ottawa spending $84M to install more than 8,000 new EV chargers" class="c-image" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/YA3ZZUZ2YPBVXJGV6WMBZNOKVQ.jpg?smart=true&auth..." srcset="https://www.ctvnews.ca/resizer/v2/YA3ZZUZ2YPBVXJGV6WMBZNOKVQ.jpg?smart=true&auth=0de2fd3282d540f30b6c87ce5626c35d1282d15eaafbd92626399c597efe9b82&width=400&height=225 400w, https://www.ctvnews.ca/resizer/v2/YA3ZZUZ2YPBVXJGV6WMBZNOKVQ.jpg?smart=true&auth=0de2fd3282d540f30b6c87ce5626c35d1282d15eaafbd92626399c597efe9b82&width=600&height=337 600w, https://www.ctvnews.ca/resizer/v2/YA3ZZUZ2YPBVXJGV6WMBZNOKVQ.jpg?smart=true&auth=0de2fd3282d540f30b6c87ce5626c35d1282d15eaafbd92626399c597efe9b82&width=800&height=450 800w, https://www.ctvnews.ca/resizer/v2/YA3ZZUZ2YPBVXJGV6WMBZNOKVQ.jpg?smart=true&auth=0de2fd3282d540f30b6c87ce5626c35d1282d15eaafbd92626399c597efe9b82&width=1200&height=675 1200w" width="800" height="450"></img>
+    |     <div class="b-top-table-list-medium__icon_label">
+    |       <svg class="c-icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |         <path d="M425 215C439.3 223.8 448 239.3 448 256C448 272.7 439.3 288.2 425 296.1L137.03 47..."></path>
+    |       </svg>
+    |       <span class="b-top-table-list-medium__label">
+    |         Video
+    |       </span>
+    |     </div>
+    | ... [1 more lines]
+  sample[2] (3L): 13 Budget-Friendly Beauty Products That Are Dupes Of More Expensive Items
+    |   <a class="c-link b-standard-list-custom__item__anchor" href="https://www.ctvnews.ca/shopping/beauty/budget-friendly-beauty-dupes.html" aria-hidden="true" tabindex="-1">
+    |     <img data-chromatic="ignore" alt="13 Budget-Friendly Beauty Products That Are Dupes Of More Expensive Items" class="c-image b-standard-list-custom__item-image b-standard-list-custom__item-image--aspect-ratio-16x9" loading="lazy" src="https://www.ctvnews.ca/resizer/v2/https%3A%2F%2Fwww.ctvnews.ca%2Fcontent%2Fdam%2..." srcset="https://www.ctvnews.ca/resizer/v2/https%3A%2F%2Fwww.ctvnews.ca%2Fcontent%2Fdam%2Fctv-ecommerce%2FuploadImg%2F2025%2F10%2F23%2Fbudget-friendly-dupes-beauty.jpg?auth=158ed5f10b2111b6d9dbacff34b36d630552429effa8b5cdda11b59f94818600&width=274 274w, https://www.ctvnews.ca/resizer/v2/https%3A%2F%2Fwww.ctvnews.ca%2Fcontent%2Fdam%2Fctv-ecommerce%2FuploadImg%2F2025%2F10%2F23%2Fbudget-friendly-dupes-beauty.jpg?auth=158ed5f10b2111b6d9dbacff34b36d630552429effa8b5cdda11b59f94818600&width=548 548w, https://www.ctvnews.ca/resizer/v2/https%3A%2F%2Fwww.ctvnews.ca%2Fcontent%2Fdam%2Fctv-ecommerce%2FuploadImg%2F2025%2F10%2F23%2Fbudget-friendly-dupes-beauty.jpg?auth=158ed5f10b2111b6d9dbacff34b36d630552429effa8b5cdda11b59f94818600&width=1096 1096w" width="274"></img>
+    |   </a>
+
+--- Chunk 24: [nav_content:a×113] ---
+  type=menu_item freq=113 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Ottawa Kingston Brockville Pembroke
+    |   <li class="section-item" data-testid="nav-chain-section-item">
+    |     <div data-testid="nav-chain-section-item-subsection" class="c-stack b-header-nav-chain__subsection-anchor subsection-anchor " data-style-direction="horizontal" data-style-justification="start" data-style-alignment="center" data-style-inline="false" data-style-wrap="nowrap">
+    |       <a class="c-link" href="/ottawa" aria-hidden="true" tabindex="-1">
+    |         Ottawa
+    |       </a>
+    |   ... [23 lines truncated] ...
+    |           </a>
+    |         </li>
+    |       </ul>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (7L): 
+    |   <button aria-expanded="false" aria-controls="header_sub_section_atlantic" aria-label="Show Atlantic sub sections" class="c-button c-button--medium c-button--default submenu-caret" type="button">
+    |     <span>
+    |       <svg class="c-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false">
+    |         <path d="M256 416C247.812 416 239.62 412.875 233.38 406.625L41.38 214.625C28.88 202.125 2..."></path>
+    |       </svg>
+    |     </span>
+    |   </button>
+  sample[2] (5L): Live
+    |   <li class="section-item" data-testid="nav-chain-section-item">
+    |     <a class="c-link" href="/video/live" aria-hidden="true" tabindex="-1">
+    |       Live
+    |     </a>
+    |   </li>
+
+--- Chunk 28: [nav_content:a×21] ---
+  type=menu_item freq=21 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Watch
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/toronto/video/" aria-hidden="true" tabindex="-1">
+    |       Watch
+    |     </a>
+    |   </li>
+  sample[1] (5L): Weather
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/toronto/weather" aria-hidden="true" tabindex="-1">
+    |       Weather
+    |     </a>
+    |   </li>
+  sample[2] (3L): Watch
+    |   <a class="c-link" href="/toronto/video/" aria-hidden="true" tabindex="-1">
+    |     Watch
+    |   </a>
+
+--- Chunk 29: [nav_content:a×17] ---
+  type=menu_item freq=17 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Captured on Camera
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/video/captured-on-camera" aria-hidden="true" tabindex="-1">
+    |       Captured on Camera
+    |     </a>
+    |   </li>
+  sample[1] (5L): Politics
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/video/politics" aria-hidden="true" tabindex="-1">
+    |       Politics
+    |     </a>
+    |   </li>
+  sample[2] (3L): Captured on Camera
+    |   <a class="c-link" href="/video/captured-on-camera" aria-hidden="true" tabindex="-1">
+    |     Captured on Camera
+    |   </a>
+
+--- Chunk 30: [nav_content:a×19] ---
+  type=menu_item freq=19 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Shop Canadian
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/shopping-trends/canadian-product" aria-hidden="true" tabindex="-1">
+    |       Shop Canadian
+    |     </a>
+    |   </li>
+  sample[1] (5L): Gifts
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/shopping-trends/gifts" aria-hidden="true" tabindex="-1">
+    |       Gifts
+    |     </a>
+    |   </li>
+  sample[2] (3L): Shop Canadian
+    |   <a class="c-link" href="/shopping-trends/canadian-product" aria-hidden="true" tabindex="-1">
+    |     Shop Canadian
+    |   </a>
+
+--- Chunk 28: [nav_content:a×21] ---
+  type=menu_item freq=21 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Watch
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/toronto/video/" aria-hidden="true" tabindex="-1">
+    |       Watch
+    |     </a>
+    |   </li>
+  sample[1] (5L): Weather
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/toronto/weather" aria-hidden="true" tabindex="-1">
+    |       Weather
+    |     </a>
+    |   </li>
+  sample[2] (3L): Watch
+    |   <a class="c-link" href="/toronto/video/" aria-hidden="true" tabindex="-1">
+    |     Watch
+    |   </a>
+
+--- Chunk 29: [nav_content:a×17] ---
+  type=menu_item freq=17 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Captured on Camera
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/video/captured-on-camera" aria-hidden="true" tabindex="-1">
+    |       Captured on Camera
+    |     </a>
+    |   </li>
+  sample[1] (5L): Politics
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/video/politics" aria-hidden="true" tabindex="-1">
+    |       Politics
+    |     </a>
+    |   </li>
+  sample[2] (3L): Captured on Camera
+    |   <a class="c-link" href="/video/captured-on-camera" aria-hidden="true" tabindex="-1">
+    |     Captured on Camera
+    |   </a>
+
+--- Chunk 30: [nav_content:a×19] ---
+  type=menu_item freq=19 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Shop Canadian
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/shopping-trends/canadian-product" aria-hidden="true" tabindex="-1">
+    |       Shop Canadian
+    |     </a>
+    |   </li>
+  sample[1] (5L): Gifts
+    |   <li class="subsection-item" data-testid="nav-chain-subsection-item">
+    |     <a class="c-link" href="/shopping-trends/gifts" aria-hidden="true" tabindex="-1">
+    |       Gifts
+    |     </a>
+    |   </li>
+  sample[2] (3L): Shop Canadian
+    |   <a class="c-link" href="/shopping-trends/canadian-product" aria-hidden="true" tabindex="-1">
+    |     Shop Canadian
+    |   </a>
+
+--- Chunk 31: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Editor's Picks
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Editor's Picks
+    |   </h2>
+
+--- Chunk 32: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.02
+  pattern_xpath: ///h2[contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Accessibility & Feedback
+    |   <h2 class="c-heading">
+    |     Accessibility & Feedback
+    |   </h2>
+
+--- Chunk 33: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.02
+  pattern_xpath: ///h2[contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Accessibility & FeedbackAbout BellMediaOther BrandsAutres Marques
+    |   <h2 class="c-heading">
+    |     Accessibility & FeedbackAbout BellMediaOther BrandsAutres Marques
+    |   </h2>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.11
+  pattern_xpath: ///div[contains(@class,'double')][contains(@class,'child')]/h2[contains(@class,'medium')][contains(@class,'header')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Live Coverage
+    |   <h2 class="c-heading b-header b-header--medium">
+    |     Live Coverage
+    |   </h2>
+
+--- Chunk 35: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Top Videos
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Top Videos
+    |   </h2>
+
+--- Chunk 36: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘Horrifying and inspirational at the same time’: Eby on stories of heroism durin
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/12/horrifying-and-inspirational-at-the-same-time-eby-on-stories-of-heroism-during-bc-mass-shooting/">
+    |       ‘Horrifying and inspirational at the same time’: Eby on stories of heroism during B.C. mass shooting
+    |     </a>
+    |   </h3>
+
+--- Chunk 37: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Federal government with Tumbler Ridge ‘every step of the way’: Minister
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/12/federal-government-with-tumbler-ridge-every-step-of-the-way-minister/">
+    |       Federal government with Tumbler Ridge ‘every step of the way’: Minister
+    |     </a>
+    |   </h3>
+
+--- Chunk 38: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘Let’s remember them, not this murderer’: Family grieving loss of daughter in Tu
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/12/lets-remember-them-not-this-murderer-family-grieving-loss-of-daughter-in-tumbler-ridge-shooting/">
+    |       ‘Let’s remember them, not this murderer’: Family grieving loss of daughter in Tumbler Ridge shooting
+    |     </a>
+    |   </h3>
+
+--- Chunk 39: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Students in locked-down Tumbler Ridge high school had ‘no idea what was going on
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/students-in-locked-down-tumbler-ridge-high-school-had-no-idea-what-was-going-on/">
+    |       Students in locked-down Tumbler Ridge high school had ‘no idea what was going on’
+    |     </a>
+    |   </h3>
+
+--- Chunk 40: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Police confront ‘horror movie’ scene in B.C. mass shooting investigation
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/ctv-news-in-tumbler-ridge-police-confront-horror-movie-scene-in-bc-mass-shooting-investigation/">
+    |       Police confront ‘horror movie’ scene in B.C. mass shooting investigation
+    |     </a>
+    |   </h3>
+
+--- Chunk 41: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PM Carney cancels Munich trip as Ottawa reels from Tumbler Ridge tragedy
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/ctv-national-news-pm-carney-cancels-munich-trip-as-ottawa-reels-from-tumbler-ridge-tragedy/">
+    |       PM Carney cancels Munich trip as Ottawa reels from Tumbler Ridge tragedy
+    |     </a>
+    |   </h3>
+
+--- Chunk 42: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Schools closed in Tumbler Ridge after shooting sparks safety fears
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/ctv-national-news-schools-closed-in-tumbler-ridge-after-shooting-sparks-safety-fears/">
+    |       Schools closed in Tumbler Ridge after shooting sparks safety fears
+    |     </a>
+    |   </h3>
+
+--- Chunk 43: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Victims killed in mass shooting at B.C. high school as young as 12: RCMP
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/victims-killed-in-mass-shooting-at-bc-high-school-as-young-as-12-rcmp/">
+    |       Victims killed in mass shooting at B.C. high school as young as 12: RCMP
+    |     </a>
+    |   </h3>
+
+--- Chunk 44: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Must Watch
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Must Watch
+    |   </h2>
+
+--- Chunk 45: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Parts of Niagara Falls encased in ice, turning it into a winter wonderland
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/09/ctv-national-news-parts-of-niagara-falls-encased-in-ice-turning-it-into-a-winter-wonderland/">
+    |       Parts of Niagara Falls encased in ice, turning it into a winter wonderland
+    |     </a>
+    |   </h3>
+
+--- Chunk 46: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Family survives boat capsizing near lighthouse in California
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/family-survives-boat-capsizing-near-lighthouse-in-california/">
+    |       Family survives boat capsizing near lighthouse in California
+    |     </a>
+    |   </h3>
+
+--- Chunk 47: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘Out of Shape Olympics’ | Trying Olympic sports as an average person
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/toronto/video/2026/02/10/out-of-shape-olympics-trying-olympic-sports-as-an-average-person/">
+    |       ‘Out of Shape Olympics’ | Trying Olympic sports as an average person
+    |     </a>
+    |   </h3>
+
+--- Chunk 48: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): New ‘Dracula’ remake includes a romantic twist: film critic
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/06/new-dracula-remake-includes-a-romantic-twist-film-critic/">
+    |       New ‘Dracula’ remake includes a romantic twist: film critic
+    |     </a>
+    |   </h3>
+
+--- Chunk 49: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Highly Engaged
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Highly Engaged
+    |   </h2>
+
+--- Chunk 50: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///div[contains(@class,'picks')][contains(@class,'story')][contains(@class,'feed')]//h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Opinion
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Opinion
+    |   </h2>
+
+--- Chunk 51: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///div[contains(@class,'trends')][contains(@class,'shopping')][contains(@class,'feed')]//h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Shopping Trends
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Shopping Trends
+    |   </h2>
+
+--- Chunk 52: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03 LEAKS=12
+  pattern_xpath: ///div[contains(@class,'grid')][contains(@class,'quad')][contains(@class,'children')]//h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=30 TEXT=30]
+  sample[0] (31L) [TRUNCATED]: ‘Horrifying and inspirational at the same time’: Eby on stories of heroism durin
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/12/horrifying-and-inspirational-at-the-same-time-eby-on-stories-of-heroism-during-bc-mass-shooting/">
+    |       ‘Horrifying and inspirational at the same time’: Eby on stories of heroism during B.C. mass shooting
+    |     </a>
+    |     <a class="c-link" href="/video/2026/02/12/federal-government-with-tumbler-ridge-every-step-of-the-way-minister/">
+    |       Federal government with Tumbler Ridge ‘every step of the way’: Minister
+    |     </a>
+    |     <a class="c-link" href="/video/2026/02/12/lets-remember-them-not-this-murderer-family-grieving-loss-of-daughter-in-tumbler-ridge-shooting/">
+    |       ‘Let’s remember them, not this murderer’: Family grieving loss of daughter in Tumbler Ridge shooting
+    |     </a>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /canada/article/in-exclusive-analysis-former-canadian-defence-chief-says-we-can-no-longer- (href not in rendered output)
+    [HREF] /opinion/article/tfsa-might-be-the-better-tax-choice-this-rrsp-season-dale-jackson/ (href not in rendered output)
+    [HREF] /business/article/quiet-quitting-vs-quitting-which-one-actually-hurts-your-finances-more/ (href not in rendered output)
+    [HREF] /world/article/the-daughters-left-holding-the-damage-what-the-epstein-files-mean-for-beatr (href not in rendered output)
+    [HREF] https://www.ctvnews.ca/shopping/gifts/best-advent-calendars-2025-canada.html (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] In exclusive analysis, former Canadian defence chief says we can no lo
+    [TEXT] TFSA might be the better tax choice this RRSP season: Dale Jackson
+    [TEXT] Quiet quitting vs. quitting: Which one actually hurts your finances mo
+
+--- Chunk 53: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.02
+  pattern_xpath: ///h2[contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘We’re not alone’: Greenlanders react to Canada’s consulate
+    |   <h2 class="c-heading">
+    |     <a class="c-link" href="/world/article/were-not-alone-greenlanders-react-to-canadas-consulate/">
+    |       ‘We’re not alone’: Greenlanders react to Canada’s consulate
+    |     </a>
+    |   </h2>
+
+--- Chunk 54: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.45
+  pattern_xpath: ///div[contains(@class,'double')][contains(@class,'child')]//h2[contains(@class,'manual')][contains(@class,'promo')][contains(@class,'medium')][contains(@class,'title')][contains(@class,'custom')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Check out our live and interactive experience
+    |   <h2 class="c-heading b-promo-medium-manual-custom__title ">
+    |     <a class="c-link" href="/now/">
+    |       Check out our live and interactive experience
+    |     </a>
+    |   </h2>
+
+--- Chunk 55: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Watch Latest Reporting
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Watch Latest Reporting
+    |   </h2>
+
+--- Chunk 56: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Trump's Tariffs
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Trump's Tariffs
+    |   </h2>
+
+--- Chunk 57: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Former U.S. State Department official optimistic CUSMA will be renewed
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/world/trumps-tariffs/article/former-us-state-department-official-optimistic-cusma-will-be-renewed/">
+    |       Former U.S. State Department official optimistic CUSMA will be renewed
+    |     </a>
+    |   </h3>
+
+--- Chunk 58: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘More lawmakers are making their voice heard’: Ham on U.S. House rejecting ban o
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/11/more-lawmakers-are-making-their-voice-heard-ham-on-us-house-rejecting-ban-of-opposing-tariffs/">
+    |       ‘More lawmakers are making their voice heard’: Ham on U.S. House rejecting ban of opposing tariffs
+    |     </a>
+    |   </h3>
+
+--- Chunk 59: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): 'There’s one thing Trump can do and it's get rid of Canadian tariffs': Premier F
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/10/theres-one-thing-trump-can-do-and-its-get-rid-of-canadian-tariffs-premier-ford/">
+    |       'There’s one thing Trump can do and it's get rid of Canadian tariffs': Premier Ford
+    |     </a>
+    |   </h3>
+
+--- Chunk 60: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Trump continues to ‘ratchet up attacks’ because he sees Canada ‘as a threat’: Ha
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/10/trump-continues-to-ratchet-up-attacks-because-he-sees-canada-as-a-threat-ham/">
+    |       Trump continues to ‘ratchet up attacks’ because he sees Canada ‘as a threat’: Ham
+    |     </a>
+    |   </h3>
+
+--- Chunk 61: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘A zero-tariff regime is the best solution for the United States’: PM Carney on 
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/05/a-zero-tariff-regime-is-the-best-solution-for-the-united-states-pm-carney-on-cusma-negotiations/">
+    |       ‘A zero-tariff regime is the best solution for the United States’: PM Carney on CUSMA negotiations
+    |     </a>
+    |   </h3>
+
+--- Chunk 62: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘Most of these threats have simply lost their steam’: analyst reacts to Trump’s 
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/02/01/most-of-these-threats-have-simply-lost-their-steam-analyst-reacts-to-trumps-tariff-talk/">
+    |       ‘Most of these threats have simply lost their steam’: analyst reacts to Trump’s tariff talk
+    |     </a>
+    |   </h3>
+
+--- Chunk 63: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Canadian aircraft tariffs would have ‘ripple effect’ south of the border: aviati
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/video/2026/01/30/canadian-aircraft-tariffs-would-have-ripple-effect-south-of-the-border-aviation-industry-expert/">
+    |       Canadian aircraft tariffs would have ‘ripple effect’ south of the border: aviation industry expert
+    |     </a>
+    |   </h3>
+
+--- Chunk 64: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03 LEAKS=2
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [HREF=20 TEXT=20]
+  sample[0] (31L) [TRUNCATED]: Former U.S. State Department official optimistic CUSMA will be renewed‘More lawm
+    |   <h3 style="--heading-truncation: 3;" class="c-heading">
+    |     <a class="c-link" href="/world/trumps-tariffs/article/former-us-state-department-official-optimistic-cusma-will-be-renewed/">
+    |       Former U.S. State Department official optimistic CUSMA will be renewed
+    |     </a>
+    |     <a class="c-link" href="/video/2026/02/11/more-lawmakers-are-making-their-voice-heard-ham-on-us-house-rejecting-ban-of-opposing-tariffs/">
+    |       ‘More lawmakers are making their voice heard’: Ham on U.S. House rejecting ban of opposing tariffs
+    |     </a>
+    |     <a class="c-link" href="/video/2026/02/10/theres-one-thing-trump-can-do-and-its-get-rid-of-canadian-tariffs-premier-ford/">
+    |       'There’s one thing Trump can do and it's get rid of Canadian tariffs': Premier Ford
+    |     </a>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /montreal/article/auto-thefts-down-18-year-over-year-while-recovery-remains-low-report/ (href not in rendered output)
+    [HREF] /climate-and-environment/article/tropical-cyclone-gezani-hits-madagascar-and-kills-at-leas (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Canadian ice dancers Gilles, Poirier earn long-awaited Olympic bronze 
+    [TEXT] Auto thefts down 18% year-over-year while recovery remains low: report
+    [TEXT] Tropical Cyclone Gezani hits Madagascar and kills at least 31
+
+--- Chunk 65: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Canada
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Canada
+    |   </h2>
+
+--- Chunk 66: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): World
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     World
+    |   </h2>
+
+--- Chunk 67: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Politics
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Politics
+    |   </h2>
+
+--- Chunk 68: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Business
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Business
+    |   </h2>
+
+--- Chunk 69: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Health
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Health
+    |   </h2>
+
+--- Chunk 70: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Russia-Ukraine War
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Russia-Ukraine War
+    |   </h2>
+
+--- Chunk 71: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Israel-Hamas War
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Israel-Hamas War
+    |   </h2>
+
+--- Chunk 72: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Sci-Tech
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Sci-Tech
+    |   </h2>
+
+--- Chunk 73: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Entertainment
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Entertainment
+    |   </h2>
+
+--- Chunk 74: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Lifestyle
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Lifestyle
+    |   </h2>
+
+--- Chunk 75: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Sports
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Sports
+    |   </h2>
+
+--- Chunk 76: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Autos
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Autos
+    |   </h2>
+
+--- Chunk 77: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'title')][contains(@class,'standard')][contains(@class,'custom')][contains(@class,'list')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Climate & Environment
+    |   <h2 class="c-heading b-standard-list-custom__title">
+    |     Climate & Environment
+    |   </h2>
+
+--- Chunk 78: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.02
+  pattern_xpath: ///h2[contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ‘Felt like a race with time’: Mother recounts her dangerous journey across the b
+    |   <h2 class="c-heading">
+    |     <a class="c-link" href="/montreal/article/felt-like-a-race-with-time-mother-recounts-her-dangerous-journey-across-the-border-to-escape-trumps-america/">
+    |       ‘Felt like a race with time’: Mother recounts her dangerous journey across the border to escape Trump’s America
+    |     </a>
+    |   </h2>
+
+--- Chunk 79: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.02
+  pattern_xpath: ///h2[contains(@class,'heading')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): These are Canada's top romantic restaurants, according to a new ranking
+    |   <h2 class="c-heading">
+    |     <a class="c-link" href="/toronto/photos/2026/02/11/last-minute-valentines-day-plans-these-are-canadas-top-romantic-restaurants-2/">
+    |       These are Canada's top romantic restaurants, according to a new ranking
+    |     </a>
+    |   </h2>
+
+--- Chunk 80: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'bmw')][contains(@class,'is')][contains(@class,'only')][contains(@class,'reader')][contains(@class,'screen')]
+  content: [TEXT=1]
+  sample[0] (3L): Current weather conditions
+    |   <h2 class="bmw-summarised-weather__title is-screen-reader-only">
+    |     Current weather conditions
+    |   </h2>
+
+--- Chunk 81: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Cuba-U.S. blockade: Canadians returning amid fuel shortages
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Cuba-U.S. blockade: Canadians returning amid fuel shortages
+    |   </h3>
+
+--- Chunk 82: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): ‘She never hurt a soul’: Grieving father speaks after daughter killed in B.C. sc
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     ‘She never hurt a soul’: Grieving father speaks after daughter killed in B.C. school shooting
+    |   </h3>
+
+--- Chunk 83: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): U.S. House backs resolution to end Trump’s tariffs on Canada
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     U.S. House backs resolution to end Trump’s tariffs on Canada
+    |   </h3>
+
+--- Chunk 84: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Canadian ice dancers Gilles, Poirier earn long-awaited Olympic bronze in Milan
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Canadian ice dancers Gilles, Poirier earn long-awaited Olympic bronze in Milan
+    |   </h3>
+
+--- Chunk 85: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): U.S. Energy Secretary Chris Wright visits Venezuela to assess oil industry overh
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     U.S. Energy Secretary Chris Wright visits Venezuela to assess oil industry overhaul
+    |   </h3>
+
+--- Chunk 86: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Two men charged in cross-border human smuggling case
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Two men charged in cross-border human smuggling case
+    |   </h3>
+
+--- Chunk 87: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Instagram chief says he does not believe people can get clinically addicted to s
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Instagram chief says he does not believe people can get clinically addicted to social media
+    |   </h3>
+
+--- Chunk 88: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Deaths from Iran’s crackdown on protests has surpassed 7,000, activists say
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Deaths from Iran’s crackdown on protests has surpassed 7,000, activists say
+    |   </h3>
+
+--- Chunk 89: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): HRF showhome
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     HRF showhome
+    |   </h3>
+
+--- Chunk 90: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Pentagon let U.S. CBP use anti-drone laser before FAA closed El Paso airspace, A
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Pentagon let U.S. CBP use anti-drone laser before FAA closed El Paso airspace, AP sources say
+    |   </h3>
+
+--- Chunk 91: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Family grieving child lost in B.C. school shooting wants people to focus on the 
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Family grieving child lost in B.C. school shooting wants people to focus on the victims, not the perpetrator
+    |   </h3>
+
+--- Chunk 92: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h3[contains(@style,'heading')][contains(@style,'truncation')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Man says he was questioned about Nancy Guthrie’s disappearance before being rele
+    |   <h3 style="--heading-truncation: 4;" class="c-heading">
+    |     Man says he was questioned about Nancy Guthrie’s disappearance before being released
+    |   </h3>

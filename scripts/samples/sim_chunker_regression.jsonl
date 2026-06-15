@@ -1,0 +1,7 @@
+# Post-chunker-change regression: prove the §4.3 per-instance emission
+# discipline still holds AND the §8D.12 fixture guard is intact.
+# Run with: python scripts/sim_frontend.py replay scripts/samples/sim_chunker_regression.jsonl
+{"action": "health"}
+{"action": "pipeline", "fixture": "tarot"}
+{"action": "concept-delete", "id": "fixture::database::_default"}
+{"action": "concept-list"}

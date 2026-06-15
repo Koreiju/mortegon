@@ -1,0 +1,2124 @@
+{
+  "//li": {
+    "chunk_ids": [
+      0,
+      10,
+      11,
+      19,
+      20,
+      21,
+      23,
+      23,
+      25,
+      26,
+      27,
+      52,
+      53
+    ],
+    "classification": "card",
+    "frequency": 5,
+    "pattern_xpath": "///li",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'content')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'news_label')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//img[contains(@class,'play')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//span[contains(@class,'label')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//span[contains(@class,'date')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'title')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//a": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//picture": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//source": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//img[contains(@class,'modern')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//img": {
+            "chunk_ids": [
+              10
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span[contains(@class,'caps')]": {
+            "chunk_ids": [
+              11
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'details')]": {
+            "chunk_ids": [
+              53
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'news_label')]": {
+                "chunk_ids": [
+                  53
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'label')]": {
+                    "chunk_ids": [
+                      53
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'title')]": {
+                "chunk_ids": [
+                  53
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'label')]": {
+                    "chunk_ids": [
+                      53
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'bullet')]": {
+        "chunk_ids": [
+          23
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//button": {
+        "chunk_ids": [
+          52
+        ],
+        "content_types": [],
+        "children": {
+          "//img": {
+            "chunk_ids": [
+              52
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@class,'expand_menu')]": {
+        "chunk_ids": [
+          52
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'dropdown_arrow')]": {
+            "chunk_ids": [
+              52
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'dropdown_content')]": {
+            "chunk_ids": [
+              52
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'padding')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'arrow')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'show_container')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      52
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//a[contains(@class,'browse')][contains(@class,'button_dark')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'dropdown_content')][contains(@class,'stories')]": {
+            "chunk_ids": [
+              52
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'padding')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'arrow')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//ul": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {
+                  "//li": {
+                    "chunk_ids": [
+                      52
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//a[contains(@class,'browse')][contains(@class,'button_dark')]": {
+                "chunk_ids": [
+                  52
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'number')]": {
+        "chunk_ids": [
+          53
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              53
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'caps')]": {
+                "chunk_ids": [
+                  53
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a[contains(@class,'facebook')][contains(@class,'popup')]": {
+            "chunk_ids": [
+              53
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  53
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a[contains(@class,'twitter')][contains(@class,'popup')]": {
+            "chunk_ids": [
+              53
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  53
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'month')]": {
+            "chunk_ids": [
+              53
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'watch')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///a[contains(@class,'read')][contains(@class,'watch')][contains(@data-ga-action,'read')][contains(@data-ga-action,'watch')][contains(@data-ga-action,'headlines')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//div[contains(@class,'widget')][contains(@class,'promotion')]": {
+    "chunk_ids": [
+      2,
+      16
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///div[contains(@class,'large')][contains(@class,'promotion')][contains(@class,'widget')][contains(@class,'image')]",
+    "content_types": [],
+    "children": {
+      "//h5": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//a": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//img": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//h3": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//p": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'share_row')][contains(@class,'col-xs-12')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//ul": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//li": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'number')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'latest_show')][contains(@class,'video_cover')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'cover_container')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//h4": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//h5": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'player_button')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//p[contains(@class,'visible-xs')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//img": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'hidden-sm')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'watch')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'read')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//img": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//span": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//hr": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jwplayer')][contains(@class,'jw-reset')][contains(@role,'application')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'jw-aspect')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-wrapper')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'afs_ads')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//h4": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//h5": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//p[contains(@class,'visible-xs')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'show_link')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//ul": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//li": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//li[contains(@class,'hidden-xs')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//form[contains(@class,'daily_digest_widget')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//input": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//input[contains(@class,'email')][contains(@class,'recaptcha_email_input')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'g-recaptcha')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//input[contains(@class,'button_dark')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//a[contains(@class,'watch')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//a[contains(@class,'read')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a[contains(@class,'view_more')][contains(@class,'button_red')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//h5": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//h3": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//p": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//form[contains(@class,'daily_digest_widget')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//input": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//input[contains(@class,'email')][contains(@class,'recaptcha_email_input')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'g-recaptcha')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//input[contains(@class,'button_dark')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'jwplayer')][contains(@class,'jw-reset')][contains(@role,'application')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'jw-aspect')][contains(@class,'jw-reset')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'jw-wrapper')][contains(@class,'jw-reset')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//div": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-contract-trigger')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'jw-top')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jw-aspect')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jw-media')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//video[contains(@class,'jw-video')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'jw-preview')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jw-controls-backdrop')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jw-captions')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jw-title')][contains(@class,'jw-reset-text')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'jw-title-primary')][contains(@class,'jw-reset-text')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-title-secondary')][contains(@class,'jw-reset-text')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'jw-overlays')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'jw-plugin')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'jw-hidden-accessibility')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'jw-time-update')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'jw-volume-update')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'jw-shortcuts-tooltip')][contains(@class,'jw-modal')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'jw-icon')][contains(@class,'jw-icon-inline')][contains(@role,'button')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'jw-hidden')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-reset')][contains(@class,'jw-shortcuts-container')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'jw-controls')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'jw-display')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-float-icon')][contains(@class,'jw-icon')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-nextup-container')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-reset')][contains(@class,'jw-settings-menu')][contains(@role,'menu')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-controlbar')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'afs_ads')]": {
+            "chunk_ids": [
+              16
+            ],
+            "content_types": [],
+            "children": {
+              "//div": {
+                "chunk_ids": [
+                  16
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-contract-trigger')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//video[contains(@class,'jw-video')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-plugin')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'jw-time-update')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-icon')][contains(@class,'jw-icon-inline')][contains(@role,'button')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'jw-hidden')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-reset')][contains(@class,'jw-settings-menu')][contains(@role,'menu')]": {
+                    "chunk_ids": [
+                      16
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//a[contains(@class,'view_more')][contains(@class,'button_red')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//li[contains(@class,'col-lg-3')][contains(@class,'col-sm-6')]": {
+    "chunk_ids": [
+      3,
+      4
+    ],
+    "classification": "card",
+    "frequency": 2,
+    "pattern_xpath": "///li[contains(@class,'lg')][contains(@class,'sm')][contains(@class,'md')][contains(@class,'col')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'number')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'title')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'caps')]": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'share')][contains(@class,'visible-lg-block')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@class,'facebook')][contains(@class,'popup')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a[contains(@class,'twitter')][contains(@class,'popup')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//ul[contains(@class,'col-md-6')][contains(@class,'col-xs-6')]": {
+    "chunk_ids": [
+      5,
+      6
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///ul[contains(@class,'md')][contains(@class,'col')][contains(@class,'xs')]",
+    "content_types": [],
+    "children": {
+      "//li": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'content')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///div[contains(@class,'content')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'description')]": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@class,'title')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@class,'video_links')]": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'now_playing')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'watch')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//div[contains(@class,'bullet')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'jw-icon')][contains(@class,'jw-icon-inline')][contains(@role,'button')]": {
+    "chunk_ids": [
+      8
+    ],
+    "classification": "button",
+    "frequency": 8,
+    "pattern_xpath": "///div[contains(@class,'color')][contains(@class,'icon')][contains(@class,'inline')][contains(@role,'button')][contains(@class,'button')]",
+    "content_types": [],
+    "children": {
+      "//svg[contains(@class,'jw-svg-icon')][contains(@class,'jw-svg-icon-rewind')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@class,'jw-reset-text')][contains(@class,'jw-tooltip')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'jw-text')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//a": {
+    "chunk_ids": [
+      9,
+      24
+    ],
+    "classification": "card",
+    "frequency": 37,
+    "pattern_xpath": "///a[contains(@data-ga-action,'story')]",
+    "content_types": [],
+    "children": {
+      "//picture": {
+        "chunk_ids": [
+          9
+        ],
+        "content_types": [],
+        "children": {
+          "//source": {
+            "chunk_ids": [
+              9
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//img[contains(@class,'modern')]": {
+            "chunk_ids": [
+              9
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'media')][contains(@class,'image')]": {
+    "chunk_ids": [
+      12
+    ],
+    "classification": "card",
+    "frequency": 8,
+    "pattern_xpath": "///a[contains(@class,'vertical')][contains(@class,'media')][contains(@data-ga-action,'image')][contains(@data-ga-action,'story')][contains(@class,'image')]",
+    "content_types": [],
+    "children": {
+      "//picture": {
+        "chunk_ids": [
+          12
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'modern')]": {
+            "chunk_ids": [
+              12
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input": {
+    "chunk_ids": [
+      13
+    ],
+    "classification": "search_input",
+    "frequency": 22,
+    "pattern_xpath": "///input",
+    "content_types": [],
+    "children": {}
+  },
+  "//a[contains(@class,'view_more')][contains(@class,'button_red')]": {
+    "chunk_ids": [
+      14
+    ],
+    "classification": "pagination",
+    "frequency": 47,
+    "pattern_xpath": "///div[contains(@class,'jw')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//div[contains(@class,'variant_content')]": {
+    "chunk_ids": [
+      15
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'variant')][contains(@class,'content')]",
+    "content_types": [],
+    "children": {
+      "//h1": {
+        "chunk_ids": [
+          15
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p": {
+        "chunk_ids": [
+          15
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              15
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'hidden-xs')]": {
+    "chunk_ids": [
+      17
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'configurable')]/div[contains(@class,'hidden')][contains(@class,'xs')]",
+    "content_types": [],
+    "children": {
+      "//h1": {
+        "chunk_ids": [
+          17
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p": {
+        "chunk_ids": [
+          17
+        ],
+        "content_types": [],
+        "children": {
+          "//strong": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//br": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span[contains(@class,'plea')]": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {
+              "//strong": {
+                "chunk_ids": [
+                  17
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//u": {
+            "chunk_ids": [
+              17
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'share_row')][contains(@class,'col-xs-12')]": {
+    "chunk_ids": [
+      18
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'widget')][contains(@class,'promotion')][contains(@class,'large')]/div[contains(@class,'row')][contains(@class,'share')][contains(@class,'col')][contains(@class,'xs')]",
+    "content_types": [],
+    "children": {
+      "//ul": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {
+          "//li": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//a": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//img": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'caps')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'details')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'number')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'facebook')][contains(@class,'popup')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'twitter')][contains(@class,'popup')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'month')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'latest_show')][contains(@class,'video_cover')]": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'cover_container')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//h4": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//h5": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'player_button')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//img": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a[contains(@class,'title')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'now_playing')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//a": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'hidden-sm')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//p[contains(@class,'visible-xs')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@class,'show_link')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//img": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//span[contains(@class,'hidden-sm')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//a[contains(@class,'watch')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//a[contains(@class,'read')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//img": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//hr": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'jwplayer')][contains(@class,'jw-reset')][contains(@role,'application')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'jw-aspect')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'jw-wrapper')][contains(@class,'jw-reset')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-top')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-aspect')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-preview')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-media')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-controls-backdrop')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-captions')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-title')][contains(@class,'jw-reset-text')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-overlays')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-hidden-accessibility')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-shortcuts-tooltip')][contains(@class,'jw-modal')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'jw-controls')][contains(@class,'jw-reset')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'afs_ads')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//h4": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//h5": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//p[contains(@class,'visible-xs')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//a[contains(@class,'show_link')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//ul": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//li": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//li[contains(@class,'hidden-xs')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {
+                  "//a": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'calendar')]": {
+                    "chunk_ids": [
+                      18
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//form[contains(@class,'daily_digest_widget')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {
+              "//input": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//input[contains(@class,'email')][contains(@class,'recaptcha_email_input')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'g-recaptcha')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//input[contains(@class,'button_dark')]": {
+                "chunk_ids": [
+                  18
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//a[contains(@class,'watch')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//a[contains(@class,'read')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//a": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {
+          "//img": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//a[contains(@class,'view_more')][contains(@class,'button_red')]": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//h5": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//h3": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//p": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//img": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//form[contains(@class,'daily_digest_widget')]": {
+        "chunk_ids": [
+          18
+        ],
+        "content_types": [],
+        "children": {
+          "//input": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//input[contains(@class,'email')][contains(@class,'recaptcha_email_input')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'g-recaptcha')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//input[contains(@class,'button_dark')]": {
+            "chunk_ids": [
+              18
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//h5": {
+    "chunk_ids": [
+      28,
+      32,
+      33,
+      34,
+      36,
+      42,
+      43,
+      44,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h5",
+    "content_types": [],
+    "children": {}
+  },
+  "//h5[contains(@class,'hidden-xs')]": {
+    "chunk_ids": [
+      29
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h5[contains(@class,'hidden')][contains(@class,'xs')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2": {
+    "chunk_ids": [
+      30
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2",
+    "content_types": [],
+    "children": {}
+  },
+  "//h4[contains(@class,'hidden-xs')]": {
+    "chunk_ids": [
+      31
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4[contains(@id,'news')][contains(@id,'top')][contains(@class,'hidden')][contains(@class,'xs')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h3": {
+    "chunk_ids": [
+      35,
+      37,
+      38,
+      39,
+      40,
+      41,
+      45
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          35
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'caps')]": {
+            "chunk_ids": [
+              39
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,554 @@
+=== QUALITY REPORT: tarot_comsearchqlovesizen_20_n.html ===
+Chunks: 26 (structural=4, functional=6, text=16)
+Categories: {'card': 4, 'search_input': 1, 'pagination': 1, 'text_singleton': 16, 'menu_item': 4}
+Content: 453 tagged, 311 preserved (69%)
+Leaks: 142 total, 68 high-importance
+
+--- Chunk 0: li ---
+  type=card freq=6 excl=0.00 LEAKS=4
+  pattern_xpath: ///li
+  tree_sig: li(a,nav-submenu(div(a,ul(li(a),li(a),li(a),li(a),li(a))),div(a,ul(li(a),li(a),l
+  content: [ATTR=4 HREF=18 IMG=4 TEXT=18]
+  sample[0] (31L) [TRUNCATED]: Shop Popular Tarot Readings Shop                                         Tarot T
+    |   <li>
+    |     <a class="nav-item" data-action="Click" data-category="Navigation" data-ga-event="" data-label="Shop" data-info="Nav_Main:Shop_LO" href="/readings-reports/tarot" target="_blank" rel="noopener">
+    |       Shop
+    |     </a>
+    |     <nav-submenu navkey="shop">
+    |       <div class="submenu-category nav-full">
+    |         <a href="/readings-reports/tarot" target="" rel="">
+    |           Popular Tarot Readings
+    |         </a>
+    |         <ul>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /tarot/about-the-celtic-cross-spread (href not in rendered output)
+    [IMG] https://gfx.tarot.com/images/feeds/50x50/pyramid-view-space-50x50.jpg (img URL not in rendered)
+    [IMG] https://gfx.tarot.com/images/feeds/50x50/3-card-contemporary-50x50.jpg (img URL not in rendered)
+    [IMG] https://gfx.tarot.com/images/feeds/50x50/3-swords-glacier-50x50.jpg (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Learn to Read Tarot: Tarot Card Spreads and Tips for
+                 
+    [TEXT] Get Guidance for Any Situation with a Celtic Cross Tarot
+             
+
+--- Chunk 1: a.celtic.com ---
+  type=card freq=3 excl=0.06
+  pattern_xpath: ///a[contains(@class,'hover')][contains(@class,'no')][contains(@class,'underline')][contains(@data-info,'love')][contains(@data-info,'search')]
+  tree_sig: a(h3(em),p(em,em,em))
+  content: [HREF=1 TEXT=9]
+  sample[0] (31L) [TRUNCATED]: Matters of the heart are                                                 unpredi
+    |   <a class="no_underline_hover" data-label="Title:Love Celtic Cross Tarot Reading" data-info="Search:Love Celtic Cross Tarot Reading-Title" href="https://www.tarot.com/readings-reports/tarot-readings/celtic-cross/love">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       <em>
+    |         Love
+    |       </em>
+    |       Celtic Cross Tarot ReadingTwo Hearts Tarot ReadingSoulmate
+    |                                                 Tarot Reading
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       Matters of the heart are
+    | ... [21 more lines]
+
+--- Chunk 2: div.category.full ---
+  type=card freq=12 excl=1.00
+  pattern_xpath: ///div[contains(@class,'category')][contains(@class,'full')][contains(@class,'nav')][contains(@class,'submenu')]
+  tree_sig: div(a,ul(li(a),li(a),li(a),li(a),li(a)))
+  content: [HREF=6 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: Shop                                         Tarot Shop Karma                   
+    |   <div class="submenu-category nav-full">
+    |     <a href="/readings-reports" target="" rel="">
+    |       Shop
+    |                                         Tarot
+    |     </a>
+    |     <ul>
+    |       <li>
+    |         <a href="/store/karma-coins" target="" rel="" class="nav-link">
+    |           Shop Karma
+    |                                                 Coins
+    | ... [21 more lines]
+
+--- Chunk 3: column.is.mobile ---
+  type=card freq=24 excl=0.88
+  pattern_xpath: ///column[contains(@class,'mobile')][contains(@class,'portrait')][contains(@class,'tablet')][contains(@class,'is')]
+  tree_sig: column(a(row(column(img),column(p))))
+  content: [ATTR=1 HREF=1 IMG=1 TEXT=1]
+  sample[0] (15L): A person with long dark hair looks at an Egyptian pyramid against the night sky.
+    |   <column class="is-6 is-12-tablet-portrait is-12-mobile">
+    |     <a href="/astrology/how-horoscopes-work">
+    |       <row class="is-wrap">
+    |         <column class="is-4 is-12-tablet-portrait is-12-mobile">
+    |           <img src="https://gfx.tarot.com/images/feeds/50x50/pyramid-view-space-50x50.jpg" loading="lazy" height="235" width="380" alt="A person with long dark hair looks at an Egyptian pyramid against the night sky."></img>
+    |         </column>
+    |         <column class="is-8 is-12-tablet-portrait is-12-mobile">
+    |           <p>
+    |             Horoscopes Explained: What They Are and How Astrologers
+    |                                                             Create Them
+    | ... [5 more lines]
+  sample[1] (15L): tarot cards Learn to Read Tarot: Tarot Card Spreads and Tips for
+    |   <column class="is-6 is-12-tablet-portrait is-12-mobile">
+    |     <a href="/tarot/tarot-101-how-readings-work">
+    |       <row class="is-wrap">
+    |         <column class="is-4 is-12-tablet-portrait is-12-mobile">
+    |           <img src="https://gfx.tarot.com/images/feeds/50x50/3-card-contemporary-50x50.jpg" loading="lazy" height="235" width="380" alt="tarot cards"></img>
+    |         </column>
+    |         <column class="is-8 is-12-tablet-portrait is-12-mobile">
+    |           <p>
+    |             Learn to Read Tarot: Tarot Card Spreads and Tips for
+    |                                                             Beginners
+    | ... [5 more lines]
+
+--- Chunk 4: [search_inputs] ---
+  type=search_input freq=8 excl=0.00
+  pattern_xpath: ///input
+  content: [ATTR=1]
+  sample[0] (8L): Search
+    |   <form role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="downshift-0-label">
+    |     <div class="sui-search-box">
+    |       <div class="sui-search-box__wrapper">
+    |         <input aria-autocomplete="list" aria-labelledby="downshift-0-label" autocomplete="off" id="downshift-0-input" data-transaction-name="search input" placeholder="Search" class="sui-search-box__text-input "></input>
+    |       </div>
+    |       <input data-transaction-name="search submit" type="submit" class="button sui-search-box__submit" value="Search"></input>
+    |     </div>
+    |   </form>
+  sample[1] (8L): Search
+    |   <form role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="downshift-0-label">
+    |     <div class="sui-search-box">
+    |       <div class="sui-search-box__wrapper">
+    |         <input aria-autocomplete="list" aria-labelledby="downshift-0-label" autocomplete="off" id="downshift-0-input" data-transaction-name="search input" placeholder="Search" class="sui-search-box__text-input "></input>
+    |       </div>
+    |       <input data-transaction-name="search submit" type="submit" class="button sui-search-box__submit" value="Search"></input>
+    |     </div>
+    |   </form>
+  sample[2] (1L): 
+    |   <input data-transaction-name="search submit" type="submit" class="button sui-search-box__submit" value="Search"></input>
+
+--- Chunk 5: [pagination_buttons] ---
+  type=pagination freq=22 excl=1.00
+  pattern_xpath: ///a[contains(@data-action,'click')][contains(@data-category,'footer')][contains(@data-info,'footer')][contains(@data-info,'insight')][contains(@data-info,'more')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (4L): About the I                                         Ching
+    |   <a href="/articles/more-insight/i-ching" target="" rel="">
+    |     About the I
+    |                                         Ching
+    |   </a>
+  sample[1] (3L): Will This Relationship Last?
+    |   <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - Will This Relationship Last?" data-info="Footer:Readings_Will This Relationship Last?" href="/readings-reports/tarot-readings/analysis/relationship" target="" rel="">
+    |     Will This Relationship Last?
+    |   </a>
+  sample[2] (3L): How to Work with the Moon
+    |   <a class="" data-ga-event="" data-category="Footer" data-action="Click" data-label="More Insight - How to Work with the Moon" data-info="Footer:More Insight_How to Work with the Moon" href="/astrology/moon-phases-lunar-cycles" target="" rel="">
+    |     How to Work with the Moon
+    |   </a>
+
+--- Chunk 6: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'according')][contains(@data-label,'according')][contains(@data-info,'astrology')][contains(@data-info,'compatibility')][contains(@data-info,'tarot')]
+  content: [HREF=1 TEXT=7]
+  sample[0] (21L): Astrology and Tarot can                                                 help you
+    |   <a class="no_underline_hover" data-label="Title:Love & Compatibility According to Astrology and Tarot" data-info="Search:Love & Compatibility According to Astrology and Tarot-Title" href="https://www.tarot.com/love-and-compatibility">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       <em>
+    |         Love
+    |       </em>
+    |       & Compatibility According to Astrology and Tarot
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       Astrology and Tarot can
+    |                                                 help you navigate your
+    | ... [11 more lines]
+
+--- Chunk 7: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'signs')][contains(@data-info,'venus')][contains(@data-label,'signs')][contains(@data-label,'venus')][contains(@data-info,'about')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (19L): About the Venus Signs in Astrology What's your Venus sign,                      
+    |   <a class="no_underline_hover" data-label="Title:About the Venus Signs in Astrology" data-info="Search:About the Venus Signs in Astrology-Title" href="https://www.tarot.com/astrology/venus-signs">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       About the Venus Signs in Astrology
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       What's your Venus sign,
+    |                                                 and how does it affect your approach to
+    |       <em>
+    |         love
+    |       </em>
+    | ... [9 more lines]
+
+--- Chunk 8: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'by')][contains(@data-info,'calculator')][contains(@data-label,'by')][contains(@data-label,'calculator')][contains(@data-info,'compatibility')]
+  content: [HREF=1 TEXT=5]
+  sample[0] (17L): Discover which signs go                                                 well tog
+    |   <a class="no_underline_hover" data-label="Title:Love Compatibility by Sign Calculator" data-info="Search:Love Compatibility by Sign Calculator-Title" href="https://www.tarot.com/astrology/compatibility/love">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       <em>
+    |         Love
+    |       </em>
+    |       Compatibility by Sign Calculator
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       Discover which signs go
+    |                                                 well together with this free
+    | ... [7 more lines]
+
+--- Chunk 9: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'aries')][contains(@data-info,'direct')][contains(@data-info,'spontaneous')][contains(@data-label,'aries')][contains(@data-label,'direct')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (21L): Aries in Fiery and sexy Aries is                                                
+    |   <a class="no_underline_hover" data-label="Title:Aries in Love and Relationships: Passionate, Spontaneous, and Direct" data-info="Search:Aries in Love and Relationships: Passionate, Spontaneous, and Direct-Title" href="https://www.tarot.com/love-and-compatibility/aries">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Aries in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Passionate, Spontaneous, and
+    |                                                 Direct
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [11 more lines]
+
+--- Chunk 10: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'patient')][contains(@data-info,'sensual')][contains(@data-info,'taurus')][contains(@data-label,'patient')][contains(@data-label,'sensual')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (21L): Taurus in Taurus in relationships is                                            
+    |   <a class="no_underline_hover" data-label="Title:Taurus in Love and Relationships: Sensual, Loyal, and Patient" data-info="Search:Taurus in Love and Relationships: Sensual, Loyal, and Patient-Title" href="https://www.tarot.com/love-and-compatibility/taurus">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Taurus in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Sensual, Loyal, and Patient
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       Taurus in relationships is
+    | ... [11 more lines]
+
+--- Chunk 11: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'clever')][contains(@data-info,'flirtatious')][contains(@data-info,'gemini')][contains(@data-label,'clever')][contains(@data-label,'flirtatious')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (22L): Gemini in Dating a Gemini can feel                                              
+    |   <a class="no_underline_hover" data-label="Title:Gemini in Love and Relationships: Clever, Flirtatious, and Adventurous" data-info="Search:Gemini in Love and Relationships: Clever, Flirtatious, and Adventurous-Title" href="https://www.tarot.com/love-and-compatibility/gemini">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Gemini in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Clever, Flirtatious, and
+    |                                                 Adventurous
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [12 more lines]
+
+--- Chunk 12: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'cancer')][contains(@data-info,'nurturing')][contains(@data-info,'protective')][contains(@data-info,'sensitive')][contains(@data-label,'cancer')]
+  content: [HREF=1 TEXT=4]
+  sample[0] (18L): Cancer in Dating a Cancer can be a                                              
+    |   <a class="no_underline_hover" data-label="Title:Cancer in Love and Relationships: Nurturing, Sensitive, and Protective" data-info="Search:Cancer in Love and Relationships: Nurturing, Sensitive, and Protective-Title" href="https://www.tarot.com/love-and-compatibility/cancer">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Cancer in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Nurturing, Sensitive, and
+    |                                                 Protective
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [8 more lines]
+
+--- Chunk 13: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'leo')][contains(@data-info,'playful')][contains(@data-label,'leo')][contains(@data-label,'playful')][contains(@data-info,'giving')]
+  content: [HREF=1 TEXT=8]
+  sample[0] (25L): Leo in Dating a Leo can be such a                                               
+    |   <a class="no_underline_hover" data-label="Title:Leo in Love and Relationships: Playful, Romantic, and Giving" data-info="Search:Leo in Love and Relationships: Playful, Romantic, and Giving-Title" href="https://www.tarot.com/love-and-compatibility/leo">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Leo in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Playful, Romantic, and Giving
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       Dating a Leo can be such a
+    | ... [15 more lines]
+
+--- Chunk 14: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'virgo')][contains(@data-label,'virgo')][contains(@data-info,'giving')][contains(@data-info,'loyal')][contains(@data-info,'respectful')]
+  content: [HREF=1 TEXT=8]
+  sample[0] (23L): Virgo in If you're looking for a                                                
+    |   <a class="no_underline_hover" data-label="Title:Virgo in Love and Relationships: Respectful, Giving, and Loyal" data-info="Search:Virgo in Love and Relationships: Respectful, Giving, and Loyal-Title" href="https://www.tarot.com/love-and-compatibility/virgo">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Virgo in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Respectful, Giving, and Loyal
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    |       If you're looking for a
+    | ... [13 more lines]
+
+--- Chunk 15: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'charming')][contains(@data-info,'libra')][contains(@data-label,'charming')][contains(@data-label,'libra')][contains(@data-info,'supportive')]
+  content: [HREF=1 TEXT=4]
+  sample[0] (18L): Libra in Libra is all about                                                 rela
+    |   <a class="no_underline_hover" data-label="Title:Libra in Love and Relationships: Romantic, Charming, and Supportive" data-info="Search:Libra in Love and Relationships: Romantic, Charming, and Supportive-Title" href="https://www.tarot.com/love-and-compatibility/libra">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Libra in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Romantic, Charming, and
+    |                                                 Supportive
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [8 more lines]
+
+--- Chunk 16: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'magnetic')][contains(@data-info,'mysterious')][contains(@data-info,'scorpio')][contains(@data-label,'magnetic')][contains(@data-label,'mysterious')]
+  content: [HREF=1 TEXT=4]
+  sample[0] (18L): Scorpio in Scorpios are some of the                                             
+    |   <a class="no_underline_hover" data-label="Title:Scorpio in Love and Relationships: Passionate, Magnetic, and Mysterious" data-info="Search:Scorpio in Love and Relationships: Passionate, Magnetic, and Mysterious-Title" href="https://www.tarot.com/love-and-compatibility/scorpio">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Scorpio in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Passionate, Magnetic, and
+    |                                                 Mysterious
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [8 more lines]
+
+--- Chunk 17: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'exciting')][contains(@data-info,'open')][contains(@data-info,'sagittarius')][contains(@data-label,'exciting')][contains(@data-label,'open')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (22L): Sagittarius in If you're looking for a Love and Relationships: Adventurous, Open
+    |   <a class="no_underline_hover" data-label="Title:Sagittarius in Love and Relationships: Adventurous, Open, and Exciting" data-info="Search:Sagittarius in Love and Relationships: Adventurous, Open, and Exciting-Title" href="https://www.tarot.com/love-and-compatibility/sagittarius">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Sagittarius in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Adventurous, Open, and
+    |                                                 Exciting
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [12 more lines]
+
+--- Chunk 18: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'capricorn')][contains(@data-info,'classy')][contains(@data-info,'devoted')][contains(@data-label,'capricorn')][contains(@data-label,'classy')]
+  content: [HREF=1 TEXT=4]
+  sample[0] (18L): Capricorn in If you're dating a                                                 
+    |   <a class="no_underline_hover" data-label="Title:Capricorn in Love and Relationships: Classy, Devoted, and Respectful" data-info="Search:Capricorn in Love and Relationships: Classy, Devoted, and Respectful-Title" href="https://www.tarot.com/love-and-compatibility/capricorn">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Capricorn in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Classy, Devoted, and
+    |                                                 Respectful
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [8 more lines]
+
+--- Chunk 19: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///a[contains(@data-info,'aquarius')][contains(@data-info,'conversational')][contains(@data-info,'friendly')][contains(@data-info,'unique')][contains(@data-label,'aquarius')]
+  content: [HREF=1 TEXT=6]
+  sample[0] (23L): Aquarius in Aquarians are born to                                               
+    |   <a class="no_underline_hover" data-label="Title:Aquarius in Love and Relationships: Friendly, Conversational, and Unique" data-info="Search:Aquarius in Love and Relationships: Friendly, Conversational, and Unique-Title" href="https://www.tarot.com/love-and-compatibility/aquarius">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Aquarius in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Friendly, Conversational,
+    |                                                 and Unique
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [13 more lines]
+
+--- Chunk 20: [text_content:h3×2] ---
+  type=text_singleton freq=1 excl=0.90
+  pattern_xpath: ///li[contains(@class,'left')][contains(@class,'mobile')][contains(@class,'right')]/a[contains(@data-info,'pisces')][contains(@data-info,'sweet')][contains(@data-label,'pisces')][contains(@data-label,'sweet')][contains(@data-info,'supportive')]
+  content: [HREF=1 TEXT=8]
+  sample[0] (27L): Pisces in Pisces Love and Relationships: Romantic, Sweet, and                   
+    |   <a class="no_underline_hover" data-label="Title:Pisces in Love and Relationships: Romantic, Sweet, and Supportive" data-info="Search:Pisces in Love and Relationships: Romantic, Sweet, and Supportive-Title" href="https://www.tarot.com/love-and-compatibility/pisces">
+    |     <h3 class="sui-result__title is-h1 has-margin-0-top has-margin-15-bottom">
+    |       Pisces in
+    |       <em>
+    |         Love
+    |       </em>
+    |       and Relationships: Romantic, Sweet, and
+    |                                                 Supportive
+    |     </h3>
+    |     <p class="sui-result__value has-margin-20-bottom">
+    | ... [17 more lines]
+
+--- Chunk 21: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.22
+  pattern_xpath: ///li[contains(@class,'bottom')][contains(@class,'has')][contains(@class,'padding')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): FREE 3-Card Tarot Reading Will This Relationship Last?
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - FREE 3-Card Tarot Reading" data-info="Footer:Readings_FREE 3-Card Tarot Reading" href="/readings-reports/tarot-readings/free" target="" rel="">
+    |       FREE 3-Card Tarot Reading
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - Will This Relationship Last?" data-info="Footer:Readings_Will This Relationship Last?" href="/readings-reports/tarot-readings/analysis/relationship" target="" rel="">
+    |       Will This Relationship Last?
+    |     </a>
+    |   </li>
+  sample[1] (8L): FREE Love Tarot Reading Will It Be Yes or No?
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - FREE Love Tarot Reading" data-info="Footer:Readings_FREE Love Tarot Reading" href="/readings-reports/tarot-readings/free/love" target="" rel="">
+    |       FREE Love Tarot Reading
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - Will It Be Yes or No?" data-info="Footer:Readings_Will It Be Yes or No?" href="/readings-reports/tarot-readings/yes-no" target="" rel="">
+    |       Will It Be Yes or No?
+    |     </a>
+    |   </li>
+  sample[2] (8L): Your Twin Flame Reading When Will I Find Love?
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - Your Twin Flame Reading" data-info="Footer:Readings_Your Twin Flame Reading" href="/readings-reports/tarot-readings/twin-flame-tarot" target="" rel="">
+    |       Your Twin Flame Reading
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - When Will I Find Love?" data-info="Footer:Readings_When Will I Find Love?" href="/readings-reports/tarot-readings/analysis/love-quest" target="" rel="">
+    |       When Will I Find Love?
+    |     </a>
+    |   </li>
+
+--- Chunk 22: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.22
+  pattern_xpath: ///li[contains(@class,'bottom')][contains(@class,'has')][contains(@class,'padding')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): FREE Birth Chart Reading Birth Chart Reading
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - FREE Birth Chart Reading" data-info="Footer:Readings_FREE Birth Chart Reading" href="/readings-reports/astrology-reports/essential-birth-chart/free" target="" rel="">
+    |       FREE Birth Chart Reading
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - Birth Chart Reading" data-info="Footer:Readings_Birth Chart Reading" href="/readings-reports/astrology-reports/essential-birth-chart" target="" rel="">
+    |       Birth Chart Reading
+    |     </a>
+    |   </li>
+  sample[1] (8L): FREE Love Astrology Report Astrology Compatibility Report
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - FREE Love Astrology Report" data-info="Footer:Readings_FREE Love Astrology Report" href="/readings-reports/astrology-reports/ultimate-love-report/free" target="" rel="">
+    |       FREE Love Astrology Report
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - Astrology Compatibility Report" data-info="Footer:Readings_Astrology Compatibility Report" href="/readings-reports/astrology-reports/astrology-compatibility" target="" rel="">
+    |       Astrology Compatibility Report
+    |     </a>
+    |   </li>
+  sample[2] (8L): One Card Tarot Reading I Ching Reading
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - One Card Tarot Reading" data-info="Footer:Readings_One Card Tarot Reading" href="/readings-reports/tarot-readings/one-card" target="" rel="">
+    |       One Card Tarot Reading
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Readings - I Ching Reading" data-info="Footer:Readings_I Ching Reading" href="/readings-reports/i-ching/free" target="" rel="">
+    |       I Ching Reading
+    |     </a>
+    |   </li>
+
+--- Chunk 23: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.22
+  pattern_xpath: ///li[contains(@class,'bottom')][contains(@class,'has')][contains(@class,'padding')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): FREE Birth Chart Birth Chart Reading
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - FREE Birth Chart" data-info="Footer:Astrology_FREE Birth Chart" href="/readings-reports/astrology-reports/essential-birth-chart/free" target="" rel="">
+    |       FREE Birth Chart
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Birth Chart Reading" data-info="Footer:Astrology_Birth Chart Reading" href="/readings-reports/astrology-reports/essential-birth-chart" target="" rel="">
+    |       Birth Chart Reading
+    |     </a>
+    |   </li>
+  sample[1] (8L): FREE Personality Report Romantic Compatibility Report
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - FREE Personality Report" data-info="Footer:Astrology_FREE Personality Report" href="/readings-reports/astrology-reports/ultimate-personality-report/free" target="" rel="">
+    |       FREE Personality Report
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Romantic Compatibility Report" data-info="Footer:Astrology_Romantic Compatibility Report" href="/readings-reports/astrology-reports/astrology-compatibility" target="" rel="">
+    |       Romantic Compatibility Report
+    |     </a>
+    |   </li>
+  sample[2] (8L): Zodiac Sign Compatibility Ultimate Love Report
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Zodiac Sign Compatibility" data-info="Footer:Astrology_Zodiac Sign Compatibility" href="/astrology/compatibility/love" target="" rel="">
+    |       Zodiac Sign Compatibility
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Ultimate Love Report" data-info="Footer:Astrology_Ultimate Love Report" href="/readings-reports/astrology-reports/ultimate-love-report" target="" rel="">
+    |       Ultimate Love Report
+    |     </a>
+    |   </li>
+
+--- Chunk 24: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.22
+  pattern_xpath: ///li[contains(@class,'bottom')][contains(@class,'has')][contains(@class,'padding')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Birth Chart Calculator Zodiac Signs & Their Traits
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Birth Chart Calculator" data-info="Footer:Astrology_Birth Chart Calculator" href="/readings-reports/astrology-reports/essential-birth-chart" target="" rel="">
+    |       Birth Chart Calculator
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Zodiac Signs & Their Traits" data-info="Footer:Astrology_Zodiac Signs & Their Traits" href="/astrology/zodiac" target="" rel="">
+    |       Zodiac Signs & Their Traits
+    |     </a>
+    |   </li>
+  sample[1] (8L): Zodiac Signs & Their Traits Your Rising Sign
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Zodiac Signs & Their Traits" data-info="Footer:Astrology_Zodiac Signs & Their Traits" href="/astrology/zodiac" target="" rel="">
+    |       Zodiac Signs & Their Traits
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Your Rising Sign" data-info="Footer:Astrology_Your Rising Sign" href="/astrology/traits-of-rising-signs" target="" rel="">
+    |       Your Rising Sign
+    |     </a>
+    |   </li>
+  sample[2] (8L): Your Daily Transits 12 Houses in Astrology
+    |   <li class="has-padding-12-bottom">
+    |     <a class=" is-lo is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - Your Daily Transits" data-info="Footer:Astrology_Your Daily Transits" href="/astrology/about-vip-membership" target="" rel="">
+    |       Your Daily Transits
+    |     </a>
+    |     <a class="is-li is-user-lo" data-ga-event="" data-category="Footer" data-action="Click" data-label="Astrology - 12 Houses in Astrology" data-info="Footer:Astrology_12 Houses in Astrology" href="/astrology/houses" target="" rel="">
+    |       12 Houses in Astrology
+    |     </a>
+    |   </li>
+
+--- Chunk 25: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.47 LEAKS=64
+  pattern_xpath: ///ul[contains(@class,'sui')][contains(@class,'results')][contains(@class,'container')]/li[contains(@class,'result')][contains(@class,'sui')][contains(@class,'has')][contains(@class,'padding')]
+  content: [ATTR=42 HREF=53 IMG=42 TEXT=132]
+  sample[0] (31L) [TRUNCATED]: 1234522 thumb thumb EXPLORE TAROT.COM>LOVE AND COMPATIBILITY EXPLORE TAROT.COM>R
+    |   <li class="sui-result has-padding-0">
+    |     <row class="sui-result__body">
+    |       <column class="sui-result__image is-3 is-12-mobile has-padding-0-left-mobile has-padding-0-bottom-mobile">
+    |         <a data-label="Image:Love & Compatibility According to Astrology and Tarot" data-info="Search:Love & Compatibility According to Astrology and Tarot-Image" href="https://www.tarot.com/love-and-compatibility">
+    |           <img alt="thumb" class="is-visible-mobile has-padding-5-bottom has-padding-0-top" src="https://gfx.tarot.com/images/feeds/380x235/couple-candles-380x235.jpg"></img>
+    |           <img alt="thumb" class="is-hidden-mobile has-padding-10-bottom has-padding-10-top" src="https://gfx.tarot.com/images/feeds/625x625/couple-candles-625x625.jpg"></img>
+    |         </a>
+    |       </column>
+    |       <column class="sui-result__details is-9 is-12-mobile has-padding-0-mobile">
+    |         <li class="sui-result__value breadcrumb has-padding-15-left-mobile has-padding-15-right-mobile">
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://www.tarot.com/daily-love-horoscope (href not in rendered output)
+    [HREF] https://www.tarot.com/astrology/venus-signs (href not in rendered output)
+    [HREF] https://www.tarot.com/astrology/compatibility/love (href not in rendered output)
+    [HREF] https://www.tarot.com/readings-reports/i-ching/free/love (href not in rendered output)
+    [HREF] https://www.tarot.com/love-and-compatibility/aries (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] ASTROLOGYLOVE AND COMPATIBILITY
+    [TEXT] LEARN
+                                            ASTROLOGY
+    [TEXT] COMPATIBILITYSIGNS
+                                            IN LOVE

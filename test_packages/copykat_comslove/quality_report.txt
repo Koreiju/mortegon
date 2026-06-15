@@ -1,0 +1,621 @@
+=== QUALITY REPORT: copykat_comslove.html ===
+Chunks: 48 (structural=4, functional=2, text=42)
+Categories: {'structural': 1, 'card': 1, 'menu_item': 2, 'search_input': 1, 'pagination': 1, 'text_singleton': 42}
+Content: 126 tagged, 126 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div.text.widget ---
+  type=structural freq=2 excl=0.51
+  pattern_xpath: ///div[contains(@class,'wrap')][contains(@class,'text')][contains(@class,'widget')]
+  tree_sig: section(div(h3,div(div(a,a,a,a,a,a,a,a,a,a,a,a,a))))
+  content: [HREF=13 TEXT=14]
+  sample[0] (31L) [TRUNCATED]: Top Categories Browse All Recipes Copycat recipes Game Day Eats Soup recipes Chi
+    |   <div class="widget_text widget-wrap">
+    |     <h3 class="widgettitle widget-title">
+    |       Top Categories
+    |     </h3>
+    |     <div class="textwidget custom-html-widget">
+    |       <div align="center">
+    |         <a href="/recipes" class="orange-button">
+    |           Browse All Recipes
+    |         </a>
+    |         <a href="/category/copycat-restaurant-recipes/" class="button">
+    | ... [21 more lines]
+
+--- Chunk 1: header.entry.header ---
+  type=card freq=3 excl=0.52
+  pattern_xpath: ///header[contains(@class,'header')][contains(@class,'entry')]
+  tree_sig: header(h2(a))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Copycat Waffle House Waffles with Crispy Edges
+    |   <header class="entry-header">
+    |     <h2 class="entry-title">
+    |       <a href="https://copykat.com/waffle-house-waffles/">
+    |         Copycat Waffle House Waffles with Crispy Edges
+    |       </a>
+    |     </h2>
+    |   </header>
+  sample[1] (7L): Texas Roadhouse Ranch Dressing
+    |   <header class="entry-header">
+    |     <h2 class="entry-title">
+    |       <a href="https://copykat.com/texas-roadhouse-ranch-dressing/">
+    |         Texas Roadhouse Ranch Dressing
+    |       </a>
+    |     </h2>
+    |   </header>
+  sample[2] (7L): Texas Roadhouse House Salad
+    |   <header class="entry-header">
+    |     <h2 class="entry-title">
+    |       <a href="https://copykat.com/texas-roadhouse-house-salad/">
+    |         Texas Roadhouse House Salad
+    |       </a>
+    |     </h2>
+    |   </header>
+
+--- Chunk 2: a.blank.com ---
+  type=menu_item freq=15 excl=1.00
+  pattern_xpath: ///a[contains(@rel,'noopener')][contains(@rel,'noreferrer')][contains(@target,'blank')]
+  tree_sig: a(svg(title,use))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): YouTube
+    |   <a href="http://www.youtube.com/user/copykatrecipes">
+    |     <svg role="img" class="social-youtube" aria-labelledby="social-youtube-6">
+    |       <title id="social-youtube-6">
+    |         YouTube
+    |       </title>
+    |       <use xlink:href="https://copykat.com/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-youtube"></use>
+    |     </svg>
+    |   </a>
+  sample[1] (8L): Facebook
+    |   <a href="https://www.facebook.com/copyKatRecipes">
+    |     <svg role="img" class="social-facebook" aria-labelledby="social-facebook-6">
+    |       <title id="social-facebook-6">
+    |         Facebook
+    |       </title>
+    |       <use xlink:href="https://copykat.com/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-facebook"></use>
+    |     </svg>
+    |   </a>
+  sample[2] (8L): Pinterest
+    |   <a href="https://www.pinterest.com/copykatrecipes/" target="_blank" rel="noopener noreferrer">
+    |     <svg role="img" class="social-pinterest" aria-labelledby="social-pinterest-4">
+    |       <title id="social-pinterest-4">
+    |         Pinterest
+    |       </title>
+    |       <use xlink:href="https://copykat.com/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-pinterest"></use>
+    |     </svg>
+    |   </a>
+
+--- Chunk 3: li.category.item ---
+  type=menu_item freq=34 excl=1.00
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')][contains(@id,'item')]
+  tree_sig: li(a(span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Page 1
+    |   <li class="active">
+    |     <a href="https://copykat.com/?s=love" aria-current="page">
+    |       <span class="screen-reader-text">
+    |         Page
+    |       </span>
+    |       1
+    |     </a>
+    |   </li>
+  sample[1] (8L): Page 2
+    |   <li>
+    |     <a href="https://copykat.com/page/2/?s=love">
+    |       <span class="screen-reader-text">
+    |         Page
+    |       </span>
+    |       2
+    |     </a>
+    |   </li>
+  sample[2] (7L): McDonald’s
+    |   <li id="menu-item-121559" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-121559">
+    |     <a href="https://copykat.com/category/copycat-restaurant-recipes/mcdonalds/">
+    |       <span>
+    |         McDonald’s
+    |       </span>
+    |     </a>
+    |   </li>
+
+--- Chunk 4: [search_inputs] ---
+  type=search_input freq=12 excl=1.00
+  pattern_xpath: ///input[contains(@class,'form')][contains(@class,'search')]
+  content: [ATTR=2]
+  sample[0] (1L): Enter search text here and the search results will be automatically updated as y
+    |   <input id="searchInput" data-stormbeam-slickstream="overlay_search_input_clicked" aria-label="Enter search text here and the search results will be automatically updated as you type" autocomplete="off" spellcheck="false" placeholder="search text"></input>
+  sample[1] (1L): 
+    |   <input class="search-form-input" type="search" name="s" id="searchform-2" value="love"></input>
+  sample[2] (1L): 
+    |   <input class="search-form-submit" type="submit" value="Search"></input>
+
+--- Chunk 5: [pagination_buttons] ---
+  type=pagination freq=23 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1 HREF=5 TEXT=8]
+  sample[0] (11L) [TRUNCATED]: Interim pages omitted…Interim pages omitted…Page 1 Page 2 Page 3 Page 44 Go toPa
+    |   <div class="archive-pagination pagination" role="navigation" aria-label="Pagination">
+    |     <ul>
+    |       <li class="active">
+    |         <a href="https://copykat.com/?s=love" aria-current="page">
+    |           <span class="screen-reader-text">
+    |   ... [62 lines truncated] ...
+    |           44
+    |         </a>
+    |       </li>
+    |     </ul>
+    | ... [1 more lines]
+  sample[1] (8L): Go to Next Page »
+    |   <li class="pagination-next">
+    |     <a href="https://copykat.com/page/2/?s=love">
+    |       <span class="screen-reader-text">
+    |         Go to
+    |       </span>
+    |       Next Page »
+    |     </a>
+    |   </li>
+  sample[2] (6L): Interim pages omitted…
+    |   <li class="pagination-omission">
+    |     <span class="screen-reader-text">
+    |       Interim pages omitted
+    |     </span>
+    |     …
+    |   </li>
+
+--- Chunk 6: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00
+  pattern_xpath: ///p
+  content: [HREF=1 TEXT=2]
+  sample[0] (7L): Unless otherwise noted, all recipes have been created by CopyKat.com.COPYRIGHT ©
+    |   <p>
+    |     Unless otherwise noted, all recipes have been created by CopyKat.com.COPYRIGHT © 2026 COPYKAT RECIPES •
+    |     <a href="https://copykat.com/about/privacy-statement/">
+    |       PRIVACY POLICY
+    |     </a>
+    |     Please note that no restaurant recipes are used; these recipes are inspired by the originals.
+    |   </p>
+  sample[1] (6L): COPYRIGHT © 2026 COPYKAT RECIPES •PRIVACY POLICY
+    |   <p>
+    |     COPYRIGHT © 2026 COPYKAT RECIPES •
+    |     <a href="https://copykat.com/about/privacy-statement/">
+    |       PRIVACY POLICY
+    |     </a>
+    |   </p>
+  sample[2] (3L): Please note that no restaurant recipes are used; these recipes are inspired by t
+    |   <p>
+    |     Please note that no restaurant recipes are used; these recipes are inspired by the originals.
+    |   </p>
+
+--- Chunk 7: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.47
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'widgets')][contains(@id,'genesis')]/h2[contains(@class,'genesis')][contains(@class,'reader')][contains(@class,'screen')][contains(@class,'sidebar')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Footer
+    |   <h2 class="genesis-sidebar-title screen-reader-text">
+    |     Footer
+    |   </h2>
+
+--- Chunk 8: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.47
+  pattern_xpath: ///div[contains(@class,'content')][contains(@class,'sidebar')][contains(@class,'wrap')]//h2[contains(@class,'genesis')][contains(@class,'reader')][contains(@class,'screen')][contains(@class,'sidebar')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Primary Sidebar
+    |   <h2 class="genesis-sidebar-title screen-reader-text">
+    |     Primary Sidebar
+    |   </h2>
+
+--- Chunk 9: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.26
+  pattern_xpath: ///div[contains(@class,'content')][contains(@class,'sidebar')][contains(@class,'wrap')]//h1[contains(@class,'archive')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Search Results for: love
+    |   <h1 class="archive-title">
+    |     Search Results for: love
+    |   </h1>
+
+--- Chunk 10: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arby’s Sauce Recipe: The Ultimate Copycat for Sandwich Lovers
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/arbys-sauce/">
+    |       Arby’s Sauce Recipe: The Ultimate Copycat for Sandwich Lovers
+    |     </a>
+    |   </h2>
+
+--- Chunk 11: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Original Chex Mix Recipe: The Classic Oven-Baked Snack You’ll LoveOriginal Chex 
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/chex-party-mix/">
+    |       Original Chex Mix Recipe: The Classic Oven-Baked Snack You’ll LoveOriginal Chex Mix Recipe
+    |     </a>
+    |   </h2>
+
+--- Chunk 12: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Peanut Butter Lovers Reeses Snack Mix
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/reeses-snack-mix/">
+    |       Peanut Butter Lovers Reeses Snack Mix
+    |     </a>
+    |   </h2>
+
+--- Chunk 13: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Sweet Tomatoes Clam Chowder Recipe: Recreate the Beloved Soup Plantation Classic
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/sweet-tomatoes-clam-chowder/">
+    |       Sweet Tomatoes Clam Chowder Recipe: Recreate the Beloved Soup Plantation Classic
+    |     </a>
+    |   </h2>
+
+--- Chunk 14: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Marinated Cheese
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/marinated-cheese/">
+    |       Marinated Cheese
+    |     </a>
+    |   </h2>
+
+--- Chunk 15: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Taco Bell Dirty Mountain Dew Baja Blast Dream Soda
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/taco-bell-dirty-mountain-dew-baja-blast-dream-soda/">
+    |       Taco Bell Dirty Mountain Dew Baja Blast Dream Soda
+    |     </a>
+    |   </h2>
+
+--- Chunk 16: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): McDonald’s McRib Sandwich
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/mcdonalds-mcrib-sandwich/">
+    |       McDonald’s McRib Sandwich
+    |     </a>
+    |   </h2>
+
+--- Chunk 17: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Mild Green Chile Queso
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/mild-green-chile-queso/">
+    |       Mild Green Chile Queso
+    |     </a>
+    |   </h2>
+
+--- Chunk 18: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): David’s Cookies Butter Pecan Meltaways Copycat
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/davids-cookies-butter-pecan-meltaways/">
+    |       David’s Cookies Butter Pecan Meltaways Copycat
+    |     </a>
+    |   </h2>
+
+--- Chunk 19: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Buffalo Fries
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/buffalo-fries/">
+    |       Buffalo Fries
+    |     </a>
+    |   </h2>
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Jason’s Deli Broccoli Cheese Soup
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/jasons-deli-broccoli-cheese-soup/">
+    |       Jason’s Deli Broccoli Cheese Soup
+    |     </a>
+    |   </h2>
+
+--- Chunk 21: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Jason’s Deli Garlic Toast
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/jasons-deli-garlic-toast/">
+    |       Jason’s Deli Garlic Toast
+    |     </a>
+    |   </h2>
+
+--- Chunk 22: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Crispy Wingstop Fries Recipe with Sweet and Salty Seasoning
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/wingstop-fries/">
+    |       Crispy Wingstop Fries Recipe with Sweet and Salty Seasoning
+    |     </a>
+    |   </h2>
+
+--- Chunk 23: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Chipotle Mexican Grill Red Chimichurri Sauce
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/chipotle-red-chimichurri-sauce/">
+    |       Chipotle Mexican Grill Red Chimichurri Sauce
+    |     </a>
+    |   </h2>
+
+--- Chunk 24: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Homemade Five Guys Cajun French Fries
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/five-guys-cajun-fries/">
+    |       Homemade Five Guys Cajun French Fries
+    |     </a>
+    |   </h2>
+
+--- Chunk 25: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Japanese Clear Soup (Hibachi Restaurant Style)
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/japanese-clear-soup/">
+    |       Japanese Clear Soup (Hibachi Restaurant Style)
+    |     </a>
+    |   </h2>
+
+--- Chunk 26: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Totino’s Pepperoni Pizza Rolls
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/totinos-pepperoni-pizza-rolls/">
+    |       Totino’s Pepperoni Pizza Rolls
+    |     </a>
+    |   </h2>
+
+--- Chunk 27: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cheesecake Factory Shepherd’s Pie
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/cheesecake-factory-shepherds-pie/">
+    |       Cheesecake Factory Shepherd’s Pie
+    |     </a>
+    |   </h2>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Starbucks Americano Copycat Recipe: Smooth, Intense Flavor at Home
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/starbucks-americano/">
+    |       Starbucks Americano Copycat Recipe: Smooth, Intense Flavor at Home
+    |     </a>
+    |   </h2>
+
+--- Chunk 29: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): IKEA Cinnamon Rolls
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/ikea-cinnamon-rolls/">
+    |       IKEA Cinnamon Rolls
+    |     </a>
+    |   </h2>
+
+--- Chunk 30: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Dutch Bros Iced Golden Eagle
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/dutch-bros-iced-golden-eagle/">
+    |       Dutch Bros Iced Golden Eagle
+    |     </a>
+    |   </h2>
+
+--- Chunk 31: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Olive Garden Meatballs Parmigiana
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/olive-garden-meatballs-parmigiana/">
+    |       Olive Garden Meatballs Parmigiana
+    |     </a>
+    |   </h2>
+
+--- Chunk 32: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): H-E-B Brisket Queso
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/heb-brisket-queso/">
+    |       H-E-B Brisket Queso
+    |     </a>
+    |   </h2>
+
+--- Chunk 33: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Chipotle Adobo Ranch
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/chipotle-adobo-ranch/">
+    |       Chipotle Adobo Ranch
+    |     </a>
+    |   </h2>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arby’s Red Ranch Sauce – Easy Copycat Recipe
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/arbys-red-ranch-sauce/">
+    |       Arby’s Red Ranch Sauce – Easy Copycat Recipe
+    |     </a>
+    |   </h2>
+
+--- Chunk 35: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Olive Garden Spicy Three Meat Sauce Copycat Recipe
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/olive-garden-spicy-three-meat-sauce/">
+    |       Olive Garden Spicy Three Meat Sauce Copycat Recipe
+    |     </a>
+    |   </h2>
+
+--- Chunk 36: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Subway Meatball Sub Copycat Recipe
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/subway-meatball-sub/">
+    |       Subway Meatball Sub Copycat Recipe
+    |     </a>
+    |   </h2>
+
+--- Chunk 37: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Panera Strawberry Poppyseed Chicken Salad
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/panera-strawberry-poppyseed-chicken-salad/">
+    |       Panera Strawberry Poppyseed Chicken Salad
+    |     </a>
+    |   </h2>
+
+--- Chunk 38: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Golden Corral Seafood Salad
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/golden-corral-seafood-salad/">
+    |       Golden Corral Seafood Salad
+    |     </a>
+    |   </h2>
+
+--- Chunk 39: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Golden Corral Rolls Easy Copycat Recipe
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/golden-corral-rolls/">
+    |       Golden Corral Rolls Easy Copycat Recipe
+    |     </a>
+    |   </h2>
+
+--- Chunk 40: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): IHOP Bananas Foster Pancakes
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/ihop-bananas-foster-pancakes/">
+    |       IHOP Bananas Foster Pancakes
+    |     </a>
+    |   </h2>
+
+--- Chunk 41: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Five Guys Hot Dogs
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/five-guys-hot-dogs/">
+    |       Five Guys Hot Dogs
+    |     </a>
+    |   </h2>
+
+--- Chunk 42: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.03
+  pattern_xpath: ///h2[contains(@class,'entry')][contains(@class,'title')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Subway Sweet Onion Teriyaki Sauce
+    |   <h2 class="entry-title">
+    |     <a class="entry-title-link" rel="bookmark" href="https://copykat.com/subway-sweet-onion-teriyaki-sauce/">
+    |       Subway Sweet Onion Teriyaki Sauce
+    |     </a>
+    |   </h2>
+
+--- Chunk 43: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'widget')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Welcome to CopyKat Recipes
+    |   <h3 class="widgettitle widget-title">
+    |     Welcome to CopyKat Recipes
+    |   </h3>
+
+--- Chunk 44: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'widget')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Follow Along
+    |   <h3 class="widgettitle widget-title">
+    |     Follow Along
+    |   </h3>
+
+--- Chunk 45: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'widget')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Receive CopyKat recipes in your inbox
+    |   <h3 class="widgettitle widget-title">
+    |     Receive CopyKat recipes in your inbox
+    |   </h3>
+
+--- Chunk 46: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.16
+  pattern_xpath: ///h3[contains(@class,'widgettitle')][contains(@class,'widget')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Copycat Restaurant Recipes
+    |   <h3 class="widgettitle widget-title">
+    |     Copycat Restaurant Recipes
+    |   </h3>
+
+--- Chunk 47: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h2
+  content: [TEXT=1]
+  sample[0] (3L): Join the newsletter
+    |   <h2>
+    |     Join the newsletter
+    |   </h2>

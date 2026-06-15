@@ -1,0 +1,581 @@
+=== QUALITY REPORT: youtube_comwatchvuIHfJSPFec.html ===
+Chunks: 40 (structural=6, functional=4, text=30)
+Categories: {'card': 5, 'structural': 1, 'search_input': 1, 'pagination': 1, 'menu_item': 2, 'text_singleton': 30}
+Content: 257 tagged, 189 preserved (74%)
+Leaks: 68 total, 34 high-importance
+
+--- Chunk 0: div.details.item ---
+  type=card freq=9 excl=0.26
+  pattern_xpath: ///div[contains(@id,'details')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')][contains(@class,'item')]
+  tree_sig: div(a(h4),div)
+  content: [ATTR=1 HREF=1 TEXT=2]
+  sample[0] (10L): 0:00 Intro, announcements, and guest setup
+    |   <div id="details" class="style-scope ytd-macro-markers-list-item-renderer" hidden="">
+    |     <a id="endpoint" class="yt-simple-endpoint style-scope ytd-macro-markers-list-item-renderer" draggable="false" href="/watch?v=uIHf-JSPFec&pp=0gcJCeACDuyUWbzu" hidden="">
+    |       <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Intro, announcements, and guest setup">
+    |         Intro, announcements, and guest setup
+    |       </h4>
+    |     </a>
+    |     <div id="time" class="style-scope ytd-macro-markers-list-item-renderer">
+    |       0:00
+    |     </div>
+    |   </div>
+  sample[1] (10L): 5:16 Early banter: names, background, and pop culture
+    |   <div id="details" class="style-scope ytd-macro-markers-list-item-renderer" hidden="">
+    |     <a id="endpoint" class="yt-simple-endpoint style-scope ytd-macro-markers-list-item-renderer" draggable="false" href="/watch?v=uIHf-JSPFec&t=316s" hidden="">
+    |       <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Early banter: names, background, and pop culture">
+    |         Early banter: names, background, and pop culture
+    |       </h4>
+    |     </a>
+    |     <div id="time" class="style-scope ytd-macro-markers-list-item-renderer">
+    |       5:16
+    |     </div>
+    |   </div>
+  sample[2] (10L): 50:19 In the White House: Rahm, VP role, Bin Laden and Correspondents’ Dinner
+    |   <div id="details" class="style-scope ytd-macro-markers-list-item-renderer" hidden="">
+    |     <a id="endpoint" class="yt-simple-endpoint style-scope ytd-macro-markers-list-item-renderer" draggable="false" href="/watch?v=uIHf-JSPFec&t=3019s" hidden="">
+    |       <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="In the White House: Rahm, VP role, Bin Laden and Correspondents’ Dinner">
+    |         In the White House: Rahm, VP role, Bin Laden and Correspondents’ Dinner
+    |       </h4>
+    |     </a>
+    |     <div id="time" class="style-scope ytd-macro-markers-list-item-renderer">
+    |       50:19
+    |     </div>
+    |   </div>
+
+--- Chunk 1: span.listlabel.modern ---
+  type=card freq=12 excl=1.00
+  pattern_xpath: ///a[contains(@class,'modern')][contains(@class,'set')][contains(@class,'still')][contains(@class,'suggestion')][contains(@class,'videowall')]
+  tree_sig: span(span,span(span))
+  content: [ATTR=1 BG=1 HREF=1 TEXT=14]
+  sample[0] (31L) [TRUNCATED]: 1:09:02 Playlist(Mix(50+)Playlist)()Adam Friedland on "Abolish ICE," His Ritchie
+    |   <a class="ytp-modern-videowall-still ytp-suggestion-set" target="" aria-label="Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comedian in Serious Times 1 hour, 9 minutes" href="https://www.youtube.com/watch?v=j240lZNYOMM" data-is-live="false" data-is-list="false" data-is-mix="false">
+    |     <div class="ytp-modern-videowall-still-image" style="background-image: url("https://i1.ytimg.com/vi/j240lZNYOMM/hqdefault.jpg");">
+    |       <span class="ytp-modern-videowall-still-info-duration">
+    |         1:09:02
+    |       </span>
+    |     </div>
+    |     <span class="ytp-modern-videowall-still-info" aria-hidden="true">
+    |       <span class="ytp-modern-videowall-still-info-bg">
+    |         <span class="ytp-modern-videowall-still-info-content">
+    |           <span class="ytp-modern-videowall-still-info-title">
+    | ... [21 more lines]
+
+--- Chunk 2: span.expander.inline ---
+  type=structural freq=2 excl=0.51
+  pattern_xpath: ///ytd-text-inline-expander[contains(@id,'description')][contains(@id,'inline')][contains(@id,'expander')]//span[contains(@id,'ellipsis')][contains(@class,'expander')][contains(@class,'inline')][contains(@class,'text')][contains(@class,'scope')]
+  tree_sig: span
+  sample[0] (3L): …
+    |   <span id="ellipsis" class="style-scope ytd-text-inline-expander">
+    |     …
+    |   </span>
+  sample[1] (1L): 
+    |   <span class="style-scope ytd-text-inline-expander"></span>
+
+--- Chunk 3: a.content.false ---
+  type=card freq=47 excl=0.63
+  pattern_xpath: ///a[contains(@aria-hidden,'true')][contains(@class,'image')][contains(@class,'content')][contains(@aria-haspopup,'false')][contains(@style,'width')]
+  tree_sig: a(yt-thumbnail-view-model(div(img),yt-thumbnail-overlay-badge-view-model(yt-thum
+  content: [HREF=1 IMG=1 TEXT=1]
+  sample[0] (16L): 1:09:02
+    |   <a href="/watch?v=j240lZNYOMM" rel="nofollow" class="yt-lockup-view-model__content-image" style="width: 55%;" aria-haspopup="false" tabindex="-1" aria-hidden="true">
+    |     <yt-thumbnail-view-model class="ytThumbnailViewModelHost ytThumbnailViewModelAspectRatio16By9 ytThumbnailViewModelMedium">
+    |       <div class="ytThumbnailViewModelImage">
+    |         <img alt="" class="ytCoreImageHost ytCoreImageFillParentHeight ytCoreImageFillParentWidth ytCoreImageContentModeScaleAspectFill ytCoreImageLoaded" src="https://i.ytimg.com/vi/j240lZNYOMM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4..."></img>
+    |       </div>
+    |       <yt-thumbnail-overlay-badge-view-model class="yt-thumbnail-overlay-badge-view-model yt-thumbnail-overlay-badge-view-model--bottom-end yt-thumbnail-overlay-badge-view-model--medium">
+    |         <yt-thumbnail-badge-view-model class="ytThumbnailBadgeViewModelHost yt-thumbnail-overlay-badge-view-model__badge">
+    |           <badge-shape class="yt-badge-shape yt-badge-shape--thumbnail-default yt-badge-shape--thumbnail-badge yt-badge-shape--typography">
+    |             <div class="yt-badge-shape__text">
+    |               1:09:02
+    | ... [6 more lines]
+
+--- Chunk 4: yt-icon.height.icon ---
+  type=card freq=31 excl=1.00
+  pattern_xpath: ///yt-icon[contains(@class,'merch')][contains(@class,'merchant')][contains(@class,'shelf')][contains(@icon,'in')][contains(@icon,'new')]
+  tree_sig: yt-icon(span(div(svg(path))))
+  sample[0] (9L): 
+    |   <yt-icon class="product-item-merchant-icon style-scope ytd-merch-shelf-item-renderer" icon="open_in_new" size="15" style="width: 15px; height: 15px;">
+    |     <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |       <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |           <path d="M19 5H8a1 1 0 000 2h7.586L5.293 17.293a1 1 0 101.414 1.414L17 8.414V16a1 1 0 002..."></path>
+    |         </svg>
+    |       </div>
+    |     </span>
+    |   </yt-icon>
+  sample[1] (9L): 
+    |   <yt-icon class="product-item-merchant-icon style-scope ytd-merch-shelf-item-renderer" icon="open_in_new" size="15" style="width: 15px; height: 15px;">
+    |     <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |       <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |           <path d="M19 5H8a1 1 0 000 2h7.586L5.293 17.293a1 1 0 101.414 1.414L17 8.414V16a1 1 0 002..."></path>
+    |         </svg>
+    |       </div>
+    |     </span>
+    |   </yt-icon>
+  sample[2] (9L): theadamfriedland.show/products/hat?variant=46717938893058&country=DE&currency=EU
+    |   <yt-icon class="product-item-merchant-icon style-scope ytd-merch-shelf-item-renderer" icon="open_in_new" size="15" style="width: 15px; height: 15px;">
+    |     <span class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost">
+    |       <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |           <path d="M19 5H8a1 1 0 000 2h7.586L5.293 17.293a1 1 0 101.414 1.414L17 8.414V16a1 1 0 002..."></path>
+    |         </svg>
+    |       </div>
+    |     </span>
+    |   </yt-icon>
+
+--- Chunk 5: a.endpoint.false ---
+  type=card freq=19 excl=0.82
+  pattern_xpath: ///ytd-macro-markers-list-item-renderer[contains(@class,'horizontal')][contains(@class,'card')][contains(@layout,'macro')]/a[contains(@class,'endpoint')][contains(@class,'simple')][contains(@draggable,'false')][contains(@id,'endpoint')][contains(@class,'yt')]
+  tree_sig: a(div(div,h4,h4),div(div,yt-img-shadow(img)))
+  content: [ATTR=2 HREF=1 TEXT=3]
+  sample[0] (19L): Intro, announcements, and guest setup Intro, announcements, and guest setup 0:00
+    |   <a id="endpoint" class="yt-simple-endpoint style-scope ytd-macro-markers-list-item-renderer" draggable="false" href="/watch?v=uIHf-JSPFec">
+    |     <div id="thumbnail" class="style-scope ytd-macro-markers-list-item-renderer">
+    |       <yt-img-shadow object-fit="FILL" class="style-scope ytd-macro-markers-list-item-renderer no-transition empty" style="background-color: transparent;">
+    |         <img id="img" draggable="false" class="style-scope yt-img-shadow" alt=""></img>
+    |       </yt-img-shadow>
+    |       <div id="overlay" class="style-scope ytd-macro-markers-list-item-renderer"></div>
+    |     </div>
+    |     <div id="details" class="style-scope ytd-macro-markers-list-item-renderer">
+    |       <h4 class="macro-markers style-scope ytd-macro-markers-list-item-renderer" title="Intro, announcements, and guest setup">
+    |         Intro, announcements, and guest setup
+    | ... [9 more lines]
+
+--- Chunk 6: [search_inputs] ---
+  type=search_input freq=7 excl=0.29 OUTLIER=3.7x
+  pattern_xpath: ///tp-yt-paper-listbox[contains(@role,'listbox')][contains(@class,'yt')][contains(@class,'scope')][contains(@class,'style')]
+  content: [ATTR=1]
+  sample[0] (11L) [TRUNCATED]: Show featured comments Show recent comments, including potential spam           
+    |   <tp-yt-paper-listbox id="menu" class="dropdown-content style-scope yt-dropdown-menu" slot="dropdown-content" role="listbox" tabindex="0">
+    |     <a class="yt-simple-endpoint style-scope yt-dropdown-menu iron-selected" aria-selected="true" tabindex="0">
+    |       <tp-yt-paper-item class="style-scope yt-dropdown-menu" style-target="host" role="option" tabindex="0" aria-disabled="false">
+    |         <tp-yt-paper-item-body class="style-scope yt-dropdown-menu" two-line="">
+    |           <div id="item-with-badge" class="style-scope yt-dropdown-menu">
+    |   ... [40 lines truncated] ...
+    |     </a>
+    |     <dom-repeat id="repeat" class="style-scope yt-dropdown-menu">
+    |       <template></template>
+    |     </dom-repeat>
+    | ... [1 more lines]
+  sample[1] (3L): #search-input.ytd-searchbox-spt input{-webkit-appearance:none;-webkit-font-smoot
+    |   <style class="searchbox" nonce="">
+    |     #search-input.ytd-searchbox-spt input{-webkit-appearance:none;-webkit-font-smoothing:antialiased;background-color:transparent;border:none;box-shadow:none;color:inherit;font-family:Roboto,Noto,sans-serif;font-size:16px;font-weight:400;line-height:24px;margin-left:4px;max-width:100%;outline:none;text-align:inherit;width:100%;-ms-flex:1 1 0.000000001px;-webkit-flex:1;-webkit-box-flex:1;-moz-box-flex:1;flex:1;-webkit-flex-basis:0.000000001px;-ms-flex-preferred-size:0.000000001px;flex-basis:0.000000001px}#search-container.ytd-searchbox-spt{pointer-events:none;position:absolute;top:0;right:0;bottom:0;left:0}#search-input.ytd-searchbox-spt #search::-webkit-input-placeholder{color:#888}#search-input.ytd-searchbox-spt #search::-moz-input-placeholder{color:#888}#search-input.ytd-searchbox-spt #search:-ms-input-placeholder{color:#888}
+    |   </style>
+  sample[2] (1L): Search
+    |   <input class="ytSearchboxComponentInput yt-searchbox-input title" name="search_query" aria-controls="i1" aria-expanded="true" type="text" autocomplete="off" autocorrect="off" spellcheck="false" aria-autocomplete="list" role="combobox" placeholder="Search"></input>
+
+--- Chunk 7: [pagination_buttons] ---
+  type=pagination freq=189 excl=1.00
+  pattern_xpath: ///button[contains(@class,'button')][contains(@class,'next')][contains(@class,'shape')][contains(@class,'spec')][contains(@class,'backdrop')]
+  content: [ATTR=2 HREF=1]
+  sample[0] (29L): Sign in
+    |   <a href="https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DuIHf-JSPFec&hl=en&ec=65620" rel="nofollow" class="yt-spec-button-shape-next yt-spec-button-shape-next--outline yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment" style="" aria-haspopup="false" force-new-state="true" aria-label="Sign in" aria-current="false">
+    |     <div aria-hidden="true" class="yt-spec-button-shape-next__icon">
+    |       <span class="ytIconWrapperHost" style="width: 24px; height: 24px;">
+    |         <span class="yt-icon-shape ytSpecIconShapeHost">
+    |           <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
+    |             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+    |               <path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1Zm0 2a9 9 ..."></path>
+    |             </svg>
+    |           </div>
+    |         </span>
+    | ... [19 more lines]
+
+--- Chunk 8: [nav_content:a×37] ---
+  type=menu_item freq=37 excl=0.22
+  pattern_xpath: ///a[contains(@aria-haspopup,'false')][contains(@rel,'nofollow')][contains(@class,'lockup')][contains(@class,'metadata')][contains(@class,'model')]
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (5L): Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comed
+    |   <a href="/watch?v=j240lZNYOMM" rel="nofollow" class="yt-lockup-metadata-view-model__title" style="" aria-haspopup="false" aria-label="Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comedian in Serious Times 1 hour, 9 minutes">
+    |     <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-pre-wrap" dir="auto" role="text">
+    |       Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comedian in Serious Times
+    |     </span>
+    |   </a>
+  sample[1] (5L): Why Smart People Don't See What's Wrong With Trump
+    |   <a href="/watch?v=RlBZHecP7Qw" rel="nofollow" class="yt-lockup-metadata-view-model__title" style="" aria-haspopup="false" aria-label="Why Smart People Don't See What's Wrong With Trump 1 hour, 5 minutes">
+    |     <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-pre-wrap" dir="auto" role="text">
+    |       Why Smart People Don't See What's Wrong With Trump
+    |     </span>
+    |   </a>
+  sample[2] (5L): Why the Economy Hasn't Crashed Yet
+    |   <a href="/watch?v=jOR4wuiPeEQ" rel="nofollow" class="yt-lockup-metadata-view-model__title" style="" aria-haspopup="false" aria-label="Why the Economy Hasn't Crashed Yet 47 minutes">
+    |     <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-pre-wrap" dir="auto" role="text">
+    |       Why the Economy Hasn't Crashed Yet
+    |     </span>
+    |   </a>
+
+--- Chunk 9: [nav_content:a×6] ---
+  type=menu_item freq=6 excl=0.90
+  pattern_xpath: ///a[contains(@class,'attributed')][contains(@class,'color')][contains(@class,'core')][contains(@class,'string')][contains(@class,'action')]
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (6L): / @theadamfriedlandshow
+    |   <a class="yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color" tabindex="0" aria-label="YouTube Channel Link: @TheAdamFriedlandShow" href="https://www.youtube.com/channel/UC6ext5UAbrLT2e5y5BC6RTQ/join" rel="nofollow" target="" force-new-state="true">
+    |     <span class="yt-core-attributed-string--inline-block-mod" style="margin-top: 0.5px;">
+    |       <img alt="" class="ytCoreImageHost yt-core-attributed-string__image-element yt-core-attributed-string__image-element--image-alignment-vertical-center ytCoreImageContentModeScaleToFill" style="height: 10px; width: 14px;"></img>
+    |     </span>
+    |     / @theadamfriedlandshow
+    |   </a>
+  sample[1] (6L): / theadamfriedlandshow
+    |   <a class="yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color" tabindex="0" aria-label="Patreon Channel Link: TheAdamFriedlandShow" href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbkNZa2oxUnBGd0xfRUZoLXg2OGJZTjFVUnhuQXxBQ3Jtc0trSHY3YUpYTDdTTWUxZDBoTF9PNmhibjRKMFpKdzNOaUlQQlZpWC1HVzVaSTRDX1dQOHE2S3ZxZXdsZGxITnFCaVpySXNRSmstNzliQ3hvVDItMmtqRjJibzBQRHlVUVo4RkZ3Z09aMFhLcVRUazJiQQ&q=https%3A%2F%2Fwww.patreon.com%2Fcw%2FTheAdamFriedlandShow&v=uIHf-JSPFec" rel="nofollow" target="_blank" force-new-state="true">
+    |     <span class="yt-core-attributed-string--inline-block-mod" style="margin-top: 0.5px;">
+    |       <img alt="" class="ytCoreImageHost yt-core-attributed-string__image-element yt-core-attributed-string__image-element--image-alignment-vertical-center ytCoreImageContentModeScaleToFill" style="height: 14px; width: 14px;"></img>
+    |     </span>
+    |     / theadamfriedlandshow
+    |   </a>
+  sample[2] (6L): / adamfriedlandshowclips
+    |   <a class="yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color" tabindex="0" aria-label="TikTok Channel Link: adamfriedlandshowclips" href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbEdWWkREeDNCZGNYazJRdGF5akFXNVd3SE1jd3xBQ3Jtc0trS3lwdlhEWFVkYTVKVEd2ZTlYeWhWUEpfVVNKOHAtMUFYU3ZOVHdTUDFKdjNSUmE4S1dTZmlLaWkxazd1Qm81VGx2WnBSMjdPTElWV01idzZ4aVh6SHY4TTBBdTViSm5YSXJSSVNvaXY3VlhUc3JRaw&q=https%3A%2F%2Fwww.tiktok.com%2F%40adamfriedlandshowclips&v=uIHf-JSPFec" rel="nofollow" target="_blank" force-new-state="true">
+    |     <span class="yt-core-attributed-string--inline-block-mod" style="margin-top: 0.5px;">
+    |       <img alt="" class="ytCoreImageHost yt-core-attributed-string__image-element yt-core-attributed-string__image-element--image-alignment-vertical-center ytCoreImageContentModeScaleToFill" style="height: 14px; width: 14px;"></img>
+    |     </span>
+    |     / adamfriedlandshowclips
+    |   </a>
+
+--- Chunk 10: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.26
+  pattern_xpath: ///h1[contains(@class,'watch')][contains(@class,'metadata')][contains(@class,'scope')][contains(@class,'style')][contains(@class,'ytd')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (5L): JON FAVREAU Talks Obama, Bin Laden, ICE
+    |   <h1 class="style-scope ytd-watch-metadata">
+    |     <yt-formatted-string force-default-style="" class="style-scope ytd-watch-metadata" title="JON FAVREAU Talks Obama, Bin Laden, ICE">
+    |       JON FAVREAU Talks Obama, Bin Laden, ICE
+    |     </yt-formatted-string>
+    |   </h1>
+
+--- Chunk 11: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h2[contains(@class,'engagement')][contains(@class,'header')][contains(@class,'panel')][contains(@class,'title')][contains(@id,'title')]
+  content: [ATTR=2 TEXT=2]
+  sample[0] (8L): Comments 795
+    |   <h2 id="title" class="style-scope ytd-engagement-panel-title-header-renderer" aria-label="Comments 795">
+    |     <yt-formatted-string id="title-text" ellipsis-truncate="" class="style-scope ytd-engagement-panel-title-header-renderer" ellipsis-truncate-styling="" title="Comments">
+    |       Comments
+    |     </yt-formatted-string>
+    |     <yt-formatted-string id="contextual-info" class="style-scope ytd-engagement-panel-title-header-renderer">
+    |       795
+    |     </yt-formatted-string>
+    |   </h2>
+
+--- Chunk 12: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h2[contains(@class,'engagement')][contains(@class,'header')][contains(@class,'panel')][contains(@class,'title')][contains(@id,'title')]
+  content: [ATTR=2 TEXT=1]
+  sample[0] (8L): In this video
+    |   <h2 id="title" class="style-scope ytd-engagement-panel-title-header-renderer" aria-label="In this video">
+    |     <yt-formatted-string id="title-text" ellipsis-truncate="" class="style-scope ytd-engagement-panel-title-header-renderer" ellipsis-truncate-styling="" title="In this video">
+    |       In this video
+    |     </yt-formatted-string>
+    |     <yt-formatted-string id="contextual-info" class="style-scope ytd-engagement-panel-title-header-renderer" is-empty="" hidden="">
+    |       <yt-attributed-string class="style-scope yt-formatted-string"></yt-attributed-string>
+    |     </yt-formatted-string>
+    |   </h2>
+
+--- Chunk 13: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h2[contains(@class,'engagement')][contains(@class,'header')][contains(@class,'panel')][contains(@class,'title')][contains(@id,'title')]
+  content: [ATTR=2 TEXT=1]
+  sample[0] (8L): Chapters
+    |   <h2 id="title" class="style-scope ytd-engagement-panel-title-header-renderer" aria-label="Chapters">
+    |     <yt-formatted-string id="title-text" ellipsis-truncate="" class="style-scope ytd-engagement-panel-title-header-renderer" ellipsis-truncate-styling="" title="Chapters">
+    |       Chapters
+    |     </yt-formatted-string>
+    |     <yt-formatted-string id="contextual-info" class="style-scope ytd-engagement-panel-title-header-renderer" is-empty="" hidden="">
+    |       <yt-attributed-string class="style-scope yt-formatted-string"></yt-attributed-string>
+    |     </yt-formatted-string>
+    |   </h2>
+
+--- Chunk 14: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h2[contains(@class,'engagement')][contains(@class,'header')][contains(@class,'panel')][contains(@class,'title')][contains(@id,'title')]
+  content: [ATTR=3 TEXT=1]
+  sample[0] (8L): Products
+    |   <h2 id="title" class="style-scope ytd-engagement-panel-title-header-renderer" aria-label="Products">
+    |     <yt-formatted-string id="title-text" ellipsis-truncate="" class="style-scope ytd-engagement-panel-title-header-renderer" ellipsis-truncate-styling="" title="Products" aria-label="Products">
+    |       Products
+    |     </yt-formatted-string>
+    |     <yt-formatted-string id="contextual-info" class="style-scope ytd-engagement-panel-title-header-renderer" is-empty="" hidden="">
+    |       <yt-attributed-string class="style-scope yt-formatted-string"></yt-attributed-string>
+    |     </yt-formatted-string>
+    |   </h2>
+
+--- Chunk 15: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.14
+  pattern_xpath: ///h2[contains(@class,'engagement')][contains(@class,'header')][contains(@class,'panel')][contains(@class,'title')][contains(@id,'title')]
+  content: [ATTR=2 TEXT=1]
+  sample[0] (8L): Description
+    |   <h2 id="title" class="style-scope ytd-engagement-panel-title-header-renderer" aria-label="Description">
+    |     <yt-formatted-string id="title-text" ellipsis-truncate="" class="style-scope ytd-engagement-panel-title-header-renderer" ellipsis-truncate-styling="" title="Description">
+    |       Description
+    |     </yt-formatted-string>
+    |     <yt-formatted-string id="contextual-info" class="style-scope ytd-engagement-panel-title-header-renderer" is-empty="" hidden="">
+    |       <yt-attributed-string class="style-scope yt-formatted-string"></yt-attributed-string>
+    |     </yt-formatted-string>
+    |   </h2>
+
+--- Chunk 16: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.45
+  pattern_xpath: ///h2[contains(@class,'comments')][contains(@id,'count')][contains(@class,'header')][contains(@class,'renderer')][contains(@class,'scope')]
+  content: [TEXT=2]
+  sample[0] (10L): 795 Comments795
+    |   <h2 id="count" class="style-scope ytd-comments-header-renderer">
+    |     <yt-formatted-string class="count-text style-scope ytd-comments-header-renderer">
+    |       <span dir="auto" class="style-scope yt-formatted-string">
+    |         795
+    |       </span>
+    |       <span dir="auto" class="style-scope yt-formatted-string">
+    |         Comments795
+    |       </span>
+    |     </yt-formatted-string>
+    |   </h2>
+
+--- Chunk 17: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.62
+  pattern_xpath: ///h2[contains(@class,'card')][contains(@class,'horizontal')][contains(@id,'header')][contains(@class,'list')][contains(@class,'renderer')]
+  content: [ATTR=1 TEXT=2]
+  sample[0] (31L) [TRUNCATED]: Chapters View all
+    |   <h2 id="header" class="style-scope ytd-horizontal-card-list-renderer">
+    |     <ytd-rich-list-header-renderer class="style-scope ytd-horizontal-card-list-renderer">
+    |       <div class="title-row style-scope ytd-rich-list-header-renderer">
+    |         <div id="avatar" class="style-scope ytd-rich-list-header-renderer"></div>
+    |         <div id="title-text" class="style-scope ytd-rich-list-header-renderer">
+    |           <yt-formatted-string id="title" class="style-scope ytd-rich-list-header-renderer">
+    |             Chapters
+    |           </yt-formatted-string>
+    |           <yt-formatted-string id="subtitle" class="style-scope ytd-rich-list-header-renderer" hidden="" is-empty="">
+    |             <yt-attributed-string class="style-scope yt-formatted-string"></yt-attributed-string>
+    | ... [21 more lines]
+
+--- Chunk 18: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.57
+  pattern_xpath: ///h3[contains(@class,'description')][contains(@class,'infocards')][contains(@class,'section')][contains(@class,'video')][contains(@id,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Adam Friedland Show
+    |   <h3 id="title" class="style-scope ytd-video-description-infocards-section-renderer">
+    |     The Adam Friedland Show
+    |   </h3>
+
+--- Chunk 19: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Intro, announcements, and guest setup
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Intro, announcements, and guest setup">
+    |     Intro, announcements, and guest setup
+    |   </h4>
+
+--- Chunk 20: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Early banter: names, background, and pop culture
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Early banter: names, background, and pop culture">
+    |     Early banter: names, background, and pop culture
+    |   </h4>
+
+--- Chunk 21: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Obama arrival: 2004 DNC, joining, and speechwriting craft
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Obama arrival: 2004 DNC, joining, and speechwriting craft">
+    |     Obama arrival: 2004 DNC, joining, and speechwriting craft
+    |   </h4>
+
+--- Chunk 22: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Party politics, election night, and financial crisis response
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Party politics, election night, and financial crisis response">
+    |     Party politics, election night, and financial crisis response
+    |   </h4>
+
+--- Chunk 23: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Sponsor messages
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Sponsor messages">
+    |     Sponsor messages
+    |   </h4>
+
+--- Chunk 24: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): In the White House: Rahm, VP role, Bin Laden and Correspondents’ Dinner
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="In the White House: Rahm, VP role, Bin Laden and Correspondents’ Dinner">
+    |     In the White House: Rahm, VP role, Bin Laden and Correspondents’ Dinner
+    |   </h4>
+
+--- Chunk 25: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): After the White House: LA, Fenway, and Crooked Media
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="After the White House: LA, Fenway, and Crooked Media">
+    |     After the White House: LA, Fenway, and Crooked Media
+    |   </h4>
+
+--- Chunk 26: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Strategy and future: coalition, immigration, and moral leadership
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Strategy and future: coalition, immigration, and moral leadership">
+    |     Strategy and future: coalition, immigration, and moral leadership
+    |   </h4>
+
+--- Chunk 27: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h4[contains(@class,'problem')][contains(@class,'walkthroughs')][contains(@class,'macro')][contains(@class,'markers')][contains(@class,'list')]
+  content: [ATTR=1 TEXT=1]
+  sample[0] (3L): Closing banter and sign-off
+    |   <h4 class="problem-walkthroughs style-scope ytd-macro-markers-list-item-renderer" title="Closing banter and sign-off">
+    |     Closing banter and sign-off
+    |   </h4>
+
+--- Chunk 28: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.30
+  pattern_xpath: ///h3[contains(@class,'heading')][contains(@class,'reset')][contains(@class,'lockup')][contains(@class,'metadata')][contains(@class,'model')]
+  content: [ATTR=2 HREF=1 TEXT=1]
+  sample[0] (7L): ANTHONY FANTANO Talks Radiohead, Abbey Road, Drake vs. Kendrick
+    |   <h3 class="yt-lockup-metadata-view-model__heading-reset" title="ANTHONY FANTANO Talks Radiohead, Abbey Road, Drake vs. Kendrick">
+    |     <a href="/watch?v=5Lix3oPKz7c&pp=0gcJCYcKAYcqIYzv" rel="nofollow" class="yt-lockup-metadata-view-model__title" style="" aria-haspopup="false" aria-label="ANTHONY FANTANO Talks Radiohead, Abbey Road, Drake vs. Kendrick 56 minutes">
+    |       <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-pre-wrap" dir="auto" role="text">
+    |         ANTHONY FANTANO Talks Radiohead, Abbey Road, Drake vs. Kendrick
+    |       </span>
+    |     </a>
+    |   </h3>
+
+--- Chunk 29: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.30 LEAKS=31
+  pattern_xpath: ///div[contains(@class,'menu')][contains(@class,'button')]/h3[contains(@class,'heading')][contains(@class,'reset')][contains(@class,'lockup')][contains(@class,'metadata')][contains(@class,'model')]
+  content: [ATTR=41 HREF=40 TEXT=40]
+  sample[0] (31L) [TRUNCATED]: Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comed
+    |   <h3 class="yt-lockup-metadata-view-model__heading-reset" title="Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comedian in Serious Times">
+    |     <a href="/watch?v=j240lZNYOMM" rel="nofollow" class="yt-lockup-metadata-view-model__title" style="" aria-haspopup="false" aria-label="Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comedian in Serious Times 1 hour, 9 minutes">
+    |       <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-pre-wrap" dir="auto" role="text">
+    |         Adam Friedland on "Abolish ICE," His Ritchie Torres Video, & Being a Crude Comedian in Serious Times
+    |       </span>
+    |     </a>
+    |     <a href="/watch?v=RlBZHecP7Qw" rel="nofollow" class="yt-lockup-metadata-view-model__title" style="" aria-haspopup="false" aria-label="Why Smart People Don't See What's Wrong With Trump 1 hour, 5 minutes">
+    |       <span style="" class="yt-core-attributed-string yt-core-attributed-string--white-space-pre-wrap" dir="auto" role="text">
+    |         Why Smart People Don't See What's Wrong With Trump
+    |       </span>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /watch?v=jYtqhtK2q1E (href not in rendered output)
+    [HREF] /watch?v=IrsXPZ_z_KM (href not in rendered output)
+    [HREF] /watch?v=sI6Kjn_XOpI&pp=0gcJCYcKAYcqIYzv (href not in rendered output)
+    [HREF] /watch?v=lbU3_IYhqYE (href not in rendered output)
+    [HREF] /watch?v=qnxiB39lJlo (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Trump Attorney General Pam Bondi Gets Hammered on Epstein & MAGA Coali
+    [TEXT] RICHARD KIND Talks Coen Brothers, Death, And George Clooney
+    [TEXT] Why Kal Penn is Disillusioned with Democrats
+
+--- Chunk 30: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.39
+  pattern_xpath: ///h3[contains(@class,'attributes')][contains(@class,'section')][contains(@class,'video')][contains(@class,'model')][contains(@class,'view')]
+  content: [TEXT=1]
+  sample[0] (3L): People mentioned
+    |   <h3 class="videoAttributesSectionViewModelTitle">
+    |     People mentioned
+    |   </h3>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h4[contains(@id,'product')][contains(@class,'product')][contains(@id,'title')][contains(@class,'list')][contains(@class,'item')]
+  content: [TEXT=1]
+  sample[0] (3L): Logo Shirt S
+    |   <h4 id="product-title" class="style-scope ytd-product-list-item-renderer">
+    |     Logo Shirt S
+    |   </h4>
+
+--- Chunk 32: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h4[contains(@id,'product')][contains(@class,'product')][contains(@id,'title')][contains(@class,'list')][contains(@class,'item')]
+  content: [TEXT=1]
+  sample[0] (3L): Doodle Zip-Up Hoodie M
+    |   <h4 id="product-title" class="style-scope ytd-product-list-item-renderer">
+    |     Doodle Zip-Up Hoodie M
+    |   </h4>
+
+--- Chunk 33: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h4[contains(@id,'product')][contains(@class,'product')][contains(@id,'title')][contains(@class,'list')][contains(@class,'item')]
+  content: [TEXT=1]
+  sample[0] (3L): Hat Black
+    |   <h4 id="product-title" class="style-scope ytd-product-list-item-renderer">
+    |     Hat Black
+    |   </h4>
+
+--- Chunk 34: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h4[contains(@id,'product')][contains(@class,'product')][contains(@id,'title')][contains(@class,'list')][contains(@class,'item')]
+  content: [TEXT=1]
+  sample[0] (3L): Logo Shirt M
+    |   <h4 id="product-title" class="style-scope ytd-product-list-item-renderer">
+    |     Logo Shirt M
+    |   </h4>
+
+--- Chunk 35: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h4[contains(@id,'product')][contains(@class,'product')][contains(@id,'title')][contains(@class,'list')][contains(@class,'item')]
+  content: [TEXT=1]
+  sample[0] (3L): Logo Shirt L
+    |   <h4 id="product-title" class="style-scope ytd-product-list-item-renderer">
+    |     Logo Shirt L
+    |   </h4>
+
+--- Chunk 36: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h4[contains(@id,'product')][contains(@class,'product')][contains(@id,'title')][contains(@class,'list')][contains(@class,'item')]
+  content: [TEXT=1]
+  sample[0] (3L): Hat BlackLogo Shirt SDoodle Zip-Up Hoodie MLogo Shirt MLogo Shirt L
+    |   <h4 id="product-title" class="style-scope ytd-product-list-item-renderer">
+    |     Hat BlackLogo Shirt SDoodle Zip-Up Hoodie MLogo Shirt MLogo Shirt L
+    |   </h4>
+
+--- Chunk 37: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.16 LEAKS=3
+  pattern_xpath: ///h3[contains(@class,'comment')][contains(@class,'model')][contains(@class,'view')][contains(@class,'scope')][contains(@class,'style')]
+  content: [HREF=20 TEXT=20]
+  sample[0] (31L) [TRUNCATED]: @ChrisCullins91@InTheEndIKindaFailed@the_garlon@sporfuldorful@seahawkfan98@aintn
+    |   <h3 class="style-scope ytd-comment-view-model">
+    |     <a id="author-text" class="yt-simple-endpoint style-scope ytd-comment-view-model" href="/@ChrisCullins91">
+    |       <span class=" style-scope ytd-comment-view-model style-scope ytd-comment-view-model">
+    |         @ChrisCullins91
+    |       </span>
+    |     </a>
+    |     <a id="author-text" class="yt-simple-endpoint style-scope ytd-comment-view-model" href="/@InTheEndIKindaFailed">
+    |       <span class=" style-scope ytd-comment-view-model style-scope ytd-comment-view-model">
+    |         @InTheEndIKindaFailed
+    |       </span>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /@imaboy. (href not in rendered output)
+    [HREF] /@tyaustin9936 (href not in rendered output)
+    [HREF] /@michaelonmichaelonmichael (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] @michaelonmichaelonmichael
+
+--- Chunk 38: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.21
+  pattern_xpath: ///h1[contains(@class,'attribute')][contains(@class,'video')][contains(@class,'model')][contains(@class,'view')][contains(@class,'yt')]
+  content: [TEXT=1]
+  sample[0] (3L): Osama bin Laden
+    |   <h1 class="yt-video-attribute-view-model__title">
+    |     Osama bin Laden
+    |   </h1>
+
+--- Chunk 39: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.21
+  pattern_xpath: ///h1[contains(@class,'attribute')][contains(@class,'video')][contains(@class,'model')][contains(@class,'view')][contains(@class,'yt')]
+  content: [TEXT=1]
+  sample[0] (3L): Barack Obama
+    |   <h1 class="yt-video-attribute-view-model__title">
+    |     Barack Obama
+    |   </h1>

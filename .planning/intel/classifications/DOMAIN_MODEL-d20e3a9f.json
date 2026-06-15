@@ -1,0 +1,13 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/DOMAIN_MODEL.md",
+  "type": "SPEC",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Web Fiber Haptics: Domain Model",
+  "summary": "Full design elaboration of the single-user on-device workspace joining 3D projector, 2D concept editor, and REPL into one Mortegon workflow.",
+  "scope": ["3D Projector", "2D Concept Editor", "REPL", "ConceptNode schema", "foundational fixtures (Agent, WebBrowser, Database)", "halo retrieval", "UMAP-linear-radial layout", "no-mocks contract", "cascade compile"],
+  "cross_refs": ["USER_REQUIREMENTS_VERBATIM.md", "CODEBASE_GAP_ANALYSIS.md", "MORTEGON_INTEGRATION_SCHEME.md", "frontend/"],
+  "locked": false,
+  "precedence": 1,
+  "notes": ""
+}

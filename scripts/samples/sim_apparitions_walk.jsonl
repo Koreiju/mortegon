@@ -1,0 +1,18 @@
+# Apparitions / ontology-walk smoke. Creates two concepts, links them,
+# then verifies the triple-product retrieval surfaces the linked target.
+# The {{}} ids are placeholders — run interactively first to grab real
+# concept ids from the create responses, then substitute below.
+#
+# Better workflow: open `repl` and run these manually so you can copy ids
+# between steps:
+#
+#   sim> concept-create name=AlphaCard description="first probe"
+#   sim> concept-create name=BetaCard  description="second probe"
+#   sim> edge-create src=<alpha-id> tgt=<beta-id> type=RELATES_TO
+#   sim> apparitions focal=<alpha-id> k=10
+#   sim> ontology-walk focal=<alpha-id> depth=2
+#   sim> obs
+{"action": "health"}
+{"action": "concept-create", "name": "AlphaCard", "description": "first probe"}
+{"action": "concept-create", "name": "BetaCard",  "description": "second probe"}
+{"action": "concept-list"}

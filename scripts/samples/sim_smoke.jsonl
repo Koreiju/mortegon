@@ -1,0 +1,5 @@
+{"action": "health"}
+{"action": "concept-list"}
+{"action": "concept-delete", "id": "fixture::database::_default"}
+{"action": "pipeline", "fixture": "tarot"}
+{"action": "assert-frame", "type": "concept_index_update", "min_count": 0}

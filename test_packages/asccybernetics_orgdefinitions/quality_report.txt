@@ -1,0 +1,277 @@
+=== QUALITY REPORT: asccybernetics_orgdefinitions.html ===
+Chunks: 14 (structural=0, functional=6, text=8)
+Categories: {'search_input': 1, 'pagination': 1, 'text_singleton': 8, 'menu_item': 4}
+Content: 32 tagged, 31 preserved (97%)
+Leaks: 1 total, 1 high-importance
+
+--- Chunk 0: [search_inputs] ---
+  type=search_input freq=3 excl=0.00 OUTLIER=8.0x
+  pattern_xpath: ///input
+  sample[0] (8L): Regular Membership $100 USD Student / Affiliate Membership $40 USDRegular Member
+    |   <select name="os0">
+    |     <option value="Regular Membership">
+    |       Regular Membership $100 USD
+    |     </option>
+    |     <option value="Student/Affiliate Membership">
+    |       Student / Affiliate Membership $40 USDRegular Membership $100 USD
+    |     </option>
+    |   </select>
+  sample[1] (1L): 
+    |   <input type="text" value="Search" name="s" id="s" onfocus="if(this.value=='Search'){this.value=''};" onblur="if(this.value==''){this.value='Search'};" tabindex="2"></input>
+  sample[2] (1L): 
+    |   <input type="submit" id="searchsubmit" value=""></input>
+
+--- Chunk 1: [pagination_buttons] ---
+  type=pagination freq=3 excl=1.00 OUTLIER=3.0x
+  pattern_xpath: ///link[contains(@rel,'alternate')][contains(@type,'application')][contains(@type,'rss')][contains(@type,'xml')]
+  content: [ATTR=1 HREF=1]
+  sample[0] (3L): Definitions
+    |   <a href="https://asc-cybernetics.org/definitions/" aria-current="page">
+    |     Definitions
+    |   </a>
+  sample[1] (1L): American Society for Cybernetics (ASC) » Feed
+    |   <link rel="alternate" type="application/rss+xml" title="American Society for Cybernetics (ASC) » Feed" href="https://asc-cybernetics.org/feed/"></link>
+  sample[2] (1L): American Society for Cybernetics (ASC) » Comments Feed
+    |   <link rel="alternate" type="application/rss+xml" title="American Society for Cybernetics (ASC) » Comments Feed" href="https://asc-cybernetics.org/comments/feed/"></link>
+
+--- Chunk 2: [text_content:p×110] ---
+  type=text_singleton freq=110 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (7L): A Joke Related by Stafford Beer, October 2001 (source:What is Cybernetics?):
+    |   <p>
+    |     A Joke Related by Stafford Beer, October 2001 (source:
+    |     <a href="http://www.nickgreen.pwp.blueyonder.co.uk/beerWhatisCybernetics.pdf" target="_new" rel="noopener">
+    |       What is Cybernetics?
+    |     </a>
+    |     ):
+    |   </p>
+  sample[1] (7L): “Use the word ‘cybernetics’, Norbert, because nobody knows what it means. This w
+    |   <p>
+    |     “Use the word ‘cybernetics’, Norbert, because nobody knows what it means. This will always put you at an advantage in arguments.”
+    |     <br></br>
+    |     <i>
+    |       Widely quoted; attributed to Claude Shannon in a letter to Norbert Wiener in the 1940s.
+    |     </i>
+    |   </p>
+  sample[2] (3L): Previous version of the ASC By-Laws
+    |   <h3>
+    |     Previous version of the ASC By-Laws
+    |   </h3>
+
+--- Chunk 3: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (3L): to demonstrate that one of the distinguishing features of cybernetics might be t
+    |   <li>
+    |     to demonstrate that one of the distinguishing features of cybernetics might be that it could legitimately have multiple definitions without contradicting itself, and
+    |   </li>
+  sample[1] (3L): to stimulate dialogue on what the motivations (intentions, desires, etc.) of tho
+    |   <li>
+    |     to stimulate dialogue on what the motivations (intentions, desires, etc.) of those who have proposed different definitions might be.to demonstrate that one of the distinguishing features of cybernetics might be that it could legitimately have multiple definitions without contradicting itself, and
+    |   </li>
+
+--- Chunk 4: [text_content:li×6] ---
+  type=text_singleton freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (3L): “The study of systems that are open to energy but closed to information and  con
+    |   <li>
+    |     “The study of systems that are open to energy but closed to information and  control-systems that are information tight”
+    |   </li>
+  sample[1] (3L): “Cybernetics treats, not things, but ways of behaving. It does not ask, ‘What is
+    |   <li>
+    |     “Cybernetics treats, not things, but ways of behaving. It does not ask, ‘What is this thing?’ but ‘what does it do?’…It is thus essentially functional and behavioristic… The materiality is irrelevant, and so is the holding or not of the ordinary law of physics”
+    |   </li>
+  sample[2] (3L): “stands to the real machine-electronic, mechanical, neural, or economic-much as 
+    |   <li>
+    |     “stands to the real machine-electronic, mechanical, neural, or economic-much as geometry stands to a real object in our terrestrial space”
+    |   </li>
+
+--- Chunk 5: [text_content:li×4] ---
+  type=text_singleton freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (3L): “a branch of mathematics dealing with problems of control, recursiveness, and in
+    |   <li>
+    |     “a branch of mathematics dealing with problems of control, recursiveness, and information”
+    |   </li>
+  sample[1] (3L): “the study of form and pattern”
+    |   <li>
+    |     “the study of form and pattern”
+    |   </li>
+  sample[2] (3L): “the biggest bite out of the fruit of the Tree of Knowledge that mankind has tak
+    |   <li>
+    |     “the biggest bite out of the fruit of the Tree of Knowledge that mankind has taken in the last 2000 years.”
+    |   </li>
+
+--- Chunk 6: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.44 LEAKS=1
+  pattern_xpath: ///li[contains(@class,'container')][contains(@class,'widget')][contains(@id,'block')][contains(@class,'block')]
+  content: [ATTR=1 IMG=1 TEXT=3]
+  sample[0] (24L): The ASC welcomes donations from members and the public at large.The American Soc
+    |   <li id="block-21" class="widget-container widget_block">
+    |     <div class="wp-block-group is-layout-flow">
+    |       <div class="wp-block-group__inner-container">
+    |         <h2 class="wp-block-heading">
+    |           <br></br>
+    |           Donate to the ASC
+    |         </h2>
+    |         <p>
+    |           The ASC welcomes donations from members and the public at large.
+    |           <br></br>
+    | ... [14 more lines]
+  LEAKS (high):
+    [IMG] https://www.paypalobjects.com/en_US/i/scr/pixel.gif (img URL not in rendered)
+
+--- Chunk 7: [nav_content:a×17] ---
+  type=menu_item freq=17 excl=1.00
+  pattern_xpath: ///a[contains(@rel,'noopener')][contains(@target,'new')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: James WilkOverviewIntroductionThe Difficulty of Defining CyberneticsOn the Ambig
+    |   <h3>
+    |     James WilkOverviewIntroductionThe Difficulty of Defining CyberneticsOn the Ambiguity of the Term CyberneticsPrevious version of the ASC By-Laws1987 ASC Conference AnnouncementAndré-Marie AmpèreW. Ross AshbyGregory Bateson
+    |     <a href="http://behavenet.com/family/cybernetics" target="_new" rel="noopener">
+    |       BehaveNet
+    |     </a>
+    |   ... [9 lines truncated] ...
+    |     <a href="http://searchsoa.techtarget.com/definition/cybernetics" target="_new" rel="noopener">
+    |       WhatIs.com
+    |     </a>
+    |     Randall WhitakerNorbert Wiener
+    | ... [1 more lines]
+  sample[1] (5L): BehaveNet
+    |   <h3>
+    |     <a href="http://behavenet.com/family/cybernetics" target="_new" rel="noopener">
+    |       BehaveNet
+    |     </a>
+    |   </h3>
+  sample[2] (3L): source“a way of thinking““Cybernetics, as we all know, can be described in many 
+    |   <a href="http://www.cybsoc.org/proceedings/CybCon2002.htm" target="_new" rel="noopener">
+    |     source
+    |   </a>
+
+--- Chunk 8: [nav_content:li×18] ---
+  type=menu_item freq=18 excl=0.33
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')][contains(@id,'item')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Affiliations Organizations Publications
+    |   <li id="menu-item-319" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-319">
+    |     <a class="sf-with-ul">
+    |       Affiliations
+    |     </a>
+    |     <ul class="sub-menu" style="display: none;">
+    |   ... [7 lines truncated] ...
+    |           Publications
+    |         </a>
+    |       </li>
+    |     </ul>
+    | ... [1 more lines]
+  sample[1] (12L): Initiatives AMC WG
+    |   <li id="menu-item-2230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2230">
+    |     <a href="https://asc-cybernetics.org/initiatives/" class="sf-with-ul">
+    |       Initiatives
+    |     </a>
+    |     <ul class="sub-menu" style="display: none;">
+    |       <li id="menu-item-2274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2274">
+    |         <a href="https://asc-cybernetics.org/amc/">
+    |           AMC WG
+    |         </a>
+    |       </li>
+    | ... [2 more lines]
+  sample[2] (5L): The field of cybernetics
+    |   <li id="menu-item-1068" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1068">
+    |     <a href="https://asc-cybernetics.org/the-field-of-cybernetics/">
+    |       The field of cybernetics
+    |     </a>
+    |   </li>
+
+--- Chunk 9: [nav_content:li×8] ---
+  type=menu_item freq=8 excl=0.33
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'page')][contains(@class,'post')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (12L): Initiatives AMC WG
+    |   <li id="menu-item-2230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2230">
+    |     <a href="https://asc-cybernetics.org/initiatives/" class="sf-with-ul">
+    |       Initiatives
+    |     </a>
+    |     <ul class="sub-menu" style="display: none;">
+    |       <li id="menu-item-2274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2274">
+    |         <a href="https://asc-cybernetics.org/amc/">
+    |           AMC WG
+    |         </a>
+    |       </li>
+    | ... [2 more lines]
+  sample[1] (5L): About us
+    |   <li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-74">
+    |     <a href="https://asc-cybernetics.org/about/">
+    |       About us
+    |     </a>
+    |   </li>
+  sample[2] (5L): ASC Awards
+    |   <li id="menu-item-123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-123">
+    |     <a href="https://asc-cybernetics.org/awards/">
+    |       ASC Awards
+    |     </a>
+    |   </li>
+
+--- Chunk 10: [nav_content:li×7] ---
+  type=menu_item freq=7 excl=0.33
+  pattern_xpath: ///li[contains(@class,'custom')][contains(@class,'current')][contains(@class,'ancestor')]//li[contains(@class,'item')][contains(@class,'menu')][contains(@class,'object')][contains(@class,'type')][contains(@id,'item')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): The field of cybernetics
+    |   <li id="menu-item-1068" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1068">
+    |     <a href="https://asc-cybernetics.org/the-field-of-cybernetics/">
+    |       The field of cybernetics
+    |     </a>
+    |   </li>
+  sample[1] (5L): Definitions
+    |   <li id="menu-item-489" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-469 current_page_item menu-item-489">
+    |     <a href="https://asc-cybernetics.org/definitions/" aria-current="page">
+    |       Definitions
+    |     </a>
+    |   </li>
+  sample[2] (5L): Archives
+    |   <li id="menu-item-1696" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1696">
+    |     <a href="https://asc-cybernetics.org/archives/">
+    |       Archives
+    |     </a>
+    |   </li>
+
+--- Chunk 11: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.42
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'wp')][contains(@class,'block')]
+  content: [TEXT=1]
+  sample[0] (4L): ASC Social Networks
+    |   <h2 class="wp-block-heading">
+    |     <br></br>
+    |     ASC Social Networks
+    |   </h2>
+
+--- Chunk 12: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.42
+  pattern_xpath: ///h2[contains(@class,'heading')][contains(@class,'wp')][contains(@class,'block')]
+  content: [TEXT=1]
+  sample[0] (4L): Join the ASC
+    |   <h2 class="wp-block-heading">
+    |     <br></br>
+    |     Join the ASC
+    |   </h2>
+
+--- Chunk 13: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.44
+  pattern_xpath: ///li[contains(@class,'container')][contains(@class,'widget')][contains(@id,'block')][contains(@class,'block')]
+  content: [ATTR=1 HREF=1 IMG=1 TEXT=8]
+  sample[0] (31L) [TRUNCATED]: The ASC welcomes new members at any time of the year (One-year ASC Membership Pa
+    |   <li id="block-20" class="widget-container widget_block">
+    |     <div class="wp-block-group is-layout-flow">
+    |       <div class="wp-block-group__inner-container">
+    |         <div class="wp-block-group is-layout-flow">
+    |           <div class="wp-block-group__inner-container">
+    |             <h2 class="wp-block-heading">
+    |               <br></br>
+    |               Join the ASC
+    |             </h2>
+    |             <p>
+    | ... [21 more lines]

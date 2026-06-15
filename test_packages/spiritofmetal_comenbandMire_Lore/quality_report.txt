@@ -1,0 +1,347 @@
+=== QUALITY REPORT: spiritofmetal_comenbandMire_Lore.html ===
+Chunks: 18 (structural=7, functional=3, text=8)
+Categories: {'card': 4, 'menu_item': 3, 'structural': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 8}
+Content: 35 tagged, 35 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div ---
+  type=card freq=3 excl=0.00
+  pattern_xpath: ///div
+  tree_sig: div(span,span(a))
+  content: [HREF=1 TEXT=2]
+  sample[0] (10L): Style Deathcore
+    |   <div>
+    |     <span>
+    |       Style
+    |     </span>
+    |     <span>
+    |       <a href="/en/style/Deathcore">
+    |         Deathcore
+    |       </a>
+    |     </span>
+    |   </div>
+  sample[1] (10L): Country USA
+    |   <div>
+    |     <span>
+    |       Country
+    |     </span>
+    |     <span>
+    |       <a href="/en/bands/USA/1">
+    |         USA
+    |       </a>
+    |     </span>
+    |   </div>
+  sample[2] (10L): Fans 21
+    |   <div>
+    |     <span>
+    |       Fans
+    |     </span>
+    |     <span>
+    |       <a href="https://www.spirit-of-metal.com/forum/en/Mire_Lore/g101947">
+    |         21
+    |       </a>
+    |     </span>
+    |   </div>
+
+--- Chunk 1: div ---
+  type=card freq=3 excl=0.00
+  pattern_xpath: ///div
+  tree_sig: div(span,span)
+  content: [TEXT=2]
+  sample[0] (8L): Status Active
+    |   <div>
+    |     <span>
+    |       Status
+    |     </span>
+    |     <span>
+    |       Active
+    |     </span>
+    |   </div>
+  sample[1] (8L): Formed In 2016
+    |   <div>
+    |     <span>
+    |       Formed In
+    |     </span>
+    |     <span>
+    |       2016
+    |     </span>
+    |   </div>
+  sample[2] (8L): City Jupiter
+    |   <div>
+    |     <span>
+    |       City
+    |     </span>
+    |     <span>
+    |       Jupiter
+    |     </span>
+    |   </div>
+
+--- Chunk 2: a.band.center ---
+  type=menu_item freq=5 excl=0.67
+  pattern_xpath: ///a[contains(@class,'text')][contains(@rel,'nofollow')][contains(@class,'col')][contains(@class,'xs')][contains(@class,'center')]
+  tree_sig: a(br,svg(path))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Edit the band
+    |   <a href="/soumission/band/band_edit-id_groupe-101947-l-en.html" class="col-xs-4 text-center" rel="nofollow">
+    |     <svg class="svg-inline--fa fa-edit fa-w-18 fa-2x" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="edit" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" data-fa-i2svg="">
+    |       <path fill="currentColor" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22...."></path>
+    |     </svg>
+    |     <br></br>
+    |     Edit the band
+    |   </a>
+  sample[1] (7L): Modifications history
+    |   <a href="/soumission/band/band_history-id_groupe-101947-l-en.html" class="col-xs-4 text-center" rel="nofollow">
+    |     <svg class="svg-inline--fa fa-history fa-w-16 fa-2x" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="history" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+    |       <path fill="currentColor" d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-..."></path>
+    |     </svg>
+    |     <br></br>
+    |     Modifications history
+    |   </a>
+  sample[2] (7L): Add a video
+    |   <a href="/soumission/video-id_groupe-101947-l-en.html" class="col-xs-4 text-center" rel="nofollow">
+    |     <svg class="svg-inline--fa fa-file-video fa-w-12 fa-2x" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="file-video" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" data-fa-i2svg="">
+    |       <path fill="currentColor" d="M384 121.941V128H256V0h6.059c6.365 0 12.47 2.529 16.971 7.029l97.941 97.941A24.0..."></path>
+    |     </svg>
+    |     <br></br>
+    |     Add a video
+    |   </a>
+
+--- Chunk 3: a.col.com ---
+  type=menu_item freq=20 excl=0.50
+  pattern_xpath: ///div[contains(@id,'search')][contains(@id,'box')]//a[contains(@class,'col')][contains(@class,'xs')]
+  tree_sig: a(div,svg(path))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Reviews
+    |   <a href="https://www.spirit-of-metal.com/en/reviews/1" class="col-xs-3">
+    |     <svg class="svg-inline--fa fa-edit fa-w-18 fa-2x" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="edit" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" data-fa-i2svg="">
+    |       <path fill="currentColor" d="M417.8 315.5l20-20c3.8-3.8 10.2-1.1 10.2 4.2V464c0 26.5-21.5 48-48 48H48c-26.5 0..."></path>
+    |     </svg>
+    |     <div>
+    |       Reviews
+    |     </div>
+    |   </a>
+  sample[1] (8L): Interviews
+    |   <a href="https://www.spirit-of-metal.com/en/interviews/1" class="col-xs-3">
+    |     <svg class="svg-inline--fa fa-microphone fa-w-11 fa-2x" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="microphone" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 352 512" data-fa-i2svg="">
+    |       <path fill="currentColor" d="M176 352c53.02 0 96-42.98 96-96V96c0-53.02-42.98-96-96-96S80 42.98 80 96v160c0 5..."></path>
+    |     </svg>
+    |     <div>
+    |       Interviews
+    |     </div>
+    |   </a>
+  sample[2] (8L): Labels
+    |   <a href="/en/labels/1" class="col-xs-3">
+    |     <svg class="svg-inline--fa fa-tag fa-w-16 fa-2x" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="tag" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+    |       <path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211..."></path>
+    |     </svg>
+    |     <div>
+    |       Labels
+    |     </div>
+    |   </a>
+
+--- Chunk 4: div.be.cloned ---
+  type=card freq=12 excl=0.50
+  pattern_xpath: ///div[contains(@class,'item')][contains(@class,'owl')][contains(@style,'px')][contains(@style,'width')]
+  tree_sig: div(div(div(a,div,div)))
+  content: [HREF=1]
+  sample[0] (9L): 
+    |   <div class="owl-item cloned" data-video="https://youtu.be/hM6weZqbAgs" style="width: 550px;">
+    |     <div class="item-video" data-merge="1">
+    |       <div class="owl-video-wrapper" style="width:570px;height:428px;">
+    |         <a class="owl-video" href="https://youtu.be/hM6weZqbAgs" style="display: none;"></a>
+    |         <div class="owl-video-play-icon"></div>
+    |         <div class="owl-video-tn owl-lazy" data-src="//img.youtube.com/vi/hM6weZqbAgs/hqdefault.jpg"></div>
+    |       </div>
+    |     </div>
+    |   </div>
+  sample[1] (9L): 
+    |   <div class="owl-item cloned" data-video="https://youtu.be/FKCzwb6jiT8" style="width: 550px;">
+    |     <div class="item-video" data-merge="1">
+    |       <div class="owl-video-wrapper" style="width:570px;height:428px;">
+    |         <a class="owl-video" href="https://youtu.be/FKCzwb6jiT8" style="display: none;"></a>
+    |         <div class="owl-video-play-icon"></div>
+    |         <div class="owl-video-tn owl-lazy" data-src="//img.youtube.com/vi/FKCzwb6jiT8/hqdefault.jpg"></div>
+    |       </div>
+    |     </div>
+    |   </div>
+  sample[2] (9L): 
+    |   <div class="owl-item" data-video="https://youtu.be/hM6weZqbAgs" style="width: 550px;">
+    |     <div class="item-video" data-merge="1">
+    |       <div class="owl-video-wrapper" style="width:570px;height:428px;">
+    |         <a class="owl-video" href="https://youtu.be/hM6weZqbAgs" style="display: none;"></a>
+    |         <div class="owl-video-play-icon"></div>
+    |         <div class="owl-video-tn owl-lazy" data-src="//img.youtube.com/vi/hM6weZqbAgs/hqdefault.jpg"></div>
+    |       </div>
+    |     </div>
+    |   </div>
+
+--- Chunk 5: div.cloned.item ---
+  type=card freq=12 excl=0.50
+  pattern_xpath: ///div[contains(@class,'item')][contains(@class,'owl')][contains(@style,'px')][contains(@style,'width')][contains(@class,'cloned')]
+  tree_sig: div(a(img))
+  content: [HREF=1 IMG=1]
+  sample[0] (5L): 
+    |   <div class="owl-item cloned" style="width: 211.667px;">
+    |     <a href="/les goupes/M/Mire Lore/pics/2ae1_1.jpg" class="fancybox" data-fancybox-group="gallery">
+    |       <img src="/les goupes/M/Mire Lore/pics/2ae1_1.jpg" onerror="this.style.display='none'"></img>
+    |     </a>
+    |   </div>
+  sample[1] (5L): 
+    |   <div class="owl-item cloned" style="width: 211.667px;">
+    |     <a href="/les goupes/M/Mire Lore/pics/7a65_2.jpg" class="fancybox" data-fancybox-group="gallery">
+    |       <img src="/les goupes/M/Mire Lore/pics/7a65_2.jpg" onerror="this.style.display='none'"></img>
+    |     </a>
+    |   </div>
+  sample[2] (5L): 
+    |   <div class="owl-item cloned" style="width: 211.667px;">
+    |     <a href="/les goupes/M/Mire Lore/pics/2ae1_1.jpg" class="fancybox" data-fancybox-group="gallery">
+    |       <img src="/les goupes/M/Mire Lore/pics/2ae1_1.jpg" onerror="this.style.display='none'"></img>
+    |     </a>
+    |   </div>
+
+--- Chunk 6: h1 ---
+  type=structural freq=2 excl=0.00
+  pattern_xpath: ///h1
+  tree_sig: h1(a(span))
+  content: [HREF=1 TEXT=2]
+  sample[0] (8L): SPIRIT OF METAL
+    |   <h1>
+    |     <a href="https://www.spirit-of-metal.com">
+    |       SPIRIT OF
+    |       <span>
+    |         METAL
+    |       </span>
+    |     </a>
+    |   </h1>
+  sample[1] (8L): SPIRIT OF METAL
+    |   <h1>
+    |     <a href="https://www.spirit-of-metal.com">
+    |       SPIRIT OF
+    |       <span>
+    |         METAL
+    |       </span>
+    |     </a>
+    |   </h1>
+
+--- Chunk 7: [search_inputs] ---
+  type=search_input freq=11 excl=0.00
+  pattern_xpath: ///input
+  content: [ATTR=1]
+  sample[0] (1L): Search
+    |   <input id="GlobalSearchField" type="text" name="nom" placeholder="Search"></input>
+  sample[1] (1L): Search
+    |   <input id="GlobalSearchField" type="text" name="nom" placeholder="Search"></input>
+  sample[2] (1L): Login
+    |   <input type="text" class="SubmitSmallNEW" name="login_log" id="login_log" size="30" placeholder=" Login"></input>
+
+--- Chunk 8: [pagination_buttons] ---
+  type=pagination freq=2 excl=1.00
+  pattern_xpath: ///form[contains(@id,'for')][contains(@id,'mlogin')][contains(@method,'post')]
+  content: [ATTR=4 HREF=2 TEXT=2]
+  sample[0] (27L): Login Subscribing|Pass lost ?Login Password Password
+    |   <form method="post" id="FORMlogin" action="/fonctions/login.php?page=/en/band/Mire_Lore">
+    |     <div>
+    |       <input type="text" class="SubmitSmallNEW" name="login_log" id="login_log" size="30" placeholder=" Login"></input>
+    |     </div>
+    |     <div style="margin-top:5px;float:left;">
+    |       <div style="margin-top:5px;float:left;">
+    |         <input type="password" class="SubmitSmallNEW" name="password_log" id="password_log" size="30" placeholder=" Password"></input>
+    |       </div>
+    |       <div style="margin-top:5px;float:left;">
+    |         <input type="Submit" class="btn-yellow" value="OK"></input>
+    | ... [17 more lines]
+
+--- Chunk 9: [nav_content:li×7] ---
+  type=menu_item freq=7 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): EN
+    |   <li>
+    |     <a href="/en/band/Mire_Lore" onclick="setCookie('clang','en',31,'/');" class="m-active">
+    |       EN
+    |     </a>
+    |   </li>
+  sample[1] (5L): FR
+    |   <li>
+    |     <a href="/fr/band/Mire_Lore" onclick="setCookie('clang','fr',31,'/');">
+    |       FR
+    |     </a>
+    |   </li>
+  sample[2] (5L): PT
+    |   <li>
+    |     <a href="/pt/band/Mire_Lore" onclick="setCookie('clang','pt',31,'/');">
+    |       PT
+    |     </a>
+    |   </li>
+
+--- Chunk 10: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h2[contains(@class,'ribbon')]
+  content: [TEXT=1]
+  sample[0] (3L): Mire Lore
+    |   <h2 class="ribbon">
+    |     Mire Lore
+    |   </h2>
+
+--- Chunk 11: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h3[contains(@class,'ribbon')]
+  content: [TEXT=1]
+  sample[0] (3L): Share
+    |   <h3 class="ribbon">
+    |     Share
+    |   </h3>
+
+--- Chunk 12: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h3[contains(@class,'ribbon')]
+  content: [TEXT=1]
+  sample[0] (3L): Links
+    |   <h3 class="ribbon">
+    |     Links
+    |   </h3>
+
+--- Chunk 13: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///div[contains(@class,'hidden')][contains(@class,'xs')][contains(@class,'sm')]//h3[contains(@class,'ribbon')]
+  content: [TEXT=1]
+  sample[0] (3L): ShareLinks
+    |   <h3 class="ribbon">
+    |     ShareLinks
+    |   </h3>
+
+--- Chunk 14: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Line-up
+    |   <h3>
+    |     Line-up
+    |   </h3>
+
+--- Chunk 15: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///h3[contains(@class,'ribbon')]
+  content: [TEXT=1]
+  sample[0] (3L): Albums
+    |   <h3 class="ribbon">
+    |     Albums
+    |   </h3>
+
+--- Chunk 16: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.17
+  pattern_xpath: ///section[contains(@id,'videos')]/h3[contains(@class,'ribbon')]
+  content: [TEXT=1]
+  sample[0] (3L): Videos
+    |   <h3 class="ribbon">
+    |     Videos
+    |   </h3>
+
+--- Chunk 17: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h4[contains(@itemprop,'name')]
+  content: [TEXT=2]
+  sample[0] (3L): Marrow Leech Album -
+    |   <h4 itemprop="name">
+    |     Marrow Leech
+    |   </h4>

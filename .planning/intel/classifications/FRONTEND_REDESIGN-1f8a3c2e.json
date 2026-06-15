@@ -1,0 +1,13 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/FRONTEND_REDESIGN.md",
+  "type": "SPEC",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Web Fiber Haptics: Frontend Redesign — A Vision-First Object Model",
+  "summary": "Defines the frontend's object model: a faithful projection of backend truth with one inbound/outbound seam, one record renderer, recursive field interpreter, two canvases, and a liveness engine.",
+  "scope": ["frontend object model", "FrameBus", "GestureGateway", "WorkspaceStore", "FieldTree", "Projector (3D)", "Editor (2D)", "halo", "Liveness engine", "ConceptNode rendering", "unified knowledge panel"],
+  "cross_refs": ["DOMAIN_MODEL.md", "DOC_MAP.md", "code_constraints/frontend_rendering.md", "frontend/theme.md", "_legacy_frontend/README.md"],
+  "locked": false,
+  "precedence": 2,
+  "notes": ""
+}

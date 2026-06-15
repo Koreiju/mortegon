@@ -1,0 +1,259 @@
+=== QUALITY REPORT: neuroheadz_compagesevents.html ===
+Chunks: 15 (structural=3, functional=4, text=8)
+Categories: {'card': 2, 'menu_item': 3, 'search_input': 1, 'pagination': 1, 'text_singleton': 8}
+Content: 17 tagged, 17 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: span.hidden.visibility ---
+  type=card freq=184 excl=0.00
+  pattern_xpath: ///span
+  tree_sig: span(svg(path))
+  sample[0] (6L): Cart
+    |   <span class="visually-hidden">
+    |     Cart
+    |     <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-cart-empty" viewbox="0 0 40 40">
+    |       <path fill="currentColor" fill-rule="evenodd" d="M15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33L28.4 11..."></path>
+    |     </svg>
+    |   </span>
+  sample[1] (6L): YouTube
+    |   <span class="visually-hidden">
+    |     YouTube
+    |     <svg class="icon icon-youtube" viewbox="0 0 20 20">
+    |       <path fill="currentColor" d="M18.16 5.87c.34 1.309.34 4.08.34 4.08s0 2.771-.34 4.08a2.13 2.13 0 0 1-1.53 1.53..."></path>
+    |     </svg>
+    |   </span>
+  sample[2] (5L): 
+    |   <span class="svg-wrapper">
+    |     <svg class="icon icon-instagram" viewbox="0 0 20 20">
+    |       <path fill="currentColor" fill-rule="evenodd" d="M13.23 3.492c-.84-.037-1.096-.046-3.23-.046-2.144 0-2.39.01-3.238.055-.776.027-1..." clip-rule="evenodd"></path>
+    |     </svg>
+    |   </span>
+
+--- Chunk 1: li ---
+  type=menu_item freq=6 excl=0.00
+  pattern_xpath: ///li
+  tree_sig: li(a(span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Home
+    |   <li>
+    |     <a id="HeaderMenu-home" href="/" class="header__menu-item list-menu__item link link--text focus-inset">
+    |       <span>
+    |         Home
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[1] (7L): Music
+    |   <li>
+    |     <a id="HeaderMenu-music" href="/collections/releases" class="header__menu-item list-menu__item link link--text focus-inset">
+    |       <span>
+    |         Music
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (7L): Mix Series
+    |   <li>
+    |     <a id="HeaderMenu-mix-series" href="/pages/mix-series" class="header__menu-item list-menu__item link link--text focus-inset">
+    |       <span>
+    |         Mix Series
+    |       </span>
+    |     </a>
+    |   </li>
+
+--- Chunk 2: li.item.list ---
+  type=card freq=3 excl=0.33
+  pattern_xpath: ///li[contains(@class,'item')][contains(@class,'list')][contains(@class,'social')]
+  tree_sig: li(a(span,span(svg(path))))
+  content: [HREF=1 TEXT=1]
+  sample[0] (12L): Facebook
+    |   <li class="list-social__item">
+    |     <a href="https://facebook.com/neuroheadz/" class="list-social__link link">
+    |       <span class="svg-wrapper">
+    |         <svg class="icon icon-facebook" viewbox="0 0 20 20">
+    |           <path fill="currentColor" d="M18 10.049C18 5.603 14.419 2 10 2s-8 3.603-8 8.049C2 14.067 4.925 17.396 8.75 18..."></path>
+    |         </svg>
+    |       </span>
+    |       <span class="visually-hidden">
+    |         Facebook
+    |       </span>
+    | ... [2 more lines]
+  sample[1] (12L): Instagram
+    |   <li class="list-social__item">
+    |     <a href="https://www.instagram.com/neuroheadz/" class="list-social__link link">
+    |       <span class="svg-wrapper">
+    |         <svg class="icon icon-instagram" viewbox="0 0 20 20">
+    |           <path fill="currentColor" fill-rule="evenodd" d="M13.23 3.492c-.84-.037-1.096-.046-3.23-.046-2.144 0-2.39.01-3.238.055-.776.027-1..." clip-rule="evenodd"></path>
+    |         </svg>
+    |       </span>
+    |       <span class="visually-hidden">
+    |         Instagram
+    |       </span>
+    | ... [2 more lines]
+
+--- Chunk 3: [search_inputs] ---
+  type=search_input freq=11 excl=1.00
+  pattern_xpath: ///input[contains(@aria-autocomplete,'list')][contains(@aria-haspopup,'listbox')][contains(@aria-owns,'results')][contains(@autocapitalize,'none')][contains(@autocomplete,'off')]
+  content: [ATTR=1]
+  sample[0] (1L): Search
+    |   <input class="search__input field__input" id="Search-In-Modal-1" type="search" name="q" value="" placeholder="Search" role="combobox" aria-expanded="false" aria-owns="predictive-search-results" aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="none" spellcheck="false"></input>
+  sample[1] (1L): Search
+    |   <input class="search__input field__input" id="Search-In-Modal-1" type="search" name="q" value="" placeholder="Search" role="combobox" aria-expanded="false" aria-owns="predictive-search-results" aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="none" spellcheck="false"></input>
+  sample[2] (1L): Search
+    |   <input class="country-filter__input field__input" id="country-filter-input" type="search" name="country_filter" value="" placeholder="Search" role="combobox" aria-owns="country-results" aria-controls="country-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="none" spellcheck="false"></input>
+
+--- Chunk 4: [pagination_buttons] ---
+  type=pagination freq=8 excl=0.00
+  pattern_xpath: ///button
+  sample[0] (10L): Canada |       CAD       $
+    |   <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="HeaderCountry-country-results" aria-describedby="HeaderCountryLabel">
+    |     <span>
+    |       Canada |
+    |       CAD
+    |       $
+    |     </span>
+    |     <svg class="icon icon-caret" viewbox="0 0 10 6">
+    |       <path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 ..." clip-rule="evenodd"></path>
+    |     </svg>
+    |   </button>
+  sample[1] (10L): Canada |       CAD       $
+    |   <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterCountry-country-results" aria-describedby="FooterCountryLabel">
+    |     <span>
+    |       Canada |
+    |       CAD
+    |       $
+    |     </span>
+    |     <svg class="icon icon-caret" viewbox="0 0 10 6">
+    |       <path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 ..." clip-rule="evenodd"></path>
+    |     </svg>
+    |   </button>
+  sample[2] (1L): 
+    |   <script defer="" src="https://neuroheadz.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-3.1.0.min.js" data-application="storefront-renderer" data-shop-id="77513883972" data-render-region="gcp-us-east1" data-page-type="page" data-theme-instance-id="179828982084" data-theme-name="Publisher" data-theme-version="15.3.0" data-monorail-region="shop_domain" data-resource-timing-sampling-rate="10" data-shs="true" data-shs-beacon="true" data-shs-export-with-fetch="true" data-shs-logs-sample-rate="1" data-shs-beacon-endpoint="https://neuroheadz.com/api/collect"></script>
+
+--- Chunk 5: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.33
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'block')][contains(@class,'newsletter')]//li[contains(@class,'item')][contains(@class,'list')][contains(@class,'social')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (12L): Facebook
+    |   <li class="list-social__item">
+    |     <a href="https://facebook.com/neuroheadz/" class="link list-social__link">
+    |       <span class="svg-wrapper">
+    |         <svg class="icon icon-facebook" viewbox="0 0 20 20">
+    |           <path fill="currentColor" d="M18 10.049C18 5.603 14.419 2 10 2s-8 3.603-8 8.049C2 14.067 4.925 17.396 8.75 18..."></path>
+    |         </svg>
+    |       </span>
+    |       <span class="visually-hidden">
+    |         Facebook
+    |       </span>
+    | ... [2 more lines]
+  sample[1] (12L): Instagram
+    |   <li class="list-social__item">
+    |     <a href="https://www.instagram.com/neuroheadz/" class="link list-social__link">
+    |       <span class="svg-wrapper">
+    |         <svg class="icon icon-instagram" viewbox="0 0 20 20">
+    |           <path fill="currentColor" fill-rule="evenodd" d="M13.23 3.492c-.84-.037-1.096-.046-3.23-.046-2.144 0-2.39.01-3.238.055-.776.027-1..." clip-rule="evenodd"></path>
+    |         </svg>
+    |       </span>
+    |       <span class="visually-hidden">
+    |         Instagram
+    |       </span>
+    | ... [2 more lines]
+
+--- Chunk 6: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.33
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'content')][contains(@class,'bottom')]//li[contains(@class,'item')][contains(@class,'list')][contains(@class,'social')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: TikTok Facebook Instagram YouTube
+    |   <li class="list-social__item">
+    |     <a href="https://www.tiktok.com/@neuroheadz" class="link list-social__link">
+    |       <span class="svg-wrapper">
+    |         <svg class="icon icon-tiktok" viewbox="0 0 20 20">
+    |           <path fill="currentColor" d="M10.511 1.705h2.74s-.157 3.51 3.795 3.768v2.711s-2.114.129-3.796-1.158l.028 5.60..."></path>
+    |   ... [44 lines truncated] ...
+    |           <path fill="currentColor" d="M18.16 5.87c.34 1.309.34 4.08.34 4.08s0 2.771-.34 4.08a2.13 2.13 0 0 1-1.53 1.53..."></path>
+    |         </svg>
+    |       </span>
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (12L): Facebook
+    |   <li class="list-social__item">
+    |     <a href="https://facebook.com/neuroheadz/" class="link list-social__link">
+    |       <span class="svg-wrapper">
+    |         <svg class="icon icon-facebook" viewbox="0 0 20 20">
+    |           <path fill="currentColor" d="M18 10.049C18 5.603 14.419 2 10 2s-8 3.603-8 8.049C2 14.067 4.925 17.396 8.75 18..."></path>
+    |         </svg>
+    |       </span>
+    |       <span class="visually-hidden">
+    |         Facebook
+    |       </span>
+    | ... [2 more lines]
+
+--- Chunk 7: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h1[contains(@class,'main')][contains(@class,'page')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Events
+    |   <h1 class="main-page-title page-title h0">
+    |     Events
+    |   </h1>
+
+--- Chunk 8: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.67
+  pattern_xpath: ///div[contains(@class,'drawer')][contains(@class,'header')]/h2[contains(@class,'drawer')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Your cart
+    |   <h2 class="drawer__heading">
+    |     Your cart
+    |   </h2>
+
+--- Chunk 9: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.67
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'block')][contains(@class,'newsletter')]/h2[contains(@class,'block')][contains(@class,'footer')][contains(@class,'inline')][contains(@class,'richtext')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Get the latest Neuroheadz news
+    |   <h2 class="footer-block__heading inline-richtext">
+    |     Get the latest Neuroheadz news
+    |   </h2>
+
+--- Chunk 10: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.42
+  pattern_xpath: ///div[contains(@class,'cart')][contains(@class,'drawer')][contains(@class,'warnings')]//h2[contains(@class,'cart')][contains(@class,'empty')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Your cart is empty
+    |   <h2 class="cart__empty-text">
+    |     Your cart is empty
+    |   </h2>
+
+--- Chunk 11: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h2[contains(@class,'total')][contains(@class,'totals')]
+  content: [TEXT=1]
+  sample[0] (3L): Estimated total
+    |   <h2 class="totals__total">
+    |     Estimated total
+    |   </h2>
+
+--- Chunk 12: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.42
+  pattern_xpath: ///div[contains(@class,'cart')][contains(@class,'ctas')]//h2[contains(@class,'cart')][contains(@class,'empty')][contains(@class,'text')]
+  content: [TEXT=1]
+  sample[0] (3L): Your cart is emptyEstimated total
+    |   <h2 class="cart__empty-text">
+    |     Your cart is emptyEstimated total
+    |   </h2>
+
+--- Chunk 13: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.70
+  pattern_xpath: ///localization-form[contains(@class,'small')][contains(@class,'hide')][contains(@class,'medium')]//h2[contains(@id,'header')][contains(@id,'label')][contains(@class,'hidden')][contains(@class,'visually')][contains(@id,'country')]
+  content: [TEXT=1]
+  sample[0] (3L): Country/region
+    |   <h2 class="visually-hidden" id="HeaderCountryLabel">
+    |     Country/region
+    |   </h2>
+
+--- Chunk 14: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.67
+  pattern_xpath: ///h2[contains(@class,'image')][contains(@class,'with')][contains(@class,'inline')][contains(@class,'richtext')][contains(@class,'heading')]
+  content: [TEXT=1]
+  sample[0] (3L): Neuroheadz Festival 2025
+    |   <h2 class="image-with-text__heading inline-richtext h1">
+    |     Neuroheadz Festival 2025
+    |   </h2>

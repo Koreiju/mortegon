@@ -1,0 +1,13 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/features/signal_stream.md",
+  "type": "PRD",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "Feature: Signal-Stream Constraint Under Iteration",
+  "summary": "User-facing feature spec for the signal-stream display constraint: panels render only one iterable signal at a time, advanced via play/pause/step rollout.",
+  "scope": ["signal_stream display state", "RolloutCoordinator", "UIStateService mirror field", "pattern_map iteration", "url_set panel iteration", "Database.concept iterables", "cascade re-fire per signal", "2D panel rendering"],
+  "cross_refs": ["../DOMAIN_MODEL.md", "../object_model/UIStateService.md", "../object_model/RolloutCoordinator.md", "../object_model/ConceptualCompute.md", "../object_model/FieldTree.md", "../object_model/Database.md", "../object_model/PatternMap.md", "../object_model/URLSetPanel.md", "../code_constraints/backend_services.md", "../code_constraints/frontend_rendering.md", "../code_constraints/ws_frames.md", "../code_constraints/repl_actions.md", "play_pause_rollout.md", "pattern_map.md", "url_set_panel.md", "agent_integration_scheme.md", "four_fixture_api.md"],
+  "locked": false,
+  "precedence": 6,
+  "notes": ""
+}

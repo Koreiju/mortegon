@@ -1,0 +1,133 @@
+{
+  "//script": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "pagination",
+    "frequency": 1,
+    "pattern_xpath": "///script",
+    "content_types": [],
+    "children": {}
+  },
+  "//div[contains(@class,'main-content')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'content')][contains(@class,'main')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'ch-title-zone')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//h1": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//h2[contains(@class,'ch-title')][contains(@class,'spacer-bottom')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p[contains(@class,'ch-description')][contains(@class,'spacer-top')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//div": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {
+              "//div": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {
+                  "//input": {
+                    "chunk_ids": [
+                      1
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//h2[contains(@class,'spacer-top')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@class,'spacer')][contains(@class,'loading-verifying')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'lds-ring')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {
+              "//div": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//h1": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h1",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'spacer-top')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'spacer')][contains(@class,'top')][contains(@id,'challenge')][contains(@id,'success')][contains(@id,'text')]",
+    "content_types": [],
+    "children": {}
+  }
+}

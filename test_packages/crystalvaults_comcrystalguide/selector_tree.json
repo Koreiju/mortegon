@@ -1,0 +1,580 @@
+{
+  "//div[contains(@class,'fl-col')][contains(@class,'fl-node-61b10b76764b6')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 136,
+    "pattern_xpath": "///div[contains(@class,'bg')][contains(@class,'color')][contains(@class,'small')][contains(@class,'col')][contains(@class,'node')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'fl-col-content')][contains(@class,'fl-node-content')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'fl-module')][contains(@class,'fl-module-photo')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'fl-module-content')][contains(@class,'fl-node-content')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'fl-photo')][contains(@class,'fl-photo-align-center')][contains(@role,'figure')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//span[contains(@class,'fl-icon')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "card",
+    "frequency": 10,
+    "pattern_xpath": "///div[contains(@class,'icon')][contains(@class,'group')]/span[contains(@class,'icon')][contains(@class,'fl')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//i[contains(@class,'fab')][contains(@class,'fa-facebook-f')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span[contains(@class,'sr-only')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'menu-item')][contains(@class,'menu-item-type-custom')]": {
+    "chunk_ids": [
+      2,
+      6,
+      11,
+      12,
+      13,
+      14
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///li[contains(@class,'children')][contains(@class,'has')][contains(@class,'submenu')][contains(@class,'custom')][contains(@class,'item')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'fl-has-submenu-container')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//a[contains(@role,'menuitem')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span[contains(@class,'fl-menu-toggle')][contains(@class,'fl-content-ui-button')][contains(@role,'button')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//ul[contains(@class,'sub-menu')][contains(@role,'menu')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//li[contains(@class,'menu-item')][contains(@class,'menu-item-type-custom')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//a[contains(@role,'menuitem')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {}
+              },
+              "//div[contains(@class,'fl-has-submenu-container')]": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//a[contains(@role,'menuitem')]": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//span[contains(@class,'fl-menu-toggle')][contains(@class,'fl-content-ui-button')][contains(@role,'button')]": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//ul[contains(@class,'sub-menu')][contains(@role,'menu')]": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//li[contains(@class,'menu-item')][contains(@class,'menu-item-type-custom')]": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//a[contains(@role,'menuitem')]": {
+        "chunk_ids": [
+          11
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//p": {
+    "chunk_ids": [
+      3,
+      8,
+      9,
+      10
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///p",
+    "content_types": [],
+    "children": {
+      "//span": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//a": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//span": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'er_ecom_overlay_search_input')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "search_input",
+    "frequency": 11,
+    "pattern_xpath": "///input[contains(@autocomplete,'off')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//button[contains(@class,'er_ecom_input_back_button')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "pagination",
+    "frequency": 12,
+    "pattern_xpath": "///button",
+    "content_types": [],
+    "children": {
+      "//i[contains(@class,'fas')][contains(@class,'fa-arrow-left')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//div[contains(@class,'fl-col-content')][contains(@class,'fl-node-content')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'content')][contains(@class,'col')][contains(@class,'node')][contains(@class,'fl')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'fl-photo-content')][contains(@class,'fl-photo-img-png')]": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'fl-photo-img')][contains(@class,'wp-image-271071')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'fl-module-content')][contains(@class,'fl-node-content')]": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'fl-photo')][contains(@class,'fl-photo-align-center')][contains(@role,'figure')]": {
+                "chunk_ids": [
+                  7
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'fl-photo-content')][contains(@class,'fl-photo-img-jpg')]": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//h2": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//h4": {
+                    "chunk_ids": [
+                      7
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//h2": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              7
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//a": {
+        "chunk_ids": [
+          7
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h4[contains(@class,'fl-heading')]": {
+    "chunk_ids": [
+      15
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4[contains(@class,'heading')][contains(@class,'fl')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'fl-heading-text')]": {
+        "chunk_ids": [
+          15
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2[contains(@class,'fl-heading')]": {
+    "chunk_ids": [
+      16,
+      17,
+      18
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'heading')][contains(@class,'fl')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'fl-heading-text')]": {
+        "chunk_ids": [
+          16
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h2": {
+    "chunk_ids": [
+      19,
+      28,
+      31,
+      34,
+      47,
+      68,
+      76,
+      100,
+      102,
+      104,
+      106,
+      109,
+      111,
+      114,
+      128,
+      137,
+      140,
+      153,
+      164
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          31
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h4": {
+    "chunk_ids": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      29,
+      30,
+      32,
+      33,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      101,
+      103,
+      105,
+      107,
+      108,
+      110,
+      112,
+      113,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      138,
+      139,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      165
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h4[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')]",
+    "content_types": [],
+    "children": {
+      "//em": {
+        "chunk_ids": [
+          20
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              69
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//i": {
+        "chunk_ids": [
+          81
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  }
+}

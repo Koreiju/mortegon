@@ -1,0 +1,460 @@
+=== QUALITY REPORT: emastered_comblogwhatisneurofunk.html ===
+Chunks: 36 (structural=3, functional=2, text=31)
+Categories: {'card': 2, 'button': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 31}
+Content: 501 tagged, 241 preserved (48%)
+Leaks: 260 total, 148 high-importance
+
+--- Chunk 0: a.block.blog ---
+  type=card freq=32 excl=0.60
+  pattern_xpath: ///a[contains(@class,'link')][contains(@class,'block')][contains(@class,'collection')][contains(@class,'inline')][contains(@class,'item')]
+  tree_sig: a(div(div,div(h4)))
+  content: [BG=1 HREF=1 TEXT=1]
+  sample[0] (10L): How to Make An Album on SoundCloud
+    |   <a class="collection-item-link w-inline-block" data-w-id="9fdfd9e6-cb91-0dcd-bad4-d60d395f5423" href="https://emastered.com/blog/how-to-make-an-album-on-soundcloud" tabindex="0">
+    |     <div class="collection-item-container">
+    |       <div class="collection-item-image menu-thumb" style="background-image:url("https://static.emastered.com/images/blog-assets/7943.webp?v=zcRkh4d")"></div>
+    |       <div class="collection-item-heading">
+    |         <h4 class="h4-dropdown-menu">
+    |           How to Make An Album on SoundCloud
+    |         </h4>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[1] (10L): How to Promote a Single Release Effectively
+    |   <a class="collection-item-link w-inline-block" data-w-id="9fdfd9e6-cb91-0dcd-bad4-d60d395f5423" href="https://emastered.com/blog/how-to-promote-a-single-release" tabindex="0">
+    |     <div class="collection-item-container">
+    |       <div class="collection-item-image menu-thumb" style="background-image:url("https://static.emastered.com/images/blog-assets/8474.webp?v=EOH2L74")"></div>
+    |       <div class="collection-item-heading">
+    |         <h4 class="h4-dropdown-menu">
+    |           How to Promote a Single Release Effectively
+    |         </h4>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[2] (10L): How to Record Guitar on PC?
+    |   <a class="collection-item-link w-inline-block" data-w-id="39989ce7-3534-f5b3-de34-c69820c33598" href="https://emastered.com/blog/how-to-record-guitar-on-pc" tabindex="0">
+    |     <div class="collection-item-container">
+    |       <div class="collection-item-image menu-thumb" style="background-image:url("https://static.emastered.com/images/blog-assets/8387.webp?v=4cHEA0r")"></div>
+    |       <div class="collection-item-heading">
+    |         <h4 class="h4-dropdown-menu">
+    |           How to Record Guitar on PC?
+    |         </h4>
+    |       </div>
+    |     </div>
+    |   </a>
+
+--- Chunk 1: div.collection.dyn ---
+  type=button freq=18 excl=0.75
+  pattern_xpath: ///div[contains(@class,'dyn')][contains(@role,'listitem')][contains(@class,'collection')][contains(@class,'item')]
+  tree_sig: div(a(div))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Try it free!
+    |   <div class="tryfree">
+    |     <a class="pink-gradient-button tryitforfree w-inline-block" href="https://emastered.com/?utm_source=newblog&utm_medium=newblog1&utm_campaign=newblog1">
+    |       <div class="pink-button-text try">
+    |         Try it free!
+    |       </div>
+    |     </a>
+    |   </div>
+  sample[1] (7L): Master A Track
+    |   <div class="menu-links-common master-track-button mob-hide">
+    |     <a class="pink-gradient-button w-inline-block" href="https://emastered.com/?utm_source=newblog&utm_medium=newblog1&utm_campaign=newblog1">
+    |       <div class="pink-button-text">
+    |         Master A Track
+    |       </div>
+    |     </a>
+    |   </div>
+  sample[2] (7L): Theory
+    |   <div class="collection-item-7 w-dyn-item" role="listitem">
+    |     <a class="mobile-nav-link w-inline-block" href="https://emastered.com/category/theory">
+    |       <div>
+    |         Theory
+    |       </div>
+    |     </a>
+    |   </div>
+
+--- Chunk 2: figure.align.bottom ---
+  type=card freq=6 excl=1.00 LEAKS=3
+  pattern_xpath: ///figure[contains(@class,'align')][contains(@class,'center')][contains(@class,'figure')][contains(@class,'richtext')][contains(@class,'type')]
+  tree_sig: figure(div(lite-youtube(div(button,picture(slot(img,source,source))),noscript,st
+  content: [ATTR=4 IMG=3 TEXT=2]
+  sample[0] (31L) [TRUNCATED]: <iframe credentialless frameborder="0" title="Video"   allow="accelerometer; aut
+    |   <figure class="w-richtext-align-center w-richtext-figure-type-video" style="padding-bottom:75%">
+    |     <div>
+    |       <lite-youtube autoload="" videoid="CvjA-ZVaJO4" title="Play: Video" posterquality="hqdefault">
+    |         <template shadowrootmode="open"></template>
+    |         <noscript>
+    |           <iframe credentialless frameborder="0" title="Video"
+    |   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+    |   src="https://www.youtube.com/embed/CvjA-ZVaJO4?autoplay=1&start=0&null"
+    | ></iframe>
+    |         </noscript>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://i.ytimg.com/vi_webp/CvjA-ZVaJO4/hqdefault.webp (img URL not in rendered)
+    [IMG] https://i.ytimg.com/vi/CvjA-ZVaJO4/hqdefault.jpg (img URL not in rendered)
+    [IMG] https://i.ytimg.com/vi/CvjA-ZVaJO4/hqdefault.jpg (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] <iframe credentialless frameborder="0" title="Video"
+  allow="accelero
+
+--- Chunk 3: [search_inputs] ---
+  type=search_input freq=6 excl=0.00 OUTLIER=11.0x
+  pattern_xpath: ///input
+  sample[0] (11L) [TRUNCATED]: English český jazyk Dansk Deutsch Español eesti keel Français Bahasa Indonesia I
+    |   <select id="selectLanguageDropDown" class="footer__lang" aria-label="Site language">
+    |     <option selected="" value="en">
+    |       English
+    |     </option>
+    |     <option value="cs">
+    |   ... [76 lines truncated] ...
+    |     </option>
+    |     <option value="he">
+    |       עברית
+    |     </option>
+    | ... [1 more lines]
+  sample[1] (1L): 
+    |   <input id="name-4" class="text-field w-input" data-name="name" maxlength="256" name="name" placeholder="" required="" type="text"></input>
+  sample[2] (1L): 
+    |   <input id="name-4" class="text-field w-input" data-name="name" maxlength="256" name="name" placeholder="" required="" type="text"></input>
+
+--- Chunk 4: [pagination_buttons] ---
+  type=pagination freq=34 excl=1.00
+  pattern_xpath: ///img[contains(@class,'more')][contains(@class,'read')]
+  content: [ATTR=1 IMG=1]
+  sample[0] (8L): See All next arrow
+    |   <a class="read-more-button read-more-text w-inline-block" data-w-id="9fdfd9e6-cb91-0dcd-bad4-d60d395f542d" href="https://emastered.com/category/marketing" tabindex="0">
+    |     <div class="r-m-b-cont">
+    |       <div class="read-more-button-text read-more-inner-text">
+    |         See All
+    |       </div>
+    |       <img class="read-more-arrow read-more-arrow-red" alt="next arrow" loading="lazy" src="https://static.emastered.com/images/blog-assets/3575.svg?v=DNEAxyq" width="19" style="opacity: 0;"></img>
+    |     </div>
+    |   </a>
+  sample[1] (8L): See All next arrow
+    |   <a class="read-more-button read-more-text w-inline-block" data-w-id="39989ce7-3534-f5b3-de34-c69820c3358e" href="https://emastered.com/category/mixing" tabindex="0">
+    |     <div class="r-m-b-cont">
+    |       <div class="read-more-button-text read-more-inner-text">
+    |         See All
+    |       </div>
+    |       <img class="read-more-arrow read-more-arrow-red" alt="next arrow" loading="lazy" src="https://static.emastered.com/images/blog-assets/3575.svg?v=DNEAxyq" width="19" style="opacity: 0;"></img>
+    |     </div>
+    |   </a>
+  sample[2] (1L): next arrow
+    |   <img class="read-more-arrow read-more-arrow-red" alt="next arrow" loading="lazy" src="https://static.emastered.com/images/blog-assets/3575.svg?v=DNEAxyq" width="19" style="opacity: 0;"></img>
+
+--- Chunk 5: [text_content:p×23] ---
+  type=text_singleton freq=23 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (10L): Some landmark hardware pieces used to create early Neurofunk music include sampl
+    |   <p>
+    |     Some landmark hardware pieces used to create early Neurofunk music include samplers like the Emu E6400 and the Akai S1000. You can count on most Neurofunk songs to provide a distorted, heavy bassline, sampling, and a punchy drum beat. It isn't the most easy-going club music, but that's what can make it so rewarding for true fans of the subgenre.
+    |     <br></br>
+    |     <br></br>
+    |     The term "Neurofunk" was first documented in use by Simon Reynolds in his book detailing the rave culture of the 90s,
+    |     <em>
+    |       Energy Flash: A Journey Through Rave Music and Dance Culture
+    |     </em>
+    |     . It's said that this genre emerged out of the UK sometime between 1995-2000.
+    |   </p>
+  sample[1] (7L): The music group Ed Rush & Optical are largely accredited with creating Neurofunk
+    |   <p>
+    |     The music group Ed Rush & Optical are largely accredited with creating Neurofunk, pioneering a darker sound within the drum and bass music with their album "Wormhole". Drawing elements from sci-fi, electro, hip-hop, and jungle music, this album led to iconic tracks like
+    |     <em>
+    |       Point Blank
+    |     </em>
+    |     :
+    |   </p>
+  sample[2] (3L): Planet Dust by Bad Company
+    |   <h3>
+    |     Planet Dust by Bad Company
+    |   </h3>
+
+--- Chunk 6: [text_content:h1×4] ---
+  type=text_singleton freq=1 excl=0.83 LEAKS=145
+  pattern_xpath: ///div[contains(@class,'footer')][contains(@class,'down')]//div[contains(@class,'column')][contains(@class,'row')][contains(@class,'footer')]
+  content: [ATTR=27 BG=88 HREF=128 IMG=30 TEXT=182]
+  sample[0] (31L) [TRUNCATED]: What is Neurofunk?Bring your songs to life with professional quality mastering,W
+    |   <div class="footer-column w-row">
+    |     <div class="footer-col w-col w-col-4">
+    |       <div class="footer-logo">
+    |         <img alt="" loading="lazy" src="https://static.emastered.com/images/blog-assets/3571.png?v=xrV2RCx" style="aspect-ratio:294 / 40" width="198"></img>
+    |       </div>
+    |     </div>
+    |     <div class="footer-col w-col w-col-4">
+    |       <div class="copyright">
+    |         ©2015-2025 eMastered, Corp.
+    |         <br></br>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] https://emastered.com/blog (href not in rendered output)
+    [IMG] https://static.emastered.com/images/blog-assets/7711.webp?v=VjOwR4s (img URL not in rendered)
+    [IMG] https://static.emastered.com/images/blog-assets/7716.webp?v=0lSU_Fz (img URL not in rendered)
+    [IMG] https://static.emastered.com/images/blog-assets/7711.webp?v=VjOwR4s (img URL not in rendered)
+    [HREF] https://emastered.com/?utm_source=newblog&utm_medium=newblog1&utm_campaign=newblog1 (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] What is Neurofunk?Bring your songs to life with professional quality m
+    [TEXT] In today's world of genre-bending music, there is a lot to keep track 
+    [TEXT] Understanding NeurofunkHow Was Neurofunk Created?Neurofunk ExamplesApp
+
+--- Chunk 7: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h1[contains(@class,'post')]
+  content: [TEXT=1]
+  sample[0] (3L): What is Neurofunk?
+    |   <h1 class="post-h1">
+    |     What is Neurofunk?
+    |   </h1>
+
+--- Chunk 8: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Promote a Single Release Effectively
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Promote a Single Release Effectively
+    |   </h4>
+
+--- Chunk 9: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): 12 Tips for Networking in the Music Industry
+    |   <h4 class="h4-dropdown-menu">
+    |     12 Tips for Networking in the Music Industry
+    |   </h4>
+
+--- Chunk 10: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Find a Music Manager
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Find a Music Manager
+    |   </h4>
+
+--- Chunk 11: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Make An Album on SoundCloud
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Make An Album on SoundCloud
+    |   </h4>
+
+--- Chunk 12: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Trim vs. Gain: What's the Difference
+    |   <h4 class="h4-dropdown-menu">
+    |     Trim vs. Gain: What's the Difference
+    |   </h4>
+
+--- Chunk 13: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Make Your Music Louder
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Make Your Music Louder
+    |   </h4>
+
+--- Chunk 14: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to EQ Toms: A Beginner's Guide
+    |   <h4 class="h4-dropdown-menu">
+    |     How to EQ Toms: A Beginner's Guide
+    |   </h4>
+
+--- Chunk 15: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): What is a Brickwall Limiter & How to Use One?
+    |   <h4 class="h4-dropdown-menu">
+    |     What is a Brickwall Limiter & How to Use One?
+    |   </h4>
+
+--- Chunk 16: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Music Production: A Step by Step Guide
+    |   <h4 class="h4-dropdown-menu">
+    |     Music Production: A Step by Step Guide
+    |   </h4>
+
+--- Chunk 17: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): What is Phase Inversion in Audio
+    |   <h4 class="h4-dropdown-menu">
+    |     What is Phase Inversion in Audio
+    |   </h4>
+
+--- Chunk 18: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Make a Breakbeat
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Make a Breakbeat
+    |   </h4>
+
+--- Chunk 19: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Make Jungle Music
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Make Jungle Music
+    |   </h4>
+
+--- Chunk 20: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Record Piano
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Record Piano
+    |   </h4>
+
+--- Chunk 21: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Record Bass Guitar Like a Pro
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Record Bass Guitar Like a Pro
+    |   </h4>
+
+--- Chunk 22: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Record Guitar on PC?
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Record Guitar on PC?
+    |   </h4>
+
+--- Chunk 23: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Recording Acoustic Guitar: 10 Pro Tips
+    |   <h4 class="h4-dropdown-menu">
+    |     Recording Acoustic Guitar: 10 Pro Tips
+    |   </h4>
+
+--- Chunk 24: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): 7 Common Synthwave Chord Progressions
+    |   <h4 class="h4-dropdown-menu">
+    |     7 Common Synthwave Chord Progressions
+    |   </h4>
+
+--- Chunk 25: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Trap Chord Progressions: A Beginner's Guide
+    |   <h4 class="h4-dropdown-menu">
+    |     Trap Chord Progressions: A Beginner's Guide
+    |   </h4>
+
+--- Chunk 26: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Indie Chord Progressions: A Beginner's Guide
+    |   <h4 class="h4-dropdown-menu">
+    |     Indie Chord Progressions: A Beginner's Guide
+    |   </h4>
+
+--- Chunk 27: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): BPM in Music: The Ultimate Guide
+    |   <h4 class="h4-dropdown-menu">
+    |     BPM in Music: The Ultimate Guide
+    |   </h4>
+
+--- Chunk 28: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Become a Stagehand
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Become a Stagehand
+    |   </h4>
+
+--- Chunk 29: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Master Music for Vinyl
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Master Music for Vinyl
+    |   </h4>
+
+--- Chunk 30: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): How to Stop Voice Crack: 9 Proven Tips
+    |   <h4 class="h4-dropdown-menu">
+    |     How to Stop Voice Crack: 9 Proven Tips
+    |   </h4>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Ditto vs. Distrokid: A Detailed Comparison
+    |   <h4 class="h4-dropdown-menu">
+    |     Ditto vs. Distrokid: A Detailed Comparison
+    |   </h4>
+
+--- Chunk 32: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): What is Funk Music?
+    |   <h4 class="h4-dropdown-menu">
+    |     What is Funk Music?
+    |   </h4>
+
+--- Chunk 33: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): 9 Best Microphones for Guitar Amp
+    |   <h4 class="h4-dropdown-menu">
+    |     9 Best Microphones for Guitar Amp
+    |   </h4>
+
+--- Chunk 34: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): Telecaster vs Stratocaster: Which One is Right for You?
+    |   <h4 class="h4-dropdown-menu">
+    |     Telecaster vs Stratocaster: Which One is Right for You?
+    |   </h4>
+
+--- Chunk 35: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.04
+  pattern_xpath: ///h4[contains(@class,'dropdown')][contains(@class,'menu')]
+  content: [TEXT=1]
+  sample[0] (3L): What is a Sampler & How Does It Work
+    |   <h4 class="h4-dropdown-menu">
+    |     What is a Sampler & How Does It Work
+    |   </h4>

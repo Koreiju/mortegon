@@ -1,0 +1,299 @@
+=== QUALITY REPORT: ww8_123moviesfree_netmoviethesettlers1630856832.html ===
+Chunks: 21 (structural=3, functional=6, text=12)
+Categories: {'card': 2, 'structural': 1, 'search_input': 1, 'menu_item': 5, 'text_singleton': 12}
+Content: 68 tagged, 68 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: a.https.moviesfree ---
+  type=card freq=6 excl=0.50
+  pattern_xpath: ///a[contains(@class,'poster')][contains(@class,'rounded')]
+  tree_sig: div(div(a(picture(source,img),div(h2),span(i))))
+  content: [ATTR=1 HREF=1 IMG=8 TEXT=2]
+  sample[0] (17L): Eps Trigger Point - Season 2 Trigger Point - Season 2 6
+    |   <a href="https://ww8.123moviesfree.net/season/trigger-point-season-2-1630856510/" class="rounded poster">
+    |     <picture>
+    |       <source type="image/webp" data-srcset="https://img.icdn.my.id/thumb/w_160/h_240/trigger-point-season-2-1630856510.webp 1x, https://img.icdn.my.id/thumb/w_178/h_267/trigger-point-season-2-1630856510.webp 1.5x, https://img.icdn.my.id/thumb/w_320/h_480/trigger-point-season-2-1630856510.webp 2x" srcset="https://img.icdn.my.id/thumb/w_160/h_240/trigger-point-season-2-1630856510.webp 1x, https://img.icdn.my.id/thumb/w_178/h_267/trigger-point-season-2-1630856510.webp 1.5x, https://img.icdn.my.id/thumb/w_320/h_480/trigger-point-season-2-1630856510.webp 2x"></source>
+    |       <img src="https://img.icdn.my.id/thumb/w_200/h_300/trigger-point-season-2-1630856510.jpg" data-src="https://img.icdn.my.id/thumb/w_200/h_300/trigger-point-season-2-1630856510.jpg" width="200" height="300" class="lazy card-img-top entered loaded" alt="Trigger Point - Season 2" data-ll-status="loaded"></img>
+    |     </picture>
+    |     <div class="card-body item-title">
+    |       <h2 class="card-title text-light fs-6 m-0">
+    |         Trigger Point - Season 2
+    |       </h2>
+    |     </div>
+    | ... [7 more lines]
+
+--- Chunk 1: a.feathers.https ---
+  type=card freq=5 excl=0.50
+  pattern_xpath: ///a[contains(@class,'poster')][contains(@class,'rounded')]
+  tree_sig: div(div(a(picture(source,img),div(h2),span)))
+  content: [ATTR=1 HREF=1 IMG=8 TEXT=2]
+  sample[0] (14L): HD The Thing with Feathers The Thing with Feathers
+    |   <a href="https://ww8.123moviesfree.net/movie/the-thing-with-feathers-1630860374/" class="rounded poster">
+    |     <picture>
+    |       <source type="image/webp" data-srcset="https://img.icdn.my.id/thumb/w_160/h_240/the-thing-with-feathers-1630860374.webp 1x, https://img.icdn.my.id/thumb/w_178/h_267/the-thing-with-feathers-1630860374.webp 1.5x, https://img.icdn.my.id/thumb/w_320/h_480/the-thing-with-feathers-1630860374.webp 2x" srcset="https://img.icdn.my.id/thumb/w_160/h_240/the-thing-with-feathers-1630860374.webp 1x, https://img.icdn.my.id/thumb/w_178/h_267/the-thing-with-feathers-1630860374.webp 1.5x, https://img.icdn.my.id/thumb/w_320/h_480/the-thing-with-feathers-1630860374.webp 2x"></source>
+    |       <img src="https://img.icdn.my.id/thumb/w_200/h_300/the-thing-with-feathers-1630860374.jpg" data-src="https://img.icdn.my.id/thumb/w_200/h_300/the-thing-with-feathers-1630860374.jpg" width="200" height="300" class="lazy card-img-top entered loaded" alt="The Thing with Feathers" data-ll-status="loaded"></img>
+    |     </picture>
+    |     <div class="card-body item-title">
+    |       <h2 class="card-title text-light fs-6 m-0">
+    |         The Thing with Feathers
+    |       </h2>
+    |     </div>
+    | ... [4 more lines]
+  sample[1] (14L): HD In Her Place In Her Place
+    |   <a href="https://ww8.123moviesfree.net/movie/in-her-place-1630857770/" class="rounded poster">
+    |     <picture>
+    |       <source type="image/webp" data-srcset="https://img.icdn.my.id/thumb/w_160/h_240/in-her-place-1630857770.webp 1x, https://img.icdn.my.id/thumb/w_178/h_267/in-her-place-1630857770.webp 1.5x, https://img.icdn.my.id/thumb/w_320/h_480/in-her-place-1630857770.webp 2x" srcset="https://img.icdn.my.id/thumb/w_160/h_240/in-her-place-1630857770.webp 1x, https://img.icdn.my.id/thumb/w_178/h_267/in-her-place-1630857770.webp 1.5x, https://img.icdn.my.id/thumb/w_320/h_480/in-her-place-1630857770.webp 2x"></source>
+    |       <img src="https://img.icdn.my.id/thumb/w_200/h_300/in-her-place-1630857770.jpg" data-src="https://img.icdn.my.id/thumb/w_200/h_300/in-her-place-1630857770.jpg" width="200" height="300" class="lazy card-img-top entered loaded" alt="In Her Place" data-ll-status="loaded"></img>
+    |     </picture>
+    |     <div class="card-body item-title">
+    |       <h2 class="card-title text-light fs-6 m-0">
+    |         In Her Place
+    |       </h2>
+    |     </div>
+    | ... [4 more lines]
+
+--- Chunk 2: div.col ---
+  type=structural freq=2 excl=1.00
+  pattern_xpath: ///div[contains(@class,'col')]
+  tree_sig: div(div,ul(li(a),li(a),li(a),li(a),li(a)))
+  content: [ATTR=5 HREF=5 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: Genres Crime Mystery Horror Documentary Reality
+    |   <div class="col">
+    |     <div class="footer-link-head">
+    |       Genres
+    |     </div>
+    |     <ul class="list-unstyled">
+    |       <li>
+    |         <a href="https://ww8.123moviesfree.net/genre/crime/" title="Crime">
+    |           Crime
+    |         </a>
+    |       </li>
+    | ... [21 more lines]
+
+--- Chunk 3: [search_inputs] ---
+  type=search_input freq=1 excl=1.00
+  pattern_xpath: ///input[contains(@class,'border')][contains(@class,'control')][contains(@class,'form')][contains(@id,'search')][contains(@name,'search')]
+  content: [ATTR=2]
+  sample[0] (1L): Search
+    |   <input id="search" name="search" class="form-control border-0" type="text" placeholder="Search movies or series" aria-label="Search"></input>
+
+--- Chunk 4: [nav_content:li×104] ---
+  type=menu_item freq=104 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Home
+    |   <li class="nav-item">
+    |     <a class="nav-link" href="https://ww8.123moviesfree.net/home/">
+    |       Home
+    |     </a>
+    |   </li>
+  sample[1] (5L): Action
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/genre/action/" class="dropdown-item" title="Action">
+    |       Action
+    |     </a>
+    |   </li>
+  sample[2] (5L): Game-Show
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/genre/game-show/" class="dropdown-item" title="Game-Show">
+    |       Game-Show
+    |     </a>
+    |   </li>
+
+--- Chunk 5: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (5L): Movies
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/movies/" title="Movies">
+    |       Movies
+    |     </a>
+    |   </li>
+  sample[1] (5L): TV-Series
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/tv-series/" title="TV-Series">
+    |       TV-Series
+    |     </a>
+    |   </li>
+  sample[2] (5L): FAQ's
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/faqs/" title="FAQ's">
+    |       FAQ's
+    |     </a>
+    |   </li>
+
+--- Chunk 6: [nav_content:a×18] ---
+  type=menu_item freq=18 excl=0.00
+  pattern_xpath: ///a
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (5L): United Kingdom
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/country/united-kingdom/" title="United Kingdom">
+    |       United Kingdom
+    |     </a>
+    |   </li>
+  sample[1] (5L): United States
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/country/united-states/" title="United States">
+    |       United States
+    |     </a>
+    |   </li>
+  sample[2] (3L): Crime
+    |   <a href="https://ww8.123moviesfree.net/genre/crime/" title="Crime">
+    |     Crime
+    |   </a>
+
+--- Chunk 7: [nav_content:li×41] ---
+  type=menu_item freq=41 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (5L): Action
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/genre/action/" class="dropdown-item" title="Action">
+    |       Action
+    |     </a>
+    |   </li>
+  sample[1] (5L): Action & Adventure
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/genre/action-adventure/" class="dropdown-item" title="Action & Adventure">
+    |       Action & Adventure
+    |     </a>
+    |   </li>
+  sample[2] (5L): History
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/genre/history/" class="dropdown-item" title="History">
+    |       History
+    |     </a>
+    |   </li>
+
+--- Chunk 8: [nav_content:li×15] ---
+  type=menu_item freq=15 excl=0.00
+  pattern_xpath: ///li
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (5L): United Kingdom
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/country/united-kingdom/" class="dropdown-item" title="United Kingdom">
+    |       United Kingdom
+    |     </a>
+    |   </li>
+  sample[1] (5L): United States
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/country/united-states/" class="dropdown-item" title="United States">
+    |       United States
+    |     </a>
+    |   </li>
+  sample[2] (5L): Canada
+    |   <li>
+    |     <a href="https://ww8.123moviesfree.net/country/canada/" class="dropdown-item" title="Canada">
+    |       Canada
+    |     </a>
+    |   </li>
+
+--- Chunk 9: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.08
+  pattern_xpath: ///div[contains(@class,'col')][contains(@class,'lg')][contains(@class,'border')]/h1[contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Settlers
+    |   <h1 class="card-title fs-4">
+    |     The Settlers
+    |   </h1>
+
+--- Chunk 10: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Peaky Blinders - Season 2
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Peaky Blinders - Season 2
+    |   </h2>
+
+--- Chunk 11: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Trigger Point - Season 2
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Trigger Point - Season 2
+    |   </h2>
+
+--- Chunk 12: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Reckoning - Season 1
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     The Reckoning - Season 1
+    |   </h2>
+
+--- Chunk 13: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): The Thing with Feathers
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     The Thing with Feathers
+    |   </h2>
+
+--- Chunk 14: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Vienna Blood - Season 4Vienna Blood - Season 3
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Vienna Blood - Season 4Vienna Blood - Season 3
+    |   </h2>
+
+--- Chunk 15: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): In Her Place
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     In Her Place
+    |   </h2>
+
+--- Chunk 16: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Bodies - Season 1
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Bodies - Season 1
+    |   </h2>
+
+--- Chunk 17: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Steeltown Murders - Season 1
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Steeltown Murders - Season 1
+    |   </h2>
+
+--- Chunk 18: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Run
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Run
+    |   </h2>
+
+--- Chunk 19: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): Dark River
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     Dark River
+    |   </h2>
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.09
+  pattern_xpath: ///h2[contains(@class,'light')][contains(@class,'text')][contains(@class,'card')][contains(@class,'fs')][contains(@class,'title')]
+  content: [TEXT=1]
+  sample[0] (3L): 7 Days in Entebbe
+    |   <h2 class="card-title text-light fs-6 m-0">
+    |     7 Days in Entebbe
+    |   </h2>

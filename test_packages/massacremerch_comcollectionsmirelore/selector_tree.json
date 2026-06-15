@@ -1,0 +1,441 @@
+{
+  "//div[contains(@class,'product-card')][contains(@class,'relative')]": {
+    "chunk_ids": [
+      0,
+      1
+    ],
+    "classification": "card",
+    "frequency": 9,
+    "pattern_xpath": "///div[contains(@data-product-available,'true')][contains(@class,'col')][contains(@class,'items')][contains(@class,'space')][contains(@class,'stretch')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'product-card__media')][contains(@class,'relative')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'product-card__featured-image')][contains(@class,'object-contain')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'product-card__labels-container')][contains(@class,'inset-0')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'product-card__labels')][contains(@class,'absolute')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'label')][contains(@class,'label--basic')]": {
+                    "chunk_ids": [
+                      1
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'product-card__content')][contains(@class,'leading-tight')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'product-card__title')][contains(@class,'group-hover:text-primary-accent')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'product-card__price')][contains(@class,'pt-0.5')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'price')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'price__regular')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'price__sale')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'price__unit')][contains(@class,'hidden')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              },
+              "//div[contains(@class,'price')][contains(@class,'price--sold-out')]": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'price__regular')]": {
+                    "chunk_ids": [
+                      1
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'price__sale')]": {
+                    "chunk_ids": [
+                      1
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'price__unit')][contains(@class,'hidden')]": {
+                    "chunk_ids": [
+                      1
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'drawer-menu-grandchild__list-item')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "menu_item",
+    "frequency": 593,
+    "pattern_xpath": "///li[contains(@class,'list')][contains(@class,'grandchild')][contains(@class,'drawer')][contains(@class,'item')][contains(@class,'menu')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'drawer-menu-grandchild__link-item')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//span": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//summary[contains(@class,'header-menu-child__link-item')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "card",
+    "frequency": 12,
+    "pattern_xpath": "///summary[contains(@class,'child')][contains(@class,'header')][contains(@class,'item')][contains(@class,'link')][contains(@class,'menu')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'header-menu__summary-container')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//svg[contains(@class,'icon')][contains(@class,'fill-current')][contains(@role,'presentation')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//path": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'product-card__media')][contains(@class,'relative')]": {
+    "chunk_ids": [
+      4,
+      6
+    ],
+    "classification": "card",
+    "frequency": 9,
+    "pattern_xpath": "///a[contains(@class,'aspect')][contains(@class,'center')][contains(@class,'justify')][contains(@class,'media')][contains(@class,'card')]",
+    "content_types": [],
+    "children": {
+      "//img[contains(@class,'product-card__featured-image')][contains(@class,'object-contain')]": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'product-card__labels-container')][contains(@class,'inset-0')]": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'product-card__labels')][contains(@class,'absolute')]": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'label')][contains(@class,'label--basic')]": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'social-icon__link')][contains(@class,'w-6')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "menu_item",
+    "frequency": 8,
+    "pattern_xpath": "///a[contains(@class,'accent')][contains(@class,'block')][contains(@class,'hover')][contains(@class,'icon')][contains(@class,'social')]",
+    "content_types": [],
+    "children": {
+      "//svg[contains(@class,'icon')][contains(@class,'fill-current')][contains(@role,'presentation')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'search__input')][contains(@class,'search-bar__input')]": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "search_input",
+    "frequency": 3,
+    "pattern_xpath": "///input[contains(@class,'bg')][contains(@class,'border')][contains(@class,'focus')][contains(@class,'input')][contains(@class,'primary')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//script": {
+    "chunk_ids": [
+      8
+    ],
+    "classification": "pagination",
+    "frequency": 13,
+    "pattern_xpath": "///a[contains(@aria-current,'page')][contains(@class,'grandchild')][contains(@class,'item')][contains(@class,'link')][contains(@class,'menu')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//div[contains(@class,'shopify-pc__banner__body')]": {
+    "chunk_ids": [
+      9
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'body')][contains(@class,'banner')][contains(@class,'pc')][contains(@class,'shopify')]",
+    "content_types": [],
+    "children": {
+      "//h2": {
+        "chunk_ids": [
+          9
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p": {
+        "chunk_ids": [
+          9
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              9
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'shopify-pc__banner__btns')][contains(@class,'shopify-pc__banner__btns-granular')]": {
+    "chunk_ids": [
+      10
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'btns')][contains(@class,'granular')][contains(@class,'banner')][contains(@class,'pc')][contains(@class,'shopify')]",
+    "content_types": [],
+    "children": {
+      "//button[contains(@class,'shopify-pc__banner__btn-manage-prefs')]": {
+        "chunk_ids": [
+          10
+        ],
+        "content_types": [],
+        "children": {
+          "//span": {
+            "chunk_ids": [
+              10
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//button[contains(@class,'shopify-pc__banner__btn-accept')]": {
+        "chunk_ids": [
+          10
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//button[contains(@class,'shopify-pc__banner__btn-decline')]": {
+        "chunk_ids": [
+          10
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//h2": {
+        "chunk_ids": [
+          10
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//p": {
+        "chunk_ids": [
+          10
+        ],
+        "content_types": [],
+        "children": {
+          "//a": {
+            "chunk_ids": [
+              10
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'px-2')]": {
+    "chunk_ids": [
+      11
+    ],
+    "classification": "menu_item",
+    "frequency": 14,
+    "pattern_xpath": "///a",
+    "content_types": [],
+    "children": {
+      "//a": {
+        "chunk_ids": [
+          11
+        ],
+        "content_types": [],
+        "children": {}
+      }
+    }
+  },
+  "//h4[contains(@class,'footer-newsletter__title')][contains(@class,'text-xl')]": {
+    "chunk_ids": [
+      12
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'newsletter')][contains(@class,'lg')]//h4[contains(@class,'newsletter')][contains(@id,'newsletter')][contains(@id,'nav')][contains(@class,'footer')][contains(@class,'title')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h4[contains(@class,'footer-menu__title')][contains(@class,'text-xl')]": {
+    "chunk_ids": [
+      13
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'md')][contains(@class,'lg')][contains(@role,'navigation')]//h4[contains(@id,'information')][contains(@id,'nav')][contains(@class,'footer')][contains(@class,'menu')][contains(@class,'title')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h4[contains(@class,'footer-contact__title')][contains(@class,'text-xl')]": {
+    "chunk_ids": [
+      14
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'contact')][contains(@class,'lg')]//h4[contains(@class,'contact')][contains(@id,'get')][contains(@id,'in')][contains(@id,'touch')][contains(@id,'nav')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h1[contains(@class,'collection__title')][contains(@class,'text-3xl')]": {
+    "chunk_ids": [
+      15
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///div[contains(@class,'space')][contains(@class,'pb')][contains(@class,'border')]/h1[contains(@class,'collection')][contains(@class,'title')][contains(@class,'xl')][contains(@class,'text')]",
+    "content_types": [],
+    "children": {}
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ChunkProjector — Test Suite</title>
+<style>
+  body { background: #0d1117; color: #e6edf3; font-family: 'JetBrains Mono', monospace; margin: 0; padding: 24px; }
+  h1   { font-size: 18px; color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 12px; }
+  #summary { margin: 16px 0; padding: 12px 16px; border-radius: 6px; font-weight: bold; }
+  .pass  { background: #0f2a1a; border: 1px solid #2ea043; color: #3fb950; }
+  .fail  { background: #2a0f0f; border: 1px solid #f85149; color: #ff7b72; }
+  #output { white-space: pre; font-size: 13px; line-height: 1.6; }
+  .suite-pass { color: #3fb950; }
+  .suite-fail { color: #ff7b72; }
+  .tick  { color: #3fb950; }
+  .cross { color: #ff7b72; }
+  .suite { color: #79c0ff; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>ChunkProjector — Test Suite</h1>
+<div id="summary">Loading…</div>
+<pre id="output"></pre>
+
+<!-- THREE must be loaded as a classic script before the ES module tests run -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<script type="module">
+// Collect results from all suites, then write summary.
+import { runAll as runLayout }   from './test_layout.js';
+import { runAll as runBillboard } from './test_billboard.js';
+import { runAll as runWorkspace } from './test_workspace.js';
+import { runAll as runVisibility } from './test_visibility.js';
+import { runAll as runScanner }  from './test_scanner_state.js';
+import { runAll as runInstance } from './test_instance_manager.js';
+import { runAll as runLoader }   from './test_node_loader.js';
+// Browser-only tests (use DOMParser)
+import { runAll as runMedia }    from './test_media.js';
+
+const out = document.getElementById('output');
+
+// Redirect console.log to the output pre element.
+const origLog = console.log;
+console.log = (...args) => {
+    origLog(...args);
+    out.textContent += args.join(' ') + '\n';
+};
+
+const runners = [
+    ['Layout',           runLayout],
+    ['Billboard',        runBillboard],
+    ['Workspace',        runWorkspace],
+    ['Visibility',       runVisibility],
+    ['Scanner state',    runScanner],
+    ['Instance manager', runInstance],
+    ['Node loader',      runLoader],
+    ['Media',            runMedia],
+];
+
+let totalPassed = 0, totalFailed = 0;
+
+for (const [name, run] of runners) {
+    out.textContent += `\n${'─'.repeat(56)}\n ${name}\n${'─'.repeat(56)}\n`;
+    try {
+        const { passed, failed } = await run();
+        totalPassed += passed;
+        totalFailed += failed;
+    } catch (e) {
+        out.textContent += `  ERROR running ${name}: ${e.message}\n`;
+        totalFailed++;
+    }
+}
+
+const summary = document.getElementById('summary');
+const total   = totalPassed + totalFailed;
+if (totalFailed === 0) {
+    summary.className = 'pass';
+    summary.textContent = `✓  ${total} tests — all passed`;
+} else {
+    summary.className = 'fail';
+    summary.textContent = `✗  ${total} tests — ${totalFailed} failed, ${totalPassed} passed`;
+}
+</script>
+</body>
+</html>

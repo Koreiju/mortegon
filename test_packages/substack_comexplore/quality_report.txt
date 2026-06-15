@@ -1,0 +1,354 @@
+=== QUALITY REPORT: substack_comexplore.html ===
+Chunks: 15 (structural=7, functional=3, text=5)
+Categories: {'card': 6, 'button': 1, 'search_input': 1, 'pagination': 1, 'text_singleton': 5, 'menu_item': 1}
+Content: 319 tagged, 307 preserved (96%)
+Leaks: 12 total, 8 high-importance
+
+--- Chunk 0: div.align.column ---
+  type=card freq=3 excl=0.45
+  pattern_xpath: ///div[contains(@class,'start')][contains(@class,'column')][contains(@class,'direction')][contains(@class,'gap')][contains(@class,'items')]
+  tree_sig: div(div(button,button),h4,p)
+  content: [TEXT=4]
+  sample[0] (16L): You made it, you own it You always own your intellectual property, mailing list,
+    |   <div class="pencraft pc-display-flex pc-flexDirection-column pc-gap-16 pc-alignItems-flex-start pc-reset">
+    |     <h4 style="margin-bottom: -4px;" translated="true" class="pencraft pc-reset weight-medium-fw81nC reset-IxiVJZ marketingHeading4-xfLq5Y">
+    |       You made it, you own it
+    |     </h4>
+    |     <p style="line-height: 17px;" translated="true" class="pencraft pc-reset color-secondary-ls1g8s align-left-PENAI6 size-13-hZTUKr reset-IxiVJZ">
+    |       You always own your intellectual property, mailing list, and subscriber payments. With full editorial control and no gatekeepers, you can do the work you most believe in.
+    |     </p>
+    |     <div class="pencraft pc-display-flex pc-gap-8 pc-reset">
+    |       <button tabindex="0" type="button" class="pencraft pc-reset pencraft buttonBase-GK1x3M buttonText-X0uSmG buttonStyle-r7yGCK priority_primary-RfbeYt size_md-gCDS3o">
+    |         Get started
+    | ... [6 more lines]
+
+--- Chunk 1: div.auto.border ---
+  type=card freq=10 excl=0.11
+  pattern_xpath: ///div[contains(@class,'flex')][contains(@class,'display')][contains(@class,'pencraft')][contains(@class,'reset')][contains(@class,'pc')]
+  tree_sig: div(picture(img,source))
+  content: [IMG=49]
+  sample[0] (6L): 
+    |   <div class="pencraft pc-display-flex pc-flexDirection-column pc-reset">
+    |     <picture>
+    |       <source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!DzDi!,w_176,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 176w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_352,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 352w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 424w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_528,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 528w" sizes="176px"></source>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!DzDi!,w_176,c_limit,f_auto,q_auto:good,f..." sizes="176px" alt="" srcset="https://substackcdn.com/image/fetch/$s_!DzDi!,w_176,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 176w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_352,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 352w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 424w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_528,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 528w" width="176" class="img-OACg1c pencraft pc-reset"></img>
+    |     </picture>
+    |   </div>
+  sample[1] (6L): 
+    |   <div class="pencraft pc-display-flex pc-flexDirection-column pc-reset">
+    |     <picture>
+    |       <source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!R-u6!,w_100,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 100w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_200,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 200w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_300,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 300w" sizes="100px"></source>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!R-u6!,w_100,c_limit,f_auto,q_auto:good,f..." sizes="100px" alt="" srcset="https://substackcdn.com/image/fetch/$s_!R-u6!,w_100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 100w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 200w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_300,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 300w" width="100" class="img-OACg1c pencraft pc-reset"></img>
+    |     </picture>
+    |   </div>
+  sample[2] (6L): 
+    |   <div class="pencraft pc-display-flex pc-reset flex-auto-j3S2WA userSelect-none-oDUy26 outline-detail-vcQLyr pc-borderRadius-sm overflow-hidden-WdpwT6">
+    |     <picture class="pencraft pc-display-contents pc-reset">
+    |       <source type="image/webp" sizes="56px" srcset="https://substackcdn.com/image/fetch/$s_!qPnE!,w_56,h_56,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70314143-0bc3-4697-857d-1cf113bb3a1b_1158x1928.jpeg 56w, https://substackcdn.com/image/fetch/$s_!qPnE!,w_112,h_112,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70314143-0bc3-4697-857d-1cf113bb3a1b_1158x1928.jpeg 112w, https://substackcdn.com/image/fetch/$s_!qPnE!,w_168,h_168,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70314143-0bc3-4697-857d-1cf113bb3a1b_1158x1928.jpeg 168w"></source>
+    |       <img style="object-fit: cover; width: 56px; height: 56px;" src="https://substackcdn.com/image/fetch/$s_!qPnE!,w_56,h_56,c_fill,f_auto,q_auto:goo..." srcset="https://substackcdn.com/image/fetch/$s_!qPnE!,w_56,h_56,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70314143-0bc3-4697-857d-1cf113bb3a1b_1158x1928.jpeg 56w, https://substackcdn.com/image/fetch/$s_!qPnE!,w_112,h_112,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70314143-0bc3-4697-857d-1cf113bb3a1b_1158x1928.jpeg 112w, https://substackcdn.com/image/fetch/$s_!qPnE!,w_168,h_168,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70314143-0bc3-4697-857d-1cf113bb3a1b_1158x1928.jpeg 168w" sizes="56px" draggable="false" class="pencraft pc-reset"></img>
+    |     </picture>
+    |   </div>
+
+--- Chunk 2: div.display.false ---
+  type=card freq=14 excl=0.28
+  pattern_xpath: ///div[contains(@class,'position')][contains(@class,'relative')][contains(@class,'flex')][contains(@class,'display')][contains(@class,'pencraft')]
+  tree_sig: div(div(picture(img,source)))
+  content: [ATTR=2 IMG=43]
+  sample[0] (9L): Who, exactly, is ICE arresting, jailing, and abusing?
+    |   <div draggable="false" class="pencraft pc-display-flex pc-position-relative pc-reset">
+    |     <div style="width: 16px; height: 16px;" class="pencraft pc-display-flex pc-reset bg-white-ZBV5av pc-borderRadius-xs overflow-hidden-WdpwT6 sizing-border-box-DggLA4">
+    |       <picture class="pencraft pc-display-contents pc-reset">
+    |         <source type="image/webp" sizes="16px" srcset="https://substackcdn.com/image/fetch/$s_!R6i0!,w_16,h_16,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe96db34a-397b-489e-93c1-20a16c14399c_552x552.png 16w, https://substackcdn.com/image/fetch/$s_!R6i0!,w_32,h_32,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe96db34a-397b-489e-93c1-20a16c14399c_552x552.png 32w, https://substackcdn.com/image/fetch/$s_!R6i0!,w_48,h_48,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe96db34a-397b-489e-93c1-20a16c14399c_552x552.png 48w"></source>
+    |         <img style="object-fit: cover; width: 16px; height: 16px;" src="https://substackcdn.com/image/fetch/$s_!R6i0!,w_16,h_16,c_fill,f_auto,q_auto:goo..." srcset="https://substackcdn.com/image/fetch/$s_!R6i0!,w_16,h_16,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe96db34a-397b-489e-93c1-20a16c14399c_552x552.png 16w, https://substackcdn.com/image/fetch/$s_!R6i0!,w_32,h_32,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe96db34a-397b-489e-93c1-20a16c14399c_552x552.png 32w, https://substackcdn.com/image/fetch/$s_!R6i0!,w_48,h_48,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe96db34a-397b-489e-93c1-20a16c14399c_552x552.png 48w" sizes="16px" draggable="false" class="pencraft pc-reset"></img>
+    |       </picture>
+    |     </div>
+    |     Who, exactly, is ICE arresting, jailing, and abusing?
+    |   </div>
+  sample[1] (9L): "LOOK UP" Disclosure Is Upon Us
+    |   <div draggable="false" class="pencraft pc-display-flex pc-position-relative pc-reset">
+    |     <div style="width: 16px; height: 16px;" class="pencraft pc-display-flex pc-reset bg-white-ZBV5av pc-borderRadius-xs overflow-hidden-WdpwT6 sizing-border-box-DggLA4">
+    |       <picture class="pencraft pc-display-contents pc-reset">
+    |         <source type="image/webp" sizes="16px" srcset="https://substackcdn.com/image/fetch/$s_!fkDP!,w_16,h_16,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe76cfbf5-dfd4-4912-8071-9e1f8680b9bf_1080x1080.png 16w, https://substackcdn.com/image/fetch/$s_!fkDP!,w_32,h_32,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe76cfbf5-dfd4-4912-8071-9e1f8680b9bf_1080x1080.png 32w, https://substackcdn.com/image/fetch/$s_!fkDP!,w_48,h_48,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe76cfbf5-dfd4-4912-8071-9e1f8680b9bf_1080x1080.png 48w"></source>
+    |         <img style="object-fit: cover; width: 16px; height: 16px;" src="https://substackcdn.com/image/fetch/$s_!fkDP!,w_16,h_16,c_fill,f_auto,q_auto:goo..." srcset="https://substackcdn.com/image/fetch/$s_!fkDP!,w_16,h_16,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe76cfbf5-dfd4-4912-8071-9e1f8680b9bf_1080x1080.png 16w, https://substackcdn.com/image/fetch/$s_!fkDP!,w_32,h_32,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe76cfbf5-dfd4-4912-8071-9e1f8680b9bf_1080x1080.png 32w, https://substackcdn.com/image/fetch/$s_!fkDP!,w_48,h_48,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe76cfbf5-dfd4-4912-8071-9e1f8680b9bf_1080x1080.png 48w" sizes="16px" draggable="false" class="pencraft pc-reset"></img>
+    |       </picture>
+    |     </div>
+    |     "LOOK UP" Disclosure Is Upon Us
+    |   </div>
+  sample[2] (8L): Alexander Campbell's avatar
+    |   <div style="--scale: 40px;" class="pencraft pc-display-flex pc-width-40 pc-height-40 pc-justifyContent-center pc-alignItems-center pc-position-relative pc-reset bg-secondary-UUD3_J flex-auto-j3S2WA outline-detail-vcQLyr pc-borderRadius-full overflow-hidden-WdpwT6 sizing-border-box-DggLA4 container-TAtrWj">
+    |     <div style="--scale: 40px;" title="Alexander Campbell" class="pencraft pc-display-flex pc-width-40 pc-height-40 pc-justifyContent-center pc-alignItems-center pc-position-relative pc-reset bg-secondary-UUD3_J flex-auto-j3S2WA outline-detail-vcQLyr pc-borderRadius-full overflow-hidden-WdpwT6 sizing-border-box-DggLA4 container-TAtrWj">
+    |       <picture>
+    |         <source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!bBEs!,w_40,h_40,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F615b2fcd-98b6-4beb-89b3-cc56ac17c33c_400x400.jpeg 40w, https://substackcdn.com/image/fetch/$s_!bBEs!,w_80,h_80,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F615b2fcd-98b6-4beb-89b3-cc56ac17c33c_400x400.jpeg 80w, https://substackcdn.com/image/fetch/$s_!bBEs!,w_120,h_120,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F615b2fcd-98b6-4beb-89b3-cc56ac17c33c_400x400.jpeg 120w" sizes="40px"></source>
+    |         <img src="https://substackcdn.com/image/fetch/$s_!bBEs!,w_40,h_40,c_fill,f_auto,q_auto:goo..." sizes="40px" alt="Alexander Campbell's avatar" srcset="https://substackcdn.com/image/fetch/$s_!bBEs!,w_40,h_40,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F615b2fcd-98b6-4beb-89b3-cc56ac17c33c_400x400.jpeg 40w, https://substackcdn.com/image/fetch/$s_!bBEs!,w_80,h_80,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F615b2fcd-98b6-4beb-89b3-cc56ac17c33c_400x400.jpeg 80w, https://substackcdn.com/image/fetch/$s_!bBEs!,w_120,h_120,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F615b2fcd-98b6-4beb-89b3-cc56ac17c33c_400x400.jpeg 120w" width="40" height="40" draggable="false" class="img-OACg1c object-fit-cover-u4ReeV pencraft pc-reset"></img>
+    |       </picture>
+    |     </div>
+    |   </div>
+
+--- Chunk 3: a.animate.auto ---
+  type=card freq=18 excl=1.00
+  pattern_xpath: ///a[contains(@class,'animate')][contains(@class,'em')][contains(@class,'focus')][contains(@class,'jx')][contains(@class,'show')]
+  tree_sig: a(span(div(div(picture(img,source)))))
+  content: [ATTR=2 HREF=1 IMG=43]
+  sample[0] (12L): V Spehar's avatar
+    |   <a tabindex="0" draggable="false" href="/@vspehar?utm_source=substack-feed-item" class="pencraft pc-display-flex pc-reset flex-auto-j3S2WA animate-XFJxE4 pc-borderRadius-full showFocus-sk_vEm">
+    |     <span data-state="closed">
+    |       <div style="--scale: 36px;" class="pencraft pc-display-flex pc-width-36 pc-height-36 pc-justifyContent-center pc-alignItems-center pc-position-relative pc-reset bg-secondary-UUD3_J flex-auto-j3S2WA outline-detail-vcQLyr pc-borderRadius-full overflow-hidden-WdpwT6 sizing-border-box-DggLA4 container-TAtrWj">
+    |         <div style="--scale: 36px;" title="V Spehar" class="pencraft pc-display-flex pc-width-36 pc-height-36 pc-justifyContent-center pc-alignItems-center pc-position-relative pc-reset bg-secondary-UUD3_J flex-auto-j3S2WA outline-detail-vcQLyr pc-borderRadius-full overflow-hidden-WdpwT6 sizing-border-box-DggLA4 container-TAtrWj">
+    |           <picture>
+    |             <source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!G7gJ!,w_36,h_36,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facb4d155-a468-4fe5-9cd7-9297d5ca7520_1202x1206.jpeg 36w, https://substackcdn.com/image/fetch/$s_!G7gJ!,w_72,h_72,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facb4d155-a468-4fe5-9cd7-9297d5ca7520_1202x1206.jpeg 72w, https://substackcdn.com/image/fetch/$s_!G7gJ!,w_108,h_108,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facb4d155-a468-4fe5-9cd7-9297d5ca7520_1202x1206.jpeg 108w" sizes="36px"></source>
+    |             <img src="https://substackcdn.com/image/fetch/$s_!G7gJ!,w_36,h_36,c_fill,f_auto,q_auto:goo..." sizes="36px" alt="V Spehar's avatar" srcset="https://substackcdn.com/image/fetch/$s_!G7gJ!,w_36,h_36,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facb4d155-a468-4fe5-9cd7-9297d5ca7520_1202x1206.jpeg 36w, https://substackcdn.com/image/fetch/$s_!G7gJ!,w_72,h_72,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facb4d155-a468-4fe5-9cd7-9297d5ca7520_1202x1206.jpeg 72w, https://substackcdn.com/image/fetch/$s_!G7gJ!,w_108,h_108,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facb4d155-a468-4fe5-9cd7-9297d5ca7520_1202x1206.jpeg 108w" width="36" height="36" draggable="false" class="img-OACg1c object-fit-cover-u4ReeV pencraft pc-reset"></img>
+    |           </picture>
+    |         </div>
+    |       </div>
+    | ... [2 more lines]
+  sample[1] (12L): Chris Best's avatar
+    |   <a tabindex="0" draggable="false" href="/@cb?utm_source=substack-feed-item" class="pencraft pc-display-flex pc-reset flex-auto-j3S2WA animate-XFJxE4 pc-borderRadius-full showFocus-sk_vEm">
+    |     <span data-state="closed">
+    |       <div style="--scale: 36px;" class="pencraft pc-display-flex pc-width-36 pc-height-36 pc-justifyContent-center pc-alignItems-center pc-position-relative pc-reset bg-secondary-UUD3_J flex-auto-j3S2WA outline-detail-vcQLyr pc-borderRadius-full overflow-hidden-WdpwT6 sizing-border-box-DggLA4 container-TAtrWj">
+    |         <div style="--scale: 36px;" title="Chris Best" class="pencraft pc-display-flex pc-width-36 pc-height-36 pc-justifyContent-center pc-alignItems-center pc-position-relative pc-reset bg-secondary-UUD3_J flex-auto-j3S2WA outline-detail-vcQLyr pc-borderRadius-full overflow-hidden-WdpwT6 sizing-border-box-DggLA4 container-TAtrWj">
+    |           <picture>
+    |             <source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!n-sI!,w_36,h_36,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ed41009-c1f9-4df4-9d3a-b2594c80c6d9_2237x2237.jpeg 36w, https://substackcdn.com/image/fetch/$s_!n-sI!,w_72,h_72,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ed41009-c1f9-4df4-9d3a-b2594c80c6d9_2237x2237.jpeg 72w, https://substackcdn.com/image/fetch/$s_!n-sI!,w_108,h_108,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ed41009-c1f9-4df4-9d3a-b2594c80c6d9_2237x2237.jpeg 108w" sizes="36px"></source>
+    |             <img src="https://substackcdn.com/image/fetch/$s_!n-sI!,w_36,h_36,c_fill,f_auto,q_auto:goo..." sizes="36px" alt="Chris Best's avatar" srcset="https://substackcdn.com/image/fetch/$s_!n-sI!,w_36,h_36,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ed41009-c1f9-4df4-9d3a-b2594c80c6d9_2237x2237.jpeg 36w, https://substackcdn.com/image/fetch/$s_!n-sI!,w_72,h_72,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ed41009-c1f9-4df4-9d3a-b2594c80c6d9_2237x2237.jpeg 72w, https://substackcdn.com/image/fetch/$s_!n-sI!,w_108,h_108,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ed41009-c1f9-4df4-9d3a-b2594c80c6d9_2237x2237.jpeg 108w" width="36" height="36" draggable="false" class="img-OACg1c object-fit-cover-u4ReeV pencraft pc-reset"></img>
+    |           </picture>
+    |         </div>
+    |       </div>
+    | ... [2 more lines]
+
+--- Chunk 4: button.align.auto ---
+  type=button freq=20 excl=1.00
+  pattern_xpath: ///button[contains(@class,'ge')][contains(@class,'ik')][contains(@class,'ld')][contains(@class,'left')][contains(@class,'min')]
+  tree_sig: button(svg(g(path,title)))
+  content: [ATTR=1]
+  sample[0] (8L): 
+    |   <button tabindex="0" type="button" aria-label="Share" id="headlessui-menu-button-P0-129" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="" class="pencraft pc-display-flex pc-gap-8 pc-height-32 pc-minWidth-32 pc-paddingLeft-8 pc-paddingRight-8 pc-justifyContent-center pc-alignItems-center pc-reset flex-auto-j3S2WA userSelect-none-oDUy26 pc-borderRadius-full sizing-border-box-DggLA4 pencraft button-geLdIK buttonBase-GK1x3M">
+    |     <svg role="img" style="height: 18px; width: 18px;" width="18" height="18" viewbox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    |       <g>
+    |         <title></title>
+    |         <path d="M10.2171 2.2793L10.2171 12.9745M10.2171 2.2793L13.333 4.99984M10.2171 2.2793L7.0..."></path>
+    |       </g>
+    |     </svg>
+    |   </button>
+  sample[1] (8L): 
+    |   <button tabindex="0" type="button" aria-label="Share" id="headlessui-menu-button-P0-140" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="" class="pencraft pc-display-flex pc-gap-8 pc-height-32 pc-minWidth-32 pc-paddingLeft-8 pc-paddingRight-8 pc-justifyContent-center pc-alignItems-center pc-reset flex-auto-j3S2WA userSelect-none-oDUy26 pc-borderRadius-full sizing-border-box-DggLA4 pencraft button-geLdIK buttonBase-GK1x3M">
+    |     <svg role="img" style="height: 18px; width: 18px;" width="18" height="18" viewbox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    |       <g>
+    |         <title></title>
+    |         <path d="M10.2171 2.2793L10.2171 12.9745M10.2171 2.2793L13.333 4.99984M10.2171 2.2793L7.0..."></path>
+    |       </g>
+    |     </svg>
+    |   </button>
+  sample[2] (8L): 
+    |   <button tabindex="0" type="button" aria-label="Share" id="headlessui-menu-button-P0-203" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="" class="pencraft pc-display-flex pc-gap-8 pc-height-32 pc-minWidth-32 pc-paddingLeft-8 pc-paddingRight-8 pc-justifyContent-center pc-alignItems-center pc-reset flex-auto-j3S2WA userSelect-none-oDUy26 pc-borderRadius-full sizing-border-box-DggLA4 pencraft button-geLdIK buttonBase-GK1x3M">
+    |     <svg role="img" style="height: 18px; width: 18px;" width="18" height="18" viewbox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    |       <g>
+    |         <title></title>
+    |         <path d="M10.2171 2.2793L10.2171 12.9745M10.2171 2.2793L13.333 4.99984M10.2171 2.2793L7.0..."></path>
+    |       </g>
+    |     </svg>
+    |   </button>
+
+--- Chunk 5: span.cl.color ---
+  type=card freq=6 excl=1.00
+  pattern_xpath: ///span[contains(@class,'cl')][contains(@class,'decoration')][contains(@class,'dvrm')][contains(@class,'hover')][contains(@class,'ls')]
+  tree_sig: span(a(span))
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (7L): 1d
+    |   <span class="pencraft pc-reset color-secondary-ls1g8s decoration-hover-underline-ClDVRM reset-IxiVJZ">
+    |     <a title="Feb 10, 2026, 10:35 p.m." href="/@vspehar/note/c-212919673" class="pencraft pc-reset link-LIBpto">
+    |       <span class="pencraft pc-reset color-secondary-ls1g8s line-height-20-t4M0El font-text-qe4AeH size-13-hZTUKr weight-regular-mUq6Gb reset-IxiVJZ">
+    |         1d
+    |       </span>
+    |     </a>
+    |   </span>
+  sample[1] (7L): 7h
+    |   <span class="pencraft pc-reset color-secondary-ls1g8s decoration-hover-underline-ClDVRM reset-IxiVJZ">
+    |     <a title="Feb 11, 2026, 9:07 p.m." href="/@cb/note/c-213359341" class="pencraft pc-reset link-LIBpto">
+    |       <span class="pencraft pc-reset color-secondary-ls1g8s line-height-20-t4M0El font-text-qe4AeH size-13-hZTUKr weight-regular-mUq6Gb reset-IxiVJZ">
+    |         7h
+    |       </span>
+    |     </a>
+    |   </span>
+  sample[2] (7L): 17h
+    |   <span class="pencraft pc-reset color-secondary-ls1g8s decoration-hover-underline-ClDVRM reset-IxiVJZ">
+    |     <a title="Feb 11, 2026, 11:32 a.m." href="/@ellaemhoff/note/c-213118173" class="pencraft pc-reset link-LIBpto">
+    |       <span class="pencraft pc-reset color-secondary-ls1g8s line-height-20-t4M0El font-text-qe4AeH size-13-hZTUKr weight-regular-mUq6Gb reset-IxiVJZ">
+    |         17h
+    |       </span>
+    |     </a>
+    |   </span>
+
+--- Chunk 6: span.closed ---
+  type=card freq=5 excl=1.00
+  pattern_xpath: ///span[contains(@data-state,'closed')]
+  tree_sig: span(span(a))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): V Spehar
+    |   <span data-state="closed">
+    |     <span class="pencraft pc-reset decoration-hover-underline-ClDVRM reset-IxiVJZ">
+    |       <a href="/@vspehar" class="pencraft pc-reset link-LIBpto">
+    |         V Spehar
+    |       </a>
+    |     </span>
+    |   </span>
+  sample[1] (7L): Chris Best
+    |   <span data-state="closed">
+    |     <span class="pencraft pc-reset decoration-hover-underline-ClDVRM reset-IxiVJZ">
+    |       <a href="/@cb" class="pencraft pc-reset link-LIBpto">
+    |         Chris Best
+    |       </a>
+    |     </span>
+    |   </span>
+  sample[2] (7L): Ella Emhoff
+    |   <span data-state="closed">
+    |     <span class="pencraft pc-reset decoration-hover-underline-ClDVRM reset-IxiVJZ">
+    |       <a href="/@ellaemhoff" class="pencraft pc-reset link-LIBpto">
+    |         Ella Emhoff
+    |       </a>
+    |     </span>
+    |   </span>
+
+--- Chunk 7: [search_inputs] ---
+  type=search_input freq=3 excl=1.00
+  pattern_xpath: ///input[contains(@autocomplete,'off')][contains(@class,'input')][contains(@class,'nv')][contains(@name,'search')][contains(@type,'search')]
+  content: [ATTR=2]
+  sample[0] (1L): Global search
+    |   <input type="search" name="search" value="" autocomplete="off" placeholder="Search Substack" aria-label="Global search" class="input-rPcWNv"></input>
+  sample[1] (1L): Global search
+    |   <input type="search" name="search" value="" autocomplete="off" placeholder="Search Substack" aria-label="Global search" class="input-rPcWNv"></input>
+  sample[2] (1L): Global search
+    |   <input type="search" name="search" value="" autocomplete="off" placeholder="Search Substack" aria-label="Global search" class="input-rPcWNv"></input>
+
+--- Chunk 8: [pagination_buttons] ---
+  type=pagination freq=64 excl=0.50
+  pattern_xpath: ///button[contains(@class,'base')][contains(@class,'button')][contains(@class,'gck')][contains(@class,'gk')][contains(@class,'priority')]
+  content: [IMG=25]
+  sample[0] (7L): 
+    |   <button tabindex="0" type="button" aria-label="More options" id="headlessui-menu-button-P0-160" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="" class="pencraft pc-reset pencraft moreButton-EXZOW4 iconButton-mq_Et5 iconButtonBase-dJGHgN buttonBase-GK1x3M buttonStyle-r7yGCK size_sm-G3LciD priority_quaternary-kpMibu">
+    |     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis">
+    |       <circle cx="12" cy="12" r="1"></circle>
+    |       <circle cx="19" cy="12" r="1"></circle>
+    |       <circle cx="5" cy="12" r="1"></circle>
+    |     </svg>
+    |   </button>
+  sample[1] (7L): 
+    |   <button tabindex="0" type="button" aria-label="More options" id="headlessui-menu-button-P0-160" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="" class="pencraft pc-reset pencraft moreButton-EXZOW4 iconButton-mq_Et5 iconButtonBase-dJGHgN buttonBase-GK1x3M buttonStyle-r7yGCK size_sm-G3LciD priority_quaternary-kpMibu">
+    |     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis">
+    |       <circle cx="12" cy="12" r="1"></circle>
+    |       <circle cx="19" cy="12" r="1"></circle>
+    |       <circle cx="5" cy="12" r="1"></circle>
+    |     </svg>
+    |   </button>
+  sample[2] (7L): 
+    |   <button tabindex="0" type="button" aria-label="More options" id="headlessui-menu-button-P0-181" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="" class="pencraft pc-reset pencraft moreButton-EXZOW4 iconButton-mq_Et5 iconButtonBase-dJGHgN buttonBase-GK1x3M buttonStyle-r7yGCK size_sm-G3LciD priority_quaternary-kpMibu">
+    |     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis">
+    |       <circle cx="12" cy="12" r="1"></circle>
+    |       <circle cx="19" cy="12" r="1"></circle>
+    |       <circle cx="5" cy="12" r="1"></circle>
+    |     </svg>
+    |   </button>
+
+--- Chunk 9: [text_content:h4×2] ---
+  type=text_singleton freq=1 excl=0.21 LEAKS=8
+  pattern_xpath: ///div[contains(@class,'column')][contains(@class,'direction')][contains(@class,'flex')][contains(@class,'display')][contains(@class,'pencraft')]
+  content: [IMG=131 TEXT=4]
+  sample[0] (25L): You made it, you own itGrow your publication on SubstackWorld-class writingGrow 
+    |   <div class="pencraft pc-display-flex pc-flexDirection-column pc-reset">
+    |     <picture>
+    |       <source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!R-u6!,w_100,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 100w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_200,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 200w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_300,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 300w" sizes="100px"></source>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!R-u6!,w_100,c_limit,f_auto,q_auto:good,f..." sizes="100px" alt="" srcset="https://substackcdn.com/image/fetch/$s_!R-u6!,w_100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 100w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 200w, https://substackcdn.com/image/fetch/$s_!R-u6!,w_300,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-1-v4.png 300w" width="100" class="img-OACg1c pencraft pc-reset"></img>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!DzDi!,w_176,c_limit,f_auto,q_auto:good,f..." sizes="176px" alt="" srcset="https://substackcdn.com/image/fetch/$s_!DzDi!,w_176,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 176w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_352,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 352w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 424w, https://substackcdn.com/image/fetch/$s_!DzDi!,w_528,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-1-transparent-bg.png 528w" width="176" class="img-OACg1c pencraft pc-reset"></img>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!FHXg!,w_196,c_limit,f_auto,q_auto:good,f..." sizes="100vw" alt="" srcset="https://substackcdn.com/image/fetch/$s_!FHXg!,w_196,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fgrowth_page%2Fhero.png 196w, https://substackcdn.com/image/fetch/$s_!FHXg!,w_392,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fgrowth_page%2Fhero.png 392w, https://substackcdn.com/image/fetch/$s_!FHXg!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fgrowth_page%2Fhero.png 424w, https://substackcdn.com/image/fetch/$s_!FHXg!,w_588,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fgrowth_page%2Fhero.png 588w" width="196" class="img-OACg1c pencraft pc-reset"></img>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!Lwni!,w_182,c_limit,f_auto,q_auto:good,f..." sizes="100vw" alt="" srcset="https://substackcdn.com/image/fetch/$s_!Lwni!,w_182,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-2-transparent-bg.png 182w, https://substackcdn.com/image/fetch/$s_!Lwni!,w_364,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-2-transparent-bg.png 364w, https://substackcdn.com/image/fetch/$s_!Lwni!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-2-transparent-bg.png 424w, https://substackcdn.com/image/fetch/$s_!Lwni!,w_546,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fhome_page%2Fbenefit-2-transparent-bg.png 546w" width="182" class="img-OACg1c pencraft pc-reset"></img>
+    |       <img src="https://substackcdn.com/image/fetch/$s_!u9e1!,w_100,c_limit,f_auto,q_auto:good,f..." sizes="100vw" alt="" srcset="https://substackcdn.com/image/fetch/$s_!u9e1!,w_100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-2-v5.png 100w, https://substackcdn.com/image/fetch/$s_!u9e1!,w_200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-2-v5.png 200w, https://substackcdn.com/image/fetch/$s_!u9e1!,w_300,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-2-v5.png 300w" width="100" class="img-OACg1c pencraft pc-reset"></img>
+    |     </picture>
+    |     <hr class="pencraft pc-reset divider-Ti4OTa"></hr>
+    | ... [15 more lines]
+  LEAKS (high):
+    [IMG] w_546 (img URL not in rendered)
+    [IMG] https://substackcdn.com/image/fetch/$s_!u9e1!,w_100,c_limit,f_auto,q_auto:good,fl_progress (img URL not in rendered)
+    [IMG] https://substackcdn.com/image/fetch/$s_!u9e1! (img URL not in rendered)
+    [IMG] fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fapp_page%2Fhighlight-2-v5.png (img URL not in rendered)
+    [IMG] https://substackcdn.com/image/fetch/$s_!u9e1! (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] You made it, you own itGrow your publication on SubstackWorld-class wr
+    [TEXT] You always own your intellectual property, mailing list, and subscribe
+    [TEXT] Learn moreGet started
+
+--- Chunk 10: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (3L): Here's my conversation with Peter Steinberger, creator of OpenClaw, an open-sour
+    |   <p>
+    |     Here's my conversation with Peter Steinberger, creator of OpenClaw, an open-source AI agent that has taken the Internet by storm, with now over 180,000 stars on GitHub.
+    |   </p>
+  sample[1] (3L): This was a truly mind-blowing, inspiring, and fun conversation!
+    |   <p>
+    |     This was a truly mind-blowing, inspiring, and fun conversation!
+    |   </p>
+
+--- Chunk 11: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.00 OUTLIER=3.7x
+  pattern_xpath: ///p
+  content: [TEXT=1]
+  sample[0] (11L): So I asked Substack co-founder about it, and his answer will not disappoint you.
+    |   <p>
+    |     So I asked Substack co-founder
+    |     <span class="node-substack_mention">
+    |       <span data-state="closed">
+    |         <a href="https://substack.com/profile/3567-hamish-mckenzie" class="mention-LUD0tW">
+    |           Hamish McKenzie
+    |         </a>
+    |       </span>
+    |     </span>
+    |     about it, and his answer will not disappoint you.
+    | ... [1 more lines]
+  sample[1] (3L): Is Substack secretly entrapping writers and publishers with its subscription mod
+    |   <p>
+    |     Is Substack secretly entrapping writers and publishers with its subscription model?
+    |   </p>
+  sample[2] (3L): That was the accusation against Substack in a recent Puck story that blew up acr
+    |   <p>
+    |     That was the accusation against Substack in a recent Puck story that blew up across Substack Notes.
+    |   </p>
+
+--- Chunk 12: [nav_content:a×15] ---
+  type=menu_item freq=15 excl=0.64
+  pattern_xpath: ///a[contains(@class,'bpto')][contains(@class,'li')][contains(@class,'link')][contains(@class,'pencraft')][contains(@class,'reset')]
+  content: [ATTR=1 HREF=1 TEXT=1]
+  sample[0] (5L): 7h
+    |   <a title="Feb 11, 2026, 9:07 p.m." href="/@cb/note/c-213359341" class="pencraft pc-reset link-LIBpto">
+    |     <span class="pencraft pc-reset color-secondary-ls1g8s line-height-20-t4M0El font-text-qe4AeH size-13-hZTUKr weight-regular-mUq6Gb reset-IxiVJZ">
+    |       7h
+    |     </span>
+    |   </a>
+  sample[1] (5L): 1d
+    |   <a title="Feb 10, 2026, 10:39 p.m." href="/@kareemrahma/note/c-212920862" class="pencraft pc-reset link-LIBpto">
+    |     <span class="pencraft pc-reset color-secondary-ls1g8s line-height-20-t4M0El font-text-qe4AeH size-13-hZTUKr weight-regular-mUq6Gb reset-IxiVJZ">
+    |       1d
+    |     </span>
+    |   </a>
+  sample[2] (5L): 15h
+    |   <a title="Feb 11, 2026, 1:12 p.m." href="/@jessicadefino/note/c-213169636" class="pencraft pc-reset link-LIBpto">
+    |     <span class="pencraft pc-reset color-secondary-ls1g8s line-height-20-t4M0El font-text-qe4AeH size-13-hZTUKr weight-regular-mUq6Gb reset-IxiVJZ">
+    |       15h
+    |     </span>
+    |   </a>
+
+--- Chunk 13: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.60
+  pattern_xpath: ///h4[contains(@class,'zd')][contains(@class,'bci')][contains(@class,'font')][contains(@class,'gwiv')][contains(@class,'heavy')]
+  content: [TEXT=1]
+  sample[0] (3L): Log in or sign up
+    |   <h4 class="pencraft pc-reset align-center-y7ZD4w line-height-24-jnGwiv font-display-nhmvtD size-20-P_cSRT weight-heavy-BCI3Mb reset-IxiVJZ">
+    |     Log in or sign up
+    |   </h4>
+
+--- Chunk 14: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.60
+  pattern_xpath: ///h4[contains(@class,'index')][contains(@class,'bci')][contains(@class,'font')][contains(@class,'ggp')][contains(@class,'gwiv')]
+  content: [TEXT=1]
+  sample[0] (3L): Tumbler Ridge shooting shocks Canada, nine dead, motive unknown
+    |   <h4 class="pencraft pc-padding-16 pc-zIndex-1 pc-reset color-white-rGgpJs line-height-24-jnGwiv font-display-nhmvtD size-20-P_cSRT weight-heavy-BCI3Mb reset-IxiVJZ">
+    |     Tumbler Ridge shooting shocks Canada, nine dead, motive unknown
+    |   </h4>

@@ -1,0 +1,589 @@
+=== QUALITY REPORT: posthumanart_com.html ===
+Chunks: 37 (structural=11, functional=2, text=24)
+Categories: {'card': 7, 'structural': 1, 'button': 2, 'menu_item': 2, 'pagination': 1, 'text_singleton': 24}
+Content: 453 tagged, 407 preserved (90%)
+Leaks: 46 total, 45 high-importance
+
+--- Chunk 0: div.absolute.auto ---
+  type=card freq=6 excl=0.50 LEAKS=18
+  pattern_xpath: ///div[contains(@class,'container')][contains(@class,'custom')][contains(@class,'focus')][contains(@class,'has')][contains(@data-hook,'container')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img),picture(source,source,img))))
+  content: [ATTR=8 HREF=2 IMG=117 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: The Flood (Logorrhea)The Flood (Logorrhea)The Flood (Logorrhea)The Flood (Logorr
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi5c62d2efabf944748877910a8e85cf45_3" data-hash="5c62d2ef-abf9-4474-8877-910a8e85cf45" data-id="5c62d2ef-abf9-4474-8877-910a8e85cf45" data-idx="3" data-hook="item-container" style="overflow-y:hidden;position:absolute;bottom:auto;margin:0;top:475px;left:0;right:...">
+    |     <div data-idx="3" id="item-action-5c62d2ef-abf9-4474-8877-910a8e85cf45" class="item-action" tabindex="-1" data-hook="item-action" aria-label="The Flood (Logorrhea)"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-5c62d2ef-abf9-4474-8877-910a8e85cf45" style="background-color:none;height:219px;width:292px;margin:-1px">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   " data-hook="image-item" style="width:292px;height:219px;margin-top:0;margin-left:0">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/d538c7_5f844715c04547a3952828af08e23c0e~mv2.png/v1/fill/w_333,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/d538c7_5f844715c04547a3952828af08e23c0e~mv2.png 1x, https://static.wixstatic.com/media/d538c7_5f844715c04547a3952828af08e23c0e~mv2.png/v1/fill/w_1333,h_1000,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/d538c7_5f844715c04547a3952828af08e23c0e~mv2.png 2x" type="image/png"></source>
+    |             <source srcset="https://static.wixstatic.com/media/d538c7_5f844715c04547a3952828af08e23c0e~mv2.png/v1/fill/w_333,h_250,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/d538c7_5f844715c04547a3952828af08e23c0e~mv2.webp 1x, https://static.wixstatic.com/media/d538c7_5f844715c04547a3952828af08e23c0e~mv2.png/v1/fill/w_1333,h_1000,fp_0.50_0.50,q_35,blur_30,enc_avif,quality_auto/d538c7_5f844715c04547a3952828af08e23c0e~mv2.webp 2x" type="image/webp"></source>
+    |             <img alt="The Flood (Logorrhea)" src="https://static.wixstatic.com/media/d538c7_5f844715c04547a3952828af08e23c0e~mv2.p..." style="width:292px;height:219px" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img-preload" loading="eager"></img>
+    |           </picture>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://static.wixstatic.com/media/2c940f_ab0f2dcfcc1049ceacabf9edf0dfd6b7~mv2.png/v1/fill (img URL not in rendered)
+    [IMG] h_219 (img URL not in rendered)
+    [IMG] q_95 (img URL not in rendered)
+    [IMG] q_95 (img URL not in rendered)
+    [IMG] https://static.wixstatic.com/media/2c940f_ab0f2dcfcc1049ceacabf9edf0dfd6b7~mv2.png/v1/fill (img URL not in rendered)
+
+--- Chunk 1: div.absolute.auto ---
+  type=structural freq=2 excl=1.00 LEAKS=18
+  pattern_xpath: ///div[contains(@data-hash,'ccb')][contains(@data-hash,'cdca')][contains(@data-hash,'fb')][contains(@data-id,'ccb')][contains(@data-id,'cdca')]
+  tree_sig: div(div(div,div(div(div(picture(source,source,img),picture(source,source,img)),i
+  content: [ATTR=9 HREF=2 IMG=116 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: Unhuman,the twist in the surface..by Magenta pro-gallery-video pro-gallery-video
+    |   <div class="gallery-item-container item-container-regular has-custom-focus visible" id="pgi6a30cdcac574406ba0480506621ccb33_8" data-hash="6a30cdca-c574-406b-a048-0506621ccb33" data-id="6a30cdca-c574-406b-a048-0506621ccb33" data-idx="8" data-hook="item-container" style="overflow-y:hidden;position:absolute;bottom:auto;margin:0;top:950px;left:648px;ri...">
+    |     <div data-idx="8" id="item-action-6a30cdca-c574-406b-a048-0506621ccb33" class="item-action" tabindex="-1" data-hook="item-action" aria-label="Unhuman,the twist in the surface..by Magenta"></div>
+    |     <div>
+    |       <div data-hook="item-wrapper" class="gallery-item-wrapper visible cube-type-fill [object Object]" id="item-wrapper-6a30cdca-c574-406b-a048-0506621ccb33" style="background-color:none;height:219px;width:292px;margin:-1px">
+    |         <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   video-item gallery-item-video" data-hook="image-item" style="width:292px;height:219px;margin-top:0;margin-left:0">
+    |           <picture id="multi_picture_undefined">
+    |             <source srcset="https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg 1x, https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg/v1/fill/w_768,h_576,fp_0.50_0.50,lg_1,q_30,blur_30,enc_avif,quality_auto/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg 2x" type="image/jpg"></source>
+    |             <source srcset="https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg/v1/fill/w_333,h_250,fp_0.50_0.50,q_30,blur_30,enc_avif,quality_auto/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.webp 1x, https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg/v1/fill/w_768,h_576,fp_0.50_0.50,lg_1,q_30,blur_30,enc_avif,quality_auto/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.webp 2x" type="image/webp"></source>
+    |             <img alt="Unhuman,the twist in the surface..by Magenta" src="https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.j..." style="width:292px;height:219px" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img-preload" loading="eager"></img>
+    |           </picture>
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg/v1/fill (img URL not in rendered)
+    [IMG] h_219 (img URL not in rendered)
+    [IMG] q_90 (img URL not in rendered)
+    [IMG] q_90 (img URL not in rendered)
+    [IMG] https://static.wixstatic.com/media/59ea15_a61ec8b9413e4ca2a88a0bf70d2db07ef000.jpg/v1/fill (img URL not in rendered)
+
+--- Chunk 2: div.at.button ---
+  type=button freq=18 excl=1.00
+  pattern_xpath: ///div[contains(@aria-pressed,'true')][contains(@class,'at')][contains(@class,'fzb')][contains(@class,'yk')][contains(@role,'button')]
+  tree_sig: div(div(div(canvas,wix-video(img,svg(defs(filter)),video))))
+  content: [ATTR=1 IMG=16]
+  sample[0] (31L) [TRUNCATED]: 
+    |   <div class="K0b3At TFzbYK" tabindex="0" role="button" aria-label="Cloud Play video" aria-pressed="true">
+    |     <div id="bgLayers_comp-kviu1ab8" data-hook="bgLayers" data-motion-part="BG_LAYER comp-kviu1ab8" class="MW5IWV bno0bO">
+    |       <div id="bgMedia_comp-kviu1ab8" data-motion-part="BG_MEDIA comp-kviu1ab8" class="VgO9Yg">
+    |         <wix-video id="videoContainer_comp-kviu1ab8" data-video-info="{"fittingType":"fill","alignType":"center","hasBgScrollEffect":"","bgEffectName":"","videoId":"11062b_04a9da872c7a49779338c9fe87d2f8cc","videoWidth":1920,"videoHeight":912,"qualities":[{"quality":"480p","size":346724,"url":"video/11062b_04a9da872c7a49779338c9fe87d2f8cc/480p/mp4/file.mp4"},{"quality":"720p","size":778240,"url":"video/11062b_04a9da872c7a49779338c9fe87d2f8cc/720p/mp4/file.mp4"},{"quality":"1080p","size":1751040,"url":"video/11062b_04a9da872c7a49779338c9fe87d2f8cc/1080p/mp4/file.mp4"}],"isVideoDataExists":"1","videoFormat":"mp4","playbackRate":1,"autoPlay":true,"containerId":"comp-kviu1ab8","animatePoster":"none"}" data-motion-part="BG_IMG comp-kviu1ab8" class="bX9O_S bgVideo yK6aSC">
+    |           <video id="comp-kviu1ab8_video" class="K8MSra" crossorigin="anonymous" playsinline="" preload="auto" muted="" loop="" autoplay="" src="https://video.wixstatic.com/video/11062b_04a9da872c7a49779338c9fe87d2f8cc/480p/m..."></video>
+    |           <svg id="svg_comp-kviu1ab8" class="YTb3b4">
+    |             <defs>
+    |               <filter id="tvDuotone-comp-kviu1ab8" color-interpolation-filters="sRGB">
+    |                 <fecomponenttransfer result="srcRGB"></fecomponenttransfer>
+    |                 <fecomponenttransfer>
+    | ... [21 more lines]
+
+--- Chunk 3: a.com.depth ---
+  type=menu_item freq=70 excl=1.00
+  pattern_xpath: ///a[contains(@class,'depth')][contains(@class,'menu')][contains(@class,'root')][contains(@data-item-label,'true')][contains(@data-testid,'element')]
+  tree_sig: a(div(span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): Intelligence Unbound-Exhibition
+    |   <a data-item-label="true" data-testid="linkElement" href="https://www.posthumanart.com/intelligence-unbound-exhibition" target="_self" class="itemDepth02233374943__root StylableHorizontalMenu3372578893__menuItem itemShared2352141355__menuItem" aria-expanded="false" aria-haspopup="true" tabindex="0">
+    |     <div class="itemDepth02233374943__container">
+    |       <span class="itemDepth02233374943__label wixui-horizontal-menu__item-label">
+    |         Intelligence Unbound-Exhibition
+    |       </span>
+    |     </div>
+    |   </a>
+  sample[1] (7L): Residents 2021
+    |   <a data-item-label="true" data-testid="linkElement" href="https://www.posthumanart.com/residents" target="_self" class="itemDepth02233374943__root StylableHorizontalMenu3372578893__menuItem itemShared2352141355__menuItem" aria-expanded="false" aria-haspopup="true" tabindex="0">
+    |     <div class="itemDepth02233374943__container">
+    |       <span class="itemDepth02233374943__label wixui-horizontal-menu__item-label">
+    |         Residents 2021
+    |       </span>
+    |     </div>
+    |   </a>
+  sample[2] (7L): Xennoverse-Exhibition
+    |   <a data-item-label="true" data-testid="linkElement" href="https://www.posthumanart.com/xennoverse" target="_self" class="itemDepth02233374943__root StylableHorizontalMenu3372578893__menuItem itemShared2352141355__menuItem" aria-expanded="false" aria-haspopup="true" tabindex="0">
+    |     <div class="itemDepth02233374943__container">
+    |       <span class="itemDepth02233374943__label wixui-horizontal-menu__item-label">
+    |         Xennoverse-Exhibition
+    |       </span>
+    |     </div>
+    |   </a>
+
+--- Chunk 4: button.accessibility.icon ---
+  type=button freq=9 excl=0.66
+  pattern_xpath: ///button[contains(@class,'accessibility')][contains(@class,'icon')][contains(@class,'shared')][contains(@class,'item')]
+  tree_sig: button(svg(path))
+  content: [ATTR=1]
+  sample[0] (5L): 
+    |   <button tabindex="0" class="itemShared2352141355__accessibilityIcon" aria-label="Toggle Posthuman Laboratories">
+    |     <svg width="0" height="0" viewbox="0 0 0 0" fill="black" xmlns="http://www.w3.org/2000/svg">
+    |       <path d="M8 10.5L16 1.86193L14.7387 0.5L8 7.77613L1.26133 0.499999L-5.95321e-08 1.86193L8..."></path>
+    |     </svg>
+    |   </button>
+  sample[1] (5L): 
+    |   <button tabindex="0" class="itemShared2352141355__accessibilityIcon" aria-label="Toggle About">
+    |     <svg width="0" height="0" viewbox="0 0 0 0" fill="black" xmlns="http://www.w3.org/2000/svg">
+    |       <path d="M8 10.5L16 1.86193L14.7387 0.5L8 7.77613L1.26133 0.499999L-5.95321e-08 1.86193L8..."></path>
+    |     </svg>
+    |   </button>
+  sample[2] (5L): 
+    |   <button tabindex="0" class="itemShared2352141355__accessibilityIcon" aria-label="Toggle Xennoverse-Exhibition">
+    |     <svg width="0" height="0" viewbox="0 0 0 0" fill="black" xmlns="http://www.w3.org/2000/svg">
+    |       <path d="M8 10.5L16 1.86193L14.7387 0.5L8 7.77613L1.26133 0.499999L-5.95321e-08 1.86193L8..."></path>
+    |     </svg>
+    |   </button>
+
+--- Chunk 5: a.com.https ---
+  type=card freq=152 excl=1.00
+  pattern_xpath: ///a[contains(@class,'kgi')][contains(@class,'lyd')][contains(@class,'me')][contains(@class,'pu')][contains(@class,'xe')]
+  tree_sig: a(div(div(h2)))
+  content: [HREF=1 TEXT=1]
+  sample[0] (9L): Cognitive Dissonance: Re-evaluating AI through Noise and Improvisation
+    |   <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanart.com/post/cognitive-noise-ai-noise-and-improvisation">
+    |     <div style="font-size:12px" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |       <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size:12px" data-hook="post-title">
+    |         <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |           Cognitive Dissonance: Re-evaluating AI through Noise and Improvisation
+    |         </h2>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[1] (9L): Cognitive Dissonance: Re-evaluating AI through Noise and Improvisation
+    |   <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanart.com/post/cognitive-noise-ai-noise-and-improvisation">
+    |     <div style="font-size:12px" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |       <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size:12px" data-hook="post-title">
+    |         <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |           Cognitive Dissonance: Re-evaluating AI through Noise and Improvisation
+    |         </h2>
+    |       </div>
+    |     </div>
+    |   </a>
+  sample[2] (9L): 🅧🅧🅧🅾 :: 🅞🅞🅞🅞
+    |   <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanart.com/post/f93a5bab">
+    |     <div style="font-size:12px" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |       <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size:12px" data-hook="post-title">
+    |         <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |           🅧🅧🅧🅾 :: 🅞🅞🅞🅞
+    |         </h2>
+    |       </div>
+    |     </div>
+    |   </a>
+
+--- Chunk 6: p.em.font ---
+  type=card freq=7 excl=0.19
+  pattern_xpath: ///p[contains(@style,'em')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  tree_sig: p(span(span(span(span(span(span))))))
+  content: [TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Laboratories Involved in the Residency:(Foreign Objekt)Posthuman Philosophy Scho
+    |   <p class="font_8 wixui-rich-text__text" style="font-size:10px; line-height:1.4em;">
+    |     <span style="color:#08F366;" class="wixui-rich-text__text">
+    |       <span style="font-size:14px;" class="wixui-rich-text__text">
+    |         <span style="font-family:avenir-lt-w01_35-light1475496;" class="wixui-rich-text__text">
+    |           <span style="font-weight:normal;" class="wixui-rich-text__text">
+    |   ... [146 lines truncated] ...
+    |           </span>
+    |         </span>
+    |       </span>
+    |     </span>
+    | ... [1 more lines]
+
+--- Chunk 7: div.box.common ---
+  type=card freq=26 excl=0.50 LEAKS=9
+  pattern_xpath: ///div[contains(@class,'common')][contains(@class,'info')][contains(@class,'object')][contains(@class,'outer')][contains(@style,'box')]
+  tree_sig: div(div(div(div(div(div(a,div),div(a,div))))),div(div(picture(img,source,source)
+  content: [ATTR=4 HREF=2 IMG=54 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: PRIMOmit                                               by MAGENTA PRIMOmit
+    |   <div class="gallery-item-common-info-outer [object Object]" style="height:224px;box-sizing:content-box">
+    |     <div style="overflow:hidden;box-sizing:border-box;width:100%;height:224px" class="gallery-item-common-info gallery-item-bottom-info">
+    |       <div class="RiOfiW pu51Xe lyd6fK p8Uk20 blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-post-post-list-border-color blog-post-post-list-post-container blog-post-post-list-background-color _UH27m" style="border-width:0;--wix-blog-inline-padding:13px" data-hook="post-list-item">
+    |         <div style="padding-left:13px;padding-right:13px" class="iSTCpN lyd6fK p8Uk20 post-list-item-wrapper blog-post-post-list-description-font blog-post-post-list-description-color blog-post-post-list-description-fill">
+    |           <div class="uYL9xS">
+    |             <div class="JMCi2v blog-post-post-list-link-hashtag-hover-color so9KdE lyd6fK">
+    |               <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanart.com/post/primomit-by-magenta">
+    |                 <div style="font-size:12px" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |                   <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size:12px" data-hook="post-title">
+    |                     <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    | ... [21 more lines]
+  LEAKS (high):
+    [IMG] https://static.wixstatic.com/media/93a60d_6ea9f1f6e8204fbaab6d7587bdbd960a~mv2.jpg/v1/fill (img URL not in rendered)
+    [IMG] h_219 (img URL not in rendered)
+    [IMG] q_90 (img URL not in rendered)
+    [IMG] q_90 (img URL not in rendered)
+    [IMG] https://static.wixstatic.com/media/93a60d_6ea9f1f6e8204fbaab6d7587bdbd960a~mv2.jpg/v1/fill (img URL not in rendered)
+
+--- Chunk 8: div.box.common ---
+  type=card freq=30 excl=0.50
+  pattern_xpath: ///div[contains(@class,'common')][contains(@class,'info')][contains(@class,'object')][contains(@class,'outer')][contains(@style,'box')]
+  tree_sig: div(div(div(div(div(div(a,div),div(a,div))))),div(div(picture(img,source,source)
+  content: [ATTR=3 HREF=2 IMG=25 TEXT=5]
+  sample[0] (31L) [TRUNCATED]: Sonic Vectors: Possible Parallels Between Quantum Mechanics and Experimental Mus
+    |   <div class="gallery-item-common-info-outer [object Object]" style="height: 224px; box-sizing: content-box;">
+    |     <div style="overflow: hidden; box-sizing: border-box; width: 100%; height: 224px;" class="gallery-item-common-info gallery-item-bottom-info">
+    |       <div class="RiOfiW pu51Xe lyd6fK p8Uk20 blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-post-post-list-border-color blog-post-post-list-post-container blog-post-post-list-background-color _UH27m" style="border-width: 0px; --wix-blog-inline-padding: 13px;" data-hook="post-list-item">
+    |         <div style="padding-left: 13px; padding-right: 13px;" class="iSTCpN lyd6fK p8Uk20 post-list-item-wrapper blog-post-post-list-description-font blog-post-post-list-description-color blog-post-post-list-description-fill">
+    |           <div class="uYL9xS">
+    |             <div class="JMCi2v blog-post-post-list-link-hashtag-hover-color so9KdE lyd6fK">
+    |               <a class="O16KGI pu51Xe lyd6fK xs2MeC" href="https://www.posthumanart.com/post/sonic-vectors-possible-parallels-between-quantum-mechanics-and-experimental-music-in-the-post-digit">
+    |                 <div style="font-size: 12px;" class="FbwBsX blog-post-title-font lyd6fK p8Uk20 xs2MeC HhgCcE" data-hook="post-list-item__title">
+    |                   <div class="T5UMT5 fcPJ4D blog-hover-container-element-color I9XQQf post-title blog-post-post-list-title-color blog-post-post-list-title-font" style="font-size: 12px;" data-hook="post-title">
+    |                     <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp: 3;">
+    | ... [21 more lines]
+
+--- Chunk 9: div.content.gallery ---
+  type=card freq=19 excl=1.00
+  pattern_xpath: ///div[contains(@class,'content')][contains(@class,'image')][contains(@class,'preloaded')][contains(@class,'video')][contains(@data-hook,'image')]
+  tree_sig: div(picture(img,source,source),picture(img,source,source))
+  content: [ATTR=2 IMG=10]
+  sample[0] (12L): Beauty Institutions Beauty Institutions
+    |   <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   video-item gallery-item-video" data-hook="image-item" style="width:292px;height:219px;margin-top:0;margin-left:0">
+    |     <picture id="multi_picture_undefined">
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/jpg"></source>
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/webp"></source>
+    |       <img alt="Beauty Institutions" src="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg" style="width:292px;height:219px" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img-preload" loading="eager"></img>
+    |     </picture>
+    |     <picture id="multi_picture_undefined">
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/jpg"></source>
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/webp"></source>
+    |       <img alt="Beauty Institutions" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="11" src="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg" loading="eager" style="width:292px;height:219px"></img>
+    | ... [2 more lines]
+  sample[1] (12L): Beauty Institutions Beauty Institutions
+    |   <div class="gallery-item-content item-content-regular image-item gallery-item-visible gallery-item gallery-item-preloaded   video-item gallery-item-video" data-hook="image-item" style="width:292px;height:219px;margin-top:0;margin-left:0">
+    |     <picture id="multi_picture_undefined">
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/jpg"></source>
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/webp"></source>
+    |       <img alt="Beauty Institutions" src="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg" style="width:292px;height:219px" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img-preload" loading="eager"></img>
+    |     </picture>
+    |     <picture id="multi_picture_undefined">
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/jpg"></source>
+    |       <source srcset="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 1x, https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg 2x" type="image/webp"></source>
+    |       <img alt="Beauty Institutions" class="gallery-item-visible gallery-item gallery-item-preloaded" data-hook="gallery-item-image-img" data-idx="2" src="https://i.ytimg.com/vi/4n9xD_duEm0/maxresdefault.jpg" loading="eager" style="width:292px;height:219px"></img>
+    | ... [2 more lines]
+
+--- Chunk 10: div.blog.bt ---
+  type=card freq=39 excl=1.00
+  pattern_xpath: ///div[contains(@class,'blog')][contains(@class,'bt')][contains(@class,'description')][contains(@class,'dkn')][contains(@class,'header')]
+  tree_sig: div(a(div(div(h2))),div(div(div(div),span(span)),span(div(span(span(wow-image)))
+  content: [ATTR=3 HREF=1 IMG=1 TEXT=3]
+  sample[0] (31L) [TRUNCATED]: Boris Lesnoy when sound met language they conceived baby speech when speech met 
+    |   <div class="SbjQym DKNKji blog-post-metadata-font post-header blog-post-description-font blog-post-post-list-description-font Bt5sQV TjmPXo" style="font-size: 12px;">
+    |     <div class="V_aJB6 dXvq5u">
+    |       <span data-hook="profile-link">
+    |         <div class="H_gEjP">
+    |           <span class="lBv2XN blog-text-color blog-link-hover-color avatar blog-post-text-color">
+    |             <span class="ERF5R1 avatar-image">
+    |               <wow-image class="TI1b5D lR3yj5 fluid-avatar-image" data-image-info="{"displayMode":"fill","targetWidth":64,"targetHeight":64,"isSEOBot":false,"encoding":"AVIF","imageData":{"width":64,"height":64,"uri":"https://graph.facebook.com/6019507444820405/picture","name":"","displayMode":"fill"}}" data-motion-part="BG_IMG undefined" data-bg-effect-name="" data-has-ssr-src="" style="--wix-img-max-width: max(64px, 100%);">
+    |                 <img alt="Writer: Boris Lesnoy" role="img"></img>
+    |                 <img alt="Writer: Boris Lesnoy" role="img" style="width: 32px; height: 32px; object-fit: cover;" data-ssr-src-done="true" fetchpriority="high" src="https://graph.facebook.com/6019507444820405/picture"></img>
+    |               </wow-image>
+    | ... [21 more lines]
+
+--- Chunk 11: [pagination_buttons] ---
+  type=pagination freq=3 excl=1.00
+  pattern_xpath: ///link[contains(@as,'fetch')][contains(@crossorigin,'anonymous')][contains(@id,'master')][contains(@id,'page')][contains(@position,'post')]
+  content: [HREF=1]
+  sample[0] (1L): 
+    |   <link href="https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%2C%2214bcded7-0066-7c35-14d7-466cb3f09103%22%3A%221335%22%7D&beckyExperiments=.DatePickerPortal%2C.DisableDocumentScrollWhenLightBoxOpen%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNewLoginSocialBarCustomMenuPositioning%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.VerticalMenu_uiType_NativeMapper%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.addIdAsClassName%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.disableBuilderWixComponents%2C.dom_store%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.imageEncodingAVIF%2C.isClassNameToRootEnabled%2C.motionTimeAnimationsCSS%2C.propsCarmiMappersMigration1%2C.propsCarmiMappersMigration4%2C.propsCarmiMappersMigration5%2C.removeDynamicModelTopologyFromSiteAssets%2C.shouldUseResponsiveImages%2C.svgResolver_2%2C.takeAppDependenciesFromCSM%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery%2C.useResponsiveImgClassicFixed%2C.useSvgLoaderFeature%2C.useSvgLoaderFeatureOnBuilderComps&blocksBuilderManifestGeneratorVersion=1.129.0&contentType=application%2Fjson&deviceType=Desktop&dfCk=6&dfVersion=1.5263.0&disableStaticPagesUrlHierarchy=false&editorName=Unknown&experiments=dm_bgScrubToMotionFixer%2Cdm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.posthumanart.com&fileId=df2ea64c.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=true&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isMultilingualEnabled=false&isPremiumDomain=true&isTrackClicksAnalyticsEnabled=false&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=true&language=en&languageResolutionMethod=QueryParam&metaSiteId=bcc3a85a-e7bd-4805-9b4d-b0b0f15fcae7&module=thunderbolt-features&oneDocEnabled=true&originalLanguage=en&pageId=f0a2e7_eb028d4073faa1700a7125e313030117_1848.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=0a2a37ce-5cd8-4d58-85fb-917ffe5de0e1&siteRevision=1848&staticHTMLComponentUrl=https%3A%2F%2Fwww-posthumanart-com.filesusr.com%2F&useSandboxInHTMLComp=false&viewMode=desktop" id="features_masterPage" as="fetch" position="post-scripts" rel="preload" crossorigin="anonymous"></link>
+  sample[1] (1L): 
+    |   <link href="https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%2C%2214bcded7-0066-7c35-14d7-466cb3f09103%22%3A%221335%22%7D&beckyExperiments=.DatePickerPortal%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNewLoginSocialBarCustomMenuPositioning%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.addIdAsClassName%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.disableBuilderWixComponents%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.isClassNameToRootEnabled%2C.propsCarmiMappersMigration1%2C.propsCarmiMappersMigration4%2C.propsCarmiMappersMigration5%2C.svgResolver_2%2C.takeAppDependenciesFromCSM%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery&blocksBuilderManifestGeneratorVersion=1.129.0&contentType=application%2Fjson&dfCk=6&dfVersion=1.5263.0&editorName=Unknown&experiments=dm_bgScrubToMotionFixer%2Cdm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.posthumanart.com&fileId=b814ec89.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=true&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isPremiumDomain=true&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=true&language=en&metaSiteId=bcc3a85a-e7bd-4805-9b4d-b0b0f15fcae7&module=thunderbolt-platform&oneDocEnabled=true&originalLanguage=en&pageId=f0a2e7_eb028d4073faa1700a7125e313030117_1848.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.14885.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=0a2a37ce-5cd8-4d58-85fb-917ffe5de0e1&siteRevision=1848&staticHTMLComponentUrl=https%3A%2F%2Fwww-posthumanart-com.filesusr.com%2F&viewMode=desktop" id="platform_masterPage" as="fetch" position="post-scripts" rel="preload" crossorigin="anonymous"></link>
+  sample[2] (1L): Visitors Map
+    |   <iframe style="display: none;" name="tpaWorker_9689" allowfullscreen="" allowtransparency="true" allowvr="true" frameborder="0" src="https://app.ardalio.com/wixMapsWorker.pl?pageId=masterPage&compId=tpaWorker_9689..." title="Visitors Map" allow="clipboard-write;autoplay;camera;microphone;geolocation;vr" useb6q2cx=""></iframe>
+
+--- Chunk 12: [text_content:p×3] ---
+  type=text_singleton freq=3 excl=0.11
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'thuuay')][contains(@class,'ku')]/p[contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')][contains(@style,'font')]
+  content: [HREF=2 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: ▪️𝐑𝐞𝐳𝐚 𝐍𝐞𝐠𝐚𝐫𝐞𝐬𝐭𝐚𝐧𝐢:Oct 𝟐 3 𝐭𝐡 The Time of a Scandal: Induction, Memory and Exper
+    |   <p class="font_7 wixui-rich-text__text" style="font-size:15px;">
+    |     <br class="wixui-rich-text__text"></br>
+    |     <span style="font-size:15px;" class="wixui-rich-text__text">
+    |       ▪️𝐑𝐞𝐳𝐚 𝐍𝐞𝐠𝐚𝐫𝐞𝐬𝐭𝐚𝐧𝐢:
+    |       <span style="font-weight:bold;" class="wixui-rich-text__text">
+    |         Oct
+    |       </span>
+    |       𝟐
+    |       <span style="font-weight:bold;" class="wixui-rich-text__text">
+    |         3
+    | ... [21 more lines]
+
+--- Chunk 13: [nav_content:a×115] ---
+  type=menu_item freq=115 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=3]
+  sample[0] (11L): Post-humanism(15)15 posts
+    |   <li>
+    |     <a href="https://www.posthumanart.com/blog/tags/post-humanism" class="EFyRdc" rel="noopener noreferrer">
+    |       Post-humanism
+    |       <span class="S_BvXZ" aria-hidden="true">
+    |         (15)
+    |       </span>
+    |       <span class="e1l5ao S_BvXZ">
+    |         15 posts
+    |       </span>
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (11L): time(13)13 posts
+    |   <li>
+    |     <a href="https://www.posthumanart.com/blog/tags/time" class="EFyRdc" rel="noopener noreferrer">
+    |       time
+    |       <span class="S_BvXZ" aria-hidden="true">
+    |         (13)
+    |       </span>
+    |       <span class="e1l5ao S_BvXZ">
+    |         13 posts
+    |       </span>
+    |     </a>
+    | ... [1 more lines]
+
+--- Chunk 14: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'waqbw')][contains(@class,'ku')]/h2[contains(@style,'normal')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (15L): FOREIGN OBJEKT POSTHUMAN LAB
+    |   <h2 class="font_2 wixui-rich-text__text" style="font-size:20px; line-height:normal;">
+    |     <a href="https://www.foreignobjekt.com/" target="_blank" rel="noreferrer noopener" class="wixui-rich-text__text">
+    |       <span style="font-family:heebo-medium,sans-serif;" class="wixui-rich-text__text">
+    |         <span class="color_18 wixui-rich-text__text">
+    |           <span style="text-decoration:underline;" class="wixui-rich-text__text">
+    |             <span style="font-size:20px;" class="wixui-rich-text__text">
+    |               <span style="letter-spacing:0.01em;" class="wixui-rich-text__text">
+    |                 FOREIGN OBJEKT POSTHUMAN LAB
+    |               </span>
+    |             </span>
+    | ... [5 more lines]
+
+--- Chunk 15: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'cl')][contains(@class,'ku')]/h4[contains(@style,'normal')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  content: [TEXT=2]
+  sample[0] (19L): POSTHUMAN ART NETWORK POSTHUMAN ART NETWORK
+    |   <h4 class="font_4 wixui-rich-text__text" style="line-height:normal; font-size:40px;">
+    |     <br class="wixui-rich-text__text"></br>
+    |     <span style="color:#F5F4F4;" class="wixui-rich-text__text">
+    |       <span style="font-family:familjen-grotesk,familjen grotesk,sans-serif;" class="wixui-rich-text__text">
+    |         <span style="letter-spacing:normal;" class="wixui-rich-text__text">
+    |           <span style="background-color:#F304BD;" class="wixui-rich-text__text">
+    |             POSTHUMAN ART NETWORK
+    |           </span>
+    |         </span>
+    |       </span>
+    | ... [9 more lines]
+
+--- Chunk 16: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'dnu')][contains(@class,'ku')]/h4[contains(@style,'normal')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  content: [TEXT=2]
+  sample[0] (14L): POSTHUMAN ART LABORATORY POSTHUMAN ART LABORATORY
+    |   <h4 class="font_4 wixui-rich-text__text" style="line-height:normal; font-size:40px;">
+    |     <span style="color:#F00FE5;" class="wixui-rich-text__text">
+    |       <span style="font-family:familjen-grotesk,familjen grotesk,sans-serif;" class="wixui-rich-text__text">
+    |         <span style="letter-spacing:normal;" class="wixui-rich-text__text">
+    |           POSTHUMAN ART LABORATORY
+    |         </span>
+    |       </span>
+    |       <span style="font-family:bitter-black,bitter,serif;" class="wixui-rich-text__text">
+    |         <span style="letter-spacing:normal;" class="wixui-rich-text__text">
+    |           POSTHUMAN ART LABORATORY
+    | ... [4 more lines]
+
+--- Chunk 17: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.19
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'thcjtx')][contains(@class,'ku')]/h2[contains(@style,'em')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  content: [TEXT=2]
+  sample[0] (25L): Foreign ObjektForeign
+    |   <h2 class="font_2 wixui-rich-text__text" style="font-size:13px; line-height:1.4em;">
+    |     <span style="font-size:13px;" class="wixui-rich-text__text">
+    |       <span style="font-family:avenir-lt-w01_35-light1475496;" class="wixui-rich-text__text">
+    |         <span style="font-weight:normal;" class="wixui-rich-text__text">
+    |           <span style="font-style:normal;" class="wixui-rich-text__text">
+    |             <span style="color:rgb(47, 46, 46);" class="wixui-rich-text__text">
+    |               <span style="letter-spacing:0em;" class="wixui-rich-text__text">
+    |                 <span style="color:#740278;" class="wixui-rich-text__text">
+    |                   <span style="font-family:lulo-clean-w01-one-bold,sans-serif;" class="wixui-rich-text__text">
+    |                     Foreign
+    | ... [15 more lines]
+
+--- Chunk 18: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'lbfqwdzf')][contains(@class,'ku')]/h2[contains(@style,'normal')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  content: [TEXT=2]
+  sample[0] (13L): GROUP SHOW SOUND LABORATORY
+    |   <h2 class="font_2 wixui-rich-text__text" style="font-size:28px; line-height:normal;">
+    |     <span style="font-size:28px;" class="wixui-rich-text__text">
+    |       <span style="color:#31F311;" class="wixui-rich-text__text">
+    |         <span style="letter-spacing:0.2em;" class="wixui-rich-text__text">
+    |           <span style="font-family:avenir-lt-w01_85-heavy1475544,sans-serif;" class="wixui-rich-text__text">
+    |             GROUP SHOW
+    |             <br class="wixui-rich-text__text"></br>
+    |             SOUND LABORATORY
+    |           </span>
+    |         </span>
+    | ... [3 more lines]
+
+--- Chunk 19: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.11
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'bft')][contains(@id,'bc')]/h4[contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')][contains(@style,'font')]
+  content: [TEXT=3]
+  sample[0] (22L): Organized and programmed at Foreign Objekt posthuman lab Posthuman Research Arti
+    |   <h4 class="font_4 wixui-rich-text__text" style="font-size:23px;">
+    |     <span style="font-size:20px;" class="wixui-rich-text__text">
+    |       <span style="font-family:lulo-clean-w01-one-bold,lulo-clean-w05-one-bold,sans-serif;" class="wixui-rich-text__text">
+    |         <span style="color:#333333;" class="wixui-rich-text__text">
+    |           <span style="background-color:#DBDBDB;" class="wixui-rich-text__text">
+    |             Posthuman Research Artist Residents 2021-24 projects
+    |           </span>
+    |         </span>
+    |       </span>
+    |     </span>
+    | ... [12 more lines]
+
+--- Chunk 20: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.13
+  pattern_xpath: ///div[contains(@id,'comp')][contains(@id,'libz')][contains(@id,'ba')]/h2[contains(@style,'normal')][contains(@class,'rich')][contains(@class,'text')][contains(@class,'wixui')][contains(@class,'font')]
+  content: [TEXT=4]
+  sample[0] (24L): GROUP SHOW BORATORYGROUP SHOW SOUND LA SOUND LA
+    |   <h2 class="font_2 wixui-rich-text__text" style="font-size:20px; line-height:normal;">
+    |     <span class="color_11 wixui-rich-text__text">
+    |       <span style="letter-spacing:0.2em;" class="wixui-rich-text__text">
+    |         <span style="font-size:20px;" class="wixui-rich-text__text">
+    |           <span style="font-family:avenir-lt-w01_85-heavy1475544,sans-serif;" class="wixui-rich-text__text">
+    |             GROUP SHOW
+    |             <br class="wixui-rich-text__text"></br>
+    |             SOUND LA
+    |           </span>
+    |         </span>
+    | ... [14 more lines]
+
+--- Chunk 21: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Vinh Mai Nguyen: mecha mecha mecha: Agency, Nails, and AI as wannabe Girl
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Vinh Mai Nguyen: mecha mecha mecha: Agency, Nails, and AI as wannabe Girl
+    |   </h2>
+
+--- Chunk 22: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Found as a stray bookshelf
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Found as a stray bookshelf
+    |   </h2>
+
+--- Chunk 23: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Sliding along the moebius manifold :  amplitude and creases // Quassine
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Sliding along the moebius manifold :  amplitude and creases // Quassine
+    |   </h2>
+
+--- Chunk 24: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): We will survive as Hybrids: Vernacular Embodiments
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     We will survive as Hybrids: Vernacular Embodiments
+    |   </h2>
+
+--- Chunk 25: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Ventriloquist Ontology
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Ventriloquist Ontology
+    |   </h2>
+
+--- Chunk 26: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Queen Free Exchange and other foreign objects
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Queen Free Exchange and other foreign objects
+    |   </h2>
+
+--- Chunk 27: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Flaneur(0)-Workers // Cognitive Mechanics and Spatial (Non)Resemblances
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Flaneur(0)-Workers // Cognitive Mechanics and Spatial (Non)Resemblances
+    |   </h2>
+
+--- Chunk 28: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): MORPHOLOGICAL FREEDOM: POSTHUMANIST MIRAGE IN MEDICAL HUMANITIES
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     MORPHOLOGICAL FREEDOM: POSTHUMANIST MIRAGE IN MEDICAL HUMANITIES
+    |   </h2>
+
+--- Chunk 29: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Onty Presents a Short Film: AIONIZATION
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Onty Presents a Short Film: AIONIZATION
+    |   </h2>
+
+--- Chunk 30: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Earth prayers
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Earth prayers
+    |   </h2>
+
+--- Chunk 31: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Hybrid Soul Agency
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Hybrid Soul Agency
+    |   </h2>
+
+--- Chunk 32: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Perceptions of Time
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Perceptions of Time
+    |   </h2>
+
+--- Chunk 33: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Stone Story (Mycelium of Mind)
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Stone Story (Mycelium of Mind)
+    |   </h2>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): nesX-tant,   Yvonne Jones
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     nesX-tant,   Yvonne Jones
+    |   </h2>
+
+--- Chunk 35: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Polyglot
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Polyglot
+    |   </h2>
+
+--- Chunk 36: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.06
+  pattern_xpath: ///h2[contains(@class,'ik')][contains(@class,'nia')][contains(@class,'vt')][contains(@style,'clamp')][contains(@style,'webkit')]
+  content: [TEXT=1]
+  sample[0] (3L): Deformalization of the flaneur-worker
+    |   <h2 class="bD0vt9 KNiaIk" style="-webkit-line-clamp:3">
+    |     Deformalization of the flaneur-worker
+    |   </h2>

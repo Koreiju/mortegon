@@ -1,0 +1,83 @@
+{
+  "//span[contains(@class,'elementor-grid-item')][contains(@role,'listitem')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 9,
+    "pattern_xpath": "///span[contains(@class,'grid')][contains(@class,'item')][contains(@role,'listitem')][contains(@class,'elementor')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'elementor-icon')][contains(@class,'elementor-social-icon')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'elementor-screen-only')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//svg[contains(@class,'e-font-icon-svg')][contains(@class,'e-fab-youtube')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//path": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'elementor-field')][contains(@class,'elementor-size-md')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "search_input",
+    "frequency": 2,
+    "pattern_xpath": "///input[contains(@class,'field')][contains(@class,'md')][contains(@class,'textual')][contains(@id,'field')][contains(@id,'form')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//link": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "pagination",
+    "frequency": 6,
+    "pattern_xpath": "///link",
+    "content_types": [],
+    "children": {}
+  },
+  "//h1[contains(@class,'elementor-heading-title')][contains(@class,'elementor-size-default')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h1[contains(@class,'default')][contains(@class,'heading')][contains(@class,'title')][contains(@class,'size')][contains(@class,'elementor')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h2[contains(@class,'elementor-heading-title')][contains(@class,'elementor-size-default')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h2[contains(@class,'default')][contains(@class,'heading')][contains(@class,'title')][contains(@class,'size')][contains(@class,'elementor')]",
+    "content_types": [],
+    "children": {}
+  }
+}

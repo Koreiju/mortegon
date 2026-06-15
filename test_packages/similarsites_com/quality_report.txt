@@ -1,0 +1,64 @@
+=== QUALITY REPORT: similarsites_com.html ===
+Chunks: 3 (structural=1, functional=2, text=0)
+Categories: {'card': 1, 'search_input': 1, 'pagination': 1}
+Content: 4 tagged, 4 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: div.com.fm ---
+  type=card freq=5 excl=1.00
+  pattern_xpath: ///div[contains(@class,'fm')][contains(@class,'homepage')][contains(@class,'popular')][contains(@class,'re')][contains(@class,'site')]
+  tree_sig: div(div,div(img),img)
+  content: [IMG=2 TEXT=1]
+  sample[0] (9L): gratflix.com
+    |   <div data-testid="popular_site_gratflix.com" class="HomepagePopularSites__PopularSite-sc-1f6z86y-2 fmReZZ">
+    |     <div class="HomepagePopularSites__PopularSiteThumbnail-sc-1f6z86y-3 erIcBf">
+    |       <img data-testid="popular_site_thumbnail_gratflix.com" src="https://site-images.similarcdn.com/image?url=gratflix.com&t=1&h=e54d8b17c9080ca7..."></img>
+    |     </div>
+    |     <img src="https://www.google.com/s2/favicons?domain=gratflix.com" data-testid="popular_site_favicon_gratflix.com" class="styled-components__Favicon-sc-1ez58cv-0 ghQCMh"></img>
+    |     <div data-testid="popular_site_title_gratflix.com" class="HomepagePopularSites__PopularSiteDomain-sc-1f6z86y-4 hnINFb">
+    |       gratflix.com
+    |     </div>
+    |   </div>
+  sample[1] (9L): stockx.com
+    |   <div data-testid="popular_site_stockx.com" class="HomepagePopularSites__PopularSite-sc-1f6z86y-2 fmReZZ">
+    |     <div class="HomepagePopularSites__PopularSiteThumbnail-sc-1f6z86y-3 erIcBf">
+    |       <img data-testid="popular_site_thumbnail_stockx.com" src="https://site-images.similarcdn.com/image?url=stockx.com&t=1&h=89e6a92db9344a5e37..."></img>
+    |     </div>
+    |     <img src="https://www.google.com/s2/favicons?domain=stockx.com" data-testid="popular_site_favicon_stockx.com" class="styled-components__Favicon-sc-1ez58cv-0 ghQCMh"></img>
+    |     <div data-testid="popular_site_title_stockx.com" class="HomepagePopularSites__PopularSiteDomain-sc-1f6z86y-4 hnINFb">
+    |       stockx.com
+    |     </div>
+    |   </div>
+  sample[2] (9L): allpcworld.com
+    |   <div data-testid="popular_site_allpcworld.com" class="HomepagePopularSites__PopularSite-sc-1f6z86y-2 fmReZZ">
+    |     <div class="HomepagePopularSites__PopularSiteThumbnail-sc-1f6z86y-3 erIcBf">
+    |       <img data-testid="popular_site_thumbnail_allpcworld.com" src="https://site-images.similarcdn.com/image?url=allpcworld.com&t=1&h=ab645622a6a069..."></img>
+    |     </div>
+    |     <img src="https://www.google.com/s2/favicons?domain=allpcworld.com" data-testid="popular_site_favicon_allpcworld.com" class="styled-components__Favicon-sc-1ez58cv-0 ghQCMh"></img>
+    |     <div data-testid="popular_site_title_allpcworld.com" class="HomepagePopularSites__PopularSiteDomain-sc-1f6z86y-4 hnINFb">
+    |       allpcworld.com
+    |     </div>
+    |   </div>
+
+--- Chunk 1: [search_inputs] ---
+  type=search_input freq=2 excl=1.00
+  pattern_xpath: ///input[contains(@class,'bar')][contains(@class,'cykhd')][contains(@class,'input')][contains(@class,'kvsvu')][contains(@class,'search')]
+  content: [ATTR=1]
+  sample[0] (1L): Search for a site, like "netflix.com"
+    |   <input data-testid="search-bar" color="#2b2849" placeholder="Search for a site, like "netflix.com"" value="" class="SearchBar__Input-sc-9cykhd-2 kKVSVU"></input>
+  sample[1] (1L): Search for a site, like "netflix.com"Check out some of our popular sites
+    |   <input data-testid="search-bar" color="#2b2849" placeholder="Search for a site, like "netflix.com"" value="" class="SearchBar__Input-sc-9cykhd-2 kKVSVU"></input>
+
+--- Chunk 2: [pagination_buttons] ---
+  type=pagination freq=19 excl=0.00
+  pattern_xpath: ///link
+  sample[0] (3L): Learn More
+    |   <a href="/privacy-policy">
+    |     Learn More
+    |   </a>
+  sample[1] (3L): Learn More
+    |   <a href="/privacy-policy">
+    |     Learn More
+    |   </a>
+  sample[2] (1L): 
+    |   <link rel="preload" href="/_next/static/taCnzF9CubA0CLOBBKycv/pages/site/%5Bdomain%5D.js" as="script"></link>

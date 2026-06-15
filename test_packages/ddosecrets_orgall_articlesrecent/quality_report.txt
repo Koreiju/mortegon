@@ -1,0 +1,4800 @@
+=== QUALITY REPORT: ddosecrets_orgall_articlesrecent.html ===
+Chunks: 425 (structural=0, functional=4, text=421)
+Categories: {'search_input': 1, 'pagination': 1, 'text_singleton': 421, 'menu_item': 2}
+Content: 1688 tagged, 1016 preserved (60%)
+Leaks: 672 total, 358 high-importance
+
+--- Chunk 0: [search_inputs] ---
+  type=search_input freq=2 excl=1.00
+  pattern_xpath: ///input[contains(@id,'input')][contains(@id,'search')][contains(@name,'query')][contains(@type,'search')][contains(@id,'header')]
+  content: [ATTR=1]
+  sample[0] (1L): Search articles...
+    |   <input type="search" id="headerSearchInput" name="query" placeholder="Search articles..." required=""></input>
+  sample[1] (1L): Search articles...
+    |   <input type="search" id="modalSearchInput" name="query" placeholder="Search articles..." required=""></input>
+
+--- Chunk 1: [pagination_buttons] ---
+  type=pagination freq=799 excl=1.00
+  pattern_xpath: ///a[contains(@class,'drill')][contains(@class,'in')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (3L): Read more
+    |   <a class="drill-in" href="/article/important-notice-ddosecrets-domain-change">
+    |     Read more
+    |   </a>
+  sample[1] (3L): Read more
+    |   <a class="drill-in" href="/article/free-speech-union-donor-data">
+    |     Read more
+    |   </a>
+  sample[2] (3L): Read more
+    |   <a class="drill-in" href="/article/geedge-networks">
+    |     Read more
+    |   </a>
+
+--- Chunk 2: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2025-11-14 04:44
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2025-11-14 04:44
+    |   </p>
+  sample[1] (3L): A collection of documents, emails, and recordings relating to Jeffrey Epstein. T
+    |   <p>
+    |     A collection of documents, emails, and recordings relating to Jeffrey Epstein. The public portions of the data includes the official releases of his FBI and Interpol files, public court documents,...
+    |   </p>
+
+--- Chunk 3: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2024-08-12 18:30
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2024-08-12 18:30
+    |   </p>
+  sample[1] (3L): August 12, 2024 To the public, Distributed Denial of Secrets (DDoSecrets) would 
+    |   <p>
+    |     August 12, 2024 To the public, Distributed Denial of Secrets (DDoSecrets) would like to address concerns arising from an article published by 404 Media regarding the role of co-founder Thomas...
+    |   </p>
+
+--- Chunk 4: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2024-07-15 05:55
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2024-07-15 05:55
+    |   </p>
+  sample[1] (3L): Over 2,250 intelligence files about IDF personnel, much stamped Ezzedeen Al-Qass
+    |   <p>
+    |     Over 2,250 intelligence files about IDF personnel, much stamped Ezzedeen Al-Qassam Brigades. The data appears to have been confiscated from Al-Qassam Brigades. The data was published by Ganosec...
+    |   </p>
+
+--- Chunk 5: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2024-06-12 04:13
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2024-06-12 04:13
+    |   </p>
+  sample[1] (3L): Over 20,000 files hacked by Cyber Toufan from dozens of Israeli organizations an
+    |   <p>
+    |     Over 20,000 files hacked by Cyber Toufan from dozens of Israeli organizations and government agencies. The data was originally released in 60 parts. The data was originally made public by Cyber...
+    |   </p>
+
+--- Chunk 6: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2024-06-12 02:56
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2024-06-12 02:56
+    |   </p>
+  sample[1] (3L): A leak of more than 31,600 PressTV emails and attachments. The emails were conve
+    |   <p>
+    |     A leak of more than 31,600 PressTV emails and attachments. The emails were converted to HTML files before they were uploaded, the raw versions are not available. Research News site editor’s ties...
+    |   </p>
+
+--- Chunk 7: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2024-05-28 11:59
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2024-05-28 11:59
+    |   </p>
+  sample[1] (3L): More than a decade of data from the spyware company pcTattletale. The data revea
+    |   <p>
+    |     More than a decade of data from the spyware company pcTattletale. The data reveals information on the users, victims, monitored material, as well as code and other technical information on the...
+    |   </p>
+
+--- Chunk 8: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by waviness on 2024-01-20 01:28
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/waviness">
+    |       waviness
+    |     </a>
+    |     on 2024-01-20 01:28
+    |   </p>
+  sample[1] (3L): 53 gigabytes of cargo manifests hacked from LATAM Airlines, focusing on Colombia
+    |   <p>
+    |     53 gigabytes of cargo manifests hacked from LATAM Airlines, focusing on Colombia and Peru. Reserved Due to the presence of PII including copies of passports, the data is being offered only on a...
+    |   </p>
+
+--- Chunk 9: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by waviness on 2024-01-20 01:07
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/waviness">
+    |       waviness
+    |     </a>
+    |     on 2024-01-20 01:07
+    |   </p>
+  sample[1] (3L): Emails from Dmitry V. Khavchenko, a militant allegedly connected to pro-Russian 
+    |   <p>
+    |     Emails from Dmitry V. Khavchenko, a militant allegedly connected to pro-Russian terrorists in the Donbas accused of ties to Russian security services and influence operations targeting Ukraine....
+    |   </p>
+
+--- Chunk 10: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by waviness on 2024-01-20 00:51
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/waviness">
+    |       waviness
+    |     </a>
+    |     on 2024-01-20 00:51
+    |   </p>
+  sample[1] (3L): A public relations firm based in Boston, MA breached by Team Snatch / Boris the 
+    |   <p>
+    |     A public relations firm based in Boston, MA breached by Team Snatch / Boris the Blade. Reserved Due to the PII in this dataset, the data is only being made available to journalists and...
+    |   </p>
+
+--- Chunk 11: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by waviness on 2024-01-14 04:22
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/waviness">
+    |       waviness
+    |     </a>
+    |     on 2024-01-14 04:22
+    |   </p>
+  sample[1] (3L): Documents from Seprelad, Paraguay's Secretariat for the Prevention of Money or P
+    |   <p>
+    |     Documents from Seprelad, Paraguay's Secretariat for the Prevention of Money or Property Laundering. The reports known as Patron Papers were first released to the press in 2022, and include an...
+    |   </p>
+
+--- Chunk 12: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by waviness on 2024-01-14 04:14
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/waviness">
+    |       waviness
+    |     </a>
+    |     on 2024-01-14 04:14
+    |   </p>
+  sample[1] (3L): A small hack and leak of Office of Personnel Management files by Anonymous sever
+    |   <p>
+    |     A small hack and leak of Office of Personnel Management files by Anonymous several months before the Chinese hack. The Anonymous hack reportedly used a different exploit. The files were submitted...
+    |   </p>
+
+--- Chunk 13: [text_content:p×2] ---
+  type=text_singleton freq=2 excl=0.08
+  pattern_xpath: ///p[contains(@class,'meta')]
+  content: [HREF=1 TEXT=3]
+  sample[0] (7L): Published by mx_yzptlk on 2021-08-05 22:22
+    |   <p class="meta">
+    |     Published by
+    |     <a href="/author/mx_yzptlk">
+    |       mx_yzptlk
+    |     </a>
+    |     on 2021-08-05 22:22
+    |   </p>
+  sample[1] (3L): Amazon Atlas Berat's Box BND Inquiry CIA Emails CIA French Elections 2012 Dealma
+    |   <p>
+    |     Amazon Atlas Berat's Box BND Inquiry CIA Emails CIA French Elections 2012 Dealmaker: Al Yousef Detainee Policies EU Military Refugees Gitmo Files Hillary Clinton Email Archive OPCW Douma NSA...
+    |   </p>
+
+--- Chunk 14: [nav_content:a×11] ---
+  type=menu_item freq=11 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hack
+    |   <li>
+    |     <a href="/type/Hack">
+    |       Hack
+    |     </a>
+    |   </li>
+  sample[1] (5L): Corporate
+    |   <li>
+    |     <a href="/type/Corporate">
+    |       Corporate
+    |     </a>
+    |   </li>
+  sample[2] (3L): Hack
+    |   <a href="/type/Hack">
+    |     Hack
+    |   </a>
+
+--- Chunk 15: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.00 OUTLIER=2.8x
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (14L): Submit Data About Us Shop Mirroring Guide
+    |   <li>
+    |     <a class="btn" href="/submit">
+    |       Submit Data
+    |     </a>
+    |     <a href="/about">
+    |       About Us
+    |     </a>
+    |     <a href="https://shop.scidsg.org/collections/ddos">
+    |       Shop
+    |     </a>
+    | ... [4 more lines]
+  sample[1] (5L): About Us
+    |   <li>
+    |     <a href="/about">
+    |       About Us
+    |     </a>
+    |   </li>
+  sample[2] (5L): Shop
+    |   <li>
+    |     <a href="https://shop.scidsg.org/collections/ddos">
+    |       Shop
+    |     </a>
+    |   </li>
+
+--- Chunk 16: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Distributed Denial of Secrets
+    |   <h1>
+    |     <a href="/">
+    |       Distributed Denial of Secrets
+    |     </a>
+    |   </h1>
+
+--- Chunk 17: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [TEXT=1]
+  sample[0] (3L): All Recently Published Articles
+    |   <h1>
+    |     All Recently Published Articles
+    |   </h1>
+
+--- Chunk 18: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Important Notice: DDoSecrets domain change
+    |   <h4>
+    |     <a href="/article/important-notice-ddosecrets-domain-change">
+    |       Important Notice: DDoSecrets domain change
+    |     </a>
+    |   </h4>
+
+--- Chunk 19: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Free Speech Union donor data
+    |   <h4>
+    |     <a href="/article/free-speech-union-donor-data">
+    |       Free Speech Union donor data
+    |     </a>
+    |   </h4>
+
+--- Chunk 20: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): WhiteLeaks
+    |   <h4>
+    |     <a href="/article/whiteleaks">
+    |       WhiteLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 21: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Inside CECOT
+    |   <h4>
+    |     <a href="/article/inside-cecot">
+    |       Inside CECOT
+    |     </a>
+    |   </h4>
+
+--- Chunk 22: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Epstein emails
+    |   <h4>
+    |     <a href="/article/epstein-emails">
+    |       Epstein emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 23: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Washington Post
+    |   <h4>
+    |     <a href="/article/washington-post">
+    |       Washington Post
+    |     </a>
+    |   </h4>
+
+--- Chunk 24: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): DDoSecrets Insurance
+    |   <h4>
+    |     <a href="/article/ddosecrets-insurance">
+    |       DDoSecrets Insurance
+    |     </a>
+    |   </h4>
+
+--- Chunk 25: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Protei
+    |   <h4>
+    |     <a href="/article/protei">
+    |       Protei
+    |     </a>
+    |   </h4>
+
+--- Chunk 26: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Epstein files
+    |   <h4>
+    |     <a href="/article/epstein-files">
+    |       Epstein files
+    |     </a>
+    |   </h4>
+
+--- Chunk 27: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): City of Columbus
+    |   <h4>
+    |     <a href="/article/city-of-columbus">
+    |       City of Columbus
+    |     </a>
+    |   </h4>
+
+--- Chunk 28: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Zerich Securities
+    |   <h4>
+    |     <a href="/article/zerich-securities">
+    |       Zerich Securities
+    |     </a>
+    |   </h4>
+
+--- Chunk 29: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): International Civil Defence Organisation
+    |   <h4>
+    |     <a href="/article/international-civil-defence-organisation">
+    |       International Civil Defence Organisation
+    |     </a>
+    |   </h4>
+
+--- Chunk 30: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Foreclosure Files
+    |   <h4>
+    |     <a href="/article/foreclosure-files">
+    |       Foreclosure Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 31: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Kansas City, Kansas Police Department
+    |   <h4>
+    |     <a href="/article/kansas-city-kansas-police-department">
+    |       Kansas City, Kansas Police Department
+    |     </a>
+    |   </h4>
+
+--- Chunk 32: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Boris Files
+    |   <h4>
+    |     <a href="/article/boris-files">
+    |       Boris Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 33: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Geedge Networks
+    |   <h4>
+    |     <a href="/article/geedge-networks">
+    |       Geedge Networks
+    |     </a>
+    |   </h4>
+
+--- Chunk 34: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ron Prosor emails
+    |   <h4>
+    |     <a href="/article/ron-prosor-emails">
+    |       Ron Prosor emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 35: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Teen Challenge
+    |   <h4>
+    |     <a href="/article/teen-challenge">
+    |       Teen Challenge
+    |     </a>
+    |   </h4>
+
+--- Chunk 36: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gabi Ashkenazi emails
+    |   <h4>
+    |     <a href="/article/gabi-ashkenazi-emails">
+    |       Gabi Ashkenazi emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 37: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Benny Gantz emails
+    |   <h4>
+    |     <a href="/article/benny-gantz-emails">
+    |       Benny Gantz emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 38: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ehud Barak emails
+    |   <h4>
+    |     <a href="/article/ehud-barak-emails">
+    |       Ehud Barak emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 39: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): APT Down - The North Korea Files
+    |   <h4>
+    |     <a href="/article/apt-down-the-north-korea-files">
+    |       APT Down - The North Korea Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 40: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gaza, Volume 05
+    |   <h4>
+    |     <a href="/article/gaza-volume-05">
+    |       Gaza, Volume 05
+    |     </a>
+    |   </h4>
+
+--- Chunk 41: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): East Baton Rouge Sheriff's Office
+    |   <h4>
+    |     <a href="/article/east-baton-rouge-sheriff-s-office">
+    |       East Baton Rouge Sheriff's Office
+    |     </a>
+    |   </h4>
+
+--- Chunk 42: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Guatemalan military intelligence emails
+    |   <h4>
+    |     <a href="/article/guatemalan-military-intelligence-emails">
+    |       Guatemalan military intelligence emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 43: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Consular Office of Cuba in the United States
+    |   <h4>
+    |     <a href="/article/consular-office-of-cuba-in-the-united-states">
+    |       Consular Office of Cuba in the United States
+    |     </a>
+    |   </h4>
+
+--- Chunk 44: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Consulate General Indonesia In Guangzhou China
+    |   <h4>
+    |     <a href="/article/consulate-general-indonesia-in-guangzhou-china">
+    |       Consulate General Indonesia In Guangzhou China
+    |     </a>
+    |   </h4>
+
+--- Chunk 45: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): M9Com
+    |   <h4>
+    |     <a href="/article/m9com">
+    |       M9Com
+    |     </a>
+    |   </h4>
+
+--- Chunk 46: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MPBT
+    |   <h4>
+    |     <a href="/article/mpbt">
+    |       MPBT
+    |     </a>
+    |   </h4>
+
+--- Chunk 47: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gaza, Volume 04
+    |   <h4>
+    |     <a href="/article/gaza-volume-04">
+    |       Gaza, Volume 04
+    |     </a>
+    |   </h4>
+
+--- Chunk 48: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gaza, Volume 03
+    |   <h4>
+    |     <a href="/article/gaza-volume-03">
+    |       Gaza, Volume 03
+    |     </a>
+    |   </h4>
+
+--- Chunk 49: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gaza, Volume 02
+    |   <h4>
+    |     <a href="/article/gaza-volume-02">
+    |       Gaza, Volume 02
+    |     </a>
+    |   </h4>
+
+--- Chunk 50: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gaza, Volume 01
+    |   <h4>
+    |     <a href="/article/gaza-volume-01">
+    |       Gaza, Volume 01
+    |     </a>
+    |   </h4>
+
+--- Chunk 51: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Alianza Paraguay
+    |   <h4>
+    |     <a href="/article/alianza-paraguay">
+    |       Alianza Paraguay
+    |     </a>
+    |   </h4>
+
+--- Chunk 52: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): China Civil Engineering Construction Corporation Kazakhstan
+    |   <h4>
+    |     <a href="/article/china-civil-engineering-construction-corporation-kazakhstan">
+    |       China Civil Engineering Construction Corporation Kazakhstan
+    |     </a>
+    |   </h4>
+
+--- Chunk 53: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): American Golf
+    |   <h4>
+    |     <a href="/article/american-golf">
+    |       American Golf
+    |     </a>
+    |   </h4>
+
+--- Chunk 54: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Port of Aqaba
+    |   <h4>
+    |     <a href="/article/port-of-aqaba">
+    |       Port of Aqaba
+    |     </a>
+    |   </h4>
+
+--- Chunk 55: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Project 2025 applicant database
+    |   <h4>
+    |     <a href="/article/project-2025-applicant-database">
+    |       Project 2025 applicant database
+    |     </a>
+    |   </h4>
+
+--- Chunk 56: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): General Services Administration
+    |   <h4>
+    |     <a href="/article/general-services-administration">
+    |       General Services Administration
+    |     </a>
+    |   </h4>
+
+--- Chunk 57: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Autoridad de Supervision del Sistema Financiero
+    |   <h4>
+    |     <a href="/article/autoridad-de-supervision-del-sistema-financiero">
+    |       Autoridad de Supervision del Sistema Financiero
+    |     </a>
+    |   </h4>
+
+--- Chunk 58: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): SSV Network
+    |   <h4>
+    |     <a href="/article/ssv-network">
+    |       SSV Network
+    |     </a>
+    |   </h4>
+
+--- Chunk 59: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Psyclone Media
+    |   <h4>
+    |     <a href="/article/psyclone-media">
+    |       Psyclone Media
+    |     </a>
+    |   </h4>
+
+--- Chunk 60: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ISID
+    |   <h4>
+    |     <a href="/article/isid">
+    |       ISID
+    |     </a>
+    |   </h4>
+
+--- Chunk 61: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): TeleMessage
+    |   <h4>
+    |     <a href="/article/telemessage">
+    |       TeleMessage
+    |     </a>
+    |   </h4>
+
+--- Chunk 62: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): BfV report on AfD extremism
+    |   <h4>
+    |     <a href="/article/bfv-report-on-afd-extremism">
+    |       BfV report on AfD extremism
+    |     </a>
+    |   </h4>
+
+--- Chunk 63: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Lockbit panel database
+    |   <h4>
+    |     <a href="/article/lockbit-panel-database">
+    |       Lockbit panel database
+    |     </a>
+    |   </h4>
+
+--- Chunk 64: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Israel Police
+    |   <h4>
+    |     <a href="/article/israel-police">
+    |       Israel Police
+    |     </a>
+    |   </h4>
+
+--- Chunk 65: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Mineral Resources Authority of Papua New Guinea
+    |   <h4>
+    |     <a href="/article/mineral-resources-authority-of-papua-new-guinea">
+    |       Mineral Resources Authority of Papua New Guinea
+    |     </a>
+    |   </h4>
+
+--- Chunk 66: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Tesla.Sexy harassment and doxing
+    |   <h4>
+    |     <a href="/article/tesla-sexy-harassment-and-doxing">
+    |       Tesla.Sexy harassment and doxing
+    |     </a>
+    |   </h4>
+
+--- Chunk 67: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LexipolLeaks
+    |   <h4>
+    |     <a href="/article/lexipolleaks">
+    |       LexipolLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 68: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Paramilitary Leaks
+    |   <h4>
+    |     <a href="/article/paramilitary-leaks">
+    |       Paramilitary Leaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 69: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Douglas Valentine collection
+    |   <h4>
+    |     <a href="/article/douglas-valentine-collection">
+    |       Douglas Valentine collection
+    |     </a>
+    |   </h4>
+
+--- Chunk 70: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Statement on Israeli sanctions against the media
+    |   <h4>
+    |     <a href="/article/statement-on-israeli-sanctions-against-the-media">
+    |       Statement on Israeli sanctions against the media
+    |     </a>
+    |   </h4>
+
+--- Chunk 71: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Introducing the DDoSecrets library system
+    |   <h4>
+    |     <a href="/article/introducing-the-ddosecrets-library-system">
+    |       Introducing the DDoSecrets library system
+    |     </a>
+    |   </h4>
+
+--- Chunk 72: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Andrew Tate's War Room videos
+    |   <h4>
+    |     <a href="/article/andrew-tate-s-war-room-videos">
+    |       Andrew Tate's War Room videos
+    |     </a>
+    |   </h4>
+
+--- Chunk 73: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Kazakhstan Ministry of Energy
+    |   <h4>
+    |     <a href="/article/kazakhstan-ministry-of-energy">
+    |       Kazakhstan Ministry of Energy
+    |     </a>
+    |   </h4>
+
+--- Chunk 74: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Andrew Tate staff chats
+    |   <h4>
+    |     <a href="/article/andrew-tate-staff-chats">
+    |       Andrew Tate staff chats
+    |     </a>
+    |   </h4>
+
+--- Chunk 75: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Andrew Tate's The Real World
+    |   <h4>
+    |     <a href="/article/andrew-tate-s-the-real-world">
+    |       Andrew Tate's The Real World
+    |     </a>
+    |   </h4>
+
+--- Chunk 76: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Moustass leaks
+    |   <h4>
+    |     <a href="/article/moustass-leaks">
+    |       Moustass leaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 77: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Paramilitary Election Interference
+    |   <h4>
+    |     <a href="/article/paramilitary-election-interference">
+    |       Paramilitary Election Interference
+    |     </a>
+    |   </h4>
+
+--- Chunk 78: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): APIII leaders target DDoSecrets
+    |   <h4>
+    |     <a href="/article/apiii-leaders-target-ddosecrets">
+    |       APIII leaders target DDoSecrets
+    |     </a>
+    |   </h4>
+
+--- Chunk 79: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Consulate General of Israel in Atlanta, United States
+    |   <h4>
+    |     <a href="/article/consulate-general-of-israel-in-atlanta-united-states">
+    |       Consulate General of Israel in Atlanta, United States
+    |     </a>
+    |   </h4>
+
+--- Chunk 80: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Israel Defense Forces (Anonymous For Justice)
+    |   <h4>
+    |     <a href="/article/israel-defense-forces-anonymous-for-justice">
+    |       Israel Defense Forces (Anonymous For Justice)
+    |     </a>
+    |   </h4>
+
+--- Chunk 81: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Statement on Thomas White
+    |   <h4>
+    |     <a href="/article/statement-on-thomas-white">
+    |       Statement on Thomas White
+    |     </a>
+    |   </h4>
+
+--- Chunk 82: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Israel Ministry of Defense
+    |   <h4>
+    |     <a href="/article/israel-ministry-of-defense">
+    |       Israel Ministry of Defense
+    |     </a>
+    |   </h4>
+
+--- Chunk 83: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Israel Ministry of Justice
+    |   <h4>
+    |     <a href="/article/israel-ministry-of-justice">
+    |       Israel Ministry of Justice
+    |     </a>
+    |   </h4>
+
+--- Chunk 84: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Israel Defense Forces (Ganosec)
+    |   <h4>
+    |     <a href="/article/israel-defense-forces-ganosec">
+    |       Israel Defense Forces (Ganosec)
+    |     </a>
+    |   </h4>
+
+--- Chunk 85: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Congressional Research Service
+    |   <h4>
+    |     <a href="/article/congressional-research-service">
+    |       Congressional Research Service
+    |     </a>
+    |   </h4>
+
+--- Chunk 86: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Berat's Box
+    |   <h4>
+    |     <a href="/article/berat-s-box">
+    |       Berat's Box
+    |     </a>
+    |   </h4>
+
+--- Chunk 87: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CIA French Elections 2012
+    |   <h4>
+    |     <a href="/article/cia-french-elections-2012">
+    |       CIA French Elections 2012
+    |     </a>
+    |   </h4>
+
+--- Chunk 88: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CIA Emails
+    |   <h4>
+    |     <a href="/article/cia-emails">
+    |       CIA Emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 89: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Vault 8
+    |   <h4>
+    |     <a href="/article/vault-8">
+    |       Vault 8
+    |     </a>
+    |   </h4>
+
+--- Chunk 90: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Vault 7
+    |   <h4>
+    |     <a href="/article/vault-7">
+    |       Vault 7
+    |     </a>
+    |   </h4>
+
+--- Chunk 91: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): US Embassy Shopping List
+    |   <h4>
+    |     <a href="/article/us-embassy-shopping-list">
+    |       US Embassy Shopping List
+    |     </a>
+    |   </h4>
+
+--- Chunk 92: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): OPCW Douma
+    |   <h4>
+    |     <a href="/article/opcw-douma">
+    |       OPCW Douma
+    |     </a>
+    |   </h4>
+
+--- Chunk 93: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Yemen Files
+    |   <h4>
+    |     <a href="/article/yemen-files">
+    |       Yemen Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 94: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Amazon Atlas
+    |   <h4>
+    |     <a href="/article/amazon-atlas">
+    |       Amazon Atlas
+    |     </a>
+    |   </h4>
+
+--- Chunk 95: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hillary Clinton Email Archive
+    |   <h4>
+    |     <a href="/article/hillary-clinton-email-archive">
+    |       Hillary Clinton Email Archive
+    |     </a>
+    |   </h4>
+
+--- Chunk 96: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Pope's Orders
+    |   <h4>
+    |     <a href="/article/pope-s-orders">
+    |       Pope's Orders
+    |     </a>
+    |   </h4>
+
+--- Chunk 97: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): BND Inquiry
+    |   <h4>
+    |     <a href="/article/bnd-inquiry">
+    |       BND Inquiry
+    |     </a>
+    |   </h4>
+
+--- Chunk 98: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Dealmaker: Al Yousef
+    |   <h4>
+    |     <a href="/article/dealmaker-al-yousef">
+    |       Dealmaker: Al Yousef
+    |     </a>
+    |   </h4>
+
+--- Chunk 99: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gitmo Files
+    |   <h4>
+    |     <a href="/article/gitmo-files">
+    |       Gitmo Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 100: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PlusD: Public Library of US Diplomacy
+    |   <h4>
+    |     <a href="/article/plusd-public-library-of-us-diplomacy">
+    |       PlusD: Public Library of US Diplomacy
+    |     </a>
+    |   </h4>
+
+--- Chunk 101: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Saudi Cables
+    |   <h4>
+    |     <a href="/article/saudi-cables">
+    |       Saudi Cables
+    |     </a>
+    |   </h4>
+
+--- Chunk 102: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): SourceAmerica Tapes
+    |   <h4>
+    |     <a href="/article/sourceamerica-tapes">
+    |       SourceAmerica Tapes
+    |     </a>
+    |   </h4>
+
+--- Chunk 103: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): EU Military Refugees
+    |   <h4>
+    |     <a href="/article/eu-military-refugees">
+    |       EU Military Refugees
+    |     </a>
+    |   </h4>
+
+--- Chunk 104: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Trans-Pacific-Partnership - Final Texts
+    |   <h4>
+    |     <a href="/article/trans-pacific-partnership-final-texts">
+    |       Trans-Pacific-Partnership - Final Texts
+    |     </a>
+    |   </h4>
+
+--- Chunk 105: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Transatlantic Trade and Investment Partnership
+    |   <h4>
+    |     <a href="/article/transatlantic-trade-and-investment-partnership">
+    |       Transatlantic Trade and Investment Partnership
+    |     </a>
+    |   </h4>
+
+--- Chunk 106: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Trade in Services Agreement
+    |   <h4>
+    |     <a href="/article/trade-in-services-agreement">
+    |       Trade in Services Agreement
+    |     </a>
+    |   </h4>
+
+--- Chunk 107: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Detainee Policies
+    |   <h4>
+    |     <a href="/article/detainee-policies">
+    |       Detainee Policies
+    |     </a>
+    |   </h4>
+
+--- Chunk 108: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): NSA Targets World Leaders
+    |   <h4>
+    |     <a href="/article/nsa-targets-world-leaders">
+    |       NSA Targets World Leaders
+    |     </a>
+    |   </h4>
+
+--- Chunk 109: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Target Tokyo: NSA Japan
+    |   <h4>
+    |     <a href="/article/target-tokyo-nsa-japan">
+    |       Target Tokyo: NSA Japan
+    |     </a>
+    |   </h4>
+
+--- Chunk 110: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CIA Travel Advice To Operatives
+    |   <h4>
+    |     <a href="/article/cia-travel-advice-to-operatives">
+    |       CIA Travel Advice To Operatives
+    |     </a>
+    |   </h4>
+
+--- Chunk 111: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Epsilor
+    |   <h4>
+    |     <a href="/article/epsilor">
+    |       Epsilor
+    |     </a>
+    |   </h4>
+
+--- Chunk 112: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): mSpy
+    |   <h4>
+    |     <a href="/article/mspy">
+    |       mSpy
+    |     </a>
+    |   </h4>
+
+--- Chunk 113: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cryptome Archive (2024)
+    |   <h4>
+    |     <a href="/article/cryptome-archive-2024">
+    |       Cryptome Archive (2024)
+    |     </a>
+    |   </h4>
+
+--- Chunk 114: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Afghanistan Papiere
+    |   <h4>
+    |     <a href="/article/afghanistan-papiere">
+    |       Afghanistan Papiere
+    |     </a>
+    |   </h4>
+
+--- Chunk 115: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Op Cyber Toufan
+    |   <h4>
+    |     <a href="/article/op-cyber-toufan">
+    |       Op Cyber Toufan
+    |     </a>
+    |   </h4>
+
+--- Chunk 116: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PressTV
+    |   <h4>
+    |     <a href="/article/presstv">
+    |       PressTV
+    |     </a>
+    |   </h4>
+
+--- Chunk 117: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fox Spy
+    |   <h4>
+    |     <a href="/article/fox-spy">
+    |       Fox Spy
+    |     </a>
+    |   </h4>
+
+--- Chunk 118: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): pcTattletale
+    |   <h4>
+    |     <a href="/article/pctattletale">
+    |       pcTattletale
+    |     </a>
+    |   </h4>
+
+--- Chunk 119: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Eswatini Financial Intelligence Unit
+    |   <h4>
+    |     <a href="/article/eswatini-financial-intelligence-unit">
+    |       Eswatini Financial Intelligence Unit
+    |     </a>
+    |   </h4>
+
+--- Chunk 120: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ukraine General Prosecutor offices
+    |   <h4>
+    |     <a href="/article/ukraine-general-prosecutor-offices">
+    |       Ukraine General Prosecutor offices
+    |     </a>
+    |   </h4>
+
+--- Chunk 121: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Twitch
+    |   <h4>
+    |     <a href="/article/twitch">
+    |       Twitch
+    |     </a>
+    |   </h4>
+
+--- Chunk 122: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Tver Governor's office
+    |   <h4>
+    |     <a href="/article/tver-governor-s-office">
+    |       Tver Governor's office
+    |     </a>
+    |   </h4>
+
+--- Chunk 123: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Truth Will Out Films Customer Database
+    |   <h4>
+    |     <a href="/article/truth-will-out-films-customer-database">
+    |       Truth Will Out Films Customer Database
+    |     </a>
+    |   </h4>
+
+--- Chunk 124: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Turkish Takedown Thursday
+    |   <h4>
+    |     <a href="/article/turkish-takedown-thursday">
+    |       Turkish Takedown Thursday
+    |     </a>
+    |   </h4>
+
+--- Chunk 125: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Trust Capital Funding
+    |   <h4>
+    |     <a href="/article/trust-capital-funding">
+    |       Trust Capital Funding
+    |     </a>
+    |   </h4>
+
+--- Chunk 126: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Trump Transition leak
+    |   <h4>
+    |     <a href="/article/trump-transition-leak">
+    |       Trump Transition leak
+    |     </a>
+    |   </h4>
+
+--- Chunk 127: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Transneft
+    |   <h4>
+    |     <a href="/article/transneft">
+    |       Transneft
+    |     </a>
+    |   </h4>
+
+--- Chunk 128: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Toll Group
+    |   <h4>
+    |     <a href="/article/toll-group">
+    |       Toll Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 129: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): TigerSwan
+    |   <h4>
+    |     <a href="/article/tigerswan">
+    |       TigerSwan
+    |     </a>
+    |   </h4>
+
+--- Chunk 130: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Thozis Corp
+    |   <h4>
+    |     <a href="/article/thozis-corp">
+    |       Thozis Corp
+    |     </a>
+    |   </h4>
+
+--- Chunk 131: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Thailand Judicial Management Database
+    |   <h4>
+    |     <a href="/article/thailand-judicial-management-database">
+    |       Thailand Judicial Management Database
+    |     </a>
+    |   </h4>
+
+--- Chunk 132: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Tetraedr
+    |   <h4>
+    |     <a href="/article/tetraedr">
+    |       Tetraedr
+    |     </a>
+    |   </h4>
+
+--- Chunk 133: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Tendertech
+    |   <h4>
+    |     <a href="/article/tendertech">
+    |       Tendertech
+    |     </a>
+    |   </h4>
+
+--- Chunk 134: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Tejucana
+    |   <h4>
+    |     <a href="/article/tejucana">
+    |       Tejucana
+    |     </a>
+    |   </h4>
+
+--- Chunk 135: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Technotec
+    |   <h4>
+    |     <a href="/article/technotec">
+    |       Technotec
+    |     </a>
+    |   </h4>
+
+--- Chunk 136: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Technoserv
+    |   <h4>
+    |     <a href="/article/technoserv">
+    |       Technoserv
+    |     </a>
+    |   </h4>
+
+--- Chunk 137: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): TIME Magazine Vault
+    |   <h4>
+    |     <a href="/article/time-magazine-vault">
+    |       TIME Magazine Vault
+    |     </a>
+    |   </h4>
+
+--- Chunk 138: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): THSA
+    |   <h4>
+    |     <a href="/article/thsa">
+    |       THSA
+    |     </a>
+    |   </h4>
+
+--- Chunk 139: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Syrian Ministry of Foreign Affairs
+    |   <h4>
+    |     <a href="/article/syrian-ministry-of-foreign-affairs">
+    |       Syrian Ministry of Foreign Affairs
+    |     </a>
+    |   </h4>
+
+--- Chunk 140: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Syrian Censorship logs
+    |   <h4>
+    |     <a href="/article/syrian-censorship-logs">
+    |       Syrian Censorship logs
+    |     </a>
+    |   </h4>
+
+--- Chunk 141: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Syria files
+    |   <h4>
+    |     <a href="/article/syria-files">
+    |       Syria files
+    |     </a>
+    |   </h4>
+
+--- Chunk 142: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Synesis Surveillance System
+    |   <h4>
+    |     <a href="/article/synesis-surveillance-system">
+    |       Synesis Surveillance System
+    |     </a>
+    |   </h4>
+
+--- Chunk 143: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Surveillance Catalogs
+    |   <h4>
+    |     <a href="/article/surveillance-catalogs">
+    |       Surveillance Catalogs
+    |     </a>
+    |   </h4>
+
+--- Chunk 144: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Stratfor emails
+    |   <h4>
+    |     <a href="/article/stratfor-emails">
+    |       Stratfor emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 145: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Staminus
+    |   <h4>
+    |     <a href="/article/staminus">
+    |       Staminus
+    |     </a>
+    |   </h4>
+
+--- Chunk 146: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): SpyHide
+    |   <h4>
+    |     <a href="/article/spyhide">
+    |       SpyHide
+    |     </a>
+    |   </h4>
+
+--- Chunk 147: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Special State Protection Service of Azerbaijan
+    |   <h4>
+    |     <a href="/article/special-state-protection-service-of-azerbaijan">
+    |       Special State Protection Service of Azerbaijan
+    |     </a>
+    |   </h4>
+
+--- Chunk 148: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Sony
+    |   <h4>
+    |     <a href="/article/sony">
+    |       Sony
+    |     </a>
+    |   </h4>
+
+--- Chunk 149: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Snowden Archive
+    |   <h4>
+    |     <a href="/article/snowden-archive">
+    |       Snowden Archive
+    |     </a>
+    |   </h4>
+
+--- Chunk 150: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Shooting Sheriffs Saturday
+    |   <h4>
+    |     <a href="/article/shooting-sheriffs-saturday">
+    |       Shooting Sheriffs Saturday
+    |     </a>
+    |   </h4>
+
+--- Chunk 151: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Sholtai Boltai
+    |   <h4>
+    |     <a href="/article/sholtai-boltai">
+    |       Sholtai Boltai
+    |     </a>
+    |   </h4>
+
+--- Chunk 152: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Shell
+    |   <h4>
+    |     <a href="/article/shell">
+    |       Shell
+    |     </a>
+    |   </h4>
+
+--- Chunk 153: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Secretaría de la Defensa Nacional de México
+    |   <h4>
+    |     <a href="/article/secretaria-de-la-defensa-nacional-de-mexico">
+    |       Secretaría de la Defensa Nacional de México
+    |     </a>
+    |   </h4>
+
+--- Chunk 154: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Sberbank of Russia
+    |   <h4>
+    |     <a href="/article/sberbank-of-russia">
+    |       Sberbank of Russia
+    |     </a>
+    |   </h4>
+
+--- Chunk 155: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Sawatzky
+    |   <h4>
+    |     <a href="/article/sawatzky">
+    |       Sawatzky
+    |     </a>
+    |   </h4>
+
+--- Chunk 156: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Salvini emails
+    |   <h4>
+    |     <a href="/article/salvini-emails">
+    |       Salvini emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 157: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Saltos del Francoli
+    |   <h4>
+    |     <a href="/article/saltos-del-francoli">
+    |       Saltos del Francoli
+    |     </a>
+    |   </h4>
+
+--- Chunk 158: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): SOCAR Energoresource
+    |   <h4>
+    |     <a href="/article/socar-energoresource">
+    |       SOCAR Energoresource
+    |     </a>
+    |   </h4>
+
+--- Chunk 159: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Russian soldier leak
+    |   <h4>
+    |     <a href="/article/russian-soldier-leak">
+    |       Russian soldier leak
+    |     </a>
+    |   </h4>
+
+--- Chunk 160: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Russian Interior Ministry
+    |   <h4>
+    |     <a href="/article/russian-interior-ministry">
+    |       Russian Interior Ministry
+    |     </a>
+    |   </h4>
+
+--- Chunk 161: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): RussianCensorFiles
+    |   <h4>
+    |     <a href="/article/russiancensorfiles">
+    |       RussianCensorFiles
+    |     </a>
+    |   </h4>
+
+--- Chunk 162: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): RostProekt
+    |   <h4>
+    |     <a href="/article/rostproekt">
+    |       RostProekt
+    |     </a>
+    |   </h4>
+
+--- Chunk 163: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Rossi + MPS
+    |   <h4>
+    |     <a href="/article/rossi-mps">
+    |       Rossi + MPS
+    |     </a>
+    |   </h4>
+
+--- Chunk 164: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Roskomnadzor Moscow
+    |   <h4>
+    |     <a href="/article/roskomnadzor-moscow">
+    |       Roskomnadzor Moscow
+    |     </a>
+    |   </h4>
+
+--- Chunk 165: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Roskomnadzor
+    |   <h4>
+    |     <a href="/article/roskomnadzor">
+    |       Roskomnadzor
+    |     </a>
+    |   </h4>
+
+--- Chunk 166: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Rosatom
+    |   <h4>
+    |     <a href="/article/rosatom">
+    |       Rosatom
+    |     </a>
+    |   </h4>
+
+--- Chunk 167: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ROSOBORONEXPORT
+    |   <h4>
+    |     <a href="/article/rosoboronexport">
+    |       ROSOBORONEXPORT
+    |     </a>
+    |   </h4>
+
+--- Chunk 168: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): RKPLaw
+    |   <h4>
+    |     <a href="/article/rkplaw">
+    |       RKPLaw
+    |     </a>
+    |   </h4>
+
+--- Chunk 169: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Quiborax
+    |   <h4>
+    |     <a href="/article/quiborax">
+    |       Quiborax
+    |     </a>
+    |   </h4>
+
+--- Chunk 170: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Public Chamber of the Krasnoyarsk
+    |   <h4>
+    |     <a href="/article/public-chamber-of-the-krasnoyarsk">
+    |       Public Chamber of the Krasnoyarsk
+    |     </a>
+    |   </h4>
+
+--- Chunk 171: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Project Whispers
+    |   <h4>
+    |     <a href="/article/project-whispers">
+    |       Project Whispers
+    |     </a>
+    |   </h4>
+
+--- Chunk 172: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Procuradoria-Geral da Fazenda Nacional
+    |   <h4>
+    |     <a href="/article/procuradoria-geral-da-fazenda-nacional">
+    |       Procuradoria-Geral da Fazenda Nacional
+    |     </a>
+    |   </h4>
+
+--- Chunk 173: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Private Office of Sheikh Hazza bin Zayed Al Nahyan
+    |   <h4>
+    |     <a href="/article/private-office-of-sheikh-hazza-bin-zayed-al-nahyan">
+    |       Private Office of Sheikh Hazza bin Zayed Al Nahyan
+    |     </a>
+    |   </h4>
+
+--- Chunk 174: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Prime Minister of Iraq's Office
+    |   <h4>
+    |     <a href="/article/prime-minister-of-iraq-s-office">
+    |       Prime Minister of Iraq's Office
+    |     </a>
+    |   </h4>
+
+--- Chunk 175: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Presque Isle Police Department
+    |   <h4>
+    |     <a href="/article/presque-isle-police-department">
+    |       Presque Isle Police Department
+    |     </a>
+    |   </h4>
+
+--- Chunk 176: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): President Donald Trump’s Private Schedules
+    |   <h4>
+    |     <a href="/article/president-donald-trumps-private-schedules">
+    |       President Donald Trump’s Private Schedules
+    |     </a>
+    |   </h4>
+
+--- Chunk 177: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Prepara Brasil
+    |   <h4>
+    |     <a href="/article/prepara-brasil">
+    |       Prepara Brasil
+    |     </a>
+    |   </h4>
+
+--- Chunk 178: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (7L): [email protected]
+    |   <h4>
+    |     <a href="/article/prav-cmr-gmail-com">
+    |       <span class="__cf_email__" data-cfemail="5b0b293a2d753836291b3c363a323775383436">
+    |         [email protected]
+    |       </span>
+    |     </a>
+    |   </h4>
+
+--- Chunk 179: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Port and Railway Projects Service of JSC UMMC
+    |   <h4>
+    |     <a href="/article/port-and-railway-projects-service-of-jsc-ummc">
+    |       Port and Railway Projects Service of JSC UMMC
+    |     </a>
+    |   </h4>
+
+--- Chunk 180: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Popov Files
+    |   <h4>
+    |     <a href="/article/popov-files">
+    |       Popov Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 181: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Policía Nacional Civil de El Salvador
+    |   <h4>
+    |     <a href="/article/policia-nacional-civil-de-el-salvador">
+    |       Policía Nacional Civil de El Salvador
+    |     </a>
+    |   </h4>
+
+--- Chunk 182: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Polar Branch of the Russian Federal Research Institute of Fisheries and Oceanogr
+    |   <h4>
+    |     <a href="/article/polar-branch-of-the-russian-federal-research-institute-of-fisheries-and-oceanography">
+    |       Polar Branch of the Russian Federal Research Institute of Fisheries and Oceanography
+    |     </a>
+    |   </h4>
+
+--- Chunk 183: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Podesta emails
+    |   <h4>
+    |     <a href="/article/podesta-emails">
+    |       Podesta emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 184: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Planatol
+    |   <h4>
+    |     <a href="/article/planatol">
+    |       Planatol
+    |     </a>
+    |   </h4>
+
+--- Chunk 185: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Phoenix Program Interviews
+    |   <h4>
+    |     <a href="/article/phoenix-program-interviews">
+    |       Phoenix Program Interviews
+    |     </a>
+    |   </h4>
+
+--- Chunk 186: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Pfeiffer Nuclear Weapon and National Security Archive
+    |   <h4>
+    |     <a href="/article/pfeiffer-nuclear-weapon-and-national-security-archive">
+    |       Pfeiffer Nuclear Weapon and National Security Archive
+    |     </a>
+    |   </h4>
+
+--- Chunk 187: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Petroworks
+    |   <h4>
+    |     <a href="/article/petroworks">
+    |       Petroworks
+    |     </a>
+    |   </h4>
+
+--- Chunk 188: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Petrolimex
+    |   <h4>
+    |     <a href="/article/petrolimex">
+    |       Petrolimex
+    |     </a>
+    |   </h4>
+
+--- Chunk 189: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Petrofort
+    |   <h4>
+    |     <a href="/article/petrofort">
+    |       Petrofort
+    |     </a>
+    |   </h4>
+
+--- Chunk 190: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Perceptics
+    |   <h4>
+    |     <a href="/article/perceptics">
+    |       Perceptics
+    |     </a>
+    |   </h4>
+
+--- Chunk 191: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Patriot Front audio
+    |   <h4>
+    |     <a href="/article/patriot-front-audio">
+    |       Patriot Front audio
+    |     </a>
+    |   </h4>
+
+--- Chunk 192: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Patriot Front
+    |   <h4>
+    |     <a href="/article/patriot-front">
+    |       Patriot Front
+    |     </a>
+    |   </h4>
+
+--- Chunk 193: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Parler
+    |   <h4>
+    |     <a href="/article/parler">
+    |       Parler
+    |     </a>
+    |   </h4>
+
+--- Chunk 194: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Parkland
+    |   <h4>
+    |     <a href="/article/parkland">
+    |       Parkland
+    |     </a>
+    |   </h4>
+
+--- Chunk 195: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PacoLeaks
+    |   <h4>
+    |     <a href="/article/pacoleaks">
+    |       PacoLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 196: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PwC
+    |   <h4>
+    |     <a href="/article/pwc">
+    |       PwC
+    |     </a>
+    |   </h4>
+
+--- Chunk 197: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PT Rea Kaltim Plantations and Group
+    |   <h4>
+    |     <a href="/article/pt-rea-kaltim-plantations-and-group">
+    |       PT Rea Kaltim Plantations and Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 198: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): PSCB
+    |   <h4>
+    |     <a href="/article/pscb">
+    |       PSCB
+    |     </a>
+    |   </h4>
+
+--- Chunk 199: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Oryx Resources
+    |   <h4>
+    |     <a href="/article/oryx-resources">
+    |       Oryx Resources
+    |     </a>
+    |   </h4>
+
+--- Chunk 200: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): OptimEyes
+    |   <h4>
+    |     <a href="/article/optimeyes">
+    |       OptimEyes
+    |     </a>
+    |   </h4>
+
+--- Chunk 201: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Office of Industrial Economics, Thailand
+    |   <h4>
+    |     <a href="/article/office-of-industrial-economics-thailand">
+    |       Office of Industrial Economics, Thailand
+    |     </a>
+    |   </h4>
+
+--- Chunk 202: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Odebrecht
+    |   <h4>
+    |     <a href="/article/odebrecht">
+    |       Odebrecht
+    |     </a>
+    |   </h4>
+
+--- Chunk 203: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Oculus
+    |   <h4>
+    |     <a href="/article/oculus">
+    |       Oculus
+    |     </a>
+    |   </h4>
+
+--- Chunk 204: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Oakland City Hall
+    |   <h4>
+    |     <a href="/article/oakland-city-hall">
+    |       Oakland City Hall
+    |     </a>
+    |   </h4>
+
+--- Chunk 205: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): OSCE Vienna
+    |   <h4>
+    |     <a href="/article/osce-vienna">
+    |       OSCE Vienna
+    |     </a>
+    |   </h4>
+
+--- Chunk 206: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ODIN Intelligence
+    |   <h4>
+    |     <a href="/article/odin-intelligence">
+    |       ODIN Intelligence
+    |     </a>
+    |   </h4>
+
+--- Chunk 207: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Nusantara Regas
+    |   <h4>
+    |     <a href="/article/nusantara-regas">
+    |       Nusantara Regas
+    |     </a>
+    |   </h4>
+
+--- Chunk 208: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Nuclear Power Production and Development Company of Iran
+    |   <h4>
+    |     <a href="/article/nuclear-power-production-and-development-company-of-iran">
+    |       Nuclear Power Production and Development Company of Iran
+    |     </a>
+    |   </h4>
+
+--- Chunk 209: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): North American Roofing
+    |   <h4>
+    |     <a href="/article/north-american-roofing">
+    |       North American Roofing
+    |     </a>
+    |   </h4>
+
+--- Chunk 210: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): No Fly List
+    |   <h4>
+    |     <a href="/article/no-fly-list">
+    |       No Fly List
+    |     </a>
+    |   </h4>
+
+--- Chunk 211: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Newbridge Securities
+    |   <h4>
+    |     <a href="/article/newbridge-securities">
+    |       Newbridge Securities
+    |     </a>
+    |   </h4>
+
+--- Chunk 212: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): New Granada Energy Corporation
+    |   <h4>
+    |     <a href="/article/new-granada-energy-corporation">
+    |       New Granada Energy Corporation
+    |     </a>
+    |   </h4>
+
+--- Chunk 213: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Netzsch
+    |   <h4>
+    |     <a href="/article/netzsch">
+    |       Netzsch
+    |     </a>
+    |   </h4>
+
+--- Chunk 214: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Neocom Geoservice
+    |   <h4>
+    |     <a href="/article/neocom-geoservice">
+    |       Neocom Geoservice
+    |     </a>
+    |   </h4>
+
+--- Chunk 215: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Nauru Police Force
+    |   <h4>
+    |     <a href="/article/nauru-police-force">
+    |       Nauru Police Force
+    |     </a>
+    |   </h4>
+
+--- Chunk 216: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): National Police of Paraguay
+    |   <h4>
+    |     <a href="/article/national-police-of-paraguay">
+    |       National Police of Paraguay
+    |     </a>
+    |   </h4>
+
+--- Chunk 217: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): NZF DNR feb2017.tgz
+    |   <h4>
+    |     <a href="/article/nzf-dnr-feb2017-tgz">
+    |       NZF DNR feb2017.tgz
+    |     </a>
+    |   </h4>
+
+--- Chunk 218: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): NSA Report on Russia Spearphishing
+    |   <h4>
+    |     <a href="/article/nsa-report-on-russia-spearphishing">
+    |       NSA Report on Russia Spearphishing
+    |     </a>
+    |   </h4>
+
+--- Chunk 219: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): NPO VS
+    |   <h4>
+    |     <a href="/article/npo-vs">
+    |       NPO VS
+    |     </a>
+    |   </h4>
+
+--- Chunk 220: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Myatt Blume & Osburn
+    |   <h4>
+    |     <a href="/article/myatt-blume-osburn">
+    |       Myatt Blume & Osburn
+    |     </a>
+    |   </h4>
+
+--- Chunk 221: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Myanmar Investments
+    |   <h4>
+    |     <a href="/article/myanmar-investments">
+    |       Myanmar Investments
+    |     </a>
+    |   </h4>
+
+--- Chunk 222: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Myanmar Internal Revenue Department
+    |   <h4>
+    |     <a href="/article/myanmar-internal-revenue-department">
+    |       Myanmar Internal Revenue Department
+    |     </a>
+    |   </h4>
+
+--- Chunk 223: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Myanmar Financials
+    |   <h4>
+    |     <a href="/article/myanmar-financials">
+    |       Myanmar Financials
+    |     </a>
+    |   </h4>
+
+--- Chunk 224: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Municipal Court of Princeton
+    |   <h4>
+    |     <a href="/article/municipal-court-of-princeton">
+    |       Municipal Court of Princeton
+    |     </a>
+    |   </h4>
+
+--- Chunk 225: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Mosekspertiza
+    |   <h4>
+    |     <a href="/article/mosekspertiza">
+    |       Mosekspertiza
+    |     </a>
+    |   </h4>
+
+--- Chunk 226: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ministry of Foreign Affairs of Cambodia
+    |   <h4>
+    |     <a href="/article/ministry-of-foreign-affairs-of-cambodia">
+    |       Ministry of Foreign Affairs of Cambodia
+    |     </a>
+    |   </h4>
+
+--- Chunk 227: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ministry of Culture of the Russian Federation
+    |   <h4>
+    |     <a href="/article/ministry-of-culture-of-the-russian-federation">
+    |       Ministry of Culture of the Russian Federation
+    |     </a>
+    |   </h4>
+
+--- Chunk 228: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ministry of Communications and IT of Azerbaijan
+    |   <h4>
+    |     <a href="/article/ministry-of-communications-and-it-of-azerbaijan">
+    |       Ministry of Communications and IT of Azerbaijan
+    |     </a>
+    |   </h4>
+
+--- Chunk 229: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ministerio de Justicia of Chile
+    |   <h4>
+    |     <a href="/article/ministerio-de-justicia-of-chile">
+    |       Ministerio de Justicia of Chile
+    |     </a>
+    |   </h4>
+
+--- Chunk 230: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ministerio de Ambiente y Recursos Naturales
+    |   <h4>
+    |     <a href="/article/ministerio-de-ambiente-y-recursos-naturales">
+    |       Ministerio de Ambiente y Recursos Naturales
+    |     </a>
+    |   </h4>
+
+--- Chunk 231: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MilicoLeaks
+    |   <h4>
+    |     <a href="/article/milicoleaks">
+    |       MilicoLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 232: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Metropolitan Police Department D.C.
+    |   <h4>
+    |     <a href="/article/metropolitan-police-department-d-c">
+    |       Metropolitan Police Department D.C.
+    |     </a>
+    |   </h4>
+
+--- Chunk 233: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Metprom Group
+    |   <h4>
+    |     <a href="/article/metprom-group">
+    |       Metprom Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 234: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MeritServus and MeritKapital
+    |   <h4>
+    |     <a href="/article/meritservus-and-meritkapital">
+    |       MeritServus and MeritKapital
+    |     </a>
+    |   </h4>
+
+--- Chunk 235: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Medical Diagnostics Laboratories
+    |   <h4>
+    |     <a href="/article/medical-diagnostics-laboratories">
+    |       Medical Diagnostics Laboratories
+    |     </a>
+    |   </h4>
+
+--- Chunk 236: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): McLanahan Russia
+    |   <h4>
+    |     <a href="/article/mclanahan-russia">
+    |       McLanahan Russia
+    |     </a>
+    |   </h4>
+
+--- Chunk 237: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MashOil
+    |   <h4>
+    |     <a href="/article/mashoil">
+    |       MashOil
+    |     </a>
+    |   </h4>
+
+--- Chunk 238: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Marathon Group
+    |   <h4>
+    |     <a href="/article/marathon-group">
+    |       Marathon Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 239: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Manafort texts
+    |   <h4>
+    |     <a href="/article/manafort-texts">
+    |       Manafort texts
+    |     </a>
+    |   </h4>
+
+--- Chunk 240: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Major Investigations
+    |   <h4>
+    |     <a href="/article/major-investigations">
+    |       Major Investigations
+    |     </a>
+    |   </h4>
+
+--- Chunk 241: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Macron leaks
+    |   <h4>
+    |     <a href="/article/macron-leaks">
+    |       Macron leaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 242: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MVTEC
+    |   <h4>
+    |     <a href="/article/mvtec">
+    |       MVTEC
+    |     </a>
+    |   </h4>
+
+--- Chunk 243: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MO Proud Boys videos
+    |   <h4>
+    |     <a href="/article/mo-proud-boys-videos">
+    |       MO Proud Boys videos
+    |     </a>
+    |   </h4>
+
+--- Chunk 244: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MK Brokers
+    |   <h4>
+    |     <a href="/article/mk-brokers">
+    |       MK Brokers
+    |     </a>
+    |   </h4>
+
+--- Chunk 245: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): MAS Holdings
+    |   <h4>
+    |     <a href="/article/mas-holdings">
+    |       MAS Holdings
+    |     </a>
+    |   </h4>
+
+--- Chunk 246: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LineStar
+    |   <h4>
+    |     <a href="/article/linestar">
+    |       LineStar
+    |     </a>
+    |   </h4>
+
+--- Chunk 247: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Liberty Counsel
+    |   <h4>
+    |     <a href="/article/liberty-counsel">
+    |       Liberty Counsel
+    |     </a>
+    |   </h4>
+
+--- Chunk 248: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LetMeSpy
+    |   <h4>
+    |     <a href="/article/letmespy">
+    |       LetMeSpy
+    |     </a>
+    |   </h4>
+
+--- Chunk 249: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LeakyMails
+    |   <h4>
+    |     <a href="/article/leakymails">
+    |       LeakyMails
+    |     </a>
+    |   </h4>
+
+--- Chunk 250: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): VGTRK
+    |   <h4>
+    |     <a href="/article/vgtrk">
+    |       VGTRK
+    |     </a>
+    |   </h4>
+
+--- Chunk 251: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): VZ-US Corruption
+    |   <h4>
+    |     <a href="/article/vz-us-corruption">
+    |       VZ-US Corruption
+    |     </a>
+    |   </h4>
+
+--- Chunk 252: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Varela Leaks
+    |   <h4>
+    |     <a href="/article/varela-leaks">
+    |       Varela Leaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 253: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Very English Coop d'Etat
+    |   <h4>
+    |     <a href="/article/very-english-coop-d-etat">
+    |       Very English Coop d'Etat
+    |     </a>
+    |   </h4>
+
+--- Chunk 254: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Virginia Department of Military Affairs
+    |   <h4>
+    |     <a href="/article/virginia-department-of-military-affairs">
+    |       Virginia Department of Military Affairs
+    |     </a>
+    |   </h4>
+
+--- Chunk 255: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Vyberi Radio
+    |   <h4>
+    |     <a href="/article/vyberi-radio">
+    |       Vyberi Radio
+    |     </a>
+    |   </h4>
+
+--- Chunk 256: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): W&T Offshore
+    |   <h4>
+    |     <a href="/article/w-t-offshore">
+    |       W&T Offshore
+    |     </a>
+    |   </h4>
+
+--- Chunk 257: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): W.L. Contractors
+    |   <h4>
+    |     <a href="/article/w-l-contractors">
+    |       W.L. Contractors
+    |     </a>
+    |   </h4>
+
+--- Chunk 258: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Washington County Sheriff
+    |   <h4>
+    |     <a href="/article/washington-county-sheriff">
+    |       Washington County Sheriff
+    |     </a>
+    |   </h4>
+
+--- Chunk 259: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): WebDetetive
+    |   <h4>
+    |     <a href="/article/webdetetive">
+    |       WebDetetive
+    |     </a>
+    |   </h4>
+
+--- Chunk 260: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Worldwide Invest
+    |   <h4>
+    |     <a href="/article/worldwide-invest">
+    |       Worldwide Invest
+    |     </a>
+    |   </h4>
+
+--- Chunk 261: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): WtSpy
+    |   <h4>
+    |     <a href="/article/wtspy">
+    |       WtSpy
+    |     </a>
+    |   </h4>
+
+--- Chunk 262: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LLC Capital
+    |   <h4>
+    |     <a href="/article/llc-capital">
+    |       LLC Capital
+    |     </a>
+    |   </h4>
+
+--- Chunk 263: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LATAM Airlines
+    |   <h4>
+    |     <a href="/article/latam-airlines">
+    |       LATAM Airlines
+    |     </a>
+    |   </h4>
+
+--- Chunk 264: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): LAPD Headshots
+    |   <h4>
+    |     <a href="/article/lapd-headshots">
+    |       LAPD Headshots
+    |     </a>
+    |   </h4>
+
+--- Chunk 265: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): KCSA Strategic Communications
+    |   <h4>
+    |     <a href="/article/kcsa-strategic-communications">
+    |       KCSA Strategic Communications
+    |     </a>
+    |   </h4>
+
+--- Chunk 266: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Jones Day
+    |   <h4>
+    |     <a href="/article/jones-day">
+    |       Jones Day
+    |     </a>
+    |   </h4>
+
+--- Chunk 267: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Jhonlin Group
+    |   <h4>
+    |     <a href="/article/jhonlin-group">
+    |       Jhonlin Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 268: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Jeb Bush Emails
+    |   <h4>
+    |     <a href="/article/jeb-bush-emails">
+    |       Jeb Bush Emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 269: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): J.Irwin Company
+    |   <h4>
+    |     <a href="/article/j-irwin-company">
+    |       J.Irwin Company
+    |     </a>
+    |   </h4>
+
+--- Chunk 270: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Italian State Police
+    |   <h4>
+    |     <a href="/article/italian-state-police">
+    |       Italian State Police
+    |     </a>
+    |   </h4>
+
+--- Chunk 271: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Iron March
+    |   <h4>
+    |     <a href="/article/iron-march">
+    |       Iron March
+    |     </a>
+    |   </h4>
+
+--- Chunk 272: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Integrity Initiative
+    |   <h4>
+    |     <a href="/article/integrity-initiative">
+    |       Integrity Initiative
+    |     </a>
+    |   </h4>
+
+--- Chunk 273: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Innwa Bank
+    |   <h4>
+    |     <a href="/article/innwa-bank">
+    |       Innwa Bank
+    |     </a>
+    |   </h4>
+
+--- Chunk 274: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Innodata
+    |   <h4>
+    |     <a href="/article/innodata">
+    |       Innodata
+    |     </a>
+    |   </h4>
+
+--- Chunk 275: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ingerop
+    |   <h4>
+    |     <a href="/article/ingerop">
+    |       Ingerop
+    |     </a>
+    |   </h4>
+
+--- Chunk 276: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Indiabulls
+    |   <h4>
+    |     <a href="/article/indiabulls">
+    |       Indiabulls
+    |     </a>
+    |   </h4>
+
+--- Chunk 277: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Illinois Attorney General
+    |   <h4>
+    |     <a href="/article/illinois-attorney-general">
+    |       Illinois Attorney General
+    |     </a>
+    |   </h4>
+
+--- Chunk 278: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Identity Evropa Discord logs
+    |   <h4>
+    |     <a href="/article/identity-evropa-discord-logs">
+    |       Identity Evropa Discord logs
+    |     </a>
+    |   </h4>
+
+--- Chunk 279: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): INAFOR
+    |   <h4>
+    |     <a href="/article/inafor">
+    |       INAFOR
+    |     </a>
+    |   </h4>
+
+--- Chunk 280: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hunter Biden iPhone and iPad Backups
+    |   <h4>
+    |     <a href="/article/hunter-biden-iphone-and-ipad-backups">
+    |       Hunter Biden iPhone and iPad Backups
+    |     </a>
+    |   </h4>
+
+--- Chunk 281: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hunter Biden emails
+    |   <h4>
+    |     <a href="/article/hunter-biden-emails">
+    |       Hunter Biden emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 282: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hunter Biden Laptop
+    |   <h4>
+    |     <a href="/article/hunter-biden-laptop">
+    |       Hunter Biden Laptop
+    |     </a>
+    |   </h4>
+
+--- Chunk 283: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hofeller Files
+    |   <h4>
+    |     <a href="/article/hofeller-files">
+    |       Hofeller Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 284: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Heritage Foundation
+    |   <h4>
+    |     <a href="/article/heritage-foundation">
+    |       Heritage Foundation
+    |     </a>
+    |   </h4>
+
+--- Chunk 285: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Henning Harders
+    |   <h4>
+    |     <a href="/article/henning-harders">
+    |       Henning Harders
+    |     </a>
+    |   </h4>
+
+--- Chunk 286: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Harita Group
+    |   <h4>
+    |     <a href="/article/harita-group">
+    |       Harita Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 287: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Hacking Team
+    |   <h4>
+    |     <a href="/article/hacking-team">
+    |       Hacking Team
+    |     </a>
+    |   </h4>
+
+--- Chunk 288: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): HBGary
+    |   <h4>
+    |     <a href="/article/hbgary">
+    |       HBGary
+    |     </a>
+    |   </h4>
+
+--- Chunk 289: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): HART
+    |   <h4>
+    |     <a href="/article/hart">
+    |       HART
+    |     </a>
+    |   </h4>
+
+--- Chunk 290: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gulf Copper
+    |   <h4>
+    |     <a href="/article/gulf-copper">
+    |       Gulf Copper
+    |     </a>
+    |   </h4>
+
+--- Chunk 291: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Guccifer Archive
+    |   <h4>
+    |     <a href="/article/guccifer-archive">
+    |       Guccifer Archive
+    |     </a>
+    |   </h4>
+
+--- Chunk 292: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Guccifer 2.0
+    |   <h4>
+    |     <a href="/article/guccifer-2-0">
+    |       Guccifer 2.0
+    |     </a>
+    |   </h4>
+
+--- Chunk 293: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Groupe Comet
+    |   <h4>
+    |     <a href="/article/groupe-comet">
+    |       Groupe Comet
+    |     </a>
+    |   </h4>
+
+--- Chunk 294: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GorraLeaks
+    |   <h4>
+    |     <a href="/article/gorraleaks">
+    |       GorraLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 295: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GiveSendGo 4.0
+    |   <h4>
+    |     <a href="/article/givesendgo-4-0">
+    |       GiveSendGo 4.0
+    |     </a>
+    |   </h4>
+
+--- Chunk 296: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GiveSendGo 5.0
+    |   <h4>
+    |     <a href="/article/givesendgo-5-0">
+    |       GiveSendGo 5.0
+    |     </a>
+    |   </h4>
+
+--- Chunk 297: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GiveSendGo 3.0
+    |   <h4>
+    |     <a href="/article/givesendgo-3-0">
+    |       GiveSendGo 3.0
+    |     </a>
+    |   </h4>
+
+--- Chunk 298: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GiveSendGo 2.0
+    |   <h4>
+    |     <a href="/article/givesendgo-2-0">
+    |       GiveSendGo 2.0
+    |     </a>
+    |   </h4>
+
+--- Chunk 299: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GiveSendGo
+    |   <h4>
+    |     <a href="/article/givesendgo">
+    |       GiveSendGo
+    |     </a>
+    |   </h4>
+
+--- Chunk 300: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): German Chambers of Commerce
+    |   <h4>
+    |     <a href="/article/german-chambers-of-commerce">
+    |       German Chambers of Commerce
+    |     </a>
+    |   </h4>
+
+--- Chunk 301: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gazregion
+    |   <h4>
+    |     <a href="/article/gazregion">
+    |       Gazregion
+    |     </a>
+    |   </h4>
+
+--- Chunk 302: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Gazprom Linde Engineering
+    |   <h4>
+    |     <a href="/article/gazprom-linde-engineering">
+    |       Gazprom Linde Engineering
+    |     </a>
+    |   </h4>
+
+--- Chunk 303: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GabLeaks
+    |   <h4>
+    |     <a href="/article/gableaks">
+    |       GabLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 304: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GUOV I GS - General Dept. of Troops and Civil Construction
+    |   <h4>
+    |     <a href="/article/guov-i-gs-general-dept-of-troops-and-civil-construction">
+    |       GUOV I GS - General Dept. of Troops and Civil Construction
+    |     </a>
+    |   </h4>
+
+--- Chunk 305: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): GQLeaks
+    |   <h4>
+    |     <a href="/article/gqleaks">
+    |       GQLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 306: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fundação Nacional de Artes
+    |   <h4>
+    |     <a href="/article/fundacao-nacional-de-artes">
+    |       Fundação Nacional de Artes
+    |     </a>
+    |   </h4>
+
+--- Chunk 307: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fuerza Armada de El Salvador
+    |   <h4>
+    |     <a href="/article/fuerza-armada-de-el-salvador">
+    |       Fuerza Armada de El Salvador
+    |     </a>
+    |   </h4>
+
+--- Chunk 308: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Enron Files
+    |   <h4>
+    |     <a href="/article/enron-files">
+    |       Enron Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 309: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fuck FBI Friday
+    |   <h4>
+    |     <a href="/article/fuck-fbi-friday">
+    |       Fuck FBI Friday
+    |     </a>
+    |   </h4>
+
+--- Chunk 310: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Forest
+    |   <h4>
+    |     <a href="/article/forest">
+    |       Forest
+    |     </a>
+    |   </h4>
+
+--- Chunk 311: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fishrot Files
+    |   <h4>
+    |     <a href="/article/fishrot-files">
+    |       Fishrot Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 312: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fisher & Paykel
+    |   <h4>
+    |     <a href="/article/fisher-paykel">
+    |       Fisher & Paykel
+    |     </a>
+    |   </h4>
+
+--- Chunk 313: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Fiscalia of Colombia
+    |   <h4>
+    |     <a href="/article/fiscalia-of-colombia">
+    |       Fiscalia of Colombia
+    |     </a>
+    |   </h4>
+
+--- Chunk 314: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Finfisher
+    |   <h4>
+    |     <a href="/article/finfisher">
+    |       Finfisher
+    |     </a>
+    |   </h4>
+
+--- Chunk 315: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Filippobaloo tiscali.it.zip
+    |   <h4>
+    |     <a href="/article/filippobaloo-tiscali-it-zip">
+    |       Filippobaloo tiscali.it.zip
+    |     </a>
+    |   </h4>
+
+--- Chunk 316: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): FSB employee leak
+    |   <h4>
+    |     <a href="/article/fsb-employee-leak">
+    |       FSB employee leak
+    |     </a>
+    |   </h4>
+
+--- Chunk 317: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): FBI’s Secret Rules
+    |   <h4>
+    |     <a href="/article/fbis-secret-rules">
+    |       FBI’s Secret Rules
+    |     </a>
+    |   </h4>
+
+--- Chunk 318: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): FBI-DHS leak
+    |   <h4>
+    |     <a href="/article/fbi-dhs-leak">
+    |       FBI-DHS leak
+    |     </a>
+    |   </h4>
+
+--- Chunk 319: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ExecuPharm
+    |   <h4>
+    |     <a href="/article/execupharm">
+    |       ExecuPharm
+    |     </a>
+    |   </h4>
+
+--- Chunk 320: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Exconfidential Telegram channel
+    |   <h4>
+    |     <a href="/article/exconfidential-telegram-channel">
+    |       Exconfidential Telegram channel
+    |     </a>
+    |   </h4>
+
+--- Chunk 321: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Euroleaks
+    |   <h4>
+    |     <a href="/article/euroleaks">
+    |       Euroleaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 322: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Estado Mayor Conjunto de las Fuerza Armadas de Chile
+    |   <h4>
+    |     <a href="/article/estado-mayor-conjunto-de-las-fuerza-armadas-de-chile">
+    |       Estado Mayor Conjunto de las Fuerza Armadas de Chile
+    |     </a>
+    |   </h4>
+
+--- Chunk 323: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ernst & Young
+    |   <h4>
+    |     <a href="/article/ernst-young">
+    |       Ernst & Young
+    |     </a>
+    |   </h4>
+
+--- Chunk 324: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Equifax
+    |   <h4>
+    |     <a href="/article/equifax">
+    |       Equifax
+    |     </a>
+    |   </h4>
+
+--- Chunk 325: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Epik
+    |   <h4>
+    |     <a href="/article/epik">
+    |       Epik
+    |     </a>
+    |   </h4>
+
+--- Chunk 326: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Enron emails
+    |   <h4>
+    |     <a href="/article/enron-emails">
+    |       Enron emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 327: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Enerpred
+    |   <h4>
+    |     <a href="/article/enerpred">
+    |       Enerpred
+    |     </a>
+    |   </h4>
+
+--- Chunk 328: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Embassy of Ecuador, Moscow
+    |   <h4>
+    |     <a href="/article/embassy-of-ecuador-moscow">
+    |       Embassy of Ecuador, Moscow
+    |     </a>
+    |   </h4>
+
+--- Chunk 329: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Elvees
+    |   <h4>
+    |     <a href="/article/elvees">
+    |       Elvees
+    |     </a>
+    |   </h4>
+
+--- Chunk 330: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): El Salvador Police Database
+    |   <h4>
+    |     <a href="/article/el-salvador-police-database">
+    |       El Salvador Police Database
+    |     </a>
+    |   </h4>
+
+--- Chunk 331: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ejército del Perú
+    |   <h4>
+    |     <a href="/article/ejercito-del-peru">
+    |       Ejército del Perú
+    |     </a>
+    |   </h4>
+
+--- Chunk 332: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ENAMI EP
+    |   <h4>
+    |     <a href="/article/enami-ep">
+    |       ENAMI EP
+    |     </a>
+    |   </h4>
+
+--- Chunk 333: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): EGM
+    |   <h4>
+    |     <a href="/article/egm">
+    |       EGM
+    |     </a>
+    |   </h4>
+
+--- Chunk 334: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Elektrocentromontazh
+    |   <h4>
+    |     <a href="/article/elektrocentromontazh">
+    |       Elektrocentromontazh
+    |     </a>
+    |   </h4>
+
+--- Chunk 335: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Dussmann Group
+    |   <h4>
+    |     <a href="/article/dussmann-group">
+    |       Dussmann Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 336: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Durham
+    |   <h4>
+    |     <a href="/article/durham">
+    |       Durham
+    |     </a>
+    |   </h4>
+
+--- Chunk 337: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Drug War Genesis Interviews
+    |   <h4>
+    |     <a href="/article/drug-war-genesis-interviews">
+    |       Drug War Genesis Interviews
+    |     </a>
+    |   </h4>
+
+--- Chunk 338: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Doxxing-Adventskalender
+    |   <h4>
+    |     <a href="/article/doxxing-adventskalender">
+    |       Doxxing-Adventskalender
+    |     </a>
+    |   </h4>
+
+--- Chunk 339: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Donetsk People's Republic emails
+    |   <h4>
+    |     <a href="/article/donetsk-people-s-republic-emails">
+    |       Donetsk People's Republic emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 340: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Documents from US Espionage Den
+    |   <h4>
+    |     <a href="/article/documents-from-us-espionage-den">
+    |       Documents from US Espionage Den
+    |     </a>
+    |   </h4>
+
+--- Chunk 341: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Dept of Education of the Strezhevoy City District Administration
+    |   <h4>
+    |     <a href="/article/dept-of-education-of-the-strezhevoy-city-district-administration">
+    |       Dept of Education of the Strezhevoy City District Administration
+    |     </a>
+    |   </h4>
+
+--- Chunk 342: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Dept. for Church Charity and Social Service of the Russian Orthodox Church
+    |   <h4>
+    |     <a href="/article/dept-for-church-charity-and-social-service-of-the-russian-orthodox-church">
+    |       Dept. for Church Charity and Social Service of the Russian Orthodox Church
+    |     </a>
+    |   </h4>
+
+--- Chunk 343: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Denver PD Crowd Management Manual
+    |   <h4>
+    |     <a href="/article/denver-pd-crowd-management-manual">
+    |       Denver PD Crowd Management Manual
+    |     </a>
+    |   </h4>
+
+--- Chunk 344: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Darknet Market
+    |   <h4>
+    |     <a href="/article/darknet-market">
+    |       Darknet Market
+    |     </a>
+    |   </h4>
+
+--- Chunk 345: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Dark Side of the Kremlin
+    |   <h4>
+    |     <a href="/article/dark-side-of-the-kremlin">
+    |       Dark Side of the Kremlin
+    |     </a>
+    |   </h4>
+
+--- Chunk 346: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): DNC Emails
+    |   <h4>
+    |     <a href="/article/dnc-emails">
+    |       DNC Emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 347: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): DJC Accountants
+    |   <h4>
+    |     <a href="/article/djc-accountants">
+    |       DJC Accountants
+    |     </a>
+    |   </h4>
+
+--- Chunk 348: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CyberAnakin
+    |   <h4>
+    |     <a href="/article/cyberanakin">
+    |       CyberAnakin
+    |     </a>
+    |   </h4>
+
+--- Chunk 349: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cryptome Archive (2016)
+    |   <h4>
+    |     <a href="/article/cryptome-archive-2016">
+    |       Cryptome Archive (2016)
+    |     </a>
+    |   </h4>
+
+--- Chunk 350: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Council for National Policy
+    |   <h4>
+    |     <a href="/article/council-for-national-policy">
+    |       Council for National Policy
+    |     </a>
+    |   </h4>
+
+--- Chunk 351: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cosan
+    |   <h4>
+    |     <a href="/article/cosan">
+    |       Cosan
+    |     </a>
+    |   </h4>
+
+--- Chunk 352: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CorruptBrazil
+    |   <h4>
+    |     <a href="/article/corruptbrazil">
+    |       CorruptBrazil
+    |     </a>
+    |   </h4>
+
+--- Chunk 353: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CorpMSP
+    |   <h4>
+    |     <a href="/article/corpmsp">
+    |       CorpMSP
+    |     </a>
+    |   </h4>
+
+--- Chunk 354: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cook Islands registry
+    |   <h4>
+    |     <a href="/article/cook-islands-registry">
+    |       Cook Islands registry
+    |     </a>
+    |   </h4>
+
+--- Chunk 355: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Convex
+    |   <h4>
+    |     <a href="/article/convex">
+    |       Convex
+    |     </a>
+    |   </h4>
+
+--- Chunk 356: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Continent Express
+    |   <h4>
+    |     <a href="/article/continent-express">
+    |       Continent Express
+    |     </a>
+    |   </h4>
+
+--- Chunk 357: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Conti ransomware chats
+    |   <h4>
+    |     <a href="/article/conti-ransomware-chats">
+    |       Conti ransomware chats
+    |     </a>
+    |   </h4>
+
+--- Chunk 358: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Constellis
+    |   <h4>
+    |     <a href="/article/constellis">
+    |       Constellis
+    |     </a>
+    |   </h4>
+
+--- Chunk 359: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Condie Construction Company
+    |   <h4>
+    |     <a href="/article/condie-construction-company">
+    |       Condie Construction Company
+    |     </a>
+    |   </h4>
+
+--- Chunk 360: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Comando General de las Fuerzas Militares de Colombia
+    |   <h4>
+    |     <a href="/article/comando-general-de-las-fuerzas-militares-de-colombia">
+    |       Comando General de las Fuerzas Militares de Colombia
+    |     </a>
+    |   </h4>
+
+--- Chunk 361: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Comando Conjunto de las Fuerzas Armadas
+    |   <h4>
+    |     <a href="/article/comando-conjunto-de-las-fuerzas-armadas">
+    |       Comando Conjunto de las Fuerzas Armadas
+    |     </a>
+    |   </h4>
+
+--- Chunk 362: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CitizenGo
+    |   <h4>
+    |     <a href="/article/citizengo">
+    |       CitizenGo
+    |     </a>
+    |   </h4>
+
+--- Chunk 363: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CitizenGo & HatzeOir databases
+    |   <h4>
+    |     <a href="/article/citizengo-hatzeoir-databases">
+    |       CitizenGo & HatzeOir databases
+    |     </a>
+    |   </h4>
+
+--- Chunk 364: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Chinga La Migra
+    |   <h4>
+    |     <a href="/article/chinga-la-migra">
+    |       Chinga La Migra
+    |     </a>
+    |   </h4>
+
+--- Chunk 365: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Chinese Ministry of Commerce
+    |   <h4>
+    |     <a href="/article/chinese-ministry-of-commerce">
+    |       Chinese Ministry of Commerce
+    |     </a>
+    |   </h4>
+
+--- Chunk 366: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Chamber of Mines of South Africa
+    |   <h4>
+    |     <a href="/article/chamber-of-mines-of-south-africa">
+    |       Chamber of Mines of South Africa
+    |     </a>
+    |   </h4>
+
+--- Chunk 367: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Central Bank of Russia
+    |   <h4>
+    |     <a href="/article/central-bank-of-russia">
+    |       Central Bank of Russia
+    |     </a>
+    |   </h4>
+
+--- Chunk 368: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cellebrite and MSAB
+    |   <h4>
+    |     <a href="/article/cellebrite-and-msab">
+    |       Cellebrite and MSAB
+    |     </a>
+    |   </h4>
+
+--- Chunk 369: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cellebrite Team Foundation Server
+    |   <h4>
+    |     <a href="/article/cellebrite-team-foundation-server">
+    |       Cellebrite Team Foundation Server
+    |     </a>
+    |   </h4>
+
+--- Chunk 370: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cellebrite Mobilogy
+    |   <h4>
+    |     <a href="/article/cellebrite-mobilogy">
+    |       Cellebrite Mobilogy
+    |     </a>
+    |   </h4>
+
+--- Chunk 371: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Sherwood
+    |   <h4>
+    |     <a href="/article/sherwood">
+    |       Sherwood
+    |     </a>
+    |   </h4>
+
+--- Chunk 372: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Casolaro Files
+    |   <h4>
+    |     <a href="/article/casolaro-files">
+    |       Casolaro Files
+    |     </a>
+    |   </h4>
+
+--- Chunk 373: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Casagrande Group
+    |   <h4>
+    |     <a href="/article/casagrande-group">
+    |       Casagrande Group
+    |     </a>
+    |   </h4>
+
+--- Chunk 374: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Capital Legal Services
+    |   <h4>
+    |     <a href="/article/capital-legal-services">
+    |       Capital Legal Services
+    |     </a>
+    |   </h4>
+
+--- Chunk 375: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Cablegate
+    |   <h4>
+    |     <a href="/article/cablegate">
+    |       Cablegate
+    |     </a>
+    |   </h4>
+
+--- Chunk 376: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): CEIEC
+    |   <h4>
+    |     <a href="/article/ceiec">
+    |       CEIEC
+    |     </a>
+    |   </h4>
+
+--- Chunk 377: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bradley Foundation
+    |   <h4>
+    |     <a href="/article/bradley-foundation">
+    |       Bradley Foundation
+    |     </a>
+    |   </h4>
+
+--- Chunk 378: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Boy Scouts of America
+    |   <h4>
+    |     <a href="/article/boy-scouts-of-america">
+    |       Boy Scouts of America
+    |     </a>
+    |   </h4>
+
+--- Chunk 379: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bouygues Construction
+    |   <h4>
+    |     <a href="/article/bouygues-construction">
+    |       Bouygues Construction
+    |     </a>
+    |   </h4>
+
+--- Chunk 380: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bob Otto emails
+    |   <h4>
+    |     <a href="/article/bob-otto-emails">
+    |       Bob Otto emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 381: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Blagoveshchensk City Administration
+    |   <h4>
+    |     <a href="/article/blagoveshchensk-city-administration">
+    |       Blagoveshchensk City Administration
+    |     </a>
+    |   </h4>
+
+--- Chunk 382: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bedford County, PA Emails
+    |   <h4>
+    |     <a href="/article/bedford-county-pa-emails">
+    |       Bedford County, PA Emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 383: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bangkok Airways
+    |   <h4>
+    |     <a href="/article/bangkok-airways">
+    |       Bangkok Airways
+    |     </a>
+    |   </h4>
+
+--- Chunk 384: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Banco de Poupança e Crédito
+    |   <h4>
+    |     <a href="/article/banco-de-poupanca-e-credito">
+    |       Banco de Poupança e Crédito
+    |     </a>
+    |   </h4>
+
+--- Chunk 385: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Bahamas Registry
+    |   <h4>
+    |     <a href="/article/bahamas-registry">
+    |       Bahamas Registry
+    |     </a>
+    |   </h4>
+
+--- Chunk 386: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): BMK
+    |   <h4>
+    |     <a href="/article/bmk">
+    |       BMK
+    |     </a>
+    |   </h4>
+
+--- Chunk 387: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): WikiLeaks Task Force
+    |   <h4>
+    |     <a href="/article/wikileaks-task-force">
+    |       WikiLeaks Task Force
+    |     </a>
+    |   </h4>
+
+--- Chunk 388: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Azusa Police Department
+    |   <h4>
+    |     <a href="/article/azusa-police-department">
+    |       Azusa Police Department
+    |     </a>
+    |   </h4>
+
+--- Chunk 389: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Australia Queensland
+    |   <h4>
+    |     <a href="/article/australia-queensland">
+    |       Australia Queensland
+    |     </a>
+    |   </h4>
+
+--- Chunk 390: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): AssangeLeaks
+    |   <h4>
+    |     <a href="/article/assangeleaks">
+    |       AssangeLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 391: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arteris
+    |   <h4>
+    |     <a href="/article/arteris">
+    |       Arteris
+    |     </a>
+    |   </h4>
+
+--- Chunk 392: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ashley Madison
+    |   <h4>
+    |     <a href="/article/ashley-madison">
+    |       Ashley Madison
+    |     </a>
+    |   </h4>
+
+--- Chunk 393: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Arron Banks
+    |   <h4>
+    |     <a href="/article/arron-banks">
+    |       Arron Banks
+    |     </a>
+    |   </h4>
+
+--- Chunk 394: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ArianTel
+    |   <h4>
+    |     <a href="/article/ariantel">
+    |       ArianTel
+    |     </a>
+    |   </h4>
+
+--- Chunk 395: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Aqaba Company for Ports Operation & Management, Jordan
+    |   <h4>
+    |     <a href="/article/aqaba-company-for-ports-operation-management-jordan">
+    |       Aqaba Company for Ports Operation & Management, Jordan
+    |     </a>
+    |   </h4>
+
+--- Chunk 396: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Appin Uncensored
+    |   <h4>
+    |     <a href="/article/appin-uncensored">
+    |       Appin Uncensored
+    |     </a>
+    |   </h4>
+
+--- Chunk 397: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Apex Mobile
+    |   <h4>
+    |     <a href="/article/apex-mobile">
+    |       Apex Mobile
+    |     </a>
+    |   </h4>
+
+--- Chunk 398: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Antiproprietary torrents
+    |   <h4>
+    |     <a href="/article/antiproprietary-torrents">
+    |       Antiproprietary torrents
+    |     </a>
+    |   </h4>
+
+--- Chunk 399: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Alliance Coal
+    |   <h4>
+    |     <a href="/article/alliance-coal">
+    |       Alliance Coal
+    |     </a>
+    |   </h4>
+
+--- Chunk 400: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Aliansce Sonae
+    |   <h4>
+    |     <a href="/article/aliansce-sonae">
+    |       Aliansce Sonae
+    |     </a>
+    |   </h4>
+
+--- Chunk 401: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ALET
+    |   <h4>
+    |     <a href="/article/alet">
+    |       ALET
+    |     </a>
+    |   </h4>
+
+--- Chunk 402: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Airman Teixeira Leaks
+    |   <h4>
+    |     <a href="/article/airman-teixeira-leaks">
+    |       Airman Teixeira Leaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 403: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Agencia Nacional de Hidrocarburos
+    |   <h4>
+    |     <a href="/article/agencia-nacional-de-hidrocarburos">
+    |       Agencia Nacional de Hidrocarburos
+    |     </a>
+    |   </h4>
+
+--- Chunk 404: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Aerogas
+    |   <h4>
+    |     <a href="/article/aerogas">
+    |       Aerogas
+    |     </a>
+    |   </h4>
+
+--- Chunk 405: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Aerial Surveillance Footage
+    |   <h4>
+    |     <a href="/article/aerial-surveillance-footage">
+    |       Aerial Surveillance Footage
+    |     </a>
+    |   </h4>
+
+--- Chunk 406: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Adopt A Trucker founder emails
+    |   <h4>
+    |     <a href="/article/adopt-a-trucker-founder-emails">
+    |       Adopt A Trucker founder emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 407: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Achinsk City Government
+    |   <h4>
+    |     <a href="/article/achinsk-city-government">
+    |       Achinsk City Government
+    |     </a>
+    |   </h4>
+
+--- Chunk 408: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Accent Capital
+    |   <h4>
+    |     <a href="/article/accent-capital">
+    |       Accent Capital
+    |     </a>
+    |   </h4>
+
+--- Chunk 409: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Aban Offshore
+    |   <h4>
+    |     <a href="/article/aban-offshore">
+    |       Aban Offshore
+    |     </a>
+    |   </h4>
+
+--- Chunk 410: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): AKP
+    |   <h4>
+    |     <a href="/article/akp">
+    |       AKP
+    |     </a>
+    |   </h4>
+
+--- Chunk 411: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ACS Law emails
+    |   <h4>
+    |     <a href="/article/acs-law-emails">
+    |       ACS Law emails
+    |     </a>
+    |   </h4>
+
+--- Chunk 412: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): ACPeds
+    |   <h4>
+    |     <a href="/article/acpeds">
+    |       ACPeds
+    |     </a>
+    |   </h4>
+
+--- Chunk 413: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): .Win Network
+    |   <h4>
+    |     <a href="/article/win-network">
+    |       .Win Network
+    |     </a>
+    |   </h4>
+
+--- Chunk 414: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Ethiopia Financial Intelligence Service
+    |   <h4>
+    |     <a href="/article/ethiopia-financial-intelligence-service">
+    |       Ethiopia Financial Intelligence Service
+    |     </a>
+    |   </h4>
+
+--- Chunk 415: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Patron Papers
+    |   <h4>
+    |     <a href="/article/patron-papers">
+    |       Patron Papers
+    |     </a>
+    |   </h4>
+
+--- Chunk 416: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): OPM Anonymous Hack
+    |   <h4>
+    |     <a href="/article/opm-anonymous-hack">
+    |       OPM Anonymous Hack
+    |     </a>
+    |   </h4>
+
+--- Chunk 417: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Kallias and Associates
+    |   <h4>
+    |     <a href="/article/kallias-and-associates">
+    |       Kallias and Associates
+    |     </a>
+    |   </h4>
+
+--- Chunk 418: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Mining Secrets
+    |   <h4>
+    |     <a href="/article/mining-secrets">
+    |       Mining Secrets
+    |     </a>
+    |   </h4>
+
+--- Chunk 419: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Oath Keepers
+    |   <h4>
+    |     <a href="/article/oath-keepers">
+    |       Oath Keepers
+    |     </a>
+    |   </h4>
+
+--- Chunk 420: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): 29 Leaks
+    |   <h4>
+    |     <a href="/article/29-leaks">
+    |       29 Leaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 421: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): BlueLeaks
+    |   <h4>
+    |     <a href="/article/blueleaks">
+    |       BlueLeaks
+    |     </a>
+    |   </h4>
+
+--- Chunk 422: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): United Northern and Southern Knights of the Ku Klux Klan
+    |   <h4>
+    |     <a href="/article/united-northern-and-southern-knights-of-the-ku-klux-klan">
+    |       United Northern and Southern Knights of the Ku Klux Klan
+    |     </a>
+    |   </h4>
+
+--- Chunk 423: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): WikiLeaks Archive
+    |   <h4>
+    |     <a href="/article/wikileaks-archive">
+    |       WikiLeaks Archive
+    |     </a>
+    |   </h4>
+
+--- Chunk 424: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00 LEAKS=358
+  pattern_xpath: ///h4
+  content: [HREF=409 TEXT=409]
+  sample[0] (31L) [TRUNCATED]: Fraternal Order of Police Important Notice: DDoSecrets domain change Free Speech
+    |   <h4>
+    |     <a href="/article/fraternal-order-of-police">
+    |       Fraternal Order of Police
+    |     </a>
+    |     <a href="/article/important-notice-ddosecrets-domain-change">
+    |       Important Notice: DDoSecrets domain change
+    |     </a>
+    |     <a href="/article/free-speech-union-donor-data">
+    |       Free Speech Union donor data
+    |     </a>
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /article/paramilitary-leaks (href not in rendered output)
+    [HREF] /article/douglas-valentine-collection (href not in rendered output)
+    [HREF] /article/statement-on-israeli-sanctions-against-the-media (href not in rendered output)
+    [HREF] /article/introducing-the-ddosecrets-library-system (href not in rendered output)
+    [HREF] /article/andrew-tate-s-war-room-videos (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Douglas Valentine collection
+    [TEXT] Statement on Israeli sanctions against the media
+    [TEXT] Introducing the DDoSecrets library system

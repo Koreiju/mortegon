@@ -1,0 +1,26 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/HTML_DEDUP_CONTENT_TREE_GOAL.md",
+  "type": "SPEC",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "GOAL — The HTML Deduplicated Content Tree (2026-06-13)",
+  "summary": "Binding spec defining an HTML chunk slate's body as deduplicated content printed as a pure-text tree, realising the syntax-agnostic compile's HtmlStrategy as a backend transform.",
+  "scope": ["HTML chunk slate body", "deduplicated content tree", "HtmlStrategy compile", "syntax-agnostic recursive descent", "content-extraction fields ruleset", "backend content_tree transform", "2D editor slate rendering", "archive.org result card"],
+  "cross_refs": [
+    "USER_REQUIREMENTS_VERBATIM.md",
+    "BLACK_SLATE_GOAL.md",
+    "DOMAIN_MODEL.md",
+    "docs/frontend/field_tree.md",
+    "billboard.md",
+    "concept_view.md",
+    "scan_streaming.md",
+    "docs/code_specs/backend/scanner.md",
+    "docs/code_specs/frontend/*",
+    "object_model/ChunkPatternSchema.md",
+    "FieldTree.md",
+    "scripts/probe_live_archive_scan.py"
+  ],
+  "locked": false,
+  "precedence": 3,
+  "notes": "Type and precedence honored from manifest (SPEC, 3). Doc self-labels Status: GOAL / binding but content is an implementation contract (rule-by-rule dedup grammar, golden I/O test, backend transform spec, doc-reconciliation ledger), consistent with SPEC."
+}

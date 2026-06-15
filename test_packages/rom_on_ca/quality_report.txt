@@ -1,0 +1,1066 @@
+=== QUALITY REPORT: rom_on_ca.html ===
+Chunks: 61 (structural=9, functional=13, text=39)
+Categories: {'card': 6, 'structural': 1, 'menu_item': 13, 'search_input': 1, 'pagination': 1, 'text_singleton': 39}
+Content: 669 tagged, 343 preserved (51%)
+Leaks: 326 total, 187 high-importance
+
+--- Chunk 0: ul.cky.cookie ---
+  type=card freq=39 excl=0.46
+  pattern_xpath: ///ul[contains(@class,'cookie')][contains(@class,'des')][contains(@class,'table')][contains(@class,'cky')]
+  tree_sig: ul(li(div,div),li(div,div),li(div,div))
+  content: [TEXT=6]
+  sample[0] (26L): Cookie AWSALBCORS Duration 7 days Description Amazon Web Services set this cooki
+    |   <ul class="cky-cookie-des-table">
+    |     <li>
+    |       <div>
+    |         Cookie
+    |       </div>
+    |       <div>
+    |         AWSALBCORS
+    |       </div>
+    |     </li>
+    |     <li>
+    | ... [16 more lines]
+
+--- Chunk 1: ul.cky.cookie ---
+  type=card freq=15 excl=0.46
+  pattern_xpath: ///ul[contains(@class,'cookie')][contains(@class,'des')][contains(@class,'table')][contains(@class,'cky')]
+  tree_sig: ul(li(div,div),li(div,div),li(div,div(p)))
+  content: [TEXT=6]
+  sample[0] (30L): Cookie is_eu Duration session Description Pinterest sets this cookie to determin
+    |   <ul class="cky-cookie-des-table">
+    |     <li>
+    |       <div>
+    |         Cookie
+    |       </div>
+    |       <div>
+    |         is_eu
+    |       </div>
+    |     </li>
+    |     <li>
+    | ... [20 more lines]
+
+--- Chunk 2: a.all.anim ---
+  type=card freq=6 excl=1.00
+  pattern_xpath: ///a[contains(@class,'all')][contains(@class,'cursor')][contains(@class,'image')][contains(@class,'pointer')][contains(@data-component-id,'image')]
+  tree_sig: div(a(div(picture(source,source,img)),div(div,div(span),div(div,div(i)))))
+  content: [ATTR=1 HREF=1 IMG=5 TEXT=3]
+  sample[0] (27L): Program 3 children with crowns enjoying birthday party celebrated at ROM Saturda
+    |   <a data-component-id="rom:image-card" class="rom-image-card pb-2 relative h-full group anim-b-border transition-all flex flex-col lg:pb-2.5 cursor-pointer" href="/whats-on/special-programs/saturday-club">
+    |     <div class="overflow-hidden [&_img]:w-full [&_img]:transition-transform [&_img]:duration-300 group-hover:[&_img]:scale-105">
+    |       <picture>
+    |         <source srcset="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=GCD3jRJY 1x, /sites/default/files/styles/5_4_xl_2x_1028x824/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=KQJaBIWi 2x" media="all and (min-width: 1200px)" type="image/webp" width="514" height="412"></source>
+    |         <source srcset="/sites/default/files/styles/5_4_l_1x/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=z5VaL1HY 1x, /sites/default/files/styles/5_4_l_2x/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=89RZ9bZg 2x" media="all and (min-width: 0px)" type="image/webp" width="382" height="306"></source>
+    |         <img loading="lazy" width="514" height="412" src="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/Birthday-Parties.we..." alt="3 children with crowns enjoying birthday party celebrated at ROM"></img>
+    |       </picture>
+    |     </div>
+    |     <div class="flex flex-col flex-1">
+    |       <div class="mt-2.5 text-2xxs md:text-2xs font-medium uppercase lg:pr-20">
+    | ... [17 more lines]
+
+--- Chunk 3: a.after.card ---
+  type=card freq=2 excl=0.73
+  pattern_xpath: ///a[contains(@class,'event')][contains(@class,'eventinstance')][contains(@data-component-id,'event')][contains(@class,'card')][contains(@class,'col')]
+  tree_sig: div(a(div(picture(source,source,img),div,div(div(div),div(span,span)),div(i)),di
+  content: [HREF=1 IMG=5 TEXT=7]
+  sample[0] (31L) [TRUNCATED]: ROM After Dark Lunar Love Age 19+Feb                               13 19:30- 23:
+    |   <a class="eventinstance-event_card rom-event-card relative h-full group flex flex-col" data-component-id="rom:event-card" href="/whats-on/events/rom-after-dark-lunar-love">
+    |     <div class="overflow-hidden relative [&_img]:w-full [&_img]:transition-transform [&_img]:duration-300 group-hover:[&_img]:scale-105">
+    |       <picture>
+    |         <source srcset="/sites/default/files/styles/event_card_desktop_1x/public/2026-01/lunar%20love1.jpg.webp?h=a1e1a043&itok=KklSJ-28 1x, /sites/default/files/styles/event_card_desktop_2x/public/2026-01/lunar%20love1.jpg.webp?h=a1e1a043&itok=LFDZTKyU 2x" media="all and (min-width: 768px)" type="image/webp" width="284" height="354"></source>
+    |         <source srcset="/sites/default/files/styles/event_card_mobile_1x/public/2026-01/lunar%20love1.jpg.webp?h=a1e1a043&itok=QcaiwmWT 1x, /sites/default/files/styles/event_card_mobile_2x/public/2026-01/lunar%20love1.jpg.webp?h=a1e1a043&itok=IzDlDN1W 2x" media="all and (min-width: 0px)" type="image/webp" width="173" height="215"></source>
+    |         <img loading="lazy" width="284" height="354" src="/sites/default/files/styles/event_card_desktop_1x/public/2026-01/lunar%20love1.j..." alt=""></img>
+    |       </picture>
+    |       <div class="bg-gradient-to-b from-black/60 w-full h-1/2 absolute top-0 left-0 block"></div>
+    |       <div class="flex flex-col absolute top-2.5 left-2.5">
+    |         <div class="text-white text-lg md:text-3lg leading-none">
+    | ... [21 more lines]
+
+--- Chunk 4: nav.block.centre ---
+  type=structural freq=2 excl=0.90
+  pattern_xpath: ///nav[contains(@role,'navigation')][contains(@class,'about')][contains(@class,'centre')][contains(@class,'media')][contains(@class,'block')]
+  tree_sig: nav(h2,ul(li(a),li(a),li(a),li(a),li(a),li(a,a,a,a,a,a)))
+  content: [HREF=11 TEXT=12]
+  sample[0] (31L) [TRUNCATED]: News & Publications Media Centre News Releases ROM Magazine ROM Publications ROM
+    |   <nav role="navigation" aria-labelledby="block-rom-mediacentre-menu" id="block-rom-mediacentre" class="block block-menu navigation menu--media-centre">
+    |     <h2 id="block-rom-mediacentre-menu">
+    |       News & Publications
+    |     </h2>
+    |     <ul data-block="footer_menu" class="menu">
+    |       <li class="menu-item">
+    |         <a href="/media-centre" data-drupal-link-system-path="node/167">
+    |           Media Centre
+    |         </a>
+    |       </li>
+    | ... [21 more lines]
+
+--- Chunk 5: div.[&.absolute ---
+  type=card freq=35 excl=0.90
+  pattern_xpath: ///div[contains(@class,'absolute')][contains(@class,'cover')][contains(@class,'object')][contains(@class,'resp')][contains(@class,'[&')]
+  tree_sig: div(div,picture(img,source,source,source,source))
+  content: [ATTR=1 IMG=9]
+  sample[0] (11L): Kids with fossil bone
+    |   <div class="resp-img absolute h-full w-full top-0 left-0 [&_img]:h-full [&_img]:object-cover anim-img-scale">
+    |     <picture>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_lg_1x_284_x_354/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=_wKe2biX 1x, /sites/default/files/styles/navigation_teaser_portrait_lg_2x_568_x_708/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=-YsMz5Ub 2x" media="all and (min-width: 992px)" type="image/webp" width="284" height="354"></source>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_md_1x_496_x_618/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=lidCbO65 1x, /sites/default/files/styles/navigation_teaser_portrait_md_2x_992_x_1235/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=sNvHnbFz 2x" media="all and (min-width: 768px)" type="image/webp" width="496" height="618"></source>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_sm_1x_384_x_478/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=KiFux8XE 1x, /sites/default/files/styles/navigation_teaser_portrait_sm_2x_768_x_957/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=VTGzqUIz 2x" media="all and (min-width: 576px)" type="image/webp" width="384" height="478"></source>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_xs_1x_288_x_358/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=VueO3Iwy 1x, /sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=L1FrHcpk 2x" media="all and (min-width: 0px)" type="image/webp" width="288" height="358"></source>
+    |       <img loading="lazy" width="576" height="717" src="/sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/20..." alt="Kids with fossil bone
+    | "></img>
+    |     </picture>
+    |     <div class="bg-gradient-to-b from-black/40 via-black/0 to-black/40 w-full h-full absolute top-0 left-0"></div>
+    | ... [1 more lines]
+  sample[1] (11L): Kids with fossil bone
+    |   <div class="resp-img absolute h-full w-full top-0 left-0 [&_img]:h-full [&_img]:object-cover anim-img-scale">
+    |     <picture>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_lg_1x_284_x_354/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=_wKe2biX 1x, /sites/default/files/styles/navigation_teaser_portrait_lg_2x_568_x_708/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=-YsMz5Ub 2x" media="all and (min-width: 992px)" type="image/webp" width="284" height="354"></source>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_md_1x_496_x_618/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=lidCbO65 1x, /sites/default/files/styles/navigation_teaser_portrait_md_2x_992_x_1235/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=sNvHnbFz 2x" media="all and (min-width: 768px)" type="image/webp" width="496" height="618"></source>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_sm_1x_384_x_478/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=KiFux8XE 1x, /sites/default/files/styles/navigation_teaser_portrait_sm_2x_768_x_957/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=VTGzqUIz 2x" media="all and (min-width: 576px)" type="image/webp" width="384" height="478"></source>
+    |       <source srcset="/sites/default/files/styles/navigation_teaser_portrait_xs_1x_288_x_358/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=VueO3Iwy 1x, /sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/20171018-bta-rom-learning-0737-compressed.jpg.webp?h=c64ac3f2&itok=L1FrHcpk 2x" media="all and (min-width: 0px)" type="image/webp" width="288" height="358"></source>
+    |       <img loading="lazy" width="576" height="717" src="/sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/20..." alt="Kids with fossil bone
+    | "></img>
+    |     </picture>
+    |     <div class="bg-gradient-to-b from-black/40 via-black/0 to-black/40 w-full h-full absolute top-0 left-0"></div>
+    | ... [1 more lines]
+
+--- Chunk 6: div.[&.duration ---
+  type=card freq=20 excl=0.60
+  pattern_xpath: ///div[contains(@class,'transform')][contains(@class,'[&')][contains(@class,'img')][contains(@class,'overflow')][contains(@class,'scale')]
+  tree_sig: div(picture(img,source,source))
+  content: [ATTR=1 IMG=5]
+  sample[0] (7L): 3 children with crowns enjoying birthday party celebrated at ROM
+    |   <div class="overflow-hidden [&_img]:w-full [&_img]:transition-transform [&_img]:duration-300 group-hover:[&_img]:scale-105">
+    |     <picture>
+    |       <source srcset="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=GCD3jRJY 1x, /sites/default/files/styles/5_4_xl_2x_1028x824/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=KQJaBIWi 2x" media="all and (min-width: 1200px)" type="image/webp" width="514" height="412"></source>
+    |       <source srcset="/sites/default/files/styles/5_4_l_1x/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=z5VaL1HY 1x, /sites/default/files/styles/5_4_l_2x/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=89RZ9bZg 2x" media="all and (min-width: 0px)" type="image/webp" width="382" height="306"></source>
+    |       <img loading="lazy" width="514" height="412" src="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/Birthday-Parties.we..." alt="3 children with crowns enjoying birthday party celebrated at ROM"></img>
+    |     </picture>
+    |   </div>
+  sample[1] (7L): Child enjoying ROM Kids Junior program with parent watching
+    |   <div class="overflow-hidden [&_img]:w-full [&_img]:transition-transform [&_img]:duration-300 group-hover:[&_img]:scale-105">
+    |     <picture>
+    |       <source srcset="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/ROM2023_18944_7.webp?h=26ecbb49&itok=oHgjn8fM 1x, /sites/default/files/styles/5_4_xl_2x_1028x824/public/2025-02/ROM2023_18944_7.webp?h=26ecbb49&itok=mflMfhw- 2x" media="all and (min-width: 1200px)" type="image/webp" width="514" height="412"></source>
+    |       <source srcset="/sites/default/files/styles/5_4_l_1x/public/2025-02/ROM2023_18944_7.webp?h=26ecbb49&itok=XVbmJUCJ 1x, /sites/default/files/styles/5_4_l_2x/public/2025-02/ROM2023_18944_7.webp?h=26ecbb49&itok=92BwtyJE 2x" media="all and (min-width: 0px)" type="image/webp" width="382" height="306"></source>
+    |       <img loading="lazy" width="514" height="412" src="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/ROM2023_18944_7.web..." alt="Child enjoying ROM Kids Junior program with parent watching"></img>
+    |     </picture>
+    |   </div>
+  sample[2] (7L): 3 children with crowns enjoying birthday party celebrated at ROM
+    |   <div class="overflow-hidden [&_img]:w-full [&_img]:transition-transform [&_img]:duration-300 group-hover:[&_img]:scale-105">
+    |     <picture>
+    |       <source srcset="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=GCD3jRJY 1x, /sites/default/files/styles/5_4_xl_2x_1028x824/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=KQJaBIWi 2x" media="all and (min-width: 1200px)" type="image/webp" width="514" height="412"></source>
+    |       <source srcset="/sites/default/files/styles/5_4_l_1x/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=z5VaL1HY 1x, /sites/default/files/styles/5_4_l_2x/public/2025-02/Birthday-Parties.webp?h=2a668c17&itok=89RZ9bZg 2x" media="all and (min-width: 0px)" type="image/webp" width="382" height="306"></source>
+    |       <img loading="lazy" width="514" height="412" src="/sites/default/files/styles/5_4_xl_1x_514x412/public/2025-02/Birthday-Parties.we..." alt="3 children with crowns enjoying birthday party celebrated at ROM"></img>
+    |     </picture>
+    |   </div>
+
+--- Chunk 7: a.anywhere.btn ---
+  type=menu_item freq=7 excl=1.00
+  pattern_xpath: ///a[contains(@class,'anywhere')][contains(@class,'btn')][contains(@class,'icon')][contains(@class,'inline')][contains(@class,'link')]
+  tree_sig: a(span(i))
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): Visitor Information
+    |   <a class="link-btn link-btn--lg link-btn--icon-right inline-flex overflow-anywhere" href="/visit/visitor-information">
+    |     <span class="flex items-center gap-1.5 cta-button transition-colors duration-300 border-b border-b-transparent hover:border-b-black">
+    |       Visitor Information
+    |       <i class="icon icon-arrow text-md leading-4 h-4"></i>
+    |     </span>
+    |   </a>
+  sample[1] (6L): Visitor Information
+    |   <a class="link-btn link-btn--lg link-btn--icon-right inline-flex overflow-anywhere" href="/visit/visitor-information">
+    |     <span class="flex items-center gap-1.5 cta-button transition-colors duration-300 border-b border-b-transparent hover:border-b-black">
+    |       Visitor Information
+    |       <i class="icon icon-arrow text-md leading-4 h-4"></i>
+    |     </span>
+    |   </a>
+  sample[2] (6L): Visitor Information
+    |   <a class="link-btn link-btn--lg link-btn--icon-right inline-flex overflow-anywhere" href="/visit/visitor-information">
+    |     <span class="flex items-center gap-1.5 cta-button transition-colors duration-300 border-b border-b-transparent hover:border-b-black">
+    |       Visitor Information
+    |       <i class="icon icon-arrow text-md leading-4 h-4"></i>
+    |     </span>
+    |   </a>
+
+--- Chunk 8: li ---
+  type=menu_item freq=10 excl=0.00
+  pattern_xpath: ///li
+  tree_sig: li(a(i,span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Facebook
+    |   <li>
+    |     <a href="https://www.facebook.com/royalontariomuseum/" class="ext" data-extlink="" target="_blank" rel="noopener noreferrer">
+    |       <i class="icon icon-social-facebook flex text-4lg"></i>
+    |       <span class="sr-only">
+    |         Facebook
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[1] (8L): Instagram
+    |   <li>
+    |     <a href="https://instagram.com/romtoronto/" class="ext" data-extlink="" target="_blank" rel="noopener noreferrer">
+    |       <i class="icon icon-social-instagram flex text-4lg"></i>
+    |       <span class="sr-only">
+    |         Instagram
+    |       </span>
+    |     </a>
+    |   </li>
+  sample[2] (8L): Facebook
+    |   <li>
+    |     <a href="https://www.facebook.com/royalontariomuseum/" class="ext" data-extlink="" target="_blank" rel="noopener noreferrer">
+    |       <i class="icon icon-social-facebook flex text-4lg"></i>
+    |       <span class="sr-only">
+    |         Facebook
+    |       </span>
+    |     </a>
+    |   </li>
+
+--- Chunk 9: [search_inputs] ---
+  type=search_input freq=10 excl=0.50
+  pattern_xpath: ///input[contains(@class,'form')][contains(@data-drupal-selector,'edit')][contains(@data-drupal-selector,'search')][contains(@id,'edit')][contains(@id,'search')]
+  content: [ATTR=1]
+  sample[0] (1L): What are you looking for?
+    |   <input placeholder="What are you looking for?" autocomplete="off" data-drupal-selector="edit-search" data-search-api-autocomplete-search="search" class="form-autocomplete form-text ui-autocomplete-input" data-autocomplete-path="/search_api_autocomplete/search?display=autocomplete&&filter=search" type="text" id="edit-search" name="search" value="" size="30" maxlength="128" data-once="autocomplete customInputLabels headerSearchAutocomplete search-api-autocomplete"></input>
+  sample[1] (1L): What are you looking for?
+    |   <input placeholder="What are you looking for?" autocomplete="off" data-drupal-selector="edit-search" data-search-api-autocomplete-search="search" class="form-autocomplete form-text ui-autocomplete-input" data-autocomplete-path="/search_api_autocomplete/search?display=autocomplete&&filter=search" type="text" id="edit-search" name="search" value="" size="30" maxlength="128" data-once="autocomplete customInputLabels headerSearchAutocomplete search-api-autocomplete"></input>
+  sample[2] (1L): 
+    |   <input data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" value="View results" class="button js-form-submit form-submit bg-black text-white uppercase sm:text-2xs text-2xxs font-medium mt-2 px-7.5 py-4.5 disabled:bg-black/10 disabled:text-black disabled:text-opacity-30" data-component-id="rom:input--submit"></input>
+
+--- Chunk 10: [pagination_buttons] ---
+  type=pagination freq=50 excl=0.00 OUTLIER=3.7x
+  pattern_xpath: ///a
+  content: [ATTR=1]
+  sample[0] (11L) [TRUNCATED]: What are you looking for?
+    |   <form data-block="search_overlay" action="/search-results" method="get" id="views-exposed-form-search-autocomplete" accept-charset="UTF-8">
+    |     <div class="form--inline clearfix">
+    |       <div class="w-full relative">
+    |         <div data-component-id="rom:form-element--textfield" class="form-item js-form-item js-form-type-textfield form-item-search relative">
+    |           <input placeholder="What are you looking for?" autocomplete="off" data-drupal-selector="edit-search" data-search-api-autocomplete-search="search" class="form-autocomplete form-text ui-autocomplete-input" data-autocomplete-path="/search_api_autocomplete/search?display=autocomplete&&filter=search" type="text" id="edit-search" name="search" value="" size="30" maxlength="128" data-once="autocomplete customInputLabels headerSearchAutocomplete search-api-autocomplete"></input>
+    |   ... [6 lines truncated] ...
+    |       <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+    |         <input data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" value="View results" class="button js-form-submit form-submit bg-black text-white uppercase sm:text-2xs text-2xxs font-medium mt-2 px-7.5 py-4.5 disabled:bg-black/10 disabled:text-black disabled:text-opacity-30" data-component-id="rom:input--submit"></input>
+    |       </div>
+    |     </div>
+    | ... [1 more lines]
+  sample[1] (3L): 
+    |   <div class="swiper-button-prev !relative !left-[unset] !top-[unset] !m-0 !w-6 !h-6 after:!content-none text-black" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1d7c6d454a3b77d10" aria-disabled="false">
+    |     <i class="text-4lg icon icon-functional-arrow-left-md flex cursor-pointer"></i>
+    |   </div>
+  sample[2] (3L): rom
+    |   <a class="body-regular border-b border-solid border-transparent transition-colors duration-300 hover:border-black" href="/search-results?search=rom">
+    |     rom
+    |   </a>
+
+--- Chunk 11: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.20 LEAKS=15
+  pattern_xpath: ///li[contains(@class,'first')][contains(@class,'pl')][contains(@class,'pr')][contains(@data-once,'main')][contains(@data-once,'menu')]
+  content: [ATTR=1 HREF=11 IMG=18 TEXT=28]
+  sample[0] (31L) [TRUNCATED]: Learn Learn Kids & Families Teens & Youth Adults & Lifelong Learning Indigenous 
+    |   <li class="parent-item group px-4 first:pl-0 last:pr-0" data-once="mainMenu">
+    |     <a href="/learn" class="text-black transition-colors duration-300 parent-link text-lg leading-[1.1] font-medium border-b border-solid border-b-transparent group-hover:border-b-current group-focus-within:border-b-current" data-drupal-link-system-path="node/24">
+    |       Learn
+    |     </a>
+    |     <div class="
+    |   invisible
+    |   opacity-0
+    |   transition-all
+    |   group-[.open]:visible group-[.open]:opacity-100
+    |   group-[.open:hover]:visible group-[.open:hover]:opacity-100
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /visit/visitor-information (href not in rendered output)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_1x_384_x_478/public/20171018-bta (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_2x_768_x_957/public/20171018-bta (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_1x_288_x_358/public/20171018-bta (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/20171018-bta (img URL not in rendered)
+
+--- Chunk 12: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (8L): Cookie wpEmojiSettingsSupports
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       wpEmojiSettingsSupports
+    |     </div>
+    |   </li>
+  sample[1] (8L): Description WordPress sets this cookie when a user interacts with emojis on a Wo
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       WordPress sets this cookie when a user interacts with emojis on a WordPress site.  It helps determine if the user's browser can display emojis properly.
+    |     </div>
+    |   </li>
+
+--- Chunk 13: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (10L): Description The internal_navigation_count cookie is used by JazzHR to catch redi
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       <p>
+    |         The internal_navigation_count cookie is used by JazzHR to catch redirect loops. This cookie tracks the number of internal navigation events within the JazzHR application to prevent infinite redirect loops and ensure proper application functionality. It expires in 1 year 11 months 30 days and is essential for maintaining the stability and proper operation of the JazzHR recruiting software platform.
+    |       </p>
+    |     </div>
+    |   </li>
+  sample[1] (8L): Cookie internal_navigation_count
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       internal_navigation_count
+    |     </div>
+    |   </li>
+
+--- Chunk 14: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (8L): Cookie ytidb::LAST_RESULT_ENTRY_KEY
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       ytidb::LAST_RESULT_ENTRY_KEY
+    |     </div>
+    |   </li>
+  sample[1] (8L): Description The cookie ytidb::LAST_RESULT_ENTRY_KEY is used by YouTube to store 
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       The cookie ytidb::LAST_RESULT_ENTRY_KEY is used by YouTube to store the last search result entry that was clicked by the user. This information is used to improve the user experience by providing more relevant search results in the future.
+    |     </div>
+    |   </li>
+
+--- Chunk 15: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (8L): Cookie yt-remote-cast-installed
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       yt-remote-cast-installed
+    |     </div>
+    |   </li>
+  sample[1] (8L): Description The yt-remote-cast-installed cookie is used to store the user's vide
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       The yt-remote-cast-installed cookie is used to store the user's video player preferences using embedded YouTube video.
+    |     </div>
+    |   </li>
+
+--- Chunk 16: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (8L): Cookie yt-remote-cast-available
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       yt-remote-cast-available
+    |     </div>
+    |   </li>
+  sample[1] (8L): Description The yt-remote-cast-available cookie is used to store the user's pref
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       The yt-remote-cast-available cookie is used to store the user's preferences regarding whether casting is available on their YouTube video player.
+    |     </div>
+    |   </li>
+
+--- Chunk 17: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (8L): Cookie yt-remote-fast-check-period
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       yt-remote-fast-check-period
+    |     </div>
+    |   </li>
+  sample[1] (8L): Description The yt-remote-fast-check-period cookie is used by YouTube to store t
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       The yt-remote-fast-check-period cookie is used by YouTube to store the user's video player preferences for embedded YouTube videos.
+    |     </div>
+    |   </li>
+
+--- Chunk 18: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (8L): Duration 1 year 1 month 4 days
+    |   <li>
+    |     <div>
+    |       Duration
+    |     </div>
+    |     <div>
+    |       1 year 1 month 4 days
+    |     </div>
+    |   </li>
+  sample[1] (8L): Description Google Analytics sets this cookie to calculate visitor, session and 
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       Google Analytics sets this cookie to calculate visitor, session and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognise unique visitors.
+    |     </div>
+    |   </li>
+
+--- Chunk 19: [text_content:li×2] ---
+  type=text_singleton freq=2 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=2]
+  sample[0] (10L): Description The ttcsid cookie enables TikTok Ads session tracking by assigning a
+    |   <li>
+    |     <div>
+    |       Description
+    |     </div>
+    |     <div>
+    |       <p>
+    |         The ttcsid cookie enables TikTok Ads session tracking by assigning a unique session ID to users who click on TikTok ads, allowing for the attribution of user behavior and conversions within the same session.
+    |       </p>
+    |     </div>
+    |   </li>
+  sample[1] (8L): Cookie ttcsid_CPD1C7BC77UAJK8B9VNG
+    |   <li>
+    |     <div>
+    |       Cookie
+    |     </div>
+    |     <div>
+    |       ttcsid_CPD1C7BC77UAJK8B9VNG
+    |     </div>
+    |   </li>
+
+--- Chunk 20: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.19
+  pattern_xpath: ///li[contains(@class,'menu')][contains(@class,'item')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Careers
+    |   <li class="menu-item">
+    |     <a href="/work-with-us/careers" data-drupal-link-system-path="node/4157">
+    |       Careers
+    |     </a>
+    |   </li>
+  sample[1] (5L): Internships & Co-ops
+    |   <li class="menu-item">
+    |     <a href="/work-with-us/internships-co-ops" data-drupal-link-system-path="node/4169">
+    |       Internships & Co-ops
+    |     </a>
+    |   </li>
+  sample[2] (5L): ROM Youth Cabinet
+    |   <li class="menu-item">
+    |     <a href="/whats-on/special-programs/youth-cabinet" data-drupal-link-system-path="node/4359">
+    |       ROM Youth Cabinet
+    |     </a>
+    |   </li>
+
+--- Chunk 23: [nav_content:a×9] ---
+  type=menu_item freq=9 excl=0.70
+  pattern_xpath: ///a[contains(@class,'peer')][contains(@class,'uderline')][contains(@class,'leading')][contains(@class,'no')][contains(@class,'normal')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (3L): Visit
+    |   <a href="/visit" class="p-0 text-black text-3lg font-medium leading-normal no-uderline peer menu-item" data-drupal-link-system-path="node/4103">
+    |     Visit
+    |   </a>
+  sample[1] (3L): What’s On
+    |   <a href="/whats-on" class="p-0 text-black text-3lg font-medium leading-normal no-uderline peer menu-item" data-drupal-link-system-path="node/45">
+    |     What’s On
+    |   </a>
+  sample[2] (3L): Visit
+    |   <a href="/visit" class="p-0 text-black text-3lg font-medium leading-normal no-uderline peer menu-item" data-drupal-link-system-path="node/4103">
+    |     Visit
+    |   </a>
+
+--- Chunk 22: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.19 OUTLIER=2.8x
+  pattern_xpath: ///li[contains(@class,'menu')][contains(@class,'item')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (14L): Volunteer Careers Internships & Co-ops ROM Youth Cabinet
+    |   <li class="menu-item">
+    |     <a href="/work-with-us/volunteer" data-drupal-link-system-path="node/4175">
+    |       Volunteer
+    |     </a>
+    |     <a href="/work-with-us/careers" data-drupal-link-system-path="node/4157">
+    |       Careers
+    |     </a>
+    |     <a href="/work-with-us/internships-co-ops" data-drupal-link-system-path="node/4169">
+    |       Internships & Co-ops
+    |     </a>
+    | ... [4 more lines]
+  sample[1] (5L): Careers
+    |   <li class="menu-item">
+    |     <a href="/work-with-us/careers" data-drupal-link-system-path="node/4157">
+    |       Careers
+    |     </a>
+    |   </li>
+  sample[2] (5L): Internships & Co-ops
+    |   <li class="menu-item">
+    |     <a href="/work-with-us/internships-co-ops" data-drupal-link-system-path="node/4169">
+    |       Internships & Co-ops
+    |     </a>
+    |   </li>
+
+--- Chunk 23: [nav_content:a×9] ---
+  type=menu_item freq=9 excl=0.70
+  pattern_xpath: ///a[contains(@class,'peer')][contains(@class,'uderline')][contains(@class,'leading')][contains(@class,'no')][contains(@class,'normal')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (3L): Visit
+    |   <a href="/visit" class="p-0 text-black text-3lg font-medium leading-normal no-uderline peer menu-item" data-drupal-link-system-path="node/4103">
+    |     Visit
+    |   </a>
+  sample[1] (3L): What’s On
+    |   <a href="/whats-on" class="p-0 text-black text-3lg font-medium leading-normal no-uderline peer menu-item" data-drupal-link-system-path="node/45">
+    |     What’s On
+    |   </a>
+  sample[2] (3L): Visit
+    |   <a href="/visit" class="p-0 text-black text-3lg font-medium leading-normal no-uderline peer menu-item" data-drupal-link-system-path="node/4103">
+    |     Visit
+    |   </a>
+
+--- Chunk 24: [nav_content:a×32] ---
+  type=menu_item freq=32 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (11L) [TRUNCATED]: Accessibility Exhibitions Events Galleries Online Exhibitions Past Exhibitions P
+    |   <li>
+    |     <a href="/visit/accessibility" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4111">
+    |       Accessibility
+    |     </a>
+    |     <a href="/whats-on/exhibitions" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/28">
+    |   ... [94 lines truncated] ...
+    |     </a>
+    |     <a href="/visit/school-visits" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4409">
+    |       School Visits
+    |     </a>
+    | ... [1 more lines]
+  sample[1] (5L): Online Collections
+    |   <li>
+    |     <a href="/collections-research/online-collections" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4098">
+    |       Online Collections
+    |     </a>
+    |   </li>
+  sample[2] (5L): Museum Maps & Tours
+    |   <li>
+    |     <a href="/visit/museum-maps-tours" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4101">
+    |       Museum Maps & Tours
+    |     </a>
+    |   </li>
+
+--- Chunk 25: [nav_content:li×7] ---
+  type=menu_item freq=7 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Visitor Information
+    |   <li>
+    |     <a href="/visit/visitor-information" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4110">
+    |       Visitor Information
+    |     </a>
+    |   </li>
+  sample[1] (5L): Location & Parking
+    |   <li>
+    |     <a href="/visit/location-parking" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4100">
+    |       Location & Parking
+    |     </a>
+    |   </li>
+  sample[2] (5L): Visit as a Group
+    |   <li>
+    |     <a href="/visit/visit-group" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4091">
+    |       Visit as a Group
+    |     </a>
+    |   </li>
+
+--- Chunk 26: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Exhibitions
+    |   <li>
+    |     <a href="/whats-on/exhibitions" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/28">
+    |       Exhibitions
+    |     </a>
+    |   </li>
+  sample[1] (5L): Events
+    |   <li>
+    |     <a href="/whats-on/events" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/94">
+    |       Events
+    |     </a>
+    |   </li>
+  sample[2] (5L): Online Exhibitions
+    |   <li>
+    |     <a href="/whats-on/online-exhibitions" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/75">
+    |       Online Exhibitions
+    |     </a>
+    |   </li>
+
+--- Chunk 27: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Kids & Families
+    |   <li>
+    |     <a href="/learn/kids-families" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4095">
+    |       Kids & Families
+    |     </a>
+    |   </li>
+  sample[1] (5L): Teens & Youth
+    |   <li>
+    |     <a href="/learn/teens-youth" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4096">
+    |       Teens & Youth
+    |     </a>
+    |   </li>
+  sample[2] (5L): Indigenous Learning
+    |   <li>
+    |     <a href="/learn/indigenous-learning" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4094">
+    |       Indigenous Learning
+    |     </a>
+    |   </li>
+
+--- Chunk 28: [nav_content:li×5] ---
+  type=menu_item freq=5 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): About Membership
+    |   <li>
+    |     <a href="/join-donate/membership" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/121">
+    |       About Membership
+    |     </a>
+    |   </li>
+  sample[1] (5L): Member Benefits
+    |   <li>
+    |     <a href="/join-donate/membership/member-benefits" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4187">
+    |       Member Benefits
+    |     </a>
+    |   </li>
+  sample[2] (5L): Ways to Give
+    |   <li>
+    |     <a href="/join-donate/ways-to-give" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4056">
+    |       Ways to Give
+    |     </a>
+    |   </li>
+
+--- Chunk 29: [nav_content:li×7] ---
+  type=menu_item freq=7 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Online Collections
+    |   <li>
+    |     <a href="/collections-research/online-collections" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4098">
+    |       Online Collections
+    |     </a>
+    |   </li>
+  sample[1] (5L): Art & Culture
+    |   <li>
+    |     <a href="/collections-research/art-culture" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4114">
+    |       Art & Culture
+    |     </a>
+    |   </li>
+  sample[2] (5L): Conservation
+    |   <li>
+    |     <a href="/collections-research/conservation" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4082">
+    |       Conservation
+    |     </a>
+    |   </li>
+
+--- Chunk 30: [nav_content:a×40] ---
+  type=menu_item freq=40 excl=0.80
+  pattern_xpath: ///a[contains(@class,'snug')][contains(@class,'tight')][contains(@class,'underline')][contains(@class,'leading')][contains(@class,'no')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Visitor Information
+    |   <li>
+    |     <a href="/visit/visitor-information" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4110">
+    |       Visitor Information
+    |     </a>
+    |   </li>
+  sample[1] (5L): Location & Parking
+    |   <li>
+    |     <a href="/visit/location-parking" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4100">
+    |       Location & Parking
+    |     </a>
+    |   </li>
+  sample[2] (3L): Adults & Lifelong Learning
+    |   <a href="/learn/adults-lifelong-learning" class="text-black transition-colors duration-300 text-lg leading-tight no-underline font-normal leading-snug border-b border-solid border-b-transparent hover:border-b-black" data-drupal-link-system-path="node/4097">
+    |     Adults & Lifelong Learning
+    |   </a>
+
+--- Chunk 31: [text_content:p×1] ---
+  type=text_singleton freq=1 excl=0.87
+  pattern_xpath: ///p[contains(@class,'title')][contains(@data-cky-tag,'title')][contains(@role,'heading')][contains(@style,'color')][contains(@class,'cky')]
+  content: [TEXT=1]
+  sample[0] (3L): We value your privacy
+    |   <p class="cky-title" aria-level="2" data-cky-tag="title" role="heading" style="color: #212121;">
+    |     We value your privacy
+    |   </p>
+
+--- Chunk 32: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.29
+  pattern_xpath: ///h2[contains(@id,'mainnavigation')][contains(@class,'visually')][contains(@id,'menu')][contains(@class,'hidden')][contains(@id,'block')]
+  content: [TEXT=1]
+  sample[0] (3L): Main navigation
+    |   <h2 class="visually-hidden" id="block-rom-mainnavigation-menu">
+    |     Main navigation
+    |   </h2>
+
+--- Chunk 33: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.29
+  pattern_xpath: ///h2[contains(@id,'social')][contains(@class,'visually')][contains(@id,'menu')][contains(@class,'hidden')][contains(@id,'block')]
+  content: [TEXT=1]
+  sample[0] (3L): Social
+    |   <h2 class="visually-hidden" id="block-rom-social-menu">
+    |     Social
+    |   </h2>
+
+--- Chunk 34: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.29
+  pattern_xpath: ///h2[contains(@id,'connect')][contains(@class,'visually')][contains(@id,'menu')][contains(@class,'hidden')][contains(@id,'block')]
+  content: [TEXT=1]
+  sample[0] (3L): Connect
+    |   <h2 class="visually-hidden" id="block-rom-connect-menu">
+    |     Connect
+    |   </h2>
+
+--- Chunk 35: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.21
+  pattern_xpath: ///h2[contains(@id,'aboutrom')][contains(@id,'menu')][contains(@id,'block')][contains(@id,'rom')]
+  content: [TEXT=1]
+  sample[0] (3L): About ROM
+    |   <h2 id="block-rom-aboutrom-menu">
+    |     About ROM
+    |   </h2>
+
+--- Chunk 36: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.34
+  pattern_xpath: ///h2[contains(@id,'workwithus')][contains(@id,'menu')][contains(@id,'block')][contains(@id,'rom')]
+  content: [TEXT=1]
+  sample[0] (3L): Work with us
+    |   <h2 id="block-rom-workwithus-menu">
+    |     Work with us
+    |   </h2>
+
+--- Chunk 37: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.34
+  pattern_xpath: ///h2[contains(@id,'business')][contains(@id,'menu')][contains(@id,'block')][contains(@id,'rom')]
+  content: [TEXT=1]
+  sample[0] (3L): Business
+    |   <h2 id="block-rom-business-menu">
+    |     Business
+    |   </h2>
+
+--- Chunk 38: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.21
+  pattern_xpath: ///h2[contains(@id,'mediacentre')][contains(@id,'menu')][contains(@id,'block')][contains(@id,'rom')]
+  content: [TEXT=1]
+  sample[0] (3L): News & Publications
+    |   <h2 id="block-rom-mediacentre-menu">
+    |     News & Publications
+    |   </h2>
+
+--- Chunk 39: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.29
+  pattern_xpath: ///h2[contains(@id,'legal')][contains(@class,'visually')][contains(@id,'menu')][contains(@class,'hidden')][contains(@id,'block')]
+  content: [TEXT=1]
+  sample[0] (3L): Legal
+    |   <h2 class="visually-hidden" id="block-rom-legal-menu">
+    |     Legal
+    |   </h2>
+
+--- Chunk 40: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'has')][contains(@class,'only')][contains(@class,'sr')][contains(@class,'mb')][contains(@class,'visually')]
+  content: [TEXT=1]
+  sample[0] (3L): Plan your visit
+    |   <h2 class="mb-10 h3 [&:has(.visually-hidden)]:sr-only">
+    |     Plan your visit
+    |   </h2>
+
+--- Chunk 41: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'has')][contains(@class,'only')][contains(@class,'sr')][contains(@class,'mb')][contains(@class,'visually')]
+  content: [TEXT=1]
+  sample[0] (3L): Featured Exhibitions
+    |   <h2 class="h7 mb-7 [&:has(.visually-hidden)]:sr-only">
+    |     Featured Exhibitions
+    |   </h2>
+
+--- Chunk 42: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'has')][contains(@class,'only')][contains(@class,'sr')][contains(@class,'mb')][contains(@class,'visually')]
+  content: [TEXT=1]
+  sample[0] (3L): Featured Events
+    |   <h2 class="h7 mb-7 [&:has(.visually-hidden)]:sr-only">
+    |     Featured Events
+    |   </h2>
+
+--- Chunk 43: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.18
+  pattern_xpath: ///h2[contains(@class,'has')][contains(@class,'only')][contains(@class,'sr')][contains(@class,'mb')][contains(@class,'visually')]
+  content: [TEXT=1]
+  sample[0] (3L): Our Programs
+    |   <h2 class="h7 mb-7 [&:has(.visually-hidden)]:sr-only">
+    |     Our Programs
+    |   </h2>
+
+--- Chunk 44: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.33
+  pattern_xpath: ///h2[contains(@class,'coign')][contains(@class,'xl')][contains(@class,'uppercase')][contains(@class,'white')][contains(@class,'font')]
+  content: [TEXT=1]
+  sample[0] (3L): Become a Member
+    |   <h2 class="font-coign text-white text-3xl uppercase lg:text-5xl">
+    |     Become a Member
+    |   </h2>
+
+--- Chunk 45: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.20
+  pattern_xpath: ///h2[contains(@class,'only')][contains(@class,'sr')]
+  content: [TEXT=1]
+  sample[0] (3L): Featured Galleries
+    |   <h2 class="sr-only">
+    |     Featured Galleries
+    |   </h2>
+
+--- Chunk 46: [text_content:h2×1] ---
+  type=text_singleton freq=1 excl=0.33
+  pattern_xpath: ///h2[contains(@class,'coign')][contains(@class,'xl')][contains(@class,'uppercase')][contains(@class,'white')][contains(@class,'font')]
+  content: [TEXT=1]
+  sample[0] (3L): Online collection
+    |   <h2 class="font-coign text-white text-3xl uppercase lg:text-5xl">
+    |     Online collection
+    |   </h2>
+
+--- Chunk 47: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'mt')][contains(@class,'lg')]
+  content: [TEXT=1]
+  sample[0] (3L): Buy Tickets
+    |   <h3 class="h8 mt-1 lg:mt-2.5">
+    |     Buy Tickets
+    |   </h3>
+
+--- Chunk 48: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'mt')][contains(@class,'lg')]
+  content: [TEXT=1]
+  sample[0] (3L): Save with CityPASS®
+    |   <h3 class="h8 mt-1 lg:mt-2.5">
+    |     Save with CityPASS®
+    |   </h3>
+
+--- Chunk 49: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.10
+  pattern_xpath: ///h3[contains(@class,'mt')][contains(@class,'lg')]
+  content: [TEXT=1]
+  sample[0] (3L): Signature Hunts and Tours
+    |   <h3 class="h8 mt-1 lg:mt-2.5">
+    |     Signature Hunts and Tours
+    |   </h3>
+
+--- Chunk 50: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.12
+  pattern_xpath: ///h3[contains(@class,'mb')][contains(@class,'mt')]
+  content: [TEXT=1]
+  sample[0] (3L): Third Tuesday Night Free
+    |   <h3 class="h8 mt-2.5 mb-5">
+    |     Third Tuesday Night Free
+    |   </h3>
+
+--- Chunk 51: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.12
+  pattern_xpath: ///h3[contains(@class,'mb')][contains(@class,'mt')]
+  content: [TEXT=1]
+  sample[0] (3L): Fossil Quest: ROM Scavenger Hunt
+    |   <h3 class="h8 mt-2.5 mb-5">
+    |     Fossil Quest: ROM Scavenger Hunt
+    |   </h3>
+
+--- Chunk 52: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.12
+  pattern_xpath: ///h3[contains(@class,'mb')][contains(@class,'mt')]
+  content: [TEXT=1]
+  sample[0] (3L): Lunar Love
+    |   <h3 class="h8 mt-2.5 mb-5">
+    |     Lunar Love
+    |   </h3>
+
+--- Chunk 53: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.12
+  pattern_xpath: ///h3[contains(@class,'mb')][contains(@class,'mt')]
+  content: [TEXT=1]
+  sample[0] (3L): Valentines
+    |   <h3 class="h8 mt-2.5 mb-5">
+    |     Valentines
+    |   </h3>
+
+--- Chunk 54: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.21
+  pattern_xpath: ///h3[contains(@class,'max')][contains(@class,'lg')]
+  content: [TEXT=1]
+  sample[0] (5L): Sharks
+    |   <h3 class="max-lg:h4">
+    |     <span class="field field--name-title field--type-string field--label-hidden">
+    |       Sharks
+    |     </span>
+    |   </h3>
+
+--- Chunk 55: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.21
+  pattern_xpath: ///h3[contains(@class,'max')][contains(@class,'lg')]
+  content: [TEXT=1]
+  sample[0] (5L): Wildlife Photographer of the Year 2025
+    |   <h3 class="max-lg:h4">
+    |     <span class="field field--name-title field--type-string field--label-hidden">
+    |       Wildlife Photographer of the Year 2025
+    |     </span>
+    |   </h3>
+
+--- Chunk 56: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.20 LEAKS=17
+  pattern_xpath: ///li[contains(@class,'first')][contains(@class,'pl')][contains(@class,'pr')][contains(@data-once,'main')][contains(@data-once,'menu')]
+  content: [ATTR=2 HREF=12 IMG=18 TEXT=29]
+  sample[0] (31L) [TRUNCATED]: Visit Experience ROM Visitor Information Location & Parking Museum Maps & Tours 
+    |   <li class="parent-item group px-4 first:pl-0 last:pr-0" data-once="mainMenu">
+    |     <a href="/visit" class="text-black transition-colors duration-300 parent-link text-lg leading-[1.1] font-medium border-b border-solid border-b-transparent group-hover:border-b-current group-focus-within:border-b-current" data-drupal-link-system-path="node/4103">
+    |       Visit
+    |     </a>
+    |     <div class="
+    |   invisible
+    |   opacity-0
+    |   transition-all
+    |   group-[.open]:visible group-[.open]:opacity-100
+    |   group-[.open:hover]:visible group-[.open:hover]:opacity-100
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /citypass-promotions (href not in rendered output)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_md_1x_496_x_618/public/2026-01/2025 (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_md_2x_992_x_1235/public/2026-01/202 (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_1x_384_x_478/public/2026-01/2025 (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_2x_768_x_957/public/2026-01/2025 (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] CityPASS & Promotions
+    [TEXT] CityPASS & Promotions
+
+--- Chunk 57: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.20 LEAKS=16
+  pattern_xpath: ///li[contains(@class,'first')][contains(@class,'pl')][contains(@class,'pr')][contains(@data-once,'main')][contains(@data-once,'menu')]
+  content: [ATTR=1 HREF=11 IMG=18 TEXT=30]
+  sample[0] (31L) [TRUNCATED]: What’s On What’s On Exhibitions Events Galleries Online Exhibitions Past Exhibit
+    |   <li class="parent-item group px-4 first:pl-0 last:pr-0" data-once="mainMenu">
+    |     <a href="/whats-on" class="text-black transition-colors duration-300 parent-link text-lg leading-[1.1] font-medium border-b border-solid border-b-transparent group-hover:border-b-current group-focus-within:border-b-current" data-drupal-link-system-path="node/45">
+    |       What’s On
+    |     </a>
+    |     <div class="
+    |   invisible
+    |   opacity-0
+    |   transition-all
+    |   group-[.open]:visible group-[.open]:opacity-100
+    |   group-[.open:hover]:visible group-[.open:hover]:opacity-100
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /whats-on/exhibitions/sharks (href not in rendered output)
+    [HREF] /visit/visitor-information (href not in rendered output)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_1x_384_x_478/public/2024-09/rom% (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_2x_768_x_957/public/2024-09/rom% (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_1x_288_x_358/public/2024-09/rom% (img URL not in rendered)
+
+--- Chunk 58: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.20 LEAKS=14
+  pattern_xpath: ///li[contains(@class,'first')][contains(@class,'pl')][contains(@class,'pr')][contains(@data-once,'main')][contains(@data-once,'menu')]
+  content: [ATTR=3 HREF=10 IMG=18 TEXT=27]
+  sample[0] (31L) [TRUNCATED]: Join & Donate Join & Donate About Membership Member Benefits Why Give Ways to Gi
+    |   <li class="parent-item group px-4 first:pl-0 last:pr-0" data-once="mainMenu">
+    |     <a href="/join-donate" class="text-black transition-colors duration-300 parent-link text-lg leading-[1.1] font-medium border-b border-solid border-b-transparent group-hover:border-b-current group-focus-within:border-b-current" data-drupal-link-system-path="node/122">
+    |       Join & Donate
+    |     </a>
+    |     <div class="
+    |   invisible
+    |   opacity-0
+    |   transition-all
+    |   group-[.open]:visible group-[.open]:opacity-100
+    |   group-[.open:hover]:visible group-[.open:hover]:opacity-100
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /join-donate/donate-now (href not in rendered output)
+    [HREF] /visit/visitor-information (href not in rendered output)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_1x_288_x_358/public/imce/romfree (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/imce/romfree (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/imce/romfree (img URL not in rendered)
+  LEAKS (medium):
+    [TEXT] Did You Know That ROM Is a Charitable Organization?
+
+--- Chunk 59: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.20 LEAKS=15
+  pattern_xpath: ///li[contains(@class,'first')][contains(@class,'pl')][contains(@class,'pr')][contains(@data-once,'main')][contains(@data-once,'menu')]
+  content: [ATTR=1 HREF=11 IMG=18 TEXT=28]
+  sample[0] (31L) [TRUNCATED]: Learn Learn Kids & Families Teens & Youth Adults & Lifelong Learning Indigenous 
+    |   <li class="parent-item group px-4 first:pl-0 last:pr-0" data-once="mainMenu">
+    |     <a href="/learn" class="text-black transition-colors duration-300 parent-link text-lg leading-[1.1] font-medium border-b border-solid border-b-transparent group-hover:border-b-current group-focus-within:border-b-current" data-drupal-link-system-path="node/24">
+    |       Learn
+    |     </a>
+    |     <div class="
+    |   invisible
+    |   opacity-0
+    |   transition-all
+    |   group-[.open]:visible group-[.open]:opacity-100
+    |   group-[.open:hover]:visible group-[.open:hover]:opacity-100
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /visit/visitor-information (href not in rendered output)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_1x_384_x_478/public/20171018-bta (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_sm_2x_768_x_957/public/20171018-bta (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_1x_288_x_358/public/20171018-bta (img URL not in rendered)
+    [IMG] /sites/default/files/styles/navigation_teaser_portrait_xs_2x_576_x_717/public/20171018-bta (img URL not in rendered)
+
+--- Chunk 60: [text_content:li×1] ---
+  type=text_singleton freq=1 excl=0.67 LEAKS=110
+  pattern_xpath: ///li[contains(@class,'span')][contains(@class,'col')]
+  content: [ATTR=9 HREF=55 IMG=81 TEXT=86]
+  sample[0] (31L) [TRUNCATED]: Experience ROM What’s On Learn Join & Donate Collections Research Until Online C
+    |   <li class="col-span-2">
+    |     <a data-component-id="rom:navigation_teaser" class="rom-navigation-teaser h-full block relative" href="/collections-research/online-collections">
+    |       <div class="relative p-2.5 text-white z-[1] h-full flex flex-col justify-between">
+    |         <div class="flex flex-col gap-2.5 lg:gap-5 min-h-[13.5rem]">
+    |           <div class="text-2xs uppercase">
+    |             Online Collections
+    |           </div>
+    |           <div class="text-3lg max-w-[16.5rem]">
+    |             <span class="field field--name-title field--type-string field--label-hidden">
+    |               Online Collections
+    | ... [21 more lines]
+  LEAKS (high):
+    [HREF] /whats-on/special-programs/family-day-weekend (href not in rendered output)
+    [HREF] /citypass-promotions (href not in rendered output)
+    [HREF] /whats-on (href not in rendered output)
+    [HREF] /whats-on/special-programs/rom-after-dark (href not in rendered output)
+    [HREF] /whats-on/exhibitions/sharks (href not in rendered output)
+  LEAKS (medium):
+    [TEXT] Adults & Lifelong Learning
+    [TEXT] Curatorial Initiatives
+    [TEXT] CityPASS & Promotions

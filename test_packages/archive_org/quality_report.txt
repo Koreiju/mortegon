@@ -1,0 +1,642 @@
+=== QUALITY REPORT: archive_org.html ===
+Chunks: 35 (structural=10, functional=8, text=17)
+Categories: {'card': 8, 'structural': 1, 'menu_item': 7, 'search_input': 1, 'pagination': 1, 'text_singleton': 17}
+Content: 118 tagged, 117 preserved (99%)
+Leaks: 1 total, 0 high-importance
+
+--- Chunk 0: a.archive.details ---
+  type=card freq=75 excl=0.00
+  pattern_xpath: ///a
+  tree_sig: a(div(div(div,div),div(img)),div(div,div))
+  content: [ATTR=2 BG=1 HREF=1 TEXT=3]
+  sample[0] (22L): Television Archive News Search                                       Service Col
+    |   <a href="/details/tvnews" title="Television Archive News Search Service">
+    |     <div id="collection-image-title">
+    |       <div id="collection-image" style="background-image:url('https://archive.org/services/img/tvnews')"></div>
+    |       <div id="collection-title">
+    |         Television Archive News Search
+    |                                       Service
+    |       </div>
+    |     </div>
+    |     <div id="item-count-container">
+    |       <div id="item-count-image-container">
+    | ... [12 more lines]
+
+--- Chunk 1: div.icon.links ---
+  type=card freq=5 excl=0.42
+  pattern_xpath: ///div[contains(@class,'icon')][contains(@class,'links')]
+  tree_sig: div(a(img),a(img))
+  content: [HREF=2 IMG=2 TEXT=2]
+  sample[0] (12L): Live Music                                   Archive Librivox Free              
+    |   <div class="icon-links">
+    |     <a href="/details/etree" data-event-click-tracking="TopNav|LiveMusicArchiveAudio">
+    |       <img loading="lazy" src="/services/img/etree"></img>
+    |       Live Music
+    |                                   Archive
+    |     </a>
+    |     <a href="/details/librivoxaudio" data-event-click-tracking="TopNav|LibrivoxFreeAudioAudio">
+    |       <img loading="lazy" src="/services/img/librivoxaudio"></img>
+    |       Librivox Free
+    |                                   Audio
+    | ... [2 more lines]
+  sample[1] (12L): Metropolitan                                   Museum Cleveland Museum of       
+    |   <div class="icon-links">
+    |     <a href="/details/metropolitanmuseumofart-gallery" data-event-click-tracking="TopNav|MetropolitanMuseumImages">
+    |       <img loading="lazy" src="/services/img/metropolitanmuseumofart-gallery"></img>
+    |       Metropolitan
+    |                                   Museum
+    |     </a>
+    |     <a href="/details/clevelandart" data-event-click-tracking="TopNav|ClevelandMuseumOfArtImages">
+    |       <img loading="lazy" src="/services/img/clevelandart"></img>
+    |       Cleveland Museum of
+    |                                   Art
+    | ... [2 more lines]
+
+--- Chunk 2: div.featured.links ---
+  type=card freq=4 excl=0.67
+  pattern_xpath: ///div[contains(@class,'featured')][contains(@class,'links')]
+  tree_sig: div(h4,ul(li(a),li(a),li(a),li(a),li(a)))
+  content: [HREF=5 TEXT=6]
+  sample[0] (31L) [TRUNCATED]: Featured All                                       Images Flickr                
+    |   <div class="links featured">
+    |     <h4>
+    |       Featured
+    |     </h4>
+    |     <ul>
+    |       <li>
+    |         <a href="/details/image" data-event-click-tracking="TopNav|AllImagesImages">
+    |           All
+    |                                       Images
+    |         </a>
+    | ... [21 more lines]
+
+--- Chunk 3: div.links.top ---
+  type=structural freq=2 excl=0.67
+  pattern_xpath: ///div[contains(@class,'top')][contains(@class,'links')]
+  tree_sig: div(h4,ul(li(a),li(a),li(a),li(a),li(a),li(a),li(a),li(a),li(a),li(a),li(a),li(a
+  content: [HREF=13 TEXT=14]
+  sample[0] (31L) [TRUNCATED]: Top Kodi                                       Archive and Support File Vintage 
+    |   <div class="links top">
+    |     <h4>
+    |       Top
+    |     </h4>
+    |     <ul>
+    |       <li>
+    |         <a href="/details/kodi_archive" data-event-click-tracking="TopNav|KodiArchiveAndSupportFileSoftware">
+    |           Kodi
+    |                                       Archive and Support File
+    |         </a>
+    | ... [21 more lines]
+
+--- Chunk 4: a.details.media ---
+  type=card freq=9 excl=1.00
+  pattern_xpath: ///a[contains(@class,'media')][contains(@class,'type')]
+  tree_sig: a(div(img),div(img))
+  content: [ATTR=3 HREF=1 TEXT=1]
+  sample[0] (9L): 1T Web Image Web Image
+    |   <a class="media-type" href="/details/web" title="Web">
+    |     <div class="media-icon">
+    |       <img src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." style="filter: invert(90%) sepia(12%) saturate(4697%) hue-rotate(335deg) brightness(107..." alt="Web Image"></img>
+    |     </div>
+    |     <div class="media-count">
+    |       1T
+    |       <img src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." style="filter: invert(90%) sepia(12%) saturate(4697%) hue-rotate(335deg) brightness(107..." alt="Web Image"></img>
+    |     </div>
+    |   </a>
+  sample[1] (9L): 48M Texts Image Texts Image
+    |   <a class="media-type" href="/details/texts" title="Texts">
+    |     <div class="media-icon">
+    |       <img src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." style="filter: saturate(100%) invert(79%) sepia(42%) saturate(1575%) hue-rotate(330deg)..." alt="Texts Image"></img>
+    |     </div>
+    |     <div class="media-count">
+    |       48M
+    |       <img src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." style="filter: saturate(100%) invert(79%) sepia(42%) saturate(1575%) hue-rotate(330deg)..." alt="Texts Image"></img>
+    |     </div>
+    |   </a>
+  sample[2] (9L): 1.3M Software Image Software Image
+    |   <a class="media-type" href="/details/software" title="Software">
+    |     <div class="media-icon">
+    |       <img src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." style="filter: invert(73%) sepia(60%) saturate(419%) hue-rotate(36deg) brightness(95%) ..." alt="Software Image"></img>
+    |     </div>
+    |     <div class="media-count">
+    |       1.3M
+    |       <img src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." style="filter: invert(73%) sepia(60%) saturate(419%) hue-rotate(36deg) brightness(95%) ..." alt="Software Image"></img>
+    |     </div>
+    |   </a>
+
+--- Chunk 5: onboarding-tile ---
+  type=card freq=8 excl=1.00
+  pattern_xpath: ///a[contains(@class,'link')][contains(@class,'onboarding')][contains(@slot,'slide')]
+  tree_sig: onboarding-tile(div,div(img),template)
+  content: [HREF=1 TEXT=1]
+  sample[0] (12L): Listening to music on the                                     archive
+    |   <a class="onboarding-link" href="https://help.archive.org/help/media-players-a-basic-guide/" slot="slide-2">
+    |     <onboarding-tile>
+    |       <template shadowrootmode="open"></template>
+    |       <div id="onboarding-tile-icon">
+    |         <img alt="" src="data:image/svg+xml,%3csvg%20viewBox='0%200%20100%20100'%20xmlns='http://www.w3.o..."></img>
+    |       </div>
+    |       <div id="onboarding-tile-body">
+    |         Listening to music on the
+    |                                     archive
+    |       </div>
+    | ... [2 more lines]
+  sample[1] (12L): How to change your account                                     settings
+    |   <a class="onboarding-link" href="https://help.archive.org/help/accounts-tips-troubleshooting/" slot="slide-6">
+    |     <onboarding-tile>
+    |       <template shadowrootmode="open"></template>
+    |       <div id="onboarding-tile-icon">
+    |         <img alt="" src="data:image/svg+xml,%3csvg%20viewBox='0%200%20100%20100'%20xmlns='http://www.w3.o..."></img>
+    |       </div>
+    |       <div id="onboarding-tile-body">
+    |         How to change your account
+    |                                     settings
+    |       </div>
+    | ... [2 more lines]
+
+--- Chunk 6: a.details.expand ---
+  type=menu_item freq=7 excl=0.73
+  pattern_xpath: ///a[contains(@class,'item')][contains(@class,'menu')][contains(@data-event-click-tracking,'menu')][contains(@data-event-click-tracking,'nav')][contains(@data-event-click-tracking,'top')]
+  tree_sig: a(span(svg(title,desc,path)),span(svg(title,desc,path)))
+  content: [ATTR=1 HREF=1 TEXT=5]
+  sample[0] (25L): More Ellipses icon An illustration of text ellipses.Ellipses icon An illustratio
+    |   <a href="/about/" class="menu-item more " data-event-click-tracking="TopNav|NavMenuMore" title="Expand more menu">
+    |     <span class="icon ">
+    |       <svg height="40" viewbox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ellipsesTitleID ellipsesDescID">
+    |         <title id="ellipsesTitleID">
+    |           Ellipses icon
+    |         </title>
+    |         <desc id="ellipsesDescID">
+    |           An illustration of text ellipses.
+    |         </desc>
+    |         <path class="fill-color" d="m10.5 17.5c1.3807119 0 2.5 1.1192881 2.5 2.5s-1.1192881 2.5-2.5 2.5c-1.38071187 ..." fill-rule="evenodd"></path>
+    | ... [15 more lines]
+
+--- Chunk 7: div.container.count ---
+  type=card freq=105 excl=1.00
+  pattern_xpath: ///div[contains(@id,'container')][contains(@id,'count')][contains(@id,'item')]
+  tree_sig: div(div(div,div),div(img))
+  content: [ATTR=1 TEXT=2]
+  sample[0] (13L): Collections Icon 76,342 ITEMS
+    |   <div id="item-count-container">
+    |     <div id="item-count-image-container">
+    |       <img id="item-count-image" src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." alt="Collections Icon"></img>
+    |     </div>
+    |     <div id="item-count-stacked-text">
+    |       <div id="item-count">
+    |         76,342
+    |       </div>
+    |       <div id="items-text">
+    |         ITEMS
+    | ... [3 more lines]
+  sample[1] (13L): Collections Icon 21,248 ITEMS
+    |   <div id="item-count-container">
+    |     <div id="item-count-image-container">
+    |       <img id="item-count-image" src="data:image/svg+xml,%3csvg%20viewBox='0%200%20300%20300'%20xmlns='http://www.w3.o..." alt="Collections Icon"></img>
+    |     </div>
+    |     <div id="item-count-stacked-text">
+    |       <div id="item-count">
+    |         21,248
+    |       </div>
+    |       <div id="items-text">
+    |         ITEMS
+    | ... [3 more lines]
+
+--- Chunk 8: a.archive.details ---
+  type=card freq=15 excl=0.00
+  pattern_xpath: ///a
+  tree_sig: a(div(div(div,div),div(img)),div(div,div))
+  content: [ATTR=2 BG=1 HREF=1 TEXT=3]
+  sample[0] (22L): United States Patent and Trademark                                       Office 
+    |   <a href="/details/uspto" title="United States Patent and Trademark Office documents">
+    |     <div id="collection-image-title">
+    |       <div id="collection-image" style="background-image:url('https://archive.org/services/img/uspto')"></div>
+    |       <div id="collection-title">
+    |         United States Patent and Trademark
+    |                                       Office documents
+    |       </div>
+    |     </div>
+    |     <div id="item-count-container">
+    |       <div id="item-count-image-container">
+    | ... [12 more lines]
+
+--- Chunk 9: span.icon ---
+  type=card freq=14 excl=0.00
+  pattern_xpath: ///span
+  tree_sig: span(svg(desc,path,title))
+  content: [TEXT=2]
+  sample[0] (12L): More Ellipses icon An illustration of text ellipses.
+    |   <span class="label">
+    |     More
+    |     <svg height="40" viewbox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ellipsesTitleID ellipsesDescID">
+    |       <title id="ellipsesTitleID">
+    |         Ellipses icon
+    |       </title>
+    |       <desc id="ellipsesDescID">
+    |         An illustration of text ellipses.
+    |       </desc>
+    |       <path class="fill-color" d="m10.5 17.5c1.3807119 0 2.5 1.1192881 2.5 2.5s-1.1192881 2.5-2.5 2.5c-1.38071187 ..." fill-rule="evenodd"></path>
+    | ... [2 more lines]
+  sample[1] (12L): Wayback Machine Web icon An illustration of a computer application window
+    |   <span class="label">
+    |     Wayback Machine
+    |     <svg height="40" viewbox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="webTitleID webDescID">
+    |       <title id="webTitleID">
+    |         Web icon
+    |       </title>
+    |       <desc id="webDescID">
+    |         An illustration of a computer application window
+    |       </desc>
+    |       <path class="fill-color" d="m8 28.7585405v-8.1608108-9.3577297h24v9.3577297 8.1608108zm14.2702703-15.8863783..." fill-rule="evenodd"></path>
+    | ... [2 more lines]
+
+--- Chunk 10: [search_inputs] ---
+  type=search_input freq=8 excl=1.00
+  pattern_xpath: ///input[contains(@type,'text')][contains(@id,'url')][contains(@name,'url')]
+  content: [ATTR=1]
+  sample[0] (1L): Search
+    |   <input id="text-input" type="text" inputmode="search" enterkeyhint="search" autocapitalize="none" placeholder="Search"></input>
+  sample[1] (1L): Enter URL or keywords
+    |   <input type="text" name="url" id="url" placeholder="Enter URL or keywords"></input>
+  sample[2] (1L): https://
+    |   <input type="text" name="url_preload" id="url_preload" placeholder="https://"></input>
+
+--- Chunk 11: [pagination_buttons] ---
+  type=pagination freq=30 excl=0.33
+  pattern_xpath: ///a[contains(@data-event-click-tracking,'nav')][contains(@data-event-click-tracking,'top')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (4L): Additional                                       Collections
+    |   <a href="/details/additional_collections" data-event-click-tracking="TopNav|AdditionalCollectionsTexts">
+    |     Additional
+    |                                       Collections
+    |   </a>
+  sample[1] (4L): Additional                                       Collections
+    |   <a href="/details/additional_collections" data-event-click-tracking="TopNav|AdditionalCollectionsTexts">
+    |     Additional
+    |                                       Collections
+    |   </a>
+  sample[2] (3L): Contact
+    |   <a href="/about/contact" data-event-click-tracking="TopNav|NavMoreContact">
+    |     Contact
+    |   </a>
+
+--- Chunk 12: [text_content:p×3] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///form[contains(@data-event-submit-tracking,'nav')][contains(@data-event-submit-tracking,'page')][contains(@data-event-submit-tracking,'save')][contains(@data-event-submit-tracking,'submit')][contains(@data-event-submit-tracking,'top')]
+  content: [ATTR=1 TEXT=4]
+  sample[0] (20L): Save Page Now Capture a web page as it appears now for use as a trusted citation
+    |   <form action="//web.archive.org/save" method="post" data-event-submit-tracking="TopNav|SavePageSubmit">
+    |     <h3>
+    |       Save Page Now
+    |     </h3>
+    |     <p>
+    |       Capture a web page as it appears now for use as a trusted citation in
+    |                                             the future.
+    |     </p>
+    |     <div>
+    |       <label for="url_preload" class="sr-only">
+    | ... [10 more lines]
+
+--- Chunk 13: [text_content:p×3] ---
+  type=text_singleton freq=1 excl=0.50
+  pattern_xpath: ///form[contains(@data-event-submit-tracking,'nav')][contains(@data-event-submit-tracking,'page')][contains(@data-event-submit-tracking,'save')][contains(@data-event-submit-tracking,'submit')][contains(@data-event-submit-tracking,'top')]
+  content: [ATTR=1 TEXT=4]
+  sample[0] (22L): Save Page Now Capture a web page as it appears now for use as a trusted citation
+    |   <form action="//web.archive.org/save" method="post" data-event-submit-tracking="TopNav|SavePageSubmit">
+    |     <h3>
+    |       Save Page Now
+    |     </h3>
+    |     <p>
+    |       Capture a web page as it appears now for use as a trusted citation in
+    |                                             the future.
+    |     </p>
+    |     <div>
+    |       <label for="url_preload" class="sr-only">
+    | ... [12 more lines]
+
+--- Chunk 14: [text_content:li×5] ---
+  type=text_singleton freq=5 excl=0.00
+  pattern_xpath: ///li
+  content: [TEXT=1]
+  sample[0] (11L): Search archived web                                                       sites 
+    |   <li>
+    |     <label>
+    |       <input type="radio" name="sin" value="WEB"></input>
+    |       <span>
+    |         Search archived web
+    |                                                       sites Search metadataSearch text
+    |                                                       contentsSearch TV news captionsSearch radio
+    |                                                       transcripts
+    |       </span>
+    |     </label>
+    | ... [1 more lines]
+  sample[1] (9L): Search                                                       metadata
+    |   <li>
+    |     <label>
+    |       <input type="radio" name="sin" value=""></input>
+    |       <span>
+    |         Search
+    |                                                       metadata
+    |       </span>
+    |     </label>
+    |   </li>
+  sample[2] (9L): Search TV news                                                       captions
+    |   <li>
+    |     <label>
+    |       <input type="radio" name="sin" value="TV"></input>
+    |       <span>
+    |         Search TV news
+    |                                                       captions
+    |       </span>
+    |     </label>
+    |   </li>
+
+--- Chunk 15: [nav_content:a×17] ---
+  type=menu_item freq=17 excl=0.00
+  pattern_xpath: ///a
+  content: [HREF=1 TEXT=1]
+  sample[0] (14L): Donate Donate icon An illustration of a heart shape
+    |   <li>
+    |     <a class="donate" href="/donate?origin=iawww-TopNavDonateButton">
+    |       Donate
+    |       <svg width="40" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="donateTitleID donateDescID">
+    |         <title id="donateTitleID">
+    |           Donate icon
+    |         </title>
+    |         <desc id="donateDescID">
+    |           An illustration of a heart shape
+    |         </desc>
+    | ... [4 more lines]
+  sample[1] (12L): Donate Donate icon An illustration of a heart shape
+    |   <a class="donate" href="/donate?origin=iawww-TopNavDonateButton">
+    |     Donate
+    |     <svg width="40" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="donateTitleID donateDescID">
+    |       <title id="donateTitleID">
+    |         Donate icon
+    |       </title>
+    |       <desc id="donateDescID">
+    |         An illustration of a heart shape
+    |       </desc>
+    |       <path class="fill-color" d="m30.0120362 11.0857287c-1.2990268-1.12627221-2.8599641-1.65258786-4.682812-1.578..."></path>
+    | ... [2 more lines]
+  sample[2] (3L): Volunteer
+    |   <a class="volunteer" href="/about/volunteer-positions">
+    |     Volunteer
+    |   </a>
+
+--- Chunk 16: [nav_content:li×7] ---
+  type=menu_item freq=7 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): Audio                                       Books & Poetry
+    |   <li>
+    |     <a href="/details/audio_bookspoetry" data-event-click-tracking="TopNav|AudioBooks&PoetryAudio">
+    |       Audio
+    |                                       Books & Poetry
+    |     </a>
+    |   </li>
+  sample[1] (6L): Computers,                                       Technology and Science
+    |   <li>
+    |     <a href="/details/audio_tech" data-event-click-tracking="TopNav|Computers,TechnologyAndScienceAudio">
+    |       Computers,
+    |                                       Technology and Science
+    |     </a>
+    |   </li>
+  sample[2] (6L): Spirituality                                       & Religion
+    |   <li>
+    |     <a href="/details/audio_religion" data-event-click-tracking="TopNav|Spirituality&ReligionAudio">
+    |       Spirituality
+    |                                       & Religion
+    |     </a>
+    |   </li>
+
+--- Chunk 17: [nav_content:li×6] ---
+  type=menu_item freq=6 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): All                                       Software
+    |   <li>
+    |     <a href="/details/software" data-event-click-tracking="TopNav|AllSoftwareSoftware">
+    |       All
+    |                                       Software
+    |     </a>
+    |   </li>
+  sample[1] (6L): Old                                       School Emulation
+    |   <li>
+    |     <a href="/details/tosec" data-event-click-tracking="TopNav|OldSchoolEmulationSoftware">
+    |       Old
+    |                                       School Emulation
+    |     </a>
+    |   </li>
+  sample[2] (6L): Historical                                       Software
+    |   <li>
+    |     <a href="/details/historicalsoftware" data-event-click-tracking="TopNav|HistoricalSoftwareSoftware">
+    |       Historical
+    |                                       Software
+    |     </a>
+    |   </li>
+
+--- Chunk 18: [nav_content:li×8] ---
+  type=menu_item freq=8 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): American                                       Libraries
+    |   <li>
+    |     <a href="/details/americana" data-event-click-tracking="TopNav|AmericanLibrariesTexts">
+    |       American
+    |                                       Libraries
+    |     </a>
+    |   </li>
+  sample[1] (6L): Canadian                                       Libraries
+    |   <li>
+    |     <a href="/details/toronto" data-event-click-tracking="TopNav|CanadianLibrariesTexts">
+    |       Canadian
+    |                                       Libraries
+    |     </a>
+    |   </li>
+  sample[2] (6L): Children's                                       Library
+    |   <li>
+    |     <a href="/details/iacl" data-event-click-tracking="TopNav|Children'sLibraryTexts">
+    |       Children's
+    |                                       Library
+    |     </a>
+    |   </li>
+
+--- Chunk 19: [nav_content:a×74] ---
+  type=menu_item freq=74 excl=0.33
+  pattern_xpath: ///a[contains(@data-event-click-tracking,'nav')][contains(@data-event-click-tracking,'top')]
+  content: [HREF=1 TEXT=1]
+  sample[0] (6L): All                                       Audio
+    |   <li>
+    |     <a href="/details/audio" data-event-click-tracking="TopNav|AllAudioAudio">
+    |       All
+    |                                       Audio
+    |     </a>
+    |   </li>
+  sample[1] (6L): Grateful                                       Dead
+    |   <li>
+    |     <a href="/details/GratefulDead" data-event-click-tracking="TopNav|GratefulDeadAudio">
+    |       Grateful
+    |                                       Dead
+    |     </a>
+    |   </li>
+  sample[2] (4L): USGS                                       Maps
+    |   <a href="/details/maps_usgs" data-event-click-tracking="TopNav|USGSMapsImages">
+    |     USGS
+    |                                       Maps
+    |   </a>
+
+--- Chunk 20: [nav_content:li×4] ---
+  type=menu_item freq=4 excl=0.00
+  pattern_xpath: ///li
+  content: [HREF=1 TEXT=1]
+  sample[0] (5L): Chrome
+    |   <li>
+    |     <a href="https://chrome.google.com/webstore/detail/wayback-machine/fpnmgdkabkmnadcjpehmlllkndpkmiak" data-event-click-tracking="TopNav|WaybackChrome" target="_blank" rel="noreferrer noopener">
+    |       Chrome
+    |     </a>
+    |   </li>
+  sample[1] (5L): Firefox
+    |   <li>
+    |     <a href="https://addons.mozilla.org/en-US/firefox/addon/wayback-machine_new/" data-event-click-tracking="TopNav|WaybackFirefox" target="_blank" rel="noreferrer noopener">
+    |       Firefox
+    |     </a>
+    |   </li>
+  sample[2] (5L): Safari
+    |   <li>
+    |     <a href="https://apps.apple.com/us/app/wayback-machine/id1472432422?mt=12" data-event-click-tracking="TopNav|WaybackSafari" target="_blank" rel="noreferrer noopener">
+    |       Safari
+    |     </a>
+    |   </li>
+
+--- Chunk 21: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [TEXT=1]
+  sample[0] (3L): Top Collections
+    |   <h1>
+    |     Top Collections
+    |   </h1>
+
+--- Chunk 22: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Internet Archive Audio
+    |   <h3>
+    |     Internet Archive Audio
+    |   </h3>
+
+--- Chunk 23: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Images
+    |   <h3>
+    |     Images
+    |   </h3>
+
+--- Chunk 24: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Software
+    |   <h3>
+    |     Software
+    |   </h3>
+
+--- Chunk 25: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Texts
+    |   <h3>
+    |     Texts
+    |   </h3>
+
+--- Chunk 26: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Video
+    |   <h3>
+    |     Video
+    |   </h3>
+
+--- Chunk 27: [text_content:h3×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h3
+  content: [TEXT=1]
+  sample[0] (3L): Internet Archive AudioImagesSoftwareTextsVideo
+    |   <h3>
+    |     Internet Archive AudioImagesSoftwareTextsVideo
+    |   </h3>
+
+--- Chunk 28: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (3L): Top
+    |   <h4>
+    |     Top
+    |   </h4>
+
+--- Chunk 29: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (3L): Featured
+    |   <h4>
+    |     Featured
+    |   </h4>
+
+--- Chunk 30: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (3L): FeaturedTop
+    |   <h4>
+    |     FeaturedTop
+    |   </h4>
+
+--- Chunk 31: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=1.00
+  pattern_xpath: ///h1[contains(@id,'whoweare')]
+  content: [TEXT=2]
+  sample[0] (9L): Internet Archive is a non-profit                                 library        
+    |   <h1 id="whoweare">
+    |     <strong>
+    |       Internet Archive
+    |     </strong>
+    |     is a non-profit
+    |                                 library
+    |                                 of millions of free texts, movies, software, music, websites,
+    |                                 and more.
+    |   </h1>
+
+--- Chunk 32: [text_content:h1×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h1
+  content: [TEXT=1]
+  sample[0] (3L): Archive News
+    |   <h1>
+    |     Archive News
+    |   </h1>
+
+--- Chunk 33: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (3L): Archive-It Subscription
+    |   <h4>
+    |     Archive-It Subscription
+    |   </h4>
+
+--- Chunk 34: [text_content:h4×1] ---
+  type=text_singleton freq=1 excl=0.00
+  pattern_xpath: ///h4
+  content: [TEXT=1]
+  sample[0] (3L): Archive-It SubscriptionMobile AppsBrowser Extensions
+    |   <h4>
+    |     Archive-It SubscriptionMobile AppsBrowser Extensions
+    |   </h4>

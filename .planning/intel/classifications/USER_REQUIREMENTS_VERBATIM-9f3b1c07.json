@@ -1,0 +1,31 @@
+{
+  "source_path": "C:/Users/isaac/Documents/web_fiber_haptics/docs/USER_REQUIREMENTS_VERBATIM.md",
+  "type": "ADR",
+  "confidence": "high",
+  "manifest_override": true,
+  "title": "User Requirements — Verbatim Source Of Truth",
+  "summary": "Captures every binding user requirement near-verbatim across sessions; the canonical source the design and code must converge to, winning all conflicts.",
+  "scope": [
+    "doc/process discipline",
+    "3D UMAP-linear-radial force-directed layout",
+    "triple-product retrieval",
+    "unified knowledge panel",
+    "retrieval scroll-spine",
+    "data-agnostic recursive compile",
+    "foundational fixtures (Database/WebBrowser/Agent)",
+    "ConceptNode schema",
+    "no-mocks contract",
+    "forbidden concepts (concentric spheres, graph analytics, Llama)"
+  ],
+  "cross_refs": [
+    "DOMAIN_MODEL.md",
+    "CODEBASE_GAP_ANALYSIS.md",
+    "MORTEGON_INTEGRATION_SCHEME.md",
+    "FRONTEND_REDESIGN.md",
+    "HTML_DEDUP_CONTENT_TREE_GOAL.md",
+    "BLACK_SLATE_GOAL.md"
+  ],
+  "locked": false,
+  "precedence": 0,
+  "notes": "Manifest declared TYPE=ADR (authoritative). Heuristic content reads as a requirements source-of-truth (PRD-like) but manifest override applied. Not a single Accepted-status ADR, so locked=false despite being the highest-priority source per its own preamble; precedence=0 honored from manifest."
+}

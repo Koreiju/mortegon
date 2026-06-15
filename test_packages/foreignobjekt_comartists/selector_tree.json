@@ -1,0 +1,490 @@
+{
+  "//section[contains(@class,'Oqnisf')][contains(@class,'comp-lwvevxtc')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 4,
+    "pattern_xpath": "///section[contains(@class,'lwvevxtc')][contains(@id,'lwvevxtc')][contains(@class,'oqnisf')][contains(@class,'section')][contains(@data-block-level-container,'classic')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'MW5IWV')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'LWbAav')][contains(@class,'Kv1aVt')][contains(@data-testid,'colorUnderlay')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'VgO9Yg')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@data-testid,'inline-content')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@data-testid,'mesh-container-content')]": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'comp-k3nhjly4')][contains(@class,'wixui-repeater')]": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'hRdzm4')][contains(@role,'list')]": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//section[contains(@class,'Oqnisf')][contains(@class,'comp-lwvevxtd1')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "structural",
+    "frequency": 2,
+    "pattern_xpath": "///section[contains(@class,'lwvevxtd')][contains(@id,'lwvevxtd')][contains(@class,'oqnisf')][contains(@class,'section')][contains(@data-block-level-container,'classic')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'MW5IWV')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'LWbAav')][contains(@class,'Kv1aVt')][contains(@data-testid,'colorUnderlay')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//div[contains(@class,'VgO9Yg')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      },
+      "//div[contains(@data-testid,'inline-content')]": {
+        "chunk_ids": [
+          1
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@data-testid,'mesh-container-content')]": {
+            "chunk_ids": [
+              1
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'comp-keuvcg53')][contains(@class,'wixui-repeater')]": {
+                "chunk_ids": [
+                  1
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'hRdzm4')][contains(@role,'list')]": {
+                    "chunk_ids": [
+                      1
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'gallery-item-container')][contains(@class,'item-container-regular')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///div[contains(@class,'container')][contains(@class,'custom')][contains(@class,'focus')][contains(@class,'has')][contains(@class,'regular')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'item-action')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'gallery-item-wrapper')][contains(@class,'visible')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//picture": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'gallery-item-common-info-outer')][contains(@class,'[object')]": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'gallery-item-common-info')][contains(@class,'gallery-item-right-info')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'RiOfiW')][contains(@class,'pu51Xe')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'iSTCpN')][contains(@class,'TBrkhx')]": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'gallery-item-wrapper')][contains(@class,'visible')]": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+                "chunk_ids": [
+                  2
+                ],
+                "content_types": [],
+                "children": {
+                  "//picture": {
+                    "chunk_ids": [
+                      2
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'MW5IWV')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "card",
+    "frequency": 26,
+    "pattern_xpath": "///div[contains(@class,'iwv')][contains(@class,'mw')][contains(@data-hook,'bg')][contains(@data-hook,'layers')][contains(@data-motion-part,'bg')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'LWbAav')][contains(@class,'Kv1aVt')][contains(@data-testid,'colorUnderlay')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {}
+      },
+      "//div[contains(@class,'VgO9Yg')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//wow-image[contains(@class,'jhxvbR')][contains(@class,'Kv1aVt')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//img": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'comp-k4izyao6')][contains(@class,'FubTgk')]": {
+    "chunk_ids": [
+      4
+    ],
+    "classification": "card",
+    "frequency": 40,
+    "pattern_xpath": "///div[contains(@aria-disabled,'false')][contains(@class,'fub')][contains(@class,'tgk')][contains(@class,'comp')][contains(@id,'item')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'uDW_Qe')][contains(@class,'wixui-button')][contains(@data-testid,'linkElement')]": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'l7_2fn')][contains(@class,'wixui-button__label')]": {
+            "chunk_ids": [
+              4
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//li[contains(@class,'O6KwRn')]": {
+    "chunk_ids": [
+      5
+    ],
+    "classification": "card",
+    "frequency": 4,
+    "pattern_xpath": "///li[contains(@class,'kw')][contains(@class,'rn')][contains(@id,'data')][contains(@id,'khnxgaf')][contains(@id,'item')]",
+    "content_types": [],
+    "children": {
+      "//a[contains(@class,'oRtuWN')][contains(@data-testid,'linkElement')]": {
+        "chunk_ids": [
+          5
+        ],
+        "content_types": [],
+        "children": {
+          "//img[contains(@class,'YaS0jR')][contains(@class,'Tj01hh')]": {
+            "chunk_ids": [
+              5
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//div[contains(@class,'gallery-item-common-info-outer')][contains(@class,'[object')]": {
+    "chunk_ids": [
+      6
+    ],
+    "classification": "card",
+    "frequency": 3,
+    "pattern_xpath": "///div[contains(@class,'common')][contains(@class,'info')][contains(@class,'object')][contains(@class,'outer')][contains(@style,'float')]",
+    "content_types": [],
+    "children": {
+      "//div[contains(@class,'gallery-item-common-info')][contains(@class,'gallery-item-right-info')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'RiOfiW')][contains(@class,'pu51Xe')]": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {
+              "//div[contains(@class,'iSTCpN')][contains(@class,'TBrkhx')]": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//div[contains(@class,'uYL9xS')]": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//div[contains(@class,'NPsER6')][contains(@class,'TBrkhx')]": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "//div[contains(@class,'gallery-item-wrapper')][contains(@class,'visible')]": {
+        "chunk_ids": [
+          6
+        ],
+        "content_types": [],
+        "children": {
+          "//div[contains(@class,'gallery-item-content')][contains(@class,'item-content-regular')]": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {
+              "//picture": {
+                "chunk_ids": [
+                  6
+                ],
+                "content_types": [],
+                "children": {
+                  "//source": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  },
+                  "//img[contains(@class,'gallery-item-visible')][contains(@class,'gallery-item')]": {
+                    "chunk_ids": [
+                      6
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//link": {
+    "chunk_ids": [
+      7
+    ],
+    "classification": "pagination",
+    "frequency": 2,
+    "pattern_xpath": "///link[contains(@as,'fetch')][contains(@crossorigin,'anonymous')][contains(@id,'master')][contains(@id,'page')][contains(@position,'post')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//h6[contains(@class,'font_6')][contains(@class,'wixui-rich-text__text')]": {
+    "chunk_ids": [
+      8,
+      9,
+      10
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h6[contains(@style,'align')][contains(@style,'center')][contains(@style,'text')][contains(@class,'font')][contains(@class,'rich')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'wixui-rich-text__text')]": {
+        "chunk_ids": [
+          8
+        ],
+        "content_types": [],
+        "children": {
+          "//span[contains(@class,'wixui-rich-text__text')]": {
+            "chunk_ids": [
+              8
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'wixui-rich-text__text')]": {
+                "chunk_ids": [
+                  8
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'color_11')][contains(@class,'wixui-rich-text__text')]": {
+                    "chunk_ids": [
+                      8
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//span[contains(@class,'color_11')][contains(@class,'wixui-rich-text__text')]": {
+            "chunk_ids": [
+              10
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'wixui-rich-text__text')]": {
+                "chunk_ids": [
+                  10
+                ],
+                "content_types": [],
+                "children": {
+                  "//span[contains(@class,'wixui-rich-text__text')]": {
+                    "chunk_ids": [
+                      10
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

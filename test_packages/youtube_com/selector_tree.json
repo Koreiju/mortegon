@@ -1,0 +1,216 @@
+{
+  "//yt-icon[contains(@class,'guide-icon')][contains(@class,'style-scope')]": {
+    "chunk_ids": [
+      0
+    ],
+    "classification": "card",
+    "frequency": 34,
+    "pattern_xpath": "///yt-icon[contains(@class,'entry')][contains(@class,'guide')][contains(@class,'renderer')][contains(@class,'scope')][contains(@class,'style')]",
+    "content_types": [],
+    "children": {
+      "//span[contains(@class,'yt-icon-shape')][contains(@class,'style-scope')]": {
+        "chunk_ids": [
+          0
+        ],
+        "content_types": [],
+        "children": {
+          "//div": {
+            "chunk_ids": [
+              0
+            ],
+            "content_types": [],
+            "children": {
+              "//svg": {
+                "chunk_ids": [
+                  0
+                ],
+                "content_types": [],
+                "children": {
+                  "//path": {
+                    "chunk_ids": [
+                      0
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "//input[contains(@class,'ytSearchboxComponentInput')][contains(@class,'yt-searchbox-input')][contains(@role,'combobox')]": {
+    "chunk_ids": [
+      1
+    ],
+    "classification": "search_input",
+    "frequency": 3,
+    "pattern_xpath": "///input[contains(@class,'searchbox')][contains(@class,'component')][contains(@class,'yt')]",
+    "content_types": [],
+    "children": {}
+  },
+  "//a[contains(@class,'ytp-next-button')][contains(@class,'ytp-button')][contains(@role,'button')]": {
+    "chunk_ids": [
+      2
+    ],
+    "classification": "pagination",
+    "frequency": 17,
+    "pattern_xpath": "///a",
+    "content_types": [],
+    "children": {
+      "//svg": {
+        "chunk_ids": [
+          2
+        ],
+        "content_types": [],
+        "children": {
+          "//path": {
+            "chunk_ids": [
+              2
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//a[contains(@class,'yt-simple-endpoint')][contains(@class,'style-scope')][contains(@role,'link')]": {
+    "chunk_ids": [
+      3
+    ],
+    "classification": "menu_item",
+    "frequency": 12,
+    "pattern_xpath": "///a[contains(@class,'endpoint')][contains(@class,'simple')][contains(@id,'endpoint')][contains(@role,'link')][contains(@class,'entry')]",
+    "content_types": [],
+    "children": {
+      "//tp-yt-paper-item[contains(@class,'style-scope')][contains(@class,'ytd-guide-entry-renderer')][contains(@role,'link')]": {
+        "chunk_ids": [
+          3
+        ],
+        "content_types": [],
+        "children": {
+          "//yt-icon[contains(@class,'guide-icon')][contains(@class,'style-scope')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'yt-icon-shape')][contains(@class,'style-scope')]": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      3
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//yt-img-shadow[contains(@class,'style-scope')][contains(@class,'ytd-guide-entry-renderer')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//img[contains(@class,'style-scope')][contains(@class,'yt-img-shadow')]": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {}
+              }
+            }
+          },
+          "//yt-formatted-string[contains(@class,'title')][contains(@class,'style-scope')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//yt-icon[contains(@class,'arrow-icon')][contains(@class,'style-scope')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//span[contains(@class,'guide-entry-count')][contains(@class,'style-scope')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          },
+          "//yt-icon[contains(@class,'guide-entry-badge')][contains(@class,'style-scope')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {
+              "//span[contains(@class,'yt-icon-shape')][contains(@class,'style-scope')]": {
+                "chunk_ids": [
+                  3
+                ],
+                "content_types": [],
+                "children": {
+                  "//div": {
+                    "chunk_ids": [
+                      3
+                    ],
+                    "content_types": [],
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "//div[contains(@class,'style-scope')][contains(@class,'ytd-guide-entry-renderer')]": {
+            "chunk_ids": [
+              3
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  },
+  "//h3[contains(@class,'style-scope')][contains(@class,'ytd-guide-section-renderer')]": {
+    "chunk_ids": [
+      4,
+      5,
+      6
+    ],
+    "classification": "text_singleton",
+    "frequency": 1,
+    "pattern_xpath": "///h3[contains(@class,'section')][contains(@class,'guide')][contains(@class,'renderer')][contains(@class,'scope')][contains(@class,'style')]",
+    "content_types": [],
+    "children": {
+      "//yt-formatted-string[contains(@class,'style-scope')][contains(@class,'ytd-guide-section-renderer')]": {
+        "chunk_ids": [
+          4
+        ],
+        "content_types": [],
+        "children": {
+          "//yt-attributed-string[contains(@class,'style-scope')][contains(@class,'yt-formatted-string')]": {
+            "chunk_ids": [
+              6
+            ],
+            "content_types": [],
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}

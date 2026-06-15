@@ -1,0 +1,22 @@
+# Full flow: create A, create B, link them, query apparitions(A),
+# assert state, delete B, assert B is gone, delete A, assert empty.
+#
+# Run with: python scripts/sim_frontend.py --backend http://127.0.0.1:8080 \
+#                replay scripts/samples/sim_full_flow.jsonl
+#
+# Demonstrates cross-step references via ${step[N].field} — step[0] is
+# the first action below, step[1] is the second, etc.
+{"action": "health"}
+{"action": "purge", "confirm": "erase"}
+{"action": "concept-create", "name": "FlowA", "description": "first concept in flow"}
+{"action": "assert-response-key", "key": "concept_id"}
+{"action": "concept-create", "name": "FlowB", "description": "second concept in flow"}
+{"action": "edge-create", "src": "${step[2].concept_id}", "tgt": "${step[4].concept_id}", "type": "RELATES_TO"}
+{"action": "assert-response-key", "key": "edge_id"}
+{"action": "concept-list"}
+{"action": "apparitions", "focal": "${step[2].concept_id}", "k": 10}
+{"action": "assert-frame", "type": "concept_changed", "min_count": 2}
+{"action": "concept-delete", "id": "${step[4].concept_id}"}
+{"action": "assert-concept", "id": "${step[4].concept_id}", "exists": "false"}
+{"action": "concept-delete", "id": "${step[2].concept_id}"}
+{"action": "assert-concept", "id": "${step[2].concept_id}", "exists": "false"}

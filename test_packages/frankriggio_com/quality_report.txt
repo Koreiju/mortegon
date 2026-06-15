@@ -1,0 +1,87 @@
+=== QUALITY REPORT: frankriggio_com.html ===
+Chunks: 4 (structural=2, functional=2, text=0)
+Categories: {'menu_item': 1, 'card': 1, 'search_input': 1, 'pagination': 1}
+Content: 12 tagged, 12 preserved (100%)
+Leaks: 0 total, 0 high-importance
+
+--- Chunk 0: li.item.level ---
+  type=menu_item freq=8 excl=1.00
+  pattern_xpath: ///li[contains(@class,'level')][contains(@class,'menu')][contains(@class,'nav')][contains(@class,'object')][contains(@class,'type')]
+  tree_sig: li(a(span,span))
+  content: [HREF=1 TEXT=1]
+  sample[0] (8L): Q   U   4   D   R   I   L   O   G   Y
+    |   <li id="menu-item-5767" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5767">
+    |     <a class="w-nav-anchor level_1" href="https://frankriggio.com/qu4drilogy/">
+    |       <span class="w-nav-title">
+    |         Q   U   4   D   R   I   L   O   G   Y
+    |       </span>
+    |       <span class="w-nav-arrow"></span>
+    |     </a>
+    |   </li>
+  sample[1] (8L): FRANK RIGGIO
+    |   <li id="menu-item-5032" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-26 current_page_item w-nav-item level_1 menu-item-5032">
+    |     <a class="w-nav-anchor level_1" href="https://frankriggio.com/">
+    |       <span class="w-nav-title">
+    |         FRANK RIGGIO
+    |       </span>
+    |       <span class="w-nav-arrow"></span>
+    |     </a>
+    |   </li>
+  sample[2] (8L): mastering
+    |   <li id="menu-item-5095" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5095">
+    |     <a class="w-nav-anchor level_1" href="https://frankriggio.com/mastering/">
+    |       <span class="w-nav-title">
+    |         mastering
+    |       </span>
+    |       <span class="w-nav-arrow"></span>
+    |     </a>
+    |   </li>
+
+--- Chunk 1: div.item.socials ---
+  type=card freq=5 excl=0.75
+  pattern_xpath: ///div[contains(@class,'socials')][contains(@class,'item')]
+  tree_sig: div(a(i,span))
+  content: [ATTR=2 HREF=1]
+  sample[0] (6L): 
+    |   <div class="w-socials-item instagram">
+    |     <a class="w-socials-item-link" href="https://www.instagram.com/frankriggio_" target="_blank" rel="noopener nofollow" title="Instagram" aria-label="Instagram">
+    |       <span class="w-socials-item-link-hover"></span>
+    |       <i class="fab fa-instagram"></i>
+    |     </a>
+    |   </div>
+  sample[1] (6L): 
+    |   <div class="w-socials-item twitter">
+    |     <a class="w-socials-item-link" href="https://twitter.com/frankriggio" target="_blank" rel="noopener nofollow" title="Twitter" aria-label="Twitter">
+    |       <span class="w-socials-item-link-hover"></span>
+    |       <i class="fab fa-twitter"></i>
+    |     </a>
+    |   </div>
+  sample[2] (6L): 
+    |   <div class="w-socials-item soundcloud">
+    |     <a class="w-socials-item-link" href="https://soundcloud.com/frankriggio" target="_blank" rel="noopener nofollow" title="SoundCloud" aria-label="SoundCloud">
+    |       <span class="w-socials-item-link-hover"></span>
+    |       <i class="fab fa-soundcloud"></i>
+    |     </a>
+    |   </div>
+
+--- Chunk 2: [search_inputs] ---
+  type=search_input freq=4 excl=1.00
+  pattern_xpath: ///input[contains(@id,'form')][contains(@id,'search')][contains(@id,'us')][contains(@type,'text')]
+  content: [ATTR=2]
+  sample[0] (1L): Rechercher
+    |   <input type="text" name="s" id="us_form_search_s" placeholder="Rechercher" aria-label="Rechercher" value=""></input>
+  sample[1] (1L): Rechercher
+    |   <input type="text" name="s" id="us_form_search_s" placeholder="Rechercher" aria-label="Rechercher" value=""></input>
+  sample[2] (1L): Rechercher
+    |   <input type="text" name="s" id="us_form_search_s" placeholder="Rechercher" aria-label="Rechercher" value=""></input>
+
+--- Chunk 3: [pagination_buttons] ---
+  type=pagination freq=40 excl=1.00
+  pattern_xpath: ///img[contains(@class,'image')][contains(@class,'wp')][contains(@decoding,'async')][contains(@loading,'lazy')][contains(@sizes,'auto')]
+  content: [IMG=5]
+  sample[0] (1L): 
+    |   <img loading="lazy" decoding="async" width="900" height="900" src="http://frankriggio.com/wp-content/uploads/2021/06/FR-back-Empreinte-Musicale-3.j..." alt="" class="wp-image-5587" srcset="https://frankriggio.com/wp-content/uploads/2021/06/FR-back-Empreinte-Musicale-3.jpg 900w, https://frankriggio.com/wp-content/uploads/2021/06/FR-back-Empreinte-Musicale-3-300x300.jpg 300w, https://frankriggio.com/wp-content/uploads/2021/06/FR-back-Empreinte-Musicale-3-150x150.jpg 150w, https://frankriggio.com/wp-content/uploads/2021/06/FR-back-Empreinte-Musicale-3-600x600.jpg 600w" sizes="auto, (max-width: 900px) 100vw, 900px"></img>
+  sample[1] (1L): 
+    |   <img loading="lazy" decoding="async" width="900" height="900" src="http://frankriggio.com/wp-content/uploads/2021/06/FR-back2-Empreinte-Musicale-3...." alt="" class="wp-image-5586" srcset="https://frankriggio.com/wp-content/uploads/2021/06/FR-back2-Empreinte-Musicale-3.jpg 900w, https://frankriggio.com/wp-content/uploads/2021/06/FR-back2-Empreinte-Musicale-3-300x300.jpg 300w, https://frankriggio.com/wp-content/uploads/2021/06/FR-back2-Empreinte-Musicale-3-150x150.jpg 150w, https://frankriggio.com/wp-content/uploads/2021/06/FR-back2-Empreinte-Musicale-3-600x600.jpg 600w" sizes="auto, (max-width: 900px) 100vw, 900px"></img>
+  sample[2] (1L): 
+    |   <img loading="lazy" decoding="async" width="1000" height="500" src="http://frankriggio.com/wp-content/uploads/2021/03/Raze_page-13-14.jpg" alt="" class="wp-image-5156" srcset="https://frankriggio.com/wp-content/uploads/2021/03/Raze_page-13-14.jpg 1000w, https://frankriggio.com/wp-content/uploads/2021/03/Raze_page-13-14-300x150.jpg 300w" sizes="auto, (max-width: 1000px) 100vw, 1000px"></img>
