@@ -15,6 +15,5 @@ Modules:
   tfidf_cheeger_miner — TF-IDF + Cheeger cut spectral clustering
   content_tagger      — Content classification
   content_distiller_simple — Lightweight content filtering
-  cluster_distillation — Chunk distillation pipeline
   xpath_tree_builder  — XPath-based tree construction
 """

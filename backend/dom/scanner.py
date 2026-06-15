@@ -403,8 +403,8 @@ class ShadowDOMScanner:
         # continues, otherwise the scan exits cleanly. Previously 999
         # which meant the scan only ever stopped on max-duration.
         self.NO_CHANGE_LIMIT = 5
-        # The legacy native-snapshot path (_capture_unified / _merge_trees,
-        # see backend_slow/dom/scanner.py for the historical impl) was
+        # The legacy native-snapshot path (_capture_unified / _merge_trees;
+        # the historical native impl was removed along with backend_slow/) was
         # removed when the JS chunk engine took over, but three call sites
         # in this file (search for ``_capture_unified`` below) still
         # branch on ``_use_js_engine``. Anything other than ``'js'`` would
