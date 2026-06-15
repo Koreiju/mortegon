@@ -42,6 +42,12 @@ Progress: [██░░░░░░░░] ~22% overall (Phase 1 done; Phase 2 b
 - `unified-node-view-states` + `compile-expand-collapse-roundtrip` (§8D.2.2) **green**.
 - REMAINING: live-browser re-verification of caret/IME/multiline in the served `/` editor; `full-smoke` stays green (it does, stub).
 
+### Phase 3 progress (§U content-tree breadth, 2026-06-15)
+- **Fixed a real correctness bug for the URL spectrum:** the §U dedup tokenizer was ASCII-only (`[a-z0-9]+`) → non-Latin text (CJK/Cyrillic/accented) produced an EMPTY token-set, so duplicate international titles never collapsed and accented Latin mis-split ("Amélie"→am+lie). Now `[^\W_]+` (Unicode word runs); ASCII golden unchanged. +4 international tests; suite 340/2-skip/0-fail. Commit `bf2c9c7`.
+- Content-tree `fields_to_content_tree` reviewed for breadth: dedup subsumption, URL/text ordering, colon-join, data-URI compaction all sound; `srcset` multi-URL splitting intentionally NOT added (robust srcset parsing is fragile; one verbose URL line is not incorrect).
+- **Breadth smoke BUILT + GREEN:** `scripts/breadth_content_tree_smoke.py` parses each `test_packages/` site (`ShadowDOM.from_file`, offline) → chunk-like fields → `content_tree`, asserting output invariants (no HTML/xpath leak, data-URI compaction, non-empty). **61 sites · 483 cards · 0 violations.** Caveat: approximates the live JS-engine extraction, so it's an output-cleanliness smoke, not the §V live-stack acceptance (which still needs the GPU/browser box).
+- **Still deferred to the GPU box:** the faithful §V 5-site live matrix + real `all_real` probes (real chunk fields from the JS engine + real retrieval render).
+
 ## Performance Metrics
 
 **Velocity:**
