@@ -1178,6 +1178,13 @@ class ChunkBuilder:
         X_raw = np.array(features, dtype=np.float32)
 
         # 5. Selective Normalization & Hyperbolic Distance Matrix
+        #    NOTE (forbidden-concept audit, FIX-01): this Poincaré-disk distance
+        #    is a SCAN-TIME pattern-CLUSTERING metric (groups generalized chunk
+        #    patterns for the schema), NOT the forbidden hyperbolic 3D *layout*
+        #    (ontology/hyperbolic_layout.py / gyrovector.py — already removed,
+        #    CODEBASE_AUDIT G8). The 3D layout authority is the UMAP-linear-radial
+        #    LayoutService (§6.1). Flagged for design review if hyperbolic
+        #    geometry is to be eliminated wholesale rather than only as a layout.
         if len(X_raw) > 0:
             scaler = MinMaxScaler(feature_range=(0, 1))
             freqs_scaled = scaler.fit_transform(X_raw[:, 0:1])

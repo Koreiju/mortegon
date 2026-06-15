@@ -8,7 +8,8 @@ compressed JSON tree (Patricia trie / radix tree) where:
   - Array indices are preserved in path keys (e.g. /li[2])
 
 The resulting JSON structure is persisted to KuzuDB and used for:
-  1. 3D layout computation (tree structure → radial tree with Fibonacci sphere)
+  1. 3D layout computation (tree structure → the UMAP-linear-radial LayoutService,
+     §6.1; the forbidden Fibonacci-sphere distribution is NOT used)
   2. GUI rendering (each tree node → interactive 3D sphere)
   3. Label propagation (xpath patterns for commutation and LCA)
 """
