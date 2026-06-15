@@ -5,7 +5,7 @@
 ![AI](https://img.shields.io/badge/AI-On--Device%20SLMs-purple)
 ![Testing](https://img.shields.io/badge/Testing-Pytest-green)
 
-Web Fiber Haptics is an interactive, graph-analytic pipeline designed to snapshot webpage graphs as trees and distill them into a much simpler content-only structure. It uses LLMs and a 3D latent space UI/X to bridge pure mathematical graph theory with a premium 3D Knowledge Graph Visualization Engine. You interface with the AI through the shared memory stream of the web you explore.
+Web Fiber Haptics is an interactive web-segmentation pipeline designed to snapshot webpage graphs as trees and distill them into a much simpler content-only structure. It uses on-device SLMs and a 3D latent-space UI/X to bridge a typed concept/compute graph with a premium 3D Knowledge Graph Visualization Engine. You interface with the AI through the shared memory stream of the web you explore.
 
 By labeling snapshots of pages as you go, you build a dataset that drives pure graph evolution algorithms—learning to segment webpages with structural patterns that best match your own labels. This forms the foundation for an on-device **Agentic Fluid Simulation** that evolves and learns to explore the web like you do, running off purely its own intelligence with the knowledge and directives you provide.
 
@@ -15,9 +15,9 @@ By labeling snapshots of pages as you go, you build a dataset that drives pure g
 
 - **3D Interactive Latent Space UI/X**: You interface with the AI through a shared memory stream of the web you explore. The semantic space is made visually complex by showing image media nodes with links to them, localizing their embeddings in latent space to 3D approximate geometries using `Three.js`.
 - **Merge-Tree DOM Scanning & Distillation**: Snapshots webpage graphs as trees, using regex to search for different nodes of content (like media and posts), resolving dynamic content into a simpler, content-only structure. 
-- **Graph Evolution Algorithms**: The only learning and evolution necessary is with graph evolution algorithms. The system evaluates 79+ graph-analytic features to automatically segment webpages with structural patterns that best match your own manual labels.
+- **Triple-Product Retrieval**: Retrieval ranks by the triple product `pagerank · tfidf_cos · nomic_cos` (the two embedding axes — nomic over description, TF-IDF over rendering — never mix). The system segments webpages with structural patterns that best match your own manual labels. *(The legacy 79-feature graph-analytics framework is a forbidden concept — see below.)*
 - **CAD Tools for Agentic Fluid**: You essentially CAD out the agentic fluid from the 3D GUI. It is an AI agent fluid particle continuum exploring its own latent space, propagating knowledge dynamics autoregressively from the database you build.
-- **100% On-Device AI**: Utilizes local quantized SLMs (via Ollama/llama.cpp) for semantic cluster auto-labeling, and local embedding models (`nomic-embed-text-v1.5`) for semantic RAG search. Zero cloud dependencies.
+- **100% On-Device AI**: Utilizes a local quantized SLM via **GPT4All** (`Nous-Hermes-2-Mistral-7B-DPO.Q4_0.gguf`, CUDA) for generation/auto-labeling, and a local embedding model (`nomic-embed-text-v1.5`) for semantic RAG search. Zero cloud dependencies. *(Llama is a forbidden SLM target.)*
 - **Database Mycology & Autonomy**: The agentic fluid is intelligently forward-propagated through a self-assembling semantic open web of database search, extraction, transfer, and load. The system evolves the way you see the web over new domains by assembling its own database mycology of semantically enriched search engines.
 
 ## 🧱 Architecture / Tech Stack
@@ -154,26 +154,40 @@ Hard deletions; must not reappear in doc or code. See `DOMAIN_MODEL.md` §forbid
 ## ⚙️ Quickstart
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.10+ (Windows 11 + CUDA is the reference environment)
 - `pip`
-- Firefox (for Selenium WebDriver)
-- Ollama (optional, for on-device SLM features)
+- Firefox (Selenium drives it via the vendored `backend/drivers/geckodriver.exe`)
+- A CUDA GPU for the real SLM/embedder (GPT4All downloads the GGUFs to `~/.cache/gpt4all/` on first run)
 
 ### Step 1: Install Dependencies
-Create a virtual environment and install the required tooling:
+Create a virtual environment and install the pinned tooling:
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
-pip install fastapi uvicorn pydantic pydantic-settings kuzu numpy scipy scikit-learn networkx sentence-transformers selenium jinja2 pytest pytest-asyncio httpx
+pip install -r backend/requirements.txt
 ```
 
 ### Step 2: Running the Server
-FastAPI will automount the database and templates simultaneously:
+
+**`app.py` is the canonical entry point** — it sets up `logs.txt` mirroring, mounts the database + templates, and serves the black-slate editor at `/`. The default port is **8080**.
+
 ```bash
-python -m backend.main
+# Serve only:
+python app.py                         # → http://127.0.0.1:8080/
+
+# Serve AND drop into the REPL in the SAME terminal (recommended dev loop):
+python app.py --repl                  # backend on 8080 + FrontendEnv prompt
+
+# Override host/port if needed:
+python app.py --host 0.0.0.0 --port 8080
 ```
-Navigate to `http://127.0.0.1:8000` to interact with the interactive 3D segmenter.
+
+`python -m backend.main` also works (it runs the same `backend.main:app`) but skips the `app.py` logging/REPL wrapper — prefer `app.py`.
+
+**Port alignment (important):** the backend serves **8080**, but the standalone REPL harness `scripts/sim_frontend.py` defaults to **8000**. When running the REPL separately, always point it at the backend: pass `--backend http://127.0.0.1:8080` (a global flag, BEFORE the subcommand) or set `WFH_BACKEND_URL=http://127.0.0.1:8080`. `python app.py --repl` wires this up for you automatically.
+
+Navigate to `http://127.0.0.1:8080/` to interact with the editor.
 
 ---
 
