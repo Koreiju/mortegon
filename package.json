@@ -1,5 +1,7 @@
 {
-  "dependencies": {
-    "@mdxeditor/editor": "^4.0.3"
-  }
+  "name": "web-fiber-haptics-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Frontend assets for web_fiber_haptics. The served editor (backend/static/js/fe/*.mjs) is framework-free vanilla ESM with no runtime npm dependencies. @mdxeditor/editor was removed (HYG-02): the black-slate editor is custom — see docs/EDITOR_INTEGRATION_ASSESSMENT.md.",
+  "dependencies": {}
 }
