@@ -38,6 +38,17 @@ from typing import Any, AsyncGenerator, Dict, Optional, Type
 logger = logging.getLogger(__name__)
 
 
+class SLMUnavailableError(RuntimeError):
+    """The real GPT4All backend could not be loaded/used and the harness
+    stub gate (``WFH_FAKE_SLM=1``) is NOT set.
+
+    §8D.46 forbids a silent real→stub fallback in production: a failed
+    load (or a failed generation) must be LOUD. The FastAPI layer maps
+    this to HTTP 503 and the cascade halts, rather than quietly emitting
+    ``[stub-slm]`` text.
+    """
+
+
 # ---------------------------------------------------------------------------
 # Model registry
 # ---------------------------------------------------------------------------
@@ -108,9 +119,17 @@ class SLMClient:
     # -----------------------------------------------------------------
 
     def _ensure_model(self) -> Optional[Any]:
-        """Load the GPT4All model on first real call. Returns None if
-        the backend isn't importable / loadable; callers fall back to
-        the stub responses."""
+        """Load the GPT4All model on first real call.
+
+        Returns ``None`` ONLY when the harness stub gate
+        (``WFH_FAKE_SLM=1``) is set — then callers use the deterministic
+        stub. In production (gate unset) a failed import or load raises
+        :class:`SLMUnavailableError` (mapped to HTTP 503) rather than
+        silently degrading to a stub — the §8D.46 no-mocks contract.
+
+        A real GPU→CPU device fallback within GPT4All is still "real"
+        and is therefore attempted before giving up.
+        """
         if self._fake:
             return None
         if self._model is not None:
@@ -118,9 +137,10 @@ class SLMClient:
         try:
             from gpt4all import GPT4All
         except Exception as exc:
-            logger.info("SLMClient: gpt4all not importable (%s); using stub.", exc)
-            self._fake = True
-            return None
+            raise SLMUnavailableError(
+                f"gpt4all is not importable ({exc}); the real SLM backend "
+                f"is required. Set WFH_FAKE_SLM=1 only in the harness."
+            ) from exc
         try:
             logger.info(
                 "SLMClient: binding local GPT4All %r on device=%r…",
@@ -133,10 +153,9 @@ class SLMClient:
             )
             return self._model
         except Exception as exc:
-            # Hard failure on CUDA — try CPU once before giving up. The
-            # §8D.46 contract says real-backend → stub fallback is
-            # forbidden in production, BUT real GPU → real CPU within
-            # the same backend (GPT4All) is permitted (it's still real).
+            # Hard failure — try a real CPU load once before giving up.
+            # §8D.46 permits real GPU → real CPU (still real); it forbids
+            # real → stub. If CPU also fails we raise (loud), never stub.
             if self._device != "cpu":
                 logger.warning(
                     "SLMClient: device=%r load failed (%s); "
@@ -151,12 +170,14 @@ class SLMClient:
                     self._device = "cpu"
                     return self._model
                 except Exception as exc2:
-                    logger.error(
-                        "SLMClient: CPU fallback also failed (%s); "
-                        "marking as unavailable.", exc2,
-                    )
-            self._fake = True
-            return None
+                    raise SLMUnavailableError(
+                        f"GPT4All load failed on device={self._device!r} and "
+                        f"on 'cpu' ({exc2}); real SLM backend unavailable."
+                    ) from exc2
+            raise SLMUnavailableError(
+                f"GPT4All load failed on device='cpu' ({exc}); real SLM "
+                f"backend unavailable."
+            ) from exc
 
     # -----------------------------------------------------------------
     # Async streaming chat — used by the agent token-streaming path
@@ -181,10 +202,12 @@ class SLMClient:
                 yield token
                 await asyncio.sleep(0.005)
         except Exception as exc:
-            logger.warning("SLMClient stream failed: %s", exc)
-            for tok in self._stub_text(prompt, system_prompt).split():
-                yield tok + " "
-                await asyncio.sleep(0.005)
+            # Real model failed mid-stream — loud, never a silent stub
+            # trailer (§8D.46). The harness stub path is the model-is-None
+            # branch above (WFH_FAKE_SLM gate), which never reaches here.
+            raise SLMUnavailableError(
+                f"SLM streaming generation failed: {exc}"
+            ) from exc
 
     # -----------------------------------------------------------------
     # Synchronous full-text generation
@@ -200,8 +223,9 @@ class SLMClient:
             full_prompt = f"System: {system_prompt}\nUser: {prompt}\nAssistant:"
             return str(model.generate(full_prompt, max_tokens=1024) or "")
         except Exception as exc:
-            logger.warning("SLMClient generate_text failed: %s", exc)
-            return self._stub_text(prompt, system_prompt)
+            raise SLMUnavailableError(
+                f"SLM generate_text failed: {exc}"
+            ) from exc
 
     # -----------------------------------------------------------------
     # JSON-only generation (legacy)
@@ -220,8 +244,9 @@ class SLMClient:
         try:
             res = model.generate(full_prompt, max_tokens=512)
         except Exception as exc:
-            logger.warning("SLMClient generate_json call failed: %s", exc)
-            return self._stub_json(prompt, system_prompt)
+            raise SLMUnavailableError(
+                f"SLM generate_json failed: {exc}"
+            ) from exc
         try:
             return json.loads("{" + res)
         except json.JSONDecodeError:

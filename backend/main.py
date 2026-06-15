@@ -6,7 +6,10 @@ from backend.database import init_db
 from backend.api.routes import router
 import os
 import mimetypes
-from backend.api.errors import register_workflow_error_handler
+from backend.api.errors import (
+    register_workflow_error_handler,
+    register_slm_unavailable_handler,
+)
 
 # Serve ES modules (.mjs) with the correct MIME so the greenfield fe/ tree
 # (the magic-markdown editor, §T/§U/§V) loads as modules. Default Windows
@@ -44,9 +47,10 @@ async def lifespan(app: FastAPI):
         from backend.database import close_db
         close_db()
     
-app = FastAPI(title="Graph-Analytic Web Segmentation API", lifespan=lifespan)
+app = FastAPI(title="web_fiber_haptics — Ontological Warp Workspace API", lifespan=lifespan)
 
 register_workflow_error_handler(app)
+register_slm_unavailable_handler(app)
 
 app.add_middleware(
     CORSMiddleware,

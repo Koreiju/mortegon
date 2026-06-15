@@ -22,3 +22,22 @@ def register_workflow_error_handler(app):
             status_code=exc.http_status,
             content={"error": {"code": exc.code, "message": exc.message, "retryable": exc.retryable, "retry_after_ms": exc.retry_after_ms, "context": exc.context}}
         )
+
+
+def register_slm_unavailable_handler(app):
+    """Map a real SLM-backend failure to HTTP 503 (§8D.46: subsystem
+    failures are LOUD — no silent stub fallback in production). The
+    cascade halts; the client sees a retryable 503 rather than
+    ``[stub-slm]`` text."""
+    from backend.services.slm_client import SLMUnavailableError
+
+    @app.exception_handler(SLMUnavailableError)
+    async def slm_handler(request, exc: SLMUnavailableError):
+        return JSONResponse(
+            status_code=503,
+            content={"error": {
+                "code": "slm_unavailable",
+                "message": str(exc),
+                "retryable": True,
+            }},
+        )

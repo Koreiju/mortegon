@@ -3222,17 +3222,18 @@ class ConceptComputeChainRequest(BaseModel):
 
 
 def _make_slm_for_compute(use_slm: bool):
-    """Return an SLMClient when use_slm=True, else None. Wrapped so a
-    failed import doesn't crash the request — the ConceptComputeNode
-    falls back to its deterministic stub when SLM is None."""
+    """Return an SLMClient when ``use_slm=True``, else ``None``.
+
+    The SLMClient constructor is lazy (it does NOT load the GGUF here),
+    so construction does not fail on a missing model. A real load failure
+    surfaces later as ``SLMUnavailableError`` (mapped to HTTP 503) on
+    first use — §8D.46 forbids a silent real→stub fallback in production.
+    ``None`` here means only "the caller did not request the SLM"
+    (``use_slm=False``), a legitimate no-SLM compute."""
     if not use_slm:
         return None
-    try:
-        from backend.services.slm_client import SLMClient
-        return SLMClient()
-    except Exception as exc:
-        logger.warning("Compute endpoint: SLM unavailable, using stub: %s", exc)
-        return None
+    from backend.services.slm_client import SLMClient
+    return SLMClient()
 
 
 @router.post("/conceptual/compile")

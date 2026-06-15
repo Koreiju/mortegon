@@ -447,9 +447,13 @@ class ConceptComputeNode:
             # Otherwise call generate_json and stringify.
             data = self._slm.generate_json(prompt, system_prompt=system_prompt)
             return json.dumps(data) if data else ""
-        except Exception as exc:
-            logger.warning("ConceptComputeNode SLM invoke failed: %s", exc)
-            return self._stub_response(prompt, system_prompt)
+        except Exception:
+            # A real SLM call failed — propagate loudly (§8D.46), do NOT
+            # swallow to a stub. The harness stub path is the WFH_FAKE_SLM
+            # gate inside SLMClient (returns stub text WITHOUT raising) and
+            # the use_slm=False `self._slm is None` branch above; only a
+            # genuine backend failure reaches here.
+            raise
 
     def _invoke_slm_json(self, prompt: str, system_prompt: str = "") -> Any:
         """Call the SLM expecting JSON. Returns dict | list | None."""
@@ -460,9 +464,11 @@ class ConceptComputeNode:
             if fn is not None:
                 return fn(prompt, system_prompt=system_prompt)
             return self._slm.generate_json(prompt, system_prompt=system_prompt)
-        except Exception as exc:
-            logger.warning("ConceptComputeNode SLM json invoke failed: %s", exc)
-            return self._stub_json(prompt, system_prompt)
+        except Exception:
+            # Real SLM failure — propagate loudly (§8D.46), never swallow
+            # to a stub. Harness stub is the WFH_FAKE_SLM gate (no raise)
+            # or the use_slm=False None branch above.
+            raise
 
     def _stub_response(self, prompt: str, system_prompt: str = "") -> str:
         """Deterministic offline stub so scenarios can verify wiring
