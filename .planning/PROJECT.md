@@ -138,5 +138,24 @@ sample *breadth* (independent surfaces); they do not run concurrently against th
 live stack. Per-agent isolation, when needed, uses the `db_janitor` `wfh_test_`
 temp-DB convention + a distinct `workspace_id`, never a second backend on 8080.
 
+**Frontend-render sampling (the REPL's blind spot):** the `env-scenario` contract
+verifies the API/WebSocket *seam* only — it does not render a browser. Render-level
+criteria (the §11 black-slate DOM audit, caret-at-click, `{`-autocomplete, halo
+z-order + token-anchored re-anchor, panel⇄graph toggle, projector) sample via
+`frontend_e2e/*.spec.js` **Playwright** assertions (Bash-runnable `npm run
+test:e2e`, so `gsd-verifier` executes them; the `playwright` MCP server in
+`.mcp.json` is for *interactive* driving by `gsd-ui-researcher` / debugging). A
+§T/§U/§V frontend task names a Playwright spec as its acceptance — never a
+screenshot (D1).
+
+**Model sampling (fan-out vs decision):** `.planning/config.json` `model_overrides`
+routes the high-volume fan-out / structured-sampling agents (codebase-mapper,
+doc-classifier→Haiku, doc-synthesizer, researcher, pattern-mapper,
+**nyquist-auditor**, ui-researcher) to **Sonnet** so the FULL gate chain
+(research + plan-check + verifier + nyquist + ui + post-planning-gaps) runs at a
+higher sample rate for affordable cost; the fan-in *judgment* agents (planner,
+plan-checker, roadmapper, verifier) stay on **Opus**. Higher sampling = run every
+quality gate, cheaply — not N parallel planners.
+
 ---
-*Last updated: 2026-06-15 — added the Planning Granularity Contract + `.planning/config.json` (granularity `standard`, nyquist gate on, sequential executors for the shared real stack). Brownfield bootstrap baseline: 2026-06-14.*
+*Last updated: 2026-06-15 — added the Planning Granularity Contract + `.planning/config.json` (granularity `standard`, nyquist gate on, model_overrides fan-out→Sonnet / decision→Opus, sequential executors for the shared real stack) + Playwright frontend-render sampling (`.mcp.json` + `frontend_e2e/`). Brownfield bootstrap baseline: 2026-06-14.*

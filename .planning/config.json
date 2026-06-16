@@ -27,6 +27,20 @@
     "subagent_timeout": 600000
   },
   "parallelization": true,
+  "model_overrides": {
+    "gsd-doc-classifier": "claude-haiku-4-5-20251001",
+    "gsd-codebase-mapper": "claude-sonnet-4-6",
+    "gsd-doc-synthesizer": "claude-sonnet-4-6",
+    "gsd-phase-researcher": "claude-sonnet-4-6",
+    "gsd-pattern-mapper": "claude-sonnet-4-6",
+    "gsd-nyquist-auditor": "claude-sonnet-4-6",
+    "gsd-ui-researcher": "claude-sonnet-4-6",
+    "gsd-intel-updater": "claude-sonnet-4-6",
+    "gsd-planner": "claude-opus-4-8",
+    "gsd-plan-checker": "claude-opus-4-8",
+    "gsd-roadmapper": "claude-opus-4-8",
+    "gsd-verifier": "claude-opus-4-8"
+  },
   "features": {
     "thinking_partner": true
   },
