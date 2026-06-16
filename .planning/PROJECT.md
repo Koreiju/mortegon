@@ -104,5 +104,39 @@ The four lodestar use cases (§8D.45/47/48/49) run end-to-end **against real sub
 | D10 — Backend computes, frontend renders | Layout/embeddings/PageRank are backend services; frontend has no UMAP/embedding runtime | ✓ Locked |
 | D11 — Forbidden concepts (hard deletions) | Concentric spheres, graph analytics, Llama, two-panel split, dotted lines, concept rings, Editor fixture, retrieval sidebar, panel chrome | ✓ Locked |
 
+## Planning Granularity Contract
+
+Pins GSD's agent/task/step grain onto the `DOC_MAP.md` altitude ladder so plans
+sample **finely enough to be verifiable but not so finely they become
+`code_specs` (over-sampled) nor so coarsely they restate design docs (aliased /
+under-sampled)**. This is the Nyquist criterion: sample each requirement at the
+minimum resolution that reconstructs its behaviour. Enforced by
+`workflow.nyquist_validation: true` + `/gsd-validate-phase`.
+
+| GSD grain | DOC_MAP altitude | Definition | Sample (verification) |
+|---|---|---|---|
+| **Agent** (spawned workstream) | register / surface | ONE independent, non-colliding workstream (e.g. a backend service surface vs the frontend slate); spawn only when there is no shared mutable state | n/a — a bundle of tasks |
+| **Task** | `code_constraints/` (must-hold / must-not) | advance ONE programming-surface constraint to a verifiable state | exactly ONE named project-idiom check: an `env-scenario`, a `probe_live_*.py`, or `all_real: true` |
+| **Step** | `code_specs/` (typed fn + pre/post) | ONE atomic commit — one function/contract/file change that compiles and passes its local check | the commit's own green check |
+
+**DO** — a task names the `code_constraints` surface it touches **and** its single
+acceptance scenario/probe.
+**DON'T (too general / aliased)** — a task that restates a `DOMAIN_MODEL`/feature
+paragraph with no surface and no named check.
+**DON'T (too specific / oversampled)** — a task that inlines `code_specs`
+pre/post-conditions, or splits one commit's function across multiple tasks.
+
+**Sampling-adequacy gate:** every `REQ-*` must map to ≥1 named scenario/probe (no
+aliased requirement); `/gsd-validate-phase` + the `gsd-nyquist-auditor` fill gaps
+and flag over-decomposed plans.
+
+**Shared-stack rule (why agents don't run concurrently here):** verification runs
+against the SINGLE real backend (port 8080, Kuzu `_default`, headful Firefox
+singleton), so executor agents run **sequentially** (`workflow.use_worktrees:
+false`) — parallel worktrees would collide on the port / DB / driver. Agents
+sample *breadth* (independent surfaces); they do not run concurrently against the
+live stack. Per-agent isolation, when needed, uses the `db_janitor` `wfh_test_`
+temp-DB convention + a distinct `workspace_id`, never a second backend on 8080.
+
 ---
-*Last updated: 2026-06-14 after brownfield bootstrap (new-project-from-ingest) — full planning set (PROJECT/REQUIREMENTS/ROADMAP/STATE) written consistently.*
+*Last updated: 2026-06-15 — added the Planning Granularity Contract + `.planning/config.json` (granularity `standard`, nyquist gate on, sequential executors for the shared real stack). Brownfield bootstrap baseline: 2026-06-14.*
