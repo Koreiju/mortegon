@@ -54,7 +54,7 @@ def _get(base: str, path: str, timeout: float = 5.0):
         return json.loads(r.read().decode("utf-8"))
 
 
-def boot_backend(real: bool, port: int) -> subprocess.Popen:
+def boot_backend(real: bool, port: int, isolated: bool) -> subprocess.Popen:
     env = dict(os.environ)
     env["WFH_TEST_PORT"] = str(port)
     if real:
@@ -62,9 +62,23 @@ def boot_backend(real: bool, port: int) -> subprocess.Popen:
             env.pop(k, None)          # never gate the real stack
     else:
         env.update(STUB_GATES)
-    cmd = [sys.executable, "scripts/_serve_for_tests.py"] + (["--real"] if real else [])
+    cmd = ([sys.executable, "scripts/_serve_for_tests.py"]
+           + (["--real"] if real else [])
+           + (["--isolated"] if isolated else []))
     flags = subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0
     return subprocess.Popen(cmd, cwd=str(ROOT), env=env, creationflags=flags)
+
+
+def boot_fixture_server(port: int = 8099) -> "subprocess.Popen | None":
+    """Serve test_packages/ locally for deterministic live scans. Returns the
+    process (or None if the corpus is absent)."""
+    if not (ROOT / "test_packages").is_dir():
+        return None
+    env = dict(os.environ)
+    env["WFH_FIXTURE_PORT"] = str(port)
+    flags = subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0
+    return subprocess.Popen([sys.executable, "scripts/_fixture_server.py"],
+                            cwd=str(ROOT), env=env, creationflags=flags)
 
 
 def wait_ready(base: str, real: bool, timeout_s: float) -> bool:
@@ -113,6 +127,12 @@ def main() -> int:
     ap.add_argument("--repl-scope", choices=["full-smoke", "all"], default="all",
                     help="REPL set: 'all' = complete env-scenario registry (default); "
                          "'full-smoke' = the curated 92-scenario chain")
+    ap.add_argument("--no-isolated", action="store_true",
+                    help="use the operator's real kuzu_db instead of a fresh db_janitor "
+                         "temp DB (default is isolated — tests never touch real data)")
+    ap.add_argument("--fixture-scan", action="store_true",
+                    help="serve test_packages/ locally + point the live-scan scenarios "
+                         "at it (deterministic real scans; no archive.org throttling)")
     args = ap.parse_args()
 
     real = args.real
@@ -121,7 +141,8 @@ def main() -> int:
         {"pytest", "repl", "e2e"} | ({"probes"} if real else set()))
     if args.no_pytest:
         tiers.discard("pytest")
-    repl_env = None if real else dict(STUB_GATES)
+    isolated = not args.no_isolated
+    repl_env: dict = {} if real else dict(STUB_GATES)
 
     results: dict[str, bool] = {}
 
@@ -133,8 +154,16 @@ def main() -> int:
 
     backend_tiers = tiers & {"repl", "e2e", "probes"}
     if backend_tiers:
-        print(f"\n[framework] booting {'REAL' if real else 'STUB'} backend on {base} ...", flush=True)
-        proc = boot_backend(real, args.port)
+        fixture_proc = None
+        if args.fixture_scan:
+            fixture_proc = boot_fixture_server()
+            if fixture_proc:
+                repl_env["WFH_TEST_SCAN_URL"] = "http://127.0.0.1:8099/archive_org/"
+                print("[framework] deterministic fixture scan → "
+                      "http://127.0.0.1:8099/archive_org/", flush=True)
+        print(f"\n[framework] booting {'REAL' if real else 'STUB'}"
+              f"{' ISOLATED' if isolated else ''} backend on {base} ...", flush=True)
+        proc = boot_backend(real, args.port, isolated=isolated)
         try:
             if not wait_ready(base, real, timeout_s=240 if real else 90):
                 print("[framework] backend never became ready", file=sys.stderr)
@@ -168,6 +197,8 @@ def main() -> int:
         finally:
             print("\n[framework] tearing down backend ...", flush=True)
             kill_backend(proc)
+            if fixture_proc is not None:
+                kill_backend(fixture_proc)
 
     print(f"\n{'=' * 72}\n FULL-STACK TEST SUMMARY  ({'REAL' if real else 'STUB'} mode)\n{'=' * 72}")
     all_ok = True

@@ -17,6 +17,8 @@ if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
 _REAL = "--real" in sys.argv
+_ISOLATED = ("--isolated" in sys.argv
+             or os.environ.get("WFH_TEST_ISOLATED", "").lower() in ("1", "true", "yes"))
 
 if not _REAL:
     # harness stub gates (only when not running the real stack)
@@ -26,6 +28,14 @@ if not _REAL:
 else:
     os.environ.setdefault("WFH_SLM_DEVICE", "cuda")
     os.environ.setdefault("WFH_EMBEDDER_DEVICE", "cuda")
+
+# Workspace isolation: point the test backend at a fresh db_janitor temp DB so a
+# framework run never mutates the operator's real kuzu_db/_default and always
+# starts from a clean baseline (auto-swept at exit).
+if _ISOLATED and not os.environ.get("WFH_DB_PATH"):
+    from backend.services.db_janitor import new_temp_db_path, register_for_cleanup
+    os.environ["WFH_DB_PATH"] = register_for_cleanup(new_temp_db_path("framework"))
+    print(f"[serve] isolated test DB: {os.environ['WFH_DB_PATH']}", flush=True)
 
 import uvicorn  # noqa: E402
 

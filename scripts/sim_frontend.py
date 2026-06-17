@@ -7939,6 +7939,15 @@ def _env_scenario_perimeter_rescale(env: FrontendEnv) -> int:
         return 1
 
 
+def _test_scan_url(default: str) -> str:
+    """Live-scan target — overridable via ``WFH_TEST_SCAN_URL`` so the framework
+    can point real scans at a deterministic local fixture server
+    (``scripts/_fixture_server.py``) instead of archive.org (which bot-throttles
+    rapid re-scans). Still a REAL Selenium scan + real chunk extraction; only the
+    page source is local and identical every run."""
+    return os.environ.get("WFH_TEST_SCAN_URL", default)
+
+
 def _env_scenario_live_scan_real_with_cleanup(env: FrontendEnv) -> int:
     """§16.5 / §1.4 — the mandatory live-scan probe. Gated by `all_real`;
     gracefully skips in stub mode (§1.5 — full-smoke must pass in BOTH modes),
@@ -7959,7 +7968,8 @@ def _env_scenario_live_scan_real_with_cleanup(env: FrontendEnv) -> int:
             "cleanup is covered by probe_live_archive_scan.py under the real stack")
         return 0
     # Real stack: drive a bounded real scan, watch to done, then purge-clean.
-    out = _env_step(env, "scan", url="https://archive.org/search?query=university+library",
+    out = _env_step(env, "scan",
+                    url=_test_scan_url("https://archive.org/search?query=university+library"),
                     samples=2)
     if (out.get("response") or {}).get("_status", 0) not in (200, 0):
         _err(f"live scan did not start cleanly: {out.get('response')}")
@@ -7989,7 +7999,7 @@ def _env_scenario_timed_scan_duration_port(env: FrontendEnv) -> int:
     dur = 15
     t0 = time.time()
     out = _env_step(env, "scan",
-                    url="https://archive.org/search?query=university+library",
+                    url=_test_scan_url("https://archive.org/search?query=university+library"),
                     duration_s=dur)
     # The scan route is async-accepted by design: GET /snapshot returns
     # 202 with {status: "accepted", ws_url} (routes.py status_code=202).
