@@ -4,6 +4,32 @@
 
 This codebase has a distinctive, three-tier verification surface. Pytest is the *unit/integration* layer, but the **primary acceptance bar** is the `sim_frontend.py` REPL harness's `env-scenario` contract (~92-96 scenarios that must stay green in BOTH stub and real modes) plus `scripts/probe_live_*.py` end-to-end probes against real subsystems. Read CLAUDE.md "Verification Surface (§11.7 / §11.8)" alongside this doc.
 
+## Unified full-stack test framework (use this — 2026-06-15)
+
+`scripts/run_full_stack_tests.py` (`npm run test:all`) is the single entry point.
+It boots ONE managed, **isolated** (db_janitor temp DB) backend and runs every
+tier against it with a unified summary:
+
+| Tier | What |
+|---|---|
+| `pytest` | `backend/tests/` |
+| `repl` | `env-scenario --name all` — the COMPLETE registry (95 of 96; real-only scenarios skip in stub) |
+| `e2e` | Playwright `frontend_e2e/*.spec.js` (render-level — the REPL's blind spot) |
+| `probes` (`--real`) | `probe_no_mocks` + the four `probe_live_*` lodestars |
+
+```bash
+npm run test:all                                   # stub: pytest + repl(all) + e2e → ALL GREEN
+npm run test:all:real                              # all_real CUDA stack + live probes
+python scripts/run_full_stack_tests.py --real --fixture-scan   # deterministic acceptance (local fixtures, no archive throttle)
+python scripts/run_full_stack_tests.py --only repl --repl-scope full-smoke   # subset/curated
+```
+
+Proven ALL GREEN in both stub and real modes (2026-06-15). The per-requirement
+→ command mapping + the fast/acceptance/real-vs-stub run policy live in
+[`.planning/TEST_MATRIX.md`](../TEST_MATRIX.md) — that is what `gsd-verifier`
+consults. The `@playwright/mcp` server (`.mcp.json`) drives the live UI
+interactively for discovering/debugging new e2e specs.
+
 ## Test Framework
 
 **Runner:**
