@@ -8,6 +8,9 @@
 //   WFH_FAKE_SLM=1 WFH_FAKE_EMBEDDER=1 NO_WEBDRIVER=1 python -m backend.main
 // then:  npm run test:e2e
 const { defineConfig, devices } = require("@playwright/test");
+const path = require("path");
+
+const BASE = process.env.WFH_FRONTEND_URL || "http://127.0.0.1:8080";
 
 module.exports = defineConfig({
   testDir: ".",
@@ -18,10 +21,22 @@ module.exports = defineConfig({
   workers: 1,
   reporter: [["list"]],
   use: {
-    baseURL: process.env.WFH_FRONTEND_URL || "http://127.0.0.1:8080",
+    baseURL: BASE,
     headless: true,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
+  },
+  // Self-boot a STUB backend when none is running; reuse an existing one (e.g.
+  // booted by scripts/run_full_stack_tests.py). Stub is sufficient for render —
+  // run the orchestrator with --real for the all_real stack. This is what makes
+  // `npm run test:e2e` self-contained.
+  webServer: {
+    command: `${process.env.PYTHON || "python"} scripts/_serve_for_tests.py`,
+    cwd: path.join(__dirname, ".."),
+    url: `${BASE}/api/scan_status`,
+    reuseExistingServer: true,
+    timeout: 120000,
+    env: { WFH_FAKE_SLM: "1", WFH_FAKE_EMBEDDER: "1", NO_WEBDRIVER: "1" },
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });

@@ -193,6 +193,35 @@ Navigate to `http://127.0.0.1:8080/` to interact with the editor.
 
 ## 🧪 Testing Protocol
 
+### Unified full-stack test framework
+
+One command boots a single managed backend and runs **every verification tier**
+against it, with a unified pass/fail summary — `scripts/run_full_stack_tests.py`
+(`npm run test:all`):
+
+| Tier | What | Needs backend |
+|---|---|---|
+| `pytest` | `backend/tests/` unit + integration | no |
+| `repl` | `sim_frontend.py env-scenario --name full-smoke` — the **full** REPL contract (~92 scenarios) | yes |
+| `e2e` | Playwright `frontend_e2e/*.spec.js` — render-level acceptance the REPL can't reach | yes |
+| `probes` *(--real)* | `probe_no_mocks` + the four `probe_live_*` lodestars | yes (real) |
+
+```bash
+npm run test:all            # STUB: pytest + repl + e2e  (→ ALL GREEN ✓)
+npm run test:all:real       # all_real CUDA stack: + the live lodestar probes
+python scripts/run_full_stack_tests.py --only repl --only e2e   # subset
+python scripts/run_full_stack_tests.py --no-pytest --port 8090  # knobs
+```
+
+The framework owns the backend lifecycle (boot → wait-ready → run tiers →
+teardown), so the REPL env-scenario contract and the Playwright suite run in the
+**same framework against the same stack**. Playwright also self-boots a stub
+backend (`webServer`, `reuseExistingServer`) so `npm run test:e2e` is standalone;
+see [`frontend_e2e/README.md`](frontend_e2e/README.md). Last green: 2026-06-15
+(stub: pytest + 92 scenarios + 5 e2e).
+
+### Component test surfaces
+
 The testing framework explicitly isolates geometric and graph-theoretic verifications within a temporary isolated KuzuDB instance (`test_kuzu_db`), ensuring active deployment data remains pristine.
 
 > **Note (2026-06 audit, `docs/CODEBASE_AUDIT_2026-06-08.md`):** the 3D layout authority is the
