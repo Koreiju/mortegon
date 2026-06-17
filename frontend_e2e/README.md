@@ -45,9 +45,15 @@ discuss/spec (e.g. a `gsd-ui-researcher`) and manual debugging.
 - `workers: 1`, `fullyParallel: false` — the single shared backend (port 8080,
   Kuzu `_default`, Firefox singleton) cannot serve parallel browser contexts
   mutating the same workspace. Same shared-stack rule as the GSD executors.
-- The "absence" specs (§11.1/§11.2) are content-agnostic and pass on any load.
-  The slate-style + interaction specs self-skip on an empty workspace — scan a
-  URL first (`web-scan` / a `probe_live_*`) so panels exist, then re-run.
-- These are intentionally a thin starter. Fill in per-phase render criteria as
-  Phase 2 (caret/IME, `+→`/`+↓`, `{`-autocomplete) and Phase 3 (halo z-order +
-  token-anchored re-anchor, circular collapsed node) land.
+- The "absence" specs (§11.1/§11.2) and the black-ground spec run against the
+  live `/` editor and pass on any load. The slate **visual contract** spec runs
+  against the served `static/js/fe/demo.html` reference page (real static
+  `.mm-slate` with no scan), so it verifies black-fill `rgb(0,0,0)` · silver
+  border `rgb(192,192,192)` 1px solid · Georgia-serif white `rgb(255,255,255)`
+  in any backend mode. The same `.mm-slate` renders on `/` once chunks are
+  scanned.
+- Status: **5/5 green** (2026-06-15) against a stub backend. These are a starter;
+  fill in per-phase interaction criteria as Phase 2 (caret/IME, `+→`/`+↓`,
+  `{`-autocomplete) and Phase 3 (halo z-order + token-anchored re-anchor,
+  circular collapsed node) land — drive them out with the `playwright` MCP first,
+  then codify as specs.

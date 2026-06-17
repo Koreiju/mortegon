@@ -41,15 +41,23 @@ test("§S.4 black ground + no panel chrome (header / × / minimiser / topbar)", 
   ).toBe(0);
 });
 
-// Render-and-interact check. Self-skips when the workspace has no rendered slate
-// (fresh/empty). To exercise it, scan a URL first (REPL `web-scan` or
-// probe_live_archive_scan) so panels exist, then re-run.
-test("§S.4 a rendered slate is black-fill / silver-border / serif-white", async ({ page }) => {
-  const slate = page.locator(".mm-slate, .mm-text").first();
-  if ((await slate.count()) === 0) test.skip(true, "no rendered slate (empty workspace)");
-  const styles = await slate.evaluate((el) => {
-    const cs = getComputedStyle(el.closest(".mm-slate") || el);
-    return { fill: cs.backgroundColor, border: cs.borderColor, font: cs.fontFamily, color: cs.color };
+// §S.4 / §3 visual contract — exercised against the served demo reference page
+// (backend/static/js/fe/demo.html), which renders real static slates with NO
+// scan, so the slate-style assertions run in any backend mode (incl. stub).
+// The live `/` editor renders the same `.mm-slate` once chunks are scanned.
+test("§S.4 rendered slate = black fill · silver border · serif white", async ({ page }) => {
+  await page.goto("/static/js/fe/demo.html");
+  await page.waitForLoadState("networkidle");
+  const slate = page.locator(".mm-slate").first();
+  await expect(slate).toHaveCount(1);
+  const s = await slate.evaluate((el) => {
+    const cs = getComputedStyle(el);
+    return { fill: cs.backgroundColor, border: cs.borderColor, bw: cs.borderTopWidth, bs: cs.borderTopStyle, font: cs.fontFamily, color: cs.color };
   });
-  expect(styles.font.toLowerCase()).toMatch(/serif|georgia|times/);
+  expect(s.fill, "slate fill").toBe("rgb(0, 0, 0)");            // §T --slate-fill #000
+  expect(s.border, "slate border").toBe("rgb(192, 192, 192)"); // §T --slate-border #c0c0c0
+  expect(s.bs).toBe("solid");
+  expect(parseFloat(s.bw)).toBeGreaterThan(0);
+  expect(s.color, "serif white").toBe("rgb(255, 255, 255)");
+  expect(s.font.toLowerCase()).toMatch(/serif|georgia/);
 });
