@@ -110,6 +110,9 @@ def main() -> int:
                     action="append", help="run only these tier(s); repeatable")
     ap.add_argument("--no-pytest", action="store_true")
     ap.add_argument("--port", type=int, default=8080)
+    ap.add_argument("--repl-scope", choices=["full-smoke", "all"], default="all",
+                    help="REPL set: 'all' = complete env-scenario registry (default); "
+                         "'full-smoke' = the curated 92-scenario chain")
     args = ap.parse_args()
 
     real = args.real
@@ -145,10 +148,11 @@ def main() -> int:
             print("[framework] backend ready.", flush=True)
 
             if "repl" in tiers:
-                results["repl    (env-scenario full-smoke)"] = run_tier(
-                    "REPL full-smoke",
+                scope = args.repl_scope
+                results[f"repl    (env-scenario {scope})"] = run_tier(
+                    f"REPL {scope}",
                     [sys.executable, "scripts/sim_frontend.py", "--backend", base,
-                     "env-scenario", "--name", "full-smoke"], repl_env)
+                     "env-scenario", "--name", scope], repl_env)
 
             if "e2e" in tiers:
                 results["e2e     (Playwright frontend)"] = run_tier(

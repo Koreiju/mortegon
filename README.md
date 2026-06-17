@@ -202,16 +202,23 @@ against it, with a unified pass/fail summary — `scripts/run_full_stack_tests.p
 | Tier | What | Needs backend |
 |---|---|---|
 | `pytest` | `backend/tests/` unit + integration | no |
-| `repl` | `sim_frontend.py env-scenario --name full-smoke` — the **full** REPL contract (~92 scenarios) | yes |
+| `repl` | `sim_frontend.py env-scenario --name all` — the **complete** registry (all 95 scenarios; real-only ones skip in stub). `--repl-scope full-smoke` runs the curated 92-chain instead. | yes |
 | `e2e` | Playwright `frontend_e2e/*.spec.js` — render-level acceptance the REPL can't reach | yes |
 | `probes` *(--real)* | `probe_no_mocks` + the four `probe_live_*` lodestars | yes (real) |
 
 ```bash
-npm run test:all            # STUB: pytest + repl + e2e  (→ ALL GREEN ✓)
+npm run test:all            # STUB: pytest + repl(all=95) + e2e  (→ ALL GREEN ✓)
 npm run test:all:real       # all_real CUDA stack: + the live lodestar probes
+python scripts/run_full_stack_tests.py --repl-scope full-smoke  # curated 92-chain
 python scripts/run_full_stack_tests.py --only repl --only e2e   # subset
 python scripts/run_full_stack_tests.py --no-pytest --port 8090  # knobs
 ```
+
+The REPL exposes the complete set directly too: `python scripts/sim_frontend.py
+--backend http://127.0.0.1:8080 env-scenario --name all` (96 registered scenarios;
+`all` runs 95 — every scenario except the `full-smoke`/`all` meta — with the
+real-only ones, e.g. `live-scan-real-with-cleanup` and `apparitions-discover-link`,
+skipping green in stub).
 
 The framework owns the backend lifecycle (boot → wait-ready → run tiers →
 teardown), so the REPL env-scenario contract and the Playwright suite run in the

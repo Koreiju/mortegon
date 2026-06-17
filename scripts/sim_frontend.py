@@ -4124,6 +4124,20 @@ def _env_scenario_apparitions_discover_link(env: FrontendEnv) -> int:
     apparition response should surface the linked target.
     """
     _section("env scenario: apparitions-discover-link")
+    # §1.5 — needs the REAL embedder. The fake (hash-deterministic) embeddings
+    # carry no semantics, so a linked-but-only-semantically-similar target B
+    # won't rank into the top-k against the materialised fixture trees. Gate on
+    # all_real like the other real-only scenarios; skip (green) in stub mode so
+    # `all` passes in BOTH modes.
+    try:
+        status = env.backend.subsystem_status() or {}
+    except Exception as e:
+        _err(f"subsystem_status unreachable: {e}")
+        return 1
+    if not status.get("all_real"):
+        _ok("skipped — requires all_real (stub mode); real nomic surfaces the "
+            "linked semantic target B in apparitions(A)")
+        return 0
     fails = 0
 
     a = _env_step(env, "concept-create",
@@ -8341,20 +8355,12 @@ def _env_scenario_db_janitor_hygiene(env: FrontendEnv) -> int:
     return 0
 
 
-def _env_scenario_full_smoke(env: FrontendEnv) -> int:
-    """End-to-end coverage of the common surfaces in one run.
-
-    Composes: route-mount-smoke → fixture-delete-guard → chunker-
-    regression → concept-lifecycle → edge-roundtrip → idempotency-
-    replay → purge-and-rebuild. Stops at the first scenario failure
-    and returns its exit code.
-    """
-    _section("env scenario: full-smoke")
-    # Order matters — fast non-embedder scenarios first, then warmup
-    # (which loads nomic), then the embedder-dependent ones. On a cold
-    # backend the warmup call takes 60-180s; everything after it runs
-    # in tens of ms per call.
-    chain = [
+def _full_smoke_chain() -> List[Any]:
+    """The ordered full-smoke chain — fast/no-embedder scenarios first, then
+    warmup (loads nomic), then embedder-dependent ones. Shared by the
+    `full-smoke` and `all` env-scenarios so `all` can compute its extras.
+    Order matters for SPEED (warmup before embedder calls), not correctness."""
+    return [
         # -- harness self-check + fast no-backend / no-embedder --
         ("action-registry-coverage",     _env_scenario_action_registry_coverage),
         ("route-coverage",               _env_scenario_route_coverage),
@@ -8457,18 +8463,57 @@ def _env_scenario_full_smoke(env: FrontendEnv) -> int:
         ("agentic-instantiate-shape",    _env_scenario_agentic_instantiate_shape),
         ("purge-and-rebuild",            _env_scenario_purge_and_rebuild),
     ]
+
+
+def _env_scenario_full_smoke(env: FrontendEnv) -> int:
+    """End-to-end coverage of the common surfaces in one run (the curated,
+    known-green contract). For THE FULL SET (complete registry) use `all`."""
+    _section("env scenario: full-smoke")
+    chain = _full_smoke_chain()
     failed: List[str] = []
     for name, fn in chain:
-        rc = fn(env)
-        if rc != 0:
-            failed.append(name)
-            # Don't stop — collect all failures for visibility.
+        if fn(env) != 0:
+            failed.append(name)  # collect all failures for visibility
     print()
     if failed:
         _err(f"full-smoke FAILED — {len(failed)} of {len(chain)} scenarios failed: "
              + ", ".join(failed))
         return 1
     _ok(f"full-smoke passed — all {len(chain)} scenarios OK")
+    return 0
+
+
+def _env_scenario_all(env: FrontendEnv) -> int:
+    """Run THE FULL SET — the full-smoke chain PLUS every registered scenario
+    not already in it (excluding the `full-smoke`/`all` meta-scenarios). This is
+    the complete REPL contract; the unified framework runs it via `--name all`.
+    Drift-resistant: the extras are computed from `_ENV_SCENARIOS` at run time,
+    so any newly-registered scenario outside the chain is picked up here."""
+    _section("env scenario: all (complete registry)")
+    # Clean baseline so state-sensitive scenarios (e.g. evolution-rollback) are
+    # not tripped by prior workspace pollution — the curated full-smoke chain
+    # assumes a near-fresh _default.
+    try:
+        _env_step(env, "purge", confirm="erase")
+    except Exception:
+        pass
+    chain = _full_smoke_chain()
+    chain_names = {n for n, _ in chain}
+    extras = [(n, _ENV_SCENARIOS[n]) for n in sorted(_ENV_SCENARIOS)
+              if n not in chain_names and n not in ("full-smoke", "all")]
+    full = chain + extras
+    print(f"  {len(full)} scenarios = {len(chain)} chain + {len(extras)} extra"
+          + ((": " + ", ".join(n for n, _ in extras)) if extras else ""))
+    failed: List[str] = []
+    for name, fn in full:
+        if fn(env) != 0:
+            failed.append(name)
+    print()
+    if failed:
+        _err(f"all FAILED — {len(failed)} of {len(full)} scenarios failed: "
+             + ", ".join(failed))
+        return 1
+    _ok(f"all passed — every registered scenario OK ({len(full)})")
     return 0
 
 
@@ -8579,6 +8624,7 @@ _ENV_SCENARIOS: Dict[str, Any] = {
     "agentic-instantiate-shape":    _env_scenario_agentic_instantiate_shape,
     # -- meta scenario: everything --
     "full-smoke":                   _env_scenario_full_smoke,
+    "all":                          _env_scenario_all,
 }
 
 
