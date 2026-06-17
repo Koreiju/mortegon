@@ -9,6 +9,8 @@ Mortegon is the shape of capitalism's death through complete autonomy transplant
 
 The idea is simple; the database of functional objects are procedurally rendered over interactive and fluid conceptual computation spaces. This includes a web browser, the python library of functional-object packages, and extends to distributed agentic organisms; computation graphs with small language models interlinked. In essence, monte carlo integration over vast spectra of conceptual computational models enables a hermeneutically inert articulation over arbitrarily large and semantically linked implicit data structures. 
 
+Functionality and objectivity are an inherent dialect to cognicizing computation. 
+
 ---
 
 ## 🌟 Core Features
