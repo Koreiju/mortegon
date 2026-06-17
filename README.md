@@ -24,6 +24,8 @@ Reservoir-pure database design as a recurrent world model over unstructured web 
 ## 🧱 Architecture / Tech Stack
 
 A frontend, and a backend. If you even care. 
+
+Ought to run on a good gaming laptop. 
 ---
 
 ## 📚 Documentation Map
