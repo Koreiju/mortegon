@@ -36,6 +36,7 @@ test-results/
 playwright-report/
 blob-report/
 .playwright/
+.playwright-mcp/
 
 # ── OS ───────────────────────────────────────────────────────────────────
 .DS_Store
