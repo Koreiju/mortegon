@@ -20,12 +20,12 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 
 ## Current Position
 
-Phase: 2 of 5 (Black-Slate Field Editing) — Phase 1 done (stub-verified)
+Phase: 2 of 5 (Black-Slate Field Editing) — Phase 1 done; core success metric met on the REAL stack
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
-Status: Phase 1 COMPLETE in stub mode (real-stack verify deferred to the GPU box); Phase 2 backend-side verified, EDIT-03 decided
-Last activity: 2026-06-15 — Phase 1 finished + Phase 2 backend verification. 7 commits. Full pytest 336/2-skip/0-fail; full-smoke 92/92 (stub); Phase 2 scenarios green.
+Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. GSD migration config + a UNIFIED full-stack test framework are in place.
+Last activity: 2026-06-15 — built `scripts/run_full_stack_tests.py` (`npm run test:all`): boots ONE managed backend and runs pytest + the full REPL `env-scenario full-smoke` + Playwright `frontend_e2e` against it with a unified summary. **PROVEN ALL GREEN in BOTH stub AND real (all_real) modes** (real: 92 scenarios + 5 e2e), backend torn down cleanly. Also: `.planning/config.json` (model fan-out → Sonnet/Haiku + nyquist gate + granularity contract), Playwright MCP (`.mcp.json`) + `frontend_e2e/` suite (5/5).
 
-Progress: [██░░░░░░░░] ~22% overall (Phase 1 done; Phase 2 backend verified)
+Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-verified; verification infra COMPLETE; Phase 2 backend verified)
 
 ### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
 - REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
