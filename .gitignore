@@ -33,6 +33,7 @@ logs.txt
 
 # ── Playwright (frontend e2e) ────────────────────────────────────────────
 test-results/
+test_packages/
 playwright-report/
 blob-report/
 .playwright/
