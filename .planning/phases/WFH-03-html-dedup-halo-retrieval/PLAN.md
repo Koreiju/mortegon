@@ -16,20 +16,20 @@
 - **Steps:** confirm the HTML chunk slate body is built from `fields` (not `html_raw`); re-run the byte-exact §U golden; confirm `env-scenario --name syntax-agnostic-compile` exercises the HtmlStrategy arm. No new code (no golden regressed).
 - **Done-when:** golden + `syntax-agnostic-compile` green; `breadth_content_tree_smoke.py` 0 violations re-confirmed. **(VERIFIED 2026-06-18 — `pytest backend/tests/test_content_tree*.py` 17/17; breadth smoke 61 sites · 120,226 instances · 0 violations; `syntax-agnostic-compile` green, HtmlStrategy arm = `entries ['h2','p'] + clean rendering`. Stub-verified; the detector is deterministic — no-SLM — so real mode is the same path. Live-data render is T6.)**
 
-### T2 — Halo fires from a COLLAPSED CIRCULAR node, proximal (§S.5) ☐  (HALO-02)
-- **Surface:** `editor.html` (collapse-to-node gesture → `openHalo` anchored at the node's live rect); reuse `magic_markdown_halo.mjs::haloVDom`.
-- **Steps:** clicking a collapsed circular node (the §15.1 root-field-only form) fires the halo, **proximal to that node** (focal = the node's `getBoundingClientRect` centre), abstracting over the folded complexity; the halo already re-anchors on scroll/move.
-- **Done-when:** the halo opens from a collapsed node in the served `/` editor (browser-verified, then codified in T3/T4).
+### T2 — Halo fires from a COLLAPSED CIRCULAR node, proximal (§S.5) ☑ DONE  (HALO-02)
+- **Surface:** `editor.html` grid click listener — a `.mm-gnode` (the §15.1 root-field-only circular node) click → `openHalo(gnode)` anchored at the node's live `getBoundingClientRect`.
+- **Steps:** clicking a collapsed circular node fires the halo **proximal to that node**, abstracting over the folded complexity; re-anchors on scroll via the existing capture-phase listener.
+- **Done-when:** halo opens from a collapsed node (browser-verified: 3 name-only phantoms, above-slate, proximal; then codified in T3).
 
-### T3 — HALO-01 name-only phantoms + z-order + re-anchor ☐  (HALO-01/02)
-- **Surface:** `frontend_e2e/halo.spec.js` (un-fixme); `magic_markdown_halo.mjs` (built) + `editor.html` (wiring).
-- **Steps:** on a fixture scan, click a collapsed node → assert each `.mm-phantom` shows **only the candidate name** (no score chips; `data-sim` present for the tooltip); assert the `.mm-halo` z-index > the focal card's; scroll/move → phantoms track the focal-token rect.
-- **Done-when:** un-fixme `halo.spec.js` "HALO-01 name-only phantoms" + "HALO-02 z-order + re-anchor".
+### T3 — HALO-01 name-only phantoms + z-order + re-anchor ☑ DONE  (HALO-01/02)
+- **Surface:** `frontend_e2e/halo.spec.js` (un-fixme'd); `magic_markdown_halo.mjs` (built) + `editor.html` (wiring).
+- **Steps:** click a collapsed node → each `.mm-phantom` shows **only the candidate name** (no score chips; `data-sim` present for the tooltip); `.mm-halo` z-index above the slate; scroll → phantoms track the focal's live rect (focal & phantom both move −100).
+- **Done-when:** un-fixme `halo.spec.js` "HALO-01 name-only phantoms" + "HALO-02 z-order + re-anchor". **(green — both.)**
 
-### T4 — HALO-02 constant-similarity ray + camera-orbit slide ☐  (HALO-02)
-- **Surface:** `frontend_e2e/halo.spec.js` (un-fixme); the projector camera-azimuth coupling already in `editor.html` (`projector.onFrame`).
-- **Steps:** orbit the projector camera (azimuth) → phantoms **slide along their rays** (angle rotates, radius fixed = constant triple-product similarity); use `window.__mm_halo_rotate` / `__mm_halo_state` probes.
-- **Done-when:** un-fixme `halo.spec.js` "HALO-02 constant-similarity ray + along-line slide".
+### T4 — HALO-02 constant-similarity ray + camera-orbit slide ☑ DONE  (HALO-02)
+- **Surface:** `frontend_e2e/halo.spec.js` (un-fixme'd); the projector camera-azimuth coupling already in `editor.html` (`projector.onFrame` / `__mm_halo_rotate`).
+- **Steps:** the e2e verifies the **live coupling** (camera orbit → phantoms slide); the exact constant-similarity-ray geometry (r constant in camAngle; angle = base + camAngle; slide stays on the same-radius ray) is unit-verified at machine precision in `magic_markdown_halo.test.mjs` (5/5).
+- **Done-when:** un-fixme `halo.spec.js` "HALO-02 camera orbit slides the phantoms". **(green — full e2e now 24/24, 0 skipped.)**
 
 ### T5 — Triple-product ranking + autoregressive walk + DOM audit ☐  (HALO-01)
 - **Surface:** `scripts/sim_frontend.py` (`apparition-mode` exists; add/extend a `halo-retrieval` scenario); `black_slate.spec.js` (extend the forbidden audit).

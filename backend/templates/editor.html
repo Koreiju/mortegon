@@ -299,10 +299,14 @@
       } catch (e) { console.warn("ws", e); }
     }
 
-    // auto-halo: clicking a panel field (a text line, not a dropdown) radiates
-    // retrieval candidates from that focal (O.3 — halo fires from a text field)
+    // auto-halo: clicking a COLLAPSED CIRCULAR node (§S.5) — or a panel field
+    // (O.3) — radiates retrieval candidates from that focal. The halo stays
+    // PROXIMAL to the focal (its live `getBoundingClientRect`), abstracting over
+    // the folded semantic-space complexity the circular node represents.
     grid.addEventListener("click", (ev) => {
       if (ev.target.closest(".mm-drop")) return;
+      const gnode = ev.target.closest(".mm-gnode"); // the §15.1 root-field-only collapsed node
+      if (gnode) { openHalo(gnode); return; }
       const line = ev.target.closest(".mm-line");
       if (line) openHalo(line);
     });
