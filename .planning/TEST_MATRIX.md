@@ -66,9 +66,14 @@ touches `kuzu_db/_default`.
 ## Coverage status (2026-06-15)
 
 - Built + green: every Phase 1/4/5 + the Phase 3 HTML-dedup checks; the full
-  REPL `all` (95) + pytest + e2e (5 specs) in both modes.
-- **Outstanding e2e specs** (the only nyquist gaps): `frontend_e2e/edit.spec.js`
-  (Phase 2 caret/IME/`+→`/`+↓`/`{`-autocomplete) and `frontend_e2e/halo.spec.js`
-  (Phase 3 halo z-order + token-anchored re-anchor, circular collapsed node).
-  These are written as the FIRST deliverable of their phases (the criteria are
-  also their build targets).
+  REPL `all` (95) + pytest + e2e in both modes.
+- **e2e: 9 passing + 7 build-target `fixme`** (`frontend_e2e/`): `black_slate`
+  (5), `edit` (4 — §M.8 click-to-edit gesture, inline `{ref}` expansion, §M.6
+  right-click fold, §15.1 panel⇄graph **circular**-node dialectic + edges). The 7
+  `fixme` specs are the executable acceptance for the live-editor build targets:
+  EDIT-01 textarea+caret-at-click, EDIT-02 `{`-autocomplete + `+→`/`+↓` (Tab/Enter),
+  EDIT-03 reconnect-re-render, and HALO-01/02 (name-only phantoms, z-above-slate +
+  token-anchored re-anchor, constant-similarity ray slide). Un-fixme each as its
+  phase wires it — so the criterion exists as a runnable spec *before* the build.
+- The halo MODEL is unit-covered by `magic_markdown_halo.test.mjs` (5/5); the
+  `fixme`s are the BROWSER acceptance.
