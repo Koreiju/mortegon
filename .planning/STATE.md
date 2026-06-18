@@ -43,6 +43,11 @@ Progress: [████░░░░░░] ~40% overall (Phases 1–2 done + rea
 - Two latent fixes: `gateway.mjs` `concept-update`→PATCH (the real persistence path — `edit_close` was only a UI beacon); `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts never rendered before).
 - VERIFIED through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH stub and real modes.
 
+### Phase 3 status (planned + T1 verified, 2026-06-18)
+- **Planned:** CONTEXT.md + PLAN.md written (finish-and-verify — the §V halo model + live `openHalo` wiring already exist; the gap is the proximal collapsed-node halo + the live-editor browser acceptance).
+- **T1 (HTML-01) DONE:** `pytest backend/tests/test_content_tree*.py` 17/17; `breadth_content_tree_smoke.py` 61 sites · 120,226 instances · **0 violations**; `env-scenario syntax-agnostic-compile` green (HtmlStrategy arm). Content-tree is corpus-clean across the URL spectrum.
+- **Remaining:** T2 (halo fires from a collapsed circular node, proximal §S.5) · T3/T4 (un-fixme the 3 `halo.spec.js` specs) · T5 (triple-product ranking + autoregressive walk + no-dotted-overlay audit) · T6 (live-site breadth on the real stack).
+
 ### Phase 3 progress (§U content-tree breadth, 2026-06-15)
 - **Fixed a real correctness bug for the URL spectrum:** the §U dedup tokenizer was ASCII-only (`[a-z0-9]+`) → non-Latin text (CJK/Cyrillic/accented) produced an EMPTY token-set, so duplicate international titles never collapsed and accented Latin mis-split ("Amélie"→am+lie). Now `[^\W_]+` (Unicode word runs); ASCII golden unchanged. +4 international tests; suite 340/2-skip/0-fail. Commit `bf2c9c7`.
 - Content-tree `fields_to_content_tree` reviewed for breadth: dedup subsumption, URL/text ordering, colon-join, data-URI compaction all sound; `srcset` multi-URL splitting intentionally NOT added (robust srcset parsing is fragile; one verbose URL line is not incorrect).

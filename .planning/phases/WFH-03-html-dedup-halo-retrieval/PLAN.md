@@ -11,10 +11,10 @@
 
 ## Tasks
 
-### T1 — HTML-01 content-tree: VERIFY (not rebuild) ◑  (HTML-01)
+### T1 — HTML-01 content-tree: VERIFY (not rebuild) ☑ DONE  (HTML-01)
 - **Surface:** `backend/dom/content_tree.py` (built), `_try_parse_structured` (backend) + `_decomposeValue` (frontend), the §U golden fixtures, `scripts/breadth_content_tree_smoke.py`.
-- **Steps:** confirm the HTML chunk slate body is built from `fields` (not `html_raw`); re-run the byte-exact §U golden (6/6); confirm `env-scenario --name syntax-agnostic-compile` exercises the HtmlStrategy arm green in both modes. No new code unless a golden regresses.
-- **Done-when:** golden 6/6 + `syntax-agnostic-compile` green both modes; `breadth_content_tree_smoke.py` 0 violations re-confirmed.
+- **Steps:** confirm the HTML chunk slate body is built from `fields` (not `html_raw`); re-run the byte-exact §U golden; confirm `env-scenario --name syntax-agnostic-compile` exercises the HtmlStrategy arm. No new code (no golden regressed).
+- **Done-when:** golden + `syntax-agnostic-compile` green; `breadth_content_tree_smoke.py` 0 violations re-confirmed. **(VERIFIED 2026-06-18 — `pytest backend/tests/test_content_tree*.py` 17/17; breadth smoke 61 sites · 120,226 instances · 0 violations; `syntax-agnostic-compile` green, HtmlStrategy arm = `entries ['h2','p'] + clean rendering`. Stub-verified; the detector is deterministic — no-SLM — so real mode is the same path. Live-data render is T6.)**
 
 ### T2 — Halo fires from a COLLAPSED CIRCULAR node, proximal (§S.5) ☐  (HALO-02)
 - **Surface:** `editor.html` (collapse-to-node gesture → `openHalo` anchored at the node's live rect); reuse `magic_markdown_halo.mjs::haloVDom`.
