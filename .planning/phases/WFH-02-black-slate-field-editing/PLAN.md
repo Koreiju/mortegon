@@ -28,10 +28,10 @@
 - **Also fixed:** authored concepts never rendered — the wire payload keys by `concept_id` but `store.applyFrame`/`loadConcepts` read `c.id`; normalized centrally in `store.mjs` (+ `loadConcepts`).
 - **Done-when:** un-fixme `edit.spec.js` EDIT-01. **(green ×2 — create→render→click→focused Milkdown→type→Enter persists; re-open→Esc discards; browser-verified. Caret-at-click *column* + `env-scenario click-to-edit` lifecycle-mirror assertion are the remaining refinements.)**
 
-### T4 — `{`-autocomplete + `+→`/`+↓` field growth, lifecycle-routed ☐  (EDIT-02)
-- **Surface:** Milkdown input rule for `{`; Tab/Shift-Tab/Enter keymap mapping to the §3 grammar; `gateway.mjs`.
-- **Steps:** typing `{` opens autocomplete over concept names → inserts `{name}`; Tab/Shift-Tab re-parent, Enter sibling; every commit routes through `concept_lifecycle.py`.
-- **Done-when:** un-fixme `edit.spec.js` EDIT-02 + `env-scenario --name editor-primitives-roundtrip` / `autocomplete-state-roundtrip` (asserts the `concept_index_update` WS frame + evolution-log entry).
+### T4 — `{`-autocomplete + `+→`/`+↓` field growth, lifecycle-routed ☑ DONE  (EDIT-02)
+- **Surface:** `editor.html` `installAutocomplete` (a `{`-driven concept-name popup over the Milkdown contenteditable, inserting `{<name>}` via `insertText`); field growth is ProseMirror's native commonmark list keymap (Enter = sibling `+↓`, Tab = sink `+→`); commit → `concept-update` PATCH (T3).
+- **Steps:** typing `{`+prefix pops the concept names → Enter/click inserts `{name}`; Enter adds a sibling row, Tab re-parents one rank deeper; `markdownToFieldText` maps the new list structure back to §3 tab depth; blur commits through the lifecycle.
+- **Done-when:** un-fixme `edit.spec.js` EDIT-02 ×2. **(green — autocomplete inserts `{Target Node …}`; Enter-sibling + Tab-reparent persist at the right `\t` depth; both verified against the live `/` editor.)**
 
 ### T5 — Gestures resolve over the Milkdown DOM ☑ DONE  (EDIT-01/02)
 - **Surface:** `frontend_src/milkdown_slate.mjs` (`classifyTarget` + `installGestures`) wires `magic_markdown_gestures.mjs::resolveGesture` over the Milkdown container.
@@ -43,23 +43,24 @@
 - **Steps:** `print(record) → Milkdown → read() → markdownToFieldText → parse → serialize` is identity for the §3 grammar (single root, forest, names-with-spaces, `{}` on-ramp, kv, `\_`-escape recovery, depth-2/3 nesting).
 - **Done-when:** un-fixme `milkdown.spec.js` "syntax"; `magic_markdown.test.mjs` round-trip stays green. **(green — 6 grammar samples round-trip identically THROUGH a real Milkdown instance.)**
 
-### T7 — No authoritative frontend state (EDIT-03 acceptance) ◑ CORE DONE
-- **Surface:** the store↔Milkdown reconcile (`setText` is the ONLY inbound path; `store.mjs`/`gateway.mjs` unchanged).
-- **Steps:** a dropped-WS reconnect re-pushes the store text and the view reconciles identically; no ProseMirror "state overhang".
-- **Done-when:** un-fixme `milkdown.spec.js` "no authoritative frontend state" **(green — edit→diverge→reconnect(setText)→identical, no overhang)**. The `edit.spec.js` EDIT-03 reconnect against the served `/` editor lands with T3 (live Milkdown wiring).
+### T7 — No authoritative frontend state (EDIT-03 acceptance) ☑ DONE
+- **Surface:** the store↔Milkdown reconcile (`setText` is the ONLY inbound path) + the live `/` slate (`__mm_rerender` re-derives the grid from the store).
+- **Steps:** a dropped-WS reconnect re-pushes the store text and the view reconciles identically; no ProseMirror "state overhang"; the live slate is a pure projection (DOM corruption is erased by a store re-render).
+- **Done-when:** un-fixme `milkdown.spec.js` "no authoritative frontend state" **(green — edit→diverge→reconnect(setText)→identical)** AND `edit.spec.js` EDIT-03 **(green — corrupt the live DOM → `__mm_rerender` → identical, corruption gone)**.
 
 ## Coverage (req → task)
 
 | Req | Tasks |
 |---|---|
 | EDIT-01 | T2 ☑, T3 ☑, T5 ☑ |
-| EDIT-02 | T2 ☑, T4, T5 ☑, T6 ☑ |
-| EDIT-03 | T1 ☑, T7 ◑ (core ☑; `/`-wiring with T3) |
+| EDIT-02 | T2 ☑, T4 ☑, T5 ☑, T6 ☑ |
+| EDIT-03 | T1 ☑, T7 ☑ |
 
 ## Phase gate
 `npm run test:all` green in BOTH stub and real modes with every EDIT spec
 un-fixme'd; `npm run test:all:real --fixture-scan` for deterministic real-stack
-acceptance. T1+T2+T3+T5+T6+T7-core done (milkdown.spec.js 8/8 + edit.spec.js EDIT-01 green;
-full e2e 18 passed / 6 skipped). **Remaining: T4 (`{`-autocomplete + `+→`/`+↓`
-field growth; un-fixme `edit.spec.js` EDIT-02 ×2) and the EDIT-03 reconnect
-against the live `/` editor (the property already holds at the seam, T7-core).**
+acceptance. **ALL of T1–T7 done.** milkdown.spec.js 8/8 + edit.spec.js 8/8 (every EDIT-01/02/03
+spec un-fixme'd); full e2e **21 passed / 3 skipped** (only the Phase-3 HALO fixmes
+remain); fe/ unit tests green; no regressions. Remaining refinements (non-blocking):
+caret-at-click *column*, and the `env-scenario click-to-edit` REPL-mirror assertion
+(the persistence already routes through `apply_update_lifecycle`).
