@@ -30,7 +30,7 @@ And P2P encrypted because Bill C22 sucks me.
 
 A frontend, and a backend. If you even care. 
 
-Ought to run on a good gaming laptop. 
+Ought to run on a good gaming laptop. All AI is on-device, and saved data does not require internet re-connection. 
 ---
 
 ## 📚 Documentation Map
