@@ -30,6 +30,9 @@ import { Decoration, DecorationSet } from "@milkdown/prose/view";
 // The model is the single source of truth for {ref} resolution + recursion;
 // esbuild inlines it from the served fe/ tree (no duplicate logic).
 import { renderPanel, toggle } from "../backend/static/js/fe/magic_markdown.mjs";
+// The gesture model (the SAME pure resolver the custom slate uses) classifies a
+// DOM gesture; the Milkdown DOM just feeds it a target descriptor (T5 / §3.3).
+import { Action, resolveGesture } from "../backend/static/js/fe/magic_markdown_gestures.mjs";
 
 const GLYPHS = "▸▾"; // ▸ ▾
 
@@ -50,6 +53,41 @@ export function linesToMarkdown(lines) {
     if (l.depth <= 0) out.push(g + l.text);
     else out.push("  ".repeat(l.depth - 1) + "- " + g + l.text);
     prev = l.depth;
+  }
+  return out.join("\n");
+}
+
+// Commonmark backslash-escapable punctuation (CommonMark §2.4). Milkdown's
+// serializer escapes these in text (e.g. `sim\_princeton`); the §3 grammar is
+// raw, so we unescape on the way back.
+const MD_ESCAPE_RE = /\\([\\`*_{}\[\]()#+\-.!>~|"'$&%^=:;?/<,@])/g;
+
+/**
+ * markdownToFieldText(md) → §3 tab/newline field text. The exact reverse of
+ * `linesToMarkdown` (modulo commonmark's loose-list blank lines, `*`-vs-`-`
+ * bullet choice, and backslash escapes that Milkdown's serializer introduces).
+ * A nested commonmark bullet list maps back to tab depth: a top-level `- x` is
+ * depth 1, every two leading spaces is one deeper rank; a non-bullet line is
+ * depth 0 (the node root). Fold glyphs are stripped. This is the outbound-commit
+ * transformer — `print(record) → Milkdown → read() → markdownToFieldText → parse`
+ * is identity for the §3 grammar (T6 / EDIT-02).
+ */
+export function markdownToFieldText(md) {
+  const out = [];
+  for (const raw of String(md == null ? "" : md).split("\n")) {
+    if (raw.trim() === "") continue;
+    const m = /^(\s*)([-*+])\s+(.*)$/.exec(raw);
+    let depth, content;
+    if (m) {
+      const indent = m[1].replace(/\t/g, "  ").length;
+      depth = Math.floor(indent / 2) + 1; // a top-level bullet is rank 1
+      content = m[3];
+    } else {
+      depth = 0;
+      content = raw.replace(/^\s+/, "");
+    }
+    content = content.replace(/^[▸▾]\s+/, "").replace(MD_ESCAPE_RE, "$1").replace(/\s+$/, "");
+    out.push("\t".repeat(depth) + content);
   }
   return out.join("\n");
 }
@@ -90,6 +128,72 @@ function refFoldPlugin() {
       },
     },
   }));
+}
+
+/**
+ * classifyTarget(host, el) → the gesture-model target descriptor for a DOM node
+ * inside the Milkdown view: 'dropdown' (the ▸/▾ fold glyph), 'ref' (a line whose
+ * text carries a `{ref}`), 'self' (the root field — the node's identity line),
+ * 'token' (any other editable text line), or 'body' (the bare container). This is
+ * the ONLY Milkdown-specific glue; the action is decided by the shared resolver.
+ */
+export function classifyTarget(host, el) {
+  if (!el || !el.closest) return "body";
+  if (el.closest(".mm-ref-fold")) return "dropdown";
+  const block = el.closest("li, p");
+  if (!block || !host.contains(block)) return "body";
+  if (/\{[^}]+\}/.test(block.textContent || "")) return "ref";
+  // the root field is the first textblock (depth 0) of the rendered tree
+  const firstBlock = host.querySelector(".mm-milkdown p, .mm-milkdown li");
+  if (block === firstBlock) return "self";
+  return "token";
+}
+
+// installGestures(host, { onFold, onAction }) — routes EVERY left/right/double
+// gesture over the Milkdown DOM through `resolveGesture` (the shared model). Left
+// gestures go via mousedown so a fold beats ProseMirror's caret; right gestures
+// go via contextmenu (menu suppressed) with a single/double debounce so a
+// double-right deletes rather than first folding. EDIT_TOKEN / NONE fall through
+// to Milkdown's native contenteditable (caret placement) untouched.
+function installGestures(host, { onFold, onAction }) {
+  const fire = (action, ctx) => {
+    if (action === Action.TOGGLE_FOLD && ctx.foldIndex != null) onFold(ctx.foldIndex);
+    if (action !== Action.NONE && typeof onAction === "function") onAction(action, ctx);
+  };
+  host.addEventListener(
+    "mousedown",
+    (ev) => {
+      if (ev.button !== 0) return; // left only; right is handled on contextmenu
+      const target = classifyTarget(host, ev.target);
+      const clicks = ev.detail >= 2 ? 2 : 1;
+      const { action } = resolveGesture({ button: "left", clicks, target, mode: "panel" });
+      if (action === Action.EDIT_TOKEN || action === Action.NONE) return; // native caret
+      ev.preventDefault();
+      ev.stopPropagation();
+      const fold = ev.target.closest && ev.target.closest(".mm-ref-fold");
+      fire(action, { target, foldIndex: fold ? parseInt(fold.getAttribute("data-fold-index"), 10) : null });
+    },
+    true
+  );
+  let rTimer = null, rCount = 0, rTarget = null, rFold = null;
+  host.addEventListener(
+    "contextmenu",
+    (ev) => {
+      ev.preventDefault();
+      rCount += 1;
+      rTarget = classifyTarget(host, ev.target);
+      const fold = ev.target.closest && ev.target.closest(".mm-ref-fold");
+      rFold = fold ? parseInt(fold.getAttribute("data-fold-index"), 10) : null;
+      if (rTimer) clearTimeout(rTimer);
+      rTimer = setTimeout(() => {
+        const clicks = rCount >= 2 ? 2 : 1;
+        const { action } = resolveGesture({ button: "right", clicks, target: rTarget, mode: "panel" });
+        fire(action, { target: rTarget, foldIndex: rFold });
+        rTimer = null; rCount = 0; rTarget = null; rFold = null;
+      }, 220);
+    },
+    true
+  );
 }
 
 /**
@@ -137,6 +241,10 @@ export async function mountMilkdown(host, source, opts = {}) {
   function read() {
     return editor.action(getMarkdown());
   }
+  // The §3 field text the view currently holds (commit/round-trip surface).
+  function readFieldText() {
+    return markdownToFieldText(read());
+  }
 
   // Recursive {ref} (RECORD mode): a click on a ▸/▾ glyph toggles that ref's
   // expansion and re-renders through the model — never an in-place doc edit.
@@ -146,19 +254,12 @@ export async function mountMilkdown(host, source, opts = {}) {
     expanded = toggle(expanded, path);
     setText(computeText());
   }
+  const { onAction } = opts;
   if (isRecord) {
-    host.addEventListener(
-      "mousedown",
-      (ev) => {
-        const el = ev.target && ev.target.closest && ev.target.closest(".mm-ref-fold");
-        if (!el) return;
-        ev.preventDefault();
-        ev.stopPropagation();
-        const idx = parseInt(el.getAttribute("data-fold-index"), 10);
-        if (!Number.isNaN(idx)) toggleFold(idx);
-      },
-      true
-    );
+    installGestures(host, {
+      onFold: toggleFold,
+      onAction: typeof onAction === "function" ? onAction : null,
+    });
   } else if (typeof onCommit === "function") {
     // Outbound intent (TEXT mode) — commit the printed markdown on blur.
     host.addEventListener(
@@ -175,6 +276,7 @@ export async function mountMilkdown(host, source, opts = {}) {
     editor,
     setText,
     read,
+    readFieldText,
     destroy: () => editor.destroy(),
     // RECORD-mode introspection (for the gesture layer + Playwright acceptance):
     getExpanded: () => new Set(expanded),
@@ -190,4 +292,6 @@ export async function mountMilkdown(host, source, opts = {}) {
 // Expose on window for the served demo + Playwright acceptance probes.
 if (typeof window !== "undefined") {
   window.mountMilkdown = mountMilkdown;
+  window.markdownToFieldText = markdownToFieldText;
+  window.linesToMarkdown = linesToMarkdown;
 }

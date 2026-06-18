@@ -32,30 +32,33 @@
 - **Steps:** typing `{` opens autocomplete over concept names → inserts `{name}`; Tab/Shift-Tab re-parent, Enter sibling; every commit routes through `concept_lifecycle.py`.
 - **Done-when:** un-fixme `edit.spec.js` EDIT-02 + `env-scenario --name editor-primitives-roundtrip` / `autocomplete-state-roundtrip` (asserts the `concept_index_update` WS frame + evolution-log entry).
 
-### T5 — Gestures resolve over the Milkdown DOM ☐  (EDIT-01/02)
-- **Surface:** wire `magic_markdown_gestures.mjs::resolveGesture` over the Milkdown container.
-- **Steps:** single/double-left, right, double-right, drag → the same actions as today (fold, panel⇄graph circular node, delete, wire) over the Milkdown DOM.
-- **Done-when:** un-fixme `milkdown.spec.js` "gestures" + `edit.spec.js` §15.1 panel⇄graph stays green.
+### T5 — Gestures resolve over the Milkdown DOM ☑ DONE  (EDIT-01/02)
+- **Surface:** `frontend_src/milkdown_slate.mjs` (`classifyTarget` + `installGestures`) wires `magic_markdown_gestures.mjs::resolveGesture` over the Milkdown container.
+- **Steps:** left gestures via mousedown (fold beats the caret), right via contextmenu with a single/double debounce; `dropdown`/`ref`/`self`/`token`/`body` classification → TOGGLE_FOLD / TOGGLE_PANEL_GRAPH / DELETE_REF / COLLAPSE_TO_NODE; EDIT_TOKEN/NONE fall through to the native caret.
+- **Done-when:** un-fixme `milkdown.spec.js` "gestures". **(green — single-left fold, double-left panel⇄graph, right-click fold, double-right delete all resolve over the real Milkdown DOM; browser-verified.)**
 
-### T6 — §3 syntax round-trip identity through Milkdown ☐  (EDIT-02)
-- **Surface:** `frontend_src/milkdown_slate.mjs` (custom serializer) + `magic_markdown.mjs`.
-- **Steps:** `print(record) → Milkdown → edit → parse(text) → delta` is identity for the §3 grammar (tabs+newlines, names-with-spaces, `{}` on-ramp, kv-vs-multiline-by-indent).
-- **Done-when:** un-fixme `milkdown.spec.js` "syntax" + `magic_markdown.test.mjs` round-trip stays green.
+### T6 — §3 syntax round-trip identity through Milkdown ☑ DONE  (EDIT-02)
+- **Surface:** `frontend_src/milkdown_slate.mjs::markdownToFieldText` (the reverse of `linesToMarkdown`) + `magic_markdown.mjs::parse`/`serialize`; `milkdown_syntax_demo.html`.
+- **Steps:** `print(record) → Milkdown → read() → markdownToFieldText → parse → serialize` is identity for the §3 grammar (single root, forest, names-with-spaces, `{}` on-ramp, kv, `\_`-escape recovery, depth-2/3 nesting).
+- **Done-when:** un-fixme `milkdown.spec.js` "syntax"; `magic_markdown.test.mjs` round-trip stays green. **(green — 6 grammar samples round-trip identically THROUGH a real Milkdown instance.)**
 
-### T7 — No authoritative frontend state (EDIT-03 acceptance) ☐
-- **Surface:** the store↔Milkdown reconcile (`store.mjs`/`gateway.mjs` unchanged).
-- **Steps:** a dropped-WS reconnect rebuilds the Milkdown doc from the store identically; no ProseMirror "state overhang".
-- **Done-when:** un-fixme `edit.spec.js` EDIT-03 + `milkdown.spec.js` "lifecycle + no-authoritative-state".
+### T7 — No authoritative frontend state (EDIT-03 acceptance) ◑ CORE DONE
+- **Surface:** the store↔Milkdown reconcile (`setText` is the ONLY inbound path; `store.mjs`/`gateway.mjs` unchanged).
+- **Steps:** a dropped-WS reconnect re-pushes the store text and the view reconciles identically; no ProseMirror "state overhang".
+- **Done-when:** un-fixme `milkdown.spec.js` "no authoritative frontend state" **(green — edit→diverge→reconnect(setText)→identical, no overhang)**. The `edit.spec.js` EDIT-03 reconnect against the served `/` editor lands with T3 (live Milkdown wiring).
 
 ## Coverage (req → task)
 
 | Req | Tasks |
 |---|---|
-| EDIT-01 | T2 ☑, T3, T5 |
-| EDIT-02 | T2 ☑, T4, T5, T6 |
-| EDIT-03 | T1 ☑, T7 |
+| EDIT-01 | T2 ☑, T3, T5 ☑ |
+| EDIT-02 | T2 ☑, T4, T5 ☑, T6 ☑ |
+| EDIT-03 | T1 ☑, T7 ◑ (core ☑; `/`-wiring with T3) |
 
 ## Phase gate
 `npm run test:all` green in BOTH stub and real modes with every EDIT spec
 un-fixme'd; `npm run test:all:real --fixture-scan` for deterministic real-stack
-acceptance. T1+T2 done (5/5 milkdown.spec.js); T3–T7 are the remaining build.
+acceptance. T1+T2+T5+T6+T7-core done (8/8 milkdown.spec.js green). **Remaining:
+T3 (live `/` editor: swap the textarea path for the Milkdown field behind
+`WFH_SLATE_EDITOR=milkdown`; un-fixme `edit.spec.js` EDIT-01 + EDIT-03 reconnect)
+and T4 (`{`-autocomplete + `+→`/`+↓` growth; un-fixme `edit.spec.js` EDIT-02).**

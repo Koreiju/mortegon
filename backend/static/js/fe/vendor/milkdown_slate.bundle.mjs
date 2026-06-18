@@ -24588,6 +24588,50 @@ function toggle(expanded, path) {
   return next;
 }
 
+// backend/static/js/fe/magic_markdown_gestures.mjs
+var Action = {
+  EDIT_TOKEN: "edit_token",
+  // single-left a token → borderless edit (M.8)
+  TOGGLE_FOLD: "toggle_fold",
+  // right-click a {ref} / dropdown → internalize⇄externalize inline
+  COLLAPSE_TO_NODE: "collapse_to_node",
+  // right-click self → rank-dominance collapse to the circular node (S.5)
+  TOGGLE_PANEL_GRAPH: "toggle_panel_graph",
+  // double-left body → panel ⇄ graph (M.7)
+  WIRE_LINK: "wire_link",
+  // left-drag node→node → wire + inherit I/O (N.4)
+  DELETE_REF: "delete_ref",
+  // double-right a {ref}/instance → delete (N.13)
+  NONE: "none"
+};
+function resolveGesture(g = {}) {
+  const { button = "left", clicks = 1, target = "body", mode = "panel", drag = false } = g;
+  if (button === "left" && drag) {
+    return { action: Action.WIRE_LINK };
+  }
+  if (button === "left") {
+    if (clicks === 2) {
+      if (target === "body" || target === "self") return { action: Action.TOGGLE_PANEL_GRAPH };
+      return resolveGesture({ ...g, clicks: 1 });
+    }
+    if (target === "dropdown") return { action: Action.TOGGLE_FOLD };
+    if (target === "ref" || target === "token") return { action: Action.EDIT_TOKEN };
+    return { action: Action.NONE };
+  }
+  if (button === "right") {
+    if (clicks === 2) {
+      if (target === "ref" || target === "token") return { action: Action.DELETE_REF };
+      return { action: Action.NONE };
+    }
+    if (target === "self") return { action: Action.COLLAPSE_TO_NODE };
+    if (target === "ref" || target === "dropdown" || target === "token") {
+      return { action: Action.TOGGLE_FOLD };
+    }
+    return { action: Action.NONE };
+  }
+  return { action: Action.NONE };
+}
+
 // frontend_src/milkdown_slate.mjs
 var GLYPHS = "\u25B8\u25BE";
 function linesToMarkdown(lines) {
@@ -24599,6 +24643,26 @@ function linesToMarkdown(lines) {
     if (l.depth <= 0) out.push(g + l.text);
     else out.push("  ".repeat(l.depth - 1) + "- " + g + l.text);
     prev = l.depth;
+  }
+  return out.join("\n");
+}
+var MD_ESCAPE_RE = /\\([\\`*_{}\[\]()#+\-.!>~|"'$&%^=:;?/<,@])/g;
+function markdownToFieldText(md) {
+  const out = [];
+  for (const raw of String(md == null ? "" : md).split("\n")) {
+    if (raw.trim() === "") continue;
+    const m = /^(\s*)([-*+])\s+(.*)$/.exec(raw);
+    let depth, content3;
+    if (m) {
+      const indent = m[1].replace(/\t/g, "  ").length;
+      depth = Math.floor(indent / 2) + 1;
+      content3 = m[3];
+    } else {
+      depth = 0;
+      content3 = raw.replace(/^\s+/, "");
+    }
+    content3 = content3.replace(/^[▸▾]\s+/, "").replace(MD_ESCAPE_RE, "$1").replace(/\s+$/, "");
+    out.push("	".repeat(depth) + content3);
   }
   return out.join("\n");
 }
@@ -24633,6 +24697,59 @@ function refFoldPlugin() {
       }
     }
   }));
+}
+function classifyTarget(host, el) {
+  if (!el || !el.closest) return "body";
+  if (el.closest(".mm-ref-fold")) return "dropdown";
+  const block = el.closest("li, p");
+  if (!block || !host.contains(block)) return "body";
+  if (/\{[^}]+\}/.test(block.textContent || "")) return "ref";
+  const firstBlock = host.querySelector(".mm-milkdown p, .mm-milkdown li");
+  if (block === firstBlock) return "self";
+  return "token";
+}
+function installGestures(host, { onFold, onAction }) {
+  const fire = (action, ctx) => {
+    if (action === Action.TOGGLE_FOLD && ctx.foldIndex != null) onFold(ctx.foldIndex);
+    if (action !== Action.NONE && typeof onAction === "function") onAction(action, ctx);
+  };
+  host.addEventListener(
+    "mousedown",
+    (ev) => {
+      if (ev.button !== 0) return;
+      const target = classifyTarget(host, ev.target);
+      const clicks = ev.detail >= 2 ? 2 : 1;
+      const { action } = resolveGesture({ button: "left", clicks, target, mode: "panel" });
+      if (action === Action.EDIT_TOKEN || action === Action.NONE) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      const fold = ev.target.closest && ev.target.closest(".mm-ref-fold");
+      fire(action, { target, foldIndex: fold ? parseInt(fold.getAttribute("data-fold-index"), 10) : null });
+    },
+    true
+  );
+  let rTimer = null, rCount = 0, rTarget = null, rFold = null;
+  host.addEventListener(
+    "contextmenu",
+    (ev) => {
+      ev.preventDefault();
+      rCount += 1;
+      rTarget = classifyTarget(host, ev.target);
+      const fold = ev.target.closest && ev.target.closest(".mm-ref-fold");
+      rFold = fold ? parseInt(fold.getAttribute("data-fold-index"), 10) : null;
+      if (rTimer) clearTimeout(rTimer);
+      rTimer = setTimeout(() => {
+        const clicks = rCount >= 2 ? 2 : 1;
+        const { action } = resolveGesture({ button: "right", clicks, target: rTarget, mode: "panel" });
+        fire(action, { target: rTarget, foldIndex: rFold });
+        rTimer = null;
+        rCount = 0;
+        rTarget = null;
+        rFold = null;
+      }, 220);
+    },
+    true
+  );
 }
 async function mountMilkdown(host, source, opts = {}) {
   const { onCommit } = opts;
@@ -24670,25 +24787,21 @@ async function mountMilkdown(host, source, opts = {}) {
   function read() {
     return editor.action(getMarkdown());
   }
+  function readFieldText() {
+    return markdownToFieldText(read());
+  }
   function toggleFold(foldIndex) {
     const path = foldPaths[foldIndex];
     if (path == null) return;
     expanded = toggle(expanded, path);
     setText(computeText());
   }
+  const { onAction } = opts;
   if (isRecord) {
-    host.addEventListener(
-      "mousedown",
-      (ev) => {
-        const el = ev.target && ev.target.closest && ev.target.closest(".mm-ref-fold");
-        if (!el) return;
-        ev.preventDefault();
-        ev.stopPropagation();
-        const idx = parseInt(el.getAttribute("data-fold-index"), 10);
-        if (!Number.isNaN(idx)) toggleFold(idx);
-      },
-      true
-    );
+    installGestures(host, {
+      onFold: toggleFold,
+      onAction: typeof onAction === "function" ? onAction : null
+    });
   } else if (typeof onCommit === "function") {
     host.addEventListener(
       "focusout",
@@ -24703,6 +24816,7 @@ async function mountMilkdown(host, source, opts = {}) {
     editor,
     setText,
     read,
+    readFieldText,
     destroy: () => editor.destroy(),
     // RECORD-mode introspection (for the gesture layer + Playwright acceptance):
     getExpanded: () => new Set(expanded),
@@ -24716,8 +24830,12 @@ async function mountMilkdown(host, source, opts = {}) {
 }
 if (typeof window !== "undefined") {
   window.mountMilkdown = mountMilkdown;
+  window.markdownToFieldText = markdownToFieldText;
+  window.linesToMarkdown = linesToMarkdown;
 }
 export {
+  classifyTarget,
   linesToMarkdown,
+  markdownToFieldText,
   mountMilkdown
 };

@@ -52,7 +52,10 @@
     const status = document.getElementById("status");
     const registry = buildRegistry([DETAILS, PUBLISHER]);
 
-    const slate = await mountMilkdown(host, { record: CARD, registry }, {});
+    const gestures = [];
+    const slate = await mountMilkdown(host, { record: CARD, registry }, {
+      onAction(action, ctx) { gestures.push({ action, target: ctx.target }); status.textContent = action + " @ " + ctx.target; },
+    });
 
     status.textContent = "ready";
     // probe hooks for Playwright acceptance
@@ -60,6 +63,8 @@
     window.__milk_read = () => slate.read();
     window.__milk_expanded = () => [...slate.getExpanded()];
     window.__milk_text = () => host.querySelector(".mm-milkdown")?.textContent || "";
+    window.__milk_gestures = () => gestures.slice();
+    window.__milk_gestures_clear = () => { gestures.length = 0; };
   </script>
 </body>
 </html>
