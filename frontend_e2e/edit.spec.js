@@ -3,9 +3,11 @@
 // PASSING specs run against the served demo reference (`static/js/fe/demo.html`),
 // which renders real static slates and wires the full gesture model
 // (magic_markdown_gestures.mjs). FIXME specs are the executable acceptance for
-// the LIVE `/` editor build targets (textarea+caret, `{`-autocomplete, `+→`/`+↓`)
-// — un-fixme them as EDIT-01/02 land. This is the render-level coverage the REPL
-// (API/WS seam) cannot reach.
+// the LIVE `/` editor build targets (Milkdown contenteditable + caret-at-click,
+// `{`-autocomplete, `+→`/`+↓`) — un-fixme them as EDIT-01/02 land. The edit layer
+// is Milkdown behind `mount` as a controlled view (docs/MILKDOWN_SLATE_GOAL.md);
+// the editable surface is a ProseMirror contenteditable, not a raw <textarea>.
+// This is the render-level coverage the REPL (API/WS seam) cannot reach.
 const { test, expect } = require("@playwright/test");
 
 const DEMO = "/static/js/fe/demo.html";
@@ -46,10 +48,11 @@ test("§15.1 panel ⇄ graph dialectic — circular nodes + undirected edges, sy
 
 // --- Phase 2 build targets in the LIVE `/` editor (un-fixme as EDIT-01/02 land) ---
 // Each needs a rendered panel from a (fixture) scan; the demo logs the gesture,
-// the served editor performs the textarea swap.
-test.fixme("EDIT-01 click-to-edit swaps a textarea with the caret at the click point", async () => {
-  // click a printed token in the served editor → expect a <textarea> focused,
-  // selectionStart matching the click column; Shift-Enter soft-newline; Enter commits.
+// the served editor mounts the Milkdown contenteditable on the clicked field.
+test.fixme("EDIT-01 click-to-edit mounts the Milkdown field with the caret at the click point", async () => {
+  // click a printed token in the served editor → expect a focused ProseMirror
+  // contenteditable (.mm-milkdown [contenteditable]) with the caret at the click
+  // column; Shift-Enter soft-newline; Enter commits through the lifecycle.
 });
 test.fixme("EDIT-02 `{` opens autocomplete over concept names; selecting inserts {name}", async () => {});
 test.fixme("EDIT-02 Tab/Shift-Tab re-parent, Enter adds a sibling (+→/+↓ field growth)", async () => {});
