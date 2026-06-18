@@ -2,15 +2,23 @@
   "name": "web-fiber-haptics-frontend",
   "version": "0.1.0",
   "private": true,
-  "description": "Frontend assets for web_fiber_haptics. The served editor (backend/static/js/fe/*.mjs) is framework-free vanilla ESM with no runtime npm dependencies. @mdxeditor/editor was removed (HYG-02): the black-slate editor is custom — see docs/EDITOR_INTEGRATION_ASSESSMENT.md.",
+  "description": "Frontend assets for web_fiber_haptics. The served editor (backend/static/js/fe/*.mjs) is vanilla ESM; the Milkdown editable slate layer (docs/MILKDOWN_SLATE_GOAL.md) is bundled from frontend_src/ via esbuild into backend/static/js/fe/vendor/.",
   "scripts": {
     "test:fe": "node --test backend/static/js/fe/*.test.mjs",
     "test:e2e": "playwright test -c frontend_e2e/playwright.config.js",
     "test:all": "python scripts/run_full_stack_tests.py",
-    "test:all:real": "python scripts/run_full_stack_tests.py --real"
+    "test:all:real": "python scripts/run_full_stack_tests.py --real",
+    "build:milkdown": "esbuild frontend_src/milkdown_slate.mjs --bundle --format=esm --outfile=backend/static/js/fe/vendor/milkdown_slate.bundle.mjs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@milkdown/core": "^7.21.2",
+    "@milkdown/ctx": "^7.21.2",
+    "@milkdown/preset-commonmark": "^7.21.2",
+    "@milkdown/prose": "^7.21.2",
+    "@milkdown/utils": "^7.21.2"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.49.0"
+    "@playwright/test": "^1.49.0",
+    "esbuild": "^0.28.1"
   }
 }
