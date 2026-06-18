@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: executing
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 0
   completed_plans: 0
-  percent: 20
+  percent: 40
 ---
 
 # Project State
@@ -16,16 +16,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 2 — Black-Slate Field Editing (Phase 1 stub-verified complete)
+**Current focus:** Phase 3 — HTML Dedup + Halo Retrieval Render (Phases 1 & 2 complete)
 
 ## Current Position
 
-Phase: 2 of 5 (Black-Slate Field Editing) — Phase 1 done; core success metric met on the REAL stack
+Phase: 3 of 5 (HTML Dedup + Halo Retrieval Render) — Phases 1 & 2 done; core success metric met on the REAL stack
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
-Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. GSD migration config + a UNIFIED full-stack test framework are in place.
-Last activity: 2026-06-15 — `scripts/run_full_stack_tests.py` (`npm run test:all`) boots ONE managed backend and runs pytest + the **complete REPL registry** (`env-scenario --name all` = 95 of 96 scenarios, not just full-smoke's 92) + Playwright `frontend_e2e`, unified summary. **PROVEN ALL GREEN in BOTH stub AND real (all_real) modes** — stub: pytest + repl(all, real-only scenarios skip) + 5 e2e; real: repl(all=95, every scenario executes incl `apparitions-discover-link` surfacing B via real nomic). Backend torn down cleanly both runs. Added `all` (extracted `_full_smoke_chain`, drift-resistant extras, clean-baseline purge; `apparitions-discover-link` gated on all_real per §1.5). Plus `.planning/config.json` (model fan-out → Sonnet/Haiku + nyquist gate + granularity contract), Playwright MCP (`.mcp.json`) + `frontend_e2e/` suite (5/5).
+Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. **Phase 2 complete (2026-06-18): Milkdown integrated as the black-slate edit layer (controlled view); EDIT-01/02/03 done; PR #1 → Koreiju/mortegon.** GSD migration config + a UNIFIED full-stack test framework are in place.
+Last activity: 2026-06-18 — Milkdown black-slate editable layer landed (T1–T7): recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip, live `?slate=milkdown` click-to-edit (caret-at-click via ProseMirror `TextSelection`, blur-commit), Enter/Tab field growth + `{`-autocomplete, no-authoritative-state. Two load-bearing fixes: `gateway.mjs` `concept-update`→PATCH (real persistence) and `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts now render). Verified through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH modes; `milkdown.spec.js` 8/8 + `edit.spec.js` 8/8. PR #1 opened.
 
-Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-verified; verification infra COMPLETE; Phase 2 backend verified)
+Progress: [████░░░░░░] ~40% overall (Phases 1–2 done + real/framework-verified; verification infra COMPLETE; Phase 3 §U content-tree half already hardened, halo render is the gap)
 
 ### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
 - REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
@@ -35,12 +35,13 @@ Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-ver
 - FIX-02 (`three-fixtures-present`): **DONE + verified** — exactly 3 fixtures, no Editor.
 - Phase-1 gate (`full-smoke`): **GREEN in stub (92/92)**. Real-mode `full-smoke` + `probe_no_mocks` need CUDA/GGUF/Selenium (GPU box) — deferred, not runnable in the agent env.
 
-### Phase 2 status (backend-side verified 2026-06-15)
-- EDIT-01 (click-to-edit field): backend `edit-field-roundtrip` **green** (editing_field lifecycle). Frontend caret-at-click already browser-verified (BLACK_SLATE_GOAL §15.7).
-- EDIT-02 (field growth + `{`-autocomplete + lifecycle): `editor-primitives-roundtrip` + `autocomplete-state-roundtrip` **green**; mutations route through `concept_lifecycle`.
-- EDIT-03 (editor-layer decision): **DECIDED — Option B (stay custom now; CM6 as tracked enhancement)**, see Decisions below.
-- `unified-node-view-states` + `compile-expand-collapse-roundtrip` (§8D.2.2) **green**.
-- REMAINING: live-browser re-verification of caret/IME/multiline in the served `/` editor; `full-smoke` stays green (it does, stub).
+### Phase 2 status — COMPLETE (2026-06-18, Milkdown; PR #1)
+- EDIT-01 (click-to-edit field): **DONE** — live `?slate=milkdown` click opens a focused Milkdown surface with the caret AT THE CLICKED FIELD (ProseMirror `TextSelection` via `placeCaretInField`; a raw DOM Range is overridden on focus); blur commits through the lifecycle, Esc discards. `edit.spec.js` EDIT-01 + `env-scenario edit-field-roundtrip` (extended: commit persists + evolution-log records) green.
+- EDIT-02 (field growth + `{`-autocomplete + lifecycle): **DONE** — Enter = sibling / Tab = re-parent (ProseMirror's native commonmark list keymap); `{`-autocomplete (`installAutocomplete`) inserts `{<name>}`; every commit routes through `concept_lifecycle` via the new `gateway.mjs` `concept-update`→PATCH path. `edit.spec.js` EDIT-02 ×2 green.
+- EDIT-03 (editor-layer decision): **RESOLVED — Milkdown controlled view** (user override 2026-06-17, supersedes the "stay custom/CM6" decision; see Decisions). No authoritative frontend state proven: `milkdown.spec.js` (reconnect = identical, no overhang) + `edit.spec.js` EDIT-03 (DOM corruption erased by store re-render).
+- Recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip (`markdownToFieldText`): `milkdown.spec.js` 8/8 green.
+- Two latent fixes: `gateway.mjs` `concept-update`→PATCH (the real persistence path — `edit_close` was only a UI beacon); `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts never rendered before).
+- VERIFIED through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH stub and real modes.
 
 ### Phase 3 progress (§U content-tree breadth, 2026-06-15)
 - **Fixed a real correctness bug for the URL spectrum:** the §U dedup tokenizer was ASCII-only (`[a-z0-9]+`) → non-Latin text (CJK/Cyrillic/accented) produced an EMPTY token-set, so duplicate international titles never collapsed and accented Latin mis-split ("Amélie"→am+lie). Now `[^\W_]+` (Unicode word runs); ASCII golden unchanged. +4 international tests; suite 340/2-skip/0-fail. Commit `bf2c9c7`.
@@ -85,7 +86,8 @@ Recent decisions affecting current work:
 - [Bootstrap]: Standard granularity (no config.json) → 5 phases derived gap-first; backend baseline preserved, frontend §T/§U/§V are finish-and-verify not rebuild.
 - [Bootstrap]: Editor edit-layer is a SCOPED sub-task in Phase 2 (custom vs CodeMirror 6 per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); WYSIWYG/ProseMirror/Lexical options rejected.
 - [Phase 1 scope]: No-mocks SLM remediation (REL-01) is the highest-priority gap — the SLM path must 503 on real-load failure like the embedder already does. **(Shipped 2026-06-15.)**
-- [EDIT-03, 2026-06-15]: **Editor edit-layer = Option B — stay on the custom `magic_markdown` model/vdom for now; do NOT adopt CodeMirror 6 yet.** Rationale: the custom black-slate editor is already built, tested (57 tests), and browser-verified as the served `/` frontend; "finish-and-verify, not rebuild." CM6 (Option A, behind `mount` only) remains the RECOMMENDED enhancement — adopt it when the hand-rolled caret/IME/undo/borderless-edit layer starts costing more than the integration (per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`). Milkdown/BlockNote/MDXEditor stay rejected.
+- [EDIT-03, 2026-06-15 — SUPERSEDED 2026-06-17]: ~~Editor edit-layer = Option B — stay on the custom `magic_markdown` model/vdom; CM6 as a tracked enhancement; Milkdown/BlockNote/MDXEditor rejected.~~ Overridden below.
+- [EDIT-03, 2026-06-17 — USER OVERRIDE, governing]: **Editor edit-layer = Milkdown**, integrated ONLY behind `mount` as a CONTROLLED VIEW (inbound `setText` replace-all / outbound blur-commit; `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged; reconnect-re-render identity). Source: `docs/MILKDOWN_SLATE_GOAL.md` (user directive). The custom `magic_markdown` MODEL is retained (the bundle reuses `renderPanel`/`parse`/`resolveGesture`); Milkdown replaces only the edit/decoration layer. BlockNote/MDXEditor and any editor that OWNS document state remain rejected. **DELIVERED + verified 2026-06-18 (PR #1).**
 - [FIX-01 resolution, 2026-06-15]: `backend/analytics/` is KEPT (utilities only; the forbidden retrieval framework + hyperbolic layout were already removed in G8). The `chunk_builder` hyperbolic-distance *clustering* metric is a scan-time algorithm, NOT the forbidden 3D layout — kept, flagged for design review (task_e6b4743c).
 
 ### Pending Todos
@@ -116,6 +118,7 @@ Items acknowledged and carried forward (tracked as v2 in REQUIREMENTS.md):
 
 ## Session Continuity
 
-Last session: 2026-06-14
-Stopped at: Wrote the complete planning set (PROJECT, REQUIREMENTS, ROADMAP, STATE) from ingest intel.
+Last session: 2026-06-18
+Stopped at: Phase 2 COMPLETE (Milkdown black-slate edit layer, EDIT-01/02/03; PR #1 → Koreiju/mortegon). Reconciled planning state to Phase 2 done; current focus advanced to Phase 3.
 Resume file: None
+Next: `/gsd-plan-phase 3` (HTML Dedup + Halo Retrieval Render — §U content-tree half already hardened; the halo render is the gap), or flip `auto_advance: true` and `/gsd-autonomous` for Phases 3→5.
