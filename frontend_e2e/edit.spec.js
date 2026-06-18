@@ -47,12 +47,55 @@ test("§15.1 panel ⇄ graph dialectic — circular nodes + undirected edges, sy
 });
 
 // --- Phase 2 build targets in the LIVE `/` editor (un-fixme as EDIT-01/02 land) ---
-// Each needs a rendered panel from a (fixture) scan; the demo logs the gesture,
-// the served editor mounts the Milkdown contenteditable on the clicked field.
-test.fixme("EDIT-01 click-to-edit mounts the Milkdown field with the caret at the click point", async () => {
-  // click a printed token in the served editor → expect a focused ProseMirror
-  // contenteditable (.mm-milkdown [contenteditable]) with the caret at the click
-  // column; Shift-Enter soft-newline; Enter commits through the lifecycle.
+// T3 / EDIT-01 — against the LIVE served `/` editor (Milkdown opt-in via
+// ?slate=milkdown). An authored card is created over the real API, renders as a
+// black slate, and single-left on a printed token opens a focused Milkdown
+// editable surface for the whole card; Enter commits the full §3 data through the
+// lifecycle (PATCH → apply_update_lifecycle, persisted), Esc discards.
+test("EDIT-01 click-to-edit opens a focused Milkdown surface; Enter commits through the lifecycle", async ({ page, request }) => {
+  const NAME = "EDIT01 Card " + Date.now(); // unique → unambiguous panel match
+  const create = await request.post("/api/concepts", {
+    data: { name: NAME, data: `${NAME}\n\tbody : hello world\n\tport : 80`, workspace_id: "_default" },
+  });
+  const { concept_id } = await create.json();
+  // scope every locator to THIS card's panel — the shared `_default` workspace
+  // may hold other cards, and click/poll must target the same one.
+  const panel = page.locator(".mm-slate", { hasText: NAME });
+  const token = () => panel.locator('.mm-text[data-editable="1"]', { hasText: "body : hello world" });
+  try {
+    await page.goto("/?slate=milkdown");
+    await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
+    await expect(token()).toBeVisible({ timeout: 10000 });
+
+    // single-left a printed token → the Milkdown editable surface mounts, focused
+    await token().click();
+    const ed = page.locator(".mm-edit-host .mm-milkdown");
+    await expect(ed).toHaveCount(1);
+    await expect(ed).toHaveAttribute("contenteditable", "true");
+    await expect(ed).toBeFocused();
+
+    // the surface mounts with a caret at the end; edit, then Enter commits through
+    // the lifecycle (the surface closes, the value persists)
+    await page.keyboard.type(" EDITED");
+    await page.keyboard.press("Enter");
+    await expect(page.locator(".mm-edit-host")).toHaveCount(0);
+    await expect.poll(async () => (await (await request.get(`/api/concepts/${concept_id}`)).json()).data)
+      .toContain("EDITED");
+
+    // re-open and Esc discards (no further mutation)
+    await expect(token()).toBeVisible({ timeout: 10000 });
+    await token().click();
+    const ed2 = page.locator(".mm-edit-host .mm-milkdown");
+    await expect(ed2).toHaveCount(1);
+    await expect(ed2).toBeFocused();
+    await page.keyboard.type(" DISCARDME");
+    await page.keyboard.press("Escape");
+    await expect(page.locator(".mm-edit-host")).toHaveCount(0);
+    const after = (await (await request.get(`/api/concepts/${concept_id}`)).json()).data;
+    expect(after).not.toContain("DISCARDME");
+  } finally {
+    await request.delete(`/api/concepts/${concept_id}?workspace_id=_default`);
+  }
 });
 test.fixme("EDIT-02 `{` opens autocomplete over concept names; selecting inserts {name}", async () => {});
 test.fixme("EDIT-02 Tab/Shift-Tab re-parent, Enter adds a sibling (+→/+↓ field growth)", async () => {});

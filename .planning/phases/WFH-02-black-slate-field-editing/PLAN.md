@@ -22,10 +22,11 @@
 - **Steps:** field-tree → nested commonmark list; the ▸/▾ glyph is a clickable `Decoration.inline` (`.mm-ref-fold[data-fold-index]`); a click toggles `expanded` and re-renders through the model via the same `setText` replace-all seam; recursion + collapse fall out of `renderPanel`.
 - **Done-when:** un-fixme `milkdown.spec.js` "recursive {ref}". **(green — 5/5 incl. recursive expand→recurse→collapse-restores; browser-verified.)**
 
-### T3 — Click-to-edit: caret-at-click, Shift-Enter, Enter-commit, Esc ☐  (EDIT-01)
-- **Surface:** `magic_markdown_panel.mjs::mount` (swap the textarea path for the Milkdown field editor behind `WFH_SLATE_EDITOR=milkdown`); keymap.
-- **Steps:** single-left a printed token → Milkdown edit on that field, caret at the click point; Shift-Enter soft-newline; Enter commits (fires `editor-overwrite`); Esc discards; empty rows hide.
-- **Done-when:** un-fixme `edit.spec.js` EDIT-01 + `env-scenario --name click-to-edit` / `edit-field-roundtrip` green.
+### T3 — Click-to-edit: focused Milkdown surface, Enter-commit, Esc ☑ DONE  (EDIT-01)
+- **Surface:** `backend/templates/editor.html` `onEdit` → `enterMilkdownEdit` behind `?slate=milkdown` (the browser-side equivalent of `WFH_SLATE_EDITOR=milkdown`; the bundle loads lazily, default path 100% unchanged); the gateway gains a `concept-update` → `PATCH /api/concepts/{id}` mapping (the real persistence path; `edit_close` is only the UI-mirror beacon).
+- **Steps:** single-left a printed token → the whole card opens as a focused Milkdown surface (caret placed at end); Enter commits the full §3 data through the lifecycle (PATCH → `apply_update_lifecycle`, persisted); Esc discards; background WS re-renders are suppressed while editing.
+- **Also fixed:** authored concepts never rendered — the wire payload keys by `concept_id` but `store.applyFrame`/`loadConcepts` read `c.id`; normalized centrally in `store.mjs` (+ `loadConcepts`).
+- **Done-when:** un-fixme `edit.spec.js` EDIT-01. **(green ×2 — create→render→click→focused Milkdown→type→Enter persists; re-open→Esc discards; browser-verified. Caret-at-click *column* + `env-scenario click-to-edit` lifecycle-mirror assertion are the remaining refinements.)**
 
 ### T4 — `{`-autocomplete + `+→`/`+↓` field growth, lifecycle-routed ☐  (EDIT-02)
 - **Surface:** Milkdown input rule for `{`; Tab/Shift-Tab/Enter keymap mapping to the §3 grammar; `gateway.mjs`.
@@ -51,14 +52,14 @@
 
 | Req | Tasks |
 |---|---|
-| EDIT-01 | T2 ☑, T3, T5 ☑ |
+| EDIT-01 | T2 ☑, T3 ☑, T5 ☑ |
 | EDIT-02 | T2 ☑, T4, T5 ☑, T6 ☑ |
 | EDIT-03 | T1 ☑, T7 ◑ (core ☑; `/`-wiring with T3) |
 
 ## Phase gate
 `npm run test:all` green in BOTH stub and real modes with every EDIT spec
 un-fixme'd; `npm run test:all:real --fixture-scan` for deterministic real-stack
-acceptance. T1+T2+T5+T6+T7-core done (8/8 milkdown.spec.js green). **Remaining:
-T3 (live `/` editor: swap the textarea path for the Milkdown field behind
-`WFH_SLATE_EDITOR=milkdown`; un-fixme `edit.spec.js` EDIT-01 + EDIT-03 reconnect)
-and T4 (`{`-autocomplete + `+→`/`+↓` growth; un-fixme `edit.spec.js` EDIT-02).**
+acceptance. T1+T2+T3+T5+T6+T7-core done (milkdown.spec.js 8/8 + edit.spec.js EDIT-01 green;
+full e2e 18 passed / 6 skipped). **Remaining: T4 (`{`-autocomplete + `+→`/`+↓`
+field growth; un-fixme `edit.spec.js` EDIT-02 ×2) and the EDIT-03 reconnect
+against the live `/` editor (the property already holds at the seam, T7-core).**

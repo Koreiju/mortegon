@@ -16,6 +16,14 @@
     .mm-line { line-height: 1.55; }
     .mm-drop { cursor: pointer; color: var(--slate-border); margin-right: 4px; user-select: none; }
     .ws-on { color: #9ae6b4; } .ws-off { color: #c0414a; }
+    /* §T black slate — the Milkdown click-to-edit surface (?slate=milkdown) */
+    .mm-edit-host { background: #000; color: #fff; border: 1px solid var(--slate-border);
+                    font-family: Georgia, 'Times New Roman', serif; font-size: 13px;
+                    border-radius: 6px; padding: 8px 10px; min-width: 220px; }
+    .mm-edit-host .mm-milkdown { outline: none; }
+    .mm-edit-host .mm-milkdown p { margin: 3px 0; }
+    .mm-edit-host .mm-milkdown ul { margin: 3px 0; padding-left: 18px; }
+    .mm-edit-host .mm-ref-fold { cursor: pointer; color: var(--slate-border); user-select: none; }
   </style>
 </head>
 <body>
@@ -31,6 +39,15 @@
     import { mount } from "/static/js/fe/magic_markdown_panel.mjs";
     import { haloVDom } from "/static/js/fe/magic_markdown_halo.mjs";
     import { createProjector } from "/static/js/fe/projector.mjs";
+    import { renderPanel } from "/static/js/fe/magic_markdown.mjs";
+    // The Milkdown editable layer is opt-in via ?slate=milkdown (docs/MILKDOWN_SLATE_GOAL.md).
+    // The default served editor is unchanged; the bundle loads lazily only when flagged.
+    const SLATE_EDITOR = new URLSearchParams(location.search).get("slate") || "custom";
+    let mountMilkdown = null, markdownToFieldText = null, linesToMarkdown = null;
+    if (SLATE_EDITOR === "milkdown") {
+      const m = await import("/static/js/fe/vendor/milkdown_slate.bundle.mjs");
+      mountMilkdown = m.mountMilkdown; markdownToFieldText = m.markdownToFieldText; linesToMarkdown = m.linesToMarkdown;
+    }
 
     const WSID = "_default";
     const store = createStore();
@@ -103,6 +120,8 @@
         positions: ph.slice(0, 3).map(p => ({ left: p.style.left, top: p.style.top, label: p.textContent })) };
     };
 
+    let editingId = null; // while a Milkdown edit is open, background re-renders are suppressed
+
     function render() {
       grid.innerHTML = "";
       const reg = store.registry();
@@ -116,10 +135,53 @@
           onToggle(path) { expanded.has(path) ? expanded.delete(path) : expanded.add(path); render();
                            gateway.send({ kind: "ui-node-fold", cardId: id, path, expanded: expanded.has(path), workspaceId: WSID }); },
           onTogglePanelGraph() { ui.mode[id] = mode === "panel" ? "graph" : "panel"; render(); },
-          onEdit() {},
+          onEdit() { if (SLATE_EDITOR === "milkdown" && mountMilkdown) enterMilkdownEdit(cell, id); },
         });
       }
       document.getElementById("count").textContent = ids.length + " panels";
+    }
+
+    // §T / EDIT-01 — click-to-edit via Milkdown (opt-in). The whole card's §3
+    // field text becomes an editable Milkdown surface (the "editable left side").
+    // Commit (Enter / blur) routes the full data through the lifecycle (PATCH →
+    // apply_update_lifecycle); Esc discards. The store stays sole truth: the
+    // optimistic apply + the WS concept_changed echo both re-render from `data`.
+    async function enterMilkdownEdit(cell, id) {
+      if (!mountMilkdown || editingId === id) return;
+      editingId = id;
+      const seed = linesToMarkdown(renderPanel(store.node(id), {})); // collapsed nested list, no glyphs
+      cell.innerHTML = "";
+      const host = document.createElement("div");
+      host.className = "mm-edit-host";
+      cell.appendChild(host);
+      let done = false, slate = null;
+      const finish = (commit) => {
+        if (done) return; done = true; editingId = null;
+        if (commit && slate) {
+          const data = markdownToFieldText(slate.read());
+          store.applyFrame({ type: "concept_changed", concept: { id, data } }); // optimistic
+          gateway.send({ kind: "concept-update", cardId: id, data, workspaceId: WSID });
+        }
+        render();
+      };
+      host.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); ev.stopPropagation(); finish(true); }
+        else if (ev.key === "Escape") { ev.preventDefault(); finish(false); }
+      }, true);
+      slate = await mountMilkdown(host, seed, { onCommit: () => finish(true) });
+      const ed = host.querySelector(".mm-milkdown");
+      if (ed) {
+        ed.focus();
+        // place a real caret at the end so typing lands deterministically (a
+        // freshly-mounted ProseMirror has focus but no selection otherwise).
+        try {
+          const sel = window.getSelection(); const range = document.createRange();
+          range.selectNodeContents(ed); range.collapse(false);
+          sel.removeAllRanges(); sel.addRange(range);
+        } catch (e) { /* selection best-effort */ }
+      }
+      window.__mm_editing = () => !!document.querySelector(".mm-edit-host .mm-milkdown");
+      window.__mm_read_edit = () => (slate ? slate.read() : null);
     }
 
     async function loadChunks() {
@@ -141,7 +203,7 @@
     async function loadConcepts() {
       try {
         const cs = await (await fetch(`/api/concepts?workspace_id=${WSID}`)).json();
-        for (const c of (cs.concepts || cs || [])) if (c && c.id) store.applyFrame({ type: "concept_changed", concept: c });
+        for (const c of (cs.concepts || cs || [])) if (c && (c.id || c.concept_id)) store.applyFrame({ type: "concept_changed", concept: c });
       } catch (e) { /* concepts endpoint optional */ }
     }
 
@@ -154,7 +216,8 @@
           let f; try { f = JSON.parse(ev.data); } catch { return; }
           const before = JSON.stringify(store.getState().concepts);
           store.applyFrame(f);
-          if (JSON.stringify(store.getState().concepts) !== before) render();   // fluid live update
+          // fluid live update — but never clobber an open Milkdown edit surface
+          if (JSON.stringify(store.getState().concepts) !== before && editingId == null) render();
         };
         window.__mm_ws = ws;
       } catch (e) { console.warn("ws", e); }
@@ -199,6 +262,8 @@
       connectWS();
       bootProjector();
       window.__mm_ready = true;
+      window.__mm_slate_editor = SLATE_EDITOR;
+      window.__mm_editing = () => !!document.querySelector(".mm-edit-host .mm-milkdown");
       window.__mm_state = () => ({
         panels: grid.querySelectorAll(".mm-slate, .mm-graph").length,
         drops: grid.querySelectorAll(".mm-drop").length,
