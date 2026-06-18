@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Honest Baseline | direct | Done (stub-verified) | 2026-06-15 |
 | 2. Black-Slate Field Editing | direct | Done (Milkdown; browser + framework verified, PR #1) | 2026-06-18 |
-| 3. HTML Dedup + Halo Retrieval Render | 0/TBD | Not started | - |
+| 3. HTML Dedup + Halo Retrieval Render | direct | Planned (CONTEXT + PLAN; finish-and-verify) | - |
 | 4. Live Layout, Signal & Pattern | 0/TBD | Not started | - |
 | 5. Three-Register Synthesis & Live Acceptance | 0/TBD | Not started | - |
 
