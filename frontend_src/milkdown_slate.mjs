@@ -22,10 +22,10 @@
 //                    `magic_markdown.mjs::renderPanel` (the model) and pushed back
 //                    through the SAME `setText` replace-all seam — Milkdown only
 //                    renders what the model computes (§2.5 of the goal doc).
-import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from "@milkdown/core";
+import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx, editorViewCtx } from "@milkdown/core";
 import { commonmark } from "@milkdown/preset-commonmark";
 import { getMarkdown, replaceAll, $prose } from "@milkdown/utils";
-import { Plugin, PluginKey } from "@milkdown/prose/state";
+import { Plugin, PluginKey, TextSelection } from "@milkdown/prose/state";
 import { Decoration, DecorationSet } from "@milkdown/prose/view";
 // The model is the single source of truth for {ref} resolution + recursion;
 // esbuild inlines it from the served fe/ tree (no duplicate logic).
@@ -245,6 +245,36 @@ export async function mountMilkdown(host, source, opts = {}) {
   function readFieldText() {
     return markdownToFieldText(read());
   }
+  // EDIT-01 caret-at-click: move the caret to the END of the textblock whose text
+  // is `fieldText`, through ProseMirror's OWN selection API (a raw DOM Range gets
+  // overridden by ProseMirror on focus). Returns true if the field was found.
+  function placeCaretInField(fieldText) {
+    if (fieldText == null) return false;
+    let placed = false;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const doc = view.state.doc;
+      let pos = null;
+      const exact = (n) => n.isTextblock && n.textContent === fieldText;
+      const fuzzy = (n) => n.isTextblock && n.textContent &&
+        (fieldText.includes(n.textContent) || n.textContent.includes(fieldText));
+      for (const pred of [exact, fuzzy]) {
+        doc.descendants((node, p) => {
+          if (pos != null) return false;
+          if (pred(node)) pos = p + 1 + node.content.size; // end of the textblock's content
+          return true;
+        });
+        if (pos != null) break;
+      }
+      if (pos != null) {
+        const sel = TextSelection.create(doc, pos);
+        view.dispatch(view.state.tr.setSelection(sel).scrollIntoView());
+        view.focus();
+        placed = true;
+      }
+    });
+    return placed;
+  }
 
   // Recursive {ref} (RECORD mode): a click on a ▸/▾ glyph toggles that ref's
   // expansion and re-renders through the model — never an in-place doc edit.
@@ -277,6 +307,7 @@ export async function mountMilkdown(host, source, opts = {}) {
     setText,
     read,
     readFieldText,
+    placeCaretInField,
     destroy: () => editor.destroy(),
     // RECORD-mode introspection (for the gesture layer + Playwright acceptance):
     getExpanded: () => new Set(expanded),

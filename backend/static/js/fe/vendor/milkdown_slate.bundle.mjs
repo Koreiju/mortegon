@@ -24790,6 +24790,32 @@ async function mountMilkdown(host, source, opts = {}) {
   function readFieldText() {
     return markdownToFieldText(read());
   }
+  function placeCaretInField(fieldText) {
+    if (fieldText == null) return false;
+    let placed = false;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const doc4 = view.state.doc;
+      let pos = null;
+      const exact = (n) => n.isTextblock && n.textContent === fieldText;
+      const fuzzy = (n) => n.isTextblock && n.textContent && (fieldText.includes(n.textContent) || n.textContent.includes(fieldText));
+      for (const pred of [exact, fuzzy]) {
+        doc4.descendants((node2, p) => {
+          if (pos != null) return false;
+          if (pred(node2)) pos = p + 1 + node2.content.size;
+          return true;
+        });
+        if (pos != null) break;
+      }
+      if (pos != null) {
+        const sel = TextSelection.create(doc4, pos);
+        view.dispatch(view.state.tr.setSelection(sel).scrollIntoView());
+        view.focus();
+        placed = true;
+      }
+    });
+    return placed;
+  }
   function toggleFold(foldIndex) {
     const path = foldPaths[foldIndex];
     if (path == null) return;
@@ -24817,6 +24843,7 @@ async function mountMilkdown(host, source, opts = {}) {
     setText,
     read,
     readFieldText,
+    placeCaretInField,
     destroy: () => editor.destroy(),
     // RECORD-mode introspection (for the gesture layer + Playwright acceptance):
     getExpanded: () => new Set(expanded),

@@ -26,7 +26,9 @@
 - **Surface:** `backend/templates/editor.html` `onEdit` → `enterMilkdownEdit` behind `?slate=milkdown` (the browser-side equivalent of `WFH_SLATE_EDITOR=milkdown`; the bundle loads lazily, default path 100% unchanged); the gateway gains a `concept-update` → `PATCH /api/concepts/{id}` mapping (the real persistence path; `edit_close` is only the UI-mirror beacon).
 - **Steps:** single-left a printed token → the whole card opens as a focused Milkdown surface (caret placed at end); Enter commits the full §3 data through the lifecycle (PATCH → `apply_update_lifecycle`, persisted); Esc discards; background WS re-renders are suppressed while editing.
 - **Also fixed:** authored concepts never rendered — the wire payload keys by `concept_id` but `store.applyFrame`/`loadConcepts` read `c.id`; normalized centrally in `store.mjs` (+ `loadConcepts`).
-- **Done-when:** un-fixme `edit.spec.js` EDIT-01. **(green ×2 — create→render→click→focused Milkdown→type→Enter persists; re-open→Esc discards; browser-verified. Caret-at-click *column* + `env-scenario click-to-edit` lifecycle-mirror assertion are the remaining refinements.)**
+- **Caret-at-click:** `milkdown_slate.mjs::placeCaretInField` moves the caret to the clicked field via ProseMirror's `TextSelection` (a raw DOM Range gets overridden on focus); the editor captures the clicked field text in a capture-phase mousedown before the slate is swapped out.
+- **Lifecycle-mirror:** `env-scenario --name edit-field-roundtrip` extended — the commit path (`concept-update` PATCH, the same route the slate's blur-commit fires) PERSISTS the data AND the append-only evolution log records the `modify` diff (the `edit_close` UI beacon alone never proved this).
+- **Done-when:** un-fixme `edit.spec.js` EDIT-01. **(green ×2 — caret lands in the clicked field, the edit lands ON that line ("hello world EDITED"); blur persists, Esc discards; `edit-field-roundtrip` green in full-smoke.)**
 
 ### T4 — `{`-autocomplete + `+→`/`+↓` field growth, lifecycle-routed ☑ DONE  (EDIT-02)
 - **Surface:** `editor.html` `installAutocomplete` (a `{`-driven concept-name popup over the Milkdown contenteditable, inserting `{<name>}` via `insertText`); field growth is ProseMirror's native commonmark list keymap (Enter = sibling `+↓`, Tab = sink `+→`); commit → `concept-update` PATCH (T3).
@@ -59,8 +61,9 @@
 ## Phase gate
 `npm run test:all` green in BOTH stub and real modes with every EDIT spec
 un-fixme'd; `npm run test:all:real --fixture-scan` for deterministic real-stack
-acceptance. **ALL of T1–T7 done.** milkdown.spec.js 8/8 + edit.spec.js 8/8 (every EDIT-01/02/03
-spec un-fixme'd); full e2e **21 passed / 3 skipped** (only the Phase-3 HALO fixmes
-remain); fe/ unit tests green; no regressions. Remaining refinements (non-blocking):
-caret-at-click *column*, and the `env-scenario click-to-edit` REPL-mirror assertion
-(the persistence already routes through `apply_update_lifecycle`).
+acceptance. **ALL of T1–T7 done, incl. both refinements** (caret-at-click via ProseMirror
+`TextSelection`; the `edit-field-roundtrip` REPL-mirror now asserts commit
+persistence + evolution-log recording). milkdown.spec.js 8/8 + edit.spec.js 8/8
+(every EDIT-01/02/03 spec un-fixme'd). Through the framework: REPL full-smoke
+**92/92** + e2e **21 passed / 3 skipped** (only Phase-3 HALO remain) — **ALL GREEN**;
+fe/ unit tests green; no regressions. **Phase 2 is complete.**

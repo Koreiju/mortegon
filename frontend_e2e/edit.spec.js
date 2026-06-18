@@ -67,21 +67,26 @@ test("EDIT-01 click-to-edit opens a focused Milkdown surface; blur commits throu
     await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
     await expect(token()).toBeVisible({ timeout: 10000 });
 
-    // single-left a printed token → the Milkdown editable surface mounts, focused
+    // single-left the MIDDLE field ("body : hello world", not the last line) →
+    // the Milkdown editable surface mounts, focused, with the caret AT THE CLICKED
+    // FIELD (caret-at-click), not at the doc end.
     await token().click();
     const ed = page.locator(".mm-edit-host .mm-milkdown");
     await expect(ed).toHaveCount(1);
     await expect(ed).toHaveAttribute("contenteditable", "true");
     await expect(ed).toBeFocused();
+    expect(await page.evaluate(() => window.__mm_caret_line()), "caret landed in the clicked field")
+      .toContain("body : hello world");
 
-    // the surface mounts with a caret at the end; edit, then blur (click outside)
-    // commits through the lifecycle (the surface closes, the value persists).
-    // (Enter / Tab are reserved for §3 field growth — EDIT-02 — so commit is blur.)
+    // edit, then blur (click outside) commits through the lifecycle. Because the
+    // caret is in the clicked field, the edit lands ON THAT line ("hello world
+    // EDITED"), proving caret-at-click. (Enter/Tab are reserved for §3 field
+    // growth — EDIT-02 — so commit is blur.)
     await page.keyboard.type(" EDITED");
     await page.locator("#bar").click();
     await expect(page.locator(".mm-edit-host")).toHaveCount(0);
     await expect.poll(async () => (await (await request.get(`/api/concepts/${concept_id}`)).json()).data)
-      .toContain("EDITED");
+      .toContain("hello world EDITED");
 
     // re-open and Esc discards (no further mutation)
     await expect(token()).toBeVisible({ timeout: 10000 });

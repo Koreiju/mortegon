@@ -5408,6 +5408,44 @@ def _env_scenario_edit_field_roundtrip(env: FrontendEnv) -> int:
     else:
         _ok("edit closed")
 
+    # 5b) Commit path (the gateway's click-to-edit commit). The ui_edit_open/close
+    # beacon above only ANNOUNCES the edit; the value the user typed lands via
+    # `concept-update` (PATCH → apply_update_lifecycle, the same route the
+    # `?slate=milkdown` slate's blur-commit fires). Assert the data PERSISTS and
+    # the append-only evolution log RECORDS the edit — the lifecycle routing the
+    # `edit_close` UI beacon alone never proves.
+    made = _env_step(env, "concept-create", name="EditMe",
+                     data="EditMe\n\tbody : before")
+    cid = (made.get("response") or {}).get("concept_id")
+    if not cid:
+        _err(f"concept-create returned no id: {made.get('response')!r}")
+        fails += 1
+    else:
+        _env_step(env, "ui-edit-open", card_id=cid, field_path="0.0",
+                  value_so_far="EditMe\n\tbody : after")
+        _env_step(env, "concept-update", id=cid, data="EditMe\n\tbody : after")
+        _env_step(env, "ui-edit-close")
+        got = _env_step(env, "concept-get", id=cid).get("response") or {}
+        if "after" not in (got.get("data") or ""):
+            _err(f"click-to-edit commit did not persist: data={got.get('data')!r}")
+            fails += 1
+        else:
+            _ok("click-to-edit commit persisted through the lifecycle (data updated)")
+        # The append-only evolution log RECORDED the edit — assert OUR card's
+        # modify diff is present (content-based; a count check saturates at the
+        # shared workspace's >200 prior entries).
+        log = _env_step(env, "evolution-log", limit=10).get("response") or {}
+        diffs = log.get("diffs") or log.get("entries") or []
+        logged = any(cid in str(d.get("target", "")) and d.get("kind") in ("modify", "update", "create")
+                     for d in diffs)
+        if not logged:
+            _err(f"evolution log did not record the commit for {cid}: "
+                 f"recent targets={[d.get('target') for d in diffs[:5]]}")
+            fails += 1
+        else:
+            _ok("evolution log recorded the click-to-edit commit (modify diff)")
+        _env_step(env, "concept-delete", id=cid)
+
     # 6) Purge.
     _env_step(env, "ui-edit-open", card_id="card_z", field_path="name",
               value_so_far="x")
