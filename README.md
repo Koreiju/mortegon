@@ -11,6 +11,7 @@ The idea is simple; the database of functional objects are procedurally rendered
 
 Functionality and objectivity are an inherent dialect to cognicizing computation. 
 
+A scientific and democratic alternative than the current compromised cyberspace 
 ---
 
 ## 🌟 Core Features
