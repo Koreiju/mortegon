@@ -16,6 +16,19 @@
     .mm-line { line-height: 1.55; }
     .mm-drop { cursor: pointer; color: var(--slate-border); margin-right: 4px; user-select: none; }
     .ws-on { color: #9ae6b4; } .ws-off { color: #c0414a; }
+    /* §T black slate — the Milkdown click-to-edit surface (?slate=milkdown) */
+    .mm-edit-host { background: #000; color: #fff; border: 1px solid var(--slate-border);
+                    font-family: Georgia, 'Times New Roman', serif; font-size: 13px;
+                    border-radius: 6px; padding: 8px 10px; min-width: 220px; }
+    .mm-edit-host .mm-milkdown { outline: none; }
+    .mm-edit-host .mm-milkdown p { margin: 3px 0; }
+    .mm-edit-host .mm-milkdown ul { margin: 3px 0; padding-left: 18px; }
+    .mm-edit-host .mm-ref-fold { cursor: pointer; color: var(--slate-border); user-select: none; }
+    /* §3 {-autocomplete over concept names (EDIT-02) */
+    .mm-autocomplete { position: fixed; z-index: 50; background: #000; border: 1px solid var(--slate-border);
+                       font-family: Georgia, serif; font-size: 12px; min-width: 160px; max-height: 200px; overflow: auto; }
+    .mm-ac-item { padding: 3px 8px; color: #fff; cursor: pointer; white-space: nowrap; }
+    .mm-ac-item.sel, .mm-ac-item:hover { background: rgba(192,192,192,0.22); }
   </style>
 </head>
 <body>
@@ -31,6 +44,15 @@
     import { mount } from "/static/js/fe/magic_markdown_panel.mjs";
     import { haloVDom } from "/static/js/fe/magic_markdown_halo.mjs";
     import { createProjector } from "/static/js/fe/projector.mjs";
+    import { renderPanel } from "/static/js/fe/magic_markdown.mjs";
+    // The Milkdown editable layer is opt-in via ?slate=milkdown (docs/MILKDOWN_SLATE_GOAL.md).
+    // The default served editor is unchanged; the bundle loads lazily only when flagged.
+    const SLATE_EDITOR = new URLSearchParams(location.search).get("slate") || "custom";
+    let mountMilkdown = null, markdownToFieldText = null, linesToMarkdown = null;
+    if (SLATE_EDITOR === "milkdown") {
+      const m = await import("/static/js/fe/vendor/milkdown_slate.bundle.mjs");
+      mountMilkdown = m.mountMilkdown; markdownToFieldText = m.markdownToFieldText; linesToMarkdown = m.linesToMarkdown;
+    }
 
     const WSID = "_default";
     const store = createStore();
@@ -103,6 +125,11 @@
         positions: ph.slice(0, 3).map(p => ({ left: p.style.left, top: p.style.top, label: p.textContent })) };
     };
 
+    let editingId = null; // while a Milkdown edit is open, background re-renders are suppressed
+    // the clicked field text, captured BEFORE the panel's click handler swaps in
+    // the editor — so the Milkdown caret can land on the field the click fell on.
+    let lastClickField = null;
+
     function render() {
       grid.innerHTML = "";
       const reg = store.registry();
@@ -116,10 +143,121 @@
           onToggle(path) { expanded.has(path) ? expanded.delete(path) : expanded.add(path); render();
                            gateway.send({ kind: "ui-node-fold", cardId: id, path, expanded: expanded.has(path), workspaceId: WSID }); },
           onTogglePanelGraph() { ui.mode[id] = mode === "panel" ? "graph" : "panel"; render(); },
-          onEdit() {},
+          onEdit() { if (SLATE_EDITOR === "milkdown" && mountMilkdown) enterMilkdownEdit(cell, id); },
         });
       }
       document.getElementById("count").textContent = ids.length + " panels";
+    }
+
+    // §T / EDIT-01+02 — click-to-edit via Milkdown (opt-in). The whole card's §3
+    // field text becomes an editable Milkdown surface (the "editable left side").
+    // The unified tree-edit gesture model (reconciling EDIT-01/02): Enter / Tab /
+    // Shift-Tab do native field-tree growth (sibling row / re-parent), BLUR
+    // commits the full data through the lifecycle (PATCH → apply_update_lifecycle),
+    // Esc discards. The store stays sole truth: the optimistic apply + the WS
+    // concept_changed echo both re-render from `data`.
+    async function enterMilkdownEdit(cell, id) {
+      if (!mountMilkdown || editingId === id) return;
+      editingId = id;
+      const seed = linesToMarkdown(renderPanel(store.node(id), {})); // collapsed nested list, no glyphs
+      cell.innerHTML = "";
+      const host = document.createElement("div");
+      host.className = "mm-edit-host";
+      cell.appendChild(host);
+      let done = false, slate = null;
+      const finish = (commit) => {
+        if (done) return; done = true; editingId = null;
+        if (commit && slate) {
+          const data = markdownToFieldText(slate.read());
+          store.applyFrame({ type: "concept_changed", concept: { id, data } }); // optimistic
+          gateway.send({ kind: "concept-update", cardId: id, data, workspaceId: WSID });
+        }
+        render();
+      };
+      // Esc discards — UNLESS the {-autocomplete popup is open (then Esc closes it).
+      // Enter/Tab fall through to ProseMirror's list keymap (sibling / indent = §3
+      // field growth). Commit is on blur (onCommit below).
+      host.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape" && !host.__acOpen) { ev.preventDefault(); ev.stopPropagation(); finish(false); }
+      }, true);
+      slate = await mountMilkdown(host, seed, { onCommit: () => finish(true) });
+      const ed = host.querySelector(".mm-milkdown");
+      if (ed) {
+        ed.focus();
+        // EDIT-01 caret-at-click: place the caret in the clicked field via
+        // ProseMirror's selection API (a raw DOM Range is overridden on focus).
+        let placed = false;
+        try { placed = slate.placeCaretInField(lastClickField); } catch (e) { /* best-effort */ }
+        if (!placed) {
+          try { // fallback: caret at the doc end (always typable)
+            const sel = window.getSelection(); const range = document.createRange();
+            range.selectNodeContents(ed); range.collapse(false);
+            sel.removeAllRanges(); sel.addRange(range);
+          } catch (e) { /* best-effort */ }
+        }
+        // §3 {-autocomplete: typing `{` binds to an existing concept name (the
+        // on-ramp to typed linking) — inserts `{<name>}` (EDIT-02).
+        installAutocomplete(host, ed, [...store.registry().keys()].filter(Boolean));
+      }
+      window.__mm_editing = () => !!document.querySelector(".mm-edit-host .mm-milkdown");
+      window.__mm_read_edit = () => (slate ? slate.read() : null);
+      // the text of the block the caret currently sits in (caret-at-click probe)
+      window.__mm_caret_line = () => {
+        const a = window.getSelection().anchorNode; if (!a) return null;
+        const b = (a.nodeType === 3 ? a.parentElement : a);
+        const block = b && b.closest ? b.closest(".mm-milkdown p, .mm-milkdown li") : null;
+        return block ? block.textContent : null;
+      };
+    }
+
+    // installAutocomplete(host, ed, names) — when the caret sits just after an
+    // unclosed `{`, pop a list of concept names; selecting one inserts `{<name>}`
+    // (the §3 typed-linking on-ramp, EDIT-02). Uses contenteditable insertText/
+    // delete (ProseMirror folds these into its doc via beforeinput).
+    function installAutocomplete(host, ed, names) {
+      let pop = null, items = [], sel = 0;
+      const close = () => { if (pop) { pop.remove(); pop = null; items = []; } host.__acOpen = false; };
+      const query = () => {
+        const s = window.getSelection(); if (!s.rangeCount) return null;
+        const node = s.anchorNode; if (!node || node.nodeType !== 3) return null;
+        const m = /\{([^{}]*)$/.exec(node.textContent.slice(0, s.anchorOffset));
+        return m ? m[1] : null;
+      };
+      const refresh = () => {
+        const q = query();
+        if (q == null) { close(); return; }
+        items = names.filter((n) => n.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+        if (!items.length) { close(); return; }
+        sel = Math.min(sel, items.length - 1);
+        if (!pop) { pop = document.createElement("div"); pop.className = "mm-autocomplete"; document.body.appendChild(pop); }
+        host.__acOpen = true;
+        const r = window.getSelection().getRangeAt(0).getBoundingClientRect();
+        pop.style.left = r.left + "px"; pop.style.top = (r.bottom + 3) + "px";
+        pop.innerHTML = "";
+        items.forEach((n, i) => {
+          const it = document.createElement("div");
+          it.className = "mm-ac-item" + (i === sel ? " sel" : ""); it.textContent = n;
+          it.addEventListener("mousedown", (ev) => { ev.preventDefault(); choose(n); });
+          pop.appendChild(it);
+        });
+      };
+      const choose = (name) => {
+        const q = query(); if (q == null) { close(); return; }
+        for (let i = 0; i < q.length; i++) document.execCommand("delete", false); // back to the `{`
+        document.execCommand("insertText", false, name + "}");
+        close();
+      };
+      ed.addEventListener("input", refresh);
+      ed.addEventListener("keydown", (ev) => {
+        if (!pop) return;
+        if (ev.key === "ArrowDown") { ev.preventDefault(); ev.stopPropagation(); sel = (sel + 1) % items.length; refresh(); }
+        else if (ev.key === "ArrowUp") { ev.preventDefault(); ev.stopPropagation(); sel = (sel - 1 + items.length) % items.length; refresh(); }
+        else if (ev.key === "Enter") { ev.preventDefault(); ev.stopPropagation(); choose(items[sel]); }
+        else if (ev.key === "Escape") { ev.preventDefault(); ev.stopPropagation(); close(); }
+      }, true);
+      // probe hooks
+      window.__mm_ac_items = () => items.slice();
+      window.__mm_ac_open = () => !!pop;
     }
 
     async function loadChunks() {
@@ -141,7 +279,7 @@
     async function loadConcepts() {
       try {
         const cs = await (await fetch(`/api/concepts?workspace_id=${WSID}`)).json();
-        for (const c of (cs.concepts || cs || [])) if (c && c.id) store.applyFrame({ type: "concept_changed", concept: c });
+        for (const c of (cs.concepts || cs || [])) if (c && (c.id || c.concept_id)) store.applyFrame({ type: "concept_changed", concept: c });
       } catch (e) { /* concepts endpoint optional */ }
     }
 
@@ -154,7 +292,8 @@
           let f; try { f = JSON.parse(ev.data); } catch { return; }
           const before = JSON.stringify(store.getState().concepts);
           store.applyFrame(f);
-          if (JSON.stringify(store.getState().concepts) !== before) render();   // fluid live update
+          // fluid live update — but never clobber an open Milkdown edit surface
+          if (JSON.stringify(store.getState().concepts) !== before && editingId == null) render();
         };
         window.__mm_ws = ws;
       } catch (e) { console.warn("ws", e); }
@@ -167,6 +306,13 @@
       const line = ev.target.closest(".mm-line");
       if (line) openHalo(line);
     });
+    // capture the click point + clicked field text BEFORE the panel's bubble-phase
+    // click handler runs enterMilkdownEdit (which replaces the slate) — so the
+    // Milkdown caret can be placed at the clicked field (EDIT-01 caret-at-click).
+    grid.addEventListener("mousedown", (ev) => {
+      const t = ev.target.closest && ev.target.closest(".mm-text");
+      lastClickField = t ? t.textContent : null;
+    }, true);
 
     // ── 3D Real register (the projector behind the panels) ──────────────────
     let projector = null;
@@ -199,6 +345,11 @@
       connectWS();
       bootProjector();
       window.__mm_ready = true;
+      window.__mm_slate_editor = SLATE_EDITOR;
+      window.__mm_editing = () => !!document.querySelector(".mm-edit-host .mm-milkdown");
+      // EDIT-03 — the slate holds NO authoritative state: re-deriving from the
+      // store (what a dropped-WS reconnect does) re-renders identically.
+      window.__mm_rerender = () => render();
       window.__mm_state = () => ({
         panels: grid.querySelectorAll(".mm-slate, .mm-graph").length,
         drops: grid.querySelectorAll(".mm-drop").length,

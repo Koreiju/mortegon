@@ -29,6 +29,13 @@ export function buildRequest(g = {}) {
       return { method: "POST", path: "/api/ui/edit_close",
         body: { card_id: card, node_path: g.path, value: g.value, [WS]: ws } };
 
+    case "concept-update":
+      // commit an edited card's full §3 field text — the real persistence path
+      // (PATCH → apply_update_lifecycle: WS broadcast + index + evolution log).
+      // edit_close above is only the UI-mirror "who's editing" beacon.
+      return { method: "PATCH", path: "/api/concepts/" + card,
+        body: { data: g.data, [WS]: ws } };
+
     case Action.TOGGLE_FOLD:
     case "ui-node-fold":
       return { method: "POST", path: "/api/ui/node_fold",

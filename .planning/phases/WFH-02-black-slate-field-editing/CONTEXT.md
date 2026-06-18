@@ -21,20 +21,23 @@ slate (`backend/static/js/fe/magic_markdown*.mjs`, default surface at `/`).
   over existing concept names inserts `{<name>}`; every mutation routes through
   `concept_lifecycle.py` (asserted by the `concept_index_update` WS frame +
   evolution-log entry).
-- **EDIT-03** — record the edit-layer decision (custom vs CodeMirror 6 per
-  `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); if CM6, integrate ONLY behind `mount`
-  (rest-render/reveal-raw, caret/IME/undo), with `store.mjs` / `gateway.mjs` /
-  `magic_markdown.mjs` unchanged; **no authoritative frontend state** (a dropped-WS
-  reconnect re-renders the slate identically).
+- **EDIT-03** — integrate **Milkdown** as the in-slate edit/decoration layer
+  (`docs/MILKDOWN_SLATE_GOAL.md`, user override 2026-06-17 of the CM6 assessment)
+  ONLY behind `mount` as a CONTROLLED VIEW (inbound replace-all / outbound commit),
+  with `store.mjs` / `gateway.mjs` / `magic_markdown.mjs` unchanged; **no
+  authoritative frontend state** (a dropped-WS reconnect re-renders the slate
+  identically).
 
 ## Locked decisions (from PROJECT.md + the assessment)
 
 - D10 — backend computes, frontend renders. The slate holds no authoritative
   state; edit → REST → lifecycle → `concept_changed` WS → re-render.
-- EDIT-03 recommendation — **keep the custom `magic_markdown` model + store/gateway
-  seam**; CM6 is optional, ONLY as the in-slate edit+decoration layer (the win is
-  caret/IME/undo). Milkdown/BlockNote/MDXEditor rejected. `@mdxeditor/editor`
-  already removed.
+- EDIT-03 decision (2026-06-17, user override) — **adopt Milkdown** as the in-slate
+  edit+decoration layer ONLY (caret/IME/undo over a real contenteditable), kept a
+  CONTROLLED VIEW behind `mount`; the `magic_markdown` model + store/gateway seam
+  stay unchanged (`docs/MILKDOWN_SLATE_GOAL.md` supersedes the CM6 lean in
+  `docs/EDITOR_INTEGRATION_ASSESSMENT.md`). BlockNote/MDXEditor, and any editor that
+  OWNS document state, remain rejected. `@mdxeditor/editor` already removed.
 - Slate grammar — tabs+newlines only; `{ref}` the only markup; §S.4 black-slate
   visual contract (already passing in e2e).
 

@@ -37,7 +37,7 @@ The four lodestar use cases (§8D.45/47/48/49) run end-to-end **against real sub
 
 **Phase 2 — Black-Slate Field Editing (§T):**
 - [ ] EDIT-01 / EDIT-02: Pure-print panels; hover overlay → textarea on click (caret-at-click); Shift-Enter multiline; Enter commits through the lifecycle; `+→`/`+↓` field-tree growth; `{`-autocomplete; empty rows hide.
-- [ ] EDIT-03: Resolve the in-slate edit-layer decision (custom vs CodeMirror 6 per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); if CM6, integrate ONLY behind `mount` (rest-render/reveal-raw, caret/IME/undo), `store`/`gateway`/`magic_markdown` unchanged; no authoritative frontend state.
+- [ ] EDIT-03: Integrate **Milkdown** as the in-slate edit/decoration layer (`docs/MILKDOWN_SLATE_GOAL.md`, user override 2026-06-17 of the CM6 assessment) ONLY behind `mount` as a controlled view — `store`/`gateway`/`magic_markdown` unchanged; no authoritative frontend state (reconnect-re-render identity).
 
 **Phase 3 — HTML Dedup + Halo Retrieval Render (§U/§V):**
 - [ ] HTML-01: HTML chunk slate body = deduplicated content as a pure-text tree (collapse wrappers, token-set dedup, surface href/src) built from `fields`; §U golden 6/6; one detector / mirrored strategy order.
@@ -63,7 +63,7 @@ The four lodestar use cases (§8D.45/47/48/49) run end-to-end **against real sub
 - Panel/node chrome (coloured header, hash hue, ×, minimiser, top bar) — REMOVED (§S.4); black-slate design only.
 - Stray dotted UI lines / dotted debug overlays — REMOVED (D11); the 2D↔3D arrow is solid.
 - Real-backend → stub fallback in production — FORBIDDEN (D9); failures are loud (503 + halted cascade).
-- WYSIWYG/ProseMirror/Lexical editors (Milkdown/BlockNote/MDXEditor) — rejected (`docs/EDITOR_INTEGRATION_ASSESSMENT.md`); the slate is not markdown and holds no authoritative state.
+- BlockNote / MDXEditor, and ANY editor that owns document state — rejected. **Milkdown is adopted** (EDIT-03, user override 2026-06-17, `docs/MILKDOWN_SLATE_GOAL.md`) ONLY as the in-slate edit layer behind a controlled-view seam (store = sole truth); it must never become authoritative frontend state.
 - Multi-user / auth / team / sprint artifacts — single-operator app by design.
 - Rebuilding already-working backend (lifecycle, dual pipelines, retrieval index, Kuzu persistence, scan streaming, WS framing) — brownfield baseline is preserved.
 - Deferred to v2: splitting the monolithic `routes.py` / `sim_frontend.py` (MAINT-01/02); incremental mid-scan UMAP refit + embedder thread-safety hardening (PERF-01/02).
@@ -73,7 +73,7 @@ The four lodestar use cases (§8D.45/47/48/49) run end-to-end **against real sub
 - **Brownfield, doc-driven.** `docs/` is the authoritative target; code is iterated toward it. Source-of-truth precedence: `docs/USER_REQUIREMENTS_VERBATIM.md` (supreme) → `DOMAIN_MODEL.md` → `FRONTEND_REDESIGN.md` + `docs/frontend/` → `DOC_MAP.md`. `MORTEGON_INTEGRATION_SCHEME.md` and `CODEBASE_GAP_ANALYSIS.md` are historical/superseded.
 - **The frontier is finish-and-verify, not build.** Backend is mature; the §T black-slate editor and §U HTML-dedup content-tree are built and served at `/`. The remaining §T/§U/§V work is the REPL-driven verification matrix, two open live bugs (retrieval id-scheme mismatch `c_<hash>` vs `c_<hash>_<hash>` at the scanner-bookkeeping boundary — "do not interfere"; the noetic per-workspace scan nav anomaly), and the §E.1 HtmlStrategy arm — plus the no-mocks remediation and forbidden-code deletion.
 - **Verification idiom.** Three tiers: pytest (`backend/tests/`), the `env-scenario` REPL contract (`scripts/sim_frontend.py`, ~92-96 scenarios, both modes), and `scripts/probe_live_*.py` E2E probes (`all_real:true`). Every phase carries a named scenario / probe / `all_real` criterion.
-- **Editor edit-layer decision (just authored).** `docs/EDITOR_INTEGRATION_ASSESSMENT.md` — keep the custom `magic_markdown` model + store/gateway seam; optionally adopt CodeMirror 6 as ONLY the in-slate edit + decoration layer (rest-render/reveal-raw, caret/IME/undo); alternative is stay fully custom. Folded as a scoped sub-task in Phase 2, not a from-scratch editor build. Remove `@mdxeditor/editor`.
+- **Editor edit-layer decision (resolved 2026-06-17 — Milkdown).** `docs/MILKDOWN_SLATE_GOAL.md` supersedes the CM6 lean in `docs/EDITOR_INTEGRATION_ASSESSMENT.md`: **Milkdown** is the in-slate edit/decoration layer behind `mount`, kept a CONTROLLED VIEW (store = sole truth, inbound replace-all / outbound commit, reconnect-re-render identity). The `magic_markdown` model + store/gateway seam stay unchanged. A scoped Phase 2 sub-task, not a from-scratch editor build. `@mdxeditor/editor` removed.
 - **Known sharp edges:** GPT4All native embedder is not thread-safe (RLock-guarded in `embedding_service.py`); two entry points (`app.py` vs `backend/main.py`); backend port 8080 vs REPL default 8000 (pass `--backend http://127.0.0.1:8080`); kuzu version drift (`requirements.txt` 0.3.2 vs docs ≥0.11 file-based); unpinned langgraph/selenium/webdriver_manager; 14 ledgered legacy test failures; stale `fixture::editor` can survive in `_default` Kuzu DB.
 
 ## Constraints

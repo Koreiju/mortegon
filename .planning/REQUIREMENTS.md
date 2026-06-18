@@ -28,7 +28,7 @@ Requirements for the current milestone. Each maps to exactly one roadmap phase. 
 
 - [ ] **EDIT-01**: Pure-print panel renders the field-tree; hidden hover overlays swap a row to a textarea on click (caret lands where the click fell); Shift-Enter inserts a soft newline (multiline); Enter commits through `ConceptLifecycle`; Esc discards. Empty rows hide. (REQ-click-to-edit; D6)
 - [ ] **EDIT-02**: Plus-sign field-tree growth works — `+→` parent→child and `+↓` sibling; the edit-cycle state machine routes every mutation through the single lifecycle dispatcher; `{`-autocomplete binds to existing concept names by inserting `{<linked_name>}`. (REQ-click-to-edit; D6)
-- [ ] **EDIT-03**: The in-slate text-edit layer decision (custom vs CodeMirror 6) per `docs/EDITOR_INTEGRATION_ASSESSMENT.md` is resolved and, if CM6 is chosen, integrated as ONLY the edit + decoration layer (rest-render / reveal-raw; caret/IME/undo) behind `mount` — `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged; the frontend holds NO authoritative state. (REQ-click-to-edit; D10)
+- [ ] **EDIT-03**: The in-slate text-edit layer is **Milkdown** (`docs/MILKDOWN_SLATE_GOAL.md`, user override 2026-06-17 of the CM6 assessment), integrated as ONLY the edit + decoration layer behind `mount` as a CONTROLLED VIEW — `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged; the frontend holds NO authoritative state (a dropped-WS reconnect re-renders the slate identically is the gate). (REQ-click-to-edit; D10)
 
 ### HTML Dedup Content-Tree (§U / §E.1)
 
@@ -82,7 +82,7 @@ Explicit exclusions, documented to prevent scope creep. Anti-features are the fo
 | Real-backend → stub fallback in production | FORBIDDEN (D9); failures are loud (503 + halted cascade) |
 | Multi-user / auth / team / sprint artifacts | Single-operator on-device app by design |
 | Rebuilding the working backend (lifecycle, dual pipelines, retrieval index, Kuzu persistence, scan streaming, WS framing) | Brownfield baseline is preserved, not rebuilt |
-| Adopting a WYSIWYG/ProseMirror/Lexical editor (Milkdown/BlockNote/MDXEditor) | Rejected in `docs/EDITOR_INTEGRATION_ASSESSMENT.md` — the slate is not markdown and holds no authoritative state |
+| Letting an editor OWN document state (BlockNote/MDXEditor, or Milkdown run uncontrolled) | Rejected — Milkdown IS adopted (EDIT-03) but ONLY as a controlled view behind `mount` with the store as sole truth (`docs/MILKDOWN_SLATE_GOAL.md` §2); never authoritative frontend state |
 
 ## Traceability
 

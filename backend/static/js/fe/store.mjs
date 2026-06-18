@@ -31,11 +31,17 @@ export function createStore(initial) {
     switch (frame.type) {
       case "concept_changed": {
         const c = frame.concept || frame.node;
-        if (c && c.id) state.concepts[c.id] = { ...state.concepts[c.id], ...c };
+        // the wire payload keys by `concept_id` (ws_frames.build_concept_changed
+        // + /api/concepts _concept_to_dict); normalize to `id` so the panel,
+        // registry, and chunk paths share one key.
+        const cid = c && (c.id || c.concept_id);
+        if (cid) state.concepts[cid] = { ...state.concepts[cid], ...c, id: cid };
+        // a concept_changed with change:"deleted" and no body removes the card
+        else if (frame.change === "deleted" && frame.concept_id) delete state.concepts[frame.concept_id];
         break;
       }
       case "concept_deleted": {
-        const id = frame.id || (frame.concept && frame.concept.id);
+        const id = frame.id || frame.concept_id || (frame.concept && (frame.concept.id || frame.concept.concept_id));
         if (id) delete state.concepts[id];
         break;
       }

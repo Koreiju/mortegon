@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>milkdown slate — §3 syntax round-trip</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; color: #fff;
+      font-family: Georgia, "Times New Roman", serif; }
+    .pen { position: absolute; left: -9999px; top: 0; } /* offscreen mount pens */
+    #status { position: fixed; bottom: 8px; left: 8px; color: #6b7280; font: 11px monospace; }
+  </style>
+</head>
+<body>
+  <div id="status">loading…</div>
+  <script type="module">
+    import { mountMilkdown } from "./vendor/milkdown_slate.bundle.mjs";
+    import { parse, serialize } from "./magic_markdown.mjs";
+
+    // Round-trip ONE authored §3 text through a real Milkdown instance and read
+    // the field text back: print(record) → Milkdown → read() → markdownToFieldText.
+    // Returns the normalized original + the round-tripped text so the test asserts
+    // identity (modulo parse/serialize normalization) WITHOUT the test importing
+    // the model. Empty registry → no fold glyphs → pure authored grammar.
+    window.__milk_roundtrip = async (text) => {
+      const host = document.createElement("div");
+      host.className = "pen";
+      document.body.appendChild(host);
+      const slate = await mountMilkdown(host, { record: parse(text), registry: new Map() }, {});
+      const fieldText = slate.readFieldText();
+      const markdown = slate.read();
+      slate.destroy();
+      host.remove();
+      return {
+        original: serialize(parse(text)),
+        roundtrip: serialize(parse(fieldText)),
+        markdown, // the intermediate Milkdown markdown, for debugging mismatches
+      };
+    };
+
+    document.getElementById("status").textContent = "ready";
+    window.__milk_ready = true;
+  </script>
+</body>
+</html>

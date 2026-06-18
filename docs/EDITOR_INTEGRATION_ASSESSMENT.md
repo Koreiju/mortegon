@@ -1,5 +1,15 @@
 # Design Assessment — Established Markdown Editor vs. the Custom Magic-Markdown Slate (2026-06-14)
 
+> **⚠️ DECISION OVERRIDE (2026-06-17): the user chose MILKDOWN for the editable
+> slate layer**, superseding this doc's CM6 lean / Milkdown-rejection (§2/§3
+> below). The binding spec is now [`MILKDOWN_SLATE_GOAL.md`](MILKDOWN_SLATE_GOAL.md).
+> This assessment's engineering caveat still holds and governs the build: Milkdown
+> rides ProseMirror's authoritative AST, so the integration must keep the frontend
+> a pure projection (D10) by running Milkdown as a *controlled view* with the
+> `WorkspaceStore` as sole truth (the no-authoritative-state mitigation is
+> `MILKDOWN_SLATE_GOAL.md` §2; the EDIT-03 acceptance is reconnect-re-render
+> identity). EDIT-03 = **Milkdown**, not "custom vs CM6".
+
 > **Status: design assessment / decision input.** Triggered by the user's request to evaluate
 > CodeMirror 6, Milkdown, and BlockNote (and the already-installed MDXEditor) for the §T Black-Slate
 > 2D computation-panel editor. Grounded in the *actual current code* — `backend/static/js/fe/` is a
