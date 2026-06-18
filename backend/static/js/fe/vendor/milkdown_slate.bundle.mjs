@@ -24523,27 +24523,142 @@ var commonmark = [
   plugins
 ].flat();
 
+// backend/static/js/fe/magic_markdown.mjs
+var REF_RE = /\{([^{}]+)\}/;
+var GLYPH_COLLAPSED = "\u25B8";
+var GLYPH_EXPANDED = "\u25BE";
+var GLYPH_NONE = "";
+function isIterable(n) {
+  return !!(n && Array.isArray(n.samples) && n.samples.length > 0);
+}
+function refTarget(text4) {
+  const m = REF_RE.exec(text4 || "");
+  return m ? m[1].trim() : null;
+}
+function renderPanel(rootNode, opts = {}) {
+  const registry = opts.registry || /* @__PURE__ */ new Map();
+  const expanded = opts.expanded || /* @__PURE__ */ new Set();
+  const maxDepth = opts.maxDepth == null ? 24 : opts.maxDepth;
+  const lines = [];
+  const signals = opts.signals || /* @__PURE__ */ new Map();
+  function visit2(n, depth, path, source, refStack) {
+    const tgt = refTarget(n.text);
+    const target = tgt != null ? registry.get(tgt) : null;
+    const iter = isIterable(target);
+    const hasHidden = target != null && (iter ? target.samples.length > 0 : target.children && target.children.length > 0);
+    const isOpen = hasHidden && expanded.has(path);
+    let glyph = GLYPH_NONE;
+    if (hasHidden) glyph = isOpen ? GLYPH_EXPANDED : GLYPH_COLLAPSED;
+    const line = { depth, text: n.text, glyph, refTarget: tgt, path, source };
+    if (iter) {
+      line.iterable = true;
+      line.signalIndex = signals.get(path) || 0;
+      line.signalTotal = target.samples.length;
+    }
+    lines.push(line);
+    n.children.forEach((c, i2) => {
+      visit2(c, depth + 1, path + "." + i2, "own", refStack);
+    });
+    if (isOpen && depth < maxDepth && !refStack.includes(tgt)) {
+      const nextStack = refStack.concat(tgt);
+      let inlineChildren;
+      if (iter) {
+        const idx = signals.get(path) || 0;
+        const sample = target.samples[idx % target.samples.length];
+        inlineChildren = sample && sample.children || [];
+      } else {
+        inlineChildren = target.children;
+      }
+      inlineChildren.forEach((c, i2) => {
+        visit2(c, depth + 1, path + "/" + i2, "expanded", nextStack);
+      });
+    }
+  }
+  if (rootNode && rootNode.text === "" && rootNode.children) {
+    rootNode.children.forEach((c, i2) => visit2(c, 0, String(i2), "own", []));
+  } else if (rootNode) {
+    visit2(rootNode, 0, "0", "own", []);
+  }
+  return lines;
+}
+function toggle(expanded, path) {
+  const next = new Set(expanded);
+  if (next.has(path)) next.delete(path);
+  else next.add(path);
+  return next;
+}
+
 // frontend_src/milkdown_slate.mjs
-async function mountMilkdown(host, fieldText, opts = {}) {
+var GLYPHS = "\u25B8\u25BE";
+function linesToMarkdown(lines) {
+  const out = [];
+  let prev = null;
+  for (const l of lines) {
+    if (prev !== null && (prev === 0 && l.depth >= 1 || prev >= 1 && l.depth === 0)) out.push("");
+    const g = l.glyph ? l.glyph + " " : "";
+    if (l.depth <= 0) out.push(g + l.text);
+    else out.push("  ".repeat(l.depth - 1) + "- " + g + l.text);
+    prev = l.depth;
+  }
+  return out.join("\n");
+}
+var foldKey = new PluginKey("mm-ref-fold");
+function refFoldPlugin() {
+  return $prose(() => new Plugin({
+    key: foldKey,
+    props: {
+      decorations(state) {
+        const decos = [];
+        let k = 0;
+        state.doc.descendants((node2, pos) => {
+          if (node2.isTextblock) {
+            const txt = node2.textContent;
+            const lead = txt.length - txt.replace(/^\s+/, "").length;
+            const ch = txt[lead];
+            if (ch && GLYPHS.indexOf(ch) >= 0) {
+              const from = pos + 1 + lead;
+              decos.push(
+                Decoration.inline(from, from + 1, {
+                  class: "mm-ref-fold",
+                  nodeName: "span",
+                  "data-fold-index": String(k)
+                })
+              );
+              k++;
+            }
+          }
+          return true;
+        });
+        return DecorationSet.create(state.doc, decos);
+      }
+    }
+  }));
+}
+async function mountMilkdown(host, source, opts = {}) {
   const { onCommit } = opts;
+  const isRecord = !!(source && typeof source === "object" && source.record);
+  let record = isRecord ? source.record : null;
+  let registry = isRecord ? source.registry || /* @__PURE__ */ new Map() : /* @__PURE__ */ new Map();
+  let signals = isRecord ? source.signals || /* @__PURE__ */ new Map() : /* @__PURE__ */ new Map();
+  let expanded = /* @__PURE__ */ new Set();
+  let foldPaths = [];
   let suppress = false;
-  const editor = await Editor.make().config((ctx) => {
+  function computeText() {
+    if (!isRecord) return String(source == null ? "" : source);
+    const lines = renderPanel(record, { registry, expanded, signals });
+    foldPaths = lines.filter((l) => l.glyph).map((l) => l.path);
+    return linesToMarkdown(lines);
+  }
+  const builder = Editor.make().config((ctx) => {
     ctx.set(rootCtx, host);
-    ctx.set(defaultValueCtx, String(fieldText == null ? "" : fieldText));
+    ctx.set(defaultValueCtx, computeText());
     ctx.update(editorViewOptionsCtx, (prev) => ({
       ...prev,
       attributes: { class: "mm-milkdown", spellcheck: "false" }
     }));
-  }).use(commonmark).create();
-  host.addEventListener(
-    "focusout",
-    () => {
-      if (suppress) return;
-      const md = editor.action(getMarkdown());
-      if (typeof onCommit === "function") onCommit(md);
-    },
-    true
-  );
+  }).use(commonmark);
+  if (isRecord) builder.use(refFoldPlugin());
+  const editor = await builder.create();
   function setText(text4) {
     suppress = true;
     try {
@@ -24555,11 +24670,54 @@ async function mountMilkdown(host, fieldText, opts = {}) {
   function read() {
     return editor.action(getMarkdown());
   }
-  return { editor, setText, read, destroy: () => editor.destroy() };
+  function toggleFold(foldIndex) {
+    const path = foldPaths[foldIndex];
+    if (path == null) return;
+    expanded = toggle(expanded, path);
+    setText(computeText());
+  }
+  if (isRecord) {
+    host.addEventListener(
+      "mousedown",
+      (ev) => {
+        const el = ev.target && ev.target.closest && ev.target.closest(".mm-ref-fold");
+        if (!el) return;
+        ev.preventDefault();
+        ev.stopPropagation();
+        const idx = parseInt(el.getAttribute("data-fold-index"), 10);
+        if (!Number.isNaN(idx)) toggleFold(idx);
+      },
+      true
+    );
+  } else if (typeof onCommit === "function") {
+    host.addEventListener(
+      "focusout",
+      () => {
+        if (suppress) return;
+        onCommit(editor.action(getMarkdown()));
+      },
+      true
+    );
+  }
+  return {
+    editor,
+    setText,
+    read,
+    destroy: () => editor.destroy(),
+    // RECORD-mode introspection (for the gesture layer + Playwright acceptance):
+    getExpanded: () => new Set(expanded),
+    toggleFold,
+    setRecord: (next, nextRegistry) => {
+      record = next;
+      if (nextRegistry) registry = nextRegistry;
+      setText(computeText());
+    }
+  };
 }
 if (typeof window !== "undefined") {
   window.mountMilkdown = mountMilkdown;
 }
 export {
+  linesToMarkdown,
   mountMilkdown
 };

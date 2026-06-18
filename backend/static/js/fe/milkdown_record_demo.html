@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>milkdown slate — record mode (recursive {ref})</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; }
+    body { display: flex; justify-content: center; padding: 48px 0; }
+    /* the black slate: thin silver border, black fill, serif white — §S.4 */
+    #host {
+      min-width: 520px; max-width: 720px;
+      border: 1px solid #c0c0c0; background: #000; color: #fff;
+      font-family: Georgia, "Times New Roman", serif; font-size: 15px;
+      padding: 12px 16px;
+    }
+    .mm-milkdown { outline: none; }
+    .mm-milkdown p { margin: 4px 0; }
+    .mm-milkdown ul { margin: 4px 0; padding-left: 20px; }
+    /* the recursive {ref} dropdown glyph — clickable, silver, never a text caret */
+    .mm-ref-fold { cursor: pointer; color: #c0c0c0; user-select: none; }
+    #status { position: fixed; bottom: 8px; left: 8px; color: #6b7280; font: 11px monospace; }
+  </style>
+</head>
+<body>
+  <div id="host"></div>
+  <div id="status">loading…</div>
+  <script type="module">
+    import { mountMilkdown } from "./vendor/milkdown_slate.bundle.mjs";
+    import { parse, buildRegistry } from "./magic_markdown.mjs";
+
+    // A scanned card that links OUT to {details page}; details in turn links to
+    // {acme press} — a TWO-LEVEL {ref} chain to prove RECURSIVE inline expansion.
+    const CARD = parse([
+      "Princeton University Library Chronicle 1950 - 1951: Vol 12",
+      "\t/details/sim_princeton-university-library-chronicle_1950-1951_12_contents",
+      "\tlink {details page}",
+      "\tvolume : 12",
+    ].join("\n"));
+    const DETAILS = parse([
+      "details page",
+      "\turl : /details/sim_princeton-university-library-chronicle_1950-1951_12_contents",
+      "\tmediatype : Text",
+      "\tpublisher {acme press}",
+    ].join("\n"));
+    const PUBLISHER = parse([
+      "acme press",
+      "\tname : ACME Press",
+      "\tlocation : Princeton, NJ",
+    ].join("\n"));
+
+    const host = document.getElementById("host");
+    const status = document.getElementById("status");
+    const registry = buildRegistry([DETAILS, PUBLISHER]);
+
+    const slate = await mountMilkdown(host, { record: CARD, registry }, {});
+
+    status.textContent = "ready";
+    // probe hooks for Playwright acceptance
+    window.__milk_ready = true;
+    window.__milk_read = () => slate.read();
+    window.__milk_expanded = () => [...slate.getExpanded()];
+    window.__milk_text = () => host.querySelector(".mm-milkdown")?.textContent || "";
+  </script>
+</body>
+</html>

@@ -17,10 +17,10 @@
 - **Steps:** `mountMilkdown(host, text, {onCommit})`; inbound `setText` replace-all (store→view); outbound `onCommit` on blur (→ gateway); black-slate styling.
 - **Done-when:** `frontend_e2e/milkdown.spec.js` — mounts+renders, §S.4 black slate, inbound `setText` round-trip, outbound commit. **(4/4 green on the real backend.)**
 
-### T2 — Recursive `{ref}` rendering in the Milkdown view ☐  (EDIT-01/02, "recursive rendering")
-- **Surface:** `frontend_src/milkdown_slate.mjs` + a `{ref}` Milkdown node/decoration driven by `magic_markdown.mjs::parse`/`renderPanel`.
-- **Steps:** render `{name}` tokens with the ▸/▾ dropdown; clicking ▸ expands the next rank inline (recursively) from the store registry; ▾ collapses; fold-state preserved.
-- **Done-when:** un-fixme `milkdown.spec.js` "recursive {ref}" — a `{ref}` expands the next rank inline, recursively; collapse restores.
+### T2 — Recursive `{ref}` rendering in the Milkdown view ☑ DONE  (EDIT-01/02, "recursive rendering")
+- **Surface:** `frontend_src/milkdown_slate.mjs` (record mode: `linesToMarkdown` + a stateless `refFoldPlugin` ProseMirror decoration) driven by `magic_markdown.mjs::renderPanel`; `backend/static/js/fe/milkdown_record_demo.html` (two-level ref chain).
+- **Steps:** field-tree → nested commonmark list; the ▸/▾ glyph is a clickable `Decoration.inline` (`.mm-ref-fold[data-fold-index]`); a click toggles `expanded` and re-renders through the model via the same `setText` replace-all seam; recursion + collapse fall out of `renderPanel`.
+- **Done-when:** un-fixme `milkdown.spec.js` "recursive {ref}". **(green — 5/5 incl. recursive expand→recurse→collapse-restores; browser-verified.)**
 
 ### T3 — Click-to-edit: caret-at-click, Shift-Enter, Enter-commit, Esc ☐  (EDIT-01)
 - **Surface:** `magic_markdown_panel.mjs::mount` (swap the textarea path for the Milkdown field editor behind `WFH_SLATE_EDITOR=milkdown`); keymap.
@@ -51,11 +51,11 @@
 
 | Req | Tasks |
 |---|---|
-| EDIT-01 | T2, T3, T5 |
-| EDIT-02 | T2, T4, T5, T6 |
+| EDIT-01 | T2 ☑, T3, T5 |
+| EDIT-02 | T2 ☑, T4, T5, T6 |
 | EDIT-03 | T1 ☑, T7 |
 
 ## Phase gate
 `npm run test:all` green in BOTH stub and real modes with every EDIT spec
 un-fixme'd; `npm run test:all:real --fixture-scan` for deterministic real-stack
-acceptance. T1 done (4/4); T2–T7 are the remaining build.
+acceptance. T1+T2 done (5/5 milkdown.spec.js); T3–T7 are the remaining build.

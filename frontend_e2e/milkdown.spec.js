@@ -2,11 +2,13 @@
 //
 // Verifies the controlled-view seam against the served demo (the bundled Milkdown
 // editor): it renders, is the black slate, accepts inbound replace-all (store →
-// view), reads markdown back, and fires the outbound commit on blur. Recursive
-// {ref} + the full gesture model are the next build steps (fixme below).
+// view), reads markdown back, fires the outbound commit on blur, and (record mode)
+// expands recursive {ref} dropdowns inline. The full gesture model, the §3 syntax
+// round-trip, and the no-authoritative-state guard are the next steps (fixme below).
 const { test, expect } = require("@playwright/test");
 
 const DEMO = "/static/js/fe/milkdown_demo.html";
+const RECORD_DEMO = "/static/js/fe/milkdown_record_demo.html";
 
 test.beforeEach(async ({ page }) => {
   await page.goto(DEMO);
@@ -53,7 +55,44 @@ test("outbound intent — editing + blur fires onCommit with the markdown", asyn
 });
 
 // --- next build steps (MILKDOWN_SLATE_GOAL §3/§4; un-fixme as they land) ---
-test.fixme("recursive {ref} — a {ref} expands the next rank inline, recursively", async () => {});
+
+// T2 / §3.2 — recursive {ref} rendering in the Milkdown view. The record-mode
+// demo seeds a TWO-LEVEL ref chain (CARD → {details page} → {acme press}); the
+// ▸/▾ dropdown is a clickable ProseMirror decoration; expansion is computed by
+// magic_markdown.mjs::renderPanel and pushed through the same setText seam.
+test("recursive {ref} — a {ref} expands the next rank inline, recursively; collapse restores", async ({ page }) => {
+  await page.goto(RECORD_DEMO);
+  await page.waitForFunction(() => window.__milk_ready === true, { timeout: 10000 });
+
+  const folds = page.locator(".mm-ref-fold");
+  // rest: exactly one collapsed dropdown (the {details page} ref)
+  await expect(folds).toHaveCount(1);
+  await expect(folds.first()).toHaveText("▸");
+  const txt = () => page.evaluate(() => window.__milk_text());
+  expect(await txt()).not.toContain("mediatype"); // a DETAILS child — hidden at rest
+
+  // expand level 1 → the target's rank-1 children inline; glyph flips ▸→▾; the
+  // nested {acme press} ref now surfaces as a second, still-collapsed dropdown.
+  await page.locator('.mm-ref-fold[data-fold-index="0"]').click();
+  await expect(page.locator('.mm-ref-fold[data-fold-index="0"]')).toHaveText("▾");
+  expect(await txt()).toContain("mediatype");
+  await expect(folds).toHaveCount(2);
+  await expect(page.locator('.mm-ref-fold[data-fold-index="1"]')).toHaveText("▸");
+  expect(await txt()).not.toContain("ACME Press"); // PUBLISHER child — still hidden
+
+  // expand level 2 (recursive) → PUBLISHER's children inline beneath the inlined ref
+  await page.locator('.mm-ref-fold[data-fold-index="1"]').click();
+  expect(await txt()).toContain("ACME Press");
+  expect(await txt()).toContain("Princeton, NJ");
+  expect(await page.evaluate(() => window.__milk_expanded())).toEqual(["0.1", "0.1/2"]);
+
+  // collapse the root ref → the whole inlined subtree (both ranks) disappears
+  await page.locator('.mm-ref-fold[data-fold-index="0"]').click();
+  await expect(folds).toHaveCount(1);
+  await expect(folds.first()).toHaveText("▸");
+  expect(await txt()).not.toContain("mediatype");
+  expect(await txt()).not.toContain("ACME Press");
+});
 test.fixme("gestures — single/double/right/double-right resolve over the Milkdown DOM (fold, panel⇄graph, delete)", async () => {});
 test.fixme("syntax — the §3 tab/newline+{ref} grammar round-trips print→Milkdown→parse identically", async () => {});
 test.fixme("lifecycle + no-authoritative-state — commit routes through concept_lifecycle; reconnect re-renders identically", async () => {});
