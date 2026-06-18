@@ -21,6 +21,10 @@ Recurrent circuitry over abstraction and computation space tasking
 
 Reservoir-pure database design as a recurrent world model over unstructured web data
 
+Complete amputation of surveillance capitalist architecture through self-tailored algorithmic automation and world knowledge perception 
+
+And P2P encrypted because Bill C22 sucks me. 
+
 ## 🧱 Architecture / Tech Stack
 
 A frontend, and a backend. If you even care. 
