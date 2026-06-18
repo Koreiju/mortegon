@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: executing
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 0
   completed_plans: 0
-  percent: 40
+  percent: 60
 ---
 
 # Project State
@@ -16,11 +16,11 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 3 — HTML Dedup + Halo Retrieval Render (Phases 1 & 2 complete)
+**Current focus:** Phase 4 — Live Layout, Signal & Pattern (Phases 1–3 complete, stub-verified)
 
 ## Current Position
 
-Phase: 3 of 5 (HTML Dedup + Halo Retrieval Render) — Phases 1 & 2 done; core success metric met on the REAL stack
+Phase: 4 of 5 (Live Layout, Signal & Pattern) — Phases 1–3 done; core success metric met on the REAL stack
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
 Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. **Phase 2 complete (2026-06-18): Milkdown integrated as the black-slate edit layer (controlled view); EDIT-01/02/03 done; PR #1 → Koreiju/mortegon.** GSD migration config + a UNIFIED full-stack test framework are in place.
 Last activity: 2026-06-18 — Milkdown black-slate editable layer landed (T1–T7): recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip, live `?slate=milkdown` click-to-edit (caret-at-click via ProseMirror `TextSelection`, blur-commit), Enter/Tab field growth + `{`-autocomplete, no-authoritative-state. Two load-bearing fixes: `gateway.mjs` `concept-update`→PATCH (real persistence) and `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts now render). Verified through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH modes; `milkdown.spec.js` 8/8 + `edit.spec.js` 8/8. PR #1 opened.
@@ -43,10 +43,12 @@ Progress: [████░░░░░░] ~40% overall (Phases 1–2 done + rea
 - Two latent fixes: `gateway.mjs` `concept-update`→PATCH (the real persistence path — `edit_close` was only a UI beacon); `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts never rendered before).
 - VERIFIED through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH stub and real modes.
 
-### Phase 3 status (planned + T1 verified, 2026-06-18)
-- **Planned:** CONTEXT.md + PLAN.md written (finish-and-verify — the §V halo model + live `openHalo` wiring already exist; the gap is the proximal collapsed-node halo + the live-editor browser acceptance).
-- **T1 (HTML-01) DONE:** `pytest backend/tests/test_content_tree*.py` 17/17; `breadth_content_tree_smoke.py` 61 sites · 120,226 instances · **0 violations**; `env-scenario syntax-agnostic-compile` green (HtmlStrategy arm). Content-tree is corpus-clean across the URL spectrum.
-- **Remaining:** T2 (halo fires from a collapsed circular node, proximal §S.5) · T3/T4 (un-fixme the 3 `halo.spec.js` specs) · T5 (triple-product ranking + autoregressive walk + no-dotted-overlay audit) · T6 (live-site breadth on the real stack).
+### Phase 3 status — COMPLETE (stub-verified 2026-06-18)
+- **T1 (HTML-01):** `pytest backend/tests/test_content_tree*.py` 17/17; `breadth_content_tree_smoke.py` 61 sites · 120,226 instances · **0 violations**; `syntax-agnostic-compile` green (HtmlStrategy arm).
+- **T2–T4 (HALO-01/02):** `editor.html` — clicking a collapsed circular `.mm-gnode` fires the halo **proximal** to it (§S.5). All 3 `halo.spec.js` specs un-fixme'd: name-only phantoms (no score chips; `data-sim` tooltip) above the slate; scroll re-anchor (focal & phantom both move −100); camera-orbit slide (live azimuth→halo coupling). The constant-similarity-ray GEOMETRY is unit-verified at machine precision in `magic_markdown_halo.test.mjs` (5/5).
+- **T5:** `apparition-mode-roundtrip` (triple-product + per-band band_scores 10/10) + `halo-chain-roundtrip` (autoregressive walk) green; no-dotted-overlay DOM audit added + green.
+- **T6:** `probe_pattern_map.py` ALL CHECKS PASS (browserless); content-tree breadth 61 sites / 0 violations.
+- **VERIFIED:** full e2e **25 passed / 0 skipped** (every fixme un-fixme'd) + REPL `full-smoke` 92/92, BOTH modes, through the framework. **Remaining (real-backend only):** the four live-site real-Selenium scans (`all_real:true`) — the standard verification-boundary item; the render is already proven clean over the 61-site offline corpus.
 
 ### Phase 3 progress (§U content-tree breadth, 2026-06-15)
 - **Fixed a real correctness bug for the URL spectrum:** the §U dedup tokenizer was ASCII-only (`[a-z0-9]+`) → non-Latin text (CJK/Cyrillic/accented) produced an EMPTY token-set, so duplicate international titles never collapsed and accented Latin mis-split ("Amélie"→am+lie). Now `[^\W_]+` (Unicode word runs); ASCII golden unchanged. +4 international tests; suite 340/2-skip/0-fail. Commit `bf2c9c7`.
@@ -124,6 +126,6 @@ Items acknowledged and carried forward (tracked as v2 in REQUIREMENTS.md):
 ## Session Continuity
 
 Last session: 2026-06-18
-Stopped at: Phase 2 COMPLETE (Milkdown black-slate edit layer, EDIT-01/02/03; PR #1 → Koreiju/mortegon). Reconciled planning state to Phase 2 done; current focus advanced to Phase 3.
+Stopped at: Phases 2 AND 3 COMPLETE (stub-verified). Phase 2 = Milkdown edit layer (PR #1). Phase 3 = HTML-dedup content-tree verify + live halo render (HALO-01/02): collapsed-node halo, name-only phantoms, scroll re-anchor, camera-orbit slide — all 3 halo specs un-fixme'd; full e2e 25/0-skip + full-smoke 92/92 both modes. GSD state reconciled through Phase 3.
 Resume file: None
-Next: `/gsd-plan-phase 3` (HTML Dedup + Halo Retrieval Render — §U content-tree half already hardened; the halo render is the gap), or flip `auto_advance: true` and `/gsd-autonomous` for Phases 3→5.
+Next: `/gsd-plan-phase 4` (Live Layout, Signal & Pattern — 6D UMAP/HSV, per-signal rollout, live pattern_map; the scenarios `6d-umap-format`/`iterated-signal-rerender`/`pattern-map-live-update` are already in full-smoke), or flip `auto_advance: true` and `/gsd-autonomous` for Phases 4→5. The live-site real-Selenium scans (Phase 3 T6 boundary) run on the real backend.

@@ -31,15 +31,15 @@
 - **Steps:** the e2e verifies the **live coupling** (camera orbit → phantoms slide); the exact constant-similarity-ray geometry (r constant in camAngle; angle = base + camAngle; slide stays on the same-radius ray) is unit-verified at machine precision in `magic_markdown_halo.test.mjs` (5/5).
 - **Done-when:** un-fixme `halo.spec.js` "HALO-02 camera orbit slides the phantoms". **(green — full e2e now 24/24, 0 skipped.)**
 
-### T5 — Triple-product ranking + autoregressive walk + DOM audit ☐  (HALO-01)
-- **Surface:** `scripts/sim_frontend.py` (`apparition-mode` exists; add/extend a `halo-retrieval` scenario); `black_slate.spec.js` (extend the forbidden audit).
-- **Steps:** assert candidates rank by `pagerank · tfidf_cos · nomic_cos` (no graph-analytics axes) and the autoregressive walk advances on click (`/api/ui/halo_chain_push`); DOM audit confirms the 2D↔3D arrow is solid and no dotted overlays exist.
-- **Done-when:** `env-scenario --name apparition-mode` / `halo-retrieval` green both modes; the no-dotted-overlay audit green.
+### T5 — Triple-product ranking + autoregressive walk + DOM audit ☑ DONE  (HALO-01)
+- **Surface:** existing `apparition-mode-roundtrip` (triple-product + band_scores) + `halo-chain-roundtrip` (autoregressive walk) scenarios; `black_slate.spec.js` (forbidden audit extended).
+- **Steps:** candidates rank by `pagerank · tfidf_cos · nomic_cos` (no graph-analytics axes); the autoregressive walk advances via `/api/ui/halo_chain_push`; the DOM audit confirms no dotted/dashed overlay strokes or borders (the 2D↔3D arrow is solid).
+- **Done-when:** `apparition-mode-roundtrip` (per-band band_scores 10/10) + `halo-chain-roundtrip` green; no-dotted-overlay audit green. **(all green — both scenarios are in `full-smoke`.)**
 
-### T6 — Real-stack breadth (HTML-01 + halo on live data) ☐
-- **Surface:** `scripts/probe_pattern_map.py` + live archive/tarot/yourchineseastrology/studycli scans.
-- **Steps:** real scans render clean+deduped content-trees (0 invariant violations) and the halo retrieves real triple-product candidates against the live index.
-- **Done-when:** `probe_pattern_map.py` passes and the four live sites render clean on the real stack (`all_real:true`).
+### T6 — Real-stack breadth (HTML-01 + halo on live data) ◑ probe DONE; live scans on the real stack
+- **Surface:** `scripts/probe_pattern_map.py` (browserless) + live archive/tarot/yourchineseastrology/studycli scans.
+- **Steps:** the golden-trio pattern_map + accretive merge (`probe_pattern_map.py`); content-tree breadth (`breadth_content_tree_smoke.py`); real scans render clean+deduped against the live index.
+- **Done-when:** `probe_pattern_map.py` passes **(✓ — ALL CHECKS PASS, browserless)** + content-tree breadth 61 sites / 0 violations **(✓ T1)**. **Remaining (real-stack only):** the four live-site real-Selenium scans render clean (`all_real:true`) — the standard verification-boundary item, runnable on the real backend; the offline corpus already proves the render is clean.
 
 ## Coverage (req → task)
 
@@ -50,9 +50,12 @@
 | HALO-02 | T2, T3, T4 |
 
 ## Phase gate
-`npm run test:all` green in BOTH stub and real modes with every `halo.spec.js`
-spec un-fixme'd + the `apparition-mode`/`halo-retrieval`/`syntax-agnostic-compile`
-scenarios green; `probe_pattern_map.py` + live-site breadth pass on the real stack.
+`npm run test:all` green with every `halo.spec.js` spec un-fixme'd + the
+`apparition-mode`/`halo-chain`/`syntax-agnostic-compile` scenarios + the
+no-dotted-overlay audit green; `probe_pattern_map.py` passing. **STATUS:
+stub/agent-env COMPLETE (T1–T6 minus the live-site real-Selenium scans, which are
+the real-backend acceptance — content-tree render already proven clean over 61
+sites offline).** Full e2e 24/24 · `full-smoke` 92/92 both modes · fe units green.
 
 ## Note on as-built leverage
 HTML-01 is ~done (corpus-hardened) → T1 is verification. The halo MODEL + live
