@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: executing
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 0
   completed_plans: 0
-  percent: 80
+  percent: 100
 ---
 
 # Project State
@@ -16,16 +16,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 5 — Three-Register Synthesis & Live Acceptance (Phases 1–4 complete, stub-verified)
+**Current focus:** MILESTONE COMPLETE — all 5 phases done; `all_real:true`, full-smoke 92/92 both modes, all four lodestar probes pass. Ready for v2 (MAINT-01/02, PERF-01/02) or `/gsd-complete-milestone`.
 
 ## Current Position
 
-Phase: 5 of 5 (Three-Register Synthesis & Live Acceptance) — Phases 1–4 done; core success metric met on the REAL stack
+Phase: ALL 5 of 5 COMPLETE — milestone success metric met on the REAL stack (all_real:true; full-smoke 92/92 both modes; 4 lodestar probes pass)
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
 Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. **Phase 2 complete (2026-06-18): Milkdown integrated as the black-slate edit layer (controlled view); EDIT-01/02/03 done; PR #1 → Koreiju/mortegon.** GSD migration config + a UNIFIED full-stack test framework are in place.
 Last activity: 2026-06-18 — Milkdown black-slate editable layer landed (T1–T7): recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip, live `?slate=milkdown` click-to-edit (caret-at-click via ProseMirror `TextSelection`, blur-commit), Enter/Tab field growth + `{`-autocomplete, no-authoritative-state. Two load-bearing fixes: `gateway.mjs` `concept-update`→PATCH (real persistence) and `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts now render). Verified through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH modes; `milkdown.spec.js` 8/8 + `edit.spec.js` 8/8. PR #1 opened.
 
-Progress: [████████░░] ~80% overall (Phases 1–4 done + framework-verified: full-smoke 92/92 + e2e 26/0 both modes; Phase 5 = three-register synthesis + the real-stack live-probe acceptance)
+Progress: [██████████] 100% — all 5 phases COMPLETE. Stub: full-smoke 92/92 + e2e 26/0. Real: all_real:true + full-smoke 92/92 + probe_no_mocks + 4 lodestar probes + probe_live_scan_with_cleanup all PASS. v1 milestone done; v2 = MAINT-01/02 + PERF-01/02.
 
 ### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
 - REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
@@ -43,11 +43,12 @@ Progress: [████████░░] ~80% overall (Phases 1–4 done + fra
 - Two latent fixes: `gateway.mjs` `concept-update`→PATCH (the real persistence path — `edit_close` was only a UI beacon); `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts never rendered before).
 - VERIFIED through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH stub and real modes.
 
-### Phase 5 status — REG-01 done; ACC env-blocked for fresh re-run (2026-06-19)
-- **REG-01 DONE:** `complex-interaction-walkthrough` + `cascade-reflow-roundtrip` + `watch-activity-mirror` green (stub; both in `full-smoke` 92/92).
-- **ACC foundation CONFIRMED:** the real backend boots → **`all_real: true`** (Nous-Hermes + nomic on CUDA `fake_env:false`, Selenium bound, LangGraph loaded; both GGUFs on disk). **Real nomic retrieval CONFIRMED** — `probe_live_concept_graph` got 6 apparitions with real nomic cosines via the backend HTTP path.
-- **ACC live-SLM probes ENV-BLOCKED this session (NOT code):** the 7B SLM CUDA load OOM'd transiently (8GB laptop GPU contended by the long session's chromium/Firefox/in-process embedder), then the machine saturated — system `MemoryError` → uvicorn-reload crash-loops → Kuzu lock contention → an **uninterruptible wedged backend on :8080** (`taskkill /F` won't kill it). `probe_no_mocks` in-process `Embed4All` also hit the known Windows native access-violation (PERF-02). The four lodestar probes + `all_real` PASSED clean on 2026-06-15 (recorded below); Phases 2–4 since are frontend-only + planning, so the real-stack probe behaviour is unchanged.
-- **To finish:** reboot the machine (clears the wedged python + frees VRAM) → `python -m backend.main` → `probe_no_mocks.py`, the four `probe_live_*.py`, `probe_live_scan_with_cleanup.py`, `run_full_stack_tests.py --real`. Space the archive.org scans out (throttling, §16.5).
+### Phase 5 status — COMPLETE (real-stack verified 2026-06-19)
+- **REG-01 DONE:** `complex-interaction-walkthrough` + `cascade-reflow-roundtrip` + `watch-activity-mirror` green.
+- **ACC-02 DONE:** real backend `all_real: true` (Nous-Hermes + nomic on CUDA `fake_env:false`, Selenium loaded, LangGraph). **`probe_no_mocks.py` ALL CHECKS PASS** (real SLM generation, real nomic 768-dim cuda, real Selenium, real LangGraph). **All four lodestar probes PASS:** `probe_live_concept_graph` (real GPT4All in-chain + closest-inverse + inline cypher on Kuzu + rollback), `probe_live_agent` (real meta-cognition tick + streamed tokens + spawn/emit), `probe_live_archive_scan` (live archive.org scan 143 chunks + real retrieval + compile), `probe_live_iterated_compile` (3-node templated graph, real GPT4All ×3, halo round-trip).
+- **ACC-01 DONE:** `probe_live_scan_with_cleanup.py` [PASS] §16.5 — real scan → TF-IDF+nomic alive → real UMAP 6D fit → purge contract → round1=108/round2=101 repeatability.
+- **Gate MET:** **real-mode `full-smoke` 92/92** (against the direct `all_real:true` backend) + stub `full-smoke` 92/92 + e2e 26/0. The project's success metric is satisfied.
+- **Lesson:** the 8 GB laptop GPU + a long session's accumulated chromium/Firefox/python saturate VRAM+RAM+handles, causing transient CUDA OOM / wedged backends / Kuzu-lock contention. A clean GPU (0 MiB VRAM, 0 python) is required before the real-stack run; `taskkill /F /PID` clears wedged python, and `:8080` TIME_WAIT must clear before a re-bind. The `run_full_stack_tests.py --real` harness's own backend-boot Selenium health is flaky — run full-smoke directly against a manually-booted real backend (harness hardening is a v2 follow-up).
 
 ### Phase 4 status — COMPLETE (stub-verified 2026-06-18)
 - **UMAP-01 DONE:** the projector now RENDERS the backend's 6D-UMAP HSV instead of an invented sweep — `projector.mjs::buildPointArrays` colours a 6-vector from `p[3..5]` (sweep fallback for 3-vectors); `createProjector` recolours the HSV field on camera-azimuth orbit; `editor.html` consumes the `umap_canonical` frame → `projector.setNodes`. `projector.test.mjs` 7/7 + new `projector.spec.js` (live `/`: frame-hue render + azimuth recolour). `6d-umap-format` + `perimeter-rescale` green.
@@ -138,6 +139,6 @@ Items acknowledged and carried forward (tracked as v2 in REQUIREMENTS.md):
 ## Session Continuity
 
 Last session: 2026-06-19
-Stopped at: Phases 1–4 COMPLETE + framework-verified (full-smoke 92/92 + e2e 26/0, both modes). Phase 4 = projector renders the backend 6D-UMAP HSV + camera-azimuth recolour (UMAP-01) + SIG-01/PAT-01 scenarios green. Phase 5 REG-01 done + `all_real:true`/real-nomic re-confirmed; the four lodestar live-SLM probes are env-blocked for a fresh re-run (transient CUDA OOM + long-session resource churn → wedged uninterruptible backend on :8080) — NOT code; passed clean 2026-06-15.
+Stopped at: **ALL 5 PHASES COMPLETE — v1 milestone success metric MET.** Real backend `all_real:true`; `probe_no_mocks` + all four lodestar `probe_live_*.py` + `probe_live_scan_with_cleanup` ALL PASS; `full-smoke` 92/92 in BOTH stub and real modes; e2e 26/0; REG-01 scenarios green. Phases 2–4 (Milkdown edit layer, halo render, 6D-HSV projector) all framework-verified.
 Resume file: None
-Next: **reboot the machine** to clear the wedged python + free VRAM, then run the Phase 5 real-stack acceptance — `python -m backend.main` → `probe_no_mocks.py` + the four `probe_live_*.py` + `probe_live_scan_with_cleanup.py` + `run_full_stack_tests.py --real`. That closes ACC-01/02 and the milestone. Space the archive.org scans out (§16.5 throttling).
+Next: v2 milestone — MAINT-01/02 (split routes.py / sim_frontend.py), PERF-01/02 (incremental UMAP refit, Embed4All thread-safety), + harden the `run_full_stack_tests.py --real` harness Selenium boot. Run `/gsd-complete-milestone` to archive v1 and open v2.
