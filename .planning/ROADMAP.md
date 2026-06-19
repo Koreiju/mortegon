@@ -14,7 +14,7 @@ This is a brownfield roadmap. The backend is mature and the §T black-slate fron
 - [x] **Phase 2: Black-Slate Field Editing** *(complete 2026-06-18; EDIT-03 resolved = Milkdown controlled view, user override; browser + framework verified, PR #1)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; integrate Milkdown as the in-slate edit layer (controlled view, store = truth); remove the MDXEditor dependency.
 - [x] **Phase 3: HTML Dedup + Halo Retrieval Render** *(stub-verified 2026-06-18; live-site real-Selenium scans = real-backend acceptance)* - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
 - [x] **Phase 4: Live Layout, Signal & Pattern** *(stub-verified 2026-06-18; live-scan 6D fit = real-backend acceptance via probe_live_scan_with_cleanup)* - Finish-and-verify the 6D UMAP/HSV projection (projector now renders the backend HSV + camera-azimuth rotation), one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
-- [ ] **Phase 5: Three-Register Synthesis & Live Acceptance** - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
+- [~] **Phase 5: Three-Register Synthesis & Live Acceptance** *(REG-01 ✓ + all_real:true + real nomic re-confirmed 2026-06-19; the four lodestar live-SLM probes were verified 2026-06-15 and are env-blocked for a fresh re-run this session — transient CUDA OOM + session resource churn, not code)* - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
 
 ## Phase Details
 
@@ -87,7 +87,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Black-Slate Field Editing | direct | Done (Milkdown; browser + framework verified, PR #1) | 2026-06-18 |
 | 3. HTML Dedup + Halo Retrieval Render | direct | Done (stub-verified; live-site real scans pending) | 2026-06-18 |
 | 4. Live Layout, Signal & Pattern | direct | Done (stub-verified; live-scan 6D fit on real backend) | 2026-06-18 |
-| 5. Three-Register Synthesis & Live Acceptance | 0/TBD | Not started | - |
+| 5. Three-Register Synthesis & Live Acceptance | direct | In progress (REG-01 ✓; ACC verified 2026-06-15, fresh re-run env-blocked) | - |
 
 ---
 *Roadmap created: 2026-06-14 after brownfield bootstrap (new-project-from-ingest)*
