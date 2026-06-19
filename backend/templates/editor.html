@@ -290,6 +290,10 @@
         ws.onclose = () => { const e = document.getElementById("ws"); e.textContent = "ws ○"; e.className = "ws-off"; };
         ws.onmessage = (ev) => {
           let f; try { f = JSON.parse(ev.data); } catch { return; }
+          // UMAP-01 — the backend's canonical 6D layout (xyz + per-node HSV) lands
+          // on the `umap_canonical` frame; feed it straight to the projector, which
+          // RENDERS the HSV (the frontend never invents the colour field).
+          if (f.type === "umap_canonical" && projector && f.coords) { projector.setNodes(f.coords); return; }
           const before = JSON.stringify(store.getState().concepts);
           store.applyFrame(f);
           // fluid live update — but never clobber an open Milkdown edit surface
@@ -339,6 +343,18 @@
           if (lastAz === null || Math.abs(az - lastAz) > 0.01) { lastAz = az; halo.camAngle = az; renderHalo(); }
         });
         window.__mm_proj = projector;
+        // UMAP-01 probes: inject a 6D umap_canonical frame + read a node's rendered
+        // colour + orbit the camera azimuth (the render-level acceptance surface).
+        window.__mm_proj_set = (coords) => projector.setNodes(coords);
+        window.__mm_proj_color = (i) => projector.nodeColor(i || 0);
+        window.__mm_proj_orbit = (az) => {
+          const r = Math.hypot(projector.camera.position.x, projector.camera.position.z) || 140;
+          projector.camera.position.x = r * Math.sin(az);
+          projector.camera.position.z = r * Math.cos(az);
+          projector.camera.lookAt(0, 0, 0);
+          projector.recolor();
+          return projector.azimuth();
+        };
       } catch (e) { console.warn("projector", e); }
     }
 
