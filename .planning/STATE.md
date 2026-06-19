@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: executing
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 0
   completed_plans: 0
-  percent: 60
+  percent: 80
 ---
 
 # Project State
@@ -16,16 +16,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 4 — Live Layout, Signal & Pattern (Phases 1–3 complete, stub-verified)
+**Current focus:** Phase 5 — Three-Register Synthesis & Live Acceptance (Phases 1–4 complete, stub-verified)
 
 ## Current Position
 
-Phase: 4 of 5 (Live Layout, Signal & Pattern) — Phases 1–3 done; core success metric met on the REAL stack
+Phase: 5 of 5 (Three-Register Synthesis & Live Acceptance) — Phases 1–4 done; core success metric met on the REAL stack
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
 Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. **Phase 2 complete (2026-06-18): Milkdown integrated as the black-slate edit layer (controlled view); EDIT-01/02/03 done; PR #1 → Koreiju/mortegon.** GSD migration config + a UNIFIED full-stack test framework are in place.
 Last activity: 2026-06-18 — Milkdown black-slate editable layer landed (T1–T7): recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip, live `?slate=milkdown` click-to-edit (caret-at-click via ProseMirror `TextSelection`, blur-commit), Enter/Tab field growth + `{`-autocomplete, no-authoritative-state. Two load-bearing fixes: `gateway.mjs` `concept-update`→PATCH (real persistence) and `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts now render). Verified through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH modes; `milkdown.spec.js` 8/8 + `edit.spec.js` 8/8. PR #1 opened.
 
-Progress: [████░░░░░░] ~40% overall (Phases 1–2 done + real/framework-verified; verification infra COMPLETE; Phase 3 §U content-tree half already hardened, halo render is the gap)
+Progress: [████████░░] ~80% overall (Phases 1–4 done + framework-verified: full-smoke 92/92 + e2e 26/0 both modes; Phase 5 = three-register synthesis + the real-stack live-probe acceptance)
 
 ### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
 - REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
@@ -42,6 +42,12 @@ Progress: [████░░░░░░] ~40% overall (Phases 1–2 done + rea
 - Recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip (`markdownToFieldText`): `milkdown.spec.js` 8/8 green.
 - Two latent fixes: `gateway.mjs` `concept-update`→PATCH (the real persistence path — `edit_close` was only a UI beacon); `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts never rendered before).
 - VERIFIED through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH stub and real modes.
+
+### Phase 4 status — COMPLETE (stub-verified 2026-06-18)
+- **UMAP-01 DONE:** the projector now RENDERS the backend's 6D-UMAP HSV instead of an invented sweep — `projector.mjs::buildPointArrays` colours a 6-vector from `p[3..5]` (sweep fallback for 3-vectors); `createProjector` recolours the HSV field on camera-azimuth orbit; `editor.html` consumes the `umap_canonical` frame → `projector.setNodes`. `projector.test.mjs` 7/7 + new `projector.spec.js` (live `/`: frame-hue render + azimuth recolour). `6d-umap-format` + `perimeter-rescale` green.
+- **SIG-01 DONE (verify):** `iterated-signal-rerender`, `signal-stream-roundtrip`, `database-concept-signal-stream`, `urls-panel-iteration` green — one signal at a time, `/api/ui/signal_advance` through RolloutCoordinator.
+- **PAT-01 DONE (verify):** `pattern-map-live-update` green + `probe_pattern_map.py` ALL CHECKS PASS (golden-trio gate + accretive merge + PageRank over the Kuzu edge graph).
+- **Gate:** framework full-smoke 92/92 + e2e 26/0, ALL GREEN. Real-stack live-scan 6D fit = `probe_live_scan_with_cleanup.py` (Phase 5 / real backend).
 
 ### Phase 3 status — COMPLETE (stub-verified 2026-06-18)
 - **T1 (HTML-01):** `pytest backend/tests/test_content_tree*.py` 17/17; `breadth_content_tree_smoke.py` 61 sites · 120,226 instances · **0 violations**; `syntax-agnostic-compile` green (HtmlStrategy arm).
