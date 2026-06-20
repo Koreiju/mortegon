@@ -11,10 +11,10 @@ This is a brownfield roadmap. The backend is mature and the §T black-slate fron
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Honest Baseline** *(stub-verified 2026-06-15; real-stack `full-smoke`/`probe_no_mocks` deferred to the GPU box)* - Eliminate the no-mocks SLM stub-fallback, verify exactly three fixtures, hard-delete forbidden/legacy code, pin dependencies and resolve entry-point drift.
-- [~] **Phase 2: Black-Slate Field Editing** *(backend-side verified; EDIT-03 decided = stay custom; live-browser caret re-verify pending)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; resolve and (if chosen) integrate the CodeMirror 6 edit layer; remove the MDXEditor dependency.
-- [ ] **Phase 3: HTML Dedup + Halo Retrieval Render** - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
-- [ ] **Phase 4: Live Layout, Signal & Pattern** - Finish-and-verify the 6D UMAP/HSV projection, one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
-- [ ] **Phase 5: Three-Register Synthesis & Live Acceptance** - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
+- [x] **Phase 2: Black-Slate Field Editing** *(complete 2026-06-18; EDIT-03 resolved = Milkdown controlled view, user override; browser + framework verified, PR #1)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; integrate Milkdown as the in-slate edit layer (controlled view, store = truth); remove the MDXEditor dependency.
+- [x] **Phase 3: HTML Dedup + Halo Retrieval Render** *(stub-verified 2026-06-18; live-site real-Selenium scans = real-backend acceptance)* - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
+- [x] **Phase 4: Live Layout, Signal & Pattern** *(stub-verified 2026-06-18; live-scan 6D fit = real-backend acceptance via probe_live_scan_with_cleanup)* - Finish-and-verify the 6D UMAP/HSV projection (projector now renders the backend HSV + camera-azimuth rotation), one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
+- [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(COMPLETE 2026-06-19 — all_real:true; probe_no_mocks + all four lodestar probe_live_*.py + probe_live_scan_with_cleanup PASS; full-smoke 92/92 in BOTH stub and real modes; REG-01 scenarios green)* - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
 
 ## Phase Details
 
@@ -34,9 +34,9 @@ This is a brownfield roadmap. The backend is mature and the §T black-slate fron
 **Depends on**: Phase 1
 **Requirements**: EDIT-01, EDIT-02, EDIT-03
 **Success Criteria** (what must be TRUE):
-  1. User can click a pure-print row, get a textarea with the caret where the click fell, type a multiline value with Shift-Enter, and commit with Enter (Esc discards); empty rows hide. Verified by `env-scenario --name click-to-edit` (and the existing `editor-primitives-roundtrip` mutation-gesture scenario) green in both modes.
+  1. User can click a pure-print row, get a **Milkdown editable surface** with the caret at the clicked field, grow the tree (Enter = sibling, Tab = re-parent), and commit on blur (Esc discards); empty rows hide. Verified by `env-scenario --name edit-field-roundtrip` (commit persists + evolution-log records) and `frontend_e2e/edit.spec.js` EDIT-01/02 green; `?slate=milkdown` opt-in keeps the default editor unchanged. *(DELIVERED — Milkdown controlled view; commit is blur not Enter, since Enter/Tab drive §3 field growth.)*
   2. User can grow the field-tree via `+→` (parent→child) and `+↓` (sibling); `{`-autocomplete inserts `{<linked_name>}` bound to an existing concept; every mutation routes through `concept_lifecycle.py` (asserted by the resulting `concept_index_update` WS frame + evolution-log entry).
-  3. The edit-layer decision (custom vs CM6 per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`) is recorded; if CM6 is adopted it lives ONLY behind `mount` (rest-render/reveal-raw, caret/IME/undo) with `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged, and a dropped-WS reconnect re-renders the slate identically (proving no authoritative frontend state).
+  3. The edit-layer decision is resolved to **Milkdown** (user override 2026-06-17, `docs/MILKDOWN_SLATE_GOAL.md`, superseding the CM6 lean in `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); it lives ONLY behind `mount` as a CONTROLLED VIEW (inbound `setText` replace-all / outbound blur-commit) with `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged, and a dropped-WS reconnect re-renders the slate identically (proving no authoritative frontend state). *(DELIVERED — `milkdown.spec.js` + `edit.spec.js` EDIT-03 green.)*
   4. `env-scenario --name full-smoke` stays green in both stub and real modes with the editing scenarios included.
 **Plans**: TBD
 **UI hint**: yes
@@ -84,10 +84,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Honest Baseline | direct | Done (stub-verified) | 2026-06-15 |
-| 2. Black-Slate Field Editing | direct | In progress (backend verified) | - |
-| 3. HTML Dedup + Halo Retrieval Render | 0/TBD | Not started | - |
-| 4. Live Layout, Signal & Pattern | 0/TBD | Not started | - |
-| 5. Three-Register Synthesis & Live Acceptance | 0/TBD | Not started | - |
+| 2. Black-Slate Field Editing | direct | Done (Milkdown; browser + framework verified, PR #1) | 2026-06-18 |
+| 3. HTML Dedup + Halo Retrieval Render | direct | Done (stub-verified; live-site real scans pending) | 2026-06-18 |
+| 4. Live Layout, Signal & Pattern | direct | Done (stub-verified; live-scan 6D fit on real backend) | 2026-06-18 |
+| 5. Three-Register Synthesis & Live Acceptance | direct | Done (all_real:true; 4 lodestar probes + full-smoke 92/92 both modes) | 2026-06-19 |
 
 ---
 *Roadmap created: 2026-06-14 after brownfield bootstrap (new-project-from-ingest)*

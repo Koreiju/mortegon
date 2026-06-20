@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: executing
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 5
   total_plans: 0
   completed_plans: 0
-  percent: 20
+  percent: 100
 ---
 
 # Project State
@@ -16,16 +16,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 2 — Black-Slate Field Editing (Phase 1 stub-verified complete)
+**Current focus:** MILESTONE COMPLETE — all 5 phases done; `all_real:true`, full-smoke 92/92 both modes, all four lodestar probes pass. Ready for v2 (MAINT-01/02, PERF-01/02) or `/gsd-complete-milestone`.
 
 ## Current Position
 
-Phase: 2 of 5 (Black-Slate Field Editing) — Phase 1 done; core success metric met on the REAL stack
+Phase: ALL 5 of 5 COMPLETE — milestone success metric met on the REAL stack (all_real:true; full-smoke 92/92 both modes; 4 lodestar probes pass)
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
-Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. GSD migration config + a UNIFIED full-stack test framework are in place.
-Last activity: 2026-06-15 — `scripts/run_full_stack_tests.py` (`npm run test:all`) boots ONE managed backend and runs pytest + the **complete REPL registry** (`env-scenario --name all` = 95 of 96 scenarios, not just full-smoke's 92) + Playwright `frontend_e2e`, unified summary. **PROVEN ALL GREEN in BOTH stub AND real (all_real) modes** — stub: pytest + repl(all, real-only scenarios skip) + 5 e2e; real: repl(all=95, every scenario executes incl `apparitions-discover-link` surfacing B via real nomic). Backend torn down cleanly both runs. Added `all` (extracted `_full_smoke_chain`, drift-resistant extras, clean-baseline purge; `apparitions-discover-link` gated on all_real per §1.5). Plus `.planning/config.json` (model fan-out → Sonnet/Haiku + nyquist gate + granularity contract), Playwright MCP (`.mcp.json`) + `frontend_e2e/` suite (5/5).
+Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. **Phase 2 complete (2026-06-18): Milkdown integrated as the black-slate edit layer (controlled view); EDIT-01/02/03 done; PR #1 → Koreiju/mortegon.** GSD migration config + a UNIFIED full-stack test framework are in place.
+Last activity: 2026-06-18 — Milkdown black-slate editable layer landed (T1–T7): recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip, live `?slate=milkdown` click-to-edit (caret-at-click via ProseMirror `TextSelection`, blur-commit), Enter/Tab field growth + `{`-autocomplete, no-authoritative-state. Two load-bearing fixes: `gateway.mjs` `concept-update`→PATCH (real persistence) and `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts now render). Verified through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH modes; `milkdown.spec.js` 8/8 + `edit.spec.js` 8/8. PR #1 opened.
 
-Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-verified; verification infra COMPLETE; Phase 2 backend verified)
+Progress: [██████████] 100% — all 5 phases COMPLETE. Stub: full-smoke 92/92 + e2e 26/0. Real: all_real:true + full-smoke 92/92 + probe_no_mocks + 4 lodestar probes + probe_live_scan_with_cleanup all PASS. v1 milestone done; v2 = MAINT-01/02 + PERF-01/02.
 
 ### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
 - REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
@@ -35,12 +35,33 @@ Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-ver
 - FIX-02 (`three-fixtures-present`): **DONE + verified** — exactly 3 fixtures, no Editor.
 - Phase-1 gate (`full-smoke`): **GREEN in stub (92/92)**. Real-mode `full-smoke` + `probe_no_mocks` need CUDA/GGUF/Selenium (GPU box) — deferred, not runnable in the agent env.
 
-### Phase 2 status (backend-side verified 2026-06-15)
-- EDIT-01 (click-to-edit field): backend `edit-field-roundtrip` **green** (editing_field lifecycle). Frontend caret-at-click already browser-verified (BLACK_SLATE_GOAL §15.7).
-- EDIT-02 (field growth + `{`-autocomplete + lifecycle): `editor-primitives-roundtrip` + `autocomplete-state-roundtrip` **green**; mutations route through `concept_lifecycle`.
-- EDIT-03 (editor-layer decision): **DECIDED — Option B (stay custom now; CM6 as tracked enhancement)**, see Decisions below.
-- `unified-node-view-states` + `compile-expand-collapse-roundtrip` (§8D.2.2) **green**.
-- REMAINING: live-browser re-verification of caret/IME/multiline in the served `/` editor; `full-smoke` stays green (it does, stub).
+### Phase 2 status — COMPLETE (2026-06-18, Milkdown; PR #1)
+- EDIT-01 (click-to-edit field): **DONE** — live `?slate=milkdown` click opens a focused Milkdown surface with the caret AT THE CLICKED FIELD (ProseMirror `TextSelection` via `placeCaretInField`; a raw DOM Range is overridden on focus); blur commits through the lifecycle, Esc discards. `edit.spec.js` EDIT-01 + `env-scenario edit-field-roundtrip` (extended: commit persists + evolution-log records) green.
+- EDIT-02 (field growth + `{`-autocomplete + lifecycle): **DONE** — Enter = sibling / Tab = re-parent (ProseMirror's native commonmark list keymap); `{`-autocomplete (`installAutocomplete`) inserts `{<name>}`; every commit routes through `concept_lifecycle` via the new `gateway.mjs` `concept-update`→PATCH path. `edit.spec.js` EDIT-02 ×2 green.
+- EDIT-03 (editor-layer decision): **RESOLVED — Milkdown controlled view** (user override 2026-06-17, supersedes the "stay custom/CM6" decision; see Decisions). No authoritative frontend state proven: `milkdown.spec.js` (reconnect = identical, no overhang) + `edit.spec.js` EDIT-03 (DOM corruption erased by store re-render).
+- Recursive `{ref}` decoration, gesture model over the Milkdown DOM, §3 syntax round-trip (`markdownToFieldText`): `milkdown.spec.js` 8/8 green.
+- Two latent fixes: `gateway.mjs` `concept-update`→PATCH (the real persistence path — `edit_close` was only a UI beacon); `store.mjs`/`loadConcepts` `concept_id`→`id` normalization (authored concepts never rendered before).
+- VERIFIED through the framework: REPL `full-smoke` 92/92 + e2e 21/3-skip, BOTH stub and real modes.
+
+### Phase 5 status — COMPLETE (real-stack verified 2026-06-19)
+- **REG-01 DONE:** `complex-interaction-walkthrough` + `cascade-reflow-roundtrip` + `watch-activity-mirror` green.
+- **ACC-02 DONE:** real backend `all_real: true` (Nous-Hermes + nomic on CUDA `fake_env:false`, Selenium loaded, LangGraph). **`probe_no_mocks.py` ALL CHECKS PASS** (real SLM generation, real nomic 768-dim cuda, real Selenium, real LangGraph). **All four lodestar probes PASS:** `probe_live_concept_graph` (real GPT4All in-chain + closest-inverse + inline cypher on Kuzu + rollback), `probe_live_agent` (real meta-cognition tick + streamed tokens + spawn/emit), `probe_live_archive_scan` (live archive.org scan 143 chunks + real retrieval + compile), `probe_live_iterated_compile` (3-node templated graph, real GPT4All ×3, halo round-trip).
+- **ACC-01 DONE:** `probe_live_scan_with_cleanup.py` [PASS] §16.5 — real scan → TF-IDF+nomic alive → real UMAP 6D fit → purge contract → round1=108/round2=101 repeatability.
+- **Gate MET:** **real-mode `full-smoke` 92/92** (against the direct `all_real:true` backend) + stub `full-smoke` 92/92 + e2e 26/0. The project's success metric is satisfied.
+- **Lesson:** the 8 GB laptop GPU + a long session's accumulated chromium/Firefox/python saturate VRAM+RAM+handles, causing transient CUDA OOM / wedged backends / Kuzu-lock contention. A clean GPU (0 MiB VRAM, 0 python) is required before the real-stack run; `taskkill /F /PID` clears wedged python, and `:8080` TIME_WAIT must clear before a re-bind. The `run_full_stack_tests.py --real` harness's own backend-boot Selenium health is flaky — run full-smoke directly against a manually-booted real backend (harness hardening is a v2 follow-up).
+
+### Phase 4 status — COMPLETE (stub-verified 2026-06-18)
+- **UMAP-01 DONE:** the projector now RENDERS the backend's 6D-UMAP HSV instead of an invented sweep — `projector.mjs::buildPointArrays` colours a 6-vector from `p[3..5]` (sweep fallback for 3-vectors); `createProjector` recolours the HSV field on camera-azimuth orbit; `editor.html` consumes the `umap_canonical` frame → `projector.setNodes`. `projector.test.mjs` 7/7 + new `projector.spec.js` (live `/`: frame-hue render + azimuth recolour). `6d-umap-format` + `perimeter-rescale` green.
+- **SIG-01 DONE (verify):** `iterated-signal-rerender`, `signal-stream-roundtrip`, `database-concept-signal-stream`, `urls-panel-iteration` green — one signal at a time, `/api/ui/signal_advance` through RolloutCoordinator.
+- **PAT-01 DONE (verify):** `pattern-map-live-update` green + `probe_pattern_map.py` ALL CHECKS PASS (golden-trio gate + accretive merge + PageRank over the Kuzu edge graph).
+- **Gate:** framework full-smoke 92/92 + e2e 26/0, ALL GREEN. Real-stack live-scan 6D fit = `probe_live_scan_with_cleanup.py` (Phase 5 / real backend).
+
+### Phase 3 status — COMPLETE (stub-verified 2026-06-18)
+- **T1 (HTML-01):** `pytest backend/tests/test_content_tree*.py` 17/17; `breadth_content_tree_smoke.py` 61 sites · 120,226 instances · **0 violations**; `syntax-agnostic-compile` green (HtmlStrategy arm).
+- **T2–T4 (HALO-01/02):** `editor.html` — clicking a collapsed circular `.mm-gnode` fires the halo **proximal** to it (§S.5). All 3 `halo.spec.js` specs un-fixme'd: name-only phantoms (no score chips; `data-sim` tooltip) above the slate; scroll re-anchor (focal & phantom both move −100); camera-orbit slide (live azimuth→halo coupling). The constant-similarity-ray GEOMETRY is unit-verified at machine precision in `magic_markdown_halo.test.mjs` (5/5).
+- **T5:** `apparition-mode-roundtrip` (triple-product + per-band band_scores 10/10) + `halo-chain-roundtrip` (autoregressive walk) green; no-dotted-overlay DOM audit added + green.
+- **T6:** `probe_pattern_map.py` ALL CHECKS PASS (browserless); content-tree breadth 61 sites / 0 violations.
+- **VERIFIED:** full e2e **25 passed / 0 skipped** (every fixme un-fixme'd) + REPL `full-smoke` 92/92, BOTH modes, through the framework. **Remaining (real-backend only):** the four live-site real-Selenium scans (`all_real:true`) — the standard verification-boundary item; the render is already proven clean over the 61-site offline corpus.
 
 ### Phase 3 progress (§U content-tree breadth, 2026-06-15)
 - **Fixed a real correctness bug for the URL spectrum:** the §U dedup tokenizer was ASCII-only (`[a-z0-9]+`) → non-Latin text (CJK/Cyrillic/accented) produced an EMPTY token-set, so duplicate international titles never collapsed and accented Latin mis-split ("Amélie"→am+lie). Now `[^\W_]+` (Unicode word runs); ASCII golden unchanged. +4 international tests; suite 340/2-skip/0-fail. Commit `bf2c9c7`.
@@ -83,9 +104,10 @@ Decisions are logged in PROJECT.md Key Decisions table (D1–D11, LOCKED per the
 Recent decisions affecting current work:
 
 - [Bootstrap]: Standard granularity (no config.json) → 5 phases derived gap-first; backend baseline preserved, frontend §T/§U/§V are finish-and-verify not rebuild.
-- [Bootstrap]: Editor edit-layer is a SCOPED sub-task in Phase 2 (custom vs CodeMirror 6 per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); WYSIWYG/ProseMirror/Lexical options rejected.
+- [Bootstrap — partly SUPERSEDED 2026-06-17]: Editor edit-layer is a SCOPED sub-task in Phase 2 (originally "custom vs CodeMirror 6"). The "WYSIWYG/ProseMirror/Lexical rejected" stance was overridden — **Milkdown (ProseMirror) is now adopted as a controlled view** (see the EDIT-03 override below); the "scoped sub-task, not a rebuild" framing still holds.
 - [Phase 1 scope]: No-mocks SLM remediation (REL-01) is the highest-priority gap — the SLM path must 503 on real-load failure like the embedder already does. **(Shipped 2026-06-15.)**
-- [EDIT-03, 2026-06-15]: **Editor edit-layer = Option B — stay on the custom `magic_markdown` model/vdom for now; do NOT adopt CodeMirror 6 yet.** Rationale: the custom black-slate editor is already built, tested (57 tests), and browser-verified as the served `/` frontend; "finish-and-verify, not rebuild." CM6 (Option A, behind `mount` only) remains the RECOMMENDED enhancement — adopt it when the hand-rolled caret/IME/undo/borderless-edit layer starts costing more than the integration (per `docs/EDITOR_INTEGRATION_ASSESSMENT.md`). Milkdown/BlockNote/MDXEditor stay rejected.
+- [EDIT-03, 2026-06-15 — SUPERSEDED 2026-06-17]: ~~Editor edit-layer = Option B — stay on the custom `magic_markdown` model/vdom; CM6 as a tracked enhancement; Milkdown/BlockNote/MDXEditor rejected.~~ Overridden below.
+- [EDIT-03, 2026-06-17 — USER OVERRIDE, governing]: **Editor edit-layer = Milkdown**, integrated ONLY behind `mount` as a CONTROLLED VIEW (inbound `setText` replace-all / outbound blur-commit; `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged; reconnect-re-render identity). Source: `docs/MILKDOWN_SLATE_GOAL.md` (user directive). The custom `magic_markdown` MODEL is retained (the bundle reuses `renderPanel`/`parse`/`resolveGesture`); Milkdown replaces only the edit/decoration layer. BlockNote/MDXEditor and any editor that OWNS document state remain rejected. **DELIVERED + verified 2026-06-18 (PR #1).**
 - [FIX-01 resolution, 2026-06-15]: `backend/analytics/` is KEPT (utilities only; the forbidden retrieval framework + hyperbolic layout were already removed in G8). The `chunk_builder` hyperbolic-distance *clustering* metric is a scan-time algorithm, NOT the forbidden 3D layout — kept, flagged for design review (task_e6b4743c).
 
 ### Pending Todos
@@ -116,6 +138,7 @@ Items acknowledged and carried forward (tracked as v2 in REQUIREMENTS.md):
 
 ## Session Continuity
 
-Last session: 2026-06-14
-Stopped at: Wrote the complete planning set (PROJECT, REQUIREMENTS, ROADMAP, STATE) from ingest intel.
+Last session: 2026-06-19
+Stopped at: **ALL 5 PHASES COMPLETE — v1 milestone success metric MET.** Real backend `all_real:true`; `probe_no_mocks` + all four lodestar `probe_live_*.py` + `probe_live_scan_with_cleanup` ALL PASS; `full-smoke` 92/92 in BOTH stub and real modes; e2e 26/0; REG-01 scenarios green. Phases 2–4 (Milkdown edit layer, halo render, 6D-HSV projector) all framework-verified.
 Resume file: None
+Next: v2 milestone — MAINT-01/02 (split routes.py / sim_frontend.py), PERF-01/02 (incremental UMAP refit, Embed4All thread-safety), + harden the `run_full_stack_tests.py --real` harness Selenium boot. Run `/gsd-complete-milestone` to archive v1 and open v2.

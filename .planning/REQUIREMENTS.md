@@ -90,15 +90,15 @@ Which phase covers which requirement. Each requirement maps to exactly one phase
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REL-01 | Phase 1 | Pending |
-| REL-02 | Phase 1 | Pending |
-| FIX-01 | Phase 1 | Pending |
-| FIX-02 | Phase 1 | Pending |
-| HYG-01 | Phase 1 | Pending |
-| HYG-02 | Phase 1 | Pending |
-| EDIT-01 | Phase 2 | Pending |
-| EDIT-02 | Phase 2 | Pending |
-| EDIT-03 | Phase 2 | Pending |
+| REL-01 | Phase 1 | Done (2026-06-15, stub + real `probe_no_mocks`) |
+| REL-02 | Phase 1 | Done (2026-06-15) |
+| FIX-01 | Phase 1 | Done (2026-06-15) |
+| FIX-02 | Phase 1 | Done (2026-06-15) |
+| HYG-01 | Phase 1 | Done (2026-06-15) |
+| HYG-02 | Phase 1 | Done (2026-06-15) |
+| EDIT-01 | Phase 2 | Done (2026-06-18, Milkdown click-to-edit, PR #1) |
+| EDIT-02 | Phase 2 | Done (2026-06-18, field growth + autocomplete) |
+| EDIT-03 | Phase 2 | Done (2026-06-18, Milkdown controlled view) |
 | HTML-01 | Phase 3 | Pending |
 | HALO-01 | Phase 3 | Pending |
 | HALO-02 | Phase 3 | Pending |
