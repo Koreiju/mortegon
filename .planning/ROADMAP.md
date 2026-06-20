@@ -1,93 +1,104 @@
-# Roadmap: web_fiber_haptics
+# Roadmap: web_fiber_haptics (Mortegon)
 
-## Overview
+## Milestones
 
-This is a brownfield roadmap. The backend is mature and the §T black-slate frontend + §U HTML-dedup content-tree are already the default served surface at `/`. The journey is therefore **harden the honest baseline → finish-and-verify the near-done frontend surfaces → land live layout/iteration → prove the synthesis end-to-end**, NOT a rebuild. Phase 1 makes the baseline truthful (no-mocks remediation, three-fixture verification, forbidden-code deletion, dependency hygiene). Phases 2–4 finish-and-verify the editor slate, the halo/HTML-dedup retrieval render, and the live layout/signal/pattern surfaces — each closing a documented DESIGN↔CODE gap and converting browser-verified work into the project's REPL/probe verification idiom. Phase 5 binds the three registers and proves the four lodestar use cases against real subsystems (`all_real: true`). Every phase carries an executable success criterion in the project's idiom: a named `env-scenario`, a `probe_live_*.py`, or `GET /api/subsystem_status` reporting `all_real: true`. A screenshot is never proof.
+- ✅ **v1.0 Real-Stack Acceptance** — Phases 1–5 (shipped 2026-06-20) — [archive](milestones/1.0-ROADMAP.md)
+- 🚧 **v2.0 Autonomy Hardening & Maintainability** — Phases 6–8 (in progress)
+
+v1 hardened the honest baseline and finished-and-verified the §T/§U/§V/§R frontend
+surfaces (Milkdown edit layer, HTML-dedup halo render, 6D-UMAP/HSV projector, live
+signal/pattern), proving all four lodestar use cases against real subsystems
+(`all_real: true`; full-smoke 92/92 both modes; e2e 26/0). v2 makes the project
+**turnkey for GSD autonomous build/test**: reliable *unattended* real-stack
+verification, and agent-friendly (de-monolithed) code.
 
 ## Phases
 
-**Phase Numbering:**
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
-
-- [x] **Phase 1: Honest Baseline** *(stub-verified 2026-06-15; real-stack `full-smoke`/`probe_no_mocks` deferred to the GPU box)* - Eliminate the no-mocks SLM stub-fallback, verify exactly three fixtures, hard-delete forbidden/legacy code, pin dependencies and resolve entry-point drift.
-- [x] **Phase 2: Black-Slate Field Editing** *(complete 2026-06-18; EDIT-03 resolved = Milkdown controlled view, user override; browser + framework verified, PR #1)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; integrate Milkdown as the in-slate edit layer (controlled view, store = truth); remove the MDXEditor dependency.
-- [x] **Phase 3: HTML Dedup + Halo Retrieval Render** *(stub-verified 2026-06-18; live-site real-Selenium scans = real-backend acceptance)* - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
-- [x] **Phase 4: Live Layout, Signal & Pattern** *(stub-verified 2026-06-18; live-scan 6D fit = real-backend acceptance via probe_live_scan_with_cleanup)* - Finish-and-verify the 6D UMAP/HSV projection (projector now renders the backend HSV + camera-azimuth rotation), one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
-- [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(COMPLETE 2026-06-19 — all_real:true; probe_no_mocks + all four lodestar probe_live_*.py + probe_live_scan_with_cleanup PASS; full-smoke 92/92 in BOTH stub and real modes; REG-01 scenarios green)* - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
+- [x] **Phase 1: Honest Baseline** *(v1.0 — shipped 2026-06-15)* - No-mocks SLM 503, three fixtures, forbidden/legacy-code deletion, dependency hygiene.
+- [x] **Phase 2: Black-Slate Field Editing** *(v1.0 — shipped 2026-06-18, PR #1)* - Milkdown controlled-view edit layer (EDIT-01/02/03).
+- [x] **Phase 3: HTML Dedup + Halo Retrieval Render** *(v1.0 — shipped 2026-06-18)* - Content-tree corpus-clean + collapsed-node apparition halo.
+- [x] **Phase 4: Live Layout, Signal & Pattern** *(v1.0 — shipped 2026-06-18)* - 6D-UMAP/HSV projector + one-signal rollout + live pattern_map.
+- [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(v1.0 — shipped 2026-06-19)* - REG-01 + the four lodestar real-stack probes.
+- [ ] **Phase 6: Autonomy Hardening** *(v2.0)* - Make unattended real-stack verification reliable: fix the `--real` harness backend-boot + clean-GPU preflight; harden the GPT4All Embed4All Windows native crash.
+- [ ] **Phase 7: Maintainability** *(v2.0)* - De-monolith for surgical agent edits: split `routes.py` by register; decompose `sim_frontend.py` by action category.
+- [ ] **Phase 8: Performance** *(v2.0)* - Incremental joint-UMAP refit during streaming chunk arrival (currently scan-end-only).
 
 ## Phase Details
 
 ### Phase 1: Honest Baseline
-**Goal**: The brownfield baseline tells the truth — no quiet stub substitution, exactly three fixtures, no forbidden/legacy code, and a launch/dependency story that is unambiguous. Everything downstream rests on this.
-**Depends on**: Nothing (first phase)
-**Requirements**: REL-01, REL-02, FIX-01, FIX-02, HYG-01, HYG-02
-**Success Criteria** (what must be TRUE):
-  1. With a dead/absent GGUF and `WFH_FAKE_SLM` unset, an SLM call returns a loud 503 and halts the cascade (never `[stub-slm]` text); the CPU real→real device override is preserved. Verified by `scripts/probe_no_mocks.py http://127.0.0.1:8080` reporting `all_real: true` and SLM output not beginning `[stub-slm]`.
-  2. `env-scenario --name three-fixtures-present` is green: exactly three root fixtures (`fixture::agent`, `fixture::web_browser`, `fixture::database`) exist and NO `fixture::editor` card materialises, including after a migration sweep over a legacy `_default` DB.
-  3. `backend/analytics/`, `backend_slow/`, `_legacy_frontend/`, the deprecated `cluster_distillation.py`, and any live Fibonacci/concentric layout path are deleted; a forbidden-term grep (`fibonacci|concentric|hyperbolic|llama|graph.analytics`) finds only deprecation banners, and the full pytest suite + `env-scenario --name full-smoke` stay green in both modes with the ledgered analytics tests removed alongside their code.
-  4. `langgraph`, `selenium`, `webdriver_manager` are pinned and the kuzu version drift is resolved in `requirements.txt`; the canonical launch command and 8080/8000 port alignment are documented; `@mdxeditor/editor` is removed from `package.json`.
-**Plans**: TBD
+
+**Goal**: The brownfield baseline tells the truth — no quiet stub substitution, exactly three fixtures, no forbidden/legacy code, unambiguous launch/dependency story.
+**Requirements**: REL-01, REL-02, FIX-01, FIX-02, HYG-01, HYG-02 — all DONE (v1.0)
+**Status**: ✅ Complete (2026-06-15). Detail: `milestones/1.0-ROADMAP.md`.
 
 ### Phase 2: Black-Slate Field Editing
-**Goal**: A user can edit any field of the black-slate panel in place and every keystroke commits through the one lifecycle dispatcher with the frontend holding no authoritative state — finishing the §T click-to-edit gap on the already-served slate.
-**Depends on**: Phase 1
-**Requirements**: EDIT-01, EDIT-02, EDIT-03
-**Success Criteria** (what must be TRUE):
-  1. User can click a pure-print row, get a **Milkdown editable surface** with the caret at the clicked field, grow the tree (Enter = sibling, Tab = re-parent), and commit on blur (Esc discards); empty rows hide. Verified by `env-scenario --name edit-field-roundtrip` (commit persists + evolution-log records) and `frontend_e2e/edit.spec.js` EDIT-01/02 green; `?slate=milkdown` opt-in keeps the default editor unchanged. *(DELIVERED — Milkdown controlled view; commit is blur not Enter, since Enter/Tab drive §3 field growth.)*
-  2. User can grow the field-tree via `+→` (parent→child) and `+↓` (sibling); `{`-autocomplete inserts `{<linked_name>}` bound to an existing concept; every mutation routes through `concept_lifecycle.py` (asserted by the resulting `concept_index_update` WS frame + evolution-log entry).
-  3. The edit-layer decision is resolved to **Milkdown** (user override 2026-06-17, `docs/MILKDOWN_SLATE_GOAL.md`, superseding the CM6 lean in `docs/EDITOR_INTEGRATION_ASSESSMENT.md`); it lives ONLY behind `mount` as a CONTROLLED VIEW (inbound `setText` replace-all / outbound blur-commit) with `store.mjs`/`gateway.mjs`/`magic_markdown.mjs` unchanged, and a dropped-WS reconnect re-renders the slate identically (proving no authoritative frontend state). *(DELIVERED — `milkdown.spec.js` + `edit.spec.js` EDIT-03 green.)*
-  4. `env-scenario --name full-smoke` stays green in both stub and real modes with the editing scenarios included.
-**Plans**: TBD
-**UI hint**: yes
+
+**Goal**: A user can edit any field of the black-slate panel in place; every mutation commits through the one lifecycle dispatcher with the frontend holding no authoritative state.
+**Requirements**: EDIT-01, EDIT-02, EDIT-03 — all DONE (v1.0; Milkdown controlled view)
+**Status**: ✅ Complete (2026-06-18, PR #1). Detail: `milestones/1.0-ROADMAP.md`.
 
 ### Phase 3: HTML Dedup + Halo Retrieval Render
-**Goal**: A scanned HTML chunk renders as a clean deduplicated content-tree, and clicking a collapsed circular node fires a name-only apparition halo ranked by the triple product — finishing the §U/§V render gaps on the existing backend.
-**Depends on**: Phase 2
-**Requirements**: HTML-01, HALO-01, HALO-02
-**Success Criteria** (what must be TRUE):
-  1. An HTML chunk slate body shows deduplicated content as a pure-text tree (collapsed wrappers, token-set dedup, surfaced href/src) built from `fields` not `html_raw`; byte-exact §U golden I/O (6/6) holds and `env-scenario --name syntax-agnostic-compile` exercises the HtmlStrategy arm green in both modes.
-  2. Clicking a collapsed node fires a halo whose phantoms show candidate NAME only (scores in slow-hover tooltips), ranked by `pagerank · tfidf_cos · nomic_cos` with no graph-analytics axes; the autoregressive walk advances on click. Verified by `env-scenario --name apparition-mode` (and the `halo-retrieval` scenario) green.
-  3. The halo stays proximal to a CIRCULAR root-field-only collapsed node (§S.5), the constant-similarity ray supports along-line slide, soft/hard link promotion works, and the 2D↔3D link arrow is solid (a DOM audit finds no dotted overlays).
-  4. `scripts/probe_pattern_map.py` and the live archive/tarot/yourchineseastrology/studycli sites render clean+deduped against the real stack.
-**Plans**: TBD
-**UI hint**: yes
+
+**Goal**: A scanned HTML chunk renders as a clean deduplicated content-tree; clicking a collapsed circular node fires a name-only apparition halo ranked by the triple product.
+**Requirements**: HTML-01, HALO-01, HALO-02 — all DONE (v1.0)
+**Status**: ✅ Complete (2026-06-18). Detail: `milestones/1.0-ROADMAP.md`.
 
 ### Phase 4: Live Layout, Signal & Pattern
-**Goal**: During a live scan the workspace renders a 6D-UMAP manifold with camera-coupled HSV, advances iterables one signal at a time with the cascade re-firing per sample, and materialises a live `pattern_map` node — finishing the §R/§11.5 live-render gaps.
-**Depends on**: Phase 3
-**Requirements**: UMAP-01, SIG-01, PAT-01
-**Success Criteria** (what must be TRUE):
-  1. LayoutService emits a 6-vector `umap_canonical` WS frame on scan-end joint fit and HSV rotates with camera azimuth across Projector, Halo phantoms, and type-only readout nodes (frontend renders only). Verified by `env-scenario --name 6d-umap-format` (and `perimeter-rescale`) green in both modes.
-  2. A panel renders only ONE iterable signal at a time; play/pause/step via `/api/ui/signal_advance` routes through `RolloutCoordinator` and recompiles the `{ref}`-consumers per sample across pattern_map / url_set / Database.concept iterables. Verified by `env-scenario --name iterated-signal-rerender` (and `signal-stream`, `urls-panel-iteration`) green.
-  3. A live `pattern_map` ConceptNode materialises during a WebBrowser scan and updates in place under signal-stream; the golden-trio joint-presence gate holds, a second scan accretes into the same peer node, and PageRank traverses the same Kuzu ConceptEdge graph. Verified by `env-scenario --name pattern-map-live-update` green and `scripts/probe_pattern_map.py` passing.
-  4. `env-scenario --name full-smoke` stays green in both modes with all live-render scenarios included.
-**Plans**: TBD
-**UI hint**: yes
+
+**Goal**: During a live scan the workspace renders a 6D-UMAP manifold with camera-coupled HSV, advances iterables one signal at a time, and materialises a live `pattern_map` node.
+**Requirements**: UMAP-01, SIG-01, PAT-01 — all DONE (v1.0)
+**Status**: ✅ Complete (2026-06-18). Detail: `milestones/1.0-ROADMAP.md`.
 
 ### Phase 5: Three-Register Synthesis & Live Acceptance
-**Goal**: The Real/Imaginary/Symbolic registers form one compose-compile-perimeter loop runnable from either the GUI or the REPL with identical results, and all four lodestar use cases pass end-to-end against real subsystems — the project's success metric is met.
-**Depends on**: Phase 4
-**Requirements**: REG-01, ACC-01, ACC-02
+
+**Goal**: The Real/Imaginary/Symbolic registers form one compose-compile-perimeter loop runnable both ways, and all four lodestar use cases pass against real subsystems.
+**Requirements**: REG-01, ACC-01, ACC-02 — all DONE (v1.0; `all_real:true`, full-smoke 92/92 both modes)
+**Status**: ✅ Complete (2026-06-19). Detail: `milestones/1.0-ROADMAP.md`.
+
+### Phase 6: Autonomy Hardening
+
+**Goal**: `/gsd-autonomous` can verify against the real stack UNATTENDED. The `run_full_stack_tests.py --real` backend-boot reliably comes up `all_real:true` (today its Selenium health flakes → `all_real:false`); the GPT4All Embed4All Windows native crash is hardened beyond the per-model RLock.
+**Depends on**: Phase 5
+**Requirements**: HARNESS-01, PERF-02
 **Success Criteria** (what must be TRUE):
-  1. A REPL action entering at any node of the loop produces the identical GUI-observable result (2D/3D separation maintained, WS telemetry mirroring register state). Verified by `env-scenario --name complex-interaction-walkthrough` (rollout + halo + compile + signal coexisting in one UIState envelope) and `cascade-reflow-roundtrip` green in both modes.
-  2. `scripts/probe_live_scan_with_cleanup.py` passes (all_real): real archive.org scan → TF-IDF + nomic indices alive → real-UMAP 6D fit → purge cleanup contract (`layout_dropped` + `tfidf_rows_dropped`) returns the Kuzu ConceptNode count to the three-fixture baseline → re-scan rebuilds a comparable pool.
-  3. All four lodestar live probes pass against real subsystems: `probe_live_archive_scan.py`, `probe_live_concept_graph.py`, `probe_live_agent.py`, `probe_live_iterated_compile.py`.
-  4. `GET /api/subsystem_status` reports `all_real: true` and `env-scenario --name full-smoke` is green in BOTH stub and real modes with every §T/§U/§V/§R scenario included.
+  1. `npm run test:all:real` brings up `all_real:true` through the harness and runs real-mode `full-smoke` 92/92 — not only against a manually-booted `python -m backend.main`.
+  2. The `--real` boot has a WebDriver-health retry + a preflight that requires a clean GPU (≈0 MiB VRAM / 0 stray python+firefox), clears `:8080` TIME_WAIT, and resolves Kuzu file-lock contention; it never silently degrades to `all_real:false`.
+  3. `probe_no_mocks.py` + the four lodestar `probe_live_*.py` run repeatably on a clean GPU with no GPT4All `Embed4All` access-violation under sustained concurrency.
+**Plans**: TBD
+
+### Phase 7: Maintainability
+
+**Goal**: De-monolith so agents (and humans) edit surgically. Split `backend/api/routes.py` (~5,425 lines) by register (scan/retrieval/concept/agent/maintenance); decompose `scripts/sim_frontend.py` (~9,524 lines) by action category.
+**Depends on**: Phase 6
+**Requirements**: MAINT-01, MAINT-02
+**Success Criteria** (what must be TRUE):
+  1. `routes.py` is split into `backend/api/` submodules with the route surface + behaviour unchanged; `full-smoke` + e2e stay green.
+  2. `sim_frontend.py` is decomposed so a change to one action category does not risk the whole harness; `env-scenario --name all` stays green.
+  3. No resulting source file in the split surfaces exceeds ~2,000 lines.
+**Plans**: TBD
+
+### Phase 8: Performance
+
+**Goal**: Incremental joint-UMAP refit during streaming chunk arrival (currently scan-end-only), so the 3D manifold updates live as chunks land.
+**Depends on**: Phase 7
+**Requirements**: PERF-01
+**Success Criteria** (what must be TRUE):
+  1. `umap_canonical` frames emit incrementally mid-scan (not only at scan-end joint fit).
+  2. `full-smoke` stays green; a probe asserts the mid-scan refit produces comparable coords.
 **Plans**: TBD
 
 ## Progress
 
-**Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
-
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Honest Baseline | direct | Done (stub-verified) | 2026-06-15 |
-| 2. Black-Slate Field Editing | direct | Done (Milkdown; browser + framework verified, PR #1) | 2026-06-18 |
-| 3. HTML Dedup + Halo Retrieval Render | direct | Done (stub-verified; live-site real scans pending) | 2026-06-18 |
-| 4. Live Layout, Signal & Pattern | direct | Done (stub-verified; live-scan 6D fit on real backend) | 2026-06-18 |
-| 5. Three-Register Synthesis & Live Acceptance | direct | Done (all_real:true; 4 lodestar probes + full-smoke 92/92 both modes) | 2026-06-19 |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Honest Baseline | v1.0 | direct | Complete | 2026-06-15 |
+| 2. Black-Slate Field Editing | v1.0 | direct | Complete | 2026-06-18 |
+| 3. HTML Dedup + Halo | v1.0 | direct | Complete | 2026-06-18 |
+| 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
+| 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
+| 6. Autonomy Hardening | v2.0 | 0/TBD | Not started | - |
+| 7. Maintainability | v2.0 | 0/TBD | Not started | - |
+| 8. Performance | v2.0 | 0/TBD | Not started | - |
 
 ---
-*Roadmap created: 2026-06-14 after brownfield bootstrap (new-project-from-ingest)*
+*v1.0 archived 2026-06-20. v2.0 roadmap created 2026-06-20.*
