@@ -1,218 +1,247 @@
-<!-- refreshed: 2026-06-14 -->
+<!-- refreshed: 2026-06-20 -->
 # Architecture
 
-**Analysis Date:** 2026-06-14
+**Analysis Date:** 2026-06-20
 
 ## System Overview
 
 ```text
-┌─────────────────────────────────────────────────────────────────────┐
-│                        FRONTEND (renders only)                        │
-├──────────────────────────┬────────────────────────────────────────--┤
-│   3D chunk projector      │   2D concept-graph / magic-markdown slate │
-│  `backend/static/js/cp/`  │   `backend/static/js/fe/`                 │
-│  (Three.js, UMAP-radial)  │   (ES-module .mjs greenfield, §T/§U/§V)   │
-└──────────┬───────────────┴──────────────────┬────────────────────────┘
-           │ REST (138 routes)                 │ WebSocket (3 endpoints)
-           ▼                                   ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                       API LAYER (FastAPI, :8080)                      │
-│   `backend/main.py` (app + lifespan + page serving)                   │
-│   `backend/api/routes.py` (all REST + WS handlers, ~4800 lines)       │
-│   `backend/api/ws_frames.py` (frame builders) · `errors.py`          │
-└──────────┬──────────────────────────────────────────────────────────┘
-           │ every concept mutation routes through ↓
-           ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│        LIFECYCLE DISPATCHER (single mutation chokepoint)              │
-│   `backend/services/concept_lifecycle.py`                            │
-│   apply_update_lifecycle / apply_delete_lifecycle:                    │
-│   WS broadcast → ConceptIndex upsert → output-projection schedule    │
-│   → evolution-log entry → cascade nudge                              │
-└──────────┬──────────────────────────────────────────────────────────┘
-           ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                       SERVICE LAYER (computes)                        │
-│  `backend/services/*.py` (~55 services)                              │
-│  Two progressive vectorization pipelines:                            │
-│   chunk side: tfidf_service + global_tfidf_store → layout_service     │
-│               (UMAP joint 6D + force-directed radial)                │
-│   concept side: ontology_field_embedder (nomic) →                    │
-│               concept_index_service (PageRank)                        │
-│  Scan: continuous_scanner → dom/scanner → mapper → chunk emission    │
-│  Compute: compile_pipeline · conceptual_compute · slm_client         │
-│  Agent: agent_runtime · agent/langgraph_loop · rollout_coordinator   │
-└──────────┬──────────────────────────────────────────────────────────┘
-           ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│  STORE + EXTERNAL                                                     │
-│  Kuzu graph DB `backend/database.py` (ConceptNode + ConceptEdge +    │
-│   ContentChunk + TriePattern + ChunkInstance + embeddings)           │
-│  External: GPT4All SLM + nomic embedder (CUDA), Selenium/Firefox,    │
-│   LangGraph                                                           │
-└─────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         BROWSER (greenfield fe/)                         │
+├───────────────┬───────────────┬───────────────┬──────────────────────────┤
+│ store.mjs     │ gateway.mjs   │ magic_markdown │  projector.mjs           │
+│ (sole truth)  │ (outbound     │ .mjs / _panel  │  (3D Real register —    │
+│ `fe/store.mjs`│  seam)        │ / _halo / _ges │   UMAP xyz + HSV)        │
+│               │ `fe/gateway   │ -tures.mjs     │  `fe/projector.mjs`      │
+│               │  .mjs`        │  `fe/magic_*`  │                          │
+└──────┬────────┴──────┬────────┴──────┬─────────┴────────────┬─────────────┘
+       │ applyFrame     │ buildRequest   │ render/mount/halo    │ setNodes(coords)
+       │ (WS frames)    │ (REST mirror)  │ (controlled view)    │ (umap_canonical)
+       ▼                ▼                                       ▲
+┌──────────────────────────────────────────────────────────────────────────┐
+│         OPTIONAL: Milkdown controlled edit layer (?slate=milkdown)       │
+│  `frontend_src/milkdown_slate.mjs` → bundled to                          │
+│  `backend/static/js/fe/vendor/milkdown_slate.bundle.mjs`                 │
+│  setText (inbound truth) / onCommit (outbound intent) — never authoritative│
+└──────────────────────────────────────────────────────────────────────────┘
+       │ fetch /api/* (REST)                       │ WS /api/ws/workspace/{id}
+       ▼                                            │ (typed frame vocabulary)
+┌──────────────────────────────────────────────────────────────────────────┐
+│                    FastAPI app — `backend/main.py` (port 8080)           │
+│                         `backend/api/routes.py` (5400+ lines, one router)│
+├───────────────┬───────────────┬───────────────┬──────────────────────────┤
+│ concept CRUD  │ ui/* mirror   │ chunk/scan/    │ agent / evolution_log /  │
+│ /concepts*    │ routes (pin,  │ retrieval      │ apparitions / radiation  │
+│               │ fold, compile)│ /chunk_*,/map/*│ /agent/*, /evolution_log │
+└───────┬───────┴───────┬───────┴───────┬────────┴──────────┬───────────────┘
+        │                │               │                    │
+        ▼                ▼               ▼                    ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│            ONE LIFECYCLE DISPATCHER — `backend/services/                 │
+│            concept_lifecycle.py::apply_update_lifecycle /                │
+│            apply_delete_lifecycle` (+ `_apply_create_lifecycle` wrapper   │
+│            in routes.py)                                                  │
+│  ConceptDiff (pure classification) → WS broadcast → ConceptIndex upsert  │
+│  → output-projection schedule → evolution log append → cascade nudge     │
+└───────┬───────────────┬───────────────┬───────────────┬──────────────────┘
+        │               │               │               │
+        ▼               ▼               ▼               ▼
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────────────┐
+│ Chunk-side   │ │ Concept-side │ │ Layout       │ │ Evolution log /      │
+│ vectorization│ │ vectorization│ │ Service      │ │ rollback             │
+│ TF-IDF       │ │ nomic embed  │ │ (UMAP+force- │ │ `services/           │
+│ incremental  │ │ incremental  │ │ directed,    │ │ evolution_log.py`    │
+│ + UMAP joint │ │ + PageRank   │ │ §6.1)        │ │                      │
+│ `services/   │ │ joint        │ │ `services/   │ │                      │
+│ tfidf_*`     │ │ `services/   │ │ layout_      │ │                      │
+│              │ │ concept_     │ │ service.py`  │ │                      │
+│              │ │ index_       │ │              │ │                      │
+│              │ │ service.py`  │ │              │ │                      │
+└──────────────┘ └──────────────┘ └──────────────┘ └──────────────────────┘
+        │               │               │
+        ▼               ▼               ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│   Kuzu graph DB (one ConceptNode table, one ConceptEdge table) +         │
+│   `backend/database.py` (`_effective_db_path` nests legacy dirs as       │
+│   `<path>/data.kuzu`, kuzu ≥0.11 file-based)                             │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
 ## Component Responsibilities
 
 | Component | Responsibility | File |
 |-----------|----------------|------|
-| App + lifespan | FastAPI boot, Selenium eager init, DB init, page serving (`/`, `/editor`, `/legacy`) | `backend/main.py` |
-| API router | All 138 REST routes + 3 WS endpoints; thin handlers delegating to services | `backend/api/routes.py` |
-| WS frame builders | Construct typed WS frames (concept_index_update, umap_canonical, agent_token, etc.) | `backend/api/ws_frames.py` |
-| Lifecycle dispatcher | Single mutation chain for every concept create/update/delete | `backend/services/concept_lifecycle.py` |
-| Kuzu database | One ConceptNode + one ConceptEdge table; chunk/trie/embedding tables; schema in `init_db` | `backend/database.py` |
-| Chunk vectorization | Incremental TF-IDF over rendering text | `backend/services/tfidf_service.py`, `backend/services/global_tfidf_store.py` |
-| Layout service | UMAP joint 6D fit + force-directed radial 3D placement, projector links | `backend/services/layout_service.py` |
-| Concept vectorization | nomic embedding over description | `backend/services/ontology_field_embedder.py` |
-| Concept index + PageRank | Concept-side joint index, PageRank | `backend/services/concept_index_service.py` |
-| Scanner | Live Selenium scan loop; emits chunks per snapshot | `backend/services/continuous_scanner.py`, `backend/dom/scanner.py` |
-| Mapper | DOM → trie → pattern → chunk pipeline | `backend/mapper/mapper.py`, `backend/dom/pipeline.py` |
-| Compile | Syntax-agnostic recursive compile + LangGraph chain | `backend/services/compile_pipeline.py`, `backend/services/conceptual_compute.py` |
-| SLM client | GPT4All Nous-Hermes dispatch | `backend/services/slm_client.py` |
-| Agent runtime | Meta-cognition tick, emitters, LangGraph loop | `backend/services/agent_runtime.py`, `backend/agent/langgraph_loop.py` |
-| Evolution log | Append-only audit, three rollback scopes | `backend/services/evolution_log.py` |
-| UI state | Server-authoritative pin/hover/halo/collapse state | `backend/services/ui_state_service.py` |
+| FastAPI app + lifespan | Boots Selenium driver, inits DB, mounts static + templates, single `/api`-prefixed router | `backend/main.py` |
+| Route layer | All REST endpoints (concepts, ui mirror, chunk/scan/retrieval, agent, evolution log, ontology) — one 5400-line router, no sub-routers | `backend/api/routes.py` |
+| WS frame vocabulary | Canonical typed-frame envelope + per-type builders (`umap_canonical`, `concept_changed`, `compute_graph_layout`, `ontology_layout`, `agent_token`, ...) + monotonic `frame_seq` | `backend/api/ws_frames.py` |
+| Concept lifecycle dispatcher | Pure `ConceptDiff` classification + the one mutation chain every create/update/delete goes through | `backend/services/concept_lifecycle.py` |
+| Graph editor | Kuzu read/write surface for ConceptNode/ConceptEdge | `backend/services/graph_editor.py` |
+| Concept index service | Nomic embedding incremental update + PageRank joint recompute (concept-side vectorization) | `backend/services/concept_index_service.py` |
+| TF-IDF service / worker | Chunk-side TF-IDF incremental update | `backend/services/tfidf_service.py`, `backend/services/tfidf_worker.py` |
+| Layout service | UMAP-linear-radial force-directed 3D layout (chunks) + compute-graph bisector placement | `backend/services/layout_service.py` |
+| Chunk projector service | Maps chunk records → projector-consumable node payloads | `backend/services/chunk_projector_service.py` |
+| Apparition service | Triple-product (`pagerank · tfidf_cos · nomic_cos`) retrieval ranking for halos | `backend/services/apparition_service.py` |
+| Evolution log | Append-only diff log + three rollback scopes (single/range/actor) | `backend/services/evolution_log.py` |
+| Agent runtime | LangGraph+GPT4All meta-cognition tick, ActionResolver, on the same lifecycle path as REST | `backend/services/agent_runtime.py` |
+| Scanner / DOM pipeline | Selenium-driven scan → chunk extraction → content-tree dedup | `backend/dom/scanner.py`, `backend/dom/pipeline.py`, `backend/dom/content_tree.py` |
+| Served editor (greenfield) | Default `/` surface — magic-markdown black-slate grid + 3D projector canvas | `backend/templates/editor.html` |
+| Legacy projector | Demoted `/legacy` 3D-only surface, kept for reference | `backend/templates/index.html`, `backend/static/js/cp/*.js` |
+| fe/ store | Sole frontend truth; folds WS frames; `registry()` resolves `{ref}` by root field | `backend/static/js/fe/store.mjs` |
+| fe/ gateway | The only outbound seam; pure `buildRequest(gesture)` + thin fetch wrapper | `backend/static/js/fe/gateway.mjs` |
+| magic-markdown model | Parse/render/registry/decompose — the syntax-agnostic field-tree engine | `backend/static/js/fe/magic_markdown.mjs` |
+| magic-markdown panel | DOM mount for the panel/graph dual rendering of a node | `backend/static/js/fe/magic_markdown_panel.mjs` |
+| magic-markdown gestures | Pure gesture classifier (`resolveGesture`) shared by custom slate + Milkdown | `backend/static/js/fe/magic_markdown_gestures.mjs` |
+| Apparition halo | Pure `haloLayout` (ray mechanics) + `haloVDom` (SVG render), camera-azimuth coupled | `backend/static/js/fe/magic_markdown_halo.mjs` |
+| 3D projector | THREE.js points scene; `buildPointArrays` (pure) renders backend HSV, never invents colour | `backend/static/js/fe/projector.mjs` |
+| Milkdown edit layer | Controlled-view ProseMirror editor; source under `frontend_src/`, bundled to vendor | `frontend_src/milkdown_slate.mjs`, `backend/static/js/fe/vendor/milkdown_slate.bundle.mjs` |
 
 ## Pattern Overview
 
-**Overall:** Layered service-oriented backend (compute) + thin render-only frontend, glued by REST mutations and monotone-seq WebSocket broadcast. A single lifecycle dispatcher is the mandatory chokepoint for all concept mutations.
+**Overall:** Backend-computes / frontend-renders monolith. A single FastAPI process owns all layout, embedding, ranking, and graph-mutation logic; the browser is a thin, pure-rendering client whose only persisted state lives in one JS store object, refreshed exclusively by WebSocket frames and REST-mirror responses.
 
 **Key Characteristics:**
-- Backend computes everything (layout, embeddings, PageRank); frontend has no UMAP/embedding runtime.
-- One ConceptNode + one ConceptEdge schema; new capability is a new fixture / compiled-from-scans / Python-API tree, never a new card table.
-- Two sibling progressive vectorization pipelines (chunk-side TF-IDF+UMAP, concept-side nomic+PageRank); the two embedding axes never mix.
-- WebSocket frame seq monotone per workspace with `?resume=<seq>` replay; lossy backpressure keeps `done`/`error`/latest `generation`.
-- Optimistic concurrency, last-write-wins; rollback is the user's conflict tool.
+- One lifecycle dispatcher (`concept_lifecycle.py`) — every mutation path (REST PATCH, agent ActionResolver, scanner-driven backing-version bump) funnels through the same diff → broadcast → index → projection → log chain. No parallel mutation paths.
+- Controlled-view frontend — the fe/ store is the only truth; both the custom magic-markdown DOM and the Milkdown ProseMirror DOM are pure projections (`setText` replace-all inbound, `onCommit`/gesture outbound). Reconnect re-render is provably identical (EDIT-03 contract).
+- Dual, independent vectorization pipelines — chunk-side (TF-IDF + UMAP) and concept-side (nomic + PageRank) never share state or mix axes; Layout Service and Concept Index Service are sibling services, never nested.
+- One edge table — `ConceptEdge` is the union enum of every typed relationship (wiring, web-ontology, Python-native, port-binding). No second edge table for any subsystem.
+- WS-first, REST-mirrors-WS — every gesture's REST call either returns inline frames or relies on the WS broadcast to update peer tabs; the gateway's `buildRequest` is pure and the only place gesture→route mapping lives.
 
 ## Layers
 
-**API layer:**
-- Purpose: HTTP/WS surface, request validation, page serving.
-- Location: `backend/main.py`, `backend/api/`
-- Contains: route handlers, WS frame builders, error handlers.
-- Depends on: service layer.
-- Used by: frontend.
+The design's "Real / Imaginary / Symbolic" registers map onto concrete code layers as follows:
 
-**Lifecycle dispatcher:**
-- Purpose: single chain every concept mutation traverses.
-- Location: `backend/services/concept_lifecycle.py`
-- Depends on: ConceptIndex, output projection, evolution log, WS push.
-- Used by: REST handlers in `routes.py` AND agent `agent_runtime`.
+**Real register (3D rendered space):**
+- Purpose: visualize the UMAP-positioned chunk/concept field with backend-computed HSV colour.
+- Location: `backend/static/js/fe/projector.mjs` (frontend render), `backend/services/layout_service.py` + `backend/services/chunk_projector_service.py` (backend compute).
+- Contains: THREE.js points scene, pure `buildPointArrays`/`haloLayout` geometry functions, UMAP/force-directed placement.
+- Depends on: `umap_canonical` / `ontology_layout` / `compute_graph_layout` WS frames (`backend/api/ws_frames.py`).
+- Used by: `editor.html`'s `bootProjector()`, the halo's camera-azimuth coupling.
 
-**Service layer:**
-- Purpose: all computation — scanning, vectorization, layout, compile, agent.
-- Location: `backend/services/` (~55 modules), plus domain packages `backend/dom/`, `backend/mapper/`, `backend/ontology/`, `backend/agent/`.
-- Depends on: database + external subsystems.
-- Used by: API layer, lifecycle.
+**Symbolic register (panel/field-tree text):**
+- Purpose: the editable name/description/value/compiled field-tree — the "data block dissolves into the field-tree" model.
+- Location: `backend/static/js/fe/magic_markdown.mjs` (parse/render/registry), `magic_markdown_panel.mjs` (DOM mount), `frontend_src/milkdown_slate.mjs` (alternate ProseMirror-backed edit surface).
+- Contains: syntax-agnostic recursive descent decomposition, `{ref}` token resolution, gesture classification.
+- Depends on: `store.mjs` for concept/edge state.
+- Used by: `editor.html`'s `render()` / `enterMilkdownEdit()`.
 
-**Persistence + external:**
-- Purpose: Kuzu graph store; GPT4All, nomic, Selenium, LangGraph.
-- Location: `backend/database.py`, `backend/rag_store.py`, `backend/drivers/`.
+**Imaginary register (apparition halo — candidates not yet committed):**
+- Purpose: render retrieval candidates as collapsed circular phantoms radiating from a focal panel, ray-distance encoding similarity.
+- Location: `backend/static/js/fe/magic_markdown_halo.mjs` (pure layout + SVG render).
+- Contains: `haloLayout` (focal + candidates + camAngle → polar positions), `haloVDom`.
+- Depends on: `/api/radiation` (triple-product retrieval), `projector.mjs`'s `azimuth()` for ray-angle coupling.
+- Used by: `editor.html`'s `openHalo()` / `renderHalo()` / camera `onFrame` callback.
+
+**Backend services layer:**
+- Purpose: every computation (layout, embedding, ranking, compile) the frontend is forbidden from doing.
+- Location: `backend/services/*.py` (~50 modules).
+- Contains: lifecycle dispatcher, both vectorization pipelines, agent runtime, evolution log, compile pipeline, ws_replay backpressure.
+- Depends on: `backend/database.py` (Kuzu), `backend/dom/*` (scanner/content-tree).
+- Used by: `backend/api/routes.py` exclusively (services are never imported by frontend code).
 
 ## Data Flow
 
-### Primary Request Path — Scan → 3D (outside-in, §8D.45)
+### Primary Request Path (concept edit)
 
-1. `POST` scan trigger / `continuous_scanner.watch()` starts a Selenium scan (`backend/services/continuous_scanner.py:58`).
-2. `backend/dom/scanner.py` + `backend/mapper/mapper.py` distill DOM → trie patterns → content chunks (`backend/dom/pipeline.py`).
-3. Chunks persist to `ContentChunk` / `ChunkInstance`; TF-IDF indexed incrementally (`backend/services/tfidf_service.py`).
-4. Scan-end joint UMAP 6D fit + force-directed radial placement (`backend/services/layout_service.py:441` `recompute_ontology`, `_embed_6d`, `_project`).
-5. `umap_canonical` (W7) frame broadcast over the workspace WS (`backend/api/routes.py:515` `/ws/workspace/{workspace_id}`).
-6. Frontend `backend/static/js/cp/layout.js` + `force_layout.js` render chunks radially from doc-hub; scroll-driven extrusion (`chunk_projector.js`).
+1. User blurs a Milkdown/custom-slate edit → `gateway.send({kind:"concept-update", ...})` (`backend/templates/editor.html:172-173`)
+2. `buildRequest` maps to `PATCH /api/concepts/{id}` (`backend/static/js/fe/gateway.mjs:36-37`)
+3. Route handler reads pre-state, calls `_apply_update_lifecycle` (`backend/api/routes.py:2185`, `2408-2445`)
+4. `concept_lifecycle.py::apply_update_lifecycle` computes `ConceptDiff.from_pre_post`, then: WS broadcast (`build_concept_changed`) → ConceptIndex upsert if `embed_fields_changed` → output-projection schedule if `effective_data_changed` → evolution-log append (`backend/services/concept_lifecycle.py:33-120`+)
+5. Frontend WS `onmessage` applies the `concept_changed` frame to `store.applyFrame` and re-renders unless an edit is in progress (`backend/templates/editor.html:291-301`)
 
-### Secondary Flow — Concept mutation → cascade (inside-out, §8D.47)
+### Scan → Retrieval → Visualization Flow
 
-1. `POST /concepts` or `/concept_edges` handler in `backend/api/routes.py:2239`.
-2. Handler calls `apply_update_lifecycle` (`backend/services/concept_lifecycle.py`).
-3. Chain fires: WS broadcast (W5 `concept_index_update`) → ConceptIndex upsert + nomic embed → output projection schedule → evolution-log entry → cascade nudge recompiling `{ref}`-consumers.
-4. `recompute_concept_index` / PageRank (`backend/services/concept_index_service.py`).
-
-### Compute / agent flow
-
-1. `POST /conceptual/compile_chain` (`routes.py:3306`) → `compile_pipeline.py` recursive descent → LangGraph chain → `slm_client.py` GPT4All dispatch.
-2. Agent: `POST /agent/tick` → `agent_runtime.py` → `agent/langgraph_loop.py` streams real tokens (`agent_token` WS frame) → evolution log diff (actor=`agent:*`).
+1. `/api/snapshot` triggers Selenium scan via `backend/dom/scanner.py` → chunks stream as `chunks_partial`/`chunk_added` WS frames (`backend/api/routes.py:854-1077`)
+2. Scan-end fires a joint UMAP refit; `umap_canonical` frame broadcasts 6D (xyz+HSV) coords (`backend/api/ws_frames.py:200-246`)
+3. `projector.mjs::setNodes(coords)` renders backend HSV directly — never invents colour (`backend/static/js/fe/projector.mjs:27-51`, `296`)
+4. Retrieval (`/api/chunk_search`, `/api/radiation`) ranks by triple product `pagerank · tfidf_cos · nomic_cos`; halo candidates render as collapsed circular phantoms (`backend/static/js/fe/magic_markdown_halo.mjs`)
 
 **State Management:**
-- Server-authoritative UI state in `backend/services/ui_state_service.py` (pin/hover/halo/collapse), broadcast via WS so multi-tab hydrates without polling.
+- Frontend: one mutable `state` object inside `createStore()` closure (`backend/static/js/fe/store.mjs:15-20`); no Redux/global singleton beyond the one store instance created in `editor.html`.
+- Backend: Kuzu is the durable store; in-memory `_SEQ_COUNTERS` (per-workspace frame-seq, `backend/api/ws_frames.py:121-122`) and idempotency cache (`backend/api/routes.py:162-210`) are process-local and reset on restart.
 
 ## Key Abstractions
 
-**ConceptNode / ConceptEdge:**
-- Purpose: the one record + the one edge for all graph data.
-- Examples: schema in `backend/database.py:240-259` (NODE) and `:433` (REL `ConceptEdge`).
-- Pattern: `edge_type` is the union enum of all label families; one edge table never two.
+**ConceptNode / ConceptEdge (the one record):**
+- Purpose: every first-class object in the workspace — fixtures, scanned chunks, authored concepts, Python-API trees, compute-graph nodes — is a `ConceptNode`; every relationship is a `ConceptEdge`.
+- Examples: `backend/services/graph_editor.py`, `backend/ontology/models.py`.
+- Pattern: type_hint is a naming convention, never a type discriminator; one table, one edge table.
 
-**LayoutFrame:**
-- Purpose: serialized 6D/3D coordinate set per workspace.
-- Examples: `backend/services/layout_service.py:112`.
+**ConceptDiff (pure mutation classification):**
+- Purpose: decide once what changed (data/description/rendering/backing-version) so every downstream consumer reads the same answer instead of re-deriving heuristics.
+- Examples: `backend/services/concept_lifecycle.py:48-120`.
+- Pattern: frozen dataclass with derived boolean properties (`embed_fields_changed`, `effective_data_changed`).
 
-**Foundational fixtures:**
-- Purpose: three peer undeletable ConceptNodes (Database, WebBrowser, Agent).
-- Examples: `backend/services/foundation_fixtures.py`.
+**WS frame envelope (typed, monotonic):**
+- Purpose: single source of truth for the wire contract between backend services and the frontend store.
+- Examples: `backend/api/ws_frames.py` (`FrameType`, `make_frame`, per-type builders).
+- Pattern: every frame stamps `type` + `frame_seq` (monotonic per workspace scope) + optional `workspace_id`; frontend discards lower-seq frames.
 
-**Compiled-from-scans / Python-API trees:**
-- Purpose: extend capability as peer nodes (SearchableURL, DetectedAccessor, XPathPattern; python_object/property/function).
-- Examples: `backend/services/compiled_from_scans.py`, `backend/services/python_api_materialiser.py`.
+**Pure-core / impure-shell split (frontend):**
+- Purpose: keep geometry/parsing/classification logic unit-testable in Node without a browser.
+- Examples: `buildPointArrays`/`createProjector` split in `projector.mjs`; `haloLayout`/`haloVDom` split in `magic_markdown_halo.mjs`; `buildRequest`/`GestureGateway` split in `gateway.mjs`.
+- Pattern: every `*.mjs` module's pure functions have a matching `*.test.mjs`.
 
 ## Entry Points
 
-**`app.py`:**
-- Location: `app.py`
-- Triggers: process launch (tees stdout/stderr to `logs.txt`, runs uvicorn).
-- Responsibilities: logging mirror + server boot.
+**Backend process:**
+- Location: `backend/main.py`
+- Triggers: `uvicorn.run("backend.main:app", host="127.0.0.1", port=8080, reload=True)` when run directly; `lifespan` context boots the Selenium driver (unless `NO_WEBDRIVER=1`) and calls `init_db()`.
+- Responsibilities: mounts `/static`, registers `templates/`, includes the single `router` under `/api`, serves `/` (greenfield editor, default), `/editor` (explicit alias), `/legacy` (demoted 3D projector).
 
-**`backend/main.py`:**
-- Location: `backend/main.py:48`
-- Triggers: FastAPI app construction; `lifespan` eager-inits Selenium + DB.
-- Responsibilities: middleware, static mount, page routes (`/`, `/editor`, `/legacy`), router include.
+**Served editor (frontend boot):**
+- Location: `backend/templates/editor.html` (inline `<script type="module">`)
+- Triggers: page load → IIFE at the bottom (`loadConcepts()` → `loadChunks()` → `render()` → `connectWS()` → `bootProjector()`).
+- Responsibilities: hydrate store from `/api/concepts` + `/api/chunk_nodes`/`/api/chunk_details`, open the workspace WebSocket, boot the THREE.js projector via `/api/recompute_umap`.
 
-**WS endpoints:**
-- `/ws/workspace/{workspace_id}` (`routes.py:515`) — main layout/index/agent frame stream.
-- `/ws/nodes/{snapshot_id}` (`routes.py:648`) — node streaming.
-- `/ws/chat/{session_id}` (`routes.py:1330`) — chat session.
+**REPL harness:**
+- Location: `scripts/sim_frontend.py`
+- Triggers: CLI invocation (`env-scenario`, `watch-activity`, individual actions).
+- Responsibilities: drives the same REST/WS surface the browser uses, for scripted acceptance verification.
 
 ## Architectural Constraints
 
-- **Threading:** async FastAPI event loop captured in `lifespan` (`set_event_loop`); worker threads push WS frames via `call_soon_threadsafe`. Scanner runs its own thread loop (`continuous_scanner._run_loop`).
-- **Global state:** singleton Selenium `WebBrowserManager` (eager-init in lifespan), singleton continuous scanner (`get_continuous_scanner()`), per-workspace WS frame queues. Kuzu connection in `backend/database.py`.
-- **WS seq monotone:** per workspace; `?resume=<seq>` replays last 5 minutes (`backend/services/ws_replay.py`).
-- **No real→stub fallback:** a failed subsystem load returns 503 and halts cascade; quiet degradation forbidden (`/api/subsystem_status` must report `all_real: true` in production).
+- **Threading:** FastAPI's asyncio event loop is captured at lifespan startup (`set_event_loop`, `backend/main.py:29-30`) so worker threads (Selenium callbacks, background scan tasks) can push WS frames via `call_soon_threadsafe`; without this capture the async WS plumbing in `routes.py` silently no-ops.
+- **Global state:** module-level singletons include the mapper/driver singleton (`_get_mapper()`, `backend/api/routes.py:742`), the per-workspace WS frame-seq counters (`_SEQ_COUNTERS`, `backend/api/ws_frames.py:122`), and the idempotency cache (`backend/api/routes.py`). All are process-local and not persisted.
+- **One router, no sub-routers:** `backend/api/routes.py` is a single ~5400-line `APIRouter` covering every REST surface (legacy mapper endpoints, concept CRUD, ui mirror, agent, evolution log). New endpoints are added to this file, not split into per-domain routers.
+- **Frontend has no compute runtime:** no UMAP fitter, no embedding model, no PageRank — these constraints are enforced architecturally (no such library is imported under `backend/static/js/fe/` or `frontend_src/`).
 
 ## Anti-Patterns
 
 ### Bypassing the lifecycle dispatcher
 
-**What happens:** a handler mutates a ConceptNode directly via `graph_editor` / SQL without calling `apply_update_lifecycle`.
-**Why it's wrong:** skips WS broadcast, index upsert, output projection, evolution log, and cascade — downstream consumers go stale and rollback breaks.
-**Do this instead:** route every create/update/delete through `backend/services/concept_lifecycle.py` (both `routes.py` and `agent_runtime.py` already do).
+**What happens:** A new mutation path (e.g. a future bulk-import route) writes directly to Kuzu via `graph_editor.py` without calling `apply_update_lifecycle`/`apply_delete_lifecycle`.
+**Why it's wrong:** Skips WS broadcast (other tabs go stale), ConceptIndex upsert (retrieval ranks against a stale embedding), evolution-log append (rollback loses the edit), and cascade nudge (`{ref}`-consumers don't recompile).
+**Do this instead:** Always route concept mutations through `backend/services/concept_lifecycle.py`'s helpers, as `backend/api/routes.py:2178-2207` (`_apply_create_lifecycle`, `_apply_update_lifecycle`, `_apply_delete_lifecycle`, `_schedule_output_projection`) already do.
 
-### Mixing the two embedding axes
+### Frontend inventing colour or layout
 
-**What happens:** retrieval blends nomic (description) and TF-IDF (rendering) into one score, or reintroduces graph-analytics features (depth, subtree_size, wl_hash).
-**Why it's wrong:** forbidden by design; retrieval ranks by the triple product `pagerank · tfidf_cos · nomic_cos`, axes kept separate.
-**Do this instead:** keep `tfidf_service.py` and `ontology_field_embedder.py` as sibling pipelines; combine only at the final triple product (`retrieval_service.py`).
+**What happens:** A frontend module computes its own hue from an id hash or distance metric instead of consuming `umap_canonical`'s HSV channels.
+**Why it's wrong:** Violates "backend computes, frontend renders" — colour state becomes inconsistent across tabs and untestable against the real UMAP fit.
+**Do this instead:** `buildPointArrays` only falls back to a positional hue sweep when no 6-vector is present, explicitly labeled "bootstrap stand-in" (`backend/static/js/fe/projector.mjs:18-22,41-45`); once a real frame arrives the fallback never reappears.
 
-### A new card type with its own table
+### Authoritative state inside the editable DOM
 
-**What happens:** adding a special-cased node kind with a dedicated Kuzu table.
-**Why it's wrong:** breaks the one-ConceptNode / one-ConceptEdge invariant.
-**Do this instead:** model it as a fixture, compiled-from-scans peer, or Python-API materialised tree on the existing schema.
+**What happens:** Treating the ProseMirror/contenteditable DOM as the source of truth (e.g. reading back `innerHTML` to decide what to persist on every keystroke).
+**Why it's wrong:** Breaks reconnect-identity (EDIT-03) and the controlled-view contract; makes the WS-driven re-render path diverge from what's on screen.
+**Do this instead:** `setText`/`replaceAll` are the only inbound paths; `onCommit` on blur is the only outbound path (`frontend_src/milkdown_slate.mjs:7-13`); the store stays sole truth and `__mm_rerender` always re-derives identically.
 
 ## Error Handling
 
-**Strategy:** loud failures for the four real subsystems (503 + halted cascade); secondary subsystem hiccups in the lifecycle chain are swallowed with tagged warnings so the primary mutation still completes.
+**Strategy:** Loud failure for subsystem unavailability (no-mocks contract, §8D.46); silent-but-logged failure for secondary/non-critical lifecycle side-effects.
 
 **Patterns:**
-- Workflow error handler registered globally (`backend/api/errors.py`, `register_workflow_error_handler`).
-- Lifecycle helpers wrap each downstream step in try/except + warning log.
+- `backend/api/errors.py` registers dedicated handlers (`register_workflow_error_handler`, `register_slm_unavailable_handler`) so a missing GGUF or dead Selenium driver surfaces as a 503, never a silent stub substitution.
+- `concept_lifecycle.py` helpers "swallow internal errors and print a tagged warning so a secondary subsystem hiccup never blocks the primary mutation" (`backend/services/concept_lifecycle.py:18-19`) — applies to broadcast/index/projection/log, never to the primary Kuzu write.
+- Frontend `gateway.mjs::send` catches fetch errors and calls `opts.onError`, returning `null` rather than throwing, so one failed gesture never crashes the render loop.
 
 ## Cross-Cutting Concerns
 
-**Logging:** all stdout/stderr/logging teed to `logs.txt` via `_Tee` in `app.py`.
-**Validation:** idempotency keys on every mutation route (retry-safe by construction).
-**Authentication:** none (CORS `allow_origins=["*"]`; local-only app).
+**Logging:** Python `logging` module per-service (`logger = logging.getLogger(__name__)`, e.g. `backend/services/concept_lifecycle.py:24,30`); frontend uses `console.warn` for best-effort failures (e.g. `editor.html:113,283,303,358`).
+
+**Validation:** Pydantic request models for every REST body (`ConceptNodeRequest`, `PurgeWorkspaceRequest`, `RollbackSingleRequest`, etc., referenced throughout `backend/api/routes.py`); frontend gesture validation lives entirely in `resolveGesture`/`buildRequest`'s pure pattern matches, returning `null` for unrecognized gestures.
+
+**Authentication:** Not present — `actor: str = "user:_anon"` is the default actor tag on lifecycle calls (`backend/api/routes.py:2178`); no auth middleware exists.
 
 ---
 
-*Architecture analysis: 2026-06-14*
+*Architecture analysis: 2026-06-20*
