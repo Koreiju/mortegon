@@ -1,12 +1,12 @@
 ---
 gsd_state_version: '1.0'
-status: executing
+status: verifying
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 5
   total_plans: 0
   completed_plans: 0
-  percent: 20
+  percent: 100
 ---
 
 # Project State
@@ -16,11 +16,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The four lodestar use cases (§8D.45/47/48/49) run end-to-end against real subsystems — `all_real: true`, `full-smoke` green in both modes, every `probe_live_*.py` passing. A screenshot is never proof.
-**Current focus:** Phase 2 — Black-Slate Field Editing (Phase 1 stub-verified complete)
+**Current focus:** ALL 5 PHASES COMPLETE (real+stub verified 2026-06-21). Milestone v1.0 ready to close (audit → complete → cleanup).
+
+## v1.0 Real-Stack Acceptance — 2026-06-21 (this GPU box: RTX 4070, all_real:true)
+
+The `/gsd-autonomous` "build everything out from docs" pass closed Phases 2–5:
+- **Phase 3 new code:** wrote the 3 live-halo browser specs (`frontend_e2e/halo.spec.js`, HALO-01/02) against the built `__mm_halo_*` hooks — un-fixme'd, green real+stub. Everything else across 2–5 was finish-and-verify (already built).
+- **REPL `env-scenario --name all` = 95/95** in BOTH stub (`logs/full_stub_gate.log`) and real (`logs/real_gate_full.log`, `all_real=True`).
+- **Playwright e2e = 24/24** in BOTH modes (incl. the 3 halo specs).
+- **pytest** (stub) all green incl. §U golden 6/6 + content-tree breadth (17 passed).
+- **Probes (real, all_real):** `probe_no_mocks`, `probe_live_archive_scan` (§8D.45), `probe_live_concept_graph` (§8D.47), `probe_live_agent` (§8D.48), `probe_live_iterated_compile` (§8D.49), `probe_pattern_map`, `probe_live_scan_with_cleanup` — ALL PASS.
+- Dotted-overlay audit clean. Clean GPU teardown after every real run (no wedge).
+- Per-phase VERIFICATION.md written under `.planning/phases/WFH-0{2..5}-*/`.
 
 ## Current Position
 
-Phase: 2 of 5 (Black-Slate Field Editing) — Phase 1 done; core success metric met on the REAL stack
+Phase: 5 of 5 COMPLETE — milestone v1.0 success metric MET on the REAL stack
 Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
 Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. GSD migration config + a UNIFIED full-stack test framework are in place.
 Last activity: 2026-06-15 — `scripts/run_full_stack_tests.py` (`npm run test:all`) boots ONE managed backend and runs pytest + the **complete REPL registry** (`env-scenario --name all` = 95 of 96 scenarios, not just full-smoke's 92) + Playwright `frontend_e2e`, unified summary. **PROVEN ALL GREEN in BOTH stub AND real (all_real) modes** — stub: pytest + repl(all, real-only scenarios skip) + 5 e2e; real: repl(all=95, every scenario executes incl `apparitions-discover-link` surfacing B via real nomic). Backend torn down cleanly both runs. Added `all` (extracted `_full_smoke_chain`, drift-resistant extras, clean-baseline purge; `apparitions-discover-link` gated on all_real per §1.5). Plus `.planning/config.json` (model fan-out → Sonnet/Haiku + nyquist gate + granularity contract), Playwright MCP (`.mcp.json`) + `frontend_e2e/` suite (5/5).

@@ -10,11 +10,11 @@ This is a brownfield roadmap. The backend is mature and the §T black-slate fron
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [x] **Phase 1: Honest Baseline** *(stub-verified 2026-06-15; real-stack `full-smoke`/`probe_no_mocks` deferred to the GPU box)* - Eliminate the no-mocks SLM stub-fallback, verify exactly three fixtures, hard-delete forbidden/legacy code, pin dependencies and resolve entry-point drift.
-- [~] **Phase 2: Black-Slate Field Editing** *(backend-side verified; EDIT-03 decided = stay custom; live-browser caret re-verify pending)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; resolve and (if chosen) integrate the CodeMirror 6 edit layer; remove the MDXEditor dependency.
-- [ ] **Phase 3: HTML Dedup + Halo Retrieval Render** - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
-- [ ] **Phase 4: Live Layout, Signal & Pattern** - Finish-and-verify the 6D UMAP/HSV projection, one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
-- [ ] **Phase 5: Three-Register Synthesis & Live Acceptance** - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
+- [x] **Phase 1: Honest Baseline** *(real-stack verified 2026-06-21 — `all_real:true`, `probe_no_mocks` PASS, full-smoke 95/95 both modes)* - Eliminate the no-mocks SLM stub-fallback, verify exactly three fixtures, hard-delete forbidden/legacy code, pin dependencies and resolve entry-point drift.
+- [x] **Phase 2: Black-Slate Field Editing** *(real+stub verified 2026-06-21; EDIT-03 = Milkdown controlled view; e2e EDIT-01/02/03 green both modes)* - Finish-and-verify §T click-to-edit field-tree editing through the lifecycle; integrate the Milkdown edit layer; remove the MDXEditor dependency.
+- [x] **Phase 3: HTML Dedup + Halo Retrieval Render** *(real+stub verified 2026-06-21; 3 live halo e2e specs written + green; pattern_map probe PASS; dotted audit clean)* - Finish-and-verify the §U deduplicated content-tree (HtmlStrategy arm) and the §V halo: name-only phantoms, triple-product ranking, circular root-field-only collapsed node, ray slide.
+- [x] **Phase 4: Live Layout, Signal & Pattern** *(real+stub verified 2026-06-21; 6d-umap/signal/pattern-map scenarios green both modes; real 6D UMAP fit + pattern_map probe PASS)* - Finish-and-verify the 6D UMAP/HSV projection, one-signal-at-a-time rollout with per-signal cascade re-fire, and the live `pattern_map` ConceptNode.
+- [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(real acceptance 2026-06-21 — all 4 lodestar probes + scan_with_cleanup PASS; all_real:true)* - Bind Real/Imaginary/Symbolic into the both-ways compose-compile-perimeter loop and prove all four lodestar use cases against real subsystems with the purge-cleanup round-trip.
 
 ## Phase Details
 
@@ -83,11 +83,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Honest Baseline | direct | Done (stub-verified) | 2026-06-15 |
-| 2. Black-Slate Field Editing | direct | In progress (backend verified) | - |
-| 3. HTML Dedup + Halo Retrieval Render | 0/TBD | Not started | - |
-| 4. Live Layout, Signal & Pattern | 0/TBD | Not started | - |
-| 5. Three-Register Synthesis & Live Acceptance | 0/TBD | Not started | - |
+| 1. Honest Baseline | direct | Done (real-verified) | 2026-06-21 |
+| 2. Black-Slate Field Editing | direct | Done (real+stub) | 2026-06-21 |
+| 3. HTML Dedup + Halo Retrieval Render | direct | Done (real+stub) | 2026-06-21 |
+| 4. Live Layout, Signal & Pattern | direct | Done (real+stub) | 2026-06-21 |
+| 5. Three-Register Synthesis & Live Acceptance | direct | Done (real acceptance) | 2026-06-21 |
 
 ---
 *Roadmap created: 2026-06-14 after brownfield bootstrap (new-project-from-ingest)*
