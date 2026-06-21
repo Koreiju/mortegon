@@ -90,24 +90,24 @@ Which phase covers which requirement. Each requirement maps to exactly one phase
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REL-01 | Phase 1 | Pending |
-| REL-02 | Phase 1 | Pending |
-| FIX-01 | Phase 1 | Pending |
-| FIX-02 | Phase 1 | Pending |
-| HYG-01 | Phase 1 | Pending |
-| HYG-02 | Phase 1 | Pending |
-| EDIT-01 | Phase 2 | Pending |
-| EDIT-02 | Phase 2 | Pending |
-| EDIT-03 | Phase 2 | Pending |
-| HTML-01 | Phase 3 | Pending |
-| HALO-01 | Phase 3 | Pending |
-| HALO-02 | Phase 3 | Pending |
-| UMAP-01 | Phase 4 | Pending |
-| SIG-01 | Phase 4 | Pending |
-| PAT-01 | Phase 4 | Pending |
-| REG-01 | Phase 5 | Pending |
-| ACC-01 | Phase 5 | Pending |
-| ACC-02 | Phase 5 | Pending |
+| REL-01 | Phase 1 | Satisfied (2026-06-21) |
+| REL-02 | Phase 1 | Satisfied (2026-06-21) |
+| FIX-01 | Phase 1 | Satisfied (2026-06-21) |
+| FIX-02 | Phase 1 | Satisfied (2026-06-21) |
+| HYG-01 | Phase 1 | Satisfied (2026-06-21) |
+| HYG-02 | Phase 1 | Satisfied (2026-06-21) |
+| EDIT-01 | Phase 2 | Satisfied (2026-06-21) |
+| EDIT-02 | Phase 2 | Satisfied (2026-06-21) |
+| EDIT-03 | Phase 2 | Satisfied (2026-06-21) |
+| HTML-01 | Phase 3 | Satisfied (2026-06-21) |
+| HALO-01 | Phase 3 | Satisfied (2026-06-21) |
+| HALO-02 | Phase 3 | Satisfied (2026-06-21) |
+| UMAP-01 | Phase 4 | Satisfied (2026-06-21) |
+| SIG-01 | Phase 4 | Satisfied (2026-06-21) |
+| PAT-01 | Phase 4 | Satisfied (2026-06-21) |
+| REG-01 | Phase 5 | Satisfied (2026-06-21) |
+| ACC-01 | Phase 5 | Satisfied (2026-06-21) |
+| ACC-02 | Phase 5 | Satisfied (2026-06-21) |
 
 **Coverage:**
 - v1 requirements: 18 total
