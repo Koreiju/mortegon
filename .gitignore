@@ -45,3 +45,9 @@ Thumbs.db
 
 # NOTE: .planning/ is intentionally TRACKED — GSD manages it as project memory.
 # NOTE: backend/drivers/geckodriver.exe is intentionally vendored (kept tracked).
+
+# ── graphify knowledge graph ─────────────────────────────────────────────
+# graphify-out/ is build scratch (cache, manifest); the canonical committed
+# graph lives in .planning/graphs/. The diff-snapshot is a local-only baseline.
+graphify-out/
+.planning/graphs/.last-build-snapshot.json

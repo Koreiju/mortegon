@@ -164,18 +164,6 @@
           }
         ]
       }
-    ],
-    "FileChanged": [
-      {
-        "matcher": "config.json",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"C:/Program Files/nodejs/node.exe\" \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/gsd-config-reload.js",
-            "timeout": 8
-          }
-        ]
-      }
     ]
   }
 }

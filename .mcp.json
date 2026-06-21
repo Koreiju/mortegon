@@ -3,6 +3,22 @@
     "playwright": {
       "command": "npx",
       "args": ["-y", "@playwright/mcp@latest", "--browser", "chromium"]
+    },
+    "graphify": {
+      "command": "python",
+      "args": [
+        "-m", 
+        "graphify.serve", 
+        ".planning/graphs/graph.json"
+      ]
+    },
+    "obsidian": {
+      "command": "npx",
+      "args": [
+        "-y", 
+        "@bitbonsai/mcpvault", 
+        "C:/Users/isaac/Documents/web_fiber_haptics"
+      ]
     }
   }
 }
