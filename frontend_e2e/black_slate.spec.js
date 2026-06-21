@@ -65,3 +65,25 @@ test("§S.4 rendered slate = black fill · silver border · serif white", async 
   expect(s.color, "serif white").toBe("rgb(255, 255, 255)");
   expect(s.font.toLowerCase()).toMatch(/serif|georgia/);
 });
+
+// §11 / D11 (Phase 3 HALO-02) — "Stray dotted UI lines ... are removed. The 2D↔3D
+// link arrow is solid." Content-agnostic absence check on the live `/`: no rendered
+// SVG stroke carries a dasharray, and no slate/halo element has a dotted/dashed
+// border. Passes vacuously on an empty workspace; fails if any dotted overlay exists.
+test("§11 / D11 — no dotted/dashed overlays (the 2D↔3D arrow + halo rays are solid)", async ({ page }) => {
+  await page.goto("/");
+  await page.waitForLoadState("networkidle");
+  const bad = await page.evaluate(() => {
+    const out = [];
+    for (const el of document.querySelectorAll("line, path, polyline")) {
+      const da = getComputedStyle(el).strokeDasharray;
+      if (da && !/^(none|0px|0)$/.test(da)) out.push(`stroke-dasharray=${da}`);
+    }
+    for (const el of document.querySelectorAll(".mm-slate, .mm-graph, .mm-phantom, .mm-gnode, .mm-edit-host, .mm-halo *")) {
+      const bs = getComputedStyle(el).borderStyle;
+      if (/dotted|dashed/.test(bs)) out.push(`border-style=${bs}`);
+    }
+    return out;
+  });
+  expect(bad, `dotted/dashed overlays found:\n${bad.join("\n")}`).toEqual([]);
+});

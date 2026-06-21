@@ -1,108 +1,120 @@
 # Coding Conventions
 
-**Analysis Date:** 2026-06-14
+**Analysis Date:** 2026-06-20
 
-This is a Python 3.13 full-stack app. The backend (`backend/`) is the source of truth for conventions: FastAPI + Kuzu + GPT4All/nomic + Selenium + LangGraph. The frontend is a thick JS client (the active rebuild lives under `backend/static/` / `backend/templates/`; `_legacy_frontend/` is dead). Conventions below are Python-centric because that is where all active development happens.
+This is a Python 3.13 FastAPI backend (`backend/`) paired with a vanilla-ESM frontend (`backend/static/js/fe/*.mjs`, served directly — no bundler for the hand-written tree) plus a bundled Milkdown editable-slate layer (`frontend_src/` → esbuild → `backend/static/js/fe/vendor/`). No linter/formatter config is checked in (no `.eslintrc`, `.prettierrc`, or `pyproject.toml` black/ruff section); a root `mypy.ini` provides light Python typing discipline. Code quality is enforced primarily through the verification surface (see TESTING.md), not static tooling.
 
 ## Naming Patterns
 
 **Files:**
-- Backend services: snake_case, one service per file under `backend/services/` (e.g. `concept_lifecycle.py`, `evolution_log.py`, `rollout_coordinator.py`).
-- Tests: `test_<subject>.py` under `backend/tests/` (e.g. `test_concept_lifecycle_and_cascade.py`).
-- Live end-to-end probes: `scripts/probe_<topic>.py` (e.g. `scripts/probe_no_mocks.py`, `scripts/probe_live_archive_scan.py`).
-- One-off diagnostics: `scripts/diag_*.py` (excluded from mypy, see `mypy.ini`).
+- Backend: `snake_case.py` grouped by surface — `backend/api/routes.py`, `backend/services/*.py`, `backend/dom/*.py`, `backend/mapper/*.py`, `backend/ontology/*.py`, `backend/agent/*.py`.
+- Frontend (served ESM, hand-written): `snake_case.mjs` under `backend/static/js/fe/` — `magic_markdown.mjs` (model), `magic_markdown_panel.mjs` (DOM glue), `magic_markdown_halo.mjs`, `magic_markdown_gestures.mjs`, `projector.mjs`, `store.mjs`, `gateway.mjs`.
+- Frontend (Milkdown build source): `frontend_src/milkdown_slate.mjs`, bundled via `npm run build:milkdown` into `backend/static/js/fe/vendor/milkdown_slate.bundle.mjs`.
+- Tests co-located by suffix: `*.test.mjs` sits next to the module it tests (`magic_markdown.mjs` → `magic_markdown.test.mjs`, `magic_markdown_panel.mjs` → `magic_markdown_panel.test.mjs`); Python tests centralize in `backend/tests/test_*.py`.
+- Scripts in `scripts/`: `probe_live_*.py` for real-subsystem lodestar evidence (§8D.45/47/48/49), narrower `probe_*.py` contract probes, legacy `test_*.py` offline checks predating `backend/tests/`.
 
-**Functions:**
-- Public functions/methods: `snake_case` (e.g. `apply_update_lifecycle`, `compute_rendering_tree`, `log_edit`).
-- Module-private helpers: leading underscore `_snake_case` (e.g. `_idempotency_lookup`, `_check_spawn_rate`, `_effective_db_path` in `backend/database.py`).
-- Env-scenario drivers in `scripts/sim_frontend.py`: `_env_scenario_<name>` (e.g. `_env_scenario_watch_activity_mirror`).
+**Functions (Python):** `snake_case`, verb-first — `apply_update_lifecycle`, `apply_delete_lifecycle`, `temp_db_dir`, `sweep_stale_tmp`. Private helpers prefixed `_` — `_resolve_model_name`, `_ensure_model`, `_get`, `_default`.
 
-**Variables:**
-- `snake_case` for locals and module globals.
-- Module-level shared state prefixed `_` and paired with a lock (e.g. `_idempotency_cache` + `_idempotency_lock` in `backend/api/routes.py`).
+**Functions (JS):** `camelCase` — `panelVDom`, `renderPanel`, `advanceSignal`, `isIterable`. Pure-model functions take and return plain data/specs (no DOM); the DOM-binding entry point is conventionally named `mount`.
 
-**Types / Classes:**
-- `PascalCase` for classes and dataclasses (e.g. `ConceptDiff`, `WorkflowError`, `EditDiff`, `_StubNode`).
-- Private/stub test classes prefixed `_` (e.g. `_StubNode`, `_StubGraphEditor`, `_LiveConnProxy`).
-- **Domain id types are `NewType` over `str`**, suffixed `Id` — `backend/services/ids.py`: `ConceptId`, `EdgeId`, `WorkspaceId`, `ParameterCardId`, `ChunkId`, `IdempotencyKey`. These are zero-overhead at runtime but catch swapped-argument bugs at the mypy layer. New/refactored signatures should prefer them over bare `str`.
+**Variables:** Python `snake_case`; module constants `UPPER_SNAKE` (`TEST_TMP_PREFIX`, `_PRODUCTION_MODEL`, `STUB_GATES`, `LEGACY_TMP_PREFIXES`). JS `camelCase`; exported glyph/token constants `UPPER_SNAKE` (`GLYPH_COLLAPSED`, `GLYPH_EXPANDED`, `GLYPH_NONE`).
 
-**Backing-pointer / id string schemes (data-level naming):**
-- Fixtures: `fixture::<kind>::<workspace_id>` (e.g. `fixture::database::<wid>`).
-- Agent backing pointers: `agent::{kind}::<pcid>`.
-- Composite graph-output chunk ids: `graph__<wid>__<cid>__<sid>`.
+**Types:** Python `@dataclass` classes in `PascalCase` (`ConceptNode`, `ConceptEdge`); error classes subclass a builtin and end in `Error` (`SLMUnavailableError(RuntimeError)` in `backend/services/slm_client.py:41`). No TypeScript — the frontend is plain ESM; shapes are documented in prose JSDoc-style block comments, e.g. the `{ tag, attrs, children?, text? }` element-spec convention in `backend/static/js/fe/magic_markdown_panel.mjs:28`.
 
-## Code Style
+## Docstring Discipline (the load-bearing convention)
 
-**Formatting:**
-- No autoformatter config detected (no black/ruff/isort config files). Style is hand-maintained: 4-space indent, ~72-char prose in docstrings, dashed comment banners (`# ---...---`) to separate sections within a module.
-- `from __future__ import annotations` at the top of essentially every backend module and test (deferred annotation evaluation; required for the gradual-typing approach).
+Every non-trivial module/function opens with a docstring that:
+1. **Cites the design-doc anchor it realises** — a `§` reference into `docs/USER_REQUIREMENTS_VERBATIM.md` or another canonical doc (`§8D.46`, `§R.9`, `§T/§U/§V`).
+2. **States the contract**, not just the behavior — see the `backend/services/db_janitor.py` module docstring (quotes the verbatim user requirement before describing the implementation) and `SLMUnavailableError`'s docstring in `backend/services/slm_client.py:41-49`.
+3. For frontend modules, states the model/DOM split explicitly — see `backend/static/js/fe/magic_markdown.mjs:1-22` and `backend/static/js/fe/magic_markdown_panel.mjs:1-20`.
 
-**Linting / Typing:**
-- Type checking via **mypy** (`mypy.ini`), Python 3.13 target. Run: `mypy backend`.
-- **Gradual-adoption strategy** (explicitly documented in `mypy.ini`): permissive global defaults (`disallow_untyped_defs = False`) with per-module tightening as surfaces migrate.
-  - Hold-the-line strict modules: `backend.services.ids`, `backend.services.concept_lifecycle`, `backend.services.settings`, `backend.dom.pipeline` (these set `check_untyped_defs`/`warn_return_any`/`strict_equality`).
-  - Silenced legacy modules (`ignore_errors = True`): `backend.mapper.*`, `backend.dom.web_distiller_freq`, `backend.dom.shadow_html_parser`, `backend.dom.content_tagger`, and all `backend.tests.*`.
-- `show_error_codes = True` + `warn_unused_ignores = True` so `# type: ignore[code]` suppressions are surgical, not blanket.
-- **Convention for adopting types:** when a module imports from `backend.services.ids`, add a matching `[mypy-backend.services.<module>]` block mirroring the `concept_lifecycle` pattern. End state is global `strict = True`.
-- `.clj-kondo` / `.lsp` dirs are editor artifacts, not active to this Python codebase.
+**When writing new code, open with a docstring naming the requirement anchor before the implementation.** This is the project's primary documentation mechanism — there is no separate API-doc generator, and `docs/code_specs/` is the line-level spec layer code is checked against.
 
 ## Import Organization
 
-Observed order (e.g. `backend/api/routes.py`, `backend/services/concept_lifecycle.py`):
-1. `from __future__ import annotations`
-2. Stdlib (`import json`, `import logging`, `import threading`, `import time`, `import os`)
-3. Third-party (`from fastapi import ...`, `from pydantic import BaseModel`)
-4. First-party `backend.*` absolute imports (e.g. `from backend.services.ids import ConceptId, EdgeId, WorkspaceId`)
+**Python:**
+- `from __future__ import annotations` is the first import in modules that use forward-ref type hints (`backend/services/slm_client.py`, `scripts/run_full_stack_tests.py`, `backend/services/db_janitor.py`).
+- Order: stdlib, then third-party (`kuzu`, `fastapi`, `gpt4all`), then local `backend.*` — see `backend/tests/conftest.py` and `scripts/run_full_stack_tests.py`.
+- Direct sibling imports, no barrel/`__init__.py` re-export layer: `from backend import database`, `from backend.services.db_janitor import temp_db_dir, sweep_stale_tmp`.
 
-**Path aliases:**
-- No `__init__.py` at the repo root; modules are addressed as `backend.<sub>.<mod>` via the absolute repo path on `sys.path` (`mypy.ini` sets `explicit_package_bases` + `namespace_packages`). Scripts/probes bootstrap this manually:
-  ```python
-  ROOT = Path(__file__).resolve().parents[1]
-  if str(ROOT) not in sys.path:
-      sys.path.insert(0, str(ROOT))
-  ```
+**JS (ESM):**
+- Explicit relative `.mjs` imports, no bundler/path aliases for the hand-written `fe/` tree: `import { renderPanel, renderGraph, GLYPH_EXPANDED } from "./magic_markdown.mjs";` (`backend/static/js/fe/magic_markdown_panel.mjs:22`).
+- The Milkdown layer is the one deliberate bundled exception, kept separate (`frontend_src/` → esbuild → `vendor/`) from the vanilla hand-written tree it gets imported alongside.
 
-## Error Handling
+## Error Handling — Loud Failure, Never Silent Stub Fallback (§8D.46)
 
-**Structured HTTP errors (§14.2):** `backend/api/errors.py` defines `WorkflowError(code, message, http_status, retryable, retry_after_ms, context)` registered via `register_workflow_error_handler(app)`, emitting a canonical envelope:
-```json
-{"error": {"code": ..., "message": ..., "retryable": ..., "retry_after_ms": ..., "context": ...}}
+**Core principle:** production paths run real subsystems; a failed real backend is a loud 503, never a quiet stub substitution.
+
+- Each real subsystem (SLM, embedder, Selenium, LangGraph) has exactly **one** fake/skip gate, env-var controlled, checked once near construction — not scattered through call sites:
+  - `WFH_FAKE_SLM=1` → `backend/services/slm_client.py` (`SLMClient.__new__`, `_fake` flag, line ~110).
+  - `WFH_FAKE_EMBEDDER=1` → `backend/services/embedding_service.py:137`.
+  - `NO_WEBDRIVER=1` → skips Selenium driver init at backend boot.
+  - LangGraph has **no** fake gate — a missing dependency is a hard import error by design.
+- When the gate is unset and the real backend fails, raise a typed exception rather than degrade. Example contract (`backend/services/slm_client.py:41-49`):
+  > "§8D.46 forbids a silent real→stub fallback in production: a failed load (or a failed generation) must be LOUD. The FastAPI layer maps this to HTTP 503 and the cascade halts, rather than quietly emitting `[stub-slm]` text."
+- `backend/services/embedding_service.py:272` documents the same contract: "we raise `ValueError` so FastAPI can return a clean 503."
+- `GET /api/subsystem_status` is the single source of truth for `{slm, embedder, selenium, langgraph, all_real}`. New subsystems extend this report rather than introducing a parallel health surface.
+- Model-override guards are loud, not silent: `_resolve_model_name()` (`backend/services/slm_client.py:65-79`) rejects any `WFH_SLM_MODEL` override containing `"llama"`, logs `logger.error`, and falls back to the production model rather than silently honoring a forbidden override.
+
+**Pattern to follow when adding a new integration:**
+```python
+class XUnavailableError(RuntimeError):
+    """Raised when the real X backend fails and the harness stub gate is unset."""
+
+def _ensure_x(self):
+    if self._fake:           # only the harness gate suppresses the raise
+        return None
+    try:
+        ...load real X...
+    except Exception as exc:
+        raise XUnavailableError(
+            f"... is required. Set WFH_FAKE_X=1 only in the harness."
+        ) from exc
 ```
+Route handlers catch the typed `*UnavailableError`/`ValueError` and translate to `HTTPException(status_code=503, ...)`.
 
-**Loud-failure contract (§8D.46 — non-negotiable):** production subsystem failures surface as **503 + halted cascade**, NEVER a silent stub substitution. Real-backend → stub fallback is forbidden in production. See `backend/services/slm_client.py` (sets `self._fake` only when `WFH_FAKE_SLM` is set; otherwise a failed model load is loud).
-
-**Secondary-subsystem hiccups are swallowed-and-logged:** the lifecycle chain helpers in `backend/services/concept_lifecycle.py` each swallow internal errors and emit a tagged warning so a downstream broadcast/index/projection failure never blocks the **primary** mutation. This is the deliberate exception to "fail loud" — it applies only to non-primary side effects.
-
-**Idempotency keys on every mutation route:** clients supply `idempotency_key` (UUID) on PATCH/POST; `backend/api/routes.py` caches via `_idempotency_lookup` / `_idempotency_store` (TTL `settings.idempotency_ttl_sec`, lock-guarded `_idempotency_cache`). Retries within the window replay the cached response — mutations are retry-safe by construction.
+**Anti-pattern (forbidden):** catching a real-backend failure and quietly returning stub output without the env gate being set. `backend/services/conceptual_compute.py:452,469` comments explicitly mark the one sanctioned "swallow to stub" branch as gated by `WFH_FAKE_SLM` — do not add new unconditional swallow-to-stub branches elsewhere.
 
 ## Logging
 
-**Framework:** stdlib `logging`. Each module declares `logger = logging.getLogger(__name__)` at top (see `backend/api/routes.py`, `backend/services/concept_lifecycle.py`).
+**Framework:** stdlib `logging`, `logger = logging.getLogger(__name__)` per module (`backend/services/slm_client.py:38`).
 
-**Durable log mirror:** `app.py` installs a `_Tee` file-like proxy over stdout/stderr so EVERYTHING (prints, logging, uvicorn access, mapper profiler) lands in `logs.txt` next to the script while still showing on the live console.
-
-**Operator dashboard, not log-spam:** new observable state must extend an existing row of the `watch-activity` seven-row dashboard (scan / retrieval / visible 3D / hidden 3D / pinned / compile / subsystems) in `scripts/sim_frontend.py`, updating **in place** via ANSI cursor codes — it must NOT spawn a parallel append-only log stream (CLAUDE.md "What Always Holds" #4). ANSI is gated off on Windows (`os.name != "nt"`).
+**Patterns:**
+- `logger.info` for expected harness-mode notices (`"SLMClient: WFH_FAKE_SLM set; using stub responses."`).
+- `logger.error` for rejected/guarded configuration (the forbidden Llama-override rejection).
+- The REPL harness (`scripts/sim_frontend.py`) and `scripts/run_full_stack_tests.py` use `print(..., flush=True)` with banner formatting (`"=" * 72`) for human-readable tier/summary output rather than `logging` — intentional, since this is operator-facing CLI output, not application logging.
 
 ## Comments
 
-**When to Comment:** modules carry substantial module docstrings that (a) state the purpose, (b) cite the governing spec section (`§8D.44`, `§14.2`, `§R.9`), and (c) explain *why* (rationale, the bug a fix prevents). This citation-to-spec convention is load-bearing — the `docs/` chain is the source of truth and code references back into it.
+- Comment density is high and intentional: comments anchor code to the requirements doc (`§` references) and explain *why*, not *what*. `backend/services/db_janitor.py`'s module docstring quotes the verbatim user requirement before describing the implementation.
+- Inline comments flag non-obvious invariants, e.g. `backend/services/conceptual_compute.py:452` marking exactly which swallow-to-stub branch is sanctioned and why.
 
-**Inline comments** explain non-obvious decisions and historical bug context (e.g. the `_LiveConnProxy` docstring in `conftest.py` explains the test-isolation closed-connection failure it fixes). Avoid restating *what* the code does; state *why*.
+**JSDoc-style (frontend):** Block comments (`/** ... */`) above exported functions describe params/return shape in prose rather than formal `@param`/`@returns` tags — `backend/static/js/fe/magic_markdown.mjs:36-47` (`iterableNode`, `isIterable`).
 
-## Function & Module Design
+## Function Design
 
-**Functional-core / imperative-shell split:** decision logic is pulled into pure functions so each branch is unit-testable with no I/O stubs. Canonical example: `ConceptDiff` (frozen dataclass) in `backend/services/concept_lifecycle.py` classifies a mutation once via `ConceptDiff.from_pre_post(...)`; the side-effect chain (broadcast → index → projection → log → cascade) reads from the diff rather than re-deriving heuristics inline.
+**Size:** Frontend model-layer functions (`magic_markdown.mjs`) are short and single-purpose. Backend service functions can be longer when implementing a documented multi-step algorithm (e.g. `_ensure_model`'s load → device-fallback → raise sequence in `backend/services/slm_client.py`).
 
-**Dataclasses for records:** `@dataclass` / `@dataclass(frozen=True)` for value objects (`ConceptDiff`, `EditDiff`, the one `ConceptNode` record §8D.44). Frozen for immutable classifications.
+**Parameters:** JS favors an options object over long positional lists — `panelVDom(rootNode, opts = {})`. Python favors dataclasses or explicit env-resolution functions over many positional args.
 
-**One dispatcher, one code path (architectural non-negotiable):** every concept mutation routes through `backend/services/concept_lifecycle.py::apply_update_lifecycle` / `apply_delete_lifecycle` so REST handlers (`routes.py`) and the agent's `ActionResolver` (`agent_runtime`) stay on a single path. Do NOT add a parallel mutation route.
+**Return Values:** Functions with two legitimate failure modes (harness-stub vs real-unavailable) return `None` for the harness path and **raise** for the real-unavailable path — never collapsed into one sentinel. See `_ensure_model`'s documented contract (`backend/services/slm_client.py:121-132`).
 
-**Append-only evolution log:** `backend/services/evolution_log.py` records every edit as a provenance-tagged `EditDiff` (JSONL persisted). Rollback (`rollback_single`, `rollback_range`, `rollback_actor_since`) is itself recorded as a new edit — the log only ever grows.
+## Module Design — Pure-Model vs DOM-Glue Split (the standout frontend convention)
 
-**Singletons via classmethod gate:** services like `SLMClient` (`backend/services/slm_client.py`) use a `cls._instance` lazy singleton that reads env gates once at construction.
+Every interactive frontend surface is split into two files:
+- A **pure logic/model module**, zero DOM dependency, unit-testable in plain Node — `backend/static/js/fe/magic_markdown.mjs` (parse/render/transform), `backend/static/js/fe/projector.mjs` (model side of the 3D/2D projector).
+- A **thin DOM-glue module** that turns the model's plain-object "vdom" spec into real DOM nodes and wires events — `backend/static/js/fe/magic_markdown_panel.mjs`: `panelVDom` is pure, `mount` is the only DOM-touching function.
 
-**Singular extension over special-casing:** new capability is one more peer fixture / one more compiled-from-scans node / one more Python-API materialised tree — never a special-cased card type with its own table (CLAUDE.md "What Always Holds" #5).
+When adding a new interactive frontend feature: write the transform/decision logic as pure functions over plain objects, add a matching `*.test.mjs`, and keep DOM-touching code in a separate `_panel`/`_halo`-style sibling module that imports the model. This is the pattern to extend, not deviate from.
+
+**Exports (JS):** Named exports only; no default exports observed (`export function node(...)`, `export const GLYPH_COLLAPSED = ...`). No barrel/index re-export files anywhere in `backend/static/js/fe/`.
+
+**Barrel Files:** Not used in Python or JS. Modules import each other directly by relative/dotted path.
+
+## Commit Convention
+
+Conventional-commit prefixes are used consistently: `feat(...)`, `fix(...)`, `docs(gsd): ...`, `chore(...)` — see recent history (`feat(projector): Phase 4 UMAP-01 ...`, `docs(gsd): Phase 5 plan + REG-01 done ...`). Use a `scope` matching the touched subsystem (`projector`, `phase3`, `gsd`, etc.).
 
 ---
 
-*Convention analysis: 2026-06-14*
+*Convention analysis: 2026-06-20*

@@ -9,23 +9,42 @@
  */
 
 /**
- * buildPointArrays(coords) → { ids, positions:Float32Array, colors:Float32Array, count }.
- * coords: { chunkId: [x,y,z] }. Colours are an even HSV sweep (the 3D nodes are
- * the only filled colour in the app, theme.md §2.5) — a stand-in for the 6D-UMAP
- * HSV until the layout frame carries per-chunk hsv.
+ * buildPointArrays(coords, optsOrHslToRgb) →
+ *   { ids, positions:Float32Array, colors:Float32Array, count }.
+ *
+ * coords: `{ chunkId: [x,y,z] }` (3-vector) OR `{ chunkId: [x,y,z,h,s,v] }`
+ * (the backend's canonical 6D `umap_canonical` frame, §6.1 / §11.5). The 3D
+ * nodes are the only filled colour in the app (theme.md §2.5) and the frontend
+ * RENDERS the backend's HSV — it does not invent it:
+ *   - a **6-vector** colours from the frame's HSV channels (`p[3..5]`, in [0,1],
+ *     fed as `setHSL(h,s,v)` per §11.5);
+ *   - a **3-vector** falls back to the even positional HSV sweep (the bootstrap
+ *     stand-in, only until a real layout frame arrives) — backward compatible.
+ * `opts.azimuth` rotates the hue by the camera azimuth (UMAP-01: "HSV rotates
+ * with camera azimuth") — the same azimuth the halo rays couple to. The 2nd arg
+ * also accepts a bare `hslToRgb` function (legacy positional).
  */
-export function buildPointArrays(coords, hslToRgb) {
+export function buildPointArrays(coords, optsOrHslToRgb) {
+  const opts = typeof optsOrHslToRgb === "function" ? { hslToRgb: optsOrHslToRgb } : (optsOrHslToRgb || {});
+  const toRgb = opts.hslToRgb || _hslToRgb;
+  const hueOffset = (((opts.azimuth || 0) / (Math.PI * 2)) % 1 + 1) % 1;
   const ids = Object.keys(coords || {});
   const n = ids.length;
   const positions = new Float32Array(n * 3);
   const colors = new Float32Array(n * 3);
-  const toRgb = hslToRgb || _hslToRgb;
   ids.forEach((id, i) => {
     const p = coords[id] || [0, 0, 0];
     positions[i * 3] = +p[0] || 0;
     positions[i * 3 + 1] = +p[1] || 0;
     positions[i * 3 + 2] = +p[2] || 0;
-    const [r, g, b] = toRgb(i / Math.max(1, n), 0.7, 0.6);
+    let h, s, l;
+    if (p.length >= 6) {                 // the backend's 6D frame — render its HSV
+      h = +p[3] || 0; s = +p[4] || 0; l = +p[5] || 0;
+    } else {                             // 3-vector — positional sweep (bootstrap stand-in)
+      h = i / Math.max(1, n); s = 0.7; l = 0.6;
+    }
+    h = ((h + hueOffset) % 1 + 1) % 1;   // camera-azimuth hue rotation
+    const [r, g, b] = toRgb(h, s, l);
     colors[i * 3] = r; colors[i * 3 + 1] = g; colors[i * 3 + 2] = b;
   });
   return { ids, positions, colors, count: n };
@@ -58,16 +77,34 @@ export function createProjector(canvas, opts = {}) {
   let controls = null;
   if (THREE.OrbitControls) { controls = new THREE.OrbitControls(camera, canvas); controls.enableDamping = true; }
   let points = null;
+  let _coords = {};        // the last frame's coords, kept for azimuth recolour
+  let _lastColorAz = null;
 
   function setNodes(coords) {
+    _coords = coords || {};
     if (points) { scene.remove(points); points.geometry.dispose(); }
-    const { positions, colors, count } = buildPointArrays(coords);
+    const { positions, colors, count } = buildPointArrays(_coords, { azimuth: azimuth() });
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     points = new THREE.Points(geo, new THREE.PointsMaterial({ size: 2.6, vertexColors: true }));
     scene.add(points);
+    _lastColorAz = azimuth();
     return count;
+  }
+  // UMAP-01 — HSV rotates with camera azimuth: recolour the existing nodes when
+  // the camera orbits (positions unchanged; only the hue field rotates).
+  function recolor() {
+    if (!points) return;
+    const { colors } = buildPointArrays(_coords, { azimuth: azimuth() });
+    const attr = points.geometry.attributes.color;
+    attr.array.set(colors);
+    attr.needsUpdate = true;
+  }
+  function nodeColor(i = 0) {
+    if (!points) return null;
+    const c = points.geometry.attributes.color.array;
+    return [c[i * 3], c[i * 3 + 1], c[i * 3 + 2]];
   }
   function nodeCount() { return points ? points.geometry.attributes.position.count : 0; }
   function project(x, y, z) {
@@ -84,13 +121,16 @@ export function createProjector(canvas, opts = {}) {
   function animate() {
     raf = requestAnimationFrame(animate);
     if (controls) controls.update();
-    for (const cb of _frameCbs) { try { cb(azimuth()); } catch (e) { /* keep rendering */ } }
+    const az = azimuth();
+    // UMAP-01 — recolour the node HSV field as the camera orbits (throttled).
+    if (_lastColorAz === null || Math.abs(az - _lastColorAz) > 0.05) { _lastColorAz = az; recolor(); }
+    for (const cb of _frameCbs) { try { cb(az); } catch (e) { /* keep rendering */ } }
     renderer.render(scene, camera);
   }
   function resize() { camera.aspect = w() / h(); camera.updateProjectionMatrix(); renderer.setSize(w(), h(), false); }
   animate();
   window.addEventListener("resize", resize);
-  return { scene, camera, renderer, setNodes, nodeCount, project, azimuth, onFrame, resize, stop: () => cancelAnimationFrame(raf) };
+  return { scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize, stop: () => cancelAnimationFrame(raf) };
 }
 
 export default { buildPointArrays, createProjector };

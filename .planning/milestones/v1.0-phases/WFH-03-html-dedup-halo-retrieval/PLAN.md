@@ -1,0 +1,65 @@
+# Phase 3 — HTML Dedup + Halo Retrieval Render — PLAN
+
+> Executable plan for HTML-01 / HALO-01 / HALO-02. Brownfield finish-and-verify:
+> the §U content-tree is corpus-hardened and the §V halo model + live wiring exist
+> (see CONTEXT). Every task's success criterion is a runnable command from
+> [`.planning/TEST_MATRIX.md`](../../TEST_MATRIX.md) — never a screenshot (D1).
+> Each task un-fixmes one acceptance spec or lands one scenario; the framework
+> (`npm run test:all`) is the gate, green in both stub and real modes.
+
+**Status legend:** ☑ done · ◑ partial · ☐ todo. **Depends on:** Phase 2 (complete).
+
+## Tasks
+
+### T1 — HTML-01 content-tree: VERIFY (not rebuild) ☑ DONE  (HTML-01)
+- **Surface:** `backend/dom/content_tree.py` (built), `_try_parse_structured` (backend) + `_decomposeValue` (frontend), the §U golden fixtures, `scripts/breadth_content_tree_smoke.py`.
+- **Steps:** confirm the HTML chunk slate body is built from `fields` (not `html_raw`); re-run the byte-exact §U golden; confirm `env-scenario --name syntax-agnostic-compile` exercises the HtmlStrategy arm. No new code (no golden regressed).
+- **Done-when:** golden + `syntax-agnostic-compile` green; `breadth_content_tree_smoke.py` 0 violations re-confirmed. **(VERIFIED 2026-06-18 — `pytest backend/tests/test_content_tree*.py` 17/17; breadth smoke 61 sites · 120,226 instances · 0 violations; `syntax-agnostic-compile` green, HtmlStrategy arm = `entries ['h2','p'] + clean rendering`. Stub-verified; the detector is deterministic — no-SLM — so real mode is the same path. Live-data render is T6.)**
+
+### T2 — Halo fires from a COLLAPSED CIRCULAR node, proximal (§S.5) ☑ DONE  (HALO-02)
+- **Surface:** `editor.html` grid click listener — a `.mm-gnode` (the §15.1 root-field-only circular node) click → `openHalo(gnode)` anchored at the node's live `getBoundingClientRect`.
+- **Steps:** clicking a collapsed circular node fires the halo **proximal to that node**, abstracting over the folded complexity; re-anchors on scroll via the existing capture-phase listener.
+- **Done-when:** halo opens from a collapsed node (browser-verified: 3 name-only phantoms, above-slate, proximal; then codified in T3).
+
+### T3 — HALO-01 name-only phantoms + z-order + re-anchor ☑ DONE  (HALO-01/02)
+- **Surface:** `frontend_e2e/halo.spec.js` (un-fixme'd); `magic_markdown_halo.mjs` (built) + `editor.html` (wiring).
+- **Steps:** click a collapsed node → each `.mm-phantom` shows **only the candidate name** (no score chips; `data-sim` present for the tooltip); `.mm-halo` z-index above the slate; scroll → phantoms track the focal's live rect (focal & phantom both move −100).
+- **Done-when:** un-fixme `halo.spec.js` "HALO-01 name-only phantoms" + "HALO-02 z-order + re-anchor". **(green — both.)**
+
+### T4 — HALO-02 constant-similarity ray + camera-orbit slide ☑ DONE  (HALO-02)
+- **Surface:** `frontend_e2e/halo.spec.js` (un-fixme'd); the projector camera-azimuth coupling already in `editor.html` (`projector.onFrame` / `__mm_halo_rotate`).
+- **Steps:** the e2e verifies the **live coupling** (camera orbit → phantoms slide); the exact constant-similarity-ray geometry (r constant in camAngle; angle = base + camAngle; slide stays on the same-radius ray) is unit-verified at machine precision in `magic_markdown_halo.test.mjs` (5/5).
+- **Done-when:** un-fixme `halo.spec.js` "HALO-02 camera orbit slides the phantoms". **(green — full e2e now 24/24, 0 skipped.)**
+
+### T5 — Triple-product ranking + autoregressive walk + DOM audit ☑ DONE  (HALO-01)
+- **Surface:** existing `apparition-mode-roundtrip` (triple-product + band_scores) + `halo-chain-roundtrip` (autoregressive walk) scenarios; `black_slate.spec.js` (forbidden audit extended).
+- **Steps:** candidates rank by `pagerank · tfidf_cos · nomic_cos` (no graph-analytics axes); the autoregressive walk advances via `/api/ui/halo_chain_push`; the DOM audit confirms no dotted/dashed overlay strokes or borders (the 2D↔3D arrow is solid).
+- **Done-when:** `apparition-mode-roundtrip` (per-band band_scores 10/10) + `halo-chain-roundtrip` green; no-dotted-overlay audit green. **(all green — both scenarios are in `full-smoke`.)**
+
+### T6 — Real-stack breadth (HTML-01 + halo on live data) ◑ probe DONE; live scans on the real stack
+- **Surface:** `scripts/probe_pattern_map.py` (browserless) + live archive/tarot/yourchineseastrology/studycli scans.
+- **Steps:** the golden-trio pattern_map + accretive merge (`probe_pattern_map.py`); content-tree breadth (`breadth_content_tree_smoke.py`); real scans render clean+deduped against the live index.
+- **Done-when:** `probe_pattern_map.py` passes **(✓ — ALL CHECKS PASS, browserless)** + content-tree breadth 61 sites / 0 violations **(✓ T1)**. **Remaining (real-stack only):** the four live-site real-Selenium scans render clean (`all_real:true`) — the standard verification-boundary item, runnable on the real backend; the offline corpus already proves the render is clean.
+
+## Coverage (req → task)
+
+| Req | Tasks |
+|---|---|
+| HTML-01 | T1, T6 |
+| HALO-01 | T3, T5 |
+| HALO-02 | T2, T3, T4 |
+
+## Phase gate
+`npm run test:all` green with every `halo.spec.js` spec un-fixme'd + the
+`apparition-mode`/`halo-chain`/`syntax-agnostic-compile` scenarios + the
+no-dotted-overlay audit green; `probe_pattern_map.py` passing. **STATUS:
+stub/agent-env COMPLETE (T1–T6 minus the live-site real-Selenium scans, which are
+the real-backend acceptance — content-tree render already proven clean over 61
+sites offline).** Full e2e 24/24 · `full-smoke` 92/92 both modes · fe units green.
+
+## Note on as-built leverage
+HTML-01 is ~done (corpus-hardened) → T1 is verification. The halo MODEL + live
+wiring exist → T2–T4 are the proximal-collapsed-node wire + the browser
+acceptance (the e2e blind spot the REPL can't reach), mirroring Phase 2's
+finish-and-verify idiom. The real build surface is small; the value is the
+**verification** in the project's REPL/probe/e2e idiom.

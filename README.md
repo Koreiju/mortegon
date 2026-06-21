@@ -11,6 +11,8 @@ The idea is simple; the database of functional objects are procedurally rendered
 
 Functionality and objectivity are an inherent dialect to cognicizing computation. 
 
+Let me be clear: Those within the ivory towers of panoptic terrorism can watch their nightmares unfold on their own home tv screen. 
+
 A more scientific and democratic alternative than the current compromised cyberspace 
 ---
 
