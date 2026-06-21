@@ -18,7 +18,7 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/v1.0-ROADMAP.md (+ -REQUIREMENTS.md, -phases/)
+See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md (+ 1.0-REQUIREMENTS.md, 1.0-MILESTONE-AUDIT.md, v1.0-phases/)
 
 **Core value (v2):** Mortegon is **turnkey for GSD autonomous, continuous build/test**
 from the design docs + current code — *unattended* real-stack verification is reliable
