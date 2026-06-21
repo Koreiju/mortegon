@@ -1,11 +1,16 @@
 ---
-gsd_state_version: '1.0'
-status: verifying
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: Awaiting next milestone
+stopped_at: Wrote the complete planning set (PROJECT, REQUIREMENTS, ROADMAP, STATE) from ingest intel.
+last_updated: "2026-06-21T15:59:22.863Z"
+last_activity: 2026-06-21 — Milestone v1.0 completed and archived
 progress:
   total_phases: 5
   completed_phases: 5
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 1
+  completed_plans: 5
   percent: 100
 ---
 
@@ -21,6 +26,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## v1.0 Real-Stack Acceptance — 2026-06-21 (this GPU box: RTX 4070, all_real:true)
 
 The `/gsd-autonomous` "build everything out from docs" pass closed Phases 2–5:
+
 - **Phase 3 new code:** wrote the 3 live-halo browser specs (`frontend_e2e/halo.spec.js`, HALO-01/02) against the built `__mm_halo_*` hooks — un-fixme'd, green real+stub. Everything else across 2–5 was finish-and-verify (already built).
 - **REPL `env-scenario --name all` = 95/95** in BOTH stub (`logs/full_stub_gate.log`) and real (`logs/real_gate_full.log`, `all_real=True`).
 - **Playwright e2e = 24/24** in BOTH modes (incl. the 3 halo specs).
@@ -31,14 +37,13 @@ The `/gsd-autonomous` "build everything out from docs" pass closed Phases 2–5:
 
 ## Current Position
 
-Phase: 5 of 5 COMPLETE — milestone v1.0 success metric MET on the REAL stack
-Plan: direct execution against the roadmap SCs (well-scoped tasks; no separate PLAN.md)
-Status: REAL-STACK VERIFIED on THIS machine (all_real:true; the "GPU box" is here) — Phase 1 complete, all 4 lodestar probes + probe_no_mocks pass. GSD migration config + a UNIFIED full-stack test framework are in place.
-Last activity: 2026-06-15 — `scripts/run_full_stack_tests.py` (`npm run test:all`) boots ONE managed backend and runs pytest + the **complete REPL registry** (`env-scenario --name all` = 95 of 96 scenarios, not just full-smoke's 92) + Playwright `frontend_e2e`, unified summary. **PROVEN ALL GREEN in BOTH stub AND real (all_real) modes** — stub: pytest + repl(all, real-only scenarios skip) + 5 e2e; real: repl(all=95, every scenario executes incl `apparitions-discover-link` surfacing B via real nomic). Backend torn down cleanly both runs. Added `all` (extracted `_full_smoke_chain`, drift-resistant extras, clean-baseline purge; `apparitions-discover-link` gated on all_real per §1.5). Plus `.planning/config.json` (model fan-out → Sonnet/Haiku + nyquist gate + granularity contract), Playwright MCP (`.mcp.json`) + `frontend_e2e/` suite (5/5).
-
-Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-verified; verification infra COMPLETE; Phase 2 backend verified)
+Phase: Milestone v1.0 complete
+Plan: —
+Status: Awaiting next milestone
+Last activity: 2026-06-21 — Milestone v1.0 completed and archived
 
 ### Phase 1 requirement status — COMPLETE (stub-verified) 2026-06-15
+
 - REL-01 / REL-02 (no-mocks SLM 503): **DONE + verified** — `_ensure_model` raises `SLMUnavailableError` on real unavailability (gate-preserved, GPU→CPU preserved); compute/route stub paths closed; →503 handler in main. Both paths verified; SLM tests green.
 - HYG-01 (deps pinned, kuzu 0.3.2→0.11.3, langgraph/selenium/webdriver-manager added, launch/port documented): **DONE**.
 - HYG-02 (`@mdxeditor/editor` removed, lock pruned): **DONE**.
@@ -47,6 +52,7 @@ Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-ver
 - Phase-1 gate (`full-smoke`): **GREEN in stub (92/92)**. Real-mode `full-smoke` + `probe_no_mocks` need CUDA/GGUF/Selenium (GPU box) — deferred, not runnable in the agent env.
 
 ### Phase 2 status (backend-side verified 2026-06-15)
+
 - EDIT-01 (click-to-edit field): backend `edit-field-roundtrip` **green** (editing_field lifecycle). Frontend caret-at-click already browser-verified (BLACK_SLATE_GOAL §15.7).
 - EDIT-02 (field growth + `{`-autocomplete + lifecycle): `editor-primitives-roundtrip` + `autocomplete-state-roundtrip` **green**; mutations route through `concept_lifecycle`.
 - EDIT-03 (editor-layer decision): **DECIDED — Option B (stay custom now; CM6 as tracked enhancement)**, see Decisions below.
@@ -54,6 +60,7 @@ Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-ver
 - REMAINING: live-browser re-verification of caret/IME/multiline in the served `/` editor; `full-smoke` stays green (it does, stub).
 
 ### Phase 3 progress (§U content-tree breadth, 2026-06-15)
+
 - **Fixed a real correctness bug for the URL spectrum:** the §U dedup tokenizer was ASCII-only (`[a-z0-9]+`) → non-Latin text (CJK/Cyrillic/accented) produced an EMPTY token-set, so duplicate international titles never collapsed and accented Latin mis-split ("Amélie"→am+lie). Now `[^\W_]+` (Unicode word runs); ASCII golden unchanged. +4 international tests; suite 340/2-skip/0-fail. Commit `bf2c9c7`.
 - Content-tree `fields_to_content_tree` reviewed for breadth: dedup subsumption, URL/text ordering, colon-join, data-URI compaction all sound; `srcset` multi-URL splitting intentionally NOT added (robust srcset parsing is fragile; one verbose URL line is not incorrect).
 - **Breadth verification BUILT + AUTHORITATIVE:** `scripts/breadth_content_tree_smoke.py` now drives the REAL extraction ruleset offline (`backend/dom/pipeline.run_pipeline(render_instances=True)` over each saved `source.html` — no Selenium/GPU, since the live JS engine only extracts the static DOM and the chunking/fielding is Python). It surfaced + I fixed a real §U bug: raw HTML (tracking iframe/img pixels, noscript/style blobs the ruleset captured as text leaves) leaked verbatim into the content tree (266 violations / 21 sites). Fix: `content_tree._norm` strips HTML tags. **Authoritative verdict: 61 sites · 120,226 instances · 87,737 content-trees · 0 invariant violations** (commit `f5f78e7`).
@@ -70,6 +77,7 @@ Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-ver
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 0
 - Average duration: -
 - Total execution time: -
@@ -81,6 +89,7 @@ Progress: [███░░░░░░░] ~30% overall (Phase 1 done + real-ver
 | - | - | - | - |
 
 **Recent Trend:**
+
 - Last 5 plans: -
 - Trend: -
 
@@ -130,3 +139,7 @@ Items acknowledged and carried forward (tracked as v2 in REQUIREMENTS.md):
 Last session: 2026-06-14
 Stopped at: Wrote the complete planning set (PROJECT, REQUIREMENTS, ROADMAP, STATE) from ingest intel.
 Resume file: None
+
+## Operator Next Steps
+
+- Start the next milestone with /gsd-new-milestone

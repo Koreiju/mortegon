@@ -26,31 +26,29 @@ The four lodestar use cases (§8D.45/47/48/49) run end-to-end **against real sub
 - ✓ `env-scenario --name full-smoke` green in both modes (92/92 per MEMORY); live probes passing; `db_janitor` test-DB hygiene.
 - ✓ The §T black-slate frontend (`backend/static/js/fe/*.mjs`) and §U HTML-dedup content-tree (`backend/dom/content_tree.py`, §U golden 6/6) are largely built and are the default served surface at `/` (legacy projector demoted to `/legacy`).
 
+**Shipped in v1.0 (Live Acceptance, 2026-06-21 — all real-stack verified):**
+- ✓ REL-01 / REL-02 — no-mocks SLM 503 on real-load failure; CPU real→real preserved (`probe_no_mocks` PASS) — v1.0
+- ✓ FIX-01 / FIX-02 — exactly three fixtures (no Editor); mutation gestures route through the lifecycle — v1.0
+- ✓ HYG-01 / HYG-02 — forbidden/legacy code deleted; deps pinned; `@mdxeditor/editor` removed — v1.0
+- ✓ EDIT-01 / EDIT-02 / EDIT-03 — black-slate field editing through the one lifecycle; Milkdown controlled view; no authoritative frontend state — v1.0
+- ✓ HTML-01 — §U deduplicated content-tree from `fields`; golden 6/6 — v1.0
+- ✓ HALO-01 / HALO-02 — name-only triple-product apparition halo; circular collapsed node; constant-similarity ray slide; solid 2D↔3D arrow (3 live e2e specs) — v1.0
+- ✓ UMAP-01 — 6D `umap_canonical` fit + camera-coupled HSV (frontend renders only) — v1.0
+- ✓ SIG-01 — one-signal-at-a-time rollout via `RolloutCoordinator`, per-sample cascade re-fire — v1.0 (GUI driver currently legacy-only; see v2 tech debt)
+- ✓ PAT-01 — live `pattern_map` ConceptNode; golden-trio gate; accretive; PageRank on the Kuzu graph — v1.0
+- ✓ REG-01 — three-register compose-compile-perimeter loop, REPL=GUI — v1.0
+- ✓ ACC-01 / ACC-02 — `probe_live_scan_with_cleanup` + all four lodestar probes pass; `all_real: true`; full-smoke green both modes — v1.0
+
 ### Active
 
-<!-- Gap-oriented frontier. The near-done §T/§U/§V work is FINISH-AND-VERIFY (convert browser-verified work into the REPL/probe idiom), not build-from-scratch. REQ-IDs match .planning/REQUIREMENTS.md. -->
+<!-- v1.0 frontier all shipped + validated (see above). Active is now the v2.0 candidate set (Maintainability & Performance). A fresh .planning/REQUIREMENTS.md is created by /gsd-new-milestone. -->
 
-**Phase 1 — Honest Baseline:**
-- [ ] REL-01 / REL-02: No-mocks SLM remediation — real-load failure raises 503 (cascade halts) instead of `_fake=True` + `[stub-slm]`; CPU real→real fallback preserved (`slm_client.py`, `_make_slm_for_compute`, agent tick).
-- [ ] FIX-01 / FIX-02: Exactly THREE foundational fixtures (Agent, WebBrowser, Database); no `fixture::editor` anywhere; stale `_default` Editor node swept; mutation gestures intrinsic to the panel↔compute-graph scheme.
-- [ ] HYG-01 / HYG-02: Hard-delete forbidden/legacy code (`backend/analytics/`, `backend_slow/`, `_legacy_frontend/`, deprecated `cluster_distillation.py`, Fibonacci/concentric residue, Llama refs); pin `langgraph`/`selenium`/`webdriver_manager`, resolve kuzu drift, document launch + port alignment, remove `@mdxeditor/editor`.
-
-**Phase 2 — Black-Slate Field Editing (§T):**
-- [ ] EDIT-01 / EDIT-02: Pure-print panels; hover overlay → textarea on click (caret-at-click); Shift-Enter multiline; Enter commits through the lifecycle; `+→`/`+↓` field-tree growth; `{`-autocomplete; empty rows hide.
-- [ ] EDIT-03: Integrate **Milkdown** as the in-slate edit/decoration layer (`docs/MILKDOWN_SLATE_GOAL.md`, user override 2026-06-17 of the CM6 assessment) ONLY behind `mount` as a controlled view — `store`/`gateway`/`magic_markdown` unchanged; no authoritative frontend state (reconnect-re-render identity).
-
-**Phase 3 — HTML Dedup + Halo Retrieval Render (§U/§V):**
-- [ ] HTML-01: HTML chunk slate body = deduplicated content as a pure-text tree (collapse wrappers, token-set dedup, surface href/src) built from `fields`; §U golden 6/6; one detector / mirrored strategy order.
-- [ ] HALO-01 / HALO-02: Apparition halo — candidate-name-only phantoms, triple-product ranking, autoregressive click-walk, circular root-field-only collapsed node, constant-similarity ray slide, soft/hard promotion, solid 2D↔3D arrow.
-
-**Phase 4 — Live Layout, Signal & Pattern (§R/§11.5):**
-- [ ] UMAP-01: 6D UMAP fit (3D manifold + camera-azimuth-rotated HSV) across Projector, Halo phantoms, readout nodes; frontend renders only.
-- [ ] SIG-01: Signal-stream — one iterable signal at a time, play/pause/step rollout, cascade re-fires per visible signal across pattern_map / url_set / Database.concept.
-- [ ] PAT-01: Live `pattern_map` ConceptNode materialises during scan and updates in place; golden-trio gate; second scan accretes into the same peer; PageRank over the same Kuzu graph.
-
-**Phase 5 — Three-Register Synthesis & Live Acceptance:**
-- [ ] REG-01: Real/Imaginary/Symbolic registers bound by the compose-compile-perimeter loop runnable both ways (REPL or GUI); 2D/3D separation; WS telemetry mirroring; purge returns to the three-fixture baseline.
-- [ ] ACC-01 / ACC-02: `live-scan-real-with-cleanup` probe passes; all four lodestar live probes pass; `all_real: true`; `full-smoke` green in both modes with §T/§U/§V/§R scenarios included.
+**v2.0 — Maintainability & Performance (planned):**
+- [ ] MAINT-01: Split the monolithic `backend/api/routes.py` (~5,400 lines) by register (scan / retrieval / concept / agent / maintenance) into `backend/api/` submodules.
+- [ ] MAINT-02: Decompose `scripts/sim_frontend.py` (~9,430 lines) so a change to one action category does not risk the whole harness.
+- [ ] PERF-01: Incremental joint UMAP refit during streaming chunk arrival (currently scan-end-only).
+- [ ] PERF-02: Harden the non-thread-safe GPT4All `Embed4All` handle beyond the per-model RLock + evict-and-reload mitigation.
+- [ ] (tech debt, from v1.0 audit) Wire `/api/ui/signal_advance` (SIG-01) into the served `/` editor — currently driven only from legacy `backend/static/js/cp/concept_graph.js`; if the `cp/` path is retired, the GUI loses its iterable-advance driver.
 
 ### Out of Scope
 
@@ -67,6 +65,10 @@ The four lodestar use cases (§8D.45/47/48/49) run end-to-end **against real sub
 - Multi-user / auth / team / sprint artifacts — single-operator app by design.
 - Rebuilding already-working backend (lifecycle, dual pipelines, retrieval index, Kuzu persistence, scan streaming, WS framing) — brownfield baseline is preserved.
 - Deferred to v2: splitting the monolithic `routes.py` / `sim_frontend.py` (MAINT-01/02); incremental mid-scan UMAP refit + embedder thread-safety hardening (PERF-01/02).
+
+## Current State
+
+**v1.0 Live Acceptance shipped 2026-06-21.** All 18 v1 requirements validated on the real stack (`all_real: true`): REPL `env-scenario --name all` 95/95 + Playwright e2e 24/24 green in BOTH stub and real modes; the four lodestar probes + `probe_no_mocks` + `probe_pattern_map` + `probe_live_scan_with_cleanup` all pass. The project's core success metric — the four lodestar use cases run end-to-end against real subsystems — is **met**. Next: v2.0 Maintainability & Performance (`/gsd-new-milestone`).
 
 ## Context
 
@@ -158,4 +160,4 @@ plan-checker, roadmapper, verifier) stay on **Opus**. Higher sampling = run ever
 quality gate, cheaply — not N parallel planners.
 
 ---
-*Last updated: 2026-06-15 — added the Planning Granularity Contract + `.planning/config.json` (granularity `standard`, nyquist gate on, model_overrides fan-out→Sonnet / decision→Opus, sequential executors for the shared real stack) + Playwright frontend-render sampling (`.mcp.json` + `frontend_e2e/`). Brownfield bootstrap baseline: 2026-06-14.*
+*Last updated: 2026-06-21 after v1.0 (Live Acceptance) milestone — all 18 v1 requirements validated on the real stack; moved to Validated; Active is now the v2.0 Maintainability & Performance candidate set. Brownfield bootstrap baseline: 2026-06-14.*
