@@ -355,6 +355,10 @@
         // current animate-loop world positions (post force-step).
         window.__mm_proj_set_with_roots = (coords, urlRoots) => projector.setNodes(coords, urlRoots);
         window.__mm_proj_node_positions = () => projector.nodePositions();
+        // REAL-02 camera-frame test hook: current camera distance from the
+        // origin (used by the multi-scan e2e to assert the auto-frame tween
+        // actually moved the camera toward the newest URL's root).
+        window.__mm_proj_camera_distance = () => projector.camera.position.length();
         window.__mm_proj_orbit = (az) => {
           const r = Math.hypot(projector.camera.position.x, projector.camera.position.z) || 140;
           projector.camera.position.x = r * Math.sin(az);
