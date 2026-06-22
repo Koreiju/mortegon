@@ -42,7 +42,11 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   2. Two scans of different URLs produce non-overlapping clusters at `existing_max + new_radius + safety_gap`; re-scanning the first does not move the second; camera frames the scene and tweens to the newest root. Verified by a multi-scan e2e + REPL telemetry.
   3. Image billboards render in the served projector with shared textures and the in-mem→IndexedDB→proxy→direct fetch order; an e2e asserts an image node paints and persists across a re-render.
   4. Pinned panels draw a solid headless arrow to their `data-3d-node-id` that tracks the moving node; `black_slate.spec` (no dotted overlays) stays green + a new arrow-tracking e2e.
-**Plans**: TBD
+**Plans**: 4 plans
+- [ ] 06-01-PLAN.md — REAL-01 force-directed ray convergence + collider (Wave-0 unit/e2e scaffold)
+- [ ] 06-02-PLAN.md — REAL-02 per-URL placement consumption (url_roots) + camera framing
+- [ ] 06-03-PLAN.md — REAL-03 image billboards (single-fetch cache chain, shared textures)
+- [ ] 06-04-PLAN.md — REAL-04 solid headless 2D↔3D arrow + data-3d-node-id + #link-layer
 **UI hint**: yes
 
 ### Phase 7: Deep Object-Exploration Gestures
@@ -119,7 +123,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 3. HTML Dedup + Halo | v1.0 | direct | Complete | 2026-06-18 |
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
-| 6. 3D Real Register (served) | v3.0 | 0/TBD | Not started | - |
+| 6. 3D Real Register (served) | v3.0 | 0/4 | Not started | - |
 | 7. Deep Object-Exploration Gestures | v3.0 | 0/TBD | Not started | - |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
