@@ -127,6 +127,18 @@ export function createProjector(canvas, opts = {}) {
   let _coords = {};        // the last frame's coords, kept for azimuth recolour
   let _lastColorAz = null;
 
+  // REAL-02 — camera auto-framing (consume-only: never recomputes
+  // root_position/bounding_radius — D10/A2). `_userInteracted` flips true the
+  // moment the user drags/zooms the OrbitControls; this suppresses the
+  // scan-end auto-frame tween once the user is actively navigating a root
+  // that's already in view (UI-SPEC REAL-02 — both conditions required).
+  let _userInteracted = false;
+  if (controls && typeof controls.addEventListener === "function") {
+    controls.addEventListener("start", () => { _userInteracted = true; });
+  }
+  let _newestUrl = null;          // url → bookkeeping for the scan-end auto-frame target
+  let _cameraTween = null;        // { t, dur, camStart, tgtStart, camEnd, tgtEnd }
+
   // REAL-01/REAL-02 — ray-constrained force-directed layout state (closure-
   // local, NOT `this.*` — fe/ has no class+mixin shape, port the algorithm
   // only). D10: backend computes root_position/bounding_radius/UMAP fit; this
@@ -215,6 +227,85 @@ export function createProjector(canvas, opts = {}) {
     }
   }
 
+  // _isRootInFrustum(url) — NDC z-range check (the same off-frustum test
+  // `project()` already uses for the halo's ray-transport) on a URL's root
+  // position. Used ONLY to decide whether to suppress the scan-end
+  // auto-frame tween (REAL-02 — suppressed when the user has interacted AND
+  // the root is already in view); never used to gate rendering itself.
+  function _isRootInFrustum(url) {
+    const rootVec = _urlRootPositions.get(url);
+    if (!rootVec) return false;
+    const v = rootVec.clone().project(camera);
+    return v.z >= -1 && v.z <= 1 && v.x >= -1 && v.x <= 1 && v.y >= -1 && v.y <= 1;
+  }
+
+  // frameCameraToRoot(url) — REAL-02 scan-end camera auto-frame. Tweens the
+  // camera position + OrbitControls target to frame the given URL's root
+  // over ~600ms with a cubic ease (ported from cp/animation.js
+  // flyToNode/_stepCameraTween, lines 205-268/325-335). Interruptible: a new
+  // call simply replaces the in-flight tween's start point with the
+  // camera's CURRENT (possibly mid-tween) position. Suppressed by the
+  // caller (setNodes) when the user has interacted AND the root is already
+  // in frustum — this function itself always tweens once invoked.
+  function frameCameraToRoot(url) {
+    if (!controls) return false;
+    const rootVec = _urlRootPositions.get(url);
+    if (!rootVec) return false;
+    const boundingRadius = _urlBoundingRadii.get(url) || 0;
+    // Viewing distance: frame the root's bounding sphere with a little
+    // headroom, mirroring flyToNode's "base distance, never below a floor"
+    // shape (cp/animation.js lines 243-248).
+    const viewDist = Math.max(12, boundingRadius * 2.2);
+    const curTarget = controls.target.clone();
+    const curCam = camera.position.clone();
+    const dir = curCam.clone().sub(curTarget);
+    if (dir.lengthSq() < 1e-6) dir.set(0, 0.4, 1);
+    dir.normalize().multiplyScalar(viewDist);
+    const camEnd = rootVec.clone().add(dir);
+    const tgtEnd = rootVec.clone();
+    _cameraTween = {
+      t: 0, dur: 0.6,
+      camStart: camera.position.clone(),
+      tgtStart: controls.target.clone(),
+      camEnd, tgtEnd,
+    };
+    return true;
+  }
+
+  // _stepCameraTween(dt) — per-animate-frame cubic ease-in-out lerp, ported
+  // verbatim from cp/animation.js::_stepCameraTween (lines 325-335).
+  function _stepCameraTween(dt) {
+    if (!_cameraTween) return;
+    const tw = _cameraTween;
+    tw.t += dt;
+    const u = Math.min(1, tw.t / tw.dur);
+    const e = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+    camera.position.lerpVectors(tw.camStart, tw.camEnd, e);
+    if (controls) controls.target.lerpVectors(tw.tgtStart, tw.tgtEnd, e);
+    if (u >= 1) _cameraTween = null;
+  }
+
+  // _applyCameraBounds() — REAL-02 per-frame adaptive orbit bounds, ported
+  // verbatim from cp/animation.js lines 753-798 (UI-SPEC-locked multipliers):
+  //   minDistance = 0.6 × cluster_radius (largest URL bounding_radius seen)
+  //   maxDistance = 3.0 × max(|pos|) over every CURRENT node world position
+  // Consumes only backend-resolved bounding_radius/positions — never
+  // recomputes placement (D10/A2).
+  function _applyCameraBounds() {
+    if (!controls) return;
+    let maxAbsPos = 0;
+    _positions.forEach((p) => {
+      const r = Math.sqrt(p.x * p.x + p.y * p.y + p.z * p.z);
+      if (r > maxAbsPos) maxAbsPos = r;
+    });
+    let clusterRadius = 0;
+    _urlBoundingRadii.forEach((r) => { if (r > clusterRadius) clusterRadius = r; });
+    const wantMax = Math.max(60, maxAbsPos * 3.0);
+    const wantMin = Math.max(2, clusterRadius * 0.6);
+    controls.maxDistance = wantMax;
+    controls.minDistance = wantMin;
+  }
+
   // setNodes(coords, urlRoots) — REAL-02: consume (never recompute) the
   // backend's url_roots. For each url, store root_position/bounding_radius;
   // then re-derive ray data (_computeRayData) and seed _positions from the
@@ -231,7 +322,9 @@ export function createProjector(canvas, opts = {}) {
     scene.add(points);
     _lastColorAz = azimuth();
     if (urlRoots) {
+      const newUrls = [];
       for (const url in urlRoots) {
+        if (!_urlRootPositions.has(url)) newUrls.push(url); // first time we've seen this URL's root
         const entry = urlRoots[url] || {};
         const rp = entry.root_position || [0, 0, 0];
         _urlRootPositions.set(url, new THREE.Vector3(+rp[0] || 0, +rp[1] || 0, +rp[2] || 0));
@@ -239,6 +332,14 @@ export function createProjector(canvas, opts = {}) {
       }
       _computeRayData();
       _umapLayoutActive = _nodeRayData.size > 0;
+      // REAL-02 — scan-end camera auto-frame: tween to the newest URL's
+      // root, UNLESS the user has interacted with the camera AND that root
+      // is already in frustum (both conditions required — UI-SPEC).
+      if (newUrls.length) {
+        _newestUrl = newUrls[newUrls.length - 1];
+        const suppress = _userInteracted && _isRootInFrustum(_newestUrl);
+        if (!suppress) frameCameraToRoot(_newestUrl);
+      }
     }
     return count;
   }
@@ -278,6 +379,11 @@ export function createProjector(canvas, opts = {}) {
   let raf = 0;
   function animate() {
     raf = requestAnimationFrame(animate);
+    // REAL-02 — adaptive orbit bounds, recomputed every frame from the
+    // backend's resolved roots/positions (never recomputed placement).
+    _applyCameraBounds();
+    // REAL-02 — scan-end camera auto-frame tween (cubic ease, ~600ms).
+    _stepCameraTween(1 / 60);
     if (controls) controls.update();
     const az = azimuth();
     // UMAP-01 — recolour the node HSV field as the camera orbits (throttled).
@@ -291,7 +397,16 @@ export function createProjector(canvas, opts = {}) {
   function resize() { camera.aspect = w() / h(); camera.updateProjectionMatrix(); renderer.setSize(w(), h(), false); }
   animate();
   window.addEventListener("resize", resize);
-  return { scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize, nodePositions, stop: () => cancelAnimationFrame(raf) };
+  // REAL-02 — adaptive resize: a ResizeObserver on the canvas itself, in
+  // addition to the window 'resize' listener above, so the projector tracks
+  // a shrinking/growing canvas even when the WINDOW dimensions don't change
+  // (e.g. a side panel opening). No no-change guard (UI-SPEC "Adaptive
+  // resize") — every observed resize re-runs setSize + updateProjectionMatrix.
+  if (typeof ResizeObserver === "function") {
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(canvas);
+  }
+  return { scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize, nodePositions, frameCameraToRoot, stop: () => cancelAnimationFrame(raf) };
 }
 
 export default { buildPointArrays, createProjector };
