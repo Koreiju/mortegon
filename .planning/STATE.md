@@ -5,13 +5,13 @@ milestone_name: Design Completeness
 current_phase: 6
 current_phase_name: 3D Real Register in the Served Slate
 status: executing
-stopped_at: Completed WFH-06-01-PLAN.md
-last_updated: "2026-06-22T22:50:15.495Z"
+stopped_at: Completed WFH-06-02-PLAN.md
+last_updated: "2026-06-22T22:58:51.018Z"
 progress:
   total_phases: 9
   completed_phases: 0
   total_plans: 4
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 6 (3D Real Register in the Served Slate) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
@@ -58,8 +58,10 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 ## Session Continuity
 
-Last session: 2026-06-22T22:50:15.489Z
-Stopped at: Completed WFH-06-01-PLAN.md
+**Resume file:** None
+
+Last session: 2026-06-22T22:58:51.012Z
+Stopped at: Completed WFH-06-02-PLAN.md
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
 
 ## Performance Metrics
@@ -67,9 +69,13 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 | Phase | Plan | Duration | Notes |
 |-------|------|----------|-------|
 | Phase WFH-06 P01 | 95min | 3 tasks | 4 files |
+| Phase WFH-06 P02 | 25min | 3 tasks | 3 files |
 
 ## Decisions
 
 - [Phase ?]: COLLIDER_SAFETY ships as 1.4 (cp/force_layout.js line 161), not the doc's >=2.0 — MIN_SEPARATION = 2.52, verified by unit + e2e assertions
 - [Phase WFH-06]: url_roots wired through editor.html's WS handler and boot fetch (Rule 2 auto-add) — without this the REAL-01 force step would be inert in production despite passing unit tests
 - [Phase WFH-06]: e2e force-directed test filters __mm_proj_node_positions() to its own 4 seeded fixture ids before asserting spacing — the accessor returns every node the projector has ever rendered, including editor.html's own boot-fetch real-scan population
+- [Phase ?]: WFH-06-02: Task 1 scope narrowed to camera-distance test hook only — url_roots already wired by Wave 1
+- [Phase ?]: WFH-06-02: frameCameraToRoot uses Math.max(12, boundingRadius * 2.2) as a framing-distance heuristic, distinct from the UI-SPEC-locked 0.6x/3.0x orbit bounds multipliers
+- [Phase ?]: WFH-06-02: _applyCameraBounds runs unconditionally every animate() frame, no dead-band guard, matching projector.mjs's existing per-frame convention
