@@ -2,7 +2,7 @@
 phase: 6
 slug: served-slate-3d-real-register
 status: draft
-nyquist_compliant: false
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-06-22
 ---
@@ -65,11 +65,15 @@ created: 2026-06-22
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references (the two `❌ W0` test files above)
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 120s (e2e wave gate)
-- [ ] `nyquist_compliant: true` set in frontmatter
+> Boxes below are checked when SATISFIED BY THE PLAN DESIGN (the strategy is sound).
+> `wave_0_complete` in frontmatter stays `false` until the Wave 0 scaffold actually
+> lands in code (it is planned in Plan 01, not yet executed).
 
-**Approval:** pending
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies — every task across Plans 01–04 carries an `<automated>` verify block
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify — every task is automated; no manual-only gaps
+- [x] Wave 0 covers all MISSING references (the two `❌ W0` test files above) — Plan 01 creates `projector.test.mjs` ray/collider blocks + the `force-directed` e2e block + the `__mm_proj_*` hooks; later plans extend these files
+- [x] No watch-mode flags — all verify commands are single-run (`node --test`, `npx playwright test`); no `--watch`
+- [x] Feedback latency < 120s (e2e wave gate) — unit <5s, e2e wave gate ~120s
+- [x] `nyquist_compliant: true` set in frontmatter
+
+**Approval:** design-approved (strategy sound; `wave_0_complete` gated on Plan 01 execution)

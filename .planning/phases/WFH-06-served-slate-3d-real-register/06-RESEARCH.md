@@ -340,22 +340,25 @@ export function computeRayDir(rootPos, umapPos) {
 
 **If this table is empty:** N/A — see entries above.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Where exactly does `magic_markdown.mjs`'s "partial 2D↔3D link-arrow scaffolding" (mentioned in the phase's `<key_source_files_to_map>`) actually live?**
    - What we know: `magic_markdown.mjs` (284 lines, fully read this session) contains the field-tree/render-panel/render-graph model — NO arrow/SVG/3D-link code of any kind. `data-3d-node-id` is referenced in legacy `billboard.js`/`concept_graph.js` only.
    - What's unclear: Whether `magic_markdown_panel.mjs` (referenced in `editor.html`'s imports but not read this session) or `magic_markdown_halo.mjs` carries partial arrow logic, or whether the phrase in CONTEXT.md refers to the halo's ray-transport (`§V.4`, which IS in `magic_markdown.mjs`'s sibling import chain via `editor.html`'s `realiseHalo`/`haloVDom` calls) being mistaken for the 2D↔3D arrow.
    - Recommendation: Planner's first REAL-04 task should be a 10-minute grep/read of `magic_markdown_panel.mjs` for `data-3d-node-id` before writing the arrow-drawing task, to confirm whether this is new code or an extension.
+   - **RESOLVED:** `06-PATTERNS.md` (REAL-04 assignment) records a grep of `magic_markdown_panel.mjs` for `data-3d-node-id` / `link-layer` / arrow-drawing → **0 matches**. There is NO partial arrow scaffolding in `fe/`; the CONTEXT.md phrase conflated the halo ray-transport with the 2D↔3D arrow. `data-3d-node-id` authorship and the `#link-layer` SVG host are therefore **NEW code** authored in `06-04-PLAN.md` T1, not an extension of existing logic.
 
 2. **Does the served `editor.html` pin panel ever call something equivalent to `card.dataset['3dNodeId'] = data.id` today?**
    - What we know: The CONTEXT.md states "every pinned panel carries `data-3d-node-id` (existing convention)" as if already wired in `fe/`. This research did not find that line in `magic_markdown.mjs` (the file explicitly named in `<key_source_files_to_map>`).
    - What's unclear: Whether "existing convention" means "exists in `cp/`'s `billboard.js`/`concept_graph.js` only" (legacy) or whether the served `fe/` pin logic (likely in `magic_markdown_panel.mjs`, not read) already sets this attribute.
    - Recommendation: Same grep as Open Question 1 resolves both; if `magic_markdown_panel.mjs` does NOT yet set `data-3d-node-id`, that attribute-setting becomes an explicit REAL-04 subtask, not an assumed precondition.
+   - **RESOLVED:** Same `06-PATTERNS.md` grep (0 matches in `fe/`) confirms "existing convention" means the legacy `cp/billboard.js`/`concept_graph.js` ONLY. The served `fe/` pin logic does NOT set `data-3d-node-id` today, so `06-04-PLAN.md` T1 makes setting it at panel-mount an explicit subtask (NEW authorship), not an assumed precondition.
 
 3. **Should the force-directed step run for EVERY chunk node, or only chunks belonging to URLs whose `url_roots` entry has already arrived?**
    - What we know: `_stepForceDirected` early-returns if `_nodeRayData` is empty; `_computeRayData` falls back to `(0,0,0)` root if a URL's root isn't yet placed (legacy line 117-126).
    - What's unclear: In the served `fe/` idiom, does a chunk ever render BEFORE its URL's `url_roots` entry exists (e.g., mid-scan streaming before scan-end UMAP fires)? If so the ray-fallback-to-origin behavior needs the same defensive fallback ported.
    - Recommendation: Mirror the legacy's defensive fallback verbatim (don't optimize it away) — it is cheap and prevents a NaN/crash if `url_roots` is momentarily behind `coords` in a frame.
+   - **RESOLVED:** Handled in `06-01-PLAN.md` T2 — `_computeRayData()` ports the legacy root-not-yet-placed fallback to origin `(0,0,0)` VERBATIM (cp/`force_layout.js` lines 117-126), explicitly instructed not to optimize it away. The force step runs over every chunk in `_nodeRayData`; chunks whose URL root has not yet arrived ray from the origin until the next frame corrects them. Acceptance is covered by the `force-directed` e2e block (06-01 T3).
 
 ## Environment Availability
 
