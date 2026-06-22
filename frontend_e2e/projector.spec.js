@@ -124,3 +124,135 @@ test("REAL-01 force-directed: chunks converge along root-URL rays with hard coll
   const spread = Math.max(...radii) - Math.min(...radii);
   expect(spread, "radii spread > 0 — force-directed sliding, not a fixed concentric ring").toBeGreaterThan(0);
 });
+
+// REAL-02 — per-URL multi-scan placement + camera framing. The backend
+// (layout_service.py) already resolves non-overlapping root_position +
+// bounding_radius per URL (verified independently by the REPL's
+// perimeter-rescale env-scenario); this e2e proves the FRONTEND renders
+// both clusters at their backend-emitted roots (not at the origin), that a
+// re-scan of the first URL's chunks never moves its root, and that the
+// camera auto-frames toward the newest root on scan-end.
+test("REAL-02 multi-scan: per-URL clusters land non-overlapping, old roots never move, camera frames newest", async ({ page }) => {
+  await page.goto("/");
+  await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
+  const booted = await page
+    .waitForFunction(() => typeof window.__mm_proj_set_with_roots === "function", { timeout: 9000 })
+    .then(() => true)
+    .catch(() => false);
+  test.skip(!booted, "projector requires THREE.js + WebGL (offline CDN / headless GL unavailable)");
+
+  // Scan A: a single URL ("urlA") whose backend-resolved root sits at the
+  // origin with bounding_radius 6. Each coords entry carries a `.url`
+  // property (array-as-object, mirrors the backend's per-chunk url field
+  // that _computeRayData reads) so this test exercises distinct per-URL
+  // ray roots rather than the shared "" fallback key.
+  const stepA = await page.evaluate(() => {
+    const mk = (xyz, url) => { const a = [...xyz, 0.2, 0.8, 0.5]; a.url = url; return a; };
+    const coordsA = {
+      a1: mk([1, 0, 0], "urlA"),
+      a2: mk([0, 1, 0], "urlA"),
+      a3: mk([-1, 0, 0], "urlA"),
+    };
+    const urlRootsA = { urlA: { root_position: [0, 0, 0], bounding_radius: 6 } };
+    window.__mm_proj_set_with_roots(coordsA, urlRootsA);
+    return { camDist: window.__mm_proj_camera_distance() };
+  });
+
+  // advance real animate frames so the camera-frame tween toward urlA's
+  // root (the first-ever URL, so it is itself "newest" on this first call)
+  // completes before we read positions/camera state.
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 60; i++) { await sleep(16); }
+  });
+
+  const afterA = await page.evaluate(() => {
+    const allPositions = window.__mm_proj_node_positions();
+    const fixtureIds = new Set(["a1", "a2", "a3"]);
+    return {
+      positions: allPositions.filter((p) => fixtureIds.has(p.id)),
+      camDist: window.__mm_proj_camera_distance(),
+    };
+  });
+  expect(afterA.positions.length, "scan A's 3 fixture positions present").toBe(3);
+
+  // Scan B: a SECOND url ("urlB") whose backend-resolved root sits at
+  // [40,0,0], bounding_radius 6 — the kind of non-overlapping placement the
+  // backend's _allocate_new_root already guarantees (existing_max_radius +
+  // new_radius + safety_gap, entirely backend-side; the frontend's job is
+  // only to render it). The merged coords frame keeps urlA's chunks
+  // UNCHANGED (their positions must not move across this second scan).
+  const afterB = await page.evaluate(() => {
+    const mk = (xyz, url) => { const a = [...xyz, 0.6, 0.8, 0.5]; a.url = url; return a; };
+    const coordsAB = {
+      a1: mk([1, 0, 0], "urlA"),
+      a2: mk([0, 1, 0], "urlA"),
+      a3: mk([-1, 0, 0], "urlA"),
+      b1: mk([41, 0, 0], "urlB"),
+      b2: mk([40, 1, 0], "urlB"),
+      b3: mk([39, 0, 0], "urlB"),
+    };
+    const urlRootsAB = {
+      urlA: { root_position: [0, 0, 0], bounding_radius: 6 },     // unchanged — old root never moves
+      urlB: { root_position: [40, 0, 0], bounding_radius: 6 },    // NEW non-overlapping root
+    };
+    window.__mm_proj_set_with_roots(coordsAB, urlRootsAB);
+    return null;
+  });
+
+  // advance real animate frames so the collider step + the camera-frame
+  // tween toward the NEW urlB root both complete.
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 60; i++) { await sleep(16); }
+  });
+
+  const final = await page.evaluate(() => {
+    const allPositions = window.__mm_proj_node_positions();
+    const ids = new Set(["a1", "a2", "a3", "b1", "b2", "b3"]);
+    return {
+      positions: allPositions.filter((p) => ids.has(p.id)),
+      camDist: window.__mm_proj_camera_distance(),
+      camX: window.__mm_proj ? window.__mm_proj.camera.position.x : null,
+    };
+  });
+  expect(final.positions.length, "all 6 fixture positions present after scan B").toBe(6);
+
+  const byId = Object.fromEntries(final.positions.map((p) => [p.id, p]));
+
+  // (a) non-overlap: urlA's cluster centroid vs urlB's cluster centroid are
+  // separated by at least boundingA + boundingB (6 + 6 = 12) — proving both
+  // clusters render at their DISTINCT backend roots, not collapsed near the
+  // origin (the historical bug this plan closes).
+  const centroid = (ids) => {
+    const pts = ids.map((id) => byId[id]);
+    const n = pts.length;
+    return {
+      x: pts.reduce((s, p) => s + p.x, 0) / n,
+      y: pts.reduce((s, p) => s + p.y, 0) / n,
+      z: pts.reduce((s, p) => s + p.z, 0) / n,
+    };
+  };
+  const cA = centroid(["a1", "a2", "a3"]);
+  const cB = centroid(["b1", "b2", "b3"]);
+  const centroidDist = Math.hypot(cA.x - cB.x, cA.y - cB.y, cA.z - cB.z);
+  expect(centroidDist, "urlA and urlB clusters render at distinct, separated backend roots (non-overlap)")
+    .toBeGreaterThanOrEqual(12 - 1); // boundingA(6) + boundingB(6), small float tolerance
+
+  // (b) old root never moves: urlA's chunk positions are stable across the
+  // second scan (within tolerance) — re-scanning urlA's neighbour (urlB)
+  // must not perturb urlA's already-placed chunks beyond the collider
+  // step's own tiny corrections.
+  const aBefore = Object.fromEntries(afterA.positions.map((p) => [p.id, p]));
+  for (const id of ["a1", "a2", "a3"]) {
+    const before = aBefore[id], after = byId[id];
+    const moved = Math.hypot(before.x - after.x, before.y - after.y, before.z - after.z);
+    expect(moved, `urlA's ${id} did not move across the second scan (old root stable)`).toBeLessThan(1.0);
+  }
+
+  // (c) camera frames the newest root: the camera distance/position shifted
+  // toward urlB's root [40,0,0] after scan B — confirming frameCameraToRoot
+  // fired for the NEW url, not just urlA (the first-ever call).
+  const movedTowardB = Math.abs(final.camDist - afterA.camDist) > 0.5 || (final.camX !== null && final.camX > 5);
+  expect(movedTowardB, "camera position/distance shifted after scan B (auto-framed toward the newest root)").toBe(true);
+});
