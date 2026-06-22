@@ -127,7 +127,100 @@ export function createProjector(canvas, opts = {}) {
   let _coords = {};        // the last frame's coords, kept for azimuth recolour
   let _lastColorAz = null;
 
-  function setNodes(coords) {
+  // REAL-01/REAL-02 — ray-constrained force-directed layout state (closure-
+  // local, NOT `this.*` — fe/ has no class+mixin shape, port the algorithm
+  // only). D10: backend computes root_position/bounding_radius/UMAP fit; this
+  // closure only consumes them and slides nodes along their own backend-seeded
+  // rays (the ONE permitted client-side animation math).
+  const _urlRootPositions = new Map();   // url → THREE.Vector3
+  const _urlBoundingRadii = new Map();   // url → number
+  let _umapLayoutActive = false;         // true once a real frame w/ roots has landed
+  const _nodeRayData = new Map();        // nodeId → { rayDir:Vector3(unit), radius, rootPos:Vector3 }
+  const _positions = new Map();          // nodeId → THREE.Vector3 (current animate-loop world position)
+
+  // _computeRayData() — derive each chunk's ray (root → initial UMAP position)
+  // via the pure computeRayDir export. Mirrors cp/force_layout.js lines
+  // 106-145 verbatim, INCLUDING the defensive root-not-yet-placed fallback to
+  // the origin (lines 117-126) — do NOT optimize it away (RESEARCH Open Q3).
+  function _computeRayData() {
+    _nodeRayData.clear();
+    const ids = Object.keys(_coords || {});
+    for (const id of ids) {
+      const p = _coords[id] || [0, 0, 0];
+      const umapPos = [+p[0] || 0, +p[1] || 0, +p[2] || 0];
+      const url = (_coords[id] && _coords[id].url) || "";
+      let rootVec = _urlRootPositions.get(url);
+      if (!rootVec) {
+        // URL root not yet placed — defensive fallback to origin (verbatim
+        // port of cp/ lines 117-126; cheap, prevents NaN/crash if url_roots
+        // is momentarily behind coords in a frame).
+        rootVec = new THREE.Vector3(0, 0, 0);
+        _urlRootPositions.set(url, rootVec.clone());
+      }
+      const rootPos = [rootVec.x, rootVec.y, rootVec.z];
+      const { dir, radius } = computeRayDir(rootPos, umapPos);
+      _nodeRayData.set(id, { rayDir: new THREE.Vector3(dir[0], dir[1], dir[2]), radius, rootPos: rootVec.clone() });
+      _positions.set(id, new THREE.Vector3(umapPos[0], umapPos[1], umapPos[2]));
+    }
+  }
+
+  // _stepForceDirected(dt) — per-animate-frame ray-constrained collider
+  // repulsion, ported from cp/force_layout.js::_stepForceDirected (lines
+  // 155-200+). Early-return guards verbatim. Pairwise repulsion accumulates
+  // radial deltas via the pure colliderRadialForce helper; DAMPING scales the
+  // per-frame correction; radius clamps >= 0.5; reposition along
+  // rootPos + rayDir*radius, written into both _positions and the THREE
+  // points geometry position attribute.
+  function _stepForceDirected(dt) {
+    if (!_umapLayoutActive || _nodeRayData.size === 0) return;
+    const ids = [..._nodeRayData.keys()];
+    if (ids.length < 2) return;
+
+    const radialForces = new Map();
+    ids.forEach((id) => radialForces.set(id, 0));
+
+    for (let a = 0; a < ids.length; a++) {
+      for (let b = a + 1; b < ids.length; b++) {
+        const idA = ids[a], idB = ids[b];
+        const rdA = _nodeRayData.get(idA), rdB = _nodeRayData.get(idB);
+        const posA = _positions.get(idA), posB = _positions.get(idB);
+        const { forceA, forceB } = colliderRadialForce(
+          [posA.x, posA.y, posA.z], [posB.x, posB.y, posB.z],
+          [rdA.rayDir.x, rdA.rayDir.y, rdA.rayDir.z], [rdB.rayDir.x, rdB.rayDir.y, rdB.rayDir.z],
+        );
+        radialForces.set(idA, radialForces.get(idA) + forceA);
+        radialForces.set(idB, radialForces.get(idB) + forceB);
+      }
+    }
+
+    let moved = 0;
+    radialForces.forEach((deltaR, id) => {
+      if (Math.abs(deltaR) < 0.001) return;
+      const rd = _nodeRayData.get(id);
+      rd.radius = Math.max(0.5, rd.radius + deltaR * DAMPING);
+      const newPos = rd.rootPos.clone().add(rd.rayDir.clone().multiplyScalar(rd.radius));
+      _positions.set(id, newPos);
+      moved++;
+    });
+
+    if (moved > 0 && points) {
+      const ids2 = Object.keys(_coords || {});
+      const attr = points.geometry.attributes.position;
+      ids2.forEach((id, i) => {
+        const pos = _positions.get(id);
+        if (!pos) return;
+        attr.array[i * 3] = pos.x; attr.array[i * 3 + 1] = pos.y; attr.array[i * 3 + 2] = pos.z;
+      });
+      attr.needsUpdate = true;
+    }
+  }
+
+  // setNodes(coords, urlRoots) — REAL-02: consume (never recompute) the
+  // backend's url_roots. For each url, store root_position/bounding_radius;
+  // then re-derive ray data (_computeRayData) and seed _positions from the
+  // UMAP coords. The second arg is OPTIONAL — the existing single-arg call
+  // path (and the WS `setNodes(f.coords)` call) stays backward compatible.
+  function setNodes(coords, urlRoots) {
     _coords = coords || {};
     if (points) { scene.remove(points); points.geometry.dispose(); }
     const { positions, colors, count } = buildPointArrays(_coords, { azimuth: azimuth() });
@@ -137,7 +230,25 @@ export function createProjector(canvas, opts = {}) {
     points = new THREE.Points(geo, new THREE.PointsMaterial({ size: 2.6, vertexColors: true }));
     scene.add(points);
     _lastColorAz = azimuth();
+    if (urlRoots) {
+      for (const url in urlRoots) {
+        const entry = urlRoots[url] || {};
+        const rp = entry.root_position || [0, 0, 0];
+        _urlRootPositions.set(url, new THREE.Vector3(+rp[0] || 0, +rp[1] || 0, +rp[2] || 0));
+        _urlBoundingRadii.set(url, +entry.bounding_radius || 0);
+      }
+      _computeRayData();
+      _umapLayoutActive = _nodeRayData.size > 0;
+    }
     return count;
+  }
+
+  // nodePositions() — read accessor for the current animate-loop world
+  // positions (post force-step). Exposed so editor.html's
+  // window.__mm_proj_node_positions test hook can read closure-internal state
+  // without leaking the Maps themselves.
+  function nodePositions() {
+    return [..._positions.entries()].map(([id, v]) => ({ id, x: v.x, y: v.y, z: v.z }));
   }
   // UMAP-01 — HSV rotates with camera azimuth: recolour the existing nodes when
   // the camera orbits (positions unchanged; only the hue field rotates).
@@ -171,13 +282,16 @@ export function createProjector(canvas, opts = {}) {
     const az = azimuth();
     // UMAP-01 — recolour the node HSV field as the camera orbits (throttled).
     if (_lastColorAz === null || Math.abs(az - _lastColorAz) > 0.05) { _lastColorAz = az; recolor(); }
+    // REAL-01 — ray-constrained collider step; slides nodes along their
+    // backend-seeded rays only (no-op until the first frame w/ url_roots).
+    _stepForceDirected();
     for (const cb of _frameCbs) { try { cb(az); } catch (e) { /* keep rendering */ } }
     renderer.render(scene, camera);
   }
   function resize() { camera.aspect = w() / h(); camera.updateProjectionMatrix(); renderer.setSize(w(), h(), false); }
   animate();
   window.addEventListener("resize", resize);
-  return { scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize, stop: () => cancelAnimationFrame(raf) };
+  return { scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize, nodePositions, stop: () => cancelAnimationFrame(raf) };
 }
 
 export default { buildPointArrays, createProjector };

@@ -293,7 +293,10 @@
           // UMAP-01 — the backend's canonical 6D layout (xyz + per-node HSV) lands
           // on the `umap_canonical` frame; feed it straight to the projector, which
           // RENDERS the HSV (the frontend never invents the colour field).
-          if (f.type === "umap_canonical" && projector && f.coords) { projector.setNodes(f.coords); return; }
+          // REAL-01 — also pass url_roots through so the ray-constrained force
+          // step (computed from the backend's root_position/bounding_radius)
+          // activates; the frontend never recomputes this placement (D10).
+          if (f.type === "umap_canonical" && projector && f.coords) { projector.setNodes(f.coords, f.url_roots); return; }
           const before = JSON.stringify(store.getState().concepts);
           store.applyFrame(f);
           // fluid live update — but never clobber an open Milkdown edit surface
@@ -332,7 +335,7 @@
         projector = createProjector(canvas);
         const res = await (await fetch(`/api/recompute_umap?min_docs=8`, { method: "POST" })).json();
         const coords = res.coords || {};
-        const n = projector.setNodes(coords);
+        const n = projector.setNodes(coords, res.url_roots);
         const p = document.getElementById("proj"); p.textContent = `3d ● ${n}`; p.className = "ws-on";
         // couple the halo ray angle to the 3D camera azimuth (§V.4): orbiting
         // the scene rotates the halo rays "as traced between the sticked panel
@@ -347,6 +350,11 @@
         // colour + orbit the camera azimuth (the render-level acceptance surface).
         window.__mm_proj_set = (coords) => projector.setNodes(coords);
         window.__mm_proj_color = (i) => projector.nodeColor(i || 0);
+        // REAL-01 force-directed test hooks: inject a frame WITH url_roots
+        // (so the ray-constrained collider step activates), and read back the
+        // current animate-loop world positions (post force-step).
+        window.__mm_proj_set_with_roots = (coords, urlRoots) => projector.setNodes(coords, urlRoots);
+        window.__mm_proj_node_positions = () => projector.nodePositions();
         window.__mm_proj_orbit = (az) => {
           const r = Math.hypot(projector.camera.position.x, projector.camera.position.z) || 140;
           projector.camera.position.x = r * Math.sin(az);
