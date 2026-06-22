@@ -58,6 +58,53 @@ function _hslToRgb(h, s, l) {
 }
 
 /**
+ * REAL-01 force-directed ray convergence (port of `cp/force_layout.js`).
+ *
+ * NODE_RADIUS / COLLIDER_SAFETY / MIN_SEPARATION are the LOCKED ship values
+ * (UI-SPEC Assumption A1) — `COLLIDER_SAFETY` is the shipped `1.4`, NOT the
+ * doc's `≥2.0`; MIN_SEPARATION = 2 * 0.9 * 1.4 = 2.52. DAMPING is the
+ * per-frame radial-force scale applied in `_stepForceDirected`.
+ */
+export const NODE_RADIUS = 0.9;
+export const COLLIDER_SAFETY = 1.4; // ship value (cp/force_layout.js line 161) — NOT 2.0
+export const MIN_SEPARATION = 2 * NODE_RADIUS * COLLIDER_SAFETY; // = 2.52
+export const DAMPING = 0.3;
+
+/**
+ * computeRayDir(rootPos, umapPos) → { dir:[x,y,z], radius } — pure, array-in/
+ * array-out (no THREE dependency). The ray fixes from the URL root through the
+ * node's initial UMAP position; `dir` is unit length, `radius` is the initial
+ * distance along the ray. Degenerate (node sits on root, `len < 0.001`)
+ * mirrors `cp/force_layout.js` lines 117-126/128-144 verbatim: arbitrary
+ * ray `[1,0,0]`, `radius:0`.
+ */
+export function computeRayDir(rootPos, umapPos) {
+  const ray = [umapPos[0] - rootPos[0], umapPos[1] - rootPos[1], umapPos[2] - rootPos[2]];
+  const len = Math.hypot(ray[0], ray[1], ray[2]);
+  if (len < 0.001) return { dir: [1, 0, 0], radius: 0 };
+  return { dir: [ray[0] / len, ray[1] / len, ray[2] / len], radius: len };
+}
+
+/**
+ * colliderRadialForce(posA, posB, rayDirA, rayDirB) → { forceA, forceB } —
+ * pure per-pair radial push (scalar, along each node's OWN ray direction),
+ * ported from `cp/force_layout.js::_stepForceDirected` lines 178-204. Hard
+ * floor: zero force at distance >= MIN_SEPARATION (no soft falloff tail);
+ * below that, the exact correction `(MIN_SEPARATION - d) * 0.5` projected
+ * via dot products onto each ray.
+ */
+export function colliderRadialForce(posA, posB, rayDirA, rayDirB) {
+  const dx = posB[0] - posA[0], dy = posB[1] - posA[1], dz = posB[2] - posA[2];
+  const dist = Math.hypot(dx, dy, dz);
+  if (dist >= MIN_SEPARATION || dist < 0.001) return { forceA: 0, forceB: 0 };
+  const ux = dx / dist, uy = dy / dist, uz = dz / dist;
+  const pushTotal = (MIN_SEPARATION - dist) * 0.5;
+  const dotA = -(ux * rayDirA[0] + uy * rayDirA[1] + uz * rayDirA[2]);
+  const dotB = (ux * rayDirB[0] + uy * rayDirB[1] + uz * rayDirB[2]);
+  return { forceA: pushTotal * dotA, forceB: pushTotal * dotB };
+}
+
+/**
  * createProjector(canvas, opts) — a minimal THREE points scene (browser only).
  * Returns { setNodes(coords)→count, project(x,y,z)→{x,y,inFront}, nodeCount(),
  * camera }. `project` maps a world position to screen px (for the halo's 3D
