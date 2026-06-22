@@ -43,11 +43,11 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   1. `fe/projector.mjs` lays chunks by UMAP then converges force-directed along root-URL rays with hard collider repulsion; no concentric/Fibonacci final position. Verified by a `projector.spec.js` assertion (rays + min pairwise spacing) + `env-scenario --name 6d-umap-format`/`perimeter-rescale` green.
   2. Two scans of different URLs produce non-overlapping clusters at `existing_max + new_radius + safety_gap`; re-scanning the first does not move the second; camera frames the scene and tweens to the newest root. Verified by a multi-scan e2e + REPL telemetry.
   3. Image billboards render in the served projector with shared textures and the in-mem→IndexedDB→proxy→direct fetch order; an e2e asserts an image node paints and persists across a re-render.
-  4. Pinned panels draw a solid headless arrow to their `data-3d-node-id` that tracks the moving node; `black_slate.spec` (no dotted overlays) stays green + a new arrow-tracking e2e.**Plans**: 4 plans
+  4. Pinned panels draw a solid headless arrow to their `data-3d-node-id` that tracks the moving node; `black_slate.spec` (no dotted overlays) stays green + a new arrow-tracking e2e.**Plans**: 1/4 plans executed
 
 **Wave 1**
 
-- [ ] 06-01-PLAN.md — REAL-01 force-directed ray convergence + collider (Wave-0 unit/e2e scaffold)
+- [x] 06-01-PLAN.md — REAL-01 force-directed ray convergence + collider (Wave-0 unit/e2e scaffold)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -155,7 +155,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 3. HTML Dedup + Halo | v1.0 | direct | Complete | 2026-06-18 |
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
-| 6. 3D Real Register (served) | v3.0 | 0/4 | Not started | - |
+| 6. 3D Real Register (served) | v3.0 | 1/4 | In Progress|  |
 | 7. Deep Object-Exploration Gestures | v3.0 | 0/TBD | Not started | - |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |

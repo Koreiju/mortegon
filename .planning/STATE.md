@@ -2,14 +2,16 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Completeness
-status: v3.0 roadmap + requirements defined from the design audit; ready to build
-stopped_at: Phase 6 UI-SPEC approved
-last_updated: "2026-06-22T22:35:28.028Z"
+current_phase: 6
+current_phase_name: 3D Real Register in the Served Slate
+status: executing
+stopped_at: Completed WFH-06-01-PLAN.md
+last_updated: "2026-06-22T22:50:15.495Z"
 progress:
   total_phases: 9
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 4
+  completed_plans: 1
   percent: 0
 ---
 
@@ -20,13 +22,13 @@ progress:
 See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md · audit: .planning/DESIGN_COVERAGE_AUDIT.md
 
 **Core value (v3):** Every binding design requirement (§A–§V of `docs/USER_REQUIREMENTS_VERBATIM.md`) is realized in the **served `/` black-slate frontend** and verified against real subsystems — not split between the new `fe/` surface and the legacy `cp/` one. The four lodestar use cases stay green throughout (`all_real:true`).
-**Current focus:** Phase 6 — 3D Real Register in the served slate (REAL-01..04).
+**Current focus:** Phase 6 — 3D Real Register in the Served Slate
 
 ## Current Position
 
-Phase: 6 of 11 (3D Real Register in the served slate) — v3.0, not yet planned
-Plan: — (autonomous: discuss → plan → execute)
-Status: v3.0 roadmap + requirements defined from the design audit; ready to build
+Phase: 6 (3D Real Register in the Served Slate) — EXECUTING
+Plan: 2 of 4
+Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -56,6 +58,18 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 ## Session Continuity
 
-Last session: 2026-06-22T04:53:11.475Z
-Stopped at: Phase 6 UI-SPEC approved
+Last session: 2026-06-22T22:50:15.489Z
+Stopped at: Completed WFH-06-01-PLAN.md
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
+
+## Performance Metrics
+
+| Phase | Plan | Duration | Notes |
+|-------|------|----------|-------|
+| Phase WFH-06 P01 | 95min | 3 tasks | 4 files |
+
+## Decisions
+
+- [Phase ?]: COLLIDER_SAFETY ships as 1.4 (cp/force_layout.js line 161), not the doc's >=2.0 — MIN_SEPARATION = 2.52, verified by unit + e2e assertions
+- [Phase WFH-06]: url_roots wired through editor.html's WS handler and boot fetch (Rule 2 auto-add) — without this the REAL-01 force step would be inert in production despite passing unit tests
+- [Phase WFH-06]: e2e force-directed test filters __mm_proj_node_positions() to its own 4 seeded fixture ids before asserting spacing — the accessor returns every node the projector has ever rendered, including editor.html's own boot-fetch real-scan population

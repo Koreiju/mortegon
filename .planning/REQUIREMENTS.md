@@ -9,7 +9,7 @@
 
 ### Phase 6 — 3D Real Register in the Served Slate (§B / §H / §I)
 
-- [ ] **REAL-01**: `fe/` projector renders the UMAP-linear-radial **force-directed** layout — chunks converge along root-URL rays with hard collider repulsion (zero force above `2·R·safety`, exact-correction below); no concentric/Fibonacci as a final position. (§B.2/§B.3)
+- [x] **REAL-01**: `fe/` projector renders the UMAP-linear-radial **force-directed** layout — chunks converge along root-URL rays with hard collider repulsion (zero force above `2·R·safety`, exact-correction below); no concentric/Fibonacci as a final position. (§B.2/§B.3)
 - [ ] **REAL-02**: Per-URL multi-scan placement — each URL has its own `root_position`+`bounding_radius`; a new URL lands non-overlapping at `existing_max + new_radius + safety_gap`; old URLs never move on a new scan; camera frames/bounds the scene and tweens to the newest root on scan-end (respecting user interaction). (§B.4/§B.7/§B.8/§B.9)
 - [ ] **REAL-03**: Image billboards render in the served projector — single-fetch persistence (in-mem → IndexedDB → proxy → direct), shared `THREE.Texture` per URL, transparent-PNG fallback never cached as success, collider spacing shared with text billboards. (§H.1/§H.2)
 - [ ] **REAL-04**: Solid (headless) 2D↔3D link arrows — every pinned panel carries `data-3d-node-id`; the animate loop projects the node and draws a solid line that tracks the moving 3D node; off-frustum hides; no dotted lines anywhere. (§I / §O.16)
@@ -57,7 +57,7 @@ Same forbidden-concepts list as v1.0 (D2/D3/D9/D11): concentric Fibonacci sphere
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REAL-01 | 6 | Pending |
+| REAL-01 | 6 | Complete |
 | REAL-02 | 6 | Pending |
 | REAL-03 | 6 | Pending |
 | REAL-04 | 6 | Pending |
