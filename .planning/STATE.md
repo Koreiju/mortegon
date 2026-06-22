@@ -2,12 +2,11 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Completeness
-status: executing
-stopped_at: "v3.0 roadmap created from DESIGN_COVERAGE_AUDIT.md (6 feature phases 6-11); v2.0 hardening/maint/perf deferred to 12-14. Next: Phase 6 (3D Real Register in the served slate)."
-last_updated: "2026-06-21"
-last_activity: 2026-06-21 — design→code audit complete; v3.0 milestone opened
+status: v3.0 roadmap + requirements defined from the design audit; ready to build
+stopped_at: Phase 6 UI-SPEC approved
+last_updated: "2026-06-22T04:53:11.479Z"
 progress:
-  total_phases: 6
+  total_phases: 9
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -35,6 +34,7 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 `.planning/DESIGN_COVERAGE_AUDIT.md`: ~75% of §A–§V built+verified (all backend + 2D black-slate + name-only halo + the §Q/§R/§S/§T/§U families; 95/95 REPL + 7 probes + content-tree golden). **Gap frontier = the 3D Real register + deep §M/§N/§O/§P interaction mechanics living only in the legacy `cp/` frontend (demoted to `/legacy`), to be ported into the served `fe/` idiom**, plus the live-streaming SLA (§V.1) and one doc reconciliation (§G.1↔§S.3).
 
 ### v3.0 phases
+
 - **P6 3D Real Register** (REAL-01..04) — force-directed UMAP-linear-radial layout, per-URL multi-scan placement + camera framing, image billboards, solid 2D↔3D arrows. **Largest gap — do first.**
 - **P7 Deep Object-Exploration Gestures** (EXPLORE-01..04) — next-rank type-graph, external-ref propagation, drag-to-wire/double-right-delete, DuckDuckGo walkthrough.
 - **P8 Halo Cone-Ray + Brace States + Stepper** (HALO-03/04, STEP-01).
@@ -45,15 +45,17 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 ## Accumulated Context
 
 ### Decisions (governing, carried forward)
+
 - D1–D11 LOCKED (PROJECT.md). No-mocks (real GPT4All/nomic/Selenium/LangGraph; loud 503). Backend computes / frontend renders. Triple-product retrieval. Forbidden: concentric spheres, graph analytics, Llama, two-panel split, Editor fixture, retrieval sidebar, panel chrome, dotted lines.
 - **[v3.0 framing, 2026-06-21]** The legacy `cp/` frontend is the *reference* for porting the 3D Real register into `fe/`, not a surface to keep. Build each §A–§V feature into the served black-slate idiom.
 
 ### Blockers / Concerns
+
 - Real-stack env hygiene: clean GPU (≈0 MiB VRAM / 0 stray python+firefox) required before each real run; backend 8080 vs REPL 8000 (pass `--backend http://127.0.0.1:8080`); tear down with `taskkill /F /T`.
 - Two frontends co-exist (`fe/` served, `cp/` at `/legacy`) — v3.0 converges the 3D register into `fe/`.
 
 ## Session Continuity
 
-Last session: 2026-06-21
-Stopped at: v3.0 roadmap/requirements authored from the design audit; v2.0 deferred.
+Last session: 2026-06-22T04:53:11.475Z
+Stopped at: Phase 6 UI-SPEC approved
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
