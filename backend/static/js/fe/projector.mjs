@@ -139,6 +139,7 @@ export function createProjector(canvas, opts = {}) {
   // it is read BEFORE the caching decision so a placeholder is NEVER
   // written to IDB as a "successful" image (Pitfall 3 / threat T-06-06).
   const _textureCache = new Map(); // url (string) → THREE.Texture, in-mem, per-session
+  const _inflight = new Map();      // url → Promise<THREE.Texture|null> — in-flight dedup (WR-02)
   let _idbPromise = null;
   let _netFetchCount = 0; // incremented on every REAL network fetch() the loader issues (test hook)
 
@@ -220,7 +221,21 @@ export function createProjector(canvas, opts = {}) {
   async function loadAndCacheImage(originalUrl) {
     const memHit = _textureCache.get(originalUrl);
     if (memHit) return memHit;
+    // WR-02 — dedup concurrent loads of the SAME url so two overlapping
+    // callers (e.g. successive setNodes/spawnImageBillboards frames) await
+    // ONE fetch + ONE GPU upload rather than racing two. Placeholders are
+    // never written to _textureCache (CR-01), so a placeholder url falls
+    // through to a fresh in-flight fetch on its NEXT call (preserving the
+    // re-attempt contract) — only the concurrent in-flight window is shared.
+    const pending = _inflight.get(originalUrl);
+    if (pending) return pending;
+    const p = _loadAndCacheImageInner(originalUrl);
+    _inflight.set(originalUrl, p);
+    try { return await p; }
+    finally { _inflight.delete(originalUrl); }
+  }
 
+  async function _loadAndCacheImageInner(originalUrl) {
     const idbHit = await idbLoadTexture(originalUrl).catch(() => null);
     if (idbHit) { _textureCache.set(originalUrl, idbHit); return idbHit; }
 
