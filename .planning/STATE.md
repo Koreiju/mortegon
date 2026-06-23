@@ -6,12 +6,12 @@ current_phase: 6
 current_phase_name: 3D Real Register in the Served Slate
 status: executing
 stopped_at: Completed WFH-06-02-PLAN.md
-last_updated: "2026-06-22T22:58:51.018Z"
+last_updated: "2026-06-23T05:01:14.980Z"
 progress:
   total_phases: 9
   completed_phases: 0
   total_plans: 4
-  completed_plans: 2
+  completed_plans: 3
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 6 (3D Real Register in the Served Slate) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
@@ -60,7 +60,7 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 **Resume file:** None
 
-Last session: 2026-06-22T22:58:51.012Z
+Last session: 2026-06-23T05:00:26.650Z
 Stopped at: Completed WFH-06-02-PLAN.md
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
 
@@ -70,6 +70,7 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 |-------|------|----------|-------|
 | Phase WFH-06 P01 | 95min | 3 tasks | 4 files |
 | Phase WFH-06 P02 | 25min | 3 tasks | 3 files |
+| Phase WFH-06 P03 | 70min | 3 tasks | 3 files |
 
 ## Decisions
 
@@ -79,3 +80,5 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 - [Phase ?]: WFH-06-02: Task 1 scope narrowed to camera-distance test hook only — url_roots already wired by Wave 1
 - [Phase ?]: WFH-06-02: frameCameraToRoot uses Math.max(12, boundingRadius * 2.2) as a framing-distance heuristic, distinct from the UI-SPEC-locked 0.6x/3.0x orbit bounds multipliers
 - [Phase ?]: WFH-06-02: _applyCameraBounds runs unconditionally every animate() frame, no dead-band guard, matching projector.mjs's existing per-frame convention
+- [Phase WFH-06]: Resolved window.__mm_rerender naming collision (EDIT-03 vs REAL-03) by combining both behaviors rather than overwriting the existing contract
+- [Phase WFH-06]: Images driven via __mm_proj_image test hook only — production umap_canonical carries no image-URL field today; deferred to milestone-end real-stack probe
