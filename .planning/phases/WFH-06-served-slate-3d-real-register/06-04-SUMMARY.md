@@ -128,3 +128,11 @@ Playwright browsers were available in this environment throughout — no deferre
 ---
 *Phase: WFH-06-served-slate-3d-real-register*
 *Completed: 2026-06-23*
+
+## Self-Check: PASSED
+
+- FOUND: .planning/phases/WFH-06-served-slate-3d-real-register/06-04-SUMMARY.md
+- FOUND: 90ccb43 (Task 1 commit)
+- FOUND: 03cf5d6 (Task 2 commit)
+- FOUND: f6c0945 (Task 3 commit)
+- FOUND: 0e3ceb9 (SUMMARY.md commit)

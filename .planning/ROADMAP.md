@@ -21,7 +21,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 - [x] **Phase 3: HTML Dedup + Halo Retrieval Render** *(v1.0 — shipped 2026-06-18)*
 - [x] **Phase 4: Live Layout, Signal & Pattern** *(v1.0 — shipped 2026-06-18)*
 - [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(v1.0 — shipped 2026-06-19)*
-- [ ] **Phase 6: 3D Real Register in the Served Slate** *(v3.0)* - Port the UMAP-linear-radial force-directed layout, per-URL multi-scan placement + camera framing, image billboards, and solid 2D↔3D arrows into the served `fe/` projector. (REAL-01..04)
+- [x] **Phase 6: 3D Real Register in the Served Slate** *(v3.0)* - Port the UMAP-linear-radial force-directed layout, per-URL multi-scan placement + camera framing, image billboards, and solid 2D↔3D arrows into the served `fe/` projector. (REAL-01..04) (completed 2026-06-23)
 - [ ] **Phase 7: Deep Object-Exploration Gestures** *(v3.0)* - Next-rank type-graph on hover, external-reference propagation as recursive panels, drag-to-wire + double-right-delete, the DuckDuckGo walkthrough. (EXPLORE-01..04)
 - [ ] **Phase 8: Halo Cone-Ray Transport + Brace States + Stepper** *(v3.0)* - Projective halo cone transport, three `{ref}` render states, 2D per-sample stepper drives 3D focus. (HALO-03/04, STEP-01)
 - [ ] **Phase 9: Cascaded Recurrent Renderer Surface** *(v3.0)* - Async perimeter render + projector link-network (independent of UMAP); readouts stream to projector with HSV rotation. (CASC-01/02)
@@ -43,7 +43,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   1. `fe/projector.mjs` lays chunks by UMAP then converges force-directed along root-URL rays with hard collider repulsion; no concentric/Fibonacci final position. Verified by a `projector.spec.js` assertion (rays + min pairwise spacing) + `env-scenario --name 6d-umap-format`/`perimeter-rescale` green.
   2. Two scans of different URLs produce non-overlapping clusters at `existing_max + new_radius + safety_gap`; re-scanning the first does not move the second; camera frames the scene and tweens to the newest root. Verified by a multi-scan e2e + REPL telemetry.
   3. Image billboards render in the served projector with shared textures and the in-mem→IndexedDB→proxy→direct fetch order; an e2e asserts an image node paints and persists across a re-render.
-  4. Pinned panels draw a solid headless arrow to their `data-3d-node-id` that tracks the moving node; `black_slate.spec` (no dotted overlays) stays green + a new arrow-tracking e2e.**Plans**: 3/4 plans executed
+  4. Pinned panels draw a solid headless arrow to their `data-3d-node-id` that tracks the moving node; `black_slate.spec` (no dotted overlays) stays green + a new arrow-tracking e2e.**Plans**: 4/4 plans complete
 
 **Wave 1**
 
@@ -59,7 +59,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 06-04-PLAN.md — REAL-04 solid headless 2D↔3D arrow + data-3d-node-id + #link-layer
+- [x] 06-04-PLAN.md — REAL-04 solid headless 2D↔3D arrow + data-3d-node-id + #link-layer
 
 **UI hint**: yes
 
@@ -155,7 +155,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 3. HTML Dedup + Halo | v1.0 | direct | Complete | 2026-06-18 |
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
-| 6. 3D Real Register (served) | v3.0 | 3/4 | In Progress|  |
+| 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
 | 7. Deep Object-Exploration Gestures | v3.0 | 0/TBD | Not started | - |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |

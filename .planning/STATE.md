@@ -4,15 +4,15 @@ milestone: v3.0
 milestone_name: Design Completeness
 current_phase: 6
 current_phase_name: 3D Real Register in the Served Slate
-status: executing
-stopped_at: Completed WFH-06-02-PLAN.md
-last_updated: "2026-06-23T05:01:14.980Z"
+status: verifying
+stopped_at: Completed WFH-06-04-PLAN.md
+last_updated: "2026-06-23T05:10:10.597Z"
 progress:
   total_phases: 9
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 4
-  completed_plans: 3
-  percent: 0
+  completed_plans: 4
+  percent: 11
 ---
 
 # Project State
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 
 Phase: 6 (3D Real Register in the Served Slate) — EXECUTING
 Plan: 4 of 4
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -60,8 +60,8 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 **Resume file:** None
 
-Last session: 2026-06-23T05:00:26.650Z
-Stopped at: Completed WFH-06-02-PLAN.md
+Last session: 2026-06-23T05:10:10.591Z
+Stopped at: Completed WFH-06-04-PLAN.md
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
 
 ## Performance Metrics
@@ -71,6 +71,7 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 | Phase WFH-06 P01 | 95min | 3 tasks | 4 files |
 | Phase WFH-06 P02 | 25min | 3 tasks | 3 files |
 | Phase WFH-06 P03 | 70min | 3 tasks | 3 files |
+| Phase WFH-06 P04 | 45min | 3 tasks | 3 files |
 
 ## Decisions
 
@@ -82,3 +83,5 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 - [Phase ?]: WFH-06-02: _applyCameraBounds runs unconditionally every animate() frame, no dead-band guard, matching projector.mjs's existing per-frame convention
 - [Phase WFH-06]: Resolved window.__mm_rerender naming collision (EDIT-03 vs REAL-03) by combining both behaviors rather than overwriting the existing contract
 - [Phase WFH-06]: Images driven via __mm_proj_image test hook only — production umap_canonical carries no image-URL field today; deferred to milestone-end real-stack probe
+- [Phase ?]: project() extended additively with ndcZ rather than repurposing inFront, to avoid impacting the halo's existing ray-transport consumer
+- [Phase ?]: REAL-04 link arrow is #ffd700 solid headless: stroke-width:2, no marker-end, no stroke-dasharray, hides via true NDC-z [-1,1] frustum test (not the weaker inFront near/far flag)
