@@ -127,6 +127,126 @@ export function createProjector(canvas, opts = {}) {
   let _coords = {};        // the last frame's coords, kept for azimuth recolour
   let _lastColorAz = null;
 
+  // REAL-03 — image billboard texture cache chain. Port of
+  // cp/sprite_manager.js lines 313-434 verbatim in structure: in-memory Map
+  // (fastest, per-session) → IndexedDB blob (cross-session, same DB/store
+  // name as the legacy code so an existing user's cache carries over with
+  // zero migration) → /api/image_proxy fetch (CORS-bypass tier, tried
+  // first on a cache miss) → direct fetch (last-resort fallback). The
+  // X-Image-Proxy-Note response header marks the proxy's transparent-PNG
+  // placeholder fallback (returned with HTTP 200, never a non-ok status) —
+  // it is read BEFORE the caching decision so a placeholder is NEVER
+  // written to IDB as a "successful" image (Pitfall 3 / threat T-06-06).
+  const _textureCache = new Map(); // url (string) → THREE.Texture, in-mem, per-session
+  let _idbPromise = null;
+  let _netFetchCount = 0; // incremented on every REAL network fetch() the loader issues (test hook)
+
+  function idbOpen() {
+    if (_idbPromise) return _idbPromise;
+    _idbPromise = new Promise((resolve) => {
+      try {
+        const req = indexedDB.open("wfh_texture_cache", 1);
+        req.onupgradeneeded = (ev) => {
+          const db = ev.target.result;
+          if (!db.objectStoreNames.contains("textures")) {
+            db.createObjectStore("textures", { keyPath: "url" });
+          }
+        };
+        req.onsuccess = (ev) => resolve(ev.target.result);
+        req.onerror = () => resolve(null);
+        req.onblocked = () => resolve(null);
+      } catch (_) { resolve(null); }
+    });
+    return _idbPromise;
+  }
+
+  function buildFromBlob(blob) {
+    return new Promise((resolve, reject) => {
+      const objUrl = URL.createObjectURL(blob);
+      const loader = new THREE.TextureLoader();
+      loader.load(objUrl, (tex) => {
+        try { URL.revokeObjectURL(objUrl); } catch (_) {}
+        resolve(tex);
+      }, undefined, (err) => {
+        try { URL.revokeObjectURL(objUrl); } catch (_) {}
+        reject(err);
+      });
+    });
+  }
+
+  async function idbLoadTexture(url) {
+    const db = await idbOpen();
+    if (!db) return null;
+    return new Promise((resolve) => {
+      try {
+        const tx = db.transaction("textures", "readonly");
+        const store = tx.objectStore("textures");
+        const r = store.get(url);
+        r.onsuccess = () => {
+          const rec = r.result;
+          if (!rec || !rec.blob) { resolve(null); return; }
+          buildFromBlob(rec.blob).then(resolve).catch(() => resolve(null));
+        };
+        r.onerror = () => resolve(null);
+      } catch (_) { resolve(null); }
+    });
+  }
+
+  async function idbSaveBlob(url, blob) {
+    try {
+      if (!blob || blob.size < 32) return;
+      const db = await idbOpen();
+      if (!db) return;
+      const tx = db.transaction("textures", "readwrite");
+      tx.objectStore("textures").put({ url, blob, ts: Date.now() });
+    } catch (_) { /* IDB is best-effort */ }
+  }
+
+  function toProxy(absUrl) {
+    try {
+      const u = new URL(absUrl, window.location.href);
+      if (u.protocol === "data:" || u.protocol === "blob:") return absUrl;
+      if (u.origin === window.location.origin) return absUrl;
+      return `/api/image_proxy?url=${encodeURIComponent(u.href)}`;
+    } catch (_) { return absUrl; }
+  }
+
+  // loadAndCacheImage(originalUrl) — the ordered single-fetch chain:
+  // in-mem Map → IndexedDB blob → proxy fetch → direct fetch. Every IDB op
+  // already degrades to null on failure (never throws); a fetch failure at
+  // any network tier falls through to the next tier, and total failure
+  // resolves null (no image — no crash).
+  async function loadAndCacheImage(originalUrl) {
+    const memHit = _textureCache.get(originalUrl);
+    if (memHit) return memHit;
+
+    const idbHit = await idbLoadTexture(originalUrl).catch(() => null);
+    if (idbHit) { _textureCache.set(originalUrl, idbHit); return idbHit; }
+
+    const tryFetch = async (url) => {
+      _netFetchCount++;
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error("http " + resp.status);
+      // Read the proxy-fallback note BEFORE deciding to cache — never
+      // cache a transparent-PNG placeholder as a successful image
+      // (Pitfall 3 / threat T-06-06).
+      const note = resp.headers.get("X-Image-Proxy-Note");
+      const blob = await resp.blob();
+      const tex = await buildFromBlob(blob);
+      if (!note) idbSaveBlob(originalUrl, blob); // fire-and-forget; never the placeholder
+      return tex;
+    };
+
+    let tex = null;
+    try { tex = await tryFetch(toProxy(originalUrl)); }
+    catch (_proxyErr) {
+      try { tex = await tryFetch(originalUrl); }
+      catch (_directErr) { tex = null; }
+    }
+    if (tex) _textureCache.set(originalUrl, tex);
+    return tex;
+  }
+
   // REAL-02 — camera auto-framing (consume-only: never recomputes
   // root_position/bounding_radius — D10/A2). `_userInteracted` flips true the
   // moment the user drags/zooms the OrbitControls; this suppresses the
