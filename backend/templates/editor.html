@@ -11,6 +11,10 @@
            padding: 0 12px; font: 11px monospace; color: #6b7280; border-bottom: 1px solid rgba(192,192,192,0.15); z-index: 5; }
     /* the 3D Real register sits behind the floating panels (the only filled colour in the app) */
     #projector { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; display: block; }
+    /* REAL-04 — the solid headless 2D↔3D link-arrow overlay. z-index:1 sits ABOVE
+       #projector (0) and BELOW #grid (2) so panels stay clickable above the arrow;
+       a passive render layer, pointer-events:none, no chrome of any kind. */
+    #link-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
     #grid { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 18px; padding: 46px 18px 18px; align-items: flex-start; }
     .mm-slate, .mm-graph { font-size: 13px; }
     .mm-line { line-height: 1.55; }
@@ -33,6 +37,7 @@
 </head>
 <body>
   <canvas id="projector"></canvas>
+  <svg id="link-layer"></svg>
   <div id="bar"><span id="count">…</span><span id="ws" class="ws-off">ws ○</span><span id="proj">3d ○</span><span id="hint">double-click a panel → graph ⇄ panel · click ▸ → expand link</span></div>
   <div id="grid"></div>
   <!-- THREE r128 (same as the legacy projector) for the 3D Real register -->
@@ -145,6 +150,10 @@
           onTogglePanelGraph() { ui.mode[id] = mode === "panel" ? "graph" : "panel"; render(); },
           onEdit() { if (SLATE_EDITOR === "milkdown" && mountMilkdown) enterMilkdownEdit(cell, id); },
         });
+        // REAL-04 — every mounted panel cell carries data-3d-node-id (the
+        // concept/chunk id), so the per-frame drawConcept3DLinks projector
+        // drawer can find it and connect it to its 3D node's screen position.
+        cell.setAttribute("data-3d-node-id", id);
       }
       document.getElementById("count").textContent = ids.length + " panels";
     }
@@ -378,6 +387,17 @@
           projector.spawnImageBillboards(imageMap);
         };
         window.__mm_proj_net_count = () => projector.netFetchCount();
+        // REAL-04 — mount a minimal panel cell carrying data-3d-node-id=nodeId
+        // into #grid, for the arrow e2e to pin against (without needing a real
+        // concept/store entry). Returns the mounted cell.
+        window.__mm_proj_pin = (nodeId) => {
+          const cell = document.createElement("div");
+          cell.className = "mm-edit-host";
+          cell.textContent = String(nodeId);
+          cell.setAttribute("data-3d-node-id", nodeId);
+          grid.appendChild(cell);
+          return cell;
+        };
       } catch (e) { console.warn("projector", e); }
     }
 
