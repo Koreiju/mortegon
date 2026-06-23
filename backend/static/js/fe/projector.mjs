@@ -441,7 +441,11 @@ export function createProjector(canvas, opts = {}) {
   function setNodes(coords, urlRoots) {
     _coords = coords || {};
     if (urlRoots) _lastUrlRoots = urlRoots; // remember for lastRoots()/__mm_rerender
-    if (points) { scene.remove(points); points.geometry.dispose(); }
+    // Dispose BOTH the geometry AND the material of the prior points object —
+    // THREE does not GC GPU programs/uniforms without an explicit .dispose().
+    // setNodes runs per umap_canonical WS frame + per __mm_rerender, so a
+    // leaked PointsMaterial accumulates over a long session (WR-01).
+    if (points) { scene.remove(points); points.geometry.dispose(); points.material.dispose(); }
     const { positions, colors, count } = buildPointArrays(_coords, { azimuth: azimuth() });
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
