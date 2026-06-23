@@ -561,6 +561,91 @@ export function createProjector(canvas, opts = {}) {
       if (pos) sprite.position.copy(pos);
     });
   }
+
+  // REAL-04 — solid headless 2D↔3D link arrow. Port of
+  // cp/concept_graph.js::_drawConcept3DLinks (lines 5479-5578), closure-
+  // scoped (no `this.*`). For every DOM element carrying [data-3d-node-id],
+  // project its CURRENT world position (post force-step, so the line tracks
+  // the moving node) through the camera via the SAME project() helper the
+  // halo's ray-transport uses (no parallel NDC→px conversion), and draw/hide
+  // a solid <line> in `svgHost`. Off-frustum hide tests the TRUE [-1,1] NDC
+  // z-range (project()'s new `ndcZ` field) — NOT the weaker near/far-only
+  // `inFront` flag. The line is `#ffd700` (--accent-arrow, the ONLY yellow
+  // in the app), stroke-width 2, NO stroke-dasharray (solid), and
+  // `removeAttribute('marker-end')` (headless — no arrowheads). Cached per
+  // card via a WeakMap so frames update rather than recreate the element.
+  const _cardLines = new WeakMap(); // card element → <line> element
+  function drawConcept3DLinks(svgHost) {
+    if (!svgHost) return;
+    const cards = document.querySelectorAll("[data-3d-node-id]");
+    if (!cards.length) {
+      // T-06-09/T-06-10 — nothing to draw: wipe stale lines, cheap early-out.
+      const stale = svgHost.querySelectorAll("line");
+      stale.forEach((el) => el.parentNode.removeChild(el));
+      return;
+    }
+    const canvas = renderer && renderer.domElement;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    cards.forEach((card) => {
+      const nodeId = card.getAttribute("data-3d-node-id");
+      const worldPos = nodeId ? nodeWorldPosition(nodeId) : null;
+      if (!worldPos) {
+        // T-06-09 — a data-3d-node-id pointing at a non-existent node: skip/
+        // hide this card's line (port of cp/'s `if (!worldPos) return` guard).
+        const existing = _cardLines.get(card);
+        if (existing) existing.setAttribute("visibility", "hidden");
+        return;
+      }
+      const p = project(worldPos.x, worldPos.y, worldPos.z);
+      // Off-frustum hide: the TRUE [-1,1] NDC z-range test (p.ndcZ), NOT the
+      // near/far-only `inFront` flag — REAL-04's explicit requirement.
+      if (p.ndcZ < -1 || p.ndcZ > 1) {
+        const existing = _cardLines.get(card);
+        if (existing) existing.setAttribute("visibility", "hidden");
+        return;
+      }
+      // project() already returns CSS px relative to the CANVAS rect (its
+      // w()/h() are canvas.clientWidth/clientHeight) — but the canvas itself
+      // may not be at (0,0) in the viewport, so offset by the canvas rect's
+      // own top/left (Pitfall 4 — canvas-relative, not window.innerWidth).
+      const x2 = rect.left + p.x;
+      const y2 = rect.top + p.y;
+      // nearest card-edge anchor toward the projected point (verbatim port).
+      const cr = card.getBoundingClientRect();
+      const cx = cr.left + cr.width / 2;
+      const cy = cr.top + cr.height / 2;
+      const dx = x2 - cx, dy = y2 - cy;
+      let x1, y1;
+      if (Math.abs(dx) * cr.height >= Math.abs(dy) * cr.width && dx !== 0) {
+        x1 = dx >= 0 ? cr.right : cr.left;
+        const t = (x1 - cx) / dx;
+        y1 = cy + dy * t;
+      } else if (dy !== 0) {
+        y1 = dy >= 0 ? cr.bottom : cr.top;
+        const t = (y1 - cy) / dy;
+        x1 = cx + dx * t;
+      } else {
+        x1 = cx; y1 = cy;
+      }
+      let line = _cardLines.get(card);
+      if (!line) {
+        line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("stroke", "#ffd700");        // --accent-arrow, the ONLY yellow permitted
+        line.setAttribute("stroke-width", "2");
+        line.setAttribute("stroke-opacity", "0.85");
+        // Solid — no dasharray (hard project-wide rule, T-06-11).
+        line.removeAttribute("marker-end");             // headless connector — no arrowheads
+        svgHost.appendChild(line);
+        _cardLines.set(card, line);
+      }
+      line.setAttribute("visibility", "visible");
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+    });
+  }
   // UMAP-01 — HSV rotates with camera azimuth: recolour the existing nodes when
   // the camera orbits (positions unchanged; only the hue field rotates).
   function recolor() {
@@ -576,9 +661,22 @@ export function createProjector(canvas, opts = {}) {
     return [c[i * 3], c[i * 3 + 1], c[i * 3 + 2]];
   }
   function nodeCount() { return points ? points.geometry.attributes.position.count : 0; }
+  // project(x,y,z) → { x, y, inFront, ndcZ }. `inFront` is the legacy near/far-
+  // only check (v.z < 1) the halo's ray-transport already relies on — kept
+  // UNCHANGED for backward compatibility. `ndcZ` is the raw THREE NDC z (the
+  // SAME value `v.z`), additive: REAL-04's off-frustum hide needs the TRUE
+  // `[-1,1]` frustum test, which `inFront` alone cannot express (it only
+  // rejects points beyond the far/near plane on one side).
   function project(x, y, z) {
     const v = new THREE.Vector3(x, y, z).project(camera);
-    return { x: (v.x * 0.5 + 0.5) * w(), y: (-v.y * 0.5 + 0.5) * h(), inFront: v.z < 1 };
+    return { x: (v.x * 0.5 + 0.5) * w(), y: (-v.y * 0.5 + 0.5) * h(), inFront: v.z < 1, ndcZ: v.z };
+  }
+  // nodeWorldPosition(nodeId) — the current animate-loop world position
+  // (post force-step) for a single node, or null if unknown. REAL-04's
+  // drawConcept3DLinks reads this every frame so the arrow tracks the moving
+  // node (mirrors cp/concept_graph.js::_getNodePosition usage).
+  function nodeWorldPosition(nodeId) {
+    return _positions.get(nodeId) || null;
   }
   // camera azimuth — the halo couples its ray angle to this so the rays update
   // as the user orbits the 3D scene (§V.4 "ray angle that updates as it's
@@ -623,6 +721,7 @@ export function createProjector(canvas, opts = {}) {
     scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize,
     nodePositions, frameCameraToRoot, lastCoords, lastRoots,
     spawnImageBillboards, loadAndCacheImage, netFetchCount,
+    nodeWorldPosition, drawConcept3DLinks,
     stop: () => cancelAnimationFrame(raf),
   };
 }

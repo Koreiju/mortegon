@@ -354,6 +354,11 @@
           if (!halo) return;
           if (lastAz === null || Math.abs(az - lastAz) > 0.01) { lastAz = az; halo.camAngle = az; renderHalo(); }
         });
+        // REAL-04 — every animate frame, draw/update the solid headless
+        // 2D↔3D link arrow for every pinned panel (gated cheaply inside
+        // drawConcept3DLinks when zero [data-3d-node-id] cards exist).
+        const linkLayer = document.getElementById("link-layer");
+        projector.onFrame(() => { projector.drawConcept3DLinks(linkLayer); });
         window.__mm_proj = projector;
         // UMAP-01 probes: inject a 6D umap_canonical frame + read a node's rendered
         // colour + orbit the camera azimuth (the render-level acceptance surface).
