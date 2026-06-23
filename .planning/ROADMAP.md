@@ -75,7 +75,29 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   3. Left-click-drag wires two graph nodes (target inherits i/o types); double-right-click deletes a token in panel or graph form. Verified by e2e gestures + `editor-delete`/`editor-link` telemetry.
   4. A `duckduckgo-walkthrough` env-scenario + probe runs the §N flow end-to-end against real subsystems.
 
-**Plans**: TBD
+**Plans**: 6 plans
+
+**Wave 1**
+
+- [ ] 07-01-PLAN.md — EXPLORE-01 backend rank-1 type-graph fetch endpoint (D-03) + pytest
+- [ ] 07-02-PLAN.md — EXPLORE-01 typed `key:Type=value` render mode (renderTypedPanel) + Wave-0 unit scaffold
+
+**Wave 2** *(blocked on Wave 1)*
+
+- [ ] 07-03-PLAN.md — EXPLORE-02 three brace render states (D-04) + external-{ref} propagation + N.6 proxy verification + ref-propagation e2e
+
+**Wave 3** *(blocked on Wave 1)*
+
+- [ ] 07-04-PLAN.md — EXPLORE-03 backend edge-create I/O-type-inheritance (N.4, D-03) + gateway WIRE_LINK/DELETE_REF extensions (N.13)
+
+**Wave 4** *(blocked on Waves 2+3)*
+
+- [ ] 07-05-PLAN.md — EXPLORE-03/01 mount() DOM capture (contextmenu, double-right debounce, drag, 🔒 gate, hover preview) + DOM unit + drag-wire/delete/fold e2e
+
+**Wave 5** *(blocked on Wave 4)*
+
+- [ ] 07-06-PLAN.md — EXPLORE-04 DuckDuckGo §N walkthrough (REPL scenario + live probe + e2e, D-01 real-subsystem inline)
+
 **UI hint**: yes
 
 ### Phase 8: Halo Cone-Ray Transport + Brace States + Stepper
@@ -156,7 +178,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
-| 7. Deep Object-Exploration Gestures | v3.0 | 0/TBD | Not started | - |
+| 7. Deep Object-Exploration Gestures | v3.0 | 0/6 | Planned | - |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |
