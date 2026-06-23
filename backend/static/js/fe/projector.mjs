@@ -230,21 +230,27 @@ export function createProjector(canvas, opts = {}) {
       if (!resp.ok) throw new Error("http " + resp.status);
       // Read the proxy-fallback note BEFORE deciding to cache — never
       // cache a transparent-PNG placeholder as a successful image
-      // (Pitfall 3 / threat T-06-06).
+      // (Pitfall 3 / threat T-06-06). `isPlaceholder` is propagated out so
+      // the in-mem Map write is gated symmetrically with the IDB write — a
+      // placeholder must poison NEITHER cache tier.
       const note = resp.headers.get("X-Image-Proxy-Note");
       const blob = await resp.blob();
       const tex = await buildFromBlob(blob);
       if (!note) idbSaveBlob(originalUrl, blob); // fire-and-forget; never the placeholder
-      return tex;
+      return { tex, isPlaceholder: !!note };
     };
 
-    let tex = null;
-    try { tex = await tryFetch(toProxy(originalUrl)); }
+    let tex = null, isPlaceholder = false;
+    try { ({ tex, isPlaceholder } = await tryFetch(toProxy(originalUrl))); }
     catch (_proxyErr) {
-      try { tex = await tryFetch(originalUrl); }
-      catch (_directErr) { tex = null; }
+      try { ({ tex, isPlaceholder } = await tryFetch(originalUrl)); }
+      catch (_directErr) { tex = null; isPlaceholder = false; }
     }
-    if (tex) _textureCache.set(originalUrl, tex);
+    // The placeholder tex is still returned (painted once so the sprite
+    // resolves), but it is NOT retained in the in-mem Map — a later
+    // loadAndCacheImage(sameUrl) re-attempts the real upstream rather than
+    // short-circuiting on a poisoned memHit (matches the IDB guard above).
+    if (tex && !isPlaceholder) _textureCache.set(originalUrl, tex);
     return tex;
   }
 
