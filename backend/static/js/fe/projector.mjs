@@ -623,9 +623,13 @@ export function createProjector(canvas, opts = {}) {
         return;
       }
       const p = project(worldPos.x, worldPos.y, worldPos.z);
-      // Off-frustum hide: the TRUE [-1,1] NDC z-range test (p.ndcZ), NOT the
-      // near/far-only `inFront` flag — REAL-04's explicit requirement.
-      if (p.ndcZ < -1 || p.ndcZ > 1) {
+      // Off-frustum hide: the TRUE [-1,1] NDC test on ALL three axes (NOT the
+      // near/far-only `inFront` flag) — matching _isRootInFrustum's symmetric
+      // x/y/z check. WR-04: the depth-only test let a node in front of the
+      // camera but far to the side or above/below the viewport (NDC x or y
+      // outside [-1,1]) still draw an arrow to an off-canvas point. The
+      // solid/headless/no-dasharray styling below is unchanged.
+      if (p.ndcZ < -1 || p.ndcZ > 1 || p.ndcX < -1 || p.ndcX > 1 || p.ndcY < -1 || p.ndcY > 1) {
         const existing = _cardLines.get(card);
         if (existing) existing.setAttribute("visibility", "hidden");
         return;
@@ -694,7 +698,11 @@ export function createProjector(canvas, opts = {}) {
   // rejects points beyond the far/near plane on one side).
   function project(x, y, z) {
     const v = new THREE.Vector3(x, y, z).project(camera);
-    return { x: (v.x * 0.5 + 0.5) * w(), y: (-v.y * 0.5 + 0.5) * h(), inFront: v.z < 1, ndcZ: v.z };
+    // ndcX/ndcY/ndcZ are the raw THREE NDC components; REAL-04's off-frustum
+    // hide needs the TRUE [-1,1] frustum test on ALL three axes (matching
+    // _isRootInFrustum), not just depth (WR-04). x/y stay the canvas-px
+    // mapping the halo's ray-transport already consumes (unchanged).
+    return { x: (v.x * 0.5 + 0.5) * w(), y: (-v.y * 0.5 + 0.5) * h(), inFront: v.z < 1, ndcX: v.x, ndcY: v.y, ndcZ: v.z };
   }
   // nodeWorldPosition(nodeId) — the current animate-loop world position
   // (post force-step) for a single node, or null if unknown. REAL-04's
