@@ -367,6 +367,17 @@
           projector.recolor();
           return projector.azimuth();
         };
+        // REAL-03 image billboard test hooks. __mm_proj_image injects a frame
+        // WITH an explicit imageMap ({chunkId: imageUrl} — image URLs are NOT
+        // carried by the production umap_canonical frame today, so this is a
+        // caller-supplied map, driven by tests). __mm_proj_net_count reads
+        // back the loader's real-network-fetch counter (used to assert a
+        // re-render issues ZERO new fetches — cache persistence proof).
+        window.__mm_proj_image = (coords, urlRoots, imageMap) => {
+          projector.setNodes(coords, urlRoots);
+          projector.spawnImageBillboards(imageMap);
+        };
+        window.__mm_proj_net_count = () => projector.netFetchCount();
       } catch (e) { console.warn("projector", e); }
     }
 
@@ -381,7 +392,13 @@
       window.__mm_editing = () => !!document.querySelector(".mm-edit-host .mm-milkdown");
       // EDIT-03 — the slate holds NO authoritative state: re-deriving from the
       // store (what a dropped-WS reconnect does) re-renders identically.
-      window.__mm_rerender = () => render();
+      // REAL-03 — also re-invoke the projector with its OWN last-known
+      // coords/url_roots (never re-fetched), so a re-render proves cached
+      // image textures persist with zero new network requests.
+      window.__mm_rerender = () => {
+        render();
+        if (projector) projector.setNodes(projector.lastCoords(), projector.lastRoots());
+      };
       window.__mm_state = () => ({
         panels: grid.querySelectorAll(".mm-slate, .mm-graph").length,
         drops: grid.querySelectorAll(".mm-drop").length,

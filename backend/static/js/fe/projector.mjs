@@ -126,6 +126,7 @@ export function createProjector(canvas, opts = {}) {
   let points = null;
   let _coords = {};        // the last frame's coords, kept for azimuth recolour
   let _lastColorAz = null;
+  let _lastUrlRoots = null; // the last urlRoots passed to setNodes — REAL-03 __mm_rerender support
 
   // REAL-03 — image billboard texture cache chain. Port of
   // cp/sprite_manager.js lines 313-434 verbatim in structure: in-memory Map
@@ -433,6 +434,7 @@ export function createProjector(canvas, opts = {}) {
   // path (and the WS `setNodes(f.coords)` call) stays backward compatible.
   function setNodes(coords, urlRoots) {
     _coords = coords || {};
+    if (urlRoots) _lastUrlRoots = urlRoots; // remember for lastRoots()/__mm_rerender
     if (points) { scene.remove(points); points.geometry.dispose(); }
     const { positions, colors, count } = buildPointArrays(_coords, { azimuth: azimuth() });
     const geo = new THREE.BufferGeometry();
@@ -470,6 +472,94 @@ export function createProjector(canvas, opts = {}) {
   // without leaking the Maps themselves.
   function nodePositions() {
     return [..._positions.entries()].map(([id, v]) => ({ id, x: v.x, y: v.y, z: v.z }));
+  }
+  // lastCoords()/lastRoots() — the most recent setNodes() arguments, exposed
+  // so editor.html's window.__mm_rerender can re-invoke setNodes with the
+  // SAME frame (re-deriving the render from already-known state, never
+  // re-fetching) — proving a re-render reuses cached image textures with
+  // zero new network requests (REAL-03).
+  function lastCoords() { return _coords; }
+  function lastRoots() { return _lastUrlRoots; }
+  // netFetchCount() — the number of REAL network fetch() calls the image
+  // loader has issued since boot (test hook for the no-new-request-on-
+  // re-render assertion).
+  function netFetchCount() { return _netFetchCount; }
+
+  // REAL-03 — image billboard sprites. `_imageSprites` is keyed by chunk id
+  // (one THREE.Sprite per image-bearing chunk); `_chunkImageUrl` remembers
+  // which URL each chunk currently renders so a re-render of the SAME chunk
+  // at the SAME URL reuses the existing sprite/texture instead of refetching
+  // (textures persist for the layout lifetime — UI-SPEC). Two chunks at the
+  // SAME url share ONE THREE.Texture instance via `_textureCache` above
+  // (single GPU upload) but each gets its OWN Sprite (own position/scale).
+  const _imageSprites = new Map();   // chunkId → THREE.Sprite
+  const _chunkImageUrl = new Map();  // chunkId → url (last spawned from)
+
+  // spawnImageBillboards(imageMap) — imageMap: { chunkId: imageUrl }. Image
+  // URLs are NOT carried by the production umap_canonical frame today (no
+  // image-URL field on build_umap_canonical — confirmed by grep); this is an
+  // explicit caller-supplied map (the __mm_proj_image test hook, or — once a
+  // future frame field exists — whatever extracts it upstream). Group by URL
+  // first so two chunks at one URL resolve to ONE loadAndCacheImage() call
+  // and share the returned texture (no duplicate GPU upload); each chunk
+  // still gets its own Sprite positioned at its OWN current _positions world
+  // position, participating in the SAME _positions/_nodeRayData bookkeeping
+  // the force step uses (shared NODE_RADIUS=0.9 collider, no separate
+  // spacing constant for image nodes).
+  function spawnImageBillboards(imageMap) {
+    if (!imageMap) return;
+    const byUrl = new Map(); // url → [chunkId, ...]
+    for (const chunkId in imageMap) {
+      const url = imageMap[chunkId];
+      if (!url) continue;
+      if (_chunkImageUrl.get(chunkId) === url && _imageSprites.has(chunkId)) continue; // already spawned, reuse
+      let arr = byUrl.get(url);
+      if (!arr) { arr = []; byUrl.set(url, arr); }
+      arr.push(chunkId);
+    }
+    byUrl.forEach((chunkIds, url) => {
+      loadAndCacheImage(url).then((tex) => {
+        if (!tex) return;
+        const img = tex.image || {};
+        const iw = img.width || 1, ih = img.height || 1;
+        const aspect = (iw > 0 && ih > 0) ? iw / ih : 1;
+        chunkIds.forEach((chunkId, idx) => {
+          // a chunk may have been removed from the scene while the fetch
+          // was in flight — skip stale spawns defensively.
+          const pos = _positions.get(chunkId);
+          if (!pos) return;
+          const isPrimary = idx === 0;
+          const baseSize = isPrimary ? 1.0 : 0.55;
+          const material = new THREE.SpriteMaterial({ map: tex, transparent: true });
+          const sprite = new THREE.Sprite(material);
+          if (aspect >= 1) sprite.scale.set(baseSize * aspect, baseSize, 1);
+          else sprite.scale.set(baseSize, baseSize / aspect, 1);
+          sprite.position.copy(pos);
+          // existing sprite for this chunk (e.g. a prior URL) is replaced —
+          // dispose its material only (the shared Texture itself is NOT
+          // disposed; other sprites/chunks may still reference it).
+          const prior = _imageSprites.get(chunkId);
+          if (prior) { scene.remove(prior); prior.material.dispose(); }
+          scene.add(sprite);
+          _imageSprites.set(chunkId, sprite);
+          _chunkImageUrl.set(chunkId, url);
+        });
+      }).catch(() => { /* loadAndCacheImage already resolves null on failure; defensive only */ });
+    });
+  }
+
+  // _syncImageSpritePositions() — keep every image sprite glued to its
+  // chunk's current animate-loop world position (post force-step), mirroring
+  // how the THREE.Points buffer attribute is kept in sync in
+  // _stepForceDirected. Cheap (Map iteration + Vector3 copy); run every
+  // animate() frame so a sprite never visibly lags behind its collider-moved
+  // node.
+  function _syncImageSpritePositions() {
+    if (_imageSprites.size === 0) return;
+    _imageSprites.forEach((sprite, chunkId) => {
+      const pos = _positions.get(chunkId);
+      if (pos) sprite.position.copy(pos);
+    });
   }
   // UMAP-01 — HSV rotates with camera azimuth: recolour the existing nodes when
   // the camera orbits (positions unchanged; only the hue field rotates).
@@ -511,6 +601,9 @@ export function createProjector(canvas, opts = {}) {
     // REAL-01 — ray-constrained collider step; slides nodes along their
     // backend-seeded rays only (no-op until the first frame w/ url_roots).
     _stepForceDirected();
+    // REAL-03 — keep image billboards glued to their chunk's current
+    // (possibly collider-moved) world position every frame.
+    _syncImageSpritePositions();
     for (const cb of _frameCbs) { try { cb(az); } catch (e) { /* keep rendering */ } }
     renderer.render(scene, camera);
   }
@@ -526,7 +619,12 @@ export function createProjector(canvas, opts = {}) {
     const ro = new ResizeObserver(() => resize());
     ro.observe(canvas);
   }
-  return { scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize, nodePositions, frameCameraToRoot, stop: () => cancelAnimationFrame(raf) };
+  return {
+    scene, camera, renderer, setNodes, nodeCount, nodeColor, recolor, project, azimuth, onFrame, resize,
+    nodePositions, frameCameraToRoot, lastCoords, lastRoots,
+    spawnImageBillboards, loadAndCacheImage, netFetchCount,
+    stop: () => cancelAnimationFrame(raf),
+  };
 }
 
 export default { buildPointArrays, createProjector };
