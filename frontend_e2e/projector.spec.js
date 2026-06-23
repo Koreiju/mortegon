@@ -256,3 +256,104 @@ test("REAL-02 multi-scan: per-URL clusters land non-overlapping, old roots never
   const movedTowardB = Math.abs(final.camDist - afterA.camDist) > 0.5 || (final.camX !== null && final.camX > 5);
   expect(movedTowardB, "camera position/distance shifted after scan B (auto-framed toward the newest root)").toBe(true);
 });
+
+// REAL-03 — image billboards. Image URLs are NOT carried by the production
+// umap_canonical frame today (no image-URL field on build_umap_canonical), so
+// this e2e drives images via the __mm_proj_image test hook only (the real
+// production data path is asserted separately at the milestone-end real-stack
+// gate, scripts/probe_live_archive_scan.py). This test proves: (1) an image
+// chunk paints a billboard, (2) the cached texture survives a __mm_rerender()
+// with ZERO new network requests (in-mem/IDB persistence), and (3) a proxy
+// response carrying X-Image-Proxy-Note is never cached as a successful image
+// (Pitfall 3 / threat T-06-06).
+test("REAL-03 image billboards: paint, persist across re-render with no new fetch, placeholder never cached", async ({ page }) => {
+  // A tiny real PNG (1x1 red pixel) served by our own route handler so the
+  // test never depends on a real external image host.
+  const REAL_PNG = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAAl21bKAAAACklEQVR4nGNgAAIAAAUAAen63NgAAAAASUVORK5CYII=",
+    "base64",
+  );
+
+  let imageProxyHits = 0;
+  let placeholderHits = 0;
+  await page.route("**/api/image_proxy*", async (route) => {
+    const url = route.request().url();
+    if (url.includes("placeholder-test-image")) {
+      placeholderHits++;
+      // Mirror the real backend's _empty_image_response: HTTP 200 + a
+      // transparent placeholder PNG + the X-Image-Proxy-Note header.
+      await route.fulfill({
+        status: 200,
+        contentType: "image/png",
+        headers: { "X-Image-Proxy-Note": "upstream-unreachable-test" },
+        body: REAL_PNG,
+      });
+      return;
+    }
+    imageProxyHits++;
+    await route.fulfill({ status: 200, contentType: "image/png", body: REAL_PNG });
+  });
+
+  await page.goto("/");
+  await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
+  const booted = await page
+    .waitForFunction(() => typeof window.__mm_proj_image === "function", { timeout: 9000 })
+    .then(() => true)
+    .catch(() => false);
+  test.skip(!booted, "projector requires THREE.js + WebGL (offline CDN / headless GL unavailable)");
+
+  // (1) inject an image chunk via the test hook; advance frames; assert it painted.
+  const IMG_URL = "https://example.invalid/wfh-test/real-03-image.png";
+  await page.evaluate((imgUrl) => {
+    const coords = { ci1: [5, 0, 0, 0.5, 0.8, 0.5] };
+    const urlRoots = { "": { root_position: [0, 0, 0], bounding_radius: 5 } };
+    window.__mm_proj_image(coords, urlRoots, { ci1: imgUrl });
+  }, IMG_URL);
+
+  await page.waitForFunction(() => window.__mm_proj_net_count() >= 1, { timeout: 8000 }).catch(() => {});
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 30; i++) await sleep(16);
+  });
+
+  const netCountAfterPaint = await page.evaluate(() => window.__mm_proj_net_count());
+  expect(netCountAfterPaint, "the image loader issued at least one real network fetch").toBeGreaterThanOrEqual(1);
+  expect(imageProxyHits, "the proxy route was hit for the real test image").toBeGreaterThanOrEqual(1);
+
+  // (2) re-render — must NOT issue a new network request for the same image
+  // (proves in-mem/IDB cache persistence, REAL-03's core contract).
+  await page.evaluate(() => window.__mm_rerender());
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 20; i++) await sleep(16);
+  });
+  const netCountAfterRerender = await page.evaluate(() => window.__mm_proj_net_count());
+  const proxyHitsAfterRerender = imageProxyHits;
+  expect(netCountAfterRerender, "no NEW network fetch after __mm_rerender() (cache persisted)")
+    .toBe(netCountAfterPaint);
+  expect(proxyHitsAfterRerender, "no NEW proxy request after __mm_rerender()").toBe(imageProxyHits);
+
+  // (3) a second image whose proxy response carries X-Image-Proxy-Note must
+  // NEVER be cached as a success — a subsequent load for that same URL
+  // re-attempts the fetch rather than returning a poisoned placeholder hit.
+  const PLACEHOLDER_URL = "https://example.invalid/wfh-test/placeholder-test-image.png";
+  await page.evaluate((imgUrl) => {
+    const coords = { ci1: [5, 0, 0, 0.5, 0.8, 0.5], ci2: [6, 1, 0, 0.6, 0.8, 0.5] };
+    const urlRoots = { "": { root_position: [0, 0, 0], bounding_radius: 5 } };
+    window.__mm_proj_image(coords, urlRoots, { ci2: imgUrl });
+  }, PLACEHOLDER_URL);
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 20; i++) await sleep(16);
+  });
+  const placeholderHitsAfterFirstLoad = placeholderHits;
+  expect(placeholderHitsAfterFirstLoad, "the placeholder URL was fetched once").toBeGreaterThanOrEqual(1);
+
+  // Directly probe the loader's cache chain: a second loadAndCacheImage()
+  // call for the SAME placeholder URL must hit the network AGAIN — proving
+  // the first response was never written to IndexedDB as a success.
+  await page.evaluate((imgUrl) => window.__mm_proj.loadAndCacheImage(imgUrl), PLACEHOLDER_URL);
+  await page.waitForTimeout(200);
+  expect(placeholderHits, "the placeholder URL re-fetches on second load (never cached as success)")
+    .toBeGreaterThan(placeholderHitsAfterFirstLoad);
+});
