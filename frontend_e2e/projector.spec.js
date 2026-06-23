@@ -357,3 +357,88 @@ test("REAL-03 image billboards: paint, persist across re-render with no new fetc
   expect(placeholderHits, "the placeholder URL re-fetches on second load (never cached as success)")
     .toBeGreaterThan(placeholderHitsAfterFirstLoad);
 });
+
+// REAL-04 — solid headless 2D↔3D link arrow. Proves: (a) exactly one solid,
+// headless #ffd700 <line> is drawn for a pinned panel bound to a 3D node via
+// data-3d-node-id; (b) its endpoint TRACKS the node as the camera orbits
+// (moving the node's projected screen position); (c) it hides when the node
+// is driven off-frustum (NDC z outside [-1,1]). black_slate.spec's no-dotted
+// gate (asserted separately below) must stay green.
+test("REAL-04 arrow: solid headless 2D↔3D line tracks the moving node and hides off-frustum", async ({ page }) => {
+  await page.goto("/");
+  await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
+  const booted = await page
+    .waitForFunction(() => typeof window.__mm_proj_pin === "function", { timeout: 9000 })
+    .then(() => true)
+    .catch(() => false);
+  test.skip(!booted, "projector requires THREE.js + WebGL (offline CDN / headless GL unavailable)");
+
+  // Seed a single node well inside the frustum (camera sits at z≈140 looking
+  // at the origin) and pin a panel cell to it via __mm_proj_pin.
+  const NODE_ID = "arrow_node_1";
+  await page.evaluate((nodeId) => {
+    const coords = {};
+    coords[nodeId] = [5, 2, 0, 0.4, 0.8, 0.5];
+    const urlRoots = { "": { root_position: [0, 0, 0], bounding_radius: 5 } };
+    window.__mm_proj_set_with_roots(coords, urlRoots);
+    window.__mm_proj_pin(nodeId);
+  }, NODE_ID);
+
+  // advance several real animate frames so drawConcept3DLinks has run.
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 30; i++) await sleep(16);
+  });
+
+  // (a) exactly one visible line exists in #link-layer for this pinned node.
+  const lineCount = await page.locator("#link-layer line").count();
+  expect(lineCount, "exactly one link-arrow line drawn for the pinned panel").toBe(1);
+  const line = page.locator("#link-layer line").first();
+  await expect(line).toBeVisible();
+
+  // (b) solid + headless: no stroke-dasharray, no marker-end, stroke is the
+  // locked --accent-arrow #ffd700 (the only yellow permitted in the app).
+  const style = await line.evaluate((el) => ({
+    dasharray: getComputedStyle(el).strokeDasharray,
+    markerEnd: el.getAttribute("marker-end"),
+    stroke: el.getAttribute("stroke"),
+  }));
+  expect(style.dasharray, "solid — no stroke-dasharray").toMatch(/^(none|0px|0)$/);
+  expect(style.markerEnd, "headless — no marker-end").toBeNull();
+  expect(style.stroke, "stroke is the locked --accent-arrow #ffd700").toBe("#ffd700");
+
+  // (c) tracks the moving node: record (x2,y2), orbit the camera, advance
+  // frames, and assert the endpoint CHANGED (the arrow followed the node's
+  // new projected screen position).
+  const before = await line.evaluate((el) => ({ x2: el.getAttribute("x2"), y2: el.getAttribute("y2") }));
+  await page.evaluate(() => window.__mm_proj_orbit(Math.PI));
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 30; i++) await sleep(16);
+  });
+  const after = await line.evaluate((el) => ({ x2: el.getAttribute("x2"), y2: el.getAttribute("y2") }));
+  const moved = before.x2 !== after.x2 || before.y2 !== after.y2;
+  expect(moved, "the line endpoint moved after the camera orbited (tracks the moving node)").toBe(true);
+
+  // (d) off-frustum hide: inject a SECOND node positioned far BEHIND the
+  // camera (negative-z relative to the camera's current look direction is
+  // hard to guarantee generically, so instead push the node far past the
+  // camera's far plane along its current view axis is unreliable too —
+  // simplest robust approach: place the node exactly AT the camera's own
+  // position, which projects to NDC z outside [-1,1] for a perspective
+  // camera looking away from its own eye-point). Re-pin to the SAME node id
+  // (so the existing line is reused/hidden, not a second line created).
+  await page.evaluate((nodeId) => {
+    const camPos = window.__mm_proj.camera.position;
+    const coords = {};
+    coords[nodeId] = [camPos.x, camPos.y, camPos.z, 0.4, 0.8, 0.5];
+    const urlRoots = { "": { root_position: [0, 0, 0], bounding_radius: 5 } };
+    window.__mm_proj_set_with_roots(coords, urlRoots);
+  }, NODE_ID);
+  await page.evaluate(async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (let i = 0; i < 30; i++) await sleep(16);
+  });
+  const hiddenVisibility = await line.evaluate((el) => getComputedStyle(el).visibility);
+  expect(hiddenVisibility, "the line hides when its node is driven off-frustum").toBe("hidden");
+});
