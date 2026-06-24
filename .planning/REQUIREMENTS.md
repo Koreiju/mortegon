@@ -16,7 +16,7 @@
 
 ### Phase 7 — Deep Object-Exploration Gestures (§M / §N)
 
-- [ ] **EXPLORE-01**: Hover expands the next-rank type graph (super-class + typed constructor params); function rows expand to loosely-linked typed input/output fields; output types inferred by i/o equality. (§M.4/§M.5)
+- [x] **EXPLORE-01**: Hover expands the next-rank type graph (super-class + typed constructor params); function rows expand to loosely-linked typed input/output fields; output types inferred by i/o equality. (§M.4/§M.5)
 - [ ] **EXPLORE-02**: External node references propagate as their own recursively-rendered panels (rank-1 minimalism, a PRO-pattern); a `{ref}` is a duplicate instance that operationally calls the originating object. (§N.3/§N.6/§N.7/§N.14)
 - [ ] **EXPLORE-03**: Left-click-drag wires nodes in graph form (target inherits i/o types); double-right-click deletes a token reference/instance in panel or graph form. (§N.4/§N.13)
 - [ ] **EXPLORE-04**: The DuckDuckGo walkthrough runs end-to-end (REPL scenario + probe): author `self=duckduckgo` referencing `scan`, drag-wire the WebBrowser scanner, reveal rank-1 `url{}`/`dom{}`, per-sample chunk iteration on `{chunk samples}`. (§N.2–§N.10)
@@ -61,7 +61,7 @@ Same forbidden-concepts list as v1.0 (D2/D3/D9/D11): concentric Fibonacci sphere
 | REAL-02 | 6 | Complete |
 | REAL-03 | 6 | Complete |
 | REAL-04 | 6 | Complete |
-| EXPLORE-01 | 7 | Pending |
+| EXPLORE-01 | 7 | Complete |
 | EXPLORE-02 | 7 | Pending |
 | EXPLORE-03 | 7 | Pending |
 | EXPLORE-04 | 7 | Pending |
