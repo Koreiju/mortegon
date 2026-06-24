@@ -44,6 +44,7 @@ regression smoke check.
   list-concepts                      GET /api/concepts
   create-concept --name NAME [...]   POST /api/concepts
   get-concept ID                     GET /api/concepts/{id}
+  next-rank ID                       GET /api/concepts/{id}/next_rank
   delete-concept ID                  DELETE /api/concepts/{id}
   link --src ID --tgt ID [--type T]  POST /api/concept_edges
   apparitions ID [--k N]             GET /api/apparitions/{id}
@@ -287,6 +288,15 @@ class _Backend:
 
     def get_concept(self, concept_id: str) -> Dict[str, Any]:
         return self._request("GET", f"/api/concepts/{concept_id}")
+
+    def next_rank(self, concept_id: str) -> Dict[str, Any]:
+        """EXPLORE-01 / D-03 — rank-1 typed neighbors of a python-native node.
+
+        Thin GET mirror of /api/concepts/{id}/next_rank, modeled exactly on
+        get_concept above (this is the REPL/CLI mirror the route-coverage
+        scenario requires for the route 07-01 added).
+        """
+        return self._request("GET", f"/api/concepts/{concept_id}/next_rank")
 
     def create_concept(
         self,
@@ -1950,6 +1960,11 @@ def _act_concept_get(env: FrontendEnv, *, id: str = "") -> Dict[str, Any]:
         raise TypeError("concept-get requires id=...")
     return env.backend.get_concept(id)
 
+def _act_next_rank(env: FrontendEnv, *, id: str = "") -> Dict[str, Any]:
+    if not id:
+        raise TypeError("next-rank requires id=...")
+    return env.backend.next_rank(id)
+
 def _act_concept_delete(env: FrontendEnv, *, id: str = "") -> Dict[str, Any]:
     if not id:
         raise TypeError("concept-delete requires id=...")
@@ -3401,6 +3416,7 @@ _ACTIONS: Dict[str, Any] = {
     "concept-create":   _act_concept_create,
     "concept-update":   _act_concept_update,
     "concept-get":      _act_concept_get,
+    "next-rank":        _act_next_rank,
     "concept-delete":   _act_concept_delete,
     "concept-list":     _act_concept_list,
     # -- edges ------------------------------------------------------------
@@ -4499,6 +4515,7 @@ def _env_scenario_route_coverage(env: FrontendEnv) -> int:
         "/snapshot":                  ["scan"],
         "/concepts":                  ["concept-list", "concept-create"],
         "/concepts/{concept_id}":     ["concept-get", "concept-update", "concept-delete"],
+        "/concepts/{concept_id}/next_rank": ["next-rank"],
         "/concepts/export":           ["concepts-export"],
         "/concepts/import":           ["concepts-import"],
         "/conceptual/compile":        ["conceptual-compile"],
@@ -9302,6 +9319,9 @@ def _build_parser() -> argparse.ArgumentParser:
     p_gc = sub.add_parser("get-concept", help="GET /api/concepts/{id}")
     p_gc.add_argument("id", help="Concept id")
 
+    p_nr = sub.add_parser("next-rank", help="GET /api/concepts/{id}/next_rank")
+    p_nr.add_argument("id", help="Concept id")
+
     p_dc = sub.add_parser("delete-concept", help="DELETE /api/concepts/{id}")
     p_dc.add_argument("id", help="Concept id")
 
@@ -9425,6 +9445,9 @@ def _dispatch(args: argparse.Namespace) -> int:
         return 0
     if args.cmd == "get-concept":
         _print_response(f"get {args.id}", be.get_concept(args.id))
+        return 0
+    if args.cmd == "next-rank":
+        _print_response(f"next-rank {args.id}", be.next_rank(args.id))
         return 0
     if args.cmd == "delete-concept":
         _print_response(f"delete {args.id}", be.delete_concept(args.id))
