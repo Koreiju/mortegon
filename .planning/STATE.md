@@ -6,12 +6,12 @@ current_phase: 7
 current_phase_name: Deep Object-Exploration Gestures
 status: executing
 stopped_at: Completed WFH-07-03-PLAN.md
-last_updated: "2026-06-24T01:41:09.936Z"
+last_updated: "2026-06-24T01:54:49.706Z"
 progress:
   total_phases: 9
   completed_phases: 1
   total_plans: 10
-  completed_plans: 7
+  completed_plans: 8
   percent: 11
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 7 (Deep Object-Exploration Gestures) — EXECUTING
-Plan: 4 of 6
+Plan: 5 of 6
 Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
@@ -60,7 +60,7 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 **Resume file:** None
 
-Last session: 2026-06-24T01:41:09.930Z
+Last session: 2026-06-24T01:54:19.646Z
 Stopped at: Completed WFH-07-03-PLAN.md
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
 
@@ -75,6 +75,7 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 | Phase WFH-07 P01 | 12min | 2 tasks | 2 files |
 | Phase WFH-07 P02 | 18min | 2 tasks | 2 files |
 | Phase WFH-07-deep-object-exploration-gestures P03 | 22min | 2 tasks | 4 files |
+| Phase WFH-07 P04 | 18min | 3 tasks | 5 files |
 
 ## Decisions
 
@@ -95,3 +96,6 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 - [Phase ?]: Open-Q1 resolved: existing buildRegistry/refTarget live-resolution already satisfies N.6 duplicate-instance-proxy semantics — zero new proxy state built — Confirmed empirically via an in-place mutation probe test, not assumed from reading code
 - [Phase ?]: classifyBraceStates keys resolved-external on refTarget string identity, not rendered-line text — A ref target's own identity line is never re-rendered as a sibling; only its children inline when expanded, so text-matching could never succeed
 - [Phase ?]: object_exploration.spec.js drives fe/*.mjs modules via in-page dynamic import() against the live served origin rather than modifying demo.html or magic_markdown_panel.mjs — Keeps the e2e fully inside the plan's declared files_modified scope while still proving behavior against the real served module graph
+- [Phase WFH-07]: N.13: DELETE_REF deletes the backing ConceptEdge (DELETE /api/concept_edges/{edge_id}) alongside the value-clear when g.edgeId is present, confirmed against object_exploration.md section N.13 wording
+- [Phase WFH-07]: Inheritance side-effect runs inside the same edge-create request, fanned through apply_edge_create_lifecycle per inherited edge (Open-Q3: one request, one lifecycle event)
+- [Phase WFH-07]: Added explicit source/target existence validation (400) to editor_link and create_concept_edge since graph_editor.create_concept_edge never raises for unknown node ids
