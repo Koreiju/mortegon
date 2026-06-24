@@ -7,6 +7,7 @@ import {
   parse, serialize, rootField, buildRegistry, refTarget, refTargets,
   renderPanel, linesToText, toggle, GLYPH_COLLAPSED, GLYPH_EXPANDED,
   iterableNode, isIterable, advanceSignal, renderGraph, parentPath,
+  renderTypedPanel, renderConceptPanel, isReadOnlyTypedNode,
 } from "./magic_markdown.mjs";
 
 let passed = 0, failed = 0;
@@ -182,6 +183,104 @@ test("panel↔graph are projections of ONE model (same expansion → parity hold
   assert.strictEqual(nodes.length, panel.length);
   // labels match the panel line texts in order (same underlying nodes)
   assert.deepStrictEqual(nodes.map((n) => n.label), panel.map((l) => l.text));
+});
+
+// ── typed render mode (EXPLORE-01): key:Type=value for python-native nodes,
+//    type-stripped for user compute nodes (rank-1 minimalism preserved) ────
+
+// Test 1: a python-native FUNCTION node with signature+ports.inputs/outputs
+// renders "name : Type" rows (skipping the implicit "self") + a trailing
+// "→ ReturnType" row.
+test("renderTypedPanel: python-native function node renders typed input rows + return arrow", () => {
+  const fnNode = {
+    type_hint: "python_function",
+    read_only: true,
+    data: JSON.stringify({
+      signature: "(self, url, samples)",
+      ports: {
+        inputs: [
+          { name: "self", type: "WebBrowserManager" },
+          { name: "url", type: "str" },
+          { name: "samples", type: "int" },
+        ],
+        outputs: [{ type: "List[Chunk]" }],
+      },
+    }),
+  };
+  const lines = renderTypedPanel(fnNode, {});
+  const texts = lines.map((l) => l.text);
+  assert.deepStrictEqual(texts, ["url : str", "samples : int", "→ List[Chunk]"]);
+});
+
+// Test 2: a python-native OBJECT node (d.members list) returns one Line per
+// member, last `::`-segment only (mirrors _pythonNativeTypedView's members map).
+test("renderTypedPanel: python-native object node renders one line per member (last :: segment)", () => {
+  const objNode = {
+    type_hint: "python_object",
+    read_only: true,
+    data: JSON.stringify({
+      members: [
+        "WebBrowserManager::driver",
+        "WebBrowserManager::scan",
+        "WebBrowserManager::close",
+      ],
+    }),
+  };
+  const lines = renderTypedPanel(objNode, {});
+  const texts = lines.map((l) => l.text);
+  assert.deepStrictEqual(texts, ["driver", "scan", "close"]);
+});
+
+// Test 3: the existing renderPanel on a user compute node (type_hint NOT
+// python_, not read_only) is UNCHANGED — no " : " type slot, no "=" type
+// pair anywhere (rank-1 minimalism preserved). Driven through the new
+// renderConceptPanel dispatch seam to prove the gate selects structural mode.
+test("renderConceptPanel: a user compute node stays structurally type-stripped (rank-1 minimalism)", () => {
+  const computeNode = {
+    type_hint: "user_compute",
+    read_only: false,
+    value: "DuckDuckGo\n\tscanner {scan for duckduckgo url}\n\tport : 80",
+  };
+  const lines = renderConceptPanel(computeNode, { registry: new Map(), expanded: new Set() });
+  const texts = lines.map((l) => l.text);
+  // identical to calling renderPanel directly on the parsed tree
+  const expected = renderPanel(parse(computeNode.value), { registry: new Map(), expanded: new Set() }).map((l) => l.text);
+  assert.deepStrictEqual(texts, expected);
+  // the load-bearing invariant: no " : Type = " slot leaks onto a compute node
+  assert.ok(!texts.some((t) => / : .+ = /.test(t)), "no type-slot pair leaked onto a compute node");
+});
+
+// Test 4: the typed mode is selected by the gate condition only — a node with
+// read_only===true but a non-python type_hint still renders typed; a node
+// with neither stays structural.
+test("isReadOnlyTypedNode: gate selects typed mode on read_only===true OR python_ type_hint, never a separate flag", () => {
+  assert.strictEqual(isReadOnlyTypedNode({ type_hint: "python_function", read_only: false }), true);
+  assert.strictEqual(isReadOnlyTypedNode({ type_hint: "user_compute", read_only: true }), true);
+  assert.strictEqual(isReadOnlyTypedNode({ type_hint: "user_compute", read_only: false }), false);
+  assert.strictEqual(isReadOnlyTypedNode({ backing_pointer: "fixture::database::ws1" }), true);
+  assert.strictEqual(isReadOnlyTypedNode(null), false);
+
+  // end-to-end through the dispatch seam: read_only===true + non-python type_hint
+  const roNonPython = {
+    type_hint: "user_compute",
+    read_only: true,
+    data: JSON.stringify({ members: ["X::field_a"] }),
+  };
+  const lines = renderConceptPanel(roNonPython, {});
+  assert.deepStrictEqual(lines.map((l) => l.text), ["field_a"]);
+
+  // neither python_ nor read_only → structural path
+  const plain = { type_hint: "user_compute", read_only: false, value: "plain\n\ta : 1" };
+  const plainLines = renderConceptPanel(plain, { registry: new Map(), expanded: new Set() });
+  assert.deepStrictEqual(plainLines.map((l) => l.text), ["plain", "a : 1"]);
+});
+
+// Test 5 (T-07-03 defensive fallback): malformed/non-JSON data on a typed
+// node renders a single verbatim structural row rather than throwing.
+test("renderTypedPanel: malformed data falls back to a verbatim structural row (no throw)", () => {
+  const broken = { type_hint: "python_function", read_only: true, data: "not json at all" };
+  const lines = renderTypedPanel(broken, {});
+  assert.deepStrictEqual(lines.map((l) => l.text), ["not json at all"]);
 });
 
 console.log(`\n${passed}/${passed + failed} passed`);
