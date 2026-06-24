@@ -2396,6 +2396,86 @@ def import_concept_graph(req: ConceptImportRequest):
         return {"ok": False, "error": str(e)}
 
 
+# ---------------------------------------------------------------------------
+# Phase 7 (EXPLORE-01 / D-03) — rank-1 next-rank type-graph fetch.
+#
+# Static-path route, registered ABOVE the parametric ``/concepts/{concept_id}``
+# route below (same ordering hazard the W36 NOTE above describes) so
+# ``next_rank`` is never swallowed as a literal concept id.
+# ---------------------------------------------------------------------------
+
+# The ONLY edge vocabulary the materialiser writes for the python-native
+# Object/Property/Function type graph (python_api_materialiser.py lines
+# 19-22). next_rank must filter to exactly these four — never a parallel
+# vocabulary (D10 / D-03).
+_NEXT_RANK_EDGE_TYPES = {
+    "OBJECT_HAS_PROPERTY",
+    "OBJECT_HAS_FUNCTION",
+    "FUNCTION_INPUT_TYPE",
+    "FUNCTION_OUTPUT_TYPE",
+}
+
+# Render-hint per edge_type — purely a frontend rendering label; carries no
+# new computation (the frontend renders, never computes, per D10).
+_NEXT_RANK_RELATION_HINT = {
+    "OBJECT_HAS_PROPERTY": "property",
+    "OBJECT_HAS_FUNCTION": "function",
+    "FUNCTION_INPUT_TYPE": "input_type",
+    "FUNCTION_OUTPUT_TYPE": "output_type",
+}
+
+
+@router.get("/concepts/{concept_id}/next_rank")
+def get_concept_next_rank(concept_id: str, workspace_id: str = ""):
+    """EXPLORE-01 / D-03 — rank-1 typed neighbors of a python-native node.
+
+    Reads the materialiser's already-written ``OBJECT_HAS_PROPERTY`` /
+    ``OBJECT_HAS_FUNCTION`` / ``FUNCTION_INPUT_TYPE`` / ``FUNCTION_OUTPUT_TYPE``
+    edges (backend/services/python_api_materialiser.py) and shapes them into a
+    rank-1 typed-neighbor list for the frontend's hover/right-click next-rank
+    expansion. This route only reads + shapes graph data already written by
+    the materialiser — it does NOT compute or infer any new type information
+    (D10: type-graph computation stays backend, but this is no more than the
+    existing edges shaped for rendering; no new type DERIVATION is added).
+
+    Rank-1 ONLY: never walks beyond the node's direct out-edges (DoS
+    mitigation, T-07-01), and skips any self-referential edge (an edge whose
+    target_id equals concept_id) so a cyclic materialised graph can't loop
+    the caller back onto the same node it asked about.
+    """
+    ge = _get_graph_editor()
+    node = ge.get_concept(concept_id)
+    if node is None:
+        raise HTTPException(status_code=404, detail=f"ConceptNode {concept_id} not found")
+
+    edges = ge.list_concept_edges(workspace_id=workspace_id, limit=50000)
+    neighbors: List[Dict[str, Any]] = []
+    for edge in edges:
+        if edge.source_id != concept_id:
+            continue
+        if edge.edge_type not in _NEXT_RANK_EDGE_TYPES:
+            continue
+        if edge.target_id == concept_id:
+            # Self-referential edge — rank-1 only, never fold back onto self.
+            continue
+        target = ge.get_concept(edge.target_id)
+        if target is None:
+            continue
+        neighbors.append({
+            "concept_id": target.concept_id,
+            "name": target.name,
+            "type_hint": target.type_hint,
+            "edge_type": edge.edge_type,
+            "relation": _NEXT_RANK_RELATION_HINT.get(edge.edge_type, ""),
+        })
+
+    return {
+        "ok": True,
+        "concept_id": concept_id,
+        "neighbors": neighbors,
+    }
+
+
 @router.get("/concepts/{concept_id}")
 def get_concept_by_id(concept_id: str):
     ge = _get_graph_editor()
