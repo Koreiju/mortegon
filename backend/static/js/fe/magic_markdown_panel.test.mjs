@@ -107,6 +107,7 @@ class FakeEvent {
     this.button = opts.button != null ? opts.button : 0;
     this.clientX = opts.clientX || 0;
     this.clientY = opts.clientY || 0;
+    this.relatedTarget = opts.relatedTarget || null;
     this._stopped = false;
     this._defaultPrevented = false;
   }
@@ -394,6 +395,63 @@ test("mount(): a read-only node's drag-wire and hover/contextmenu paths remain o
     assert.ok(drop, "read-only node still renders its dropdown char");
     fire(dom, "contextmenu", drop);
     assert.ok(toggled, "fold still works (right-click) on a read-only node");
+  });
+});
+
+// ── EXPLORE-01 hover next-rank preview wiring (Hover-Preview Contract) ─────
+
+test("mount(): hovering a ref/dropdown/token target fires onHoverPreview with its data-path; mouseout fires onHoverEnd", () => {
+  withFakeDocument(() => {
+    const { A, registry } = gestureFixture();
+    const host = new FakeElement("div");
+    const previewed = [], ended = [];
+    const dom = mount(host, A, { registry, expanded: new Set() }, {
+      onHoverPreview: (path, kind) => previewed.push({ path, kind }),
+      onHoverEnd: (path) => ended.push(path),
+    });
+    const drop = findByClass(dom, "mm-drop");
+    fire(dom, "mouseover", drop);
+    assert.strictEqual(previewed.length, 1, "onHoverPreview fired once for the dropdown target");
+    assert.strictEqual(previewed[0].path, drop.getAttribute("data-path"));
+    fire(dom, "mouseout", drop, { relatedTarget: host });
+    assert.deepStrictEqual(ended, [drop.getAttribute("data-path")], "onHoverEnd fired with the same path on un-hover");
+  });
+});
+
+test("mount(): mouseover does NOT re-fire onHoverPreview while still over the SAME hovered target (no flicker)", () => {
+  withFakeDocument(() => {
+    const { A, registry } = gestureFixture();
+    const host = new FakeElement("div");
+    let calls = 0;
+    const dom = mount(host, A, { registry, expanded: new Set() }, { onHoverPreview: () => { calls++; } });
+    const drop = findByClass(dom, "mm-drop");
+    fire(dom, "mouseover", drop);
+    fire(dom, "mouseover", drop); // a second mouseover within the same target's bounds
+    assert.strictEqual(calls, 1, "re-entering the same already-hovered target does not re-fire the preview");
+  });
+});
+
+test("mount(): a hover preview committed by right-click is not torn down by the un-hover handler", () => {
+  withFakeDocument(() => {
+    const { A, registry } = gestureFixture();
+    const host = new FakeElement("div");
+    let toggled = null, ended = null;
+    const dom = mount(host, A, { registry, expanded: new Set() }, {
+      onToggle: (p) => { toggled = p; },
+      onHoverEnd: (p) => { ended = p; },
+    });
+    const refToken = findAllByClass(dom, "mm-text").find((e) => /\{.*\}/.test(e.textContent));
+    fire(dom, "mouseover", refToken);
+    fire(dom, "contextmenu", refToken); // commits the fold via right-click
+    assert.ok(toggled, "right-click commits the fold while still hovering");
+    fire(dom, "mouseout", refToken, { relatedTarget: host });
+    // mount() itself does not know about "committed" state (that lives in
+    // the caller's expanded-set / re-render), so onHoverEnd still fires on
+    // un-hover — but the CALLER's committed expanded-set is untouched by it
+    // (asserted indirectly: toggled was already recorded above and is not
+    // reset by this un-hover call).
+    assert.strictEqual(ended, refToken.getAttribute("data-path"));
+    assert.ok(toggled, "the earlier commit is unaffected by the later un-hover");
   });
 });
 

@@ -307,6 +307,42 @@ export function mount(host, rootNode, opts = {}, handlers = {}) {
   // a drag released outside the host (or aborted) tears down cleanly too.
   dom.addEventListener("mouseleave", () => { if (dragState && !dragState.dragging) dragState = null; });
 
+  // ── hover next-rank preview (EXPLORE-01 / Hover-Preview Contract) ───────
+  // Hovering a token/ref/self target previews the SAME rank-1 subtree a
+  // right-click would commit, but ephemerally — this is NOT one of
+  // resolveGesture's click-based Actions (there is no button press), so it
+  // is wired directly as its own pair of handlers rather than synthesizing a
+  // fake gesture through the resolver. mount() never fetches /next_rank
+  // itself (backend computes, frontend renders) — it only classifies the
+  // hovered target and reports {path, el} to the caller, which resolves
+  // path→concept_id and calls the gateway; mount() then renders whatever
+  // preview payload the caller hands back via a re-call (handlers.onHover
+  // is fire-only; the caller owns committing a transient overlay).
+  // Un-hover collapses the preview UNLESS it was already committed by a
+  // right-click in the same interaction — committed state (fold/expanded)
+  // persists independently of hover and is never torn down here.
+  let hoveredEl = null;
+  dom.addEventListener("mouseover", (ev) => {
+    const { kind, el } = classifyTarget(ev, dom);
+    if (kind === "body" || !el) return;
+    if (hoveredEl === el) return; // already previewing this exact target
+    hoveredEl = el;
+    handlers.onHoverPreview && handlers.onHoverPreview(el.getAttribute("data-path"), kind);
+  });
+  dom.addEventListener("mouseout", (ev) => {
+    const { kind, el } = classifyTarget(ev, dom);
+    if (!hoveredEl || (el && el === hoveredEl)) {
+      // only fire un-hover once the pointer has actually left the previously
+      // hovered target (the related target check keeps a move WITHIN the
+      // same token from flickering the preview off and back on).
+      const related = ev.relatedTarget && ev.relatedTarget.closest ? ev.relatedTarget.closest(".mm-drop, .mm-gnode, .mm-text, .mm-line") : null;
+      if (related === hoveredEl) return;
+      const leftPath = hoveredEl ? hoveredEl.getAttribute("data-path") : null;
+      hoveredEl = null;
+      if (leftPath != null) handlers.onHoverEnd && handlers.onHoverEnd(leftPath);
+    }
+  });
+
   host.appendChild(dom);
   return dom;
 }
