@@ -398,22 +398,25 @@ The `duckduckgo-walkthrough` scenario should follow this exact shape: `purge` �
 
 **If this table is empty:** N/A — table is populated above.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Exact shape of the duplicate-instance-proxy semantics (N.6)**
    - What we know: N.6 says "a `{ref}` is a duplicate instance that operationally calls the originating object" — i.e., the duplicate isn't a copy, it's a live proxy.
    - What's unclear: Whether this needs new backend state (e.g. a `proxy_of` field on the ConceptNode, or a dedicated edge type) or can be expressed purely as "render every `{ref}` occurrence by re-resolving the registry at render time" (which `fe/magic_markdown.mjs`'s existing `buildRegistry`/`refTarget` mechanism may already give for free, since it always resolves `{ref}` to the live current node, not a frozen snapshot).
    - Recommendation: The planner should re-read `object_exploration.md` §N.6/§N.7/§N.14 closely during planning and test whether the EXISTING registry-resolution mechanism already satisfies "operationally calls the originating object" before building anything new — this may be a zero-backend-work item disguised as a hard one.
+   - RESOLVED: absorbed into **07-03 Task 1** — its Test 1 is an explicit Open-Q1 probe that FIRST tests whether the existing `buildRegistry`/`refTarget` live-resolution already satisfies N.6 ("re-resolves to the NEW text on the next renderPanel call, not a frozen snapshot") BEFORE building any new proxy state; new proxy state is added only if that test fails, and the finding (live-resolution preferred = zero new code) is recorded in the 07-03 SUMMARY.
 
 2. **Exact backend route shape for the next-rank type-graph fetch (D-03)**
    - What we know: The data needed (rank-1 typed neighbors via `OBJECT_HAS_PROPERTY`/`OBJECT_HAS_FUNCTION`/`FUNCTION_INPUT_TYPE`/`FUNCTION_OUTPUT_TYPE` edges) is fully present in the ConceptEdge table; no existing route shapes it for single-node rank-1 consumption.
    - What's unclear: Whether to add a new dedicated route (`GET /api/concepts/{id}/next_rank`) or extend an existing one (e.g. a query param on `GET /concepts/{id}`).
    - Recommendation: Default to a new dedicated route — it's additive (no risk of breaking existing `GET /concepts/{id}` consumers) and self-documenting; the planner should confirm naming convention against the existing `/ui/*` and `/concepts/*` route families during plan-writing.
+   - RESOLVED: absorbed into **07-01** — the plan adds a dedicated `GET /api/concepts/{id}/next_rank` route (registered as a static path BEFORE the parametric `/concepts/{concept_id}` route), filtering ConceptEdge rows to exactly the four materialiser edge types; no extension of the existing parametric route.
 
 3. **Whether `WIRE_LINK`'s backend mapping needs a new endpoint or an extension flag on `/concept_edges`/`/editor/link`**
    - What we know: Neither existing edge-create path does type inheritance; `gateway.mjs` currently sends a plain `POST /api/concept_edges` body.
    - What's unclear: Whether type-inheritance should be a synchronous side-effect of edge creation (single request) or a separate follow-up call the frontend makes after the edge is created.
    - Recommendation: Prefer a single synchronous side-effect (one request, one lifecycle event) for consistency with the "cascade is the default" architectural principle (CLAUDE.md) — avoids a frontend-orchestrated two-step sequence that could partially fail.
+   - RESOLVED: absorbed into **07-04** — an optional `inherit_types` flag on the existing edge-create path (`EditorLinkRequest` / `POST /concept_edges`) triggers a SINGLE synchronous I/O-type-inheritance side-effect inside the same handler, fanned out through the existing `apply_edge_create_lifecycle` dispatcher (one request, one lifecycle event); no frontend-orchestrated two-step sequence and no new dedicated endpoint.
 
 ## Environment Availability
 
