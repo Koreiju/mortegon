@@ -75,12 +75,12 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   3. Left-click-drag wires two graph nodes (target inherits i/o types); double-right-click deletes a token in panel or graph form. Verified by e2e gestures + `editor-delete`/`editor-link` telemetry.
   4. A `duckduckgo-walkthrough` env-scenario + probe runs the §N flow end-to-end against real subsystems.
 
-**Plans**: 1/6 plans executed
+**Plans**: 2/6 plans executed
 
 **Wave 1**
 
 - [x] 07-01-PLAN.md — EXPLORE-01 backend rank-1 type-graph fetch endpoint (D-03) + pytest
-- [ ] 07-02-PLAN.md — EXPLORE-01 typed `key:Type=value` render mode (renderTypedPanel) + Wave-0 unit scaffold
+- [x] 07-02-PLAN.md — EXPLORE-01 typed `key:Type=value` render mode (renderTypedPanel) + Wave-0 unit scaffold
 
 **Wave 2** *(blocked on Wave 1)*
 
@@ -178,7 +178,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
-| 7. Deep Object-Exploration Gestures | v3.0 | 1/6 | In Progress|  |
+| 7. Deep Object-Exploration Gestures | v3.0 | 2/6 | In Progress|  |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |

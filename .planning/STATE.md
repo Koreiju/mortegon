@@ -6,12 +6,12 @@ current_phase: 7
 current_phase_name: Deep Object-Exploration Gestures
 status: executing
 stopped_at: Phase 7 UI-SPEC approved
-last_updated: "2026-06-24T01:20:11.540Z"
+last_updated: "2026-06-24T01:26:12.365Z"
 progress:
   total_phases: 9
   completed_phases: 1
   total_plans: 10
-  completed_plans: 5
+  completed_plans: 6
   percent: 11
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 7 (Deep Object-Exploration Gestures) — EXECUTING
-Plan: 2 of 6
+Plan: 3 of 6
 Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
@@ -60,7 +60,7 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 **Resume file:** .planning/phases/WFH-07-deep-object-exploration-gestures/07-UI-SPEC.md
 
-Last session: 2026-06-24T01:19:33.327Z
+Last session: 2026-06-24T01:25:44.676Z
 Stopped at: Phase 7 UI-SPEC approved
 Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
 
@@ -73,6 +73,7 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 | Phase WFH-06 P03 | 70min | 3 tasks | 3 files |
 | Phase WFH-06 P04 | 45min | 3 tasks | 3 files |
 | Phase WFH-07 P01 | 12min | 2 tasks | 2 files |
+| Phase WFH-07 P02 | 18min | 2 tasks | 2 files |
 
 ## Decisions
 
@@ -88,3 +89,5 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 - [Phase ?]: REAL-04 link arrow is #ffd700 solid headless: stroke-width:2, no marker-end, no stroke-dasharray, hides via true NDC-z [-1,1] frustum test (not the weaker inFront near/far flag)
 - [Phase ?]: WFH-07-01: Used a dedicated GET /concepts/{id}/next_rank route (not an extension of GET /concepts/{id}) per RESEARCH Open-Q2 resolution
 - [Phase ?]: WFH-07-01: next_rank test monkeypatches routes._get_graph_editor to a GraphEditor bound to a temp_db_dir Kuzu connection rather than relying on the process-wide get_default_graph_editor() singleton
+- [Phase WFH-07]: WFH-07-02: renderConceptPanel added as a new dispatch seam (not an overload of renderPanel's signature) to avoid breaking 18 existing callers that always pass a parsed tree node
+- [Phase WFH-07]: WFH-07-02: magic_markdown_panel.mjs NOT modified — panelVDom/mount have no ConceptNode-shaped input path today; wiring renderConceptPanel into the DOM-vdom layer is left to the downstream plan consuming the next_rank endpoint
