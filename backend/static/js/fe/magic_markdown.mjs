@@ -276,9 +276,161 @@ export function toggle(expanded, path) {
   return next;
 }
 
+/**
+ * isReadOnlyTypedNode(conceptNode) → boolean.
+ *
+ * The SAME gate the legacy `cp/concept_graph.js` 🔒 read-only check uses
+ * (object_exploration.md §9.6.1 / §8D.4.2), re-implemented here as the single
+ * source of truth for "does this node render in typed `key:Type=value` form."
+ * Never introduce a second/independent "show types" flag (RESEARCH Pitfall 3 /
+ * Assumption A4) — typed-rendering and read-only-ness stay coupled exactly as
+ * the legacy reference couples them.
+ */
+export function isReadOnlyTypedNode(conceptNode) {
+  if (!conceptNode) return false;
+  const backingPointer = conceptNode.backing_pointer || "";
+  const typeHint = conceptNode.type_hint || "";
+  return (
+    /^fixture::/.test(backingPointer) ||
+    /^python_/.test(typeHint) ||
+    conceptNode.read_only === true
+  );
+}
+
+/**
+ * renderTypedPanel(conceptNode, opts) → Line[].
+ *
+ * Re-implements `cp/concept_graph.js::_pythonNativeTypedView` as a pure
+ * function over the SAME `Line[]` shape `renderPanel` produces
+ * (`{depth,text,glyph,refTarget,path,source}`), for raw object-inspection
+ * panels (python-native nodes / read-only fixtures) — EXPLORE-01's typed
+ * `key : Type = value` rendering contract (07-UI-SPEC.md "Type-Slot Row
+ * Rendering Contract"). `conceptNode` is the backend ConceptNode shape
+ * (`{type_hint, read_only, backing_pointer, data, value}`), NOT a parsed
+ * `magic_markdown` tree node — this function does its OWN JSON parse of the
+ * node's data/value, mirroring `_pythonNativeTypedView`'s `d.signature` /
+ * `d.ports.inputs`/`outputs` / `d.members` shapes.
+ *
+ * - A function node (`d.signature` present): one row per input parameter
+ *   (`"name : Type"`, value omitted when none is known), skipping the
+ *   implicit `self` parameter, plus a trailing `"→ ReturnType"` row when an
+ *   output type is known (from `d.ports.outputs[0]` or a `-> Type` signature
+ *   suffix when `d.ports.inputs` is absent).
+ * - An object node (`d.members` present): one row per member, taking only the
+ *   last `::`-delimited segment (mirroring `_pythonNativeTypedView`'s
+ *   `String(mm).split('::').pop()`).
+ * - Malformed/non-JSON data: a single structural fallback row carrying the
+ *   raw text verbatim (T-07-03 — defensive, no recursive walk, no throw).
+ *
+ * opts.maxDepth is accepted for signature symmetry with renderPanel but is
+ * unused — this view is rank-1-only by construction (one flat row per
+ * parameter/member, no further recursion), which is itself the DoS
+ * mitigation (T-07-03).
+ */
+export function renderTypedPanel(conceptNode, opts = {}) {
+  const raw = (conceptNode && (conceptNode.data ?? conceptNode.value)) ?? "";
+  const lines = [];
+
+  let parsed = null;
+  try {
+    parsed = typeof raw === "string" ? JSON.parse(raw) : raw;
+  } catch (_) {
+    parsed = null;
+  }
+
+  const pushTypedRow = (path, name, type, value) => {
+    const typeText = type || "?";
+    const text = value != null && value !== ""
+      ? `${name} : ${typeText} = ${value}`
+      : `${name} : ${typeText}`;
+    lines.push({ depth: 0, text, glyph: GLYPH_NONE, refTarget: refTarget(text), path, source: "own" });
+  };
+
+  if (parsed && parsed.signature) {
+    const sig = String(parsed.signature);
+    const inputs = parsed.ports && Array.isArray(parsed.ports.inputs) ? parsed.ports.inputs : null;
+    let idx = 0;
+    if (inputs) {
+      inputs.forEach((p) => {
+        if (p && p.name && p.name !== "self") {
+          pushTypedRow(String(idx), p.name, p.type || p.type_ref || p.annotation || "?", p.value);
+          idx++;
+        }
+      });
+    } else {
+      const m = sig.match(/^\(([^)]*)\)/);
+      if (m) {
+        m[1]
+          .split(",")
+          .map((s) => s.trim())
+          .filter((s) => s && s !== "self")
+          .forEach((s) => {
+            // signature-string fallback parse: "name: Type" or bare "name"
+            const parts = s.split(":");
+            const name = (parts[0] || s).trim();
+            const type = parts.length > 1 ? parts.slice(1).join(":").trim() : "?";
+            pushTypedRow(String(idx), name, type, null);
+            idx++;
+          });
+      }
+    }
+    let out = "";
+    if (parsed.ports && Array.isArray(parsed.ports.outputs) && parsed.ports.outputs[0]) {
+      const o = parsed.ports.outputs[0];
+      out = o.type || o.type_ref || o.annotation || "";
+    }
+    if (!out) {
+      const mo = sig.match(/->\s*(.+)$/);
+      if (mo) out = mo[1].trim();
+    }
+    if (out) {
+      lines.push({ depth: 0, text: `→ ${out}`, glyph: GLYPH_NONE, refTarget: null, path: String(idx), source: "own" });
+    }
+    return lines;
+  }
+
+  if (parsed && Array.isArray(parsed.members)) {
+    parsed.members.forEach((mm, i) => {
+      const text = String(mm).split("::").pop();
+      lines.push({ depth: 0, text, glyph: GLYPH_NONE, refTarget: refTarget(text), path: String(i), source: "own" });
+    });
+    return lines;
+  }
+
+  // Defensive structural fallback (T-07-03): malformed/non-JSON data renders
+  // as a single verbatim row rather than throwing or recursing.
+  lines.push({ depth: 0, text: String(raw), glyph: GLYPH_NONE, refTarget: null, path: "0", source: "own" });
+  return lines;
+}
+
+/**
+ * renderConceptPanel(conceptNode, opts) → Line[].
+ *
+ * The single dispatch seam between the typed render mode and the existing
+ * structural `renderPanel`: gated on EXACTLY `isReadOnlyTypedNode` (the same
+ * condition the legacy 🔒 read-only check uses), never a separate "show
+ * types" flag (RESEARCH Pitfall 3). Python-native / read-only nodes route
+ * through `renderTypedPanel`; every other node (in particular user compute
+ * nodes, N.4/N.5) takes the UNCHANGED structural `renderPanel` path over its
+ * parsed field tree — rank-1 minimalism, type-stripped.
+ *
+ * `conceptNode` is the backend ConceptNode shape. For the structural path,
+ * its `value`/`data` text is parsed via `parse()` exactly as the rest of this
+ * module already does.
+ */
+export function renderConceptPanel(conceptNode, opts = {}) {
+  if (isReadOnlyTypedNode(conceptNode)) {
+    return renderTypedPanel(conceptNode, opts);
+  }
+  const text = (conceptNode && (conceptNode.value ?? conceptNode.data)) ?? "";
+  const tree = parse(text);
+  return renderPanel(tree, opts);
+}
+
 export default {
   node, iterableNode, isIterable, advanceSignal,
   parse, serialize, rootField, buildRegistry,
   refTarget, refTargets, renderPanel, renderGraph, parentPath, linesToText, toggle,
   GLYPH_COLLAPSED, GLYPH_EXPANDED,
+  isReadOnlyTypedNode, renderTypedPanel, renderConceptPanel,
 };
