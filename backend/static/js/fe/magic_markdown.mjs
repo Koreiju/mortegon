@@ -242,36 +242,36 @@ export function renderPanel(rootNode, opts = {}) {
  *     user expanded it here) — braces drop, rank-1 children inline beneath it
  *     (the existing renderPanel expansion; classifyBraceStates does not
  *     duplicate that walk, it only labels the line that triggered it).
- *   - resolved-external: the ref's target is independently visible elsewhere
- *     in this SAME rendered Line[] (another line's text equals the target's
- *     root field, via a DIFFERENT path) — i.e. some other reveal already made
- *     the target a real visible row. Rendered as a solid-link marker, never
- *     inline children of THIS line.
+ *   - resolved-external: the SAME target (by identity, i.e. the same
+ *     `refTarget` string) is ALREADY revealed-internal at a DIFFERENT path in
+ *     this render — i.e. some other ref to the same node already committed
+ *     the reveal, so this occurrence draws a solid link to that already-
+ *     visible node instead of duplicating its rank-1 fields a second time.
  *   - braced-hidden: the default — an unrevealed ref to a target that is
- *     neither expanded-here nor independently visible (this also covers refs
- *     to unregistered/never-revealed targets — braces stay literal).
+ *     neither expanded-here nor resolved-elsewhere (this also covers refs to
+ *     unregistered/never-revealed targets — braces stay literal).
  *
  * Precedence: revealed-internal is checked first (a line that is itself open
- * always shows its own inline children, even if the target also happens to
- * be visible elsewhere) so the panel never shows BOTH an inline reveal AND a
- * redundant solid-link marker for the same line.
+ * always shows its own inline children, even if the SAME target is also
+ * revealed at another path) so the panel never shows BOTH an inline reveal
+ * AND a redundant solid-link marker for the line that triggered the reveal.
  */
 export function classifyBraceStates(lines) {
-  // Build the set of target-identity texts that are independently visible as
-  // their OWN rendered row (i.e. some line's text matches that target's root
-  // field via a path that is not itself a {ref} occurrence's inline child of
-  // a different target). We approximate "independently visible" the way the
-  // UI-SPEC frames it: the target's root-field text appears as the text of
-  // some line in this render — own-authored or read-through, it does not
-  // matter, because graph-form node-count parity is over visible LINES.
-  const visibleTexts = new Set(lines.map((l) => l.text));
+  // The set of refTarget identities that are revealed-internal SOMEWHERE in
+  // this render (i.e. some other ref-bearing line, at its own path, has
+  // already committed the fold for that target) — the resolved-external
+  // precondition per §O.1a: "the moment the referenced node becomes visible
+  // by any other path".
+  const revealedTargets = new Set(
+    lines.filter((l) => l.refTarget != null && l.glyph === GLYPH_EXPANDED).map((l) => l.refTarget),
+  );
   for (const line of lines) {
     if (line.refTarget == null) continue;
     if (line.glyph === GLYPH_EXPANDED) {
       line.braceState = BRACE_REVEALED_INTERNAL;
       continue;
     }
-    if (visibleTexts.has(line.refTarget)) {
+    if (revealedTargets.has(line.refTarget)) {
       line.braceState = BRACE_RESOLVED_EXTERNAL;
       continue;
     }

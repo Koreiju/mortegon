@@ -13,7 +13,10 @@
  * Run: node backend/static/js/fe/integration.test.mjs
  */
 import assert from "node:assert";
-import { parse, buildRegistry, renderPanel, toggle } from "./magic_markdown.mjs";
+import {
+  parse, buildRegistry, renderPanel, toggle,
+  BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
+} from "./magic_markdown.mjs";
 import { panelVDom, flattenVDom } from "./magic_markdown_panel.mjs";
 import { resolveGesture, Action } from "./magic_markdown_gestures.mjs";
 
@@ -96,6 +99,63 @@ test("the rendered slate never contains JSON/HTML/xpath markup (pure text)", () 
   const texts = all.filter((e) => e.text != null).map((e) => e.text).join("\n");
   assert.ok(!/[<>]|@href|text\(\)|#shadow-root|[{][^}]*[}][}]/.test(texts.replace(/\{[^{}]+\}/g, "")),
     "no html/xpath/json leakage (only {ref} braces remain as markup)");
+});
+
+// ── EXPLORE-02: external-{ref} recursive-panel propagation through the FULL
+// pipeline (parse → renderPanel → panelVDom), proving the three §O.1a brace
+// states end-to-end, not just at the renderPanel model layer.
+test("EXPLORE-02: external {ref} propagates through the full vdom pipeline across all three brace states", () => {
+  let expanded = new Set();
+  let lines = renderPanel(CARD, { registry, expanded });
+  let refLine = lines.find((l) => l.refTarget === "details page");
+  assert.strictEqual(refLine.braceState, BRACE_HIDDEN, "unrevealed → braced-hidden");
+  // braced-hidden propagates into the vdom: the dropdown char is ▸, no
+  // inline read-through children rendered for this ref yet.
+  let vdom = flattenVDom(panelVDom(CARD, { registry, expanded }));
+  assert.ok(!vdom.some((e) => e.attrs && e.attrs.class === "mm-text mm-readthrough"));
+
+  // right-click commits the fold → revealed-internal; the referenced node's
+  // panel propagates in as its own recursively-rendered rank-1 fields.
+  expanded = toggle(expanded, refLine.path);
+  lines = renderPanel(CARD, { registry, expanded });
+  refLine = lines.find((l) => l.refTarget === "details page");
+  assert.strictEqual(refLine.braceState, BRACE_REVEALED_INTERNAL, "right-click commit → revealed-internal");
+  const propagated = lines.filter((l) => l.source === "expanded").map((l) => l.text);
+  assert.deepStrictEqual(propagated, [
+    "url : /details/sim_princeton-university-library-chronicle_1950-1951_12_contents",
+    "mediatype : Text",
+    "reviews : 0",
+  ], "the external node's rank-1 fields propagated in as the duplicate-instance proxy (N.6)");
+  // the vdom reflects the propagation: a read-through (expanded) text span
+  // for each propagated field, plus the dropdown char flipped to ▾.
+  vdom = flattenVDom(panelVDom(CARD, { registry, expanded }));
+  const readthrough = vdom.filter((e) => e.attrs && e.attrs.class === "mm-text mm-readthrough").map((e) => e.text);
+  assert.deepStrictEqual(readthrough, propagated);
+
+  // a SECOND, independent card whose ref to the SAME target ("details page")
+  // sits within the SAME rendered Line[] set (e.g. a workspace-level
+  // multi-card render merges both cards' lines) resolves to
+  // resolved-external — a solid-link marker, never a duplicate inline copy
+  // of "details page"'s fields. This exercises the cross-card visibility
+  // rule the renderPanel-level brace-state tests (magic_markdown.test.mjs)
+  // already prove for a single render tree; here it is the SAME classifier
+  // applied to a synthetic multi-card forest (the workspace's actual
+  // render shape — every card root is a top-level forest child).
+  const SECOND_CARD = parse([
+    "A related catalog entry",
+    "\tsee {details page}",
+  ].join("\n"));
+  const WORKSPACE = { text: "", children: [CARD, SECOND_CARD] };
+  const workspaceLines = renderPanel(WORKSPACE, { registry, expanded });
+  const firstRefLine = workspaceLines.find((l) => l.refTarget === "details page" && l.glyph === "▾");
+  const secondRefLine = workspaceLines.find((l) => l.refTarget === "details page" && l !== firstRefLine);
+  assert.ok(firstRefLine, "the first card's revealed ref is present in the merged workspace render");
+  assert.ok(secondRefLine, "the second card's ref is present in the merged workspace render");
+  assert.strictEqual(firstRefLine.braceState, BRACE_REVEALED_INTERNAL);
+  assert.strictEqual(secondRefLine.braceState, BRACE_RESOLVED_EXTERNAL,
+    "the second card's ref to the now-revealed 'details page' target resolves to a solid link, not a duplicate inline reveal");
+  assert.ok(!workspaceLines.some((l) => l.path.startsWith(secondRefLine.path + "/")),
+    "resolved-external never inlines its own children — no duplicate copy of the propagated panel");
 });
 
 console.log(`\n${passed}/${passed + failed} passed`);

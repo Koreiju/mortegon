@@ -349,41 +349,39 @@ test("brace-state: toggling a {ref} open classifies it as revealed-internal", ()
 });
 
 // Test 4: a {ref} whose target is ALSO independently visible (revealed via
-// another path) classifies as resolved-external — a solid-link marker, NOT
-// a second set of inline children, NOT dashed (no stroke/line-style field is
-// ever set to anything but the default solid rendering — classification is
-// purely the braceState string).
+// another path pointing at the SAME target) classifies as resolved-external
+// — a solid-link marker, NOT a second set of inline children, NOT dashed (no
+// stroke/line-style field is ever set to anything but the default solid
+// rendering — classification is purely the braceState string).
 test("brace-state: a {ref} whose target is independently visible elsewhere is resolved-external", () => {
-  // two siblings both reference "scanner"; the FIRST is expanded (revealing
-  // "scanner"'s own row as the inline child "url : http://x"). The SECOND
-  // ref to the literal text "url : http://x" (i.e. a different field
-  // already showing the same text the target's row shows) demonstrates the
-  // independently-visible check. To keep the fixture unambiguous, model it
-  // as: revealing scanner's child row makes "url : http://x" visible; a
-  // second host that independently {ref}s a node whose root field IS that
-  // same text resolves to resolved-external (no new inline children, no
-  // dashed line — distinct from the revealed-internal line itself).
-  const visibleTarget = parse("url : http://x"); // a node, root field "url : http://x"
-  const host = parse("host\n\tlink {scanner}\n\talso {url : http://x}");
+  // two siblings of the SAME host both {ref} the SAME target "scanner". The
+  // FIRST is expanded (revealing scanner's rank-1 fields inline at its own
+  // path). The SECOND, still-unexpanded ref to the SAME target resolves to
+  // resolved-external — a solid-link marker, never a duplicate second copy
+  // of scanner's fields.
+  const host = parse("host\n\tprimary {scanner}\n\tsecondary {scanner}");
   const scanner = parse("scanner\n\turl : http://x");
-  const reg = buildRegistry([scanner, visibleTarget]);
+  const reg = buildRegistry([scanner]);
 
   const collapsedFirst = renderPanel(host, { registry: reg, expanded: new Set() });
-  const scannerRefPath = collapsedFirst.find((l) => l.refTarget === "scanner").path;
-  const expanded = toggle(new Set(), scannerRefPath);
+  const primaryRefPath = collapsedFirst.find((l) => l.text === "primary {scanner}").path;
+  const expanded = toggle(new Set(), primaryRefPath);
 
   const lines = renderPanel(host, { registry: reg, expanded });
-  const scannerLine = lines.find((l) => l.refTarget === "scanner");
-  const alsoLine = lines.find((l) => l.refTarget === "url : http://x");
-  assert.strictEqual(scannerLine.braceState, BRACE_REVEALED_INTERNAL);
-  assert.strictEqual(alsoLine.braceState, BRACE_RESOLVED_EXTERNAL,
-    "the {url : http://x} ref's target text is independently visible (the expanded scanner row) — solid-link marker, no inline children of its own");
+  const primaryLine = lines.find((l) => l.text === "primary {scanner}");
+  const secondaryLine = lines.find((l) => l.text === "secondary {scanner}");
+  assert.strictEqual(primaryLine.braceState, BRACE_REVEALED_INTERNAL);
+  assert.strictEqual(secondaryLine.braceState, BRACE_RESOLVED_EXTERNAL,
+    "the second {scanner} ref resolves to the already-visible scanner node — solid-link marker, no inline children of its own");
   // resolved-external never produces its OWN inline children (no second
   // expansion just from being classified) and never carries a dashed marker.
-  assert.ok(!lines.some((l) => l.path.startsWith(alsoLine.path + "/")),
+  assert.ok(!lines.some((l) => l.path.startsWith(secondaryLine.path + "/")),
     "resolved-external does not inline its own children");
-  assert.ok(!("dashed" in alsoLine) && alsoLine.lineStyle !== "dashed",
+  assert.ok(!("dashed" in secondaryLine) && secondaryLine.lineStyle !== "dashed",
     "no dashed marker — resolved-external is solid-only");
+  // only ONE copy of scanner's fields is ever inlined — the duplicate-instance
+  // proxy materialises once, not once per referencing occurrence.
+  assert.strictEqual(lines.filter((l) => l.source === "expanded").length, 1);
 });
 
 // Test 5: node-count parity — revealing a ref in the panel Line[] yields the
