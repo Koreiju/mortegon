@@ -20,6 +20,7 @@
  */
 
 import { renderPanel, renderGraph, GLYPH_EXPANDED } from "./magic_markdown.mjs";
+import { resolveGesture, Action } from "./magic_markdown_gestures.mjs";
 
 const INDENT_PX = 16; // one tab depth
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -143,16 +144,55 @@ function realise(spec) {
   return node;
 }
 
+// Double-right-click debounce window (Pitfall 4 / Assumption A3 — no native
+// double-right DOM event exists; ~400ms matches a typical OS double-click
+// interval, an implementation-discretion threshold, not design-locked).
+const DOUBLE_RIGHT_MS = 400;
+// Drag-classification move-threshold (px) — distinguishes a press→move→release
+// drag from a press→release click with no intervening move (a few px of jitter
+// tolerance, implementation discretion per the Drag-Wire Affordance Contract).
+const DRAG_MOVE_PX = 4;
+
+/** True when rootNode is a read-only python-native / foundation-fixture node
+ * (🔒 gate) — mirrors the legacy cp/concept_graph.js ~line 1687 check exactly:
+ * /^fixture::/.test(backing_pointer) || /^python_/.test(type_hint). */
+function isReadOnlyRoot(rootNode) {
+  if (!rootNode) return false;
+  return /^python_/.test(rootNode.type_hint || "") || /^fixture::/.test(rootNode.backing_pointer || "");
+}
+
+/** Classify a DOM event target into the resolveGesture `target` vocabulary
+ * ('dropdown' | 'ref' | 'token' | 'self' | 'body'), mirroring the existing
+ * click handler's closest()-based dispatch shape exactly. */
+function classifyTarget(ev, dom) {
+  const drop = ev.target.closest(".mm-drop");
+  if (drop) return { kind: "dropdown", el: drop };
+  const gnode = ev.target.closest(".mm-gnode");
+  if (gnode) return { kind: gnode === dom.firstElementChild ? "self" : "token", el: gnode };
+  const text = ev.target.closest(".mm-text");
+  if (text) return { kind: "token", el: text };
+  const line = ev.target.closest(".mm-line");
+  if (line && line.getAttribute("data-depth") === "0") return { kind: "self", el: line };
+  return { kind: "body", el: null };
+}
+
 /**
  * mount(host, rootNode, opts, handlers) — render the slate (or graph) into
  * `host` and wire the gestures. `opts.mode` ('panel' | 'graph') selects the
  * representation (§V "going between" the two halves). `handlers = {
- * onToggle(path), onEdit(path), onTogglePanelGraph() }`. Re-call to re-render.
+ * onToggle(path), onEdit(path), onTogglePanelGraph(), onCollapse(path),
+ * onDelete(path, el), onWire(sourcePath, targetPath) }`. Re-call to re-render.
+ *
+ * Every handler classifies the raw DOM event then calls the SHARED
+ * resolveGesture() (magic_markdown_gestures.mjs) — never an inline
+ * if(button===) chain (T-07-09 / RESEARCH Don't Hand-Roll).
  */
 export function mount(host, rootNode, opts = {}, handlers = {}) {
   host.innerHTML = "";
   const isGraph = opts.mode === "graph";
   const dom = realise(isGraph ? graphVDom(rootNode, opts) : panelVDom(rootNode, opts));
+  const readOnly = isReadOnlyRoot(rootNode);
+
   dom.addEventListener("click", (ev) => {
     const drop = ev.target.closest(".mm-drop");
     if (drop) { handlers.onToggle && handlers.onToggle(drop.getAttribute("data-path")); ev.stopPropagation(); return; }
@@ -161,13 +201,112 @@ export function mount(host, rootNode, opts = {}, handlers = {}) {
       handlers.onToggle && handlers.onToggle(gnode.getAttribute("data-path")); return;
     }
     const text = ev.target.closest('.mm-text[data-editable="1"]');
-    if (text) { handlers.onEdit && handlers.onEdit(text.getAttribute("data-path")); }
+    if (text) {
+      // 🔒 gate — read-only nodes refuse single-left edit (no-op highlight);
+      // exploration gestures (contextmenu/dblclick/hover) are left intact.
+      if (readOnly) return;
+      const { action } = resolveGesture({ button: "left", clicks: 1, target: "token", mode: opts.mode });
+      if (action === Action.EDIT_TOKEN) handlers.onEdit && handlers.onEdit(text.getAttribute("data-path"));
+    }
   });
   // double-left on the body (not a token/node) → panel ⇄ graph (M.7 / §V)
   dom.addEventListener("dblclick", (ev) => {
     if (ev.target.closest(".mm-drop, .mm-gnode, .mm-text")) return;
-    handlers.onTogglePanelGraph && handlers.onTogglePanelGraph();
+    const { action } = resolveGesture({ button: "left", clicks: 2, target: "body", mode: opts.mode });
+    if (action === Action.TOGGLE_PANEL_GRAPH) handlers.onTogglePanelGraph && handlers.onTogglePanelGraph();
   });
+
+  // ── right-click: single-right fold/collapse, double-right delete ────────
+  // Pitfall 4 — no native double-right DOM event; manual timestamp debounce
+  // over consecutive contextmenu events on the SAME target synthesizes
+  // {clicks:2}.
+  let lastRight = { ts: 0, el: null };
+  dom.addEventListener("contextmenu", (ev) => {
+    ev.preventDefault();
+    const { kind, el } = classifyTarget(ev, dom);
+    if (kind === "body") return;
+    const now = (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
+    const isDoubleRight = lastRight.el === el && (now - lastRight.ts) <= DOUBLE_RIGHT_MS;
+    if (isDoubleRight) {
+      lastRight = { ts: 0, el: null }; // consume — a third click starts a fresh pair
+      const { action } = resolveGesture({ button: "right", clicks: 2, target: kind, mode: opts.mode });
+      if (action === Action.DELETE_REF) {
+        const path = el.getAttribute("data-path");
+        handlers.onDelete && handlers.onDelete(path, el);
+      }
+      return;
+    }
+    lastRight = { ts: now, el };
+    const { action } = resolveGesture({ button: "right", clicks: 1, target: kind, mode: opts.mode });
+    if (action === Action.COLLAPSE_TO_NODE) {
+      handlers.onCollapse && handlers.onCollapse(el.getAttribute("data-path"));
+    } else if (action === Action.TOGGLE_FOLD) {
+      handlers.onToggle && handlers.onToggle(el.getAttribute("data-path"));
+    }
+  });
+
+  // ── drag-wire (graph form): mousedown on a .mm-gnode → mousemove past the
+  // move-threshold flips into drag mode (renders a transient SOLID line, no
+  // dash, per the Drag-Wire Affordance Contract) → mouseup on another
+  // .mm-gnode wires the link (inheritTypes:true, N.4); mouseup on empty
+  // canvas discards (no edge, no error). Torn down on every mouseup
+  // (success or discard) — no per-frame accumulation (T-07-10).
+  let dragState = null; // { sourceEl, sourcePath, startX, startY, dragging, lineEl }
+  function teardownDrag() {
+    if (dragState && dragState.lineEl && dragState.lineEl.parentNode) {
+      dragState.lineEl.parentNode.removeChild(dragState.lineEl);
+    }
+    dragState = null;
+  }
+  dom.addEventListener("mousedown", (ev) => {
+    if (ev.button !== 0) return; // left button only
+    const gnode = ev.target.closest(".mm-gnode");
+    if (!gnode) return;
+    dragState = {
+      sourceEl: gnode, sourcePath: gnode.getAttribute("data-path"),
+      startX: ev.clientX, startY: ev.clientY, dragging: false, lineEl: null,
+    };
+  });
+  dom.addEventListener("mousemove", (ev) => {
+    if (!dragState) return;
+    const dx = ev.clientX - dragState.startX, dy = ev.clientY - dragState.startY;
+    if (!dragState.dragging && Math.hypot(dx, dy) < DRAG_MOVE_PX) return;
+    dragState.dragging = true;
+    // transient SOLID line (no stroke-dasharray) from source to pointer —
+    // the only live visual feedback during the gesture (Forbidden Concepts:
+    // no dashed/dotted lines anywhere).
+    if (!dragState.lineEl) {
+      const svgHost = dom.querySelector("svg.mm-edges") || dom;
+      const line = document.createElementNS(SVG_NS, "line");
+      line.setAttribute("class", "mm-drag-line");
+      line.setAttribute("stroke", "var(--slate-border,#c0c0c0)");
+      line.setAttribute("stroke-width", "1");
+      svgHost.appendChild(line);
+      dragState.lineEl = line;
+    }
+    const srcRect = dragState.sourceEl.getBoundingClientRect();
+    const hostRect = dom.getBoundingClientRect();
+    dragState.lineEl.setAttribute("x1", String(srcRect.left + srcRect.width / 2 - hostRect.left));
+    dragState.lineEl.setAttribute("y1", String(srcRect.top + srcRect.height / 2 - hostRect.top));
+    dragState.lineEl.setAttribute("x2", String(ev.clientX - hostRect.left));
+    dragState.lineEl.setAttribute("y2", String(ev.clientY - hostRect.top));
+  });
+  dom.addEventListener("mouseup", (ev) => {
+    if (!dragState) return;
+    const wasDragging = dragState.dragging;
+    const sourcePath = dragState.sourcePath;
+    teardownDrag();
+    if (!wasDragging) return; // press→release with no move stays a click/edit
+    const targetGnode = ev.target.closest(".mm-gnode");
+    if (!targetGnode || targetGnode.getAttribute("data-path") === sourcePath) return; // empty canvas / same node — discard, no error
+    const { action } = resolveGesture({ button: "left", drag: true, target: "token", mode: opts.mode });
+    if (action === Action.WIRE_LINK) {
+      handlers.onWire && handlers.onWire(sourcePath, targetGnode.getAttribute("data-path"));
+    }
+  });
+  // a drag released outside the host (or aborted) tears down cleanly too.
+  dom.addEventListener("mouseleave", () => { if (dragState && !dragState.dragging) dragState = null; });
+
   host.appendChild(dom);
   return dom;
 }
