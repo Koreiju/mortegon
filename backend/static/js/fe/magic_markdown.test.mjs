@@ -8,6 +8,7 @@ import {
   renderPanel, linesToText, toggle, GLYPH_COLLAPSED, GLYPH_EXPANDED,
   iterableNode, isIterable, advanceSignal, renderGraph, parentPath,
   renderTypedPanel, renderConceptPanel, isReadOnlyTypedNode,
+  classifyBraceStates, BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
 } from "./magic_markdown.mjs";
 
 let passed = 0, failed = 0;
@@ -281,6 +282,141 @@ test("renderTypedPanel: malformed data falls back to a verbatim structural row (
   const broken = { type_hint: "python_function", read_only: true, data: "not json at all" };
   const lines = renderTypedPanel(broken, {});
   assert.deepStrictEqual(lines.map((l) => l.text), ["not json at all"]);
+});
+
+// ── §O.1a / D-04: three brace render states + N.6 duplicate-instance proxy ──
+// (07-03 Task 1 — RESEARCH Open Q1: probe the EXISTING buildRegistry/refTarget
+// live-resolution mechanism FIRST, before adding any new proxy state.)
+
+// Test 1 (Open Q1 probe): a {ref} whose target node's text is mutated AFTER
+// the registry is built re-resolves to the NEW text on the next renderPanel
+// call — proving buildRegistry/refTarget already give N.6's "operationally
+// calls the originating object" (a live proxy, not a frozen snapshot) for
+// free, with ZERO new proxy state.
+test("Open-Q1 probe: a {ref} re-resolves to the LIVE current node, not a frozen snapshot (N.6)", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://old");
+  const reg = buildRegistry([target]);
+  const expanded = new Set([renderPanel(host, { registry: reg, expanded: new Set() })
+    .find((l) => l.refTarget === "scanner").path]);
+
+  const before = renderPanel(host, { registry: reg, expanded });
+  assert.deepStrictEqual(before.filter((l) => l.source === "expanded").map((l) => l.text), ["url : http://old"]);
+
+  // mutate the SAME target node object in place (the registry holds object
+  // references, not copies) — simulating the originating object's state
+  // changing between renders.
+  target.children[0].text = "url : http://new";
+
+  const after = renderPanel(host, { registry: reg, expanded });
+  assert.deepStrictEqual(
+    after.filter((l) => l.source === "expanded").map((l) => l.text),
+    ["url : http://new"],
+    "re-resolved to the NEW text — live proxy, no frozen snapshot. N.6 satisfied by existing live-registry-resolution; no new proxy state needed.",
+  );
+});
+
+// Test 2: an unrevealed {ref} to a node not otherwise visible classifies as
+// braced-hidden (default state — braces retained, ▸ glyph, no children).
+test("brace-state: an unrevealed {ref} to a not-otherwise-visible node is braced-hidden", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const lines = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refLine = lines.find((l) => l.refTarget === "scanner");
+  assert.strictEqual(refLine.glyph, GLYPH_COLLAPSED);
+  assert.strictEqual(refLine.braceState, BRACE_HIDDEN);
+  assert.ok(!lines.some((l) => l.source === "expanded"));
+});
+
+// Test 3: after toggle(expanded, refLine.path), the SAME {ref} classifies as
+// revealed-internal — braces drop, rank-1 child lines present, source:
+// "expanded".
+test("brace-state: toggling a {ref} open classifies it as revealed-internal", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const collapsed = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refPath = collapsed.find((l) => l.refTarget === "scanner").path;
+  const expanded = toggle(new Set(), refPath);
+
+  const lines = renderPanel(host, { registry: reg, expanded });
+  const refLine = lines.find((l) => l.refTarget === "scanner");
+  assert.strictEqual(refLine.glyph, GLYPH_EXPANDED);
+  assert.strictEqual(refLine.braceState, BRACE_REVEALED_INTERNAL);
+  const inlined = lines.filter((l) => l.source === "expanded");
+  assert.deepStrictEqual(inlined.map((l) => l.text), ["url : http://x"]);
+});
+
+// Test 4: a {ref} whose target is ALSO independently visible (revealed via
+// another path) classifies as resolved-external — a solid-link marker, NOT
+// a second set of inline children, NOT dashed (no stroke/line-style field is
+// ever set to anything but the default solid rendering — classification is
+// purely the braceState string).
+test("brace-state: a {ref} whose target is independently visible elsewhere is resolved-external", () => {
+  // two siblings both reference "scanner"; the FIRST is expanded (revealing
+  // "scanner"'s own row as the inline child "url : http://x"). The SECOND
+  // ref to the literal text "url : http://x" (i.e. a different field
+  // already showing the same text the target's row shows) demonstrates the
+  // independently-visible check. To keep the fixture unambiguous, model it
+  // as: revealing scanner's child row makes "url : http://x" visible; a
+  // second host that independently {ref}s a node whose root field IS that
+  // same text resolves to resolved-external (no new inline children, no
+  // dashed line — distinct from the revealed-internal line itself).
+  const visibleTarget = parse("url : http://x"); // a node, root field "url : http://x"
+  const host = parse("host\n\tlink {scanner}\n\talso {url : http://x}");
+  const scanner = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([scanner, visibleTarget]);
+
+  const collapsedFirst = renderPanel(host, { registry: reg, expanded: new Set() });
+  const scannerRefPath = collapsedFirst.find((l) => l.refTarget === "scanner").path;
+  const expanded = toggle(new Set(), scannerRefPath);
+
+  const lines = renderPanel(host, { registry: reg, expanded });
+  const scannerLine = lines.find((l) => l.refTarget === "scanner");
+  const alsoLine = lines.find((l) => l.refTarget === "url : http://x");
+  assert.strictEqual(scannerLine.braceState, BRACE_REVEALED_INTERNAL);
+  assert.strictEqual(alsoLine.braceState, BRACE_RESOLVED_EXTERNAL,
+    "the {url : http://x} ref's target text is independently visible (the expanded scanner row) — solid-link marker, no inline children of its own");
+  // resolved-external never produces its OWN inline children (no second
+  // expansion just from being classified) and never carries a dashed marker.
+  assert.ok(!lines.some((l) => l.path.startsWith(alsoLine.path + "/")),
+    "resolved-external does not inline its own children");
+  assert.ok(!("dashed" in alsoLine) && alsoLine.lineStyle !== "dashed",
+    "no dashed marker — resolved-external is solid-only");
+});
+
+// Test 5: node-count parity — revealing a ref in the panel Line[] yields the
+// same revealed node present in renderGraph's GraphNode set (O.1).
+test("brace-state: node-count parity — revealing a ref in the panel reveals the same node in the graph", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const collapsed = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refPath = collapsed.find((l) => l.refTarget === "scanner").path;
+  const expanded = toggle(new Set(), refPath);
+
+  const panelLines = renderPanel(host, { registry: reg, expanded });
+  const { nodes } = renderGraph(host, { registry: reg, expanded });
+  assert.strictEqual(nodes.length, panelLines.length, "graph node count matches panel line count (O.1 parity)");
+  const revealedPanelLine = panelLines.find((l) => l.source === "expanded");
+  const revealedGraphNode = nodes.find((n) => n.id === revealedPanelLine.path);
+  assert.ok(revealedGraphNode, "the revealed panel line has a matching graph node at the same path");
+  assert.strictEqual(revealedGraphNode.label, revealedPanelLine.text);
+});
+
+// classifyBraceStates is also directly callable/idempotent over an
+// already-rendered Line[] (used internally by renderPanel; exposed for
+// panelVDom/graphVDom to call again defensively without side effects).
+test("classifyBraceStates is idempotent over an already-classified Line[]", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const lines = renderPanel(host, { registry: reg, expanded: new Set() });
+  const before = lines.map((l) => l.braceState);
+  classifyBraceStates(lines);
+  const after = lines.map((l) => l.braceState);
+  assert.deepStrictEqual(before, after);
 });
 
 console.log(`\n${passed}/${passed + failed} passed`);

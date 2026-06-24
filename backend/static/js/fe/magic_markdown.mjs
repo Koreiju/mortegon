@@ -29,6 +29,12 @@ export const GLYPH_COLLAPSED = "▸"; // ▸  — has hidden rank-1 links, click
 export const GLYPH_EXPANDED = "▾";  // ▾  — expanded inline
 export const GLYPH_NONE = "";
 
+// The three §O.1a brace render states (D-04) over ONE invariant graph link —
+// a rendering classification, never a second/third edge record.
+export const BRACE_HIDDEN = "braced-hidden";
+export const BRACE_REVEALED_INTERNAL = "revealed-internal";
+export const BRACE_RESOLVED_EXTERNAL = "resolved-external";
+
 /** A parsed tree node: one line + its tab-nested children. */
 export function node(text = "", children = []) {
   return { text, children };
@@ -218,6 +224,58 @@ export function renderPanel(rootNode, opts = {}) {
     rootNode.children.forEach((c, i) => visit(c, 0, String(i), "own", []));
   } else if (rootNode) {
     visit(rootNode, 0, "0", "own", []);
+  }
+  classifyBraceStates(lines);
+  return lines;
+}
+
+/**
+ * classifyBraceStates(lines) — mutates each ref-bearing Line in place, adding
+ * a `braceState` field: one of BRACE_HIDDEN / BRACE_REVEALED_INTERNAL /
+ * BRACE_RESOLVED_EXTERNAL (§O.1a / D-04, 07-UI-SPEC "Three Brace Render
+ * States"). This is a CLASSIFICATION over the already-rendered Line[] — it
+ * reads `expanded`-driven glyph/source facts `renderPanel` already computed
+ * plus cross-line visibility, and never recomputes fold state or mutates the
+ * registry/graph. One invariant graph link, three render states:
+ *
+ *   - revealed-internal: THIS ref line is itself open (glyph === ▾, i.e. the
+ *     user expanded it here) — braces drop, rank-1 children inline beneath it
+ *     (the existing renderPanel expansion; classifyBraceStates does not
+ *     duplicate that walk, it only labels the line that triggered it).
+ *   - resolved-external: the ref's target is independently visible elsewhere
+ *     in this SAME rendered Line[] (another line's text equals the target's
+ *     root field, via a DIFFERENT path) — i.e. some other reveal already made
+ *     the target a real visible row. Rendered as a solid-link marker, never
+ *     inline children of THIS line.
+ *   - braced-hidden: the default — an unrevealed ref to a target that is
+ *     neither expanded-here nor independently visible (this also covers refs
+ *     to unregistered/never-revealed targets — braces stay literal).
+ *
+ * Precedence: revealed-internal is checked first (a line that is itself open
+ * always shows its own inline children, even if the target also happens to
+ * be visible elsewhere) so the panel never shows BOTH an inline reveal AND a
+ * redundant solid-link marker for the same line.
+ */
+export function classifyBraceStates(lines) {
+  // Build the set of target-identity texts that are independently visible as
+  // their OWN rendered row (i.e. some line's text matches that target's root
+  // field via a path that is not itself a {ref} occurrence's inline child of
+  // a different target). We approximate "independently visible" the way the
+  // UI-SPEC frames it: the target's root-field text appears as the text of
+  // some line in this render — own-authored or read-through, it does not
+  // matter, because graph-form node-count parity is over visible LINES.
+  const visibleTexts = new Set(lines.map((l) => l.text));
+  for (const line of lines) {
+    if (line.refTarget == null) continue;
+    if (line.glyph === GLYPH_EXPANDED) {
+      line.braceState = BRACE_REVEALED_INTERNAL;
+      continue;
+    }
+    if (visibleTexts.has(line.refTarget)) {
+      line.braceState = BRACE_RESOLVED_EXTERNAL;
+      continue;
+    }
+    line.braceState = BRACE_HIDDEN;
   }
   return lines;
 }
@@ -433,4 +491,5 @@ export default {
   refTarget, refTargets, renderPanel, renderGraph, parentPath, linesToText, toggle,
   GLYPH_COLLAPSED, GLYPH_EXPANDED,
   isReadOnlyTypedNode, renderTypedPanel, renderConceptPanel,
+  classifyBraceStates, BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
 };
