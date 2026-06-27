@@ -11,6 +11,10 @@
            padding: 0 12px; font: 11px monospace; color: #6b7280; border-bottom: 1px solid rgba(192,192,192,0.15); z-index: 5; }
     /* the 3D Real register sits behind the floating panels (the only filled colour in the app) */
     #projector { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; display: block; }
+    /* REAL-04 — the solid headless 2D↔3D link-arrow overlay. z-index:1 sits ABOVE
+       #projector (0) and BELOW #grid (2) so panels stay clickable above the arrow;
+       a passive render layer, pointer-events:none, no chrome of any kind. */
+    #link-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
     #grid { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 18px; padding: 46px 18px 18px; align-items: flex-start; }
     .mm-slate, .mm-graph { font-size: 13px; }
     .mm-line { line-height: 1.55; }
@@ -33,6 +37,7 @@
 </head>
 <body>
   <canvas id="projector"></canvas>
+  <svg id="link-layer"></svg>
   <div id="bar"><span id="count">…</span><span id="ws" class="ws-off">ws ○</span><span id="proj">3d ○</span><span id="hint">double-click a panel → graph ⇄ panel · click ▸ → expand link</span></div>
   <div id="grid"></div>
   <!-- THREE r128 (same as the legacy projector) for the 3D Real register -->
@@ -145,6 +150,10 @@
           onTogglePanelGraph() { ui.mode[id] = mode === "panel" ? "graph" : "panel"; render(); },
           onEdit() { if (SLATE_EDITOR === "milkdown" && mountMilkdown) enterMilkdownEdit(cell, id); },
         });
+        // REAL-04 — every mounted panel cell carries data-3d-node-id (the
+        // concept/chunk id), so the per-frame drawConcept3DLinks projector
+        // drawer can find it and connect it to its 3D node's screen position.
+        cell.setAttribute("data-3d-node-id", id);
       }
       document.getElementById("count").textContent = ids.length + " panels";
     }
@@ -293,7 +302,10 @@
           // UMAP-01 — the backend's canonical 6D layout (xyz + per-node HSV) lands
           // on the `umap_canonical` frame; feed it straight to the projector, which
           // RENDERS the HSV (the frontend never invents the colour field).
-          if (f.type === "umap_canonical" && projector && f.coords) { projector.setNodes(f.coords); return; }
+          // REAL-01 — also pass url_roots through so the ray-constrained force
+          // step (computed from the backend's root_position/bounding_radius)
+          // activates; the frontend never recomputes this placement (D10).
+          if (f.type === "umap_canonical" && projector && f.coords) { projector.setNodes(f.coords, f.url_roots); return; }
           const before = JSON.stringify(store.getState().concepts);
           store.applyFrame(f);
           // fluid live update — but never clobber an open Milkdown edit surface
@@ -332,7 +344,7 @@
         projector = createProjector(canvas);
         const res = await (await fetch(`/api/recompute_umap?min_docs=8`, { method: "POST" })).json();
         const coords = res.coords || {};
-        const n = projector.setNodes(coords);
+        const n = projector.setNodes(coords, res.url_roots);
         const p = document.getElementById("proj"); p.textContent = `3d ● ${n}`; p.className = "ws-on";
         // couple the halo ray angle to the 3D camera azimuth (§V.4): orbiting
         // the scene rotates the halo rays "as traced between the sticked panel
@@ -342,11 +354,25 @@
           if (!halo) return;
           if (lastAz === null || Math.abs(az - lastAz) > 0.01) { lastAz = az; halo.camAngle = az; renderHalo(); }
         });
+        // REAL-04 — every animate frame, draw/update the solid headless
+        // 2D↔3D link arrow for every pinned panel (gated cheaply inside
+        // drawConcept3DLinks when zero [data-3d-node-id] cards exist).
+        const linkLayer = document.getElementById("link-layer");
+        projector.onFrame(() => { projector.drawConcept3DLinks(linkLayer); });
         window.__mm_proj = projector;
         // UMAP-01 probes: inject a 6D umap_canonical frame + read a node's rendered
         // colour + orbit the camera azimuth (the render-level acceptance surface).
         window.__mm_proj_set = (coords) => projector.setNodes(coords);
         window.__mm_proj_color = (i) => projector.nodeColor(i || 0);
+        // REAL-01 force-directed test hooks: inject a frame WITH url_roots
+        // (so the ray-constrained collider step activates), and read back the
+        // current animate-loop world positions (post force-step).
+        window.__mm_proj_set_with_roots = (coords, urlRoots) => projector.setNodes(coords, urlRoots);
+        window.__mm_proj_node_positions = () => projector.nodePositions();
+        // REAL-02 camera-frame test hook: current camera distance from the
+        // origin (used by the multi-scan e2e to assert the auto-frame tween
+        // actually moved the camera toward the newest URL's root).
+        window.__mm_proj_camera_distance = () => projector.camera.position.length();
         window.__mm_proj_orbit = (az) => {
           const r = Math.hypot(projector.camera.position.x, projector.camera.position.z) || 140;
           projector.camera.position.x = r * Math.sin(az);
@@ -354,6 +380,28 @@
           projector.camera.lookAt(0, 0, 0);
           projector.recolor();
           return projector.azimuth();
+        };
+        // REAL-03 image billboard test hooks. __mm_proj_image injects a frame
+        // WITH an explicit imageMap ({chunkId: imageUrl} — image URLs are NOT
+        // carried by the production umap_canonical frame today, so this is a
+        // caller-supplied map, driven by tests). __mm_proj_net_count reads
+        // back the loader's real-network-fetch counter (used to assert a
+        // re-render issues ZERO new fetches — cache persistence proof).
+        window.__mm_proj_image = (coords, urlRoots, imageMap) => {
+          projector.setNodes(coords, urlRoots);
+          projector.spawnImageBillboards(imageMap);
+        };
+        window.__mm_proj_net_count = () => projector.netFetchCount();
+        // REAL-04 — mount a minimal panel cell carrying data-3d-node-id=nodeId
+        // into #grid, for the arrow e2e to pin against (without needing a real
+        // concept/store entry). Returns the mounted cell.
+        window.__mm_proj_pin = (nodeId) => {
+          const cell = document.createElement("div");
+          cell.className = "mm-edit-host";
+          cell.textContent = String(nodeId);
+          cell.setAttribute("data-3d-node-id", nodeId);
+          grid.appendChild(cell);
+          return cell;
         };
       } catch (e) { console.warn("projector", e); }
     }
@@ -369,7 +417,13 @@
       window.__mm_editing = () => !!document.querySelector(".mm-edit-host .mm-milkdown");
       // EDIT-03 — the slate holds NO authoritative state: re-deriving from the
       // store (what a dropped-WS reconnect does) re-renders identically.
-      window.__mm_rerender = () => render();
+      // REAL-03 — also re-invoke the projector with its OWN last-known
+      // coords/url_roots (never re-fetched), so a re-render proves cached
+      // image textures persist with zero new network requests.
+      window.__mm_rerender = () => {
+        render();
+        if (projector) projector.setNodes(projector.lastCoords(), projector.lastRoots());
+      };
       window.__mm_state = () => ({
         panels: grid.querySelectorAll(".mm-slate, .mm-graph").length,
         drops: grid.querySelectorAll(".mm-drop").length,

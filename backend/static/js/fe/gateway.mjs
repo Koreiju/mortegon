@@ -53,14 +53,34 @@ export function buildRequest(g = {}) {
 
     case Action.WIRE_LINK:
     case "concept-edge-create":
+      // N.4 — inherit_types defaults false so non-wire callers (and any
+      // caller not opting in) are unaffected; set g.inheritTypes:true to
+      // fire the backend's single synchronous I/O-type-inheritance
+      // side-effect (Open-Q3: one request, one lifecycle event).
       return { method: "POST", path: "/api/concept_edges",
-        body: { source_id: g.sourceId || card, target_id: g.targetId, edge_type: g.edgeType || "RELATES_TO", [WS]: ws } };
+        body: { source_id: g.sourceId || card, target_id: g.targetId, edge_type: g.edgeType || "RELATES_TO", inherit_types: !!g.inheritTypes, [WS]: ws } };
 
     case Action.DELETE_REF:
-    case "concept-delete-ref":
-      // removing a {ref} is a data edit on the owning card
-      return { method: "POST", path: "/api/ui/edit_close",
+    case "concept-delete-ref": {
+      // N.13 — double-right-delete of a {ref} must also remove the backing
+      // ConceptEdge when one exists (RESEARCH Pitfall 1 / Assumption A2,
+      // confirmed against object_exploration.md §N.13: "delete that
+      // reference/instance", not merely clear its displayed text). When
+      // g.edgeId is present, fire BOTH the edge delete AND the value-clear
+      // as a sequential pair (GestureGateway.send's responsibility to fire
+      // buildRequest-shaped calls in order — never an inline raw fetch()).
+      // When g.edgeId is absent (a plain literal {ref}, no backing edge),
+      // fall back to the existing value-clear-only behavior unchanged.
+      const clearValueReq = { method: "POST", path: "/api/ui/edit_close",
         body: { card_id: card, node_path: g.path, value: g.value != null ? g.value : "", [WS]: ws } };
+      if (g.edgeId) {
+        return [
+          { method: "DELETE", path: "/api/concept_edges/" + g.edgeId, body: null },
+          clearValueReq,
+        ];
+      }
+      return clearValueReq;
+    }
 
     case "ui-pin":
       return { method: "POST", path: "/api/ui/pin", body: { chunk_id: g.chunkId || card, rect: g.rect, [WS]: ws } };
@@ -83,16 +103,27 @@ export function GestureGateway(store, opts = {}) {
   const fetchImpl = opts.fetchImpl || ((m, url, body) =>
     fetch(url, { method: m, headers: { "Content-Type": "application/json" },
       body: body == null ? undefined : JSON.stringify(body) }).then((r) => r.json()));
+  async function _sendOne(req) {
+    const res = await fetchImpl(req.method, base + req.path, req.body);
+    // backend lifecycle returns frames (or the store gets them via WS); fold
+    // any inline frames so the optimistic loop stays consistent.
+    if (res && res.frames && store) for (const f of res.frames) store.applyFrame(f);
+    else if (res && res.type && store) store.applyFrame(res);
+    return res;
+  }
   async function send(gesture) {
     const req = buildRequest(gesture);
     if (!req) return null;
     try {
-      const res = await fetchImpl(req.method, base + req.path, req.body);
-      // backend lifecycle returns frames (or the store gets them via WS); fold
-      // any inline frames so the optimistic loop stays consistent.
-      if (res && res.frames && store) for (const f of res.frames) store.applyFrame(f);
-      else if (res && res.type && store) store.applyFrame(res);
-      return res;
+      // N.13 — DELETE_REF with a backing edge yields an ARRAY of
+      // buildRequest-shaped calls (edge-delete then value-clear); fire them
+      // sequentially through the SAME glue rather than an inline fetch().
+      if (Array.isArray(req)) {
+        let last = null;
+        for (const r of req) last = await _sendOne(r);
+        return last;
+      }
+      return await _sendOne(req);
     } catch (e) { opts.onError && opts.onError(e); return null; }
   }
   return { send, buildRequest };

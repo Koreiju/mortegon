@@ -2111,6 +2111,9 @@ class ConceptEdgeRequest(BaseModel):
     variable_name: str = ""
     workspace_id: str = ""
     idempotency_key: Optional[str] = None
+    # Phase 7 EXPLORE-03 / N.4 — see EditorLinkRequest.inherit_types docstring
+    # for the full contract; same semantics, same default-False safety.
+    inherit_types: bool = False
 
 
 _graph_editor_singleton = None
@@ -2394,6 +2397,120 @@ def import_concept_graph(req: ConceptImportRequest):
         }
     except Exception as e:
         return {"ok": False, "error": str(e)}
+
+
+# ---------------------------------------------------------------------------
+# Phase 7 (EXPLORE-01 / D-03) — rank-1 next-rank type-graph fetch.
+#
+# Static-path route, registered ABOVE the parametric ``/concepts/{concept_id}``
+# route below (same ordering hazard the W36 NOTE above describes) so
+# ``next_rank`` is never swallowed as a literal concept id.
+# ---------------------------------------------------------------------------
+
+# The ONLY edge vocabulary the materialiser writes for the python-native
+# Object/Property/Function type graph (python_api_materialiser.py lines
+# 19-22). next_rank must filter to exactly these four — never a parallel
+# vocabulary (D10 / D-03).
+_NEXT_RANK_EDGE_TYPES = {
+    "OBJECT_HAS_PROPERTY",
+    "OBJECT_HAS_FUNCTION",
+    "FUNCTION_INPUT_TYPE",
+    "FUNCTION_OUTPUT_TYPE",
+}
+
+# Render-hint per edge_type — purely a frontend rendering label; carries no
+# new computation (the frontend renders, never computes, per D10).
+_NEXT_RANK_RELATION_HINT = {
+    "OBJECT_HAS_PROPERTY": "property",
+    "OBJECT_HAS_FUNCTION": "function",
+    "FUNCTION_INPUT_TYPE": "input_type",
+    "FUNCTION_OUTPUT_TYPE": "output_type",
+}
+
+
+def _inherit_io_types(ge, source_id: str, target_id: str, workspace_id: str) -> List[Any]:
+    """Phase 7 EXPLORE-03 / N.4 — copy ``source_id``'s rank-1 I/O types +
+    object model onto ``target_id``.
+
+    Reads the SAME four-edge materialiser vocabulary ``next_rank`` reads
+    (``_NEXT_RANK_EDGE_TYPES`` — never a parallel vocabulary, per D10/D-03)
+    via ``list_concept_edges(source_id=...)``, and for each one creates an
+    equivalent edge rooted at ``target_id`` pointing at the SAME typed
+    neighbor node (an inheritance mirror, not a duplicate subtree). Returns
+    the list of newly-created ``ConceptEdge`` objects so the caller can fan
+    each one through ``apply_edge_create_lifecycle`` (one synchronous
+    side-effect inside the same request, RESEARCH Open-Q3).
+
+    Self-referential-safe: skips any source edge whose target_id equals
+    source_id (mirrors next_rank's own T-07-01 DoS guard) and never walks
+    beyond rank-1 — it only reads ``source_id``'s own outgoing edges.
+    """
+    inherited: List[Any] = []
+    source_edges = ge.list_concept_edges(workspace_id=workspace_id, source_id=source_id)
+    for edge in source_edges:
+        if edge.edge_type not in _NEXT_RANK_EDGE_TYPES:
+            continue
+        if edge.target_id == source_id:
+            continue
+        new_edge = ge.create_concept_edge(
+            source_id=target_id,
+            target_id=edge.target_id,
+            edge_type=edge.edge_type,
+            workspace_id=workspace_id,
+        )
+        inherited.append(new_edge)
+    return inherited
+
+
+@router.get("/concepts/{concept_id}/next_rank")
+def get_concept_next_rank(concept_id: str, workspace_id: str = ""):
+    """EXPLORE-01 / D-03 — rank-1 typed neighbors of a python-native node.
+
+    Reads the materialiser's already-written ``OBJECT_HAS_PROPERTY`` /
+    ``OBJECT_HAS_FUNCTION`` / ``FUNCTION_INPUT_TYPE`` / ``FUNCTION_OUTPUT_TYPE``
+    edges (backend/services/python_api_materialiser.py) and shapes them into a
+    rank-1 typed-neighbor list for the frontend's hover/right-click next-rank
+    expansion. This route only reads + shapes graph data already written by
+    the materialiser — it does NOT compute or infer any new type information
+    (D10: type-graph computation stays backend, but this is no more than the
+    existing edges shaped for rendering; no new type DERIVATION is added).
+
+    Rank-1 ONLY: never walks beyond the node's direct out-edges (DoS
+    mitigation, T-07-01), and skips any self-referential edge (an edge whose
+    target_id equals concept_id) so a cyclic materialised graph can't loop
+    the caller back onto the same node it asked about.
+    """
+    ge = _get_graph_editor()
+    node = ge.get_concept(concept_id)
+    if node is None:
+        raise HTTPException(status_code=404, detail=f"ConceptNode {concept_id} not found")
+
+    edges = ge.list_concept_edges(workspace_id=workspace_id, limit=50000)
+    neighbors: List[Dict[str, Any]] = []
+    for edge in edges:
+        if edge.source_id != concept_id:
+            continue
+        if edge.edge_type not in _NEXT_RANK_EDGE_TYPES:
+            continue
+        if edge.target_id == concept_id:
+            # Self-referential edge — rank-1 only, never fold back onto self.
+            continue
+        target = ge.get_concept(edge.target_id)
+        if target is None:
+            continue
+        neighbors.append({
+            "concept_id": target.concept_id,
+            "name": target.name,
+            "type_hint": target.type_hint,
+            "edge_type": edge.edge_type,
+            "relation": _NEXT_RANK_RELATION_HINT.get(edge.edge_type, ""),
+        })
+
+    return {
+        "ok": True,
+        "concept_id": concept_id,
+        "neighbors": neighbors,
+    }
 
 
 @router.get("/concepts/{concept_id}")
@@ -5047,12 +5164,25 @@ class EditorLinkRequest(BaseModel):
     EDGE_TYPES entry from graph_editor.py. Other valid types include
     ``ANNOTATES``, ``IS_A``, ``HAS_A``, ``PART_OF``, ``DERIVED_FROM``,
     ``INCLUDES``, ``SIMILAR_TO``, ``CLASSIFIES``.
+
+    ``inherit_types`` (Phase 7 EXPLORE-03 / N.4, default False so existing
+    callers are byte-for-byte unaffected): when True, AFTER the edge is
+    created the target node inherits the source node's I/O types + object
+    model — the source's outgoing ``OBJECT_HAS_PROPERTY`` /
+    ``OBJECT_HAS_FUNCTION`` / ``FUNCTION_INPUT_TYPE`` / ``FUNCTION_OUTPUT_TYPE``
+    edges (the SAME four-edge materialiser vocabulary ``next_rank`` reads,
+    see ``_NEXT_RANK_EDGE_TYPES``) are mirrored onto the target as a single
+    synchronous side-effect of this same request, fanned through the
+    existing ``apply_edge_create_lifecycle`` dispatcher (RESEARCH Open-Q3:
+    one request, one lifecycle event — never a frontend-orchestrated
+    two-step).
     """
     source_id: str
     target_id: str
     edge_type: str = "RELATES_TO"
     workspace_id: str = ""
     idempotency_key: Optional[str] = None
+    inherit_types: bool = False
 
 
 class EditorOverwriteRequest(BaseModel):
@@ -5127,6 +5257,17 @@ def editor_link(req: EditorLinkRequest):
     if cached is not None:
         return cached
     ge = _get_graph_editor()
+    # Phase 7 EXPLORE-03 (T-07-06 / RESEARCH Security Domain) — validate the
+    # source/target pair BEFORE creating the edge so an invalid concept_id
+    # still 400s; create_concept_edge itself is idempotent and raises no
+    # ValueError for unknown ids, so this check is the validation that
+    # preserves "invalid edges still 400" rather than silently linking
+    # nonexistent nodes. Never bypassed for the inherit_types fast path.
+    if ge.get_concept(req.source_id) is None or ge.get_concept(req.target_id) is None:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid edge: source_id={req.source_id!r} or target_id={req.target_id!r} not found",
+        )
     try:
         edge = ge.create_concept_edge(
             source_id=req.source_id,
@@ -5140,7 +5281,22 @@ def editor_link(req: EditorLinkRequest):
     edge_dict = apply_edge_create_lifecycle(
         edge, ge, workspace_id=req.workspace_id or "", push_fn=_ws_push,
     )
+    # Phase 7 EXPLORE-03 / N.4 — optional single synchronous I/O-type-
+    # inheritance side-effect, fanned through the SAME lifecycle dispatcher
+    # (RESEARCH Open-Q3: one request, one lifecycle event). Default-False
+    # path above is unchanged byte-for-byte; this only runs when requested.
+    inherited_edges = []
+    if req.inherit_types:
+        for inherited_edge in _inherit_io_types(
+            ge, req.source_id, req.target_id, req.workspace_id or "",
+        ):
+            apply_edge_create_lifecycle(
+                inherited_edge, ge, workspace_id=req.workspace_id or "", push_fn=_ws_push,
+            )
+            inherited_edges.append(_edge_to_dict(inherited_edge))
     response = {"ok": True, "edge": edge_dict or _edge_to_dict(edge)}
+    if req.inherit_types:
+        response["inherited_edges"] = inherited_edges
     _idempotency_store(
         req.workspace_id,
         f"editor:link:{req.source_id}:{req.target_id}:{req.edge_type}",
@@ -5392,6 +5548,15 @@ def create_concept_edge(req: ConceptEdgeRequest):
     if cached is not None:
         return cached
     ge = _get_graph_editor()
+    # Phase 7 EXPLORE-03 (T-07-06) — same invalid-pair validation as
+    # editor_link; create_concept_edge itself never raises for an unknown
+    # concept_id, so the 400 must be enforced here, preserved even when
+    # inherit_types is requested (never a fast-path bypass).
+    if ge.get_concept(req.source_id) is None or ge.get_concept(req.target_id) is None:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid edge: source_id={req.source_id!r} or target_id={req.target_id!r} not found",
+        )
     edge = ge.create_concept_edge(
         source_id=req.source_id,
         target_id=req.target_id,
@@ -5407,6 +5572,20 @@ def create_concept_edge(req: ConceptEdgeRequest):
         edge, ge, workspace_id=req.workspace_id or "", push_fn=_ws_push,
     )
     response = edge_dict or _edge_to_dict(edge)
+    # Phase 7 EXPLORE-03 / N.4 — same single synchronous I/O-type-
+    # inheritance side-effect as editor_link, fanned through the same
+    # lifecycle dispatcher (RESEARCH Open-Q3). Default-False path unchanged.
+    if req.inherit_types:
+        inherited_edges = []
+        for inherited_edge in _inherit_io_types(
+            ge, req.source_id, req.target_id, req.workspace_id or "",
+        ):
+            apply_edge_create_lifecycle(
+                inherited_edge, ge, workspace_id=req.workspace_id or "", push_fn=_ws_push,
+            )
+            inherited_edges.append(_edge_to_dict(inherited_edge))
+        if isinstance(response, dict):
+            response["inherited_edges"] = inherited_edges
     _idempotency_store(req.workspace_id, idem_target, req.idempotency_key, response)
     return response
 

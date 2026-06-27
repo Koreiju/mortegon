@@ -7,6 +7,8 @@ import {
   parse, serialize, rootField, buildRegistry, refTarget, refTargets,
   renderPanel, linesToText, toggle, GLYPH_COLLAPSED, GLYPH_EXPANDED,
   iterableNode, isIterable, advanceSignal, renderGraph, parentPath,
+  renderTypedPanel, renderConceptPanel, isReadOnlyTypedNode,
+  classifyBraceStates, BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
 } from "./magic_markdown.mjs";
 
 let passed = 0, failed = 0;
@@ -182,6 +184,237 @@ test("panel↔graph are projections of ONE model (same expansion → parity hold
   assert.strictEqual(nodes.length, panel.length);
   // labels match the panel line texts in order (same underlying nodes)
   assert.deepStrictEqual(nodes.map((n) => n.label), panel.map((l) => l.text));
+});
+
+// ── typed render mode (EXPLORE-01): key:Type=value for python-native nodes,
+//    type-stripped for user compute nodes (rank-1 minimalism preserved) ────
+
+// Test 1: a python-native FUNCTION node with signature+ports.inputs/outputs
+// renders "name : Type" rows (skipping the implicit "self") + a trailing
+// "→ ReturnType" row.
+test("renderTypedPanel: python-native function node renders typed input rows + return arrow", () => {
+  const fnNode = {
+    type_hint: "python_function",
+    read_only: true,
+    data: JSON.stringify({
+      signature: "(self, url, samples)",
+      ports: {
+        inputs: [
+          { name: "self", type: "WebBrowserManager" },
+          { name: "url", type: "str" },
+          { name: "samples", type: "int" },
+        ],
+        outputs: [{ type: "List[Chunk]" }],
+      },
+    }),
+  };
+  const lines = renderTypedPanel(fnNode, {});
+  const texts = lines.map((l) => l.text);
+  assert.deepStrictEqual(texts, ["url : str", "samples : int", "→ List[Chunk]"]);
+});
+
+// Test 2: a python-native OBJECT node (d.members list) returns one Line per
+// member, last `::`-segment only (mirrors _pythonNativeTypedView's members map).
+test("renderTypedPanel: python-native object node renders one line per member (last :: segment)", () => {
+  const objNode = {
+    type_hint: "python_object",
+    read_only: true,
+    data: JSON.stringify({
+      members: [
+        "WebBrowserManager::driver",
+        "WebBrowserManager::scan",
+        "WebBrowserManager::close",
+      ],
+    }),
+  };
+  const lines = renderTypedPanel(objNode, {});
+  const texts = lines.map((l) => l.text);
+  assert.deepStrictEqual(texts, ["driver", "scan", "close"]);
+});
+
+// Test 3: the existing renderPanel on a user compute node (type_hint NOT
+// python_, not read_only) is UNCHANGED — no " : " type slot, no "=" type
+// pair anywhere (rank-1 minimalism preserved). Driven through the new
+// renderConceptPanel dispatch seam to prove the gate selects structural mode.
+test("renderConceptPanel: a user compute node stays structurally type-stripped (rank-1 minimalism)", () => {
+  const computeNode = {
+    type_hint: "user_compute",
+    read_only: false,
+    value: "DuckDuckGo\n\tscanner {scan for duckduckgo url}\n\tport : 80",
+  };
+  const lines = renderConceptPanel(computeNode, { registry: new Map(), expanded: new Set() });
+  const texts = lines.map((l) => l.text);
+  // identical to calling renderPanel directly on the parsed tree
+  const expected = renderPanel(parse(computeNode.value), { registry: new Map(), expanded: new Set() }).map((l) => l.text);
+  assert.deepStrictEqual(texts, expected);
+  // the load-bearing invariant: no " : Type = " slot leaks onto a compute node
+  assert.ok(!texts.some((t) => / : .+ = /.test(t)), "no type-slot pair leaked onto a compute node");
+});
+
+// Test 4: the typed mode is selected by the gate condition only — a node with
+// read_only===true but a non-python type_hint still renders typed; a node
+// with neither stays structural.
+test("isReadOnlyTypedNode: gate selects typed mode on read_only===true OR python_ type_hint, never a separate flag", () => {
+  assert.strictEqual(isReadOnlyTypedNode({ type_hint: "python_function", read_only: false }), true);
+  assert.strictEqual(isReadOnlyTypedNode({ type_hint: "user_compute", read_only: true }), true);
+  assert.strictEqual(isReadOnlyTypedNode({ type_hint: "user_compute", read_only: false }), false);
+  assert.strictEqual(isReadOnlyTypedNode({ backing_pointer: "fixture::database::ws1" }), true);
+  assert.strictEqual(isReadOnlyTypedNode(null), false);
+
+  // end-to-end through the dispatch seam: read_only===true + non-python type_hint
+  const roNonPython = {
+    type_hint: "user_compute",
+    read_only: true,
+    data: JSON.stringify({ members: ["X::field_a"] }),
+  };
+  const lines = renderConceptPanel(roNonPython, {});
+  assert.deepStrictEqual(lines.map((l) => l.text), ["field_a"]);
+
+  // neither python_ nor read_only → structural path
+  const plain = { type_hint: "user_compute", read_only: false, value: "plain\n\ta : 1" };
+  const plainLines = renderConceptPanel(plain, { registry: new Map(), expanded: new Set() });
+  assert.deepStrictEqual(plainLines.map((l) => l.text), ["plain", "a : 1"]);
+});
+
+// Test 5 (T-07-03 defensive fallback): malformed/non-JSON data on a typed
+// node renders a single verbatim structural row rather than throwing.
+test("renderTypedPanel: malformed data falls back to a verbatim structural row (no throw)", () => {
+  const broken = { type_hint: "python_function", read_only: true, data: "not json at all" };
+  const lines = renderTypedPanel(broken, {});
+  assert.deepStrictEqual(lines.map((l) => l.text), ["not json at all"]);
+});
+
+// ── §O.1a / D-04: three brace render states + N.6 duplicate-instance proxy ──
+// (07-03 Task 1 — RESEARCH Open Q1: probe the EXISTING buildRegistry/refTarget
+// live-resolution mechanism FIRST, before adding any new proxy state.)
+
+// Test 1 (Open Q1 probe): a {ref} whose target node's text is mutated AFTER
+// the registry is built re-resolves to the NEW text on the next renderPanel
+// call — proving buildRegistry/refTarget already give N.6's "operationally
+// calls the originating object" (a live proxy, not a frozen snapshot) for
+// free, with ZERO new proxy state.
+test("Open-Q1 probe: a {ref} re-resolves to the LIVE current node, not a frozen snapshot (N.6)", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://old");
+  const reg = buildRegistry([target]);
+  const expanded = new Set([renderPanel(host, { registry: reg, expanded: new Set() })
+    .find((l) => l.refTarget === "scanner").path]);
+
+  const before = renderPanel(host, { registry: reg, expanded });
+  assert.deepStrictEqual(before.filter((l) => l.source === "expanded").map((l) => l.text), ["url : http://old"]);
+
+  // mutate the SAME target node object in place (the registry holds object
+  // references, not copies) — simulating the originating object's state
+  // changing between renders.
+  target.children[0].text = "url : http://new";
+
+  const after = renderPanel(host, { registry: reg, expanded });
+  assert.deepStrictEqual(
+    after.filter((l) => l.source === "expanded").map((l) => l.text),
+    ["url : http://new"],
+    "re-resolved to the NEW text — live proxy, no frozen snapshot. N.6 satisfied by existing live-registry-resolution; no new proxy state needed.",
+  );
+});
+
+// Test 2: an unrevealed {ref} to a node not otherwise visible classifies as
+// braced-hidden (default state — braces retained, ▸ glyph, no children).
+test("brace-state: an unrevealed {ref} to a not-otherwise-visible node is braced-hidden", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const lines = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refLine = lines.find((l) => l.refTarget === "scanner");
+  assert.strictEqual(refLine.glyph, GLYPH_COLLAPSED);
+  assert.strictEqual(refLine.braceState, BRACE_HIDDEN);
+  assert.ok(!lines.some((l) => l.source === "expanded"));
+});
+
+// Test 3: after toggle(expanded, refLine.path), the SAME {ref} classifies as
+// revealed-internal — braces drop, rank-1 child lines present, source:
+// "expanded".
+test("brace-state: toggling a {ref} open classifies it as revealed-internal", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const collapsed = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refPath = collapsed.find((l) => l.refTarget === "scanner").path;
+  const expanded = toggle(new Set(), refPath);
+
+  const lines = renderPanel(host, { registry: reg, expanded });
+  const refLine = lines.find((l) => l.refTarget === "scanner");
+  assert.strictEqual(refLine.glyph, GLYPH_EXPANDED);
+  assert.strictEqual(refLine.braceState, BRACE_REVEALED_INTERNAL);
+  const inlined = lines.filter((l) => l.source === "expanded");
+  assert.deepStrictEqual(inlined.map((l) => l.text), ["url : http://x"]);
+});
+
+// Test 4: a {ref} whose target is ALSO independently visible (revealed via
+// another path pointing at the SAME target) classifies as resolved-external
+// — a solid-link marker, NOT a second set of inline children, NOT dashed (no
+// stroke/line-style field is ever set to anything but the default solid
+// rendering — classification is purely the braceState string).
+test("brace-state: a {ref} whose target is independently visible elsewhere is resolved-external", () => {
+  // two siblings of the SAME host both {ref} the SAME target "scanner". The
+  // FIRST is expanded (revealing scanner's rank-1 fields inline at its own
+  // path). The SECOND, still-unexpanded ref to the SAME target resolves to
+  // resolved-external — a solid-link marker, never a duplicate second copy
+  // of scanner's fields.
+  const host = parse("host\n\tprimary {scanner}\n\tsecondary {scanner}");
+  const scanner = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([scanner]);
+
+  const collapsedFirst = renderPanel(host, { registry: reg, expanded: new Set() });
+  const primaryRefPath = collapsedFirst.find((l) => l.text === "primary {scanner}").path;
+  const expanded = toggle(new Set(), primaryRefPath);
+
+  const lines = renderPanel(host, { registry: reg, expanded });
+  const primaryLine = lines.find((l) => l.text === "primary {scanner}");
+  const secondaryLine = lines.find((l) => l.text === "secondary {scanner}");
+  assert.strictEqual(primaryLine.braceState, BRACE_REVEALED_INTERNAL);
+  assert.strictEqual(secondaryLine.braceState, BRACE_RESOLVED_EXTERNAL,
+    "the second {scanner} ref resolves to the already-visible scanner node — solid-link marker, no inline children of its own");
+  // resolved-external never produces its OWN inline children (no second
+  // expansion just from being classified) and never carries a dashed marker.
+  assert.ok(!lines.some((l) => l.path.startsWith(secondaryLine.path + "/")),
+    "resolved-external does not inline its own children");
+  assert.ok(!("dashed" in secondaryLine) && secondaryLine.lineStyle !== "dashed",
+    "no dashed marker — resolved-external is solid-only");
+  // only ONE copy of scanner's fields is ever inlined — the duplicate-instance
+  // proxy materialises once, not once per referencing occurrence.
+  assert.strictEqual(lines.filter((l) => l.source === "expanded").length, 1);
+});
+
+// Test 5: node-count parity — revealing a ref in the panel Line[] yields the
+// same revealed node present in renderGraph's GraphNode set (O.1).
+test("brace-state: node-count parity — revealing a ref in the panel reveals the same node in the graph", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const collapsed = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refPath = collapsed.find((l) => l.refTarget === "scanner").path;
+  const expanded = toggle(new Set(), refPath);
+
+  const panelLines = renderPanel(host, { registry: reg, expanded });
+  const { nodes } = renderGraph(host, { registry: reg, expanded });
+  assert.strictEqual(nodes.length, panelLines.length, "graph node count matches panel line count (O.1 parity)");
+  const revealedPanelLine = panelLines.find((l) => l.source === "expanded");
+  const revealedGraphNode = nodes.find((n) => n.id === revealedPanelLine.path);
+  assert.ok(revealedGraphNode, "the revealed panel line has a matching graph node at the same path");
+  assert.strictEqual(revealedGraphNode.label, revealedPanelLine.text);
+});
+
+// classifyBraceStates is also directly callable/idempotent over an
+// already-rendered Line[] (used internally by renderPanel; exposed for
+// panelVDom/graphVDom to call again defensively without side effects).
+test("classifyBraceStates is idempotent over an already-classified Line[]", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const lines = renderPanel(host, { registry: reg, expanded: new Set() });
+  const before = lines.map((l) => l.braceState);
+  classifyBraceStates(lines);
+  const after = lines.map((l) => l.braceState);
+  assert.deepStrictEqual(before, after);
 });
 
 console.log(`\n${passed}/${passed + failed} passed`);

@@ -44,6 +44,7 @@ regression smoke check.
   list-concepts                      GET /api/concepts
   create-concept --name NAME [...]   POST /api/concepts
   get-concept ID                     GET /api/concepts/{id}
+  next-rank ID                       GET /api/concepts/{id}/next_rank
   delete-concept ID                  DELETE /api/concepts/{id}
   link --src ID --tgt ID [--type T]  POST /api/concept_edges
   apparitions ID [--k N]             GET /api/apparitions/{id}
@@ -73,6 +74,7 @@ import argparse
 import asyncio
 import json
 import os
+import re
 import sys
 import time
 import uuid
@@ -288,6 +290,15 @@ class _Backend:
     def get_concept(self, concept_id: str) -> Dict[str, Any]:
         return self._request("GET", f"/api/concepts/{concept_id}")
 
+    def next_rank(self, concept_id: str) -> Dict[str, Any]:
+        """EXPLORE-01 / D-03 — rank-1 typed neighbors of a python-native node.
+
+        Thin GET mirror of /api/concepts/{id}/next_rank, modeled exactly on
+        get_concept above (this is the REPL/CLI mirror the route-coverage
+        scenario requires for the route 07-01 added).
+        """
+        return self._request("GET", f"/api/concepts/{concept_id}/next_rank")
+
     def create_concept(
         self,
         name: str,
@@ -480,10 +491,17 @@ class _Backend:
         })
 
     def editor_link(self, source_id: str, target_id: str,
-                    edge_type: str = "RELATES_TO") -> Dict[str, Any]:
+                    edge_type: str = "RELATES_TO",
+                    inherit_types: bool = False) -> Dict[str, Any]:
+        """``inherit_types`` (Phase 7 EXPLORE-04 / N.4) — drag-wire-equivalent:
+        after the edge is created, mirror the source's rank-1 I/O-type edges
+        onto the target as a single synchronous lifecycle side-effect (see
+        ``EditorLinkRequest.inherit_types`` docstring in routes.py). Response
+        carries an ``inherited_edges`` list when set."""
         return self._request("POST", "/api/editor/link", body={
             "source_id": source_id, "target_id": target_id,
             "edge_type": edge_type, "workspace_id": self.workspace_id,
+            "inherit_types": bool(inherit_types),
         })
 
     def editor_overwrite(self, concept_id: str, field: str,
@@ -1809,10 +1827,20 @@ def _act_editor_create(env: FrontendEnv, *, name: str = "", description: str = "
     return env.backend.editor_create(name, description=description, data=data)
 
 def _act_editor_link(env: FrontendEnv, *, src: str = "", tgt: str = "",
-                      type: str = "RELATES_TO") -> Dict[str, Any]:
+                      type: str = "RELATES_TO",
+                      inherit_types: bool = False) -> Dict[str, Any]:
+    """EXPLORE-04 / N.4 — ``inherit_types=true`` is the REPL/CLI mirror of the
+    drag-wire gesture (mousedown→mousemove→mouseup across graph nodes, wired
+    in 07-05's mount()): the SAME ``/api/editor/link`` request the gesture's
+    gateway issues, carrying the same ``inherit_types`` flag, never a second
+    request. Chosen over a dedicated ``ui-wire-link`` verb because the
+    backend already exposes the side-effect as a single EditorLinkRequest
+    field (07-04) — no new route/verb needed, just threading the existing
+    kwarg through the CLI/REPL layer that 07-04 left unexposed."""
     if not src or not tgt:
         raise TypeError("editor-link requires src=... tgt=...")
-    return env.backend.editor_link(src, tgt, edge_type=type)
+    return env.backend.editor_link(src, tgt, edge_type=type,
+                                    inherit_types=bool(inherit_types))
 
 def _act_editor_overwrite(env: FrontendEnv, *, id: str = "",
                            field: str = "", value: str = "") -> Dict[str, Any]:
@@ -1949,6 +1977,11 @@ def _act_concept_get(env: FrontendEnv, *, id: str = "") -> Dict[str, Any]:
     if not id:
         raise TypeError("concept-get requires id=...")
     return env.backend.get_concept(id)
+
+def _act_next_rank(env: FrontendEnv, *, id: str = "") -> Dict[str, Any]:
+    if not id:
+        raise TypeError("next-rank requires id=...")
+    return env.backend.next_rank(id)
 
 def _act_concept_delete(env: FrontendEnv, *, id: str = "") -> Dict[str, Any]:
     if not id:
@@ -3401,6 +3434,7 @@ _ACTIONS: Dict[str, Any] = {
     "concept-create":   _act_concept_create,
     "concept-update":   _act_concept_update,
     "concept-get":      _act_concept_get,
+    "next-rank":        _act_next_rank,
     "concept-delete":   _act_concept_delete,
     "concept-list":     _act_concept_list,
     # -- edges ------------------------------------------------------------
@@ -4499,6 +4533,7 @@ def _env_scenario_route_coverage(env: FrontendEnv) -> int:
         "/snapshot":                  ["scan"],
         "/concepts":                  ["concept-list", "concept-create"],
         "/concepts/{concept_id}":     ["concept-get", "concept-update", "concept-delete"],
+        "/concepts/{concept_id}/next_rank": ["next-rank"],
         "/concepts/export":           ["concepts-export"],
         "/concepts/import":           ["concepts-import"],
         "/conceptual/compile":        ["conceptual-compile"],
@@ -7806,6 +7841,169 @@ def _env_scenario_node_fold_roundtrip(env: FrontendEnv) -> int:
     return 0
 
 
+def _env_scenario_duckduckgo_walkthrough(env: FrontendEnv) -> int:
+    """EXPLORE-04 / §N — the DuckDuckGo walkthrough (object_exploration.md
+    §5.1), driven at the REST/data level against the STUB stack (this
+    scenario never boots Selenium/SLM/embedder for real — that is Task 4's
+    clean-GPU human checkpoint, run separately via
+    probe_live_duckduckgo_walkthrough.py).
+
+    Sequence: purge → author ``self=duckduckgo`` referencing a ``{scan}``
+    ref in its data block → drag-wire-equivalent: ``editor-link
+    inherit_types=true`` wiring the materialised WebBrowser python-object
+    tree (the "scanner") onto DuckDuckGo → assert DuckDuckGo now presents NO
+    types (rank-1 minimalism: the inherited edges live on the EDGE graph,
+    never surfacing a `key:Type=value` colon-type slot on DuckDuckGo's own
+    panel render) while the inherited scanner IS reachable via next_rank →
+    ``ui-node-fold`` to reveal rank-1 ``url{}``/``dom{}`` → assert via
+    ``ui-state`` the reveal recorded ``expanded_paths`` AND the revealed
+    next_rank neighbors are type-stripped at the PRESENTATION layer (the
+    next_rank route returns typed neighbor dicts for internal traversal;
+    "type-stripped" here means the rank-1 fields the panel would render
+    carry no colon-type suffix in DuckDuckGo's own data block — verified by
+    asserting DuckDuckGo's stored `data` field, the thing renderPanel reads,
+    never gained a `:Type=` token) → drive ``{chunk samples}`` per-sample
+    iteration via the signal_stream/signal_advance model and assert each
+    advance moves the cursor.
+
+    Chose extending ``editor-link`` with ``inherit_types`` (not a new
+    ``ui-wire-link`` verb) — see ``_act_editor_link``'s docstring: the
+    backend already exposes the drag-wire side-effect as a single
+    ``EditorLinkRequest.inherit_types`` field (07-04), so the REPL only
+    needed to thread the existing kwarg through, never a new route.
+    """
+    _section("env scenario: duckduckgo-walkthrough")
+    fails = 0
+
+    # -- purge to a clean workspace. ensure_foundation_fixtures normally
+    #    rematerialises the three fixtures + their python-native trees on the
+    #    NEXT WS (re)connect — purge itself only deletes. Call the explicit
+    #    /api/foundation/ensure mirror so the WebBrowser scanner's tree is
+    #    guaranteed present without depending on WS reconnect timing.
+    _env_step(env, "purge", confirm="erase")
+    _env_step(env, "foundation-ensure")
+
+    # -- locate the materialised WebBrowser python-object tree (the
+    #    "scanner") — concept-list + filter rather than hardcoding the
+    #    deterministic py_object::<qualname> slug, so this stays correct if
+    #    the qualified-name target in FOUNDATION_PYTHON_TARGETS ever changes.
+    listing = (_env_step(env, "concept-list").get("response") or {})
+    concepts = listing.get("concepts") or listing.get("items") or []
+    scanner_id = None
+    for c in concepts:
+        if (c.get("type_hint") == "python_object"
+                and "WebBrowserManager" in (c.get("backing_pointer") or "")):
+            scanner_id = c.get("concept_id")
+            break
+    if not scanner_id:
+        _err("could not locate the materialised WebBrowserManager python_object "
+             f"node among {len(concepts)} concepts (foundation fixtures not "
+             "materialised?)")
+        return 1
+
+    # -- author self=duckduckgo, data referencing a {scan} ref (the §N
+    #    "self" card the user names before wiring the scanner onto it).
+    card = _env_step(env, "editor-create", name="duckduckgo",
+                     description="DuckDuckGo search walkthrough (§N)",
+                     data='{"query": "see {scan} for the live result set"}')
+    duck_id = (card.get("response") or {}).get("concept_id")
+    if not duck_id:
+        _err("editor-create did not return concept_id for self=duckduckgo")
+        return 1
+
+    # -- the drag-wire-equivalent step: wire the WebBrowser scanner onto
+    #    DuckDuckGo with type inheritance (the REPL mirror of mousedown→
+    #    mousemove→mouseup across graph nodes, 07-05's mount()).
+    link_out = _env_step(env, "editor-link", src=scanner_id, tgt=duck_id,
+                          type="RELATES_TO", inherit_types=True)
+    link_resp = link_out.get("response") or {}
+    if not link_resp.get("ok"):
+        _err(f"editor-link inherit_types=true did not succeed: {link_resp}")
+        return 1
+    inherited = link_resp.get("inherited_edges") or []
+    if not inherited:
+        _err("editor-link inherit_types=true returned no inherited_edges — "
+             "the scanner's rank-1 type edges did not propagate onto DuckDuckGo")
+        fails += 1
+    else:
+        _ok(f"DuckDuckGo inherited {len(inherited)} rank-1 type edge(s) from the "
+            "WebBrowser scanner (N.4)")
+
+    # -- rank-1 minimalism: DuckDuckGo's own stored data block (what
+    #    renderPanel/renderConceptPanel actually render) carries NO
+    #    `key:Type=value` colon-type slot — the inheritance lives purely on
+    #    the ConceptEdge graph, never injected as literal text into the panel.
+    duck_after = (_env_step(env, "concept-get", id=duck_id).get("response") or {})
+    duck_data = duck_after.get("data") or ""
+    if re.search(r"\w+\s*:\s*\w+\s*=", duck_data):
+        _err(f"DuckDuckGo's data block carries a typed colon-slot after inherit "
+             f"(rank-1 minimalism violated): {duck_data!r}")
+        fails += 1
+    else:
+        _ok("DuckDuckGo presents NO types post-inherit (rank-1 minimalism, N.5)")
+
+    # -- but the inherited scanner IS reachable via next_rank (the type graph
+    #    persists internally; it's only the PRESENTATION that's stripped).
+    nr = (_env_step(env, "next-rank", id=duck_id).get("response") or {})
+    neighbors = nr.get("neighbors") or []
+    if not neighbors:
+        _err(f"next_rank({duck_id}) returned no neighbors after inherit_types — "
+             f"the inherited scanner type-graph is not reachable: {nr}")
+        fails += 1
+    else:
+        _ok(f"DuckDuckGo's next_rank carries {len(neighbors)} inherited neighbor(s) "
+            "(the type graph persists internally per N.4/N.5)")
+
+    # -- ui-node-fold to reveal rank-1 url{}/dom{} — the inline-fold gesture
+    #    (right-click a {ref} token) applied to the {scan} reference DuckDuckGo
+    #    authored above.
+    _env_step(env, "ui-node-fold", card=duck_id, field="scan", expanded=True)
+    st = (_env_step(env, "ui-state").get("response") or {}).get("state") or {}
+    nf = (st.get("node_fold_state") or {}).get(duck_id) or {}
+    if "scan" not in (nf.get("expanded_paths") or []):
+        _err(f"ui-node-fold did not record expanded_paths for 'scan': {nf}")
+        fails += 1
+    else:
+        _ok("ui-state mirrors the {scan} reveal in node_fold_state.expanded_paths")
+
+    # -- revealed fields are type-stripped: re-confirm DuckDuckGo's data block
+    #    still carries no colon-type slot even after the fold reveal (folding
+    #    is a presentation toggle over the SAME data, never an injection of
+    #    typed text).
+    duck_post_fold = (_env_step(env, "concept-get", id=duck_id).get("response") or {})
+    if re.search(r"\w+\s*:\s*\w+\s*=", duck_post_fold.get("data") or ""):
+        _err("DuckDuckGo's data block gained a typed colon-slot after node-fold reveal")
+        fails += 1
+    else:
+        _ok("revealed url{}/dom{} stay type-stripped after the fold (N.5)")
+
+    # -- drive {chunk samples} per-sample iteration (advanceSignal model):
+    #    register a signal stream on the DuckDuckGo card and advance it,
+    #    asserting the cursor moves per sample.
+    _env_step(env, "ui-signal-stream", card=duck_id, total=3, idx=0)
+    advanced_indexes = []
+    for _ in range(3):
+        adv = (_env_step(env, "ui-signal-advance", card=duck_id, step=1)
+               .get("response") or {})
+        sig = ((adv.get("state") or {}).get("signal_stream") or {}).get(duck_id) or {}
+        advanced_indexes.append(sig.get("signal_index"))
+    # advance_signal wraps modulo total (§4.6.1): total=3 starting at idx=0,
+    # three +1 advances land on [1, 2, 0].
+    if advanced_indexes != [1, 2, 0]:
+        _err(f"{{chunk samples}} per-sample iteration did not advance as expected "
+             f"(wanted [1, 2, 0], got {advanced_indexes})")
+        fails += 1
+    else:
+        _ok(f"{{chunk samples}} per-sample iteration advances the cursor: {advanced_indexes}")
+
+    if fails:
+        _err(f"duckduckgo-walkthrough FAILED ({fails} assertion(s) failed)")
+        return 1
+    _ok("duckduckgo-walkthrough OK (§N drag-wire + inherit_types + rank-1 "
+        "minimalism + node-fold reveal + per-sample iteration, stub stack)")
+    return 0
+
+
 def _env_scenario_dominance_collapse_roundtrip(env: FrontendEnv) -> int:
     """§6.6.5 / §7.3.5 (Q.3-Q.6) — the generalized rank-dominance collapse.
     Build a compute node dominating two children (input + output distributions)
@@ -8459,6 +8657,7 @@ def _full_smoke_chain() -> List[Any]:
         ("rollout-roundtrip",              _env_scenario_rollout_roundtrip),
         ("watch-activity-mirror",          _env_scenario_watch_activity_mirror),
         ("node-fold-roundtrip",            _env_scenario_node_fold_roundtrip),
+        ("duckduckgo-walkthrough",         _env_scenario_duckduckgo_walkthrough),
         ("dominance-collapse-roundtrip",   _env_scenario_dominance_collapse_roundtrip),
         ("compile-expand-collapse-roundtrip", _env_scenario_compile_expand_collapse_roundtrip),
         ("library-middleware-roundtrip",   _env_scenario_library_middleware_roundtrip),
@@ -8618,6 +8817,7 @@ _ENV_SCENARIOS: Dict[str, Any] = {
     "rollout-roundtrip":             _env_scenario_rollout_roundtrip,
     "watch-activity-mirror":         _env_scenario_watch_activity_mirror,
     "node-fold-roundtrip":           _env_scenario_node_fold_roundtrip,
+    "duckduckgo-walkthrough":        _env_scenario_duckduckgo_walkthrough,
     "dominance-collapse-roundtrip":  _env_scenario_dominance_collapse_roundtrip,
     "compile-expand-collapse-roundtrip": _env_scenario_compile_expand_collapse_roundtrip,
     "library-middleware-roundtrip":  _env_scenario_library_middleware_roundtrip,
@@ -9302,6 +9502,9 @@ def _build_parser() -> argparse.ArgumentParser:
     p_gc = sub.add_parser("get-concept", help="GET /api/concepts/{id}")
     p_gc.add_argument("id", help="Concept id")
 
+    p_nr = sub.add_parser("next-rank", help="GET /api/concepts/{id}/next_rank")
+    p_nr.add_argument("id", help="Concept id")
+
     p_dc = sub.add_parser("delete-concept", help="DELETE /api/concepts/{id}")
     p_dc.add_argument("id", help="Concept id")
 
@@ -9425,6 +9628,9 @@ def _dispatch(args: argparse.Namespace) -> int:
         return 0
     if args.cmd == "get-concept":
         _print_response(f"get {args.id}", be.get_concept(args.id))
+        return 0
+    if args.cmd == "next-rank":
+        _print_response(f"next-rank {args.id}", be.next_rank(args.id))
         return 0
     if args.cmd == "delete-concept":
         _print_response(f"delete {args.id}", be.delete_concept(args.id))

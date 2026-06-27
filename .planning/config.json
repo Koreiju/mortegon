@@ -25,7 +25,8 @@
     "use_worktrees": false,
     "inline_plan_threshold": 2,
     "subagent_timeout": 600000,
-    "ai_integration_phase": true
+    "ai_integration_phase": true,
+    "_auto_chain_active": false
   },
   "parallelization": true,
   "model_overrides": {
