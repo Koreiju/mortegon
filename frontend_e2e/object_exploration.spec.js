@@ -159,6 +159,174 @@ test("ref: a SECOND occurrence of an already-revealed {ref} resolves to resolved
   expect(bad, `dashed/dotted lines found in the ref fixture's graph form:\n${bad.join("\n")}`).toEqual([]);
 });
 
+// ── 07-05 (EXPLORE-03 + EXPLORE-01-hover): the seven-gesture DOM capture wired
+// into magic_markdown_panel.mjs::mount(). These cases dispatch REAL DOM events
+// (contextmenu / mousedown→mousemove→mouseup / mouseover) through the SERVED
+// mount() and assert the browser-level gesture→handler+effect contract end-to-
+// end. The backend mutations the handlers ultimately fire (inherit_types edge
+// create, edge-delete) are proven separately by 07-04's gateway unit suite
+// (9/9) + test_edge_inherit_types.py (7/7) and 07-01's next_rank pytest (4/4);
+// here we prove the in-browser gesture capture + render + solid-affordance.
+
+test("hover: hovering a typed token fires the next-rank preview, and renderTypedPanel renders the type graph (super + typed params + → output)", async ({ page }) => {
+  const result = await page.evaluate(async () => {
+    const mm = await import("/static/js/fe/magic_markdown.mjs");
+    const panelMod = await import("/static/js/fe/magic_markdown_panel.mjs");
+    const { parse, renderTypedPanel } = mm;
+    const { mount } = panelMod;
+
+    // (a) mount a panel and prove hover capture: mouseover a token reports its
+    // data-path so the caller can fetch /concepts/{id}/next_rank (mount itself
+    // never fetches — backend computes, frontend renders, D10).
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = parse(["driver", "\tcommand_executor : str = http://127.0.0.1:4444"].join("\n"));
+    const hovers = [];
+    mount(host, root, { mode: "panel" }, { onHoverPreview: (p, kind) => hovers.push({ p, kind }) });
+    const token = host.querySelector('.mm-text, .mm-line, .mm-drop');
+    token.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
+
+    // (b) prove the next-rank RENDER (the type graph the hover preview shows):
+    // a python-native function node renders typed input rows + a → output row.
+    const fnNode = {
+      type_hint: "python_function",
+      data: JSON.stringify({
+        signature: "(self, url: str, samples: int) -> ScanResult",
+        ports: {
+          inputs: [{ name: "self", type: "WebBrowser" }, { name: "url", type: "str" }, { name: "samples", type: "int" }],
+          outputs: [{ name: "return", type: "ScanResult" }],
+        },
+      }),
+    };
+    const typed = renderTypedPanel(fnNode);
+    return {
+      hovers,
+      typedTexts: typed.map((l) => l.text),
+    };
+  });
+  expect(result.hovers.length, "mouseover a token fires onHoverPreview exactly once").toBe(1);
+  expect(result.hovers[0].p, "the preview carries the hovered token's data-path").not.toBeNull();
+  // the next-rank type graph: typed input rows (self is dropped) + the → output
+  expect(result.typedTexts).toContain("url : str");
+  expect(result.typedTexts).toContain("samples : int");
+  expect(result.typedTexts.some((t) => t.startsWith("→ ") && t.includes("ScanResult")), "an inferred → output-type row is rendered").toBe(true);
+});
+
+test("drag-wire: mousedown→mousemove→mouseup across graph nodes fires WIRE_LINK and draws a SOLID transient line (no dasharray)", async ({ page }) => {
+  const result = await page.evaluate(async () => {
+    const mm = await import("/static/js/fe/magic_markdown.mjs");
+    const panelMod = await import("/static/js/fe/magic_markdown_panel.mjs");
+    const { parse } = mm;
+    const { mount } = panelMod;
+
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    // two top-level lines → graphVDom emits two .mm-gnode nodes.
+    const root = parse(["DuckDuckGo", "\tsource node", "\ttarget node"].join("\n"));
+    const wires = [];
+    // capture the realized graph root: mount()'s listeners live on it, so
+    // events must be dispatched ON it (or a descendant) — they bubble UP to it,
+    // never down from the outer host.
+    const dom = mount(host, root, { mode: "graph" }, { onWire: (s, t) => wires.push({ s, t }) });
+    const gnodes = dom.querySelectorAll(".mm-gnode");
+    const src = gnodes[0], tgt = gnodes[gnodes.length - 1];
+
+    src.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, button: 0, clientX: 0, clientY: 0 }));
+    // move well past DRAG_MOVE_PX (4) to flip into drag mode + draw the line —
+    // dispatched on a descendant of dom so it reaches dom's mousemove listener.
+    src.dispatchEvent(new MouseEvent("mousemove", { bubbles: true, clientX: 120, clientY: 80 }));
+
+    // assert DURING the drag (before mouseup tears it down) that a transient
+    // SOLID line exists with no stroke-dasharray.
+    const dragLine = host.querySelector("line.mm-drag-line");
+    const dash = dragLine ? (dragLine.getAttribute("stroke-dasharray") || getComputedStyle(dragLine).strokeDasharray) : "MISSING";
+
+    tgt.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, button: 0, clientX: 120, clientY: 80 }));
+    const lineAfter = host.querySelector("line.mm-drag-line");
+
+    return {
+      wires,
+      srcPath: src.getAttribute("data-path"),
+      tgtPath: tgt.getAttribute("data-path"),
+      hadDragLine: !!dragLine,
+      dash,
+      removedAfter: !lineAfter,
+    };
+  });
+  expect(result.hadDragLine, "a transient drag line is drawn during the drag").toBe(true);
+  expect(/^(none|0px|0|)$/.test(result.dash), `the transient drag line is SOLID (no dasharray), got: ${result.dash}`).toBe(true);
+  expect(result.wires.length, "mouseup on a different node fires WIRE_LINK once").toBe(1);
+  expect(result.wires[0].s, "source path").toBe(result.srcPath);
+  expect(result.wires[0].t, "target path").toBe(result.tgtPath);
+  expect(result.removedAfter, "the transient line is torn down on mouseup").toBe(true);
+});
+
+test("double-right-delete: two contextmenu within the debounce window synthesize DELETE_REF (a single one folds)", async ({ page }) => {
+  const result = await page.evaluate(async () => {
+    const mm = await import("/static/js/fe/magic_markdown.mjs");
+    const panelMod = await import("/static/js/fe/magic_markdown_panel.mjs");
+    const { parse, buildRegistry } = mm;
+    const { mount } = panelMod;
+
+    // a ref-bearing line is the deletable token (a {ref} occurrence).
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = parse(["catalog", "\tlink {details}"].join("\n"));
+    const details = parse(["details", "\turl : /d"].join("\n"));
+    const registry = buildRegistry([details]);
+    const folds = [], deletes = [];
+    mount(host, root, { mode: "panel", registry, expanded: new Set() },
+      { onToggle: (p) => folds.push(p), onDelete: (p) => deletes.push(p) });
+
+    // a child token (.mm-text, classifyTarget kind "token") folds on a single
+    // right-click AND deletes on a double — the root line is kind "self"
+    // (collapse), so target the ref token specifically.
+    const target = [...host.querySelectorAll(".mm-text")].find((e) => /details|link/.test(e.textContent)) || host.querySelector(".mm-text");
+    // single right-click → fold
+    target.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, button: 2 }));
+    const foldsAfterSingle = folds.length;
+    // immediate second right-click on the SAME target (within 400ms) → DELETE
+    target.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, button: 2 }));
+
+    return { foldsAfterSingle, foldsTotal: folds.length, deletes: deletes.length };
+  });
+  expect(result.foldsAfterSingle, "a single right-click resolves a fold").toBe(1);
+  expect(result.deletes, "the second right-click within the window synthesizes a DELETE_REF").toBe(1);
+  expect(result.foldsTotal, "the second contextmenu does NOT add a second fold (it deletes)").toBe(1);
+});
+
+test("fold-preservation: collapsing a parent and re-expanding restores a nested fold (M.6)", async ({ page }) => {
+  const restored = await page.evaluate(async () => {
+    const mm = await import("/static/js/fe/magic_markdown.mjs");
+    const { parse, buildRegistry, renderPanel, toggle } = mm;
+    // a host whose {ref} target itself contains a nested {ref}, so there is a
+    // rank-2 fold whose state must survive a rank-1 collapse/re-expand.
+    const host = parse(["root", "\touter {mid}"].join("\n"));
+    const mid = parse(["mid", "\tinner {leaf}"].join("\n"));
+    const leaf = parse(["leaf", "\tval : 1"].join("\n"));
+    const registry = buildRegistry([mid, leaf]);
+
+    let expanded = new Set();
+    const pathOf = (exp, text) => renderPanel(host, { registry, expanded: exp }).find((l) => l.text === text)?.path;
+    const hasLeaf = (exp) => renderPanel(host, { registry, expanded: exp }).some((l) => l.text === "val : 1");
+    // "outer {mid}" is a stable rank-1 line — its path is constant regardless
+    // of expansion, so capture it once and toggle it consistently.
+    const outerPath = pathOf(new Set(), "outer {mid}");
+    expanded = toggle(expanded, outerPath);                 // open outer (rank-1)
+    const innerPath = pathOf(expanded, "inner {leaf}");     // now visible
+    expanded = toggle(expanded, innerPath);                 // open inner (rank-2)
+    const beforeHasInner = hasLeaf(expanded);               // both open → leaf visible
+    expanded = toggle(expanded, outerPath);                 // collapse outer (inner's fold state RETAINED in the set)
+    const afterCollapseHasInner = hasLeaf(expanded);        // subtree hidden
+    expanded = toggle(expanded, outerPath);                 // re-expand outer
+    const afterReexpandHasInner = hasLeaf(expanded);        // M.6: inner restored
+    return { beforeHasInner, afterCollapseHasInner, afterReexpandHasInner };
+  });
+  expect(restored.beforeHasInner, "the rank-2 leaf is visible when both folds are open").toBe(true);
+  expect(restored.afterCollapseHasInner, "collapsing the parent hides the nested subtree").toBe(false);
+  expect(restored.afterReexpandHasInner, "re-expanding restores the nested fold (M.6 preservation)").toBe(true);
+});
+
 test("ref: black_slate.spec's no-dotted-overlay invariant stays satisfied on the served editor", async ({ page }) => {
   // a cold first-ever navigation to "/" can trigger a real UMAP recompute on
   // the editor's boot fetch (the same characteristic black_slate.spec.js's
