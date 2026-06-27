@@ -49,12 +49,19 @@ status: complete
 
 # Phase WFH-07 Plan 06: DuckDuckGo §N Walkthrough (Tasks 1-3) Summary
 
-**Tasks 1-3 of the EXPLORE-04 DuckDuckGo §N walkthrough are built and verified green (stub REPL scenario + full-smoke 93/93, live-probe self-test, and a 9/9 e2e suite); Task 4 (the clean-GPU real-subsystem acceptance run) is a blocking-human checkpoint and was deliberately NOT executed by this agent.**
+**All 4 tasks of the EXPLORE-04 DuckDuckGo §N walkthrough are complete and verified.** Tasks 1-3 (stub REPL scenario + full-smoke 93/93, live-probe `--self-test`, and a 9/9 e2e suite) were built by the executor; **Task 4 — the clean-GPU real-subsystem acceptance run (D-01) — was driven from the main context on 2026-06-27 and PASSED against `all_real:true`** (see "Task 4 — Real Acceptance" below).
+
+## Task 4 — Real-Subsystem Acceptance (D-01): PASSED 2026-06-27
+
+Clean-GPU preflight (VRAM ~0, no stray python/firefox, `:8080` free) → real backend booted via `python app.py` → `GET /api/subsystem_status` returned `all_real:true` (gpt4all Nous-Hermes on CUDA, nomic embedder on CUDA, **real Selenium WebDriver bound**, langgraph loaded). Both D-01 gates ran green from the main context, then the backend was torn down (VRAM back to ~0):
+
+- **`env-scenario --name duckduckgo-walkthrough` (real backend)** → green: DuckDuckGo inherited 3 rank-1 type edges (N.4); presents no types post-inherit (N.5); `next_rank` carried the real materialiser neighbors (`py_function::WebBrowserManager.close/get_driver/get_page_source`); node-fold reveal mirrored in `node_fold_state`; `{chunk samples}` per-sample iteration advanced [1,2,0].
+- **`probe_live_duckduckgo_walkthrough.py --backend http://127.0.0.1:8080`** → exit 0, "ALL CHECKS PASS": `all_real=True`; a **live Selenium scan of `duckduckgo.com/html/?q=university+library`** streamed 1 real chunk through the WS to `done`; the real `py_object::WebBrowserManager` tree located; drag-wire `inherit_types=true` produced 3 real `OBJECT_HAS_FUNCTION` edges; `next_rank` returned 3 real typed fields; DuckDuckGo's own data stayed type-stripped (N.5); per-sample iteration ran over the real scanned distribution (N.9); transient node cleaned up.
 
 ## Performance
 
-- **Duration:** ~70 min (Tasks 1-3 only)
-- **Tasks:** 3 of 4 completed (Task 4 deferred to human checkpoint)
+- **Duration:** ~70 min (Tasks 1-3) + real-acceptance run (Task 4, 2026-06-27)
+- **Tasks:** 4 of 4 completed (Task 4 real-subsystem acceptance PASSED `all_real:true`)
 - **Files modified:** 3 (1 created, 2 modified)
 
 ## Accomplishments
