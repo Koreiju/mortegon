@@ -92,7 +92,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 
 **Wave 4** *(blocked on Waves 2+3)*
 
-- [ ] 07-05-PLAN.md — EXPLORE-03/01 mount() DOM capture (contextmenu, double-right debounce, drag, 🔒 gate, hover preview) + DOM unit + drag-wire/delete/fold e2e
+- [x] 07-05-PLAN.md — EXPLORE-03/01 mount() DOM capture (contextmenu, double-right debounce, drag, 🔒 gate, hover preview) + DOM unit + drag-wire/delete/fold e2e
 
 **Wave 5** *(blocked on Wave 4)*
 
@@ -178,7 +178,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
-| 7. Deep Object-Exploration Gestures | v3.0 | 4/6 | In Progress|  |
+| 7. Deep Object-Exploration Gestures | v3.0 | 5/6 | In Progress|  |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |
