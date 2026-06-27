@@ -327,6 +327,167 @@ test("fold-preservation: collapsing a parent and re-expanding restores a nested 
   expect(restored.afterReexpandHasInner, "re-expanding restores the nested fold (M.6 preservation)").toBe(true);
 });
 
+// ── 07-06 (EXPLORE-04 / §N): the DuckDuckGo walkthrough, driven against the
+// STUB backend (no real subsystems). Mirrors the §N canonical example
+// (docs/frontend/object_exploration.md §5.1): author self=duckduckgo,
+// drag-wire the (stub) WebBrowser scanner with inherit_types, assert the
+// panel shows "DuckDuckGo / {scanner}" with NO types, right-click {scanner}
+// reveals type-stripped rank-1 url{}/dom{}, and advance the {chunk samples}
+// iterator asserting per-sample focus changes.
+
+test("duckduckgo walkthrough: drag-wire inherit_types yields a NO-TYPES panel, right-click reveals type-stripped url{}/dom{}, and {chunk samples} per-sample iteration advances (§N)", async ({ page }) => {
+  const result = await page.evaluate(async () => {
+    const mm = await import("/static/js/fe/magic_markdown.mjs");
+    const panelMod = await import("/static/js/fe/magic_markdown_panel.mjs");
+    const { parse, buildRegistry, renderPanel, toggle, iterableNode, advanceSignal } = mm;
+    const { mount } = panelMod;
+
+    // (1) author self=duckduckgo referencing {scanner} — purely structural,
+    // no type presentation per N.4/N.5.
+    const duckduckgo = parse(["DuckDuckGo", "\t{scanner}"].join("\n"));
+
+    // (2) the (stub) WebBrowser scanner's rank-1 structure: a function-shaped
+    // node whose OWN fields are type-stripped (N.5 — outputs blank unless
+    // bound/inverse-referenced); a downstream {ref} ("scan for duckduckgo
+    // url") supplies the iterable chunk distribution (N.9).
+    const scanForUrl = node_with_samples();
+    function node_with_samples() {
+      const samples = [
+        parse(["chunk", "\ttitle : sample one"].join("\n")),
+        parse(["chunk", "\ttitle : sample two"].join("\n")),
+        parse(["chunk", "\ttitle : sample three"].join("\n")),
+      ];
+      return iterableNode("scan for duckduckgo url", samples);
+    }
+    const scanner = parse([
+      "scanner",
+      "\tsearch {}",
+      "\t{paginate}",
+      "\turl {duckduckgo url}",
+      "\tdom {scan for duckduckgo url}",
+    ].join("\n"));
+    const duckduckgoUrl = parse(["duckduckgo url", "\thttps://www.duckduckgo.com/"].join("\n"));
+
+    const registry = buildRegistry([scanner, duckduckgoUrl, scanForUrl]);
+
+    // (3) drag-wire-equivalent: mount DuckDuckGo in graph mode and fire a
+    // real mousedown->mousemove->mouseup drag onto a node representing the
+    // scanner, asserting WIRE_LINK fires (the gateway issues the real
+    // inherit_types:true /api/editor/link request — proven by 07-04's
+    // gateway unit suite; this e2e proves the gesture capture itself).
+    const wireHost = document.createElement("div");
+    document.body.appendChild(wireHost);
+    const wireRoot = parse(["DuckDuckGo", "\t{scanner}", "\tscanner"].join("\n"));
+    const wires = [];
+    const wireDom = mount(wireHost, wireRoot, { mode: "graph" }, { onWire: (s, t) => wires.push({ s, t }) });
+    const gnodes = wireDom.querySelectorAll(".mm-gnode");
+    const src = gnodes[gnodes.length - 1]; // the "scanner" node
+    const tgt = gnodes[0];                 // the "DuckDuckGo" root node
+    src.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, button: 0, clientX: 0, clientY: 0 }));
+    src.dispatchEvent(new MouseEvent("mousemove", { bubbles: true, clientX: 50, clientY: 50 }));
+    const dragLine = wireHost.querySelector("line.mm-drag-line");
+    const dragDash = dragLine ? (dragLine.getAttribute("stroke-dasharray") || getComputedStyle(dragLine).strokeDasharray) : "MISSING";
+    tgt.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, button: 0, clientX: 50, clientY: 50 }));
+
+    // (4) panel render — DuckDuckGo presents NO types (rank-1 minimalism,
+    // N.4/N.5): purely structural text, never a `key : Type = value` slot.
+    const collapsedLines = renderPanel(duckduckgo, { registry, expanded: new Set() });
+    const panelTexts = collapsedLines.map((l) => l.text);
+
+    // (5) right-click {scanner} (single right-click -> TOGGLE_FOLD) reveals
+    // its rank-1 structure inline, braces dropping, still type-stripped.
+    const panelHost = document.createElement("div");
+    document.body.appendChild(panelHost);
+    let expanded = new Set();
+    const folds = [];
+    const panelDom = mount(panelHost, duckduckgo, { mode: "panel", registry, expanded },
+      { onToggle: (p) => folds.push(p) });
+    const scannerToken = [...panelHost.querySelectorAll(".mm-text")].find((e) => /scanner/.test(e.textContent));
+    scannerToken.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, button: 2 }));
+    expanded = toggle(expanded, folds[0]);
+    const revealedLines = renderPanel(duckduckgo, { registry, expanded });
+    const revealedTexts = revealedLines.map((l) => l.text);
+
+    // (6) reveal url{}/dom{} themselves (rank-2: expand "scanner"'s own
+    // {duckduckgo url} and {scan for duckduckgo url} refs) — still
+    // type-stripped at every rank.
+    const urlLine = revealedLines.find((l) => l.text === "url {duckduckgo url}");
+    const domLine = revealedLines.find((l) => l.text === "dom {scan for duckduckgo url}");
+    let expanded2 = toggle(expanded, urlLine.path);
+    expanded2 = toggle(expanded2, domLine.path);
+    const fullyRevealed = renderPanel(duckduckgo, { registry, expanded: expanded2 });
+    const fullyRevealedTexts = fullyRevealed.map((l) => l.text);
+
+    // (7) {chunk samples} per-sample iteration (N.9, advanceSignal model):
+    // the iterable "scan for duckduckgo url" target renders ONE sample at a
+    // time; advancing the signal index changes which sample's fields inline.
+    const domPath = domLine.path;
+    let signals = new Map();
+    const sampleAt = (sigMap) => {
+      const ls = renderPanel(duckduckgo, { registry, expanded: expanded2, signals: sigMap });
+      return (ls.find((l) => l.text === "title : sample one")
+        || ls.find((l) => l.text === "title : sample two")
+        || ls.find((l) => l.text === "title : sample three") || {}).text;
+    };
+    const sample0 = sampleAt(signals);
+    signals = advanceSignal(signals, domPath, 3);
+    const sample1 = sampleAt(signals);
+    signals = advanceSignal(signals, domPath, 3);
+    const sample2 = sampleAt(signals);
+    signals = advanceSignal(signals, domPath, 3);
+    const sample3 = sampleAt(signals); // wraps back to sample0's content
+
+    return {
+      panelTexts, revealedTexts, fullyRevealedTexts,
+      hadDragLine: !!dragLine, dragDash, wires,
+      srcPath: src.getAttribute("data-path"), tgtPath: tgt.getAttribute("data-path"),
+      sample0, sample1, sample2, sample3,
+    };
+  });
+
+  // -- (3) drag-wire gesture capture --
+  expect(result.hadDragLine, "a transient drag line is drawn during the drag-wire gesture").toBe(true);
+  expect(/^(none|0px|0|)$/.test(result.dragDash), `the drag-wire line is SOLID (no dasharray), got: ${result.dragDash}`).toBe(true);
+  expect(result.wires.length, "the drag from scanner onto DuckDuckGo fires WIRE_LINK once").toBe(1);
+  expect(result.wires[0].s).toBe(result.srcPath);
+  expect(result.wires[0].t).toBe(result.tgtPath);
+
+  // -- (4) rank-1 minimalism: DuckDuckGo's panel carries NO typed colon-slot --
+  expect(result.panelTexts).toContain("{scanner}");
+  for (const t of result.panelTexts) {
+    expect(t, `DuckDuckGo's own panel text must carry no typed colon-slot: ${t}`).not.toMatch(/\w+\s*:\s*\w+\s*=/);
+  }
+
+  // -- (5) right-click reveal: {scanner} unfolds inline, still type-stripped --
+  expect(result.revealedTexts).toContain("url {duckduckgo url}");
+  expect(result.revealedTexts).toContain("dom {scan for duckduckgo url}");
+  for (const t of result.revealedTexts) {
+    expect(t, `revealed scanner fields must stay type-stripped: ${t}`).not.toMatch(/\w+\s*:\s*\w+\s*=/);
+  }
+
+  // -- (6) rank-2 reveal of url{}/dom{} stays type-stripped --
+  expect(result.fullyRevealedTexts.some((t) => /https:\/\/www\.duckduckgo\.com\//.test(t)), "the duckduckgo url's literal value is reachable").toBe(true);
+  expect(result.fullyRevealedTexts).toContain("search {}");
+  expect(result.fullyRevealedTexts).toContain("{paginate}");
+
+  // -- (7) {chunk samples} per-sample iteration advances and wraps --
+  expect(result.sample0, "sample 0 is the first chunk").toBe("title : sample one");
+  expect(result.sample1, "advancing the signal moves to the second chunk").toBe("title : sample two");
+  expect(result.sample2, "advancing again moves to the third chunk").toBe("title : sample three");
+  expect(result.sample3, "a fourth advance wraps back to the first chunk").toBe("title : sample one");
+
+  // -- Forbidden Concepts guard: no stroke-dasharray anywhere on the page --
+  const bad = await page.evaluate(() => {
+    const out = [];
+    for (const el of document.querySelectorAll("line, path, polyline")) {
+      const da = getComputedStyle(el).strokeDasharray;
+      if (da && !/^(none|0px|0)$/.test(da)) out.push(`stroke-dasharray=${da}`);
+    }
+    return out;
+  });
+  expect(bad, `dashed/dotted lines found anywhere on the page during the duckduckgo walkthrough:\n${bad.join("\n")}`).toEqual([]);
+});
+
 test("ref: black_slate.spec's no-dotted-overlay invariant stays satisfied on the served editor", async ({ page }) => {
   // a cold first-ever navigation to "/" can trigger a real UMAP recompute on
   // the editor's boot fetch (the same characteristic black_slate.spec.js's
