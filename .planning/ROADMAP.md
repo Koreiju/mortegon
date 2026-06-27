@@ -22,7 +22,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 - [x] **Phase 4: Live Layout, Signal & Pattern** *(v1.0 — shipped 2026-06-18)*
 - [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(v1.0 — shipped 2026-06-19)*
 - [x] **Phase 6: 3D Real Register in the Served Slate** *(v3.0)* - Port the UMAP-linear-radial force-directed layout, per-URL multi-scan placement + camera framing, image billboards, and solid 2D↔3D arrows into the served `fe/` projector. (REAL-01..04) (completed 2026-06-23)
-- [ ] **Phase 7: Deep Object-Exploration Gestures** *(v3.0)* - Next-rank type-graph on hover, external-reference propagation as recursive panels, drag-to-wire + double-right-delete, the DuckDuckGo walkthrough. (EXPLORE-01..04)
+- [x] **Phase 7: Deep Object-Exploration Gestures** *(v3.0)* - Next-rank type-graph on hover, external-reference propagation as recursive panels, drag-to-wire + double-right-delete, the DuckDuckGo walkthrough. (EXPLORE-01..04) (completed 2026-06-27)
 - [ ] **Phase 8: Halo Cone-Ray Transport + Brace States + Stepper** *(v3.0)* - Projective halo cone transport, three `{ref}` render states, 2D per-sample stepper drives 3D focus. (HALO-03/04, STEP-01)
 - [ ] **Phase 9: Cascaded Recurrent Renderer Surface** *(v3.0)* - Async perimeter render + projector link-network (independent of UMAP); readouts stream to projector with HSV rotation. (CASC-01/02)
 - [ ] **Phase 10: Live Streaming SLA** *(v3.0)* - Mid-scan incremental UMAP refit; ms-scan→seconds-UMAP live updates; scan-end snap. (STREAM-01; supersedes PERF-01)
@@ -75,7 +75,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   3. Left-click-drag wires two graph nodes (target inherits i/o types); double-right-click deletes a token in panel or graph form. Verified by e2e gestures + `editor-delete`/`editor-link` telemetry.
   4. A `duckduckgo-walkthrough` env-scenario + probe runs the §N flow end-to-end against real subsystems.
 
-**Plans**: 4/6 plans executed
+**Plans**: 6/6 plans complete
 
 **Wave 1**
 
@@ -96,7 +96,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 
 **Wave 5** *(blocked on Wave 4)*
 
-- [ ] 07-06-PLAN.md — EXPLORE-04 DuckDuckGo §N walkthrough (REPL scenario + live probe + e2e, D-01 real-subsystem inline)
+- [x] 07-06-PLAN.md — EXPLORE-04 DuckDuckGo §N walkthrough (REPL scenario + live probe + e2e, D-01 real-subsystem inline)
 
 **UI hint**: yes
 
@@ -178,7 +178,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 4. Live Layout/Signal/Pattern | v1.0 | direct | Complete | 2026-06-18 |
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
-| 7. Deep Object-Exploration Gestures | v3.0 | 5/6 | In Progress|  |
+| 7. Deep Object-Exploration Gestures | v3.0 | 6/6 | Complete   | 2026-06-27 |
 | 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |

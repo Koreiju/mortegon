@@ -2,17 +2,17 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Completeness
-status: executing
-stopped_at: Completed WFH-07-03-PLAN.md
-last_updated: "2026-06-27T15:15:42.919Z"
-progress:
-  total_phases: 9
-  completed_phases: 1
-  total_plans: 10
-  completed_plans: 9
-  percent: 11
 current_phase: 7
 current_phase_name: Deep Object-Exploration Gestures
+status: blocked
+stopped_at: WFH-07-06-PLAN.md Tasks 1-3 complete; Task 4 awaiting human checkpoint (clean-GPU real-subsystem run)
+last_updated: "2026-06-27T15:38:49.917Z"
+progress:
+  total_phases: 9
+  completed_phases: 2
+  total_plans: 10
+  completed_plans: 10
+  percent: 22
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 
 ## Current Position
 
-Phase: 7 (Deep Object-Exploration Gestures) — EXECUTING
+Phase: 7 (Deep Object-Exploration Gestures) — BLOCKED ON HUMAN CHECKPOINT
 Plan: 6 of 6
-Status: Ready to execute
+Status: Tasks 1-3 of 07-06 complete (stub fast-gate green: REPL scenario, probe --self-test, e2e). Task 4 is a checkpoint:human-verify (gate="blocking-human") — clean-GPU preflight + real-subsystem DuckDuckGo acceptance run (D-01). NOT auto-executed. Awaiting operator approval before Phase 7 can be marked complete.
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -60,9 +60,9 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 **Resume file:** None
 
-Last session: 2026-06-24T01:54:19.646Z
-Stopped at: Completed WFH-07-03-PLAN.md
-Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, full real-stack inline.
+Last session: 2026-06-27T15:38:49.917Z
+Stopped at: WFH-07-06-PLAN.md Tasks 1-3 complete (committed: 526bdf1, 7346dac, 915c35b); Task 4 blocking-human checkpoint pending
+Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo acceptance run from the MAIN context (see 07-06-PLAN.md Task 4 how-to-verify), then resume to close out Phase 7.
 
 ## Performance Metrics
 
@@ -76,6 +76,7 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 | Phase WFH-07 P02 | 18min | 2 tasks | 2 files |
 | Phase WFH-07-deep-object-exploration-gestures P03 | 22min | 2 tasks | 4 files |
 | Phase WFH-07 P04 | 18min | 3 tasks | 5 files |
+| Phase WFH-07 P06 | 70min | 3 tasks | 3 files |
 
 ## Decisions
 
@@ -99,3 +100,6 @@ Next: `/gsd-autonomous` (discovers Phase 6) — discuss → plan → execute, fu
 - [Phase WFH-07]: N.13: DELETE_REF deletes the backing ConceptEdge (DELETE /api/concept_edges/{edge_id}) alongside the value-clear when g.edgeId is present, confirmed against object_exploration.md section N.13 wording
 - [Phase WFH-07]: Inheritance side-effect runs inside the same edge-create request, fanned through apply_edge_create_lifecycle per inherited edge (Open-Q3: one request, one lifecycle event)
 - [Phase WFH-07]: Added explicit source/target existence validation (400) to editor_link and create_concept_edge since graph_editor.create_concept_edge never raises for unknown node ids
+- [Phase ?]: WFH-07-06: extended editor-link with inherit_types kwarg rather than adding a new ui-wire-link verb -- backend already exposes the drag-wire side-effect as a single EditorLinkRequest field (07-04)
+- [Phase ?]: WFH-07-06: purge_workspace does not call ensure_foundation_fixtures() -- only the WS-connect bootstrap path does; scenario/probe must explicitly call POST /api/foundation/ensure after any purge needing the materialised python trees
+- [Phase ?]: WFH-07-06: Task 4 (clean-GPU real-subsystem acceptance run) is a blocking-human checkpoint per D-01 -- not auto-executed; awaiting human approval
