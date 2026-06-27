@@ -229,6 +229,10 @@ export function mount(host, rootNode, opts = {}, handlers = {}) {
     const isDoubleRight = lastRight.el === el && (now - lastRight.ts) <= DOUBLE_RIGHT_MS;
     if (isDoubleRight) {
       lastRight = { ts: 0, el: null }; // consume — a third click starts a fresh pair
+      // 🔒 gate (WR-03): a read-only python-native / fixture node permits
+      // exploration (single-right fold above) but REFUSES the destructive
+      // double-right delete — the lock protects the node's rows from removal.
+      if (readOnly) return;
       const { action } = resolveGesture({ button: "right", clicks: 2, target: kind, mode: opts.mode });
       if (action === Action.DELETE_REF) {
         const path = el.getAttribute("data-path");
@@ -262,6 +266,7 @@ export function mount(host, rootNode, opts = {}, handlers = {}) {
     if (ev.button !== 0) return; // left button only
     const gnode = ev.target.closest(".mm-gnode");
     if (!gnode) return;
+    if (dragState) teardownDrag(); // WR-01: drop any stale drag (+ orphan line) before starting a new one
     dragState = {
       sourceEl: gnode, sourcePath: gnode.getAttribute("data-path"),
       startX: ev.clientX, startY: ev.clientY, dragging: false, lineEl: null,
@@ -304,8 +309,10 @@ export function mount(host, rootNode, opts = {}, handlers = {}) {
       handlers.onWire && handlers.onWire(sourcePath, targetGnode.getAttribute("data-path"));
     }
   });
-  // a drag released outside the host (or aborted) tears down cleanly too.
-  dom.addEventListener("mouseleave", () => { if (dragState && !dragState.dragging) dragState = null; });
+  // a drag released/aborted outside the host tears down cleanly (WR-01): an
+  // IN-PROGRESS drag leaving the host removes its transient line + clears state
+  // (not just a not-yet-started press), so no orphaned <line> accumulates.
+  dom.addEventListener("mouseleave", () => { if (dragState) teardownDrag(); });
 
   // ── hover next-rank preview (EXPLORE-01 / Hover-Preview Contract) ───────
   // Hovering a token/ref/self target previews the SAME rank-1 subtree a
