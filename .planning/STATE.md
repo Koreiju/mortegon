@@ -2,17 +2,17 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Completeness
+current_phase: 8
+current_phase_name: Halo Cone-Ray Transport + Brace States + Stepper
 status: executing
 stopped_at: Phase 8 UI-SPEC approved
-last_updated: "2026-06-28T02:22:30.960Z"
+last_updated: "2026-06-28T17:43:48.640Z"
 progress:
   total_phases: 9
   completed_phases: 2
   total_plans: 14
-  completed_plans: 10
+  completed_plans: 12
   percent: 22
-current_phase: 7
-current_phase_name: Deep Object-Exploration Gestures
 ---
 
 # Project State
@@ -27,8 +27,8 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 8 (Halo Cone-Ray Transport + Brace States + Stepper) — EXECUTING
-Plan: 1 of 4
-Status: Executing Phase 8
+Plan: 2 of 4
+Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -60,7 +60,7 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 **Resume file:** .planning/phases/WFH-08-halo-cone-ray-transport-brace-states-stepper/08-UI-SPEC.md
 
-Last session: 2026-06-28T01:51:37.982Z
+Last session: 2026-06-28T17:42:57.986Z
 Stopped at: Phase 8 UI-SPEC approved
 Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo acceptance run from the MAIN context (see 07-06-PLAN.md Task 4 how-to-verify), then resume to close out Phase 7.
 
@@ -77,6 +77,7 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 | Phase WFH-07-deep-object-exploration-gestures P03 | 22min | 2 tasks | 4 files |
 | Phase WFH-07 P04 | 18min | 3 tasks | 5 files |
 | Phase WFH-07 P06 | 70min | 3 tasks | 3 files |
+| Phase 08 P02 | 1 session | 3 tasks | 6 files |
 
 ## Decisions
 
@@ -103,3 +104,5 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 - [Phase ?]: WFH-07-06: extended editor-link with inherit_types kwarg rather than adding a new ui-wire-link verb -- backend already exposes the drag-wire side-effect as a single EditorLinkRequest field (07-04)
 - [Phase ?]: WFH-07-06: purge_workspace does not call ensure_foundation_fixtures() -- only the WS-connect bootstrap path does; scenario/probe must explicitly call POST /api/foundation/ensure after any purge needing the materialised python trees
 - [Phase ?]: WFH-07-06: Task 4 (clean-GPU real-subsystem acceptance run) is a blocking-human checkpoint per D-01 -- not auto-executed; awaiting human approval
+- [Phase ?]: radial (not raw Euclidean apex distance) is the apex-distance scalar guaranteed monotonic in similarity for cone-ray transport; along_ray is an orthogonal perpendicular offset
+- [Phase ?]: Cone-ray composition built in world-space (apex -> nodeWorldPosition(id)) rather than screen-space, since projecting both endpoints through the same camera commutes with taking the ray in world space first -- keeps halo_cone.mjs THREE-free per D-04

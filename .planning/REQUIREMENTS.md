@@ -23,7 +23,7 @@
 
 ### Phase 8 — Halo Cone-Ray Transport + Brace States + 2D→3D Stepper (§O.1a / §O.6 / §O.18)
 
-- [ ] **HALO-03**: Halo cone-ray transport — retrieved 3D nodes are transported along a shared cone whose apex is the 2D query element; normalized triple-product similarity sets the radial+along-ray distance; camera view sets angular placement; deleting a result transports the next-most-similar. (§O.18)
+- [x] **HALO-03**: Halo cone-ray transport — retrieved 3D nodes are transported along a shared cone whose apex is the 2D query element; normalized triple-product similarity sets the radial+along-ray distance; camera view sets angular placement; deleting a result transports the next-most-similar. (§O.18)
 - [x] **HALO-04**: Three `{ref}` render states — braced-hidden (hover-preview/reveal-instantiate), revealed-internal (inline rank-1), resolved-external (solid line to an already-visible node); node-count parity between panel and graph forms. (§O.1/§O.1a/§O.2)
 - [ ] **STEP-01**: The 2D per-sample stepper drives 3D focus one-way — advancing `{chunk samples}` in 2D flies/highlights the corresponding chunk in 3D; the 3D always shows the full per-sample distribution. (§O.6/§O.7/§O.11)
 
@@ -65,7 +65,7 @@ Same forbidden-concepts list as v1.0 (D2/D3/D9/D11): concentric Fibonacci sphere
 | EXPLORE-02 | 7 | Complete |
 | EXPLORE-03 | 7 | Complete |
 | EXPLORE-04 | 7 | Complete |
-| HALO-03 | 8 | Pending |
+| HALO-03 | 8 | Complete |
 | HALO-04 | 8 | Complete |
 | STEP-01 | 8 | Pending |
 | CASC-01 | 9 | Pending |
