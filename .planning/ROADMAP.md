@@ -111,7 +111,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   2. A `{ref}` renders braced-hidden / revealed-internal / resolved-external(solid link) with panel↔graph node-count parity. Verified by an e2e over a two-level ref chain.
   3. Advancing the 2D `{chunk samples}` stepper flies/highlights the corresponding 3D chunk while 3D shows the full distribution. Verified by `env-scenario --name signal-stream-roundtrip`/`iterated-signal-rerender` + an e2e.
 
-**Plans**: 3/4 plans executed
+**Plans**: 3/4 plans executed (08-04 Task 1 of 2 complete — Task 2 D-01 real-subsystem acceptance awaiting blocking-human main-context checkpoint)
 **Wave 1**
 
 - [x] 08-01-PLAN.md — HALO-04 brace-render wiring (▸/▾/solid cross-ref link; panel↔graph node-count parity; closes the Phase-7 gap)
@@ -126,7 +126,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 08-04-PLAN.md — D-01 real-subsystem cone-transport acceptance probe (`scripts/probe_live_cone_transport.py` + `--self-test`; blocking-human, main-context)
+- [ ] 08-04-PLAN.md — D-01 real-subsystem cone-transport acceptance probe (`scripts/probe_live_cone_transport.py` + `--self-test`; blocking-human, main-context) — Task 1 (probe authored, `--self-test` green) complete; Task 2 (the real-subsystem run) awaiting human checkpoint
 
 **UI hint**: yes
 

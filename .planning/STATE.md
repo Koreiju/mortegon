@@ -5,14 +5,14 @@ milestone_name: Design Completeness
 current_phase: 8
 current_phase_name: Halo Cone-Ray Transport + Brace States + Stepper
 status: executing
-stopped_at: Completed 08-03-PLAN.md
-last_updated: "2026-06-28T18:11:42.324Z"
+stopped_at: 08-04 Task 1 complete (probe_live_cone_transport.py, 28128c7); Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
+last_updated: "2026-06-28T20:54:03.615Z"
 progress:
   total_phases: 9
   completed_phases: 2
   total_plans: 14
   completed_plans: 13
-  percent: 22
+  percent: 31
 ---
 
 # Project State
@@ -27,8 +27,8 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 8 (Halo Cone-Ray Transport + Brace States + Stepper) — EXECUTING
-Plan: 3 of 4
-Status: Ready to execute
+Plan: 4 of 4 — Task 1 complete; Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
+Status: Awaiting human checkpoint
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -58,11 +58,11 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 ## Session Continuity
 
-**Resume file:** None
+**Resume file:** 08-04-PLAN.md
 
-Last session: 2026-06-28T18:11:42.318Z
-Stopped at: Completed 08-03-PLAN.md
-Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo acceptance run from the MAIN context (see 07-06-PLAN.md Task 4 how-to-verify), then resume to close out Phase 7.
+Last session: 2026-06-28T20:54:03.514Z
+Stopped at: 08-04 Task 1 complete (probe_live_cone_transport.py, 28128c7); Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
+Next: Perform 08-04 Task 2 — the D-01 clean-GPU preflight + real-subsystem cone-transport acceptance run (`python scripts/probe_live_cone_transport.py --backend http://127.0.0.1:8080`) from the MAIN context (see 08-04-PLAN.md Task 2 how-to-verify), then resume to close out Phase 8.
 
 ## Performance Metrics
 
@@ -79,6 +79,7 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 | Phase WFH-07 P06 | 70min | 3 tasks | 3 files |
 | Phase 08 P02 | 1 session | 3 tasks | 6 files |
 | Phase WFH-08 P03 | 1 session | 4 tasks | 12 files |
+| Phase WFH-08 P04 | 25min | 1 tasks | 1 files |
 
 ## Decisions
 
@@ -109,3 +110,4 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 - [Phase ?]: Cone-ray composition built in world-space (apex -> nodeWorldPosition(id)) rather than screen-space, since projecting both endpoints through the same camera commutes with taking the ray in world space first -- keeps halo_cone.mjs THREE-free per D-04
 - [Phase WFH-08]: STEP-01: signal_id resolved server-side from an ordered chunk-id list (_resolve_signal_id), never client-side, per D10
 - [Phase WFH-08]: stepper.mjs receives flyToNode/highlightNode via injected deps (no static projector.mjs import) to keep the one-way (2D->3D) invariant structurally provable
+- [Phase WFH-08]: WFH-08-04: Task 1 (probe_live_cone_transport.py) complete+committed (28128c7); Task 2 (D-01 real-subsystem acceptance) is a blocking-human main-context checkpoint, deliberately not executed by the auto executor
