@@ -4,11 +4,11 @@ milestone: v3.0
 milestone_name: Design Completeness
 status: executing
 stopped_at: Phase 8 UI-SPEC approved
-last_updated: "2026-06-28T02:22:05.177Z"
+last_updated: "2026-06-28T02:22:30.960Z"
 progress:
   total_phases: 9
   completed_phases: 2
-  total_plans: 10
+  total_plans: 14
   completed_plans: 10
   percent: 22
 current_phase: 7
@@ -22,13 +22,13 @@ current_phase_name: Deep Object-Exploration Gestures
 See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md · audit: .planning/DESIGN_COVERAGE_AUDIT.md
 
 **Core value (v3):** Every binding design requirement (§A–§V of `docs/USER_REQUIREMENTS_VERBATIM.md`) is realized in the **served `/` black-slate frontend** and verified against real subsystems — not split between the new `fe/` surface and the legacy `cp/` one. The four lodestar use cases stay green throughout (`all_real:true`).
-**Current focus:** Phase 7 — Deep Object-Exploration Gestures
+**Current focus:** Phase 8 — Halo Cone-Ray Transport + Brace States + Stepper
 
 ## Current Position
 
-Phase: 7 — COMPLETE
-Plan: 6 of 6
-Status: Ready to execute
+Phase: 8 (Halo Cone-Ray Transport + Brace States + Stepper) — EXECUTING
+Plan: 1 of 4
+Status: Executing Phase 8
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
