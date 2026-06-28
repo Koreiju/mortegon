@@ -81,7 +81,46 @@ None — Task 1 executed exactly as written. The plan's `<read_first>` line numb
 
 ## Issues Encountered
 
-None.
+### Task 2 — D-01 REAL-SUBSYSTEM ACCEPTANCE: **FAILED** (run 2026-06-27, main context, clean-GPU)
+
+The orchestrator ran the real acceptance from the main context (clean-GPU preflight → `python app.py`
+→ `all_real:true`: gpt4all on CUDA, nomic, **real Selenium loaded** → `probe_live_cone_transport.py`).
+The probe **FAILED at step 5**: after a successful real archive.org scan (103 real chunks streamed
+to `done`, 5 real chunk ids from `chunk_search`), `GET /api/apparitions/{focal}?transport=1&ray_project=1`
+returned **0 candidates** — so the cone had nothing to transport and monotonicity could not be asserted.
+
+**Diagnosis (live, against the real backend — multiple focal variants all returned 0):**
+- chunk-node focal (`c_c3360b9`, the probe's own choice) → 0; *without* `transport` → also 0.
+- a freshly-created concept focal (`"university library"` with a real description) → 0.
+- the pre-existing `RealEmbedProbe` concept focal → 0.
+- after a successful `POST /api/recompute_umap` (status: success) → still 0.
+
+**Root mechanism** (`apparition_service.py`): `apparitions_for_focal` scores candidates from the
+**concept index** (concept↔concept triple-product). A fresh archive.org scan creates **chunks, not
+concepts**, so the concept index is nearly empty → 0 concept candidates. The scanned chunks can only
+enter the halo via `ray_project` → `manifold_nearest`, which the code itself documents returns
+"**Empty when no layout frame / focal coords exist**" (apparition_service.py:462) — and it returned
+empty here even for a scanned-chunk focal and even after a manifold rebuild.
+
+**Two open hypotheses (need investigation — NOT resolved this run):**
+1. **Probe-flow incomplete (likely partial cause).** The §8D.45 lodestar flow is scan → **click-and-stick
+   a retrieved chunk into a concept card** (which gives it concept-index presence + manifold coords) →
+   *then* the halo fires on that stuck card. The probe skipped the click-and-stick and used a raw
+   chunk id as the focal, so there was never a valid manifold-placed concept focal.
+2. **Backend `manifold_nearest` gap (also implicated).** A *scanned chunk* focal — which IS in the
+   `umap_canonical` manifold the scan built — still produced an empty `manifold_nearest` even after
+   `recompute_umap`, suggesting an id-scheme mismatch (chunk_search ids vs layout-frame ids) or a
+   layout-frame-availability/wiring issue between LayoutService and apparition_service.
+
+**Impact:** HALO-03's REAL-SUBSYSTEM acceptance (D-01) is **UNMET** and stays open. Everything else in
+Phase 8 is green: HALO-04 brace render (08-01), the HALO-03 *frontend* cone placement (08-02, stub e2e
+3/3 + halo_cone 5/5), STEP-01 (08-03, pytest 4/4 + node + full-smoke 93/93 + stepper e2e), and this
+probe's `--self-test` behavioral gate. The gap is specifically the real backend retrieval that feeds
+the cone — exactly what D-01 real-inline acceptance exists to surface.
+
+**Recommended next step (a focused follow-up phase/debug, not a quick inline fix):** decide whether the
+cone transports stuck-concept apparitions (then the probe must click-and-stick a chunk first) and/or fix
+`manifold_nearest` to resolve a scanned-chunk focal's layout coords; then re-run `probe_live_cone_transport.py`.
 
 ## User Setup Required
 
