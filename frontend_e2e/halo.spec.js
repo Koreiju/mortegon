@@ -296,3 +296,105 @@ test.describe("brace render states (HALO-04)", () => {
     expect(state.graphNodeCount, "parity holds two ranks deep").toBe(state.panelLineCount);
   });
 });
+
+// HALO-03 (§O.18/D-04/D10) — cone-ray transport, stub lane (runs in BOTH
+// modes; the REAL-subsystem acceptance is 08-04). The pure geometry
+// (monotonicity, apex composition, verbatim transport consumption, 2D
+// fallback, delete-and-replace ordering) is unit-covered at machine
+// precision in halo_cone.test.mjs (5/5); this e2e is the render-level
+// companion the unit tests can't reach: seeding the LIVE projector with
+// fixture nodes + backend-SHAPED transport values, driving the real
+// placeHaloCandidates() through the __mm_proj_place_cone hook (Task 2), and
+// reading back __mm_cone_positions() the same way projector.spec.js reads
+// __mm_proj_node_positions() — filtered to this test's own seeded fixture
+// ids (the Phase-6 lesson: the boot sequence's real-scan population can
+// otherwise pollute the assertion).
+test.describe("cone-ray transport (HALO-03)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+    await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
+  });
+
+  async function bootProjectorOrSkip(page) {
+    const booted = await page
+      .waitForFunction(() => typeof window.__mm_proj_place_cone === "function", { timeout: 9000 })
+      .then(() => true)
+      .catch(() => false);
+    test.skip(!booted, "projector requires THREE.js + WebGL (offline CDN / headless GL unavailable)");
+  }
+
+  // Seeds 3 fixture 3D-backed nodes (descending similarity a > b > c) with
+  // backend-shaped transport.{similarity,radial,along_ray} (the EXACT
+  // routes.py formula: radial=(1-s)*40, along_ray=s*40 — "more similar
+  // nearer the apex") at the apex {0,0,0}, drives placeHaloCandidates via
+  // the Task-2 test hook, and returns __mm_cone_positions() filtered to the
+  // 3 seeded ids.
+  async function seedAndPlaceCone(page, queueIds) {
+    return page.evaluate((ids) => {
+      const R = 40;
+      const mk = (id, sim) => ({ id, label: id, transport: { similarity: sim, radial: (1 - sim) * R, along_ray: sim * R } });
+      const simById = { cone_a: 0.9, cone_b: 0.6, cone_c: 0.3 };
+      const coords = {
+        cone_a: [10, 0, 0, 0.1, 0.8, 0.5],
+        cone_b: [0, 10, 0, 0.2, 0.8, 0.5],
+        cone_c: [0, 0, 10, 0.3, 0.8, 0.5],
+      };
+      const urlRoots = { "": { root_position: [0, 0, 0], bounding_radius: 15 } };
+      window.__mm_proj_set_with_roots(coords, urlRoots);
+      const queue = ids.map((id) => mk(id, simById[id]));
+      window.__mm_proj_place_cone({ x: 0, y: 0, z: 0 }, queue);
+      const fixtureIds = new Set(["cone_a", "cone_b", "cone_c"]);
+      return window.__mm_cone_positions().filter((p) => fixtureIds.has(p.id));
+    }, queueIds);
+  }
+
+  // `radial` (NOT raw Euclidean apex distance) is the apex-distance scalar
+  // guaranteed monotonic in similarity — halo_cone.mjs's own header comment
+  // + halo_cone.test.mjs Test 1: radial and along_ray are ORTHOGONAL
+  // components, so Math.hypot(x,y,z) is U-shaped across similarity, not
+  // monotonic. `__mm_cone_positions()` exposes `radial` precisely so e2e
+  // assertions use the same metric the unit tests do.
+  test("placement distance-from-apex (radial) is monotonic in candidate similarity", async ({ page }) => {
+    await bootProjectorOrSkip(page);
+    const placed = await seedAndPlaceCone(page, ["cone_a", "cone_b", "cone_c"]);
+    expect(placed.length, "all 3 seeded candidates placed").toBe(3);
+    const byId = Object.fromEntries(placed.map((p) => [p.id, p]));
+    // ordering, not a curve (UI-SPEC): higher similarity -> nearer the apex.
+    expect(byId.cone_a.radial, "most-similar (cone_a) has the smallest radial (nearest the apex)").toBeLessThan(byId.cone_b.radial);
+    expect(byId.cone_b.radial, "cone_b's radial smaller than the least-similar cone_c").toBeLessThan(byId.cone_c.radial);
+  });
+
+  test("deleting the top candidate transports the next-most-similar into the vacated nearest-apex slot", async ({ page }) => {
+    await bootProjectorOrSkip(page);
+    const before = await seedAndPlaceCone(page, ["cone_a", "cone_b", "cone_c"]);
+    const nearestBefore = before.reduce((best, p) => (p.radial < best.radial ? p : best));
+    expect(nearestBefore.id, "the most-similar candidate occupies the nearest-apex slot before delete").toBe("cone_a");
+
+    // delete-transports-next (§O.18/§O.14): re-place with the top candidate
+    // removed from the queue — the next-most-similar must now be nearest.
+    const after = await seedAndPlaceCone(page, ["cone_b", "cone_c"]);
+    expect(after.length, "2 candidates placed after delete").toBe(2);
+    const nearestAfter = after.reduce((best, p) => (p.radial < best.radial ? p : best));
+    expect(nearestAfter.id, "the next-most-similar candidate transports into the vacated nearest-apex slot").toBe("cone_b");
+  });
+
+  test("no cone ray carries stroke-dasharray (SOLID only — the black_slate no-dotted gate)", async ({ page }) => {
+    await bootProjectorOrSkip(page);
+    await seedAndPlaceCone(page, ["cone_a", "cone_b", "cone_c"]);
+    // advance a few real animate frames so any cone-ray drawConcept3DLinks
+    // pass has had a chance to run.
+    await page.evaluate(async () => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      for (let i = 0; i < 20; i++) await sleep(16);
+    });
+    const dashCount = await page.evaluate(() => {
+      let n = 0;
+      for (const el of document.querySelectorAll("[stroke-dasharray]")) {
+        const v = el.getAttribute("stroke-dasharray");
+        if (v && !/^(none|0px|0)$/.test(v)) n++;
+      }
+      return n;
+    });
+    expect(dashCount, "zero stroke-dasharray elements anywhere in the document (cone rays are SOLID)").toBe(0);
+  });
+});

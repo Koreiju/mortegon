@@ -722,8 +722,14 @@ export function createProjector(canvas, opts = {}) {
       if (sprite) sprite.position.copy(newPos);
     }
     if (attr) attr.needsUpdate = true;
+    // `radial` is included alongside x/y/z because it is the apex-distance
+    // scalar that is GUARANTEED monotonic in similarity (halo_cone.mjs's own
+    // header comment + halo_cone.test.mjs Test 1) — raw Euclidean distance
+    // from the apex is NOT, since radial/along_ray are orthogonal
+    // components (a callers-beware note repeated here so e2e/consumer code
+    // asserts ordering on `radial`, not `Math.hypot(x,y,z)`).
     _lastConePositions = placed.map((p) => ({
-      id: p.id, x: p.x, y: p.y, z: p.z, similarity: p.similarity, hasBacking: !!p.hasBacking,
+      id: p.id, x: p.x, y: p.y, z: p.z, similarity: p.similarity, radial: p.radial, alongRay: p.alongRay, hasBacking: !!p.hasBacking,
     }));
     return _lastConePositions;
   }
