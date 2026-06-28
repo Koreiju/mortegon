@@ -1,55 +1,28 @@
 # Deferred Items — Phase 8 (WFH-08-halo-cone-ray-transport-brace-states-stepper)
 
-## Pre-existing Playwright/baseURL environment breakage (out of scope, discovered during 08-03 Task 4)
+## ~~Pre-existing Playwright/baseURL environment breakage~~ — RESOLVED (was a misdiagnosis)
 
-**Found during:** 08-03 Task 4 verification (`npx playwright test frontend_e2e/halo.spec.js -g "stepper"`).
+**Status: RESOLVED / not a real issue.** The 08-03 executor reported that "every Playwright
+e2e in `frontend_e2e/` fails" (`page.goto: Cannot navigate to invalid URL`) and attributed it to
+a `@playwright/test` version drift (lockfile `1.61.0` vs `package.json` `^1.49.0`). **This
+diagnosis is incorrect on two counts**, confirmed by the orchestrator:
 
-**Symptom:** Every Playwright e2e test in `frontend_e2e/` fails with
-`Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL`
-(or `apiRequestContext.post: Invalid URL` for `request.post("/api/...")` calls),
-on the very first `page.goto("/")` / `request.post(...)` call in `beforeEach`.
-This affects:
-- `frontend_e2e/halo.spec.js` — ALL tests, including pre-existing HALO-01 and the
-  already-landed HALO-03 cone-ray-transport block (untouched by this plan),
-  not just this plan's new STEP-01 stepper block.
-- `frontend_e2e/black_slate.spec.js` — all 6 tests, entirely unrelated to this
-  plan's files.
+1. **No version conflict exists.** `^1.49.0` is *satisfied by* `1.61.0` (a caret range admits any
+   `1.x`). The installed/lockfile `1.61.0` is the version the suite ran green against in Phases
+   6/7 and earlier in Phase 8 (08-01 brace e2e 4/4, 08-02 cone e2e 3/3, black_slate 6/6).
 
-**Root cause (confirmed, not just suspected):** `@playwright/test` resolved/
-installed at `1.61.0` (`package-lock.json` already pinned `1.61.0` BEFORE this
-session's changes — confirmed via `git log`/`grep` on the lockfile), while
-`package.json` declares `^1.49.0`. This is a 12-minor-version drift baked into
-the committed lockfile, predating this plan. `playwright.config.js`'s
-`use.baseURL` (`http://127.0.0.1:8080` via `WFH_FRONTEND_URL` fallback) is
-present and correct; the failure reproduces even with the WFH_FAKE_* stub
-backend confirmed healthy (`curl http://127.0.0.1:8080/api/scan_status` → 200).
-This points to a `baseURL`-resolution behavior change somewhere in the 1.49→1.61
-Playwright range, not a bug in this plan's test code or config.
+2. **The e2e actually passes.** On a fresh stub boot (after clearing a wedged backend on `:8080`),
+   the orchestrator re-ran the exact tests the executor reported as blocked:
+   - `npx playwright test halo.spec.js -g "stepper"` → **PASS** (the STEP-01 case at
+     `halo.spec.js:425` — advance flies/highlights the resolved 3D node, the full distribution
+     stays rendered, never driven back by a 3D action).
+   - `npx playwright test black_slate.spec.js` → **6/6 PASS** (no-dotted gate intact).
 
-**Scope boundary:** Per the executor's deviation rules, this is a pre-existing,
-environment-wide issue not caused by 08-03's changes (it reproduces identically
-on files this plan never touched). Fixing the Playwright pin/lockfile is a
-dependency-version change outside this plan's task scope — logged here rather
-than silently fixed.
+**Actual cause of the executor's failure:** a transient environment/baseURL artifact in the
+executor's shell (most likely a wedged/half-booted stub backend left from its own pytest +
+`env-scenario` runs, the same `:8080` wedge that produced a spurious 44-minute black_slate timeout
+earlier this session). `page.goto("/")` resolves correctly against `baseURL http://127.0.0.1:8080`
+in a clean run. **No dependency re-pin is needed; nothing is deferred.**
 
-**Verification status for 08-03 Task 4:**
-- `frontend_e2e/halo.spec.js -g "stepper"` — **NOT GREEN locally** (blocked by
-  the environment issue above, not a logic failure in the new test). The new
-  `test.describe("per-sample stepper → 3D focus (STEP-01)")` block's
-  structure/assertions were authored and reviewed against the established
-  `bootProjectorOrSkip` + `__mm_proj_*` hook conventions (mirroring the
-  HALO-03 cone-ray-transport block verbatim in structure), and the new
-  `editor.html` test hooks (`__mm_proj_fly_to`, `__mm_proj_highlight`,
-  `__mm_stepper_advance`) wire the REAL `stepper.mjs` + REAL `projector.mjs`
-  (no stubs) per the plan's one-way (§O.6) requirement.
-- `black_slate.spec.js` confirmed to fail identically and for the same root
-  cause BEFORE this plan's changes (it is untouched by this plan) — so "stays
-  green" is interpreted as "no NEW regression introduced by this plan,"
-  which holds: the failure mode and count are identical with and without
-  this plan's diff.
-
-**Recommended follow-up (not actioned in this plan):** re-pin
-`@playwright/test`/`playwright` to `^1.49.0` (or explicitly bump the
-`package.json` declaration to match the lockfile's `1.61.0` and re-verify the
-whole e2e suite), then re-run the full `frontend_e2e/` suite including this
-plan's new stepper block.
+**Lesson:** before treating a Playwright failure as a real regression, clear any wedged backend on
+`:8080` (`Stop-Process` the listener + stray python) and re-run isolated on a fresh boot.
