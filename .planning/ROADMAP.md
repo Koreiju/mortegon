@@ -114,7 +114,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 **Plans**: 4 plans
 **Wave 1**
 
-- [ ] 08-01-PLAN.md — HALO-04 brace-render wiring (▸/▾/solid cross-ref link; panel↔graph node-count parity; closes the Phase-7 gap)
+- [x] 08-01-PLAN.md — HALO-04 brace-render wiring (▸/▾/solid cross-ref link; panel↔graph node-count parity; closes the Phase-7 gap)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -195,7 +195,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
 | 7. Deep Object-Exploration Gestures | v3.0 | 6/6 | Complete   | 2026-06-27 |
-| 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/4 | Planned | - |
+| 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 1/4 | In Progress|  |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |
 | 11. Scroll-Spine Reconciliation | v3.0 | 0/TBD | Not started | - |
