@@ -111,7 +111,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   2. A `{ref}` renders braced-hidden / revealed-internal / resolved-external(solid link) with panel↔graph node-count parity. Verified by an e2e over a two-level ref chain.
   3. Advancing the 2D `{chunk samples}` stepper flies/highlights the corresponding 3D chunk while 3D shows the full distribution. Verified by `env-scenario --name signal-stream-roundtrip`/`iterated-signal-rerender` + an e2e.
 
-**Plans**: 2/4 plans executed
+**Plans**: 3/4 plans executed
 **Wave 1**
 
 - [x] 08-01-PLAN.md — HALO-04 brace-render wiring (▸/▾/solid cross-ref link; panel↔graph node-count parity; closes the Phase-7 gap)
@@ -122,7 +122,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 08-03-PLAN.md — STEP-01 stepper (backend signal-cursor chunk-id resolution + `projector.flyToNode`/`highlightNode` + `fe/stepper.mjs`; one-way 2D→3D)
+- [x] 08-03-PLAN.md — STEP-01 stepper (backend signal-cursor chunk-id resolution + `projector.flyToNode`/`highlightNode` + `fe/stepper.mjs`; one-way 2D→3D)
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
@@ -195,7 +195,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
 | 7. Deep Object-Exploration Gestures | v3.0 | 6/6 | Complete   | 2026-06-27 |
-| 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 2/4 | In Progress|  |
+| 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 3/4 | In Progress|  |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |
 | 11. Scroll-Spine Reconciliation | v3.0 | 0/TBD | Not started | - |

@@ -5,13 +5,13 @@ milestone_name: Design Completeness
 current_phase: 8
 current_phase_name: Halo Cone-Ray Transport + Brace States + Stepper
 status: executing
-stopped_at: Phase 8 UI-SPEC approved
-last_updated: "2026-06-28T17:43:48.640Z"
+stopped_at: Completed 08-03-PLAN.md
+last_updated: "2026-06-28T18:11:42.324Z"
 progress:
   total_phases: 9
   completed_phases: 2
   total_plans: 14
-  completed_plans: 12
+  completed_plans: 13
   percent: 22
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 ## Current Position
 
 Phase: 8 (Halo Cone-Ray Transport + Brace States + Stepper) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 Status: Ready to execute
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
@@ -58,10 +58,10 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 ## Session Continuity
 
-**Resume file:** .planning/phases/WFH-08-halo-cone-ray-transport-brace-states-stepper/08-UI-SPEC.md
+**Resume file:** None
 
-Last session: 2026-06-28T17:42:57.986Z
-Stopped at: Phase 8 UI-SPEC approved
+Last session: 2026-06-28T18:11:42.318Z
+Stopped at: Completed 08-03-PLAN.md
 Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo acceptance run from the MAIN context (see 07-06-PLAN.md Task 4 how-to-verify), then resume to close out Phase 7.
 
 ## Performance Metrics
@@ -78,6 +78,7 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 | Phase WFH-07 P04 | 18min | 3 tasks | 5 files |
 | Phase WFH-07 P06 | 70min | 3 tasks | 3 files |
 | Phase 08 P02 | 1 session | 3 tasks | 6 files |
+| Phase WFH-08 P03 | 1 session | 4 tasks | 12 files |
 
 ## Decisions
 
@@ -106,3 +107,5 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 - [Phase ?]: WFH-07-06: Task 4 (clean-GPU real-subsystem acceptance run) is a blocking-human checkpoint per D-01 -- not auto-executed; awaiting human approval
 - [Phase ?]: radial (not raw Euclidean apex distance) is the apex-distance scalar guaranteed monotonic in similarity for cone-ray transport; along_ray is an orthogonal perpendicular offset
 - [Phase ?]: Cone-ray composition built in world-space (apex -> nodeWorldPosition(id)) rather than screen-space, since projecting both endpoints through the same camera commutes with taking the ray in world space first -- keeps halo_cone.mjs THREE-free per D-04
+- [Phase WFH-08]: STEP-01: signal_id resolved server-side from an ordered chunk-id list (_resolve_signal_id), never client-side, per D10
+- [Phase WFH-08]: stepper.mjs receives flyToNode/highlightNode via injected deps (no static projector.mjs import) to keep the one-way (2D->3D) invariant structurally provable
