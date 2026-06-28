@@ -150,3 +150,149 @@ test("HALO-02 camera orbit slides the phantoms along their rays (live azimuth→
     for (const id of ids) await request.delete(`/api/concepts/${id}?workspace_id=_default`);
   }
 });
+
+// HALO-04 (§O.1a/D-02) — RENDER-level acceptance for the three `{ref}` brace
+// states over a TWO-LEVEL ref chain (root -> B -> C), closing the Phase-7
+// self-flagged gap (07-03 SUMMARY: "classifyBraceStates computed but
+// panelVDom/graphVDom ignore l.braceState"). Phase-7's object_exploration.spec.js
+// covers the MODEL-level classification (lines[].braceState); this block is
+// the RENDER-level companion — it asserts the actual ▸/▾ glyphs, the
+// panel↔graph node-count parity on reveal, and the resolved-external solid
+// link DOM, all against the live served fe/ modules via in-page dynamic
+// import() (the same convention object_exploration.spec.js uses; demo.html
+// needs no scan/fixture seeding so this runs in any backend mode).
+test.describe("brace render states (HALO-04)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/static/js/fe/demo.html");
+    await page.waitForLoadState("networkidle");
+  });
+
+  // Builds a two-level ref chain (root -> B -> C) via the served modules,
+  // mounts BOTH panel and graph forms into real DOM containers, and returns
+  // the browser-side measurements the assertions need.
+  async function renderTwoLevelChain(page, { expandRoot = false, expandB = false } = {}) {
+    return page.evaluate(async ({ expandRoot, expandB }) => {
+      const mm = await import("/static/js/fe/magic_markdown.mjs");
+      const panelMod = await import("/static/js/fe/magic_markdown_panel.mjs");
+      const { parse, buildRegistry, renderPanel, toggle } = mm;
+      const { panelVDom, graphVDom, flattenVDom } = panelMod;
+
+      // root: two refs to B (primary + secondary — the resolved-external
+      // pairing), B itself refs C (the two-level chain).
+      const root = parse([
+        "root concept",
+        "\tprimary {concept b}",
+        "\tsecondary {concept b}",
+      ].join("\n"));
+      const b = parse([
+        "concept b",
+        "\tfield on b : value",
+        "\tlink to c {concept c}",
+      ].join("\n"));
+      const c = parse([
+        "concept c",
+        "\tfield on c : value",
+      ].join("\n"));
+      const registry = buildRegistry([b, c]);
+
+      let expanded = new Set();
+      if (expandRoot) {
+        const collapsed = renderPanel(root, { registry, expanded });
+        const primaryPath = collapsed.find((l) => l.text === "primary {concept b}").path;
+        expanded = toggle(expanded, primaryPath);
+        if (expandB) {
+          const afterRoot = renderPanel(root, { registry, expanded });
+          const bRefPath = afterRoot.find((l) => l.text === "link to c {concept c}").path;
+          expanded = toggle(expanded, bRefPath);
+        }
+      }
+
+      const opts = { registry, expanded };
+      const panelLines = renderPanel(root, opts);
+      const panelFlat = flattenVDom(panelVDom(root, opts));
+      const graphSpec = graphVDom(root, opts);
+      const graphFlat = flattenVDom(graphSpec);
+
+      const realise = (spec) => {
+        const SVG_TAGS = new Set(["svg", "line", "circle", "g", "path", "ellipse", "text"]);
+        const node = SVG_TAGS.has(spec.tag)
+          ? document.createElementNS("http://www.w3.org/2000/svg", spec.tag)
+          : document.createElement(spec.tag);
+        for (const [k, v] of Object.entries(spec.attrs || {})) node.setAttribute(k, v);
+        if (spec.text != null) node.textContent = spec.text;
+        for (const ch of spec.children || []) node.appendChild(realise(ch));
+        return node;
+      };
+      const container = document.createElement("div");
+      container.id = "halo04-fixture-host";
+      document.body.appendChild(container);
+      const panelDom = realise(panelVDom(root, opts));
+      const graphDom = realise(graphSpec);
+      const panelHost = document.createElement("div");
+      panelHost.id = "halo04-panel-host";
+      panelHost.appendChild(panelDom);
+      const graphHost = document.createElement("div");
+      graphHost.id = "halo04-graph-host";
+      graphHost.appendChild(graphDom);
+      container.appendChild(panelHost);
+      container.appendChild(graphHost);
+
+      return {
+        lines: panelLines.map((l) => ({ text: l.text, glyph: l.glyph, refTarget: l.refTarget, braceState: l.braceState })),
+        panelLineCount: panelFlat.filter((e) => e.attrs && e.attrs.class === "mm-line").length,
+        graphNodeCount: graphFlat.filter((e) => e.attrs && e.attrs.class === "mm-gnode").length,
+        drops: panelFlat.filter((e) => e.attrs && e.attrs.class === "mm-drop").map((e) => e.text),
+        resolvedLinkCount: graphFlat.filter((e) => e.tag === "line" && e.attrs.class === "mm-resolved-link").length,
+      };
+    }, { expandRoot, expandB });
+  }
+
+  test("braced-hidden refs show the ▸ glyph with literal braces", async ({ page }) => {
+    const state = await renderTwoLevelChain(page, { expandRoot: false });
+    const primary = state.lines.find((l) => l.text === "primary {concept b}");
+    expect(primary.braceState).toBe("braced-hidden");
+    expect(primary.glyph).toBe("▸");
+    expect(primary.text).toContain("{concept b}");
+    expect(state.drops).toContain("▸");
+  });
+
+  test("revealing a ref in panel form swaps it to ▾ and panel↔graph node-count parity holds for the revealed subtree", async ({ page }) => {
+    const state = await renderTwoLevelChain(page, { expandRoot: true });
+    const primary = state.lines.find((l) => l.text === "primary {concept b}");
+    expect(primary.braceState).toBe("revealed-internal");
+    expect(primary.glyph).toBe("▾");
+    expect(state.drops).toContain("▾");
+    // node-count parity (O.1) — the same rank-1 children appear in BOTH the
+    // panel's .mm-line rows and the graph's .mm-gnode circles for the SAME
+    // expansion state.
+    expect(state.graphNodeCount, "graph node count matches panel line count").toBe(state.panelLineCount);
+  });
+
+  test("a second ref to an already-revealed target renders as a resolved-external solid <line> in graph mode, with zero stroke-dasharray anywhere in the graph SVG", async ({ page }) => {
+    const state = await renderTwoLevelChain(page, { expandRoot: true });
+    const secondary = state.lines.find((l) => l.text === "secondary {concept b}");
+    expect(secondary.braceState, "the second ref to concept b resolves to the already-visible target").toBe("resolved-external");
+    expect(state.resolvedLinkCount, "exactly one resolved-external link drawn").toBe(1);
+
+    // the no-dotted gate (mirrored from black_slate.spec.js): zero elements
+    // in the graph SVG carry a stroke-dasharray, anywhere.
+    const dashCount = await page.evaluate(() => {
+      const host = document.querySelector("#halo04-graph-host");
+      let n = 0;
+      for (const el of host.querySelectorAll("[stroke-dasharray]")) {
+        const v = el.getAttribute("stroke-dasharray");
+        if (v && !/^(none|0px|0)$/.test(v)) n++;
+      }
+      return n;
+    });
+    expect(dashCount, "zero stroke-dasharray elements in the graph SVG").toBe(0);
+  });
+
+  test("two-level chain: revealing B's ref to C propagates a second rank of parity (panel and graph stay in lockstep two levels deep)", async ({ page }) => {
+    const state = await renderTwoLevelChain(page, { expandRoot: true, expandB: true });
+    const bToC = state.lines.find((l) => l.text === "link to c {concept c}");
+    expect(bToC, "B's ref to C is present once B itself is revealed inline").toBeTruthy();
+    expect(bToC.braceState).toBe("revealed-internal");
+    expect(state.graphNodeCount, "parity holds two ranks deep").toBe(state.panelLineCount);
+  });
+});
