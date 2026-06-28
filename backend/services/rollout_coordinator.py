@@ -96,13 +96,18 @@ class RolloutCoordinator:
         )
 
     def advance(self, workspace_id: str, card_id: str, field_path: str = "",
-                *, step: int = 1) -> UIState:
+                *, step: int = 1, ordered: Optional[list] = None) -> UIState:
         e = self._entry(workspace_id, card_id)
         prior_idx = int(e.get("signal_index") or 0)
         total = int(e.get("total") or 0)
         fp = field_path or e.get("field_path", "") or ""
+        # STEP-01 / D10 — thread the optional ordered sampled-chunk list
+        # through to advance_signal, which re-resolves signal_id at the new
+        # index (either from THIS call's ordered, or the list already
+        # stored on the entry by a prior set_signal_stream registration).
         snap = self._ui.advance_signal(
-            workspace_id, card_id, step=int(step), field_path=field_path)
+            workspace_id, card_id, step=int(step), field_path=field_path,
+            ordered=ordered)
         new_e = (snap.signal_stream or {}).get(card_id) or {}
         # NOTE: index 0 is a legitimate cursor position (the modulo wrap
         # lands there) — `or prior_idx` would swallow it and report a
