@@ -8,6 +8,8 @@
  * browser layer (window.THREE, loaded by editor.html).
  */
 
+import { placeCandidatesOnCone } from "./halo_cone.mjs";
+
 /**
  * buildPointArrays(coords, optsOrHslToRgb) →
  *   { ids, positions:Float32Array, colors:Float32Array, count }.
@@ -675,6 +677,57 @@ export function createProjector(canvas, opts = {}) {
       line.setAttribute("y2", y2);
     });
   }
+
+  // HALO-03 — cone-ray transport render (§O.18 / D-04). `_lastConePositions`
+  // backs the `window.__mm_cone_positions` test hook (mirrors the existing
+  // `nodePositions`/`__mm_proj_node_positions` pattern). Cleared to an empty
+  // array on boot so the hook always returns SOMETHING before any halo opens.
+  let _lastConePositions = [];
+  function conePositions() { return _lastConePositions; }
+
+  // placeHaloCandidates(apex, candidates) — RENDER-only consumer of
+  // halo_cone.mjs's pure geometry. `apex` is the focal's live world position
+  // ({x,y,z}); `candidates` is the retrieval queue
+  // ([{id, label, transport:{similarity,radial,along_ray}}, ...]) from
+  // `/apparitions?transport=1`. Delegates ALL placement math to
+  // `placeCandidatesOnCone` (D10 — this function never recomputes
+  // similarity/distance); it only WRITES the returned positions into the
+  // existing `_positions` bookkeeping + the live points-geometry buffer, so
+  // each transported node keeps its EXISTING HSV/image-billboard identity
+  // (the projector exception zone, UI-SPEC) — it is the SAME node, just
+  // moved. Candidates with no 3D backing (the halo_cone 2D fallback) are
+  // recorded in `_lastConePositions` for the test hook but have no points-
+  // buffer entry to move (they render via the existing 2D haloVDom overlay,
+  // unchanged). Any cone ray drawn in 3D must reuse `drawConcept3DLinks`'s
+  // no-dasharray/headless idiom (SOLID only) — this function draws no lines
+  // itself; a future caller wiring cone rays into `svgHost` does so via that
+  // SAME helper, never a new dashed-line path.
+  function placeHaloCandidates(apex, candidates) {
+    const projectFns = { project, azimuth, nodeWorldPosition };
+    const placed = placeCandidatesOnCone(apex, candidates, projectFns);
+    const ids2 = Object.keys(_coords || {});
+    const idIndex = new Map(ids2.map((id, i) => [id, i]));
+    const attr = points ? points.geometry.attributes.position : null;
+    for (const p of placed) {
+      if (!p.hasBacking) continue; // 2D-fallback candidate — nothing to move in the points buffer
+      const newPos = new THREE.Vector3(p.x, p.y, p.z);
+      _positions.set(p.id, newPos);
+      const i = idIndex.get(p.id);
+      if (attr && i != null) {
+        attr.array[i * 3] = p.x; attr.array[i * 3 + 1] = p.y; attr.array[i * 3 + 2] = p.z;
+      }
+      // keep an image billboard (if any) glued to the transported position —
+      // mirrors _syncImageSpritePositions' Map-iteration/Vector3-copy idiom.
+      const sprite = _imageSprites.get(p.id);
+      if (sprite) sprite.position.copy(newPos);
+    }
+    if (attr) attr.needsUpdate = true;
+    _lastConePositions = placed.map((p) => ({
+      id: p.id, x: p.x, y: p.y, z: p.z, similarity: p.similarity, hasBacking: !!p.hasBacking,
+    }));
+    return _lastConePositions;
+  }
+
   // UMAP-01 — HSV rotates with camera azimuth: recolour the existing nodes when
   // the camera orbits (positions unchanged; only the hue field rotates).
   function recolor() {
@@ -755,6 +808,7 @@ export function createProjector(canvas, opts = {}) {
     nodePositions, frameCameraToRoot, lastCoords, lastRoots,
     spawnImageBillboards, loadAndCacheImage, netFetchCount,
     nodeWorldPosition, drawConcept3DLinks,
+    placeHaloCandidates, conePositions,
     stop: () => cancelAnimationFrame(raf),
   };
 }

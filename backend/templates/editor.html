@@ -403,6 +403,15 @@
           grid.appendChild(cell);
           return cell;
         };
+        // HALO-03 — cone-ray transport test hooks. __mm_cone_positions reads
+        // back the last placeHaloCandidates() call's placed positions
+        // (mirrors __mm_proj_node_positions' read-accessor pattern, but
+        // scoped to the cone-transported subset only). __mm_proj_place_cone
+        // drives placeHaloCandidates directly (apex world point + candidate
+        // list carrying backend-shaped transport.{similarity,radial,
+        // along_ray}) for the stub e2e — no real /apparitions fetch needed.
+        window.__mm_cone_positions = () => projector.conePositions();
+        window.__mm_proj_place_cone = (apex, candidates) => projector.placeHaloCandidates(apex, candidates);
       } catch (e) { console.warn("projector", e); }
     }
 

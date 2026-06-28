@@ -3,12 +3,82 @@
  * Run: node backend/static/js/fe/projector.test.mjs
  */
 import assert from "node:assert";
-import { buildPointArrays, computeRayDir, colliderRadialForce, MIN_SEPARATION, COLLIDER_SAFETY } from "./projector.mjs";
 
 let passed = 0, failed = 0;
 function test(name, fn) {
   try { fn(); console.log("  PASS  " + name); passed++; }
   catch (e) { console.log("  FAIL  " + name + ": " + e.message); failed++; }
+}
+
+// WR-2 (teeth) — `createProjector` requires `window.THREE` + a real canvas
+// (it is otherwise only exercised by Playwright e2e). A minimal fake THREE
+// shim, covering exactly the API surface `createProjector` touches, lets
+// `placeHaloCandidates` run as a genuine Node unit test rather than a
+// regression-only re-check of the pre-existing pure exports. This shim is
+// installed BEFORE importing projector.mjs (createProjector reads
+// `window.THREE` at CALL time, not at import time, so a plain top-level
+// `global.window` assignment before the dynamic import below suffices).
+class FakeVector3 {
+  constructor(x = 0, y = 0, z = 0) { this.x = x; this.y = y; this.z = z; }
+  set(x, y, z) { this.x = x; this.y = y; this.z = z; return this; }
+  clone() { return new FakeVector3(this.x, this.y, this.z); }
+  copy(v) { this.x = v.x; this.y = v.y; this.z = v.z; return this; }
+  add(v) { this.x += v.x; this.y += v.y; this.z += v.z; return this; }
+  sub(v) { this.x -= v.x; this.y -= v.y; this.z -= v.z; return this; }
+  multiplyScalar(s) { this.x *= s; this.y *= s; this.z *= s; return this; }
+  normalize() {
+    const len = Math.hypot(this.x, this.y, this.z) || 1;
+    this.x /= len; this.y /= len; this.z /= len; return this;
+  }
+  lengthSq() { return this.x * this.x + this.y * this.y + this.z * this.z; }
+  lerpVectors(a, b, t) {
+    this.x = a.x + (b.x - a.x) * t; this.y = a.y + (b.y - a.y) * t; this.z = a.z + (b.z - a.z) * t; return this;
+  }
+  // project(camera) — the only camera-projection behavior createProjector's
+  // `project()` needs from a real THREE.Vector3; returns NDC-like coords
+  // deterministically derived from world position (good enough for a unit
+  // test that never asserts exact screen pixels, only id/position bookkeeping).
+  project() { return { x: this.x / 100, y: this.y / 100, z: 0 }; }
+}
+class FakeBufferAttribute { constructor(array, itemSize) { this.array = array; this.itemSize = itemSize; this.needsUpdate = false; } }
+class FakeBufferGeometry {
+  constructor() { this.attributes = {}; }
+  setAttribute(name, attr) { this.attributes[name] = attr; return this; }
+  dispose() {}
+}
+class FakePoints { constructor(geo, mat) { this.geometry = geo; this.material = mat; } }
+class FakePointsMaterial { dispose() {} }
+class FakeScene { constructor() { this.children = []; } add(o) { this.children.push(o); } remove(o) { this.children = this.children.filter((c) => c !== o); } }
+class FakeColor { constructor() {} }
+class FakeCamera { constructor() { this.position = new FakeVector3(0, 0, 140); this.aspect = 1; } updateProjectionMatrix() {} }
+class FakeRenderer { constructor() { this.domElement = {}; } setSize() {} render() {} }
+class FakeSpriteMaterial { constructor(opts) { Object.assign(this, opts); } dispose() {} }
+class FakeSprite { constructor(mat) { this.material = mat; this.position = new FakeVector3(); this.scale = { set() {} }; } }
+
+global.window = global.window || {};
+global.window.THREE = {
+  Vector3: FakeVector3,
+  BufferAttribute: FakeBufferAttribute,
+  BufferGeometry: FakeBufferGeometry,
+  Points: FakePoints,
+  PointsMaterial: FakePointsMaterial,
+  Scene: FakeScene,
+  Color: FakeColor,
+  PerspectiveCamera: FakeCamera,
+  WebGLRenderer: FakeRenderer,
+  SpriteMaterial: FakeSpriteMaterial,
+  Sprite: FakeSprite,
+  TextureLoader: class { load() {} },
+};
+global.window.addEventListener = () => {};
+global.requestAnimationFrame = global.requestAnimationFrame || (() => 0);
+global.cancelAnimationFrame = global.cancelAnimationFrame || (() => {});
+
+const { buildPointArrays, computeRayDir, colliderRadialForce, MIN_SEPARATION, COLLIDER_SAFETY, createProjector } =
+  await import("./projector.mjs");
+
+function fakeCanvas() {
+  return { clientWidth: 800, clientHeight: 600, width: 800, height: 600, getBoundingClientRect: () => ({ left: 0, top: 0, width: 800, height: 600 }) };
 }
 
 test("buildPointArrays: one xyz triple per chunk, in id order", () => {
@@ -115,6 +185,52 @@ test("colliderRadialForce: two nodes at/above MIN_SEPARATION produce zero push (
   const far = colliderRadialForce([0, 0, 0], [50, 0, 0], [1, 0, 0], [1, 0, 0]);
   assert.strictEqual(far.forceA, 0);
   assert.strictEqual(far.forceB, 0);
+});
+
+// WR-2 (teeth) — HALO-03: placeHaloCandidates places EXACTLY the given
+// candidate ids (readable via the conePositions()/__mm_cone_positions hook
+// surface) AND removes NO existing node from `_positions`. This exercises
+// the NEW export, not just pre-existing regressions; the full geometry
+// monotonicity teeth live in halo_cone.test.mjs + the e2e (-g "cone").
+test("placeHaloCandidates: places exactly the given candidate ids and removes no existing node", () => {
+  const projector = createProjector(fakeCanvas());
+  const mkCoord = (arr, url) => Object.assign([...arr], { url });
+  const coords = {
+    keep1: mkCoord([1, 0, 0, 0.1, 0.8, 0.5], "u1"),
+    keep2: mkCoord([0, 1, 0, 0.2, 0.8, 0.5], "u1"),
+    cone_a: mkCoord([10, 0, 0, 0.3, 0.8, 0.5], "u1"),
+    cone_b: mkCoord([0, 10, 0, 0.4, 0.8, 0.5], "u1"),
+  };
+  const urlRoots = { u1: { root_position: [0, 0, 0], bounding_radius: 50 } };
+  projector.setNodes(coords, urlRoots);
+  const before = new Set(projector.nodePositions().map((p) => p.id));
+  assert.strictEqual(before.size, 4, "all 4 seeded nodes present before placeHaloCandidates");
+
+  const apex = { x: 0, y: 0, z: 0 };
+  const candidates = [
+    { id: "cone_a", label: "A", transport: { similarity: 0.9, radial: 4, along_ray: 36 } },
+    { id: "cone_b", label: "B", transport: { similarity: 0.5, radial: 20, along_ray: 20 } },
+  ];
+  const placed = projector.placeHaloCandidates(apex, candidates);
+
+  // exactly the given ids were placed.
+  assert.strictEqual(placed.length, 2);
+  assert.deepStrictEqual(placed.map((p) => p.id).sort(), ["cone_a", "cone_b"]);
+
+  // the test hook surface (conePositions(), the function __mm_cone_positions
+  // wraps) reflects the same placement.
+  const hookPositions = projector.conePositions();
+  assert.deepStrictEqual(hookPositions.map((p) => p.id).sort(), ["cone_a", "cone_b"]);
+
+  // no existing node was removed — all 4 original ids are still present.
+  const after = new Set(projector.nodePositions().map((p) => p.id));
+  assert.strictEqual(after.size, 4, "no existing node removed by placeHaloCandidates");
+  for (const id of before) assert.ok(after.has(id), `${id} still present after placeHaloCandidates`);
+
+  // the untouched candidates (keep1/keep2) did not move.
+  const beforePos = Object.fromEntries(projector.nodePositions().map((p) => [p.id, p]));
+  assert.strictEqual(beforePos.keep1.x, 1);
+  assert.strictEqual(beforePos.keep2.y, 1);
 });
 
 console.log(`\n${passed}/${passed + failed} passed`);
