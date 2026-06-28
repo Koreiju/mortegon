@@ -49,6 +49,7 @@
     import { mount } from "/static/js/fe/magic_markdown_panel.mjs";
     import { haloVDom } from "/static/js/fe/magic_markdown_halo.mjs";
     import { createProjector } from "/static/js/fe/projector.mjs";
+    import { advanceAndFocus } from "/static/js/fe/stepper.mjs";
     import { renderPanel } from "/static/js/fe/magic_markdown.mjs";
     // The Milkdown editable layer is opt-in via ?slate=milkdown (docs/MILKDOWN_SLATE_GOAL.md).
     // The default served editor is unchanged; the bundle loads lazily only when flagged.
@@ -412,6 +413,20 @@
         // along_ray}) for the stub e2e — no real /apparitions fetch needed.
         window.__mm_cone_positions = () => projector.conePositions();
         window.__mm_proj_place_cone = (apex, candidates) => projector.placeHaloCandidates(apex, candidates);
+        // STEP-01 — fly-to/highlight test hooks (Task 2's projector exports,
+        // mirroring the __mm_proj_* read/drive-accessor pattern above).
+        window.__mm_proj_fly_to = (nodeId) => projector.flyToNode(nodeId);
+        window.__mm_proj_highlight = (nodeId) => projector.highlightNode(nodeId);
+        // STEP-01 — drives the REAL stepper.mjs advanceAndFocus against the
+        // REAL projector (flyToNode/highlightNode are NOT stubbed here — this
+        // is the one-way 2D->3D wiring itself, not a unit-test double). Stays
+        // strictly one-way: this hook is called BY 2D stepper UI/tests only;
+        // nothing in the projector's click/onFrame path calls it back (§O.6).
+        window.__mm_stepper_advance = (cardId, step) => advanceAndFocus(cardId, step, {
+          fetch: (...args) => fetch(...args),
+          flyToNode: (nodeId) => projector.flyToNode(nodeId),
+          highlightNode: (nodeId) => projector.highlightNode(nodeId),
+        });
       } catch (e) { console.warn("projector", e); }
     }
 

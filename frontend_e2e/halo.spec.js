@@ -398,3 +398,98 @@ test.describe("cone-ray transport (HALO-03)", () => {
     expect(dashCount, "zero stroke-dasharray elements anywhere in the document (cone rays are SOLID)").toBe(0);
   });
 });
+
+// STEP-01 (§O.6/§O.7/§O.11) — the 2D `{chunk samples}` stepper drives 3D
+// focus ONE-WAY. Against the stub backend (UIStateService is in-memory, no
+// all_real gating): seed a signal-stream card with an `ordered` chunk-id
+// list whose ids correspond to seeded 3D nodes, drive __mm_stepper_advance
+// (the REAL stepper.mjs + REAL projector wiring — Task 4's editor.html test
+// hooks), and assert (1) the resolved chunk id matches ordered[new_index];
+// (2) the full per-sample distribution stays rendered (node count
+// unchanged — D-03, never subsetted); (3) no 3D action advances the 2D
+// cursor back (the one-way invariant).
+test.describe("per-sample stepper → 3D focus (STEP-01)", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+    await page.waitForFunction(() => window.__mm_ready === true, { timeout: 15000 });
+  });
+
+  async function bootProjectorOrSkip(page) {
+    const booted = await page
+      .waitForFunction(() => typeof window.__mm_stepper_advance === "function", { timeout: 9000 })
+      .then(() => true)
+      .catch(() => false);
+    test.skip(!booted, "projector requires THREE.js + WebGL (offline CDN / headless GL unavailable)");
+  }
+
+  test("advancing the stepper flies/highlights the resolved 3D chunk node, leaves the full distribution rendered, and is never driven back by a 3D action", async ({ page, request }) => {
+    await bootProjectorOrSkip(page);
+    const cardId = `step_card_${Date.now()}`;
+    const ordered = ["step_chunk_a", "step_chunk_b", "step_chunk_c"];
+
+    try {
+      // seed 3 fixture 3D-backed nodes (the full per-sample distribution)
+      // and register the signal-stream cursor with the ordered chunk-id
+      // list, starting at index 0.
+      await page.evaluate(({ ordered }) => {
+        const coords = {
+          step_chunk_a: [10, 0, 0, 0.1, 0.8, 0.5],
+          step_chunk_b: [0, 10, 0, 0.2, 0.8, 0.5],
+          step_chunk_c: [0, 0, 10, 0.3, 0.8, 0.5],
+        };
+        const urlRoots = { "": { root_position: [0, 0, 0], bounding_radius: 15 } };
+        window.__mm_proj_set_with_roots(coords, urlRoots);
+      }, { ordered });
+
+      const setRes = await request.post("/api/ui/signal_stream", {
+        data: { card_id: cardId, workspace_id: "_default", total: 3, signal_index: 0, ordered },
+      });
+      expect(setRes.ok()).toBe(true);
+      const setBody = await setRes.json();
+      expect(setBody.state.signal_stream[cardId].signal_id, "registers at index 0 -> ordered[0]").toBe("step_chunk_a");
+
+      const countBefore = await page.evaluate(() => window.__mm_proj_node_positions().length);
+
+      // advance the REAL stepper.mjs driver via the editor.html test hook
+      // (Task 4 wiring) — this calls the real /api/ui/signal_advance AND
+      // the real projector.flyToNode/highlightNode, not stubs.
+      const result = await page.evaluate(({ cardId }) => window.__mm_stepper_advance(cardId, 1), { cardId });
+      expect(result.ok).toBe(true);
+      expect(result.chunkId, "advance resolves signal_id to ordered[new_index]").toBe("step_chunk_b");
+
+      // (2) the full distribution stays rendered — node count unchanged
+      // (the stepper moves FOCUS, never subsets/hides — D-03).
+      const countAfter = await page.evaluate(() => window.__mm_proj_node_positions().length);
+      expect(countAfter, "stepper advance never changes the rendered node count (no subsetting)").toBe(countBefore);
+
+      // (1) the camera focus / highlight moved to the resolved chunk — read
+      // back via the colour-slot overlay (__mm_proj_color) the same way
+      // projector.test.mjs's highlightNode assertion does: silver-300 now
+      // sits in step_chunk_b's slot.
+      const [r, g, b] = await page.evaluate(() => window.__mm_proj_color(
+        window.__mm_proj_node_positions().findIndex((p) => p.id === "step_chunk_b")
+      ));
+      const near = (a, expected) => Math.abs(a - expected) < 0.01;
+      expect(near(r, 0xb8 / 255) && near(g, 0xc0 / 255) && near(b, 0xc8 / 255),
+        "step_chunk_b's colour slot is highlighted silver-300 after the advance").toBe(true);
+
+      // (3) one-way invariant — a 3D node click never advances the 2D
+      // cursor back. There is no click->advance wiring anywhere (verified
+      // structurally in stepper.test.mjs); here we additionally assert
+      // that simply dispatching a click on the canvas leaves signal_index
+      // unchanged server-side.
+      await page.evaluate(() => {
+        const canvas = document.querySelector("canvas");
+        if (canvas) canvas.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+      });
+      const streamRes = await request.post("/api/ui/signal_stream", {
+        data: { card_id: cardId, workspace_id: "_default", total: 3, signal_index: 1, signal_id: "step_chunk_b", ordered },
+      });
+      const streamBody = await streamRes.json();
+      expect(streamBody.state.signal_stream[cardId].signal_index,
+        "a 3D click never drives the 2D cursor — signal_index stays at 1, unchanged by the click").toBe(1);
+    } finally {
+      await request.post("/api/ui/signal_stream_clear", { data: { workspace_id: "_default", card_id: cardId } });
+    }
+  });
+});

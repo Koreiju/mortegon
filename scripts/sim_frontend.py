@@ -1865,14 +1865,20 @@ def _act_apparition_utility(env: FrontendEnv, *, band: str = "token",
 # §4.6.1 signal-stream REPL actions
 def _act_ui_signal_stream(env: FrontendEnv, *, card: str = "",
                            total: int = 0, idx: int = 0,
-                           paused: bool = False) -> Dict[str, Any]:
+                           paused: bool = False, ordered: str = "") -> Dict[str, Any]:
     if not card:
         raise TypeError("ui-signal-stream requires card=...")
-    return env.backend._request("POST", "/api/ui/signal_stream", body={
+    body: Dict[str, Any] = {
         "card_id": card, "workspace_id": env.backend.workspace_id,
         "total": int(total), "signal_index": int(idx),
         "paused": bool(paused),
-    })
+    }
+    # STEP-01 / D10 — REPL-friendly comma-separated ordered sampled-chunk
+    # list; resolves signal_id server-side at signal_index (chunk-id
+    # resolution telemetry for `watch-activity` + env-scenario assertions).
+    if ordered:
+        body["ordered"] = [c.strip() for c in ordered.split(",") if c.strip()]
+    return env.backend._request("POST", "/api/ui/signal_stream", body=body)
 
 def _act_ui_signal_advance(env: FrontendEnv, *, card: str = "",
                             step: int = 1) -> Dict[str, Any]:
@@ -7714,6 +7720,34 @@ def _env_scenario_signal_stream_roundtrip(env: FrontendEnv) -> int:
         _err(f"signal_stream entry not cleared: {st.get('signal_stream')}")
         return 1
     _ok("signal-stream mirror set / advance / wrap / clear roundtrip OK")
+
+    # STEP-01 / D10 — register an ordered sampled-chunk list and assert the
+    # backend-resolved signal_id (the chunk-id resolution telemetry for the
+    # 2D->3D one-way drive) tracks the cursor at every step, including the
+    # wraparound back to ordered[0].
+    ordered = ["step_chunk_a", "step_chunk_b", "step_chunk_c"]
+    _env_step(env, "ui-signal-stream", card=cid, total=len(ordered), idx=0,
+              ordered=",".join(ordered))
+    st = (_env_step(env, "ui-state").get("response") or {}).get("state") or {}
+    entry = (st.get("signal_stream") or {}).get(cid) or {}
+    if entry.get("signal_id") != "step_chunk_a":
+        _err(f"signal_id not resolved from ordered[0] at registration: {entry}")
+        return 1
+    _env_step(env, "ui-signal-advance", card=cid, step=1)
+    st = (_env_step(env, "ui-state").get("response") or {}).get("state") or {}
+    entry = (st.get("signal_stream") or {}).get(cid) or {}
+    if entry.get("signal_index") != 1 or entry.get("signal_id") != "step_chunk_b":
+        _err(f"signal_id not re-resolved at index 1: {entry}")
+        return 1
+    # wrap 2 -> 0 (3 total, step=2 from index 1: 1+2=3 % 3 = 0).
+    _env_step(env, "ui-signal-advance", card=cid, step=2)
+    st = (_env_step(env, "ui-state").get("response") or {}).get("state") or {}
+    entry = (st.get("signal_stream") or {}).get(cid) or {}
+    if entry.get("signal_index") != 0 or entry.get("signal_id") != "step_chunk_a":
+        _err(f"signal_id not re-resolved after wraparound: {entry}")
+        return 1
+    _env_step(env, "ui-signal-stream-clear", card=cid)
+    _ok("signal-stream chunk-id resolution (STEP-01/D10) tracks the cursor incl. wraparound")
     return 0
 
 
