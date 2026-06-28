@@ -5,7 +5,7 @@
 import assert from "node:assert";
 import {
   parse, serialize, rootField, buildRegistry, refTarget, refTargets,
-  renderPanel, linesToText, toggle, GLYPH_COLLAPSED, GLYPH_EXPANDED,
+  renderPanel, linesToText, toggle, GLYPH_COLLAPSED, GLYPH_EXPANDED, GLYPH_NONE,
   iterableNode, isIterable, advanceSignal, renderGraph, parentPath,
   renderTypedPanel, renderConceptPanel, isReadOnlyTypedNode,
   classifyBraceStates, BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
@@ -415,6 +415,83 @@ test("classifyBraceStates is idempotent over an already-classified Line[]", () =
   classifyBraceStates(lines);
   const after = lines.map((l) => l.braceState);
   assert.deepStrictEqual(before, after);
+});
+
+// ── HALO-04: renderGraph threads braceState through to the graph node shape ──
+
+// Test 1 (HALO-04): classifyBraceStates over an expanded ref + a collapsed
+// sibling ref to the SAME target marks the expanded line revealed-internal
+// and the collapsed sibling resolved-external (regression-guard — this is
+// the SAME classification already verified above via renderPanel/toggle; this
+// case calls classifyBraceStates directly over a hand-built Line[] to pin the
+// function's standalone contract that 08-PATTERNS lines 126-163 depend on).
+test("HALO-04: classifyBraceStates marks an expanded ref revealed-internal and its collapsed sibling resolved-external", () => {
+  const lines = [
+    { path: "0", depth: 0, text: "host", glyph: GLYPH_NONE, refTarget: null },
+    { path: "0.0", depth: 1, text: "primary {scanner}", glyph: GLYPH_EXPANDED, refTarget: "scanner" },
+    { path: "0.1", depth: 1, text: "secondary {scanner}", glyph: GLYPH_COLLAPSED, refTarget: "scanner" },
+  ];
+  classifyBraceStates(lines);
+  assert.strictEqual(lines[1].braceState, BRACE_REVEALED_INTERNAL);
+  assert.strictEqual(lines[2].braceState, BRACE_RESOLVED_EXTERNAL);
+});
+
+// Test 2 (HALO-04): renderGraph's returned nodes each carry a braceState key
+// equal to the corresponding line's braceState — the Pitfall-1 fix (the key
+// was previously absent from the graph-node shape).
+test("HALO-04: renderGraph nodes carry braceState matching the rendered panel line", () => {
+  const host = parse("host\n\tlink {scanner}");
+  const target = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([target]);
+  const collapsed = renderPanel(host, { registry: reg, expanded: new Set() });
+  const refPath = collapsed.find((l) => l.refTarget === "scanner").path;
+  const expanded = toggle(new Set(), refPath);
+
+  const panelLines = renderPanel(host, { registry: reg, expanded });
+  const { nodes } = renderGraph(host, { registry: reg, expanded });
+  for (const line of panelLines) {
+    const graphNode = nodes.find((n) => n.id === line.path);
+    assert.ok(graphNode, `graph node exists at path ${line.path}`);
+    assert.strictEqual(graphNode.braceState, line.braceState,
+      `graph node braceState matches panel line braceState at path ${line.path}`);
+  }
+  const revealedNode = nodes.find((n) => n.id === refPath);
+  assert.strictEqual(revealedNode.braceState, BRACE_REVEALED_INTERNAL);
+});
+
+// Test 3 (HALO-04): a node with no ref (refTarget == null) has braceState
+// undefined — no spurious state on plain field lines.
+test("HALO-04: a graph node for a refTarget-less line has braceState undefined", () => {
+  const host = parse("host\n\tplain field : value");
+  const reg = buildRegistry([]);
+  const { nodes } = renderGraph(host, { registry: reg, expanded: new Set() });
+  const plainNode = nodes.find((n) => n.label === "plain field : value");
+  assert.ok(plainNode, "plain field node present");
+  assert.strictEqual(plainNode.refTarget, null);
+  assert.strictEqual(plainNode.braceState, undefined);
+});
+
+// Test 4 (HALO-04): node-count parity holds for a tree containing all three
+// brace states simultaneously (braced-hidden, revealed-internal,
+// resolved-external) — renderGraph(node).nodes.length === renderPanel(node).length.
+test("HALO-04: node-count parity holds across braced-hidden, revealed-internal, and resolved-external together", () => {
+  const host = parse(
+    "host\n\tprimary {scanner}\n\tsecondary {scanner}\n\ttertiary {unregistered}",
+  );
+  const scanner = parse("scanner\n\turl : http://x");
+  const reg = buildRegistry([scanner]);
+  const collapsed = renderPanel(host, { registry: reg, expanded: new Set() });
+  const primaryPath = collapsed.find((l) => l.text === "primary {scanner}").path;
+  const expanded = toggle(new Set(), primaryPath);
+
+  const panelLines = renderPanel(host, { registry: reg, expanded });
+  const { nodes } = renderGraph(host, { registry: reg, expanded });
+  assert.strictEqual(nodes.length, panelLines.length, "graph node count matches panel line count");
+
+  const states = new Set(panelLines.filter((l) => l.refTarget != null).map((l) => l.braceState));
+  assert.ok(states.has(BRACE_REVEALED_INTERNAL), "fixture includes a revealed-internal line");
+  assert.ok(states.has(BRACE_RESOLVED_EXTERNAL), "fixture includes a resolved-external line");
+  assert.ok(states.has(BRACE_HIDDEN), "fixture includes a braced-hidden line");
 });
 
 console.log(`\n${passed}/${passed + failed} passed`);

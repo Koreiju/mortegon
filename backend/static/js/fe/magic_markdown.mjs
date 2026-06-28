@@ -304,6 +304,7 @@ export function renderGraph(rootNode, opts = {}) {
     depth: l.depth,
     glyph: l.glyph,           // ▸/▾ if it links to a hidden/expanded node
     refTarget: l.refTarget,
+    braceState: l.braceState, // §O.1a render-state classification (HALO-04)
     iterable: !!l.iterable,
     signalIndex: l.signalIndex,
     signalTotal: l.signalTotal,
