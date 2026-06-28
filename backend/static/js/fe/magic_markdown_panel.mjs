@@ -19,7 +19,10 @@
  *     the textarea swap is done in `mount`.
  */
 
-import { renderPanel, renderGraph, GLYPH_EXPANDED } from "./magic_markdown.mjs";
+import {
+  renderPanel, renderGraph, GLYPH_EXPANDED,
+  BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
+} from "./magic_markdown.mjs";
 import { resolveGesture, Action } from "./magic_markdown_gestures.mjs";
 
 const INDENT_PX = 16; // one tab depth
@@ -43,13 +46,21 @@ export function panelVDom(rootNode, opts = {}) {
   const lineEls = lines.map((l) => {
     const children = [];
     if (l.glyph) {
-      // the clickable dropdown CHARACTER, in-text
+      // the clickable dropdown CHARACTER, in-text — glyph SELECTION is now
+      // braceState-driven (HALO-04/D-02): BRACE_HIDDEN -> "▸" --silver-700,
+      // BRACE_REVEALED_INTERNAL -> "▾" --silver-300. The existing inline-
+      // children expansion path (renderPanel) is unchanged; only which glyph
+      // character/color is chosen here reads l.braceState instead of the raw
+      // l.glyph truthy check.
+      const isOpen = l.braceState === BRACE_REVEALED_INTERNAL;
       children.push(txt("span", {
         class: "mm-drop",
         role: "button",
         "data-path": l.path,
-        "data-open": l.glyph === GLYPH_EXPANDED ? "1" : "0",
-        "aria-label": l.glyph === GLYPH_EXPANDED ? "collapse" : "expand",
+        "data-open": isOpen ? "1" : "0",
+        "data-brace-state": l.braceState || "",
+        "aria-label": isOpen ? "collapse" : "expand",
+        style: `color:${isOpen ? "var(--silver-300,#b8c0c8)" : "var(--silver-700,#5a6068)"};`,
       }, l.glyph));
     }
     // the field text — click-to-edit (borderless), marked editable unless
@@ -84,6 +95,12 @@ export function panelVDom(rootNode, opts = {}) {
  */
 export function graphVDom(rootNode, opts = {}) {
   const { nodes, edges } = renderGraph(rootNode, opts);
+  // opt-in set of node ids (graph-node `id`, i.e. render path) that are
+  // independently 3D-backed (carry a `data-3d-node-id` card per
+  // projector.mjs). Render-layer-only per this plan — no new computation;
+  // callers that know about 3D backing (the mount()/DOM layer) pass this in.
+  // Defaults to none, i.e. the --silver-300 (2D-only) stroke color.
+  const threeDNodeIds = opts.threeDNodeIds || new Set();
   const X0 = 24, Y0 = 24, DX = 210, DY = 70;
   const pos = new Map();
   const nodeEls = nodes.map((n, i) => {
@@ -98,6 +115,7 @@ export function graphVDom(rootNode, opts = {}) {
       class: "mm-gnode",
       "data-path": n.id,
       "data-glyph": n.glyph || "",
+      "data-brace-state": n.braceState || "",
       style: `position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;` +
         `display:flex;align-items:center;justify-content:center;text-align:center;` +
         `background:#000;color:#fff;border:1px solid var(--slate-border,#c0c0c0);` +
@@ -112,6 +130,34 @@ export function graphVDom(rootNode, opts = {}) {
       stroke: "var(--slate-border,#c0c0c0)", "stroke-width": "1", opacity: "0.7",
     });
   });
+  // resolved-external cross-ref link (HALO-04/D-02, closes the Phase-7
+  // self-flagged graphVDom gap): one solid <line> per node whose braceState
+  // is BRACE_RESOLVED_EXTERNAL, drawn from that node's position to the
+  // position of the node that revealed the SAME refTarget (the
+  // revealed-internal node). Reuses the EXACT in-graph <line> idiom above
+  // (containment edges) — only stroke color + endpoint selection differ.
+  // NEVER stroke-dasharray, NEVER marker-end (headless, §O.16 / no-dotted gate).
+  const revealedByTarget = new Map(
+    nodes.filter((n) => n.braceState === BRACE_REVEALED_INTERNAL).map((n) => [n.refTarget, n]),
+  );
+  const resolvedLinkEls = nodes
+    .filter((n) => n.braceState === BRACE_RESOLVED_EXTERNAL)
+    .map((n) => {
+      const target = revealedByTarget.get(n.refTarget);
+      if (!target) return null; // defensive: no matching reveal found, skip
+      const a = pos.get(n.id), b = pos.get(target.id);
+      if (!a || !b) return null;
+      const targetIs3DBacked = threeDNodeIds.has(target.id); // data-3d-node-id presence, per UI-SPEC
+      return el("line", {
+        class: "mm-resolved-link",
+        "data-from": n.id, "data-to": target.id,
+        x1: String(a.cx), y1: String(a.cy), x2: String(b.cx), y2: String(b.cy),
+        stroke: targetIs3DBacked ? "var(--accent-arrow,#ffd700)" : "var(--silver-300,#b8c0c8)",
+        "stroke-width": "2", opacity: "0.85",
+      });
+    })
+    .filter(Boolean);
+  lineEls.push(...resolvedLinkEls);
   const height = Y0 + nodes.length * DY + 24;
   const width = X0 + (Math.max(0, ...nodes.map((n) => n.depth)) + 1) * DX;
   const svg = el("svg", {
