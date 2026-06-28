@@ -112,10 +112,22 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   3. Advancing the 2D `{chunk samples}` stepper flies/highlights the corresponding 3D chunk while 3D shows the full distribution. Verified by `env-scenario --name signal-stream-roundtrip`/`iterated-signal-rerender` + an e2e.
 
 **Plans**: 4 plans
+**Wave 1**
+
 - [ ] 08-01-PLAN.md — HALO-04 brace-render wiring (▸/▾/solid cross-ref link; panel↔graph node-count parity; closes the Phase-7 gap)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 08-02-PLAN.md — HALO-03 cone geometry (`fe/halo_cone.mjs` + `projector.placeHaloCandidates`; §O.18 apex→projected-node ray; stub e2e)
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
 - [ ] 08-03-PLAN.md — STEP-01 stepper (backend signal-cursor chunk-id resolution + `projector.flyToNode`/`highlightNode` + `fe/stepper.mjs`; one-way 2D→3D)
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
 - [ ] 08-04-PLAN.md — D-01 real-subsystem cone-transport acceptance probe (`scripts/probe_live_cone_transport.py` + `--self-test`; blocking-human, main-context)
+
 **UI hint**: yes
 
 ### Phase 9: Cascaded Recurrent Renderer Surface
