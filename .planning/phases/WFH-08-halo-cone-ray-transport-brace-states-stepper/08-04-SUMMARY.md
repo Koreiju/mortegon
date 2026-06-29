@@ -81,6 +81,36 @@ None — Task 1 executed exactly as written. The plan's `<read_first>` line numb
 
 ## Issues Encountered
 
+### Task 2 — D-01 REAL-SUBSYSTEM ACCEPTANCE: **RESOLVED 2026-06-29** ✅
+
+The follow-up landed both fixes below; the probe now exits 0 against the real stack
+(`all_real:true`): real archive.org scan (160 chunks) → §8D.45 click-and-stick of the
+top 5 retrieved `rendered_text` chunks into concept cards → `GET /api/apparitions/{focal}
+?transport=1&ray_project=1` returns **4 real candidates with DISTINCT triple-product
+scores** (0.6645 / 0.6379 / 0.5520 / 0.3286) → monotonic radial (0.0 / 1.60 / 6.77 /
+20.22) → `DELETE /api/concepts/{top}` → re-query promotes the next-most-similar into the
+apex (radial 0.0). Stub gates stay green: `--self-test` exit 0, full-smoke **93/93**,
+`halo.spec.js -g "cone"` **3/3**, forward/inverse pytest 6/6, env-scenario offline 8/8.
+
+**Two root causes, both fixed:**
+1. **Backend (`apparition_service.py`)** — `apparitions_for_focal` `return []`-early when the
+   focal had no ConceptIndex slot, *before* the `ray_project` augmentation. Now a non-concept
+   (raw-manifold) focal still honors `ray_project` → `manifold_nearest`. Plus `manifold_nearest`
+   resolves the `"" ↔ "_default"` default-workspace alias pair (the scan stores the frame under
+   the literal `"_default"`; apparition callers default to `""`), so a frame keyed under one no
+   longer silently empties the cone for a caller using the other.
+2. **Probe flow (`probe_live_cone_transport.py`)** — was the dominant cause. The §O.18 halo opens
+   on a stuck **concept** (the §8D.45 click-and-stick), NOT a raw chunk; `apparitions_for_focal`
+   ranks the concept index (concept↔concept), so a raw chunk focal can never have concept
+   candidates. The probe now sticks the real retrieved chunk `rendered_text` as concept cards
+   (real nomic + tf-idf), opens the halo on one, and deletes a real (deletable) concept — exactly
+   the outside-in lodestar. Hypothesis 2's "id-scheme mismatch" was a red herring (the
+   `chunk_search` ids ARE in the `umap_canonical` coords); the real miss was the concept-slot
+   early-return, confirmed live.
+
+---
+<details><summary>Original failure record (2026-06-27) — kept for the diagnostic trail</summary>
+
 ### Task 2 — D-01 REAL-SUBSYSTEM ACCEPTANCE: **FAILED** (run 2026-06-27, main context, clean-GPU)
 
 The orchestrator ran the real acceptance from the main context (clean-GPU preflight → `python app.py`
@@ -121,6 +151,8 @@ the cone — exactly what D-01 real-inline acceptance exists to surface.
 **Recommended next step (a focused follow-up phase/debug, not a quick inline fix):** decide whether the
 cone transports stuck-concept apparitions (then the probe must click-and-stick a chunk first) and/or fix
 `manifold_nearest` to resolve a scanned-chunk focal's layout coords; then re-run `probe_live_cone_transport.py`.
+
+</details>
 
 ## User Setup Required
 

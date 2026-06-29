@@ -347,40 +347,91 @@ async def step_watch_scan(backend: str, snap_id: int) -> Dict[str, Any]:
     return summary
 
 
-def step_chunk_search_focal(backend: str) -> List[str]:
-    """Real retrieval over the real scan; returns >=2 real chunk-node ids
-    ordered as the search engine ranked them (first id is the probe's
-    focal — the 2D-query-element analog the halo opens on)."""
-    _section("4) POST /api/chunk_search -> real chunk-node ids")
+def step_chunk_search(backend: str) -> List[Dict[str, Any]]:
+    """Real retrieval over the real scan; returns >=3 real retrieved chunks
+    (id + ``rendered_text`` + relevance score) ordered as the engine ranked
+    them. Their real text seeds the §8D.45 click-and-stick concept cards."""
+    _section("4) POST /api/chunk_search -> real retrieved chunks (id + text)")
     resp = _post(f"{backend}/api/chunk_search", {
         "query": ARCHIVE_QUERY,
         "page_limit": 10,
         "instance_limit_per_page": 5,
     }, timeout=60)
-    ids: List[str] = []
+    instances: List[Dict[str, Any]] = []
     for p in (resp.get("pages") or []):
         for inst in (p.get("instances") or []):
-            if inst.get("id"):
-                ids.append(inst["id"])
-    _assert(len(ids) >= 2,
-            f"need >=2 real chunk-node ids from chunk_search to drive a "
-            f"focal + transport assertion, got {len(ids)}: {resp}")
-    print(f"  real chunk-node ids found: {len(ids)}")
-    print(f"  focal candidate: {ids[0]}")
-    return ids
+            txt = (inst.get("rendered_text") or "").strip()
+            if inst.get("id") and txt:
+                instances.append({
+                    "id": inst["id"],
+                    "text": txt,
+                    "score": float(inst.get("score") or 0.0),
+                })
+    _assert(len(instances) >= 3,
+            f"need >=3 real retrieved chunks WITH text to stick as concept "
+            f"focals/candidates, got {len(instances)}: {resp}")
+    print(f"  real retrieved chunks with text: {len(instances)}")
+    for ins in instances[:6]:
+        print(f"    {ins['id']!r} score={ins['score']:.3f}  {ins['text'][:56]!r}")
+    return instances
 
 
-def step_apparitions_transport(backend: str, focal_id: str) -> List[Dict[str, Any]]:
-    _section(f"5) GET /api/apparitions/{focal_id}?transport=1&ray_project=1")
+def step_stick_concepts(backend: str, instances: List[Dict[str, Any]],
+                        workspace_id: str) -> str:
+    """§8D.45 click-and-stick — materialise the top real retrieved chunks as
+    CONCEPT cards (real nomic over ``description`` + real tf-idf over
+    ``rendering``), so the halo opens on a stuck-concept focal and transports
+    the OTHER stuck concepts onto the §O.18 cone.
+
+    Why concepts, not raw chunks (the 08-04 root cause): ``apparitions_for_focal``
+    scores the ConceptIndex (concept↔concept triple-product) — a raw chunk has
+    no index slot, so the halo returns nothing for it. The outside-in lodestar
+    (§8D.45) makes a retrieved chunk a concept via click-and-stick FIRST; only
+    then does the halo retrieve + cone-transport it. Concepts are also real,
+    deletable ConceptIndex slots, so ``DELETE /api/concepts`` removes the top
+    result and the next-most-similar transports into the vacated apex slot.
+
+    Returns the focal concept_id (the first stuck card)."""
+    _section("5) §8D.45 click-and-stick: top retrieved chunks -> concept cards")
+    stuck: List[str] = []
+    for i, ins in enumerate(instances[:6]):
+        text = ins["text"]
+        name = (text[:48].strip() or f"retrieved-{i}")
+        resp = _post(f"{backend}/api/concepts", {
+            "name": name,
+            "description": text,   # nomic axis (§8D.40)
+            "rendering": text,     # tf-idf axis (§8D.20)
+            "provenance": "derived-from-chunk",
+            "workspace_id": workspace_id,
+        }, timeout=180)
+        cid = (resp.get("concept_id")
+               or (resp.get("concept") or {}).get("concept_id"))
+        _assert(cid is not None,
+                f"create_concept returned no concept_id: {resp!r}")
+        stuck.append(cid)
+        print(f"    stuck[{i}] {cid} <- {name!r}")
+    _assert(len(stuck) >= 3,
+            f"need >=3 stuck concepts for a cone + delete-transport "
+            f"assertion, got {len(stuck)}")
+    focal = stuck[0]
+    print(f"  focal (stuck concept): {focal}")
+    print(f"  workspace: {workspace_id}")
+    return focal
+
+
+def step_apparitions_transport(backend: str, focal_id: str,
+                               workspace_id: str) -> List[Dict[str, Any]]:
+    _section(f"6) GET /api/apparitions/{focal_id}?transport=1&ray_project=1")
     encoded = urllib.parse.quote(focal_id, safe="")
+    ws = urllib.parse.quote(workspace_id, safe="")
     resp = _get(
         f"{backend}/api/apparitions/{encoded}"
-        f"?transport=1&ray_project=1&k=10",
+        f"?transport=1&ray_project=1&k=10&workspace_id={ws}",
         timeout=60,
     )
     candidates = resp.get("candidates") or []
     print(f"  candidates returned: {len(candidates)}")
-    for c in candidates[:6]:
+    for c in candidates[:8]:
         t = c.get("transport") or {}
         print(f"    {c.get('card_id')!r:>40}  score={c.get('score'):.4f}  "
               f"similarity={t.get('similarity')}  radial={t.get('radial')}  "
@@ -389,7 +440,7 @@ def step_apparitions_transport(backend: str, focal_id: str) -> List[Dict[str, An
 
 
 def step_assert_monotonic(candidates: List[Dict[str, Any]]) -> None:
-    _section("6) ASSERT cone placement monotonic in real triple-product similarity")
+    _section("7) ASSERT cone placement monotonic in real triple-product similarity")
     assert_cone_monotonic(candidates)
     print("  [OK] candidates ordered by descending similarity have "
           "non-decreasing radial (apex distance) — §O.18 holds against "
@@ -397,8 +448,9 @@ def step_assert_monotonic(candidates: List[Dict[str, Any]]) -> None:
 
 
 def step_delete_top_and_reassert(backend: str, focal_id: str,
-                                  before: List[Dict[str, Any]]) -> None:
-    _section("7) Delete top candidate -> assert next-most-similar transports in")
+                                  before: List[Dict[str, Any]],
+                                  workspace_id: str) -> None:
+    _section("8) Delete top candidate -> assert next-most-similar transports in")
     transported = [c for c in before if c.get("transport")]
     ordered = sorted(transported,
                       key=lambda c: c["transport"]["similarity"],
@@ -411,9 +463,10 @@ def step_delete_top_and_reassert(backend: str, focal_id: str,
     _assert(del_resp.get("ok") is True,
             f"DELETE /api/concepts/{top_id} did not report ok: {del_resp}")
     encoded = urllib.parse.quote(focal_id, safe="")
+    ws = urllib.parse.quote(workspace_id, safe="")
     after_resp = _get(
         f"{backend}/api/apparitions/{encoded}"
-        f"?transport=1&ray_project=1&k=10",
+        f"?transport=1&ray_project=1&k=10&workspace_id={ws}",
         timeout=60,
     )
     after = after_resp.get("candidates") or []
@@ -575,11 +628,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         step_subsystem_real(backend)
         snap_id = step_trigger_scan(backend)
         asyncio.run(step_watch_scan(backend, snap_id))
-        ids = step_chunk_search_focal(backend)
-        focal_id = ids[0]
-        before = step_apparitions_transport(backend, focal_id)
+        instances = step_chunk_search(backend)
+        workspace_id = f"cone_probe_{int(time.time())}"
+        focal_id = step_stick_concepts(backend, instances, workspace_id)
+        before = step_apparitions_transport(backend, focal_id, workspace_id)
         step_assert_monotonic(before)
-        step_delete_top_and_reassert(backend, focal_id, before)
+        step_delete_top_and_reassert(backend, focal_id, before, workspace_id)
         print(f"\n[probe_live_cone_transport] ALL CHECKS PASS — real "
               f"archive.org scan + real triple-product retrieval + real "
               f"cone-ray transport monotonicity + real delete-transports-"
