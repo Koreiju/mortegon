@@ -2,17 +2,17 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Completeness
-current_phase: 8
-current_phase_name: Halo Cone-Ray Transport + Brace States + Stepper
-status: executing
+status: completed
 stopped_at: 08-04 Task 1 complete (probe_live_cone_transport.py, 28128c7); Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
-last_updated: "2026-06-28T20:54:03.615Z"
+last_updated: "2026-06-29T12:45:10.637Z"
 progress:
   total_phases: 9
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 14
-  completed_plans: 13
-  percent: 31
+  completed_plans: 14
+  percent: 33
+current_phase: 8
+current_phase_name: Halo Cone-Ray Transport + Brace States + Stepper
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md �
 
 ## Current Position
 
-Phase: 8 (Halo Cone-Ray Transport + Brace States + Stepper) — EXECUTING
-Plan: 4 of 4 — Task 1 complete; Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
-Status: Awaiting human checkpoint
+Phase: 8 — COMPLETE
+Plan: 4 of 4 — all complete (08-04 D-01 real-subsystem cone-transport acceptance PASSED 2026-06-29, commit 99796ec)
+Status: Phase 8 complete — 08-VERIFICATION.md passed 3/3 (HALO-03, HALO-04, STEP-01)
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -58,11 +58,11 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 ## Session Continuity
 
-**Resume file:** 08-04-PLAN.md
+**Resume file:** — (Phase 8 complete; next milestone phase is 9)
 
-Last session: 2026-06-28T20:54:03.514Z
-Stopped at: 08-04 Task 1 complete (probe_live_cone_transport.py, 28128c7); Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
-Next: Perform 08-04 Task 2 — the D-01 clean-GPU preflight + real-subsystem cone-transport acceptance run (`python scripts/probe_live_cone_transport.py --backend http://127.0.0.1:8080`) from the MAIN context (see 08-04-PLAN.md Task 2 how-to-verify), then resume to close out Phase 8.
+Last session: 2026-06-29
+Stopped at: Phase 8 COMPLETE — 08-04 D-01 real-subsystem cone-transport acceptance PASSED (probe exit 0, `all_real:true`, commit 99796ec); 08-VERIFICATION.md passed 3/3. Gates green: full-smoke 93/93, halo cone e2e 3/3, forward/inverse pytest 6/6, env-scenario offline 8/8.
+Next: PR the phase-8 branch `feat/v3.0-phase-8-halo-cone-ray-stepper` (~30 commits, UNPUSHED) OR run `/gsd-autonomous --only 9` (Phase 9 — Cascaded Recurrent Renderer Surface, CASC-01/02).
 
 ## Performance Metrics
 
