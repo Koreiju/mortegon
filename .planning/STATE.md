@@ -3,16 +3,16 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Completeness
 status: completed
-stopped_at: "WFH-07-06-PLAN.md Tasks 1-3 complete (committed: 526bdf1, 7346dac, 915c35b); Task 4 blocking-human checkpoint pending"
-last_updated: "2026-06-27T20:40:49.579Z"
+stopped_at: 08-04 Task 1 complete (probe_live_cone_transport.py, 28128c7); Task 2 (D-01 real-subsystem acceptance) awaiting blocking-human main-context checkpoint
+last_updated: "2026-06-29T12:45:10.637Z"
 progress:
   total_phases: 9
-  completed_phases: 2
-  total_plans: 10
-  completed_plans: 10
-  percent: 22
-current_phase: 7
-current_phase_name: Deep Object-Exploration Gestures
+  completed_phases: 3
+  total_plans: 14
+  completed_plans: 14
+  percent: 33
+current_phase: 8
+current_phase_name: Halo Cone-Ray Transport + Brace States + Stepper
 ---
 
 # Project State
@@ -22,13 +22,13 @@ current_phase_name: Deep Object-Exploration Gestures
 See: .planning/PROJECT.md · v1.0 archive: .planning/milestones/1.0-ROADMAP.md · audit: .planning/DESIGN_COVERAGE_AUDIT.md
 
 **Core value (v3):** Every binding design requirement (§A–§V of `docs/USER_REQUIREMENTS_VERBATIM.md`) is realized in the **served `/` black-slate frontend** and verified against real subsystems — not split between the new `fe/` surface and the legacy `cp/` one. The four lodestar use cases stay green throughout (`all_real:true`).
-**Current focus:** Phase 7 — Deep Object-Exploration Gestures
+**Current focus:** Phase 8 — Halo Cone-Ray Transport + Brace States + Stepper
 
 ## Current Position
 
-Phase: 7 — COMPLETE
-Plan: 6 of 6
-Status: Phase 7 complete
+Phase: 8 — COMPLETE
+Plan: 4 of 4 — all complete (08-04 D-01 real-subsystem cone-transport acceptance PASSED 2026-06-29, commit 99796ec)
+Status: Phase 8 complete — 08-VERIFICATION.md passed 3/3 (HALO-03, HALO-04, STEP-01)
 Verification depth (user choice 2026-06-21): **full real-stack inline per phase** (boot real CUDA/Firefox, probes + real full-smoke + e2e), honoring the clean-GPU preflight.
 
 ## Audit basis (2026-06-21)
@@ -58,11 +58,11 @@ Verification depth (user choice 2026-06-21): **full real-stack inline per phase*
 
 ## Session Continuity
 
-**Resume file:** None
+**Resume file:** — (Phase 8 complete; next milestone phase is 9)
 
-Last session: 2026-06-27T15:38:49.917Z
-Stopped at: WFH-07-06-PLAN.md Tasks 1-3 complete (committed: 526bdf1, 7346dac, 915c35b); Task 4 blocking-human checkpoint pending
-Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo acceptance run from the MAIN context (see 07-06-PLAN.md Task 4 how-to-verify), then resume to close out Phase 7.
+Last session: 2026-06-29
+Stopped at: Phase 8 COMPLETE — 08-04 D-01 real-subsystem cone-transport acceptance PASSED (probe exit 0, `all_real:true`, commit 99796ec); 08-VERIFICATION.md passed 3/3. Gates green: full-smoke 93/93, halo cone e2e 3/3, forward/inverse pytest 6/6, env-scenario offline 8/8.
+Next: PR the phase-8 branch `feat/v3.0-phase-8-halo-cone-ray-stepper` (~30 commits, UNPUSHED) OR run `/gsd-autonomous --only 9` (Phase 9 — Cascaded Recurrent Renderer Surface, CASC-01/02).
 
 ## Performance Metrics
 
@@ -77,6 +77,9 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 | Phase WFH-07-deep-object-exploration-gestures P03 | 22min | 2 tasks | 4 files |
 | Phase WFH-07 P04 | 18min | 3 tasks | 5 files |
 | Phase WFH-07 P06 | 70min | 3 tasks | 3 files |
+| Phase 08 P02 | 1 session | 3 tasks | 6 files |
+| Phase WFH-08 P03 | 1 session | 4 tasks | 12 files |
+| Phase WFH-08 P04 | 25min | 1 tasks | 1 files |
 
 ## Decisions
 
@@ -103,3 +106,8 @@ Next: Perform the Task 4 clean-GPU preflight + real-subsystem DuckDuckGo accepta
 - [Phase ?]: WFH-07-06: extended editor-link with inherit_types kwarg rather than adding a new ui-wire-link verb -- backend already exposes the drag-wire side-effect as a single EditorLinkRequest field (07-04)
 - [Phase ?]: WFH-07-06: purge_workspace does not call ensure_foundation_fixtures() -- only the WS-connect bootstrap path does; scenario/probe must explicitly call POST /api/foundation/ensure after any purge needing the materialised python trees
 - [Phase ?]: WFH-07-06: Task 4 (clean-GPU real-subsystem acceptance run) is a blocking-human checkpoint per D-01 -- not auto-executed; awaiting human approval
+- [Phase ?]: radial (not raw Euclidean apex distance) is the apex-distance scalar guaranteed monotonic in similarity for cone-ray transport; along_ray is an orthogonal perpendicular offset
+- [Phase ?]: Cone-ray composition built in world-space (apex -> nodeWorldPosition(id)) rather than screen-space, since projecting both endpoints through the same camera commutes with taking the ray in world space first -- keeps halo_cone.mjs THREE-free per D-04
+- [Phase WFH-08]: STEP-01: signal_id resolved server-side from an ordered chunk-id list (_resolve_signal_id), never client-side, per D10
+- [Phase WFH-08]: stepper.mjs receives flyToNode/highlightNode via injected deps (no static projector.mjs import) to keep the one-way (2D->3D) invariant structurally provable
+- [Phase WFH-08]: WFH-08-04: Task 1 (probe_live_cone_transport.py) complete+committed (28128c7); Task 2 (D-01 real-subsystem acceptance) is a blocking-human main-context checkpoint, deliberately not executed by the auto executor

@@ -23,9 +23,9 @@
 
 ### Phase 8 — Halo Cone-Ray Transport + Brace States + 2D→3D Stepper (§O.1a / §O.6 / §O.18)
 
-- [ ] **HALO-03**: Halo cone-ray transport — retrieved 3D nodes are transported along a shared cone whose apex is the 2D query element; normalized triple-product similarity sets the radial+along-ray distance; camera view sets angular placement; deleting a result transports the next-most-similar. (§O.18)
-- [ ] **HALO-04**: Three `{ref}` render states — braced-hidden (hover-preview/reveal-instantiate), revealed-internal (inline rank-1), resolved-external (solid line to an already-visible node); node-count parity between panel and graph forms. (§O.1/§O.1a/§O.2)
-- [ ] **STEP-01**: The 2D per-sample stepper drives 3D focus one-way — advancing `{chunk samples}` in 2D flies/highlights the corresponding chunk in 3D; the 3D always shows the full per-sample distribution. (§O.6/§O.7/§O.11)
+- [x] **HALO-03**: Halo cone-ray transport — retrieved 3D nodes are transported along a shared cone whose apex is the 2D query element; normalized triple-product similarity sets the radial+along-ray distance; camera view sets angular placement; deleting a result transports the next-most-similar. (§O.18) — **frontend cone placement + stub gates DONE (08-02); D-01 REAL acceptance PASSED 2026-06-29 — `probe_live_cone_transport.py` exit 0 `all_real:true` (real archive.org scan → §8D.45 click-and-stick → real triple-product cone, distinct scores 0.66/0.64/0.55/0.33, monotonic radial → delete-top transports next into apex). Root cause fixed: `apparitions_for_focal` early-returned `[]` for a non-concept focal before `ray_project`; the real §O.18 path opens the halo on a stuck CONCEPT (§8D.45), not a raw chunk. See 08-04-SUMMARY § Issues.**
+- [x] **HALO-04**: Three `{ref}` render states — braced-hidden (hover-preview/reveal-instantiate), revealed-internal (inline rank-1), resolved-external (solid line to an already-visible node); node-count parity between panel and graph forms. (§O.1/§O.1a/§O.2)
+- [x] **STEP-01**: The 2D per-sample stepper drives 3D focus one-way — advancing `{chunk samples}` in 2D flies/highlights the corresponding chunk in 3D; the 3D always shows the full per-sample distribution. (§O.6/§O.7/§O.11)
 
 ### Phase 9 — Cascaded Recurrent Renderer Surface (§P)
 
@@ -65,9 +65,9 @@ Same forbidden-concepts list as v1.0 (D2/D3/D9/D11): concentric Fibonacci sphere
 | EXPLORE-02 | 7 | Complete |
 | EXPLORE-03 | 7 | Complete |
 | EXPLORE-04 | 7 | Complete |
-| HALO-03 | 8 | Pending |
-| HALO-04 | 8 | Pending |
-| STEP-01 | 8 | Pending |
+| HALO-03 | 8 | Complete |
+| HALO-04 | 8 | Complete |
+| STEP-01 | 8 | Complete |
 | CASC-01 | 9 | Pending |
 | CASC-02 | 9 | Pending |
 | STREAM-01 | 10 | Pending |

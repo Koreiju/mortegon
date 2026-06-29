@@ -358,7 +358,15 @@ class ApparitionService:
             return []
         focal_slot = self._concept_index.get_slot(focal_id, workspace_id)
         if focal_slot is None:
-            return []
+            # §O.18 / §8.2.1.1 (HALO-03) — a focal that is NOT a concept-index
+            # slot (e.g. a raw 3D chunk hovered as the 2D query element after a
+            # scan, before any click-and-stick) has no concept↔concept
+            # triple-product set, but it CAN still anchor a cone of its
+            # manifold-nearest chunks. Honor ``ray_project`` here so the
+            # cone-ray transport works for a chunk/manifold focal, not only a
+            # stuck concept card — otherwise the halo silently returns nothing
+            # for the most common outside-in (archive.org) entry point.
+            return self.manifold_nearest(focal_id, workspace_id=workspace_id, k=k) if ray_project else []
         all_slots = self._concept_index.list_slots(workspace_id)
         is_panel = self._is_panel_focal(focal_id, workspace_id)
         # Pass 1 — collect per-candidate cosines, with the §8D.1.3 name-guard
@@ -464,7 +472,19 @@ class ApparitionService:
         triple-product set)."""
         try:
             from backend.services.layout_service import get_layout_service
-            frame = get_layout_service().get_frame(workspace_id)
+            _layout = get_layout_service()
+            frame = _layout.get_frame(workspace_id)
+            # §11.5 / §O.17 — the scan-end fit stores the frame under the LITERAL
+            # workspace_id ("_default" for the default workspace; see routes.py
+            # "[scan-end] recompute_and_broadcast … workspace='_default'"), but
+            # apparition callers default to "". Resolve the "" ↔ "_default"
+            # default-alias pair so a frame keyed under one does not silently
+            # empty the cone for a caller using the other.
+            if frame is None or not getattr(frame, "coords", None):
+                alt = "_default" if workspace_id in ("", None) else (
+                    "" if workspace_id == "_default" else None)
+                if alt is not None:
+                    frame = _layout.get_frame(alt)
         except Exception:
             frame = None
         if frame is None or not getattr(frame, "coords", None):

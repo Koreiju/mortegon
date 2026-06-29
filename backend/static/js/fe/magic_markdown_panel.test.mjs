@@ -13,7 +13,10 @@
  * Run: node backend/static/js/fe/magic_markdown_panel.test.mjs
  */
 import assert from "node:assert";
-import { parse, buildRegistry, renderPanel } from "./magic_markdown.mjs";
+import {
+  parse, buildRegistry, renderPanel, toggle,
+  BRACE_HIDDEN, BRACE_REVEALED_INTERNAL, BRACE_RESOLVED_EXTERNAL,
+} from "./magic_markdown.mjs";
 import { panelVDom, graphVDom, flattenVDom, mount } from "./magic_markdown_panel.mjs";
 
 let passed = 0, failed = 0;
@@ -96,6 +99,100 @@ test("graph form: edges are undirected lines (no arrowheads)", () => {
     assert.ok(!("marker-end" in ln.attrs), "no arrowhead marker");
     assert.ok(!("stroke-dasharray" in ln.attrs), "no dashes");
   }
+});
+
+// ── HALO-04: braceState-driven render branching (D-02) ─────────────────────
+
+// fixture: a host with a braced-hidden ref to "scanner" (never expanded).
+function bracedHiddenFixture() {
+  const host = parse("host\n\tlink {scanner}");
+  const scanner = parse("scanner\n\turl : http://x");
+  const registry = buildRegistry([scanner]);
+  return { host, registry };
+}
+
+// fixture: a host with two refs to the SAME target, the first expanded
+// (revealed-internal), the second still collapsed (resolved-external).
+function resolvedExternalFixture() {
+  const host = parse("host\n\tprimary {scanner}\n\tsecondary {scanner}");
+  const scanner = parse("scanner\n\turl : http://x");
+  const registry = buildRegistry([scanner]);
+  const collapsed = renderPanel(host, { registry, expanded: new Set() });
+  const primaryPath = collapsed.find((l) => l.text === "primary {scanner}").path;
+  const expanded = toggle(new Set(), primaryPath);
+  return { host, registry, expanded };
+}
+
+test("HALO-04: panelVDom over a braced-hidden ref emits the ▸ glyph and retains literal braces", () => {
+  const { host, registry } = bracedHiddenFixture();
+  const all = flattenVDom(panelVDom(host, { registry, expanded: new Set() }));
+  const drop = all.find((e) => e.attrs && e.attrs.class === "mm-drop");
+  assert.ok(drop, "a dropdown char is rendered for the braced-hidden ref");
+  assert.strictEqual(drop.text, "▸");
+  assert.strictEqual(drop.attrs["data-brace-state"], BRACE_HIDDEN);
+  const textSpan = all.find((e) => e.attrs && e.attrs.class && e.attrs.class.includes("mm-text") &&
+    typeof e.text === "string" && e.text.includes("{scanner}"));
+  assert.ok(textSpan, "the literal {scanner} braces are retained in the text span");
+});
+
+test("HALO-04: panelVDom over a revealed-internal ref emits the ▾ glyph (state-driven selection)", () => {
+  const { host, registry, expanded } = resolvedExternalFixture();
+  const all = flattenVDom(panelVDom(host, { registry, expanded }));
+  const drops = all.filter((e) => e.attrs && e.attrs.class === "mm-drop");
+  const revealedDrop = drops.find((d) => d.attrs["data-brace-state"] === BRACE_REVEALED_INTERNAL);
+  assert.ok(revealedDrop, "the revealed-internal ref's dropdown is found by braceState");
+  assert.strictEqual(revealedDrop.text, "▾");
+  assert.strictEqual(revealedDrop.attrs["data-open"], "1");
+  // the existing inline-children expansion path is unchanged
+  const readthrough = all.filter((e) => e.attrs && /mm-readthrough/.test(e.attrs.class || ""));
+  assert.ok(readthrough.length >= 1, "expanded fields still render inline as read-through tokens");
+});
+
+test("HALO-04: graphVDom over a resolved-external ref emits an extra <line> with NO stroke-dasharray, endpoints at the referring and revealed nodes", () => {
+  const { host, registry, expanded } = resolvedExternalFixture();
+  const opts = { registry, expanded };
+  const gAll = flattenVDom(graphVDom(host, opts));
+  const resolvedLinks = gAll.filter((e) => e.tag === "line" && e.attrs.class === "mm-resolved-link");
+  assert.strictEqual(resolvedLinks.length, 1, "exactly one resolved-external link drawn");
+  const link = resolvedLinks[0];
+  assert.ok(!("stroke-dasharray" in link.attrs), "no stroke-dasharray on the resolved-external link");
+  assert.ok(!("marker-end" in link.attrs), "no arrowhead marker");
+
+  const gnodes = gAll.filter((e) => e.attrs && e.attrs.class === "mm-gnode");
+  const secondaryNode = gnodes.find((n) => n.text.includes("secondary"));
+  const primaryNode = gnodes.find((n) => n.text.includes("primary"));
+  assert.strictEqual(link.attrs["data-from"], secondaryNode.attrs["data-path"],
+    "link originates at the resolved-external (referring) node");
+  assert.strictEqual(link.attrs["data-to"], primaryNode.attrs["data-path"],
+    "link terminates at the already-revealed target node");
+});
+
+test("HALO-04: the resolved-external link uses --accent-arrow ONLY when the target carries a 3D-backed id, else --silver-300", () => {
+  const { host, registry, expanded } = resolvedExternalFixture();
+  const collapsed = renderPanel(host, { registry, expanded });
+  const primaryPath = collapsed.find((l) => l.text === "primary {scanner}").path;
+
+  // case A: no 3D backing (default) -> --silver-300
+  const gAllNo3D = flattenVDom(graphVDom(host, { registry, expanded }));
+  const linkNo3D = gAllNo3D.find((e) => e.tag === "line" && e.attrs.class === "mm-resolved-link");
+  assert.ok(/--silver-300/.test(linkNo3D.attrs.stroke), "2D-only target uses --silver-300");
+
+  // case B: target is 3D-backed via opts.threeDNodeIds -> --accent-arrow
+  const gAllWith3D = flattenVDom(graphVDom(host, {
+    registry, expanded, threeDNodeIds: new Set([primaryPath]),
+  }));
+  const linkWith3D = gAllWith3D.find((e) => e.tag === "line" && e.attrs.class === "mm-resolved-link");
+  assert.ok(/--accent-arrow/.test(linkWith3D.attrs.stroke), "3D-backed target uses --accent-arrow");
+  assert.ok(!("stroke-dasharray" in linkWith3D.attrs), "still no dasharray when 3D-backed");
+});
+
+test("HALO-04: parity — graphVDom and panelVDom render the same number of field nodes/lines (the link is an edge, not a node)", () => {
+  const { host, registry, expanded } = resolvedExternalFixture();
+  const opts = { registry, expanded };
+  const panelLines = flattenVDom(panelVDom(host, opts)).filter((e) => e.attrs && e.attrs.class === "mm-line");
+  const gnodes = flattenVDom(graphVDom(host, opts)).filter((e) => e.attrs && e.attrs.class === "mm-gnode");
+  assert.strictEqual(gnodes.length, panelLines.length,
+    "node-count parity holds even with the resolved-external link drawn — the link adds an edge, never a phantom node");
 });
 
 // ── minimal hand-rolled DOM shim (mount()-sufficient, not general-purpose) ──

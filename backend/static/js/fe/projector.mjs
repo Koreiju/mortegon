@@ -8,6 +8,8 @@
  * browser layer (window.THREE, loaded by editor.html).
  */
 
+import { placeCandidatesOnCone } from "./halo_cone.mjs";
+
 /**
  * buildPointArrays(coords, optsOrHslToRgb) →
  *   { ids, positions:Float32Array, colors:Float32Array, count }.
@@ -414,6 +416,38 @@ export function createProjector(canvas, opts = {}) {
     return true;
   }
 
+  // flyToNode(nodeId) — STEP-01 (§O.6/§O.7/§O.11): the node-id-keyed sibling
+  // of frameCameraToRoot(url). Swaps `_urlRootPositions.get(url)` for
+  // `nodeWorldPosition(nodeId)` (the SAME per-frame Map lookup
+  // drawConcept3DLinks already uses) and builds the IDENTICAL `_cameraTween`
+  // record shape, so it shares the existing interruptible cubic ease
+  // (`_stepCameraTween`, below) VERBATIM — never a new easing curve. Framing
+  // distance reuses frameCameraToRoot's own "base distance, never below a
+  // floor" heuristic (cp/animation.js's flyToNode lines 243-248): a node has
+  // no per-node bounding radius, so the floor alone (no radius term) frames
+  // it at a fixed comfortable distance. Returns false (no-op) if the node's
+  // world position is unknown — never throws.
+  function flyToNode(nodeId) {
+    if (!controls) return false;
+    const nodeVec = nodeWorldPosition(nodeId);
+    if (!nodeVec) return false;
+    const viewDist = 12; // the same floor frameCameraToRoot uses when boundingRadius is 0
+    const curTarget = controls.target.clone();
+    const curCam = camera.position.clone();
+    const dir = curCam.clone().sub(curTarget);
+    if (dir.lengthSq() < 1e-6) dir.set(0, 0.4, 1);
+    dir.normalize().multiplyScalar(viewDist);
+    const camEnd = nodeVec.clone().add(dir);
+    const tgtEnd = nodeVec.clone();
+    _cameraTween = {
+      t: 0, dur: 0.6,
+      camStart: camera.position.clone(),
+      tgtStart: controls.target.clone(),
+      camEnd, tgtEnd,
+    };
+    return true;
+  }
+
   // _stepCameraTween(dt) — per-animate-frame cubic ease-in-out lerp, ported
   // verbatim from cp/animation.js::_stepCameraTween (lines 325-335).
   function _stepCameraTween(dt) {
@@ -468,6 +502,7 @@ export function createProjector(canvas, opts = {}) {
     points = new THREE.Points(geo, new THREE.PointsMaterial({ size: 2.6, vertexColors: true }));
     scene.add(points);
     _lastColorAz = azimuth();
+    _applyHighlightOverlay(); // STEP-01 — re-apply any active highlight on the fresh colour buffer
     if (urlRoots) {
       const newUrls = [];
       for (const url in urlRoots) {
@@ -675,6 +710,95 @@ export function createProjector(canvas, opts = {}) {
       line.setAttribute("y2", y2);
     });
   }
+
+  // HALO-03 — cone-ray transport render (§O.18 / D-04). `_lastConePositions`
+  // backs the `window.__mm_cone_positions` test hook (mirrors the existing
+  // `nodePositions`/`__mm_proj_node_positions` pattern). Cleared to an empty
+  // array on boot so the hook always returns SOMETHING before any halo opens.
+  let _lastConePositions = [];
+  function conePositions() { return _lastConePositions; }
+
+  // placeHaloCandidates(apex, candidates) — RENDER-only consumer of
+  // halo_cone.mjs's pure geometry. `apex` is the focal's live world position
+  // ({x,y,z}); `candidates` is the retrieval queue
+  // ([{id, label, transport:{similarity,radial,along_ray}}, ...]) from
+  // `/apparitions?transport=1`. Delegates ALL placement math to
+  // `placeCandidatesOnCone` (D10 — this function never recomputes
+  // similarity/distance); it only WRITES the returned positions into the
+  // existing `_positions` bookkeeping + the live points-geometry buffer, so
+  // each transported node keeps its EXISTING HSV/image-billboard identity
+  // (the projector exception zone, UI-SPEC) — it is the SAME node, just
+  // moved. Candidates with no 3D backing (the halo_cone 2D fallback) are
+  // recorded in `_lastConePositions` for the test hook but have no points-
+  // buffer entry to move (they render via the existing 2D haloVDom overlay,
+  // unchanged). Any cone ray drawn in 3D must reuse `drawConcept3DLinks`'s
+  // no-dasharray/headless idiom (SOLID only) — this function draws no lines
+  // itself; a future caller wiring cone rays into `svgHost` does so via that
+  // SAME helper, never a new dashed-line path.
+  function placeHaloCandidates(apex, candidates) {
+    const projectFns = { project, azimuth, nodeWorldPosition };
+    const placed = placeCandidatesOnCone(apex, candidates, projectFns);
+    const ids2 = Object.keys(_coords || {});
+    const idIndex = new Map(ids2.map((id, i) => [id, i]));
+    const attr = points ? points.geometry.attributes.position : null;
+    for (const p of placed) {
+      if (!p.hasBacking) continue; // 2D-fallback candidate — nothing to move in the points buffer
+      const newPos = new THREE.Vector3(p.x, p.y, p.z);
+      _positions.set(p.id, newPos);
+      const i = idIndex.get(p.id);
+      if (attr && i != null) {
+        attr.array[i * 3] = p.x; attr.array[i * 3 + 1] = p.y; attr.array[i * 3 + 2] = p.z;
+      }
+      // keep an image billboard (if any) glued to the transported position —
+      // mirrors _syncImageSpritePositions' Map-iteration/Vector3-copy idiom.
+      const sprite = _imageSprites.get(p.id);
+      if (sprite) sprite.position.copy(newPos);
+    }
+    if (attr) attr.needsUpdate = true;
+    // `radial` is included alongside x/y/z because it is the apex-distance
+    // scalar that is GUARANTEED monotonic in similarity (halo_cone.mjs's own
+    // header comment + halo_cone.test.mjs Test 1) — raw Euclidean distance
+    // from the apex is NOT, since radial/along_ray are orthogonal
+    // components (a callers-beware note repeated here so e2e/consumer code
+    // asserts ordering on `radial`, not `Math.hypot(x,y,z)`).
+    _lastConePositions = placed.map((p) => ({
+      id: p.id, x: p.x, y: p.y, z: p.z, similarity: p.similarity, radial: p.radial, alongRay: p.alongRay, hasBacking: !!p.hasBacking,
+    }));
+    return _lastConePositions;
+  }
+
+  // highlightNode(nodeId) / STEP-01 (§O.6/UI-SPEC Contract C, Assumption A5)
+  // — outline-BRIGHTEN to --silver-300 (#b8c0c8 -> 0.7216,0.7529,0.7843),
+  // applied to that ONE node's existing colour-buffer slot. NOT a new fill
+  // colour (the silver-300 token is the existing accent-reserved
+  // hover/focus affordance, never a new hue), NOT a pulse. CRITICAL (the
+  // one-way + full-distribution invariant, D-03/§O.6): this NEVER hides,
+  // removes, or subsets any other node — `_positions` and every other
+  // node's colour slot stay untouched; only this one node's colour entry
+  // changes. `_highlightedNodeId` is remembered so `recolor()`'s per-frame
+  // HSV-rotation rebuild (which otherwise overwrites the WHOLE colour
+  // buffer from `_coords`) re-applies the highlight on top, every frame —
+  // the highlight survives camera orbit.
+  const SILVER_300 = [0xb8 / 255, 0xc0 / 255, 0xc8 / 255];
+  let _highlightedNodeId = null;
+  function _applyHighlightOverlay() {
+    if (!points || _highlightedNodeId == null) return;
+    const ids = Object.keys(_coords || {});
+    const i = ids.indexOf(_highlightedNodeId);
+    if (i < 0) return;
+    const attr = points.geometry.attributes.color;
+    attr.array[i * 3] = SILVER_300[0];
+    attr.array[i * 3 + 1] = SILVER_300[1];
+    attr.array[i * 3 + 2] = SILVER_300[2];
+    attr.needsUpdate = true;
+  }
+  function highlightNode(nodeId) {
+    if (!nodeWorldPosition(nodeId)) return false;
+    _highlightedNodeId = nodeId;
+    _applyHighlightOverlay();
+    return true;
+  }
+
   // UMAP-01 — HSV rotates with camera azimuth: recolour the existing nodes when
   // the camera orbits (positions unchanged; only the hue field rotates).
   function recolor() {
@@ -683,6 +807,7 @@ export function createProjector(canvas, opts = {}) {
     const attr = points.geometry.attributes.color;
     attr.array.set(colors);
     attr.needsUpdate = true;
+    _applyHighlightOverlay(); // re-apply on top — the highlight survives the per-frame HSV rebuild
   }
   function nodeColor(i = 0) {
     if (!points) return null;
@@ -755,6 +880,8 @@ export function createProjector(canvas, opts = {}) {
     nodePositions, frameCameraToRoot, lastCoords, lastRoots,
     spawnImageBillboards, loadAndCacheImage, netFetchCount,
     nodeWorldPosition, drawConcept3DLinks,
+    placeHaloCandidates, conePositions,
+    flyToNode, highlightNode,
     stop: () => cancelAnimationFrame(raf),
   };
 }

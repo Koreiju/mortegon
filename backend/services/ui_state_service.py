@@ -137,10 +137,17 @@ class UIState:
     halo_chain: List[str] = field(default_factory=list)
     # §4.6.1 signal-stream constraint — one signal at a time under
     # iteration. Each entry keys by the iterable card_id and carries
-    # ``{card_id, total, signal_index, signal_id?, paused, updated_at}``.
-    # The RolloutCoordinator advances ``signal_index`` per play step;
-    # the panel renderer reads this to show ONLY the active signal
-    # (anti-goal §18.24 — full-iterable rendering would violate it).
+    # ``{card_id, total, signal_index, signal_id?, field_path, paused,
+    # updated_at, ordered?}``. The RolloutCoordinator advances
+    # ``signal_index`` per play step; the panel renderer reads this to show
+    # ONLY the active signal (anti-goal §18.24 — full-iterable rendering
+    # would violate it).
+    # STEP-01 / D10 — when ``ordered`` (the card's ordered sampled-chunk
+    # concept_id list) is registered, ``signal_id`` is resolved SERVER-SIDE
+    # as ``ordered[signal_index]`` on every set/advance — a real 3D chunk id
+    # the frontend stepper (`fe/stepper.mjs`) reads to drive
+    # `projector.flyToNode`/`highlightNode`. The frontend never indexes into
+    # a client-side array itself (data correlation stays backend-side).
     signal_stream: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     # §7.5 / RolloutCoordinator.md §2.4 — the active iterated rollout summary
     # ``{card_id, field_path, paused, signal_index, signal_total, node_id} | None``.
@@ -681,6 +688,23 @@ class UIStateService:
         self._emit("halo_chain_clear", workspace_id, snap)
         return snap
 
+    @staticmethod
+    def _resolve_signal_id(
+        ordered: Optional[List[str]], signal_index: int,
+        fallback: Optional[str] = None,
+    ) -> Optional[str]:
+        """STEP-01 / D10 — resolve the 3D chunk id at ``signal_index`` from
+        the card's ordered sampled-chunk list, server-side. Bounds the index
+        against ``len(ordered)`` (V5 — a total/ordered length mismatch
+        resolves to None rather than raising); when no ordered list is
+        supplied, preserves ``fallback`` (the prior entry's signal_id) so
+        existing callers that never pass ``ordered`` do not regress."""
+        if not ordered:
+            return fallback
+        if 0 <= signal_index < len(ordered):
+            return ordered[signal_index]
+        return None
+
     def set_signal_stream(
         self, workspace_id: str,
         card_id: str, *,
@@ -689,6 +713,7 @@ class UIStateService:
         signal_id: Optional[str] = None,
         paused: bool = False,
         field_path: str = "",
+        ordered: Optional[List[str]] = None,
     ) -> UIState:
         """§4.6.1 signal-stream constraint — register or update the
         per-iterable card's signal-stream cursor.
@@ -703,18 +728,34 @@ class UIStateService:
         ``url_set`` panel (pattern_map_and_url_set.md §5). It lets the REPL
         viewer label the ``pattern-map`` / ``urls-panel`` rows (§11.8) and
         peers distinguish a pattern stream from a URL stream on the same card.
+
+        ``ordered`` (STEP-01 / D10) is the card's ordered sampled-chunk
+        concept_id list (the same ordered list the §17.14 spine mirror
+        already stores). When provided, ``signal_id`` is resolved
+        server-side as ``ordered[signal_index]`` (bounded — V5) rather than
+        trusting a caller-supplied value; the list itself is stored on the
+        entry so ``advance_signal`` can re-resolve on every step without the
+        caller re-passing it. When absent, the caller-supplied ``signal_id``
+        (or None) is used as-is — backward compatible with pre-STEP-01
+        callers (RolloutCoordinator.play/pause/reset).
         """
         with self._lock:
             st = self._states.setdefault(workspace_id, UIState())
+            resolved_id = (
+                self._resolve_signal_id(ordered, int(signal_index), signal_id)
+                if ordered is not None else signal_id
+            )
             entry = {
                 "card_id":      card_id,
                 "total":        int(total),
                 "signal_index": int(signal_index),
-                "signal_id":    signal_id,
+                "signal_id":    resolved_id,
                 "field_path":   field_path or "",
                 "paused":       bool(paused),
                 "updated_at":   time.time(),
             }
+            if ordered is not None:
+                entry["ordered"] = list(ordered)
             st.signal_stream[card_id] = entry
             snap = self._stamp(st, workspace_id, "signal_stream")
         self._emit("signal_stream", workspace_id, snap)
@@ -722,7 +763,7 @@ class UIStateService:
 
     def advance_signal(
         self, workspace_id: str, card_id: str, *, step: int = 1,
-        field_path: str = "",
+        field_path: str = "", ordered: Optional[List[str]] = None,
     ) -> UIState:
         """Advance the signal-stream cursor for ``card_id`` by ``step``.
 
@@ -732,6 +773,15 @@ class UIStateService:
         loop, not a guard on manual advance. A non-empty ``field_path``
         overrides the streamed-field axis label; otherwise the prior
         entry's ``field_path`` is preserved.
+
+        STEP-01 / D10 — after computing ``new_index``, re-resolves
+        ``signal_id`` from the ordered sampled-chunk list: either the
+        ``ordered`` list passed THIS call, or (more commonly) the list
+        already stored on the entry by a prior ``set_signal_stream`` call
+        (single source — the caller need not re-pass it every step). When
+        no ordered list is available at all, the prior ``signal_id`` is
+        PRESERVED (never clobbered to None) — backward compatible with
+        existing callers (RolloutCoordinator) that never register one.
         """
         with self._lock:
             st = self._states.setdefault(workspace_id, UIState())
@@ -739,13 +789,20 @@ class UIStateService:
             total = int(entry.get("total") or 0)
             cur = int(entry.get("signal_index") or 0)
             new_index = (cur + int(step)) % max(total, 1) if total > 0 else cur + int(step)
+            active_ordered = ordered if ordered is not None else entry.get("ordered")
+            resolved_id = self._resolve_signal_id(
+                active_ordered, new_index, entry.get("signal_id"),
+            )
             entry.update({
                 "card_id":      card_id,
                 "total":        total,
                 "signal_index": new_index,
+                "signal_id":    resolved_id,
                 "field_path":   field_path or entry.get("field_path", "") or "",
                 "updated_at":   time.time(),
             })
+            if ordered is not None:
+                entry["ordered"] = list(ordered)
             st.signal_stream[card_id] = entry
             snap = self._stamp(st, workspace_id, "signal_advance")
         self._emit("signal_advance", workspace_id, snap)

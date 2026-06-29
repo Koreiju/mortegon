@@ -4228,6 +4228,14 @@ class UISignalStreamRequest(BaseModel):
     # Which iterable field is streaming — "pattern_hash" for a pattern_map
     # panel, "url" for a url_set panel (pattern_map_and_url_set.md §5).
     field_path: str = ""
+    # STEP-01 / D10 — the card's ordered sampled-chunk concept_id list (the
+    # same ordered list the §17.14 spine mirror already stores). When
+    # supplied, `signal_id` is resolved SERVER-SIDE as `ordered[signal_index]`
+    # (bounded — V5) instead of trusting the caller's `signal_id`. The
+    # frontend stepper (fe/stepper.mjs) and the REPL env-scenario pass this
+    # when registering a stream so every subsequent advance resolves a real
+    # 3D chunk id without re-supplying the list each time.
+    ordered: Optional[List[str]] = None
 
 
 class UISignalAdvanceRequest(BaseModel):
@@ -4236,6 +4244,10 @@ class UISignalAdvanceRequest(BaseModel):
     workspace_id: str = ""
     step: int = 1
     field_path: str = ""
+    # STEP-01 / D10 — optional ordered sampled-chunk list override for THIS
+    # advance call; usually omitted since the list is already stored on the
+    # entry by the prior set_signal_stream registration (single source).
+    ordered: Optional[List[str]] = None
 
 
 class UISignalStreamClearRequest(BaseModel):
@@ -4253,7 +4265,7 @@ def ui_signal_stream(req: UISignalStreamRequest):
         req.workspace_id, req.card_id,
         total=int(req.total), signal_index=int(req.signal_index),
         signal_id=req.signal_id, paused=bool(req.paused),
-        field_path=req.field_path or "",
+        field_path=req.field_path or "", ordered=req.ordered,
     )
     return {"ok": True, "state": snap.to_dict()}
 
@@ -4271,7 +4283,7 @@ def ui_signal_advance(req: UISignalAdvanceRequest):
     rc = get_rollout_coordinator(broadcast=_ws_push)
     snap = rc.advance(
         req.workspace_id, req.card_id, req.field_path or "",
-        step=int(req.step),
+        step=int(req.step), ordered=req.ordered,
     )
     return {"ok": True, "state": snap.to_dict()}
 

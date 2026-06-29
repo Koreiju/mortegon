@@ -23,7 +23,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 - [x] **Phase 5: Three-Register Synthesis & Live Acceptance** *(v1.0 — shipped 2026-06-19)*
 - [x] **Phase 6: 3D Real Register in the Served Slate** *(v3.0)* - Port the UMAP-linear-radial force-directed layout, per-URL multi-scan placement + camera framing, image billboards, and solid 2D↔3D arrows into the served `fe/` projector. (REAL-01..04) (completed 2026-06-23)
 - [x] **Phase 7: Deep Object-Exploration Gestures** *(v3.0)* - Next-rank type-graph on hover, external-reference propagation as recursive panels, drag-to-wire + double-right-delete, the DuckDuckGo walkthrough. (EXPLORE-01..04) (completed 2026-06-27)
-- [ ] **Phase 8: Halo Cone-Ray Transport + Brace States + Stepper** *(v3.0)* - Projective halo cone transport, three `{ref}` render states, 2D per-sample stepper drives 3D focus. (HALO-03/04, STEP-01)
+- [x] **Phase 8: Halo Cone-Ray Transport + Brace States + Stepper** *(v3.0)* - Projective halo cone transport, three `{ref}` render states, 2D per-sample stepper drives 3D focus. (HALO-03/04, STEP-01) (completed 2026-06-29)
 - [ ] **Phase 9: Cascaded Recurrent Renderer Surface** *(v3.0)* - Async perimeter render + projector link-network (independent of UMAP); readouts stream to projector with HSV rotation. (CASC-01/02)
 - [ ] **Phase 10: Live Streaming SLA** *(v3.0)* - Mid-scan incremental UMAP refit; ms-scan→seconds-UMAP live updates; scan-end snap. (STREAM-01; supersedes PERF-01)
 - [ ] **Phase 11: Scroll-Spine Reconciliation** *(v3.0)* - Realize the scroll→3D-pop-out spine in the halo idiom, or formally fold §G.1 into §S.3. (SPINE-01)
@@ -111,7 +111,23 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
   2. A `{ref}` renders braced-hidden / revealed-internal / resolved-external(solid link) with panel↔graph node-count parity. Verified by an e2e over a two-level ref chain.
   3. Advancing the 2D `{chunk samples}` stepper flies/highlights the corresponding 3D chunk while 3D shows the full distribution. Verified by `env-scenario --name signal-stream-roundtrip`/`iterated-signal-rerender` + an e2e.
 
-**Plans**: TBD
+**Plans**: 4/4 plans executed (08-04 D-01 real-subsystem acceptance PASSED 2026-06-29, commit 99796ec — see 08-VERIFICATION.md)
+**Wave 1**
+
+- [x] 08-01-PLAN.md — HALO-04 brace-render wiring (▸/▾/solid cross-ref link; panel↔graph node-count parity; closes the Phase-7 gap)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [x] 08-02-PLAN.md — HALO-03 cone geometry (`fe/halo_cone.mjs` + `projector.placeHaloCandidates`; §O.18 apex→projected-node ray; stub e2e)
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [x] 08-03-PLAN.md — STEP-01 stepper (backend signal-cursor chunk-id resolution + `projector.flyToNode`/`highlightNode` + `fe/stepper.mjs`; one-way 2D→3D)
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
+- [x] 08-04-PLAN.md — D-01 real-subsystem cone-transport acceptance probe (`scripts/probe_live_cone_transport.py` + `--self-test`; blocking-human, main-context) — Task 1 (probe + `--self-test` green) AND Task 2 (the real-subsystem run, `all_real:true`, exit 0) PASSED 2026-06-29
+
 **UI hint**: yes
 
 ### Phase 9: Cascaded Recurrent Renderer Surface
@@ -179,7 +195,7 @@ v2.0 (autonomy hardening / de-monolith / perf) is deferred until after.
 | 5. Three-Register Synthesis | v1.0 | direct | Complete | 2026-06-19 |
 | 6. 3D Real Register (served) | v3.0 | 4/4 | Complete   | 2026-06-23 |
 | 7. Deep Object-Exploration Gestures | v3.0 | 6/6 | Complete   | 2026-06-27 |
-| 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 0/TBD | Not started | - |
+| 8. Halo Cone-Ray + Brace + Stepper | v3.0 | 3/4 | In Progress|  |
 | 9. Cascaded Recurrent Renderer | v3.0 | 0/TBD | Not started | - |
 | 10. Live Streaming SLA | v3.0 | 0/TBD | Not started | - |
 | 11. Scroll-Spine Reconciliation | v3.0 | 0/TBD | Not started | - |
